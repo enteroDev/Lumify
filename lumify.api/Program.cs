@@ -1,7 +1,10 @@
 using lumify.api.Logic;
 using lumify.api.Models.Context;
+using lumify.api.Models.Settings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 
@@ -35,7 +38,62 @@ builder.Services.AddCors(options =>
 });
 
 
+// --- LOAD JWT --- //
+var jwtSection = builder.Configuration.GetSection("Jwt");
+builder.Services.Configure<JwtSettings>(jwtSection);
 
+var jwt = jwtSection.Get<JwtSettings>();
+
+if (string.IsNullOrEmpty(jwt.Secret))
+{
+    throw new InvalidOperationException("JWT Secret is not configured");
+}
+
+var key = Encoding.UTF8.GetBytes(jwt.Secret);
+
+
+// --- AUTHENTICATION + JWT --- //
+builder.Services
+    .AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+    {
+        options.RequireHttpsMetadata = !builder.Environment.IsDevelopment();
+        options.SaveToken = true;
+
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(key),
+
+            ValidateIssuer = true,
+            ValidIssuer = jwt.Issuer,
+
+            ValidateAudience = true,
+            ValidAudience = jwt.Audience,
+
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.FromSeconds(30)
+        };
+
+        options.Events = new JwtBearerEvents
+        {
+            OnMessageReceived = context =>
+            {
+                if (context.Request.Cookies.TryGetValue("session_token", out var cookieToken) &&
+                    !string.IsNullOrWhiteSpace(cookieToken))
+                {
+                    context.Token = cookieToken;
+                }
+
+                return Task.CompletedTask;
+            }
+        };
+
+    });
 
 builder.Services.AddAuthorization();
 
