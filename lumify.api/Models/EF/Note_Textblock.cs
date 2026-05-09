@@ -26,5 +26,7 @@ public partial class Note_TextBlock
 
     public int NotePos { get; set; }
 
+    
+
     public virtual Note Note { get; set; } = null!;
 }

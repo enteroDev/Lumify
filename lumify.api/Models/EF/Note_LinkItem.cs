@@ -20,5 +20,7 @@ public partial class Note_LinkItem
 
     public int NotePos { get; set; }
 
+    
+
     public virtual Note Note { get; set; } = null!;
 }
