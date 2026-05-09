@@ -2,8 +2,10 @@
 -- SQL Server / Azure SQL
 -- No triggers. App sets CreatedAt / UpdatedAt.
 -- IDs are NVARCHAR(36) GUID strings.
--- Dates are stored as ISO strings to be usable for multiple SQL-Languages
--- Boolean-like values are stored as INT 0/1 because EF currently uses int.
+-- Dates are stored as ISO strings to be usable for multiple SQL-Languages.
+-- Boolean-like values are stored as INT 0/1 to be usable for multiple SQL-Languages.
+
+
 
 -- =========================
 -- User
@@ -34,8 +36,6 @@ WHERE DeletedAt IS NULL;
 
 
 
-
-
 -- =========================
 -- Workspace
 -- =========================
@@ -54,8 +54,6 @@ CREATE TABLE Workspace (
 CREATE UNIQUE INDEX ux_workspace_owner_name
 ON Workspace(OwnerID, Name)
 WHERE DeletedAt IS NULL;
-
-
 
 
 
@@ -84,8 +82,6 @@ ON WorkspaceMember(UserID);
 
 CREATE INDEX ix_workspacemember_workspace
 ON WorkspaceMember(WorkspaceID);
-
-
 
 
 
@@ -142,8 +138,6 @@ ON Friendship(Status);
 
 
 
-
-
 -- =========================
 -- ChatMessage
 -- =========================
@@ -168,8 +162,6 @@ ON ChatMessage(RoomID, CreatedAt);
 
 CREATE INDEX ix_chatmessage_sender
 ON ChatMessage(SenderID);
-
-
 
 
 
@@ -201,8 +193,6 @@ ON TodoList(WorkspaceID);
 
 
 
-
-
 -- =========================
 -- TodoEntry
 -- =========================
@@ -227,8 +217,6 @@ ON TodoEntry(TodoListID);
 
 CREATE INDEX ix_todoentry_owner
 ON TodoEntry(OwnerID);
-
-
 
 
 
@@ -281,8 +269,6 @@ WHERE DeletedAt IS NULL AND WorkspaceID IS NOT NULL AND ParentFolderID IS NOT NU
 
 
 
-
-
 -- =========================
 -- Notes
 -- =========================
@@ -331,8 +317,6 @@ WHERE DeletedAt IS NULL AND WorkspaceID IS NOT NULL AND FolderID IS NOT NULL;
 
 
 
-
-
 -- =========================
 -- Note_TextBlock
 -- =========================
@@ -362,8 +346,6 @@ ON Note_TextBlock(NoteID, NotePos);
 
 
 
-
-
 -- =========================
 -- Note_LinkItem
 -- =========================
@@ -386,8 +368,6 @@ ON Note_LinkItem(NoteID);
 
 CREATE INDEX ix_note_linkitem_note_pos
 ON Note_LinkItem(NoteID, NotePos);
-
-
 
 
 
@@ -415,8 +395,6 @@ ON NoteAttachment(NoteID);
 
 CREATE INDEX ix_noteattachment_owner
 ON NoteAttachment(OwnerID);
-
-
 
 
 
