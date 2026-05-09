@@ -1,0 +1,9 @@
+{
+  "connections": [
+    {
+      "name": "LumifyDb",
+      "connectionString": "Data Source=./data/Lumify.db",
+      "providerName": "Microsoft.Data.Sqlite"
+    }
+  ]
+}

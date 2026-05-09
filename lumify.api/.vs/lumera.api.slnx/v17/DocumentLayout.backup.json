@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\DEV\\Next.js\\Lumify\\lumify.api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2CB58DCD-E86C-50DD-3C8A-726EBFB3541C}|lumify.api.csproj|c:\\dev\\next.js\\Lumify\\lumify.api\\services\\presenceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CB58DCD-E86C-50DD-3C8A-726EBFB3541C}|lumify.api.csproj|solutionrelative:services\\presenceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2CB58DCD-E86C-50DD-3C8A-726EBFB3541C}|lumify.api.csproj|c:\\dev\\next.js\\Lumify\\lumify.api\\models\\enum\\friendshipstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CB58DCD-E86C-50DD-3C8A-726EBFB3541C}|lumify.api.csproj|solutionrelative:models\\enum\\friendshipstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2CB58DCD-E86C-50DD-3C8A-726EBFB3541C}|lumify.api.csproj|c:\\dev\\next.js\\Lumify\\lumify.api\\models\\enum\\presencestatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CB58DCD-E86C-50DD-3C8A-726EBFB3541C}|lumify.api.csproj|solutionrelative:models\\enum\\presencestatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2CB58DCD-E86C-50DD-3C8A-726EBFB3541C}|lumify.api.csproj|c:\\dev\\next.js\\Lumify\\lumify.api\\interfaces\\ipresenceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CB58DCD-E86C-50DD-3C8A-726EBFB3541C}|lumify.api.csproj|solutionrelative:interfaces\\ipresenceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2CB58DCD-E86C-50DD-3C8A-726EBFB3541C}|lumify.api.csproj|c:\\dev\\next.js\\Lumify\\lumify.api\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CB58DCD-E86C-50DD-3C8A-726EBFB3541C}|lumify.api.csproj|solutionrelative:hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FriendshipStatus.cs",
+              "DocumentMoniker": "C:\\DEV\\Next.js\\Lumify\\lumify.api\\Models\\Enum\\FriendshipStatus.cs",
+              "RelativeDocumentMoniker": "Models\\Enum\\FriendshipStatus.cs",
+              "ToolTip": "C:\\DEV\\Next.js\\Lumify\\lumify.api\\Models\\Enum\\FriendshipStatus.cs",
+              "RelativeToolTip": "Models\\Enum\\FriendshipStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T20:19:25.158Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PresenceService.cs",
+              "DocumentMoniker": "C:\\DEV\\Next.js\\Lumify\\lumify.api\\Services\\PresenceService.cs",
+              "RelativeDocumentMoniker": "Services\\PresenceService.cs",
+              "ToolTip": "C:\\DEV\\Next.js\\Lumify\\lumify.api\\Services\\PresenceService.cs",
+              "RelativeToolTip": "Services\\PresenceService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T20:18:08.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PresenceStatus.cs",
+              "DocumentMoniker": "C:\\DEV\\Next.js\\Lumify\\lumify.api\\Models\\Enum\\PresenceStatus.cs",
+              "RelativeDocumentMoniker": "Models\\Enum\\PresenceStatus.cs",
+              "ToolTip": "C:\\DEV\\Next.js\\Lumify\\lumify.api\\Models\\Enum\\PresenceStatus.cs",
+              "RelativeToolTip": "Models\\Enum\\PresenceStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T20:18:04.55Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IPresenceService.cs",
+              "DocumentMoniker": "C:\\DEV\\Next.js\\Lumify\\lumify.api\\Interfaces\\IPresenceService.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IPresenceService.cs",
+              "ToolTip": "C:\\DEV\\Next.js\\Lumify\\lumify.api\\Interfaces\\IPresenceService.cs",
+              "RelativeToolTip": "Interfaces\\IPresenceService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T20:17:31.796Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ChatHub.cs",
+              "DocumentMoniker": "C:\\DEV\\Next.js\\Lumify\\lumify.api\\Hubs\\ChatHub.cs",
+              "RelativeDocumentMoniker": "Hubs\\ChatHub.cs",
+              "ToolTip": "C:\\DEV\\Next.js\\Lumify\\lumify.api\\Hubs\\ChatHub.cs",
+              "RelativeToolTip": "Hubs\\ChatHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T19:07:35.169Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

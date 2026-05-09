@@ -1,0 +1,462 @@
+-- Lumify / Planner schema
+-- SQL Server / Azure SQL
+-- No triggers. App sets CreatedAt / UpdatedAt.
+-- IDs are NVARCHAR(36) GUID strings.
+-- Dates are stored as ISO strings to be usable for multiple SQL-Languages
+-- Boolean-like values are stored as INT 0/1 because EF currently uses int.
+
+-- =========================
+-- User
+-- =========================
+CREATE TABLE [User] (
+    ID            NVARCHAR(36)  NOT NULL,
+    Email         NVARCHAR(320) NOT NULL,
+    PasswordHash  NVARCHAR(MAX) NOT NULL,
+    PasswordSalt  NVARCHAR(MAX) NULL,
+    FirstName     NVARCHAR(200) NULL,
+    LastName      NVARCHAR(200) NULL,
+    CreatedAt     NVARCHAR(50)  NOT NULL,
+    UpdatedAt     NVARCHAR(50)  NOT NULL,
+    DeletedAt     NVARCHAR(50)  NULL,
+
+    [Role]        NVARCHAR(50)  NOT NULL CONSTRAINT DF_User_Role DEFAULT 'User',
+    AvatarUrl     NVARCHAR(MAX) NULL,
+    DisplayName   NVARCHAR(200) NULL,
+    Bio           NVARCHAR(MAX) NULL,
+    Username      NVARCHAR(200) NOT NULL,
+
+    CONSTRAINT PK_User PRIMARY KEY (ID)
+);
+
+CREATE UNIQUE INDEX ux_user_email
+ON [User](Email)
+WHERE DeletedAt IS NULL;
+
+
+
+
+
+-- =========================
+-- Workspace
+-- =========================
+CREATE TABLE Workspace (
+    ID        NVARCHAR(36)  NOT NULL,
+    OwnerID   NVARCHAR(36)  NOT NULL,
+    Name      NVARCHAR(200) NOT NULL,
+    CreatedAt NVARCHAR(50)  NOT NULL,
+    UpdatedAt NVARCHAR(50)  NOT NULL,
+    DeletedAt NVARCHAR(50)  NULL,
+
+    CONSTRAINT PK_Workspace PRIMARY KEY (ID),
+    CONSTRAINT FK_Workspace_User_OwnerID FOREIGN KEY (OwnerID) REFERENCES [User](ID)
+);
+
+CREATE UNIQUE INDEX ux_workspace_owner_name
+ON Workspace(OwnerID, Name)
+WHERE DeletedAt IS NULL;
+
+
+
+
+
+-- =========================
+-- WorkspaceMember
+-- =========================
+CREATE TABLE WorkspaceMember (
+    ID          NVARCHAR(36) NOT NULL,
+    WorkspaceID NVARCHAR(36) NOT NULL,
+    UserID      NVARCHAR(36) NOT NULL,
+    Role        INT          NOT NULL, -- 0=member, 1=admin
+    CreatedAt   NVARCHAR(50) NOT NULL,
+    DeletedAt   NVARCHAR(50) NULL,
+
+    CONSTRAINT PK_WorkspaceMember PRIMARY KEY (ID),
+    CONSTRAINT FK_WorkspaceMember_Workspace_WorkspaceID FOREIGN KEY (WorkspaceID) REFERENCES Workspace(ID),
+    CONSTRAINT FK_WorkspaceMember_User_UserID FOREIGN KEY (UserID) REFERENCES [User](ID)
+);
+
+CREATE UNIQUE INDEX ux_workspacemember_unique
+ON WorkspaceMember(WorkspaceID, UserID)
+WHERE DeletedAt IS NULL;
+
+CREATE INDEX ix_workspacemember_user
+ON WorkspaceMember(UserID);
+
+CREATE INDEX ix_workspacemember_workspace
+ON WorkspaceMember(WorkspaceID);
+
+
+
+
+
+-- =========================
+-- Friendship
+-- =========================
+CREATE TABLE Friendship (
+    ID           NVARCHAR(36) NOT NULL,
+    UserLowID    NVARCHAR(36) NOT NULL,
+    UserHighID   NVARCHAR(36) NOT NULL,
+
+    RequesterID  NVARCHAR(36) NOT NULL,
+    AddresseeID  NVARCHAR(36) NOT NULL,
+
+    Status       INT          NOT NULL, -- 0=pending, 1=accepted, 2=rejected, 3=blocked
+
+    CreatedAt    NVARCHAR(50) NOT NULL,
+    UpdatedAt    NVARCHAR(50) NOT NULL,
+
+    AcceptedAt   NVARCHAR(50) NULL,
+    RejectedAt   NVARCHAR(50) NULL,
+    BlockedAt    NVARCHAR(50) NULL,
+    DeletedAt    NVARCHAR(50) NULL,
+
+    CONSTRAINT PK_Friendship PRIMARY KEY (ID),
+
+    CONSTRAINT FK_Friendship_User_UserLowID FOREIGN KEY (UserLowID) REFERENCES [User](ID),
+    CONSTRAINT FK_Friendship_User_UserHighID FOREIGN KEY (UserHighID) REFERENCES [User](ID),
+    CONSTRAINT FK_Friendship_User_RequesterID FOREIGN KEY (RequesterID) REFERENCES [User](ID),
+    CONSTRAINT FK_Friendship_User_AddresseeID FOREIGN KEY (AddresseeID) REFERENCES [User](ID),
+
+    CONSTRAINT CK_Friendship_UserLow_UserHigh CHECK (UserLowID <> UserHighID),
+    CONSTRAINT CK_Friendship_Requester_Addressee CHECK (RequesterID <> AddresseeID)
+);
+
+CREATE UNIQUE INDEX ux_friendship_pair
+ON Friendship(UserLowID, UserHighID)
+WHERE DeletedAt IS NULL;
+
+CREATE INDEX ix_friendship_userlow
+ON Friendship(UserLowID);
+
+CREATE INDEX ix_friendship_userhigh
+ON Friendship(UserHighID);
+
+CREATE INDEX ix_friendship_requester
+ON Friendship(RequesterID);
+
+CREATE INDEX ix_friendship_addressee
+ON Friendship(AddresseeID);
+
+CREATE INDEX ix_friendship_status
+ON Friendship(Status);
+
+
+
+
+
+-- =========================
+-- ChatMessage
+-- =========================
+CREATE TABLE ChatMessage (
+    ID        NVARCHAR(36)  NOT NULL,
+    RoomID    NVARCHAR(36)  NOT NULL,
+    SenderID  NVARCHAR(36)  NOT NULL,
+    Content   NVARCHAR(MAX) NOT NULL,
+    CreatedAt NVARCHAR(50)  NOT NULL,
+    UpdatedAt NVARCHAR(50)  NOT NULL,
+    DeletedAt NVARCHAR(50)  NULL,
+
+    CONSTRAINT PK_ChatMessage PRIMARY KEY (ID),
+    CONSTRAINT FK_ChatMessage_User_SenderID FOREIGN KEY (SenderID) REFERENCES [User](ID)
+);
+
+CREATE INDEX ix_chatmessage_room
+ON ChatMessage(RoomID);
+
+CREATE INDEX ix_chatmessage_room_created
+ON ChatMessage(RoomID, CreatedAt);
+
+CREATE INDEX ix_chatmessage_sender
+ON ChatMessage(SenderID);
+
+
+
+
+
+-- =========================
+-- Todos
+-- =========================
+CREATE TABLE TodoList (
+    ID          NVARCHAR(36)  NOT NULL,
+    OwnerID     NVARCHAR(36)  NOT NULL,
+    WorkspaceID NVARCHAR(36)  NULL, -- NULL = private, NOT NULL = workspace
+    Name        NVARCHAR(200) NOT NULL,
+    Status      INT           NOT NULL,
+    IsArchived  INT           NOT NULL,
+    CreatedAt   NVARCHAR(50)  NOT NULL,
+    UpdatedAt   NVARCHAR(50)  NOT NULL,
+    DeletedAt   NVARCHAR(50)  NULL,
+
+    CONSTRAINT PK_TodoList PRIMARY KEY (ID),
+    CONSTRAINT FK_TodoList_User_OwnerID FOREIGN KEY (OwnerID) REFERENCES [User](ID),
+    CONSTRAINT FK_TodoList_Workspace_WorkspaceID FOREIGN KEY (WorkspaceID) REFERENCES Workspace(ID),
+    CONSTRAINT CK_TodoList_IsArchived CHECK (IsArchived IN (0, 1))
+);
+
+CREATE INDEX ix_todolist_owner
+ON TodoList(OwnerID);
+
+CREATE INDEX ix_todolist_workspace
+ON TodoList(WorkspaceID);
+
+
+
+
+
+-- =========================
+-- TodoEntry
+-- =========================
+CREATE TABLE TodoEntry (
+    ID          NVARCHAR(36)  NOT NULL,
+    OwnerID     NVARCHAR(36)  NOT NULL,
+    TodoListID  NVARCHAR(36)  NOT NULL,
+    Name        NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(MAX) NULL,
+    Status      INT           NOT NULL,
+    CreatedAt   NVARCHAR(50)  NOT NULL,
+    UpdatedAt   NVARCHAR(50)  NOT NULL,
+    DeletedAt   NVARCHAR(50)  NULL,
+
+    CONSTRAINT PK_TodoEntry PRIMARY KEY (ID),
+    CONSTRAINT FK_TodoEntry_User_OwnerID FOREIGN KEY (OwnerID) REFERENCES [User](ID),
+    CONSTRAINT FK_TodoEntry_TodoList_TodoListID FOREIGN KEY (TodoListID) REFERENCES TodoList(ID)
+);
+
+CREATE INDEX ix_todoentry_list
+ON TodoEntry(TodoListID);
+
+CREATE INDEX ix_todoentry_owner
+ON TodoEntry(OwnerID);
+
+
+
+
+
+-- =========================
+-- Folders
+-- =========================
+CREATE TABLE Folder (
+    ID             NVARCHAR(36)  NOT NULL,
+    OwnerID        NVARCHAR(36)  NOT NULL,
+    WorkspaceID    NVARCHAR(36)  NULL, -- NULL = private, NOT NULL = workspace
+    ParentFolderID NVARCHAR(36)  NULL,
+    Name           NVARCHAR(200) NOT NULL,
+    Description    NVARCHAR(MAX) NULL,
+    CreatedAt      NVARCHAR(50)  NOT NULL,
+    UpdatedAt      NVARCHAR(50)  NOT NULL,
+    DeletedAt      NVARCHAR(50)  NULL,
+
+    CONSTRAINT PK_Folder PRIMARY KEY (ID),
+    CONSTRAINT FK_Folder_User_OwnerID FOREIGN KEY (OwnerID) REFERENCES [User](ID),
+    CONSTRAINT FK_Folder_Workspace_WorkspaceID FOREIGN KEY (WorkspaceID) REFERENCES Workspace(ID),
+    CONSTRAINT FK_Folder_Folder_ParentFolderID FOREIGN KEY (ParentFolderID) REFERENCES Folder(ID)
+);
+
+CREATE INDEX ix_folder_owner
+ON Folder(OwnerID);
+
+CREATE INDEX ix_folder_workspace
+ON Folder(WorkspaceID);
+
+CREATE INDEX ix_folder_parent
+ON Folder(ParentFolderID);
+
+-- Unique folder names per parent (private)
+CREATE UNIQUE INDEX ux_folder_private_root_name
+ON Folder(OwnerID, Name)
+WHERE DeletedAt IS NULL AND WorkspaceID IS NULL AND ParentFolderID IS NULL;
+
+CREATE UNIQUE INDEX ux_folder_private_parent_name
+ON Folder(OwnerID, ParentFolderID, Name)
+WHERE DeletedAt IS NULL AND WorkspaceID IS NULL AND ParentFolderID IS NOT NULL;
+
+-- Unique folder names per parent (workspace)
+CREATE UNIQUE INDEX ux_folder_workspace_root_name
+ON Folder(WorkspaceID, Name)
+WHERE DeletedAt IS NULL AND WorkspaceID IS NOT NULL AND ParentFolderID IS NULL;
+
+CREATE UNIQUE INDEX ux_folder_workspace_parent_name
+ON Folder(WorkspaceID, ParentFolderID, Name)
+WHERE DeletedAt IS NULL AND WorkspaceID IS NOT NULL AND ParentFolderID IS NOT NULL;
+
+
+
+
+
+-- =========================
+-- Notes
+-- =========================
+CREATE TABLE Note (
+    ID          NVARCHAR(36)  NOT NULL,
+    OwnerID     NVARCHAR(36)  NOT NULL,
+    WorkspaceID NVARCHAR(36)  NULL, -- NULL = private, NOT NULL = workspace
+    FolderID    NVARCHAR(36)  NULL,
+    Name        NVARCHAR(200) NOT NULL,
+    CreatedAt   NVARCHAR(50)  NOT NULL,
+    UpdatedAt   NVARCHAR(50)  NOT NULL,
+    DeletedAt   NVARCHAR(50)  NULL,
+
+    CONSTRAINT PK_Note PRIMARY KEY (ID),
+    CONSTRAINT FK_Note_User_OwnerID FOREIGN KEY (OwnerID) REFERENCES [User](ID),
+    CONSTRAINT FK_Note_Workspace_WorkspaceID FOREIGN KEY (WorkspaceID) REFERENCES Workspace(ID),
+    CONSTRAINT FK_Note_Folder_FolderID FOREIGN KEY (FolderID) REFERENCES Folder(ID)
+);
+
+CREATE INDEX ix_note_owner
+ON Note(OwnerID);
+
+CREATE INDEX ix_note_workspace
+ON Note(WorkspaceID);
+
+CREATE INDEX ix_note_folder
+ON Note(FolderID);
+
+-- Unique note names per folder (private)
+CREATE UNIQUE INDEX ux_note_private_root_name
+ON Note(OwnerID, Name)
+WHERE DeletedAt IS NULL AND WorkspaceID IS NULL AND FolderID IS NULL;
+
+CREATE UNIQUE INDEX ux_note_private_folder_name
+ON Note(OwnerID, FolderID, Name)
+WHERE DeletedAt IS NULL AND WorkspaceID IS NULL AND FolderID IS NOT NULL;
+
+-- Unique note names per folder (workspace)
+CREATE UNIQUE INDEX ux_note_workspace_root_name
+ON Note(WorkspaceID, Name)
+WHERE DeletedAt IS NULL AND WorkspaceID IS NOT NULL AND FolderID IS NULL;
+
+CREATE UNIQUE INDEX ux_note_workspace_folder_name
+ON Note(WorkspaceID, FolderID, Name)
+WHERE DeletedAt IS NULL AND WorkspaceID IS NOT NULL AND FolderID IS NOT NULL;
+
+
+
+
+
+-- =========================
+-- Note_TextBlock
+-- =========================
+CREATE TABLE Note_TextBlock (
+    ID           NVARCHAR(36)  NOT NULL,
+    NoteID       NVARCHAR(36)  NOT NULL,
+    Type         INT           NOT NULL, -- 0=text, 1=code
+    Name         NVARCHAR(200) NULL,
+    Content      NVARCHAR(MAX) NULL,
+    CodeLanguage NVARCHAR(100) NULL,
+    NotePos      INT           NOT NULL CONSTRAINT DF_Note_TextBlock_NotePos DEFAULT 0,
+    IsCollapsed  INT           NOT NULL,
+    CreatedAt    NVARCHAR(50)  NOT NULL,
+    UpdatedAt    NVARCHAR(50)  NOT NULL,
+    DeletedAt    NVARCHAR(50)  NULL,
+
+    CONSTRAINT PK_Note_TextBlock PRIMARY KEY (ID),
+    CONSTRAINT FK_Note_TextBlock_Note_NoteID FOREIGN KEY (NoteID) REFERENCES Note(ID),
+    CONSTRAINT CK_Note_TextBlock_IsCollapsed CHECK (IsCollapsed IN (0, 1))
+);
+
+CREATE INDEX ix_note_textblock_note
+ON Note_TextBlock(NoteID);
+
+CREATE INDEX ix_note_textblock_note_pos
+ON Note_TextBlock(NoteID, NotePos);
+
+
+
+
+
+-- =========================
+-- Note_LinkItem
+-- =========================
+CREATE TABLE Note_LinkItem (
+    ID        NVARCHAR(36)  NOT NULL,
+    NoteID    NVARCHAR(36)  NOT NULL,
+    Label     NVARCHAR(200) NULL,
+    Url       NVARCHAR(MAX) NOT NULL,
+    NotePos   INT           NOT NULL CONSTRAINT DF_Note_LinkItem_NotePos DEFAULT 0,
+    CreatedAt NVARCHAR(50)  NOT NULL,
+    UpdatedAt NVARCHAR(50)  NOT NULL,
+    DeletedAt NVARCHAR(50)  NULL,
+
+    CONSTRAINT PK_Note_LinkItem PRIMARY KEY (ID),
+    CONSTRAINT FK_Note_LinkItem_Note_NoteID FOREIGN KEY (NoteID) REFERENCES Note(ID)
+);
+
+CREATE INDEX ix_note_linkitem_note
+ON Note_LinkItem(NoteID);
+
+CREATE INDEX ix_note_linkitem_note_pos
+ON Note_LinkItem(NoteID, NotePos);
+
+
+
+
+
+-- =========================
+-- Note Attachment
+-- =========================
+CREATE TABLE NoteAttachment (
+    ID               NVARCHAR(36)  NOT NULL,
+    NoteID           NVARCHAR(36)  NOT NULL,
+    OwnerID          NVARCHAR(36)  NOT NULL,
+    OriginalFileName NVARCHAR(260) NOT NULL,
+    StoredFileName   NVARCHAR(260) NOT NULL,
+    ContentType      NVARCHAR(200) NOT NULL,
+    FileSize         INT           NOT NULL,
+    CreatedAt        NVARCHAR(50)  NOT NULL,
+    DeletedAt        NVARCHAR(50)  NULL,
+
+    CONSTRAINT PK_NoteAttachment PRIMARY KEY (ID),
+    CONSTRAINT FK_NoteAttachment_Note_NoteID FOREIGN KEY (NoteID) REFERENCES Note(ID),
+    CONSTRAINT FK_NoteAttachment_User_OwnerID FOREIGN KEY (OwnerID) REFERENCES [User](ID)
+);
+
+CREATE INDEX ix_noteattachment_note
+ON NoteAttachment(NoteID);
+
+CREATE INDEX ix_noteattachment_owner
+ON NoteAttachment(OwnerID);
+
+
+
+
+
+-- =========================
+-- Events
+-- =========================
+CREATE TABLE [Event] (
+    ID          NVARCHAR(36)  NOT NULL,
+    OwnerID     NVARCHAR(36)  NOT NULL,
+    WorkspaceID NVARCHAR(36)  NULL, -- NULL = private, NOT NULL = workspace
+
+    Name        NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(MAX) NULL,
+    Status      INT           NOT NULL,
+
+    StartDate   NVARCHAR(50)  NOT NULL,
+    EndDate     NVARCHAR(50)  NULL,
+    IsAllDay    INT           NOT NULL,
+    DueDate     NVARCHAR(50)  NULL,
+
+    CreatedAt   NVARCHAR(50)  NOT NULL,
+    UpdatedAt   NVARCHAR(50)  NOT NULL,
+    DeletedAt   NVARCHAR(50)  NULL,
+
+    CONSTRAINT PK_Event PRIMARY KEY (ID),
+    CONSTRAINT FK_Event_User_OwnerID FOREIGN KEY (OwnerID) REFERENCES [User](ID),
+    CONSTRAINT FK_Event_Workspace_WorkspaceID FOREIGN KEY (WorkspaceID) REFERENCES Workspace(ID),
+
+    CONSTRAINT CK_Event_IsAllDay CHECK (IsAllDay IN (0, 1)),
+    CONSTRAINT CK_Event_EndDate_StartDate CHECK (EndDate IS NULL OR EndDate >= StartDate)
+);
+
+CREATE INDEX ix_event_owner
+ON [Event](OwnerID);
+
+CREATE INDEX ix_event_owner_start
+ON [Event](OwnerID, StartDate);
+
+CREATE INDEX ix_event_workspace
+ON [Event](WorkspaceID);
+
+CREATE INDEX ix_event_workspace_start
+ON [Event](WorkspaceID, StartDate);

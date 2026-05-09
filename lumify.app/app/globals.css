@@ -1,0 +1,53 @@
+@import "tailwindcss/preflight"; /* Nutz ich nicht */
+
+:root {
+  --background: #483672;
+  --foreground: #F1EDE6;
+
+  --font-heading: var(--font-borel);
+  --font-body: var(--font-borel);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #32265A;
+    --foreground: #ededed;
+  }
+}
+
+
+/* HTML Base Styles */
+body {
+  color: var(--foreground);
+  font-family: var(--font-funnel), sans-serif;
+  font-size: 1.05rem;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+}
+
+
+input[type="checkbox"] {
+    appearance: none;
+    border-radius: 5px !important;
+    border: 1px solid transparent;
+    background-color: var(--color-bar);
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--color-done);
+    border: 1px solid #27ac2e;
+    border-radius: 3px;
+}
+
+
