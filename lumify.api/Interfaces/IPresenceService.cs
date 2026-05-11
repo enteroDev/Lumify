@@ -1,3 +1,8 @@
+/* Interface for PresenceService
+ * Interface currently only contains: Online / Offline
+ */
+
+
 using lumify.api.Models.Enum;
 
 

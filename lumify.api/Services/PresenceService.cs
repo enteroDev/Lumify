@@ -1,3 +1,8 @@
+/* PresenceService
+ * Inherits interface IPresenceService
+ */
+
+
 using System.Collections.Concurrent;
 using lumify.api.Interfaces;
 using lumify.api.Models.Enum;
@@ -11,6 +16,8 @@ namespace lumify.api.Services
         private readonly ConcurrentDictionary<string, HashSet<string>> _userConnections = new();
         private readonly ConcurrentDictionary<string, string> _connectionUsers = new();
 
+
+        // Add connection - (Set to Online)
         public void AddConnection(string userID, string connectionID)
         {
             _connectionUsers[connectionID] = userID;
@@ -28,6 +35,8 @@ namespace lumify.api.Services
                 });
         }
 
+
+        // Remove connection - (Set to Offline)
         public void RemoveConnection(string connectionID)
         {
             if (!_connectionUsers.TryRemove(connectionID, out var userID))
@@ -51,6 +60,8 @@ namespace lumify.api.Services
             }
         }
 
+
+        // Get current presence-status of user
         public PresenceStatus GetPresenceStatus(string userID)
         {
             if (_userConnections.TryGetValue(userID, out var existingConnections))

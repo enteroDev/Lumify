@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Database Context for EF
+
+using System;
 using Microsoft.EntityFrameworkCore;
 using lumify.api.Models.EF;
 

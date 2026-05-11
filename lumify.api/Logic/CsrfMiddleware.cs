@@ -1,4 +1,10 @@
-﻿using System.Text;
+﻿/* Middleware for CSRF protection.
+ * Validates that the CSRF token from the request header matches the token stored in the cookie
+ * For preventing unauthorized requests from external websites on behalf of authenticated users.
+ */
+
+
+using System.Text;
 
 namespace lumify.api.Logic
 {
@@ -16,7 +22,6 @@ namespace lumify.api.Logic
             "/account/registerUser",
             "/account/logoutUser"
         };
-
 
         private readonly RequestDelegate _next;
 
@@ -92,6 +97,8 @@ namespace lumify.api.Logic
 
             await _next(context);
         }
+
+
 
         // Constant-time comparison to avoid timing side channels
         private static bool TimingSafeEquals(string a, string b)

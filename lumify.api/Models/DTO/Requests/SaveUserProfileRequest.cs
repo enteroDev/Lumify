@@ -1,5 +1,5 @@
-namespace lumify.api.Models.DTO.Requests
 
+namespace lumify.api.Models.DTO.Requests
 
 {
     public class SaveUserProfileRequest
