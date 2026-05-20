@@ -577,7 +577,6 @@ namespace lumify.api.Controllers
         }
 
 
-
         [HttpGet]
         [ActionName("getAllTodoEntriesOfUser")]
         public async Task<ActionResult<List<TodoEntryResponse>>> GetAllTodoEntriesOfUser(CancellationToken ct)
@@ -645,7 +644,6 @@ namespace lumify.api.Controllers
         }
 
 
-
         [HttpGet]
         [ActionName("getTodoListWithID")]
         public async Task<ActionResult<TodoListResponse>> GetTodoListWithID(string todoListID, CancellationToken ct)
@@ -683,7 +681,6 @@ namespace lumify.api.Controllers
         }
 
 
-
         // Get count of users todo-lists -> Will be shown on the Feature Cards of the proformer SpaceHub.
         [HttpGet]
         [ActionName("getTodoListCountOfUser")]
@@ -700,7 +697,7 @@ namespace lumify.api.Controllers
 
             return Ok(todoListCount);
         }
-        
+
         // Get count of workspace todo-list -> Will be shown on the Feature Cards of the proformer SpaceHub.
         [HttpGet]
         [ActionName("getTodoListCountOfWorkspace")]
@@ -783,7 +780,6 @@ namespace lumify.api.Controllers
 
             return Ok(result);
         }
-
 
 
 
