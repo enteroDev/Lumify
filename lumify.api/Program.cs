@@ -17,6 +17,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddSignalR();
+builder.Services.AddScoped<FriendshipService>();
+builder.Services.AddSingleton<IPresenceService, PresenceService>();
+builder.Services.AddScoped<InternalLogic>();
 
 
 // --- CORS --- //
@@ -147,5 +150,10 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.MapHub<TodoHub>("/hubs/todos");
+app.MapHub<NoteHub>("/hubs/notes");
+app.MapHub<EventHub>("/hubs/events");
+app.MapHub<WorkspaceHub>("/hubs/workspaces");
+app.MapHub<ChatHub>("/hubs/chat");
 
 app.Run();
