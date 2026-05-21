@@ -24,8 +24,8 @@ namespace lumify.api.Logic
         };
 
         private readonly RequestDelegate _next;
-
         public CsrfMiddleware(RequestDelegate next) => _next = next;
+
 
         public async Task Invoke(HttpContext context)
         {
@@ -97,7 +97,6 @@ namespace lumify.api.Logic
 
             await _next(context);
         }
-
 
 
         // Constant-time comparison to avoid timing side channels

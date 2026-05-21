@@ -256,7 +256,5 @@ namespace lumify.api.Controllers
             return Ok(new { Authenticated = authenticated, Claims = claims });
         }
 
-
-
     }
 }

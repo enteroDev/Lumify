@@ -1,9 +1,12 @@
 using lumify.api.Logic;
 using lumify.api.Models.Context;
 using lumify.api.Models.Settings;
+using lumify.api.Interfaces;
+using lumify.api.Services;
+using lumify.api.Hubs;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -16,10 +19,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
-builder.Services.AddSignalR();
+builder.Services.AddScoped<InternalLogic>();
 builder.Services.AddScoped<FriendshipService>();
 builder.Services.AddSingleton<IPresenceService, PresenceService>();
-builder.Services.AddScoped<InternalLogic>();
+builder.Services.AddSignalR();
 
 
 // --- CORS --- //
@@ -39,6 +42,7 @@ builder.Services.AddCors(options =>
             .AllowCredentials();
     });
 });
+
 
 
 // --- LOAD JWT --- //

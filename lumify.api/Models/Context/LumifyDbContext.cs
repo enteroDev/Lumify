@@ -302,7 +302,4 @@ public partial class LumifyDbContext : DbContext
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
 
-
-
-
 }

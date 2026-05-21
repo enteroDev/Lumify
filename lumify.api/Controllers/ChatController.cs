@@ -1,6 +1,12 @@
-
+using lumify.api.Hubs;
 using lumify.api.Models.Context;
+using lumify.api.Models.DTO.Requests;
+using lumify.api.Models.DTO.Responses;
 using lumify.api.Models.EF;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace lumify.api.Controllers

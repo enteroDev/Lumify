@@ -28,7 +28,6 @@ namespace lumify.api.Controllers
 
 
 
-
         // ------------ //
         // --- SAVE --- //
         // ------------ //
@@ -173,7 +172,7 @@ namespace lumify.api.Controllers
         // ----------- //
 
         // ----------------------
-        // USERINFOS: USER BY ID 
+        // USERINFOS: USER BY ID
         // ----------------------
 
         // Gets userProfile of specific user by ID
@@ -443,7 +442,63 @@ namespace lumify.api.Controllers
             return Ok(todos);
         }
 
+        [HttpGet]
+        [ActionName("getLast5ModifiedEventsOfUser")]
+        public async Task<IActionResult> GetLast5ModifiedEventsOfUser(CancellationToken ct)
+        {
+            var userID = GetCurrentUserID();
 
+            var events = await _db.Events
+                .Where(x => x.OwnerID == userID && x.DeletedAt == null)
+                .OrderByDescending(x => x.UpdatedAt ?? x.CreatedAt)
+                .Take(5)
+                .Select(x => new EventResponse
+                {
+                    ID = x.ID,
+                    OwnerID = x.OwnerID,
+                    WorkspaceID = x.WorkspaceID,
+
+                    Name = x.Name,
+                    Description = x.Description,
+                    Status = x.Status,
+
+                    IsAllDay = x.IsAllDay == 1,
+
+                    StartTime = x.StartDate,
+                    EndTime = x.EndDate,
+
+                    CreatedAt = x.CreatedAt,
+                    UpdatedAt = x.UpdatedAt
+                })
+                .ToListAsync(ct);
+
+            return Ok(events);
+        }
+
+        [HttpGet]
+        [ActionName("getLast5ModifiedNotesOfUser")]
+        public async Task<IActionResult> GetLast5ModifiedNotesOfUser(CancellationToken ct)
+        {
+            var userID = GetCurrentUserID();
+
+            var notes = await _db.Notes
+                .Where(x => x.OwnerID == userID && x.DeletedAt == null)
+                .OrderByDescending(x => x.UpdatedAt ?? x.CreatedAt)
+                .Take(5)
+                .Select(x => new NoteResponse
+                {
+                    ID = x.ID,
+                    OwnerID = x.OwnerID,
+                    WorkspaceID = x.WorkspaceID,
+                    FolderID = x.FolderID,
+                    Name = x.Name,
+                    CreatedAt = x.CreatedAt,
+                    UpdatedAt = x.UpdatedAt
+                })
+                .ToListAsync(ct);
+
+            return Ok(notes);
+        }
 
 
 
@@ -525,7 +580,7 @@ namespace lumify.api.Controllers
             query = query?.Trim() ?? "";
             if (string.IsNullOrWhiteSpace(query))
             {
-                return Ok(new List<UserPreviewResponse>());
+                return Ok(new List<RelatedUserResponse>());
             }
 
             // Check if workspace for given ID exists
@@ -558,9 +613,9 @@ namespace lumify.api.Controllers
                 )
                 .OrderBy(x => x.DisplayName ?? x.Username)
                 .Take(20)
-                .Select(x => new UserPreviewResponse
+                .Select(x => new RelatedUserResponse
                 {
-                    ID = x.ID,
+                    UserID = x.ID,
                     AvatarUrl = x.AvatarUrl,
                     DisplayName = x.DisplayName ?? string.Empty,
                     Username = x.Username,
@@ -570,9 +625,6 @@ namespace lumify.api.Controllers
 
             return Ok(users);
         }
-
-
-
 
 
 
