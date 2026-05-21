@@ -113,7 +113,6 @@ builder.Services.AddDbContext<LumifyDbContext>(opt =>
 
 
 
-
 // ----------- //
 // --- APP --- //
 // ----------- //
