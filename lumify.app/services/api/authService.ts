@@ -7,7 +7,6 @@ const API_BASE = CONFIG.API.API_BASE;
 
 export const AuthService = {
 
-
     async login(data: {
         identifier: string;
         password: string
