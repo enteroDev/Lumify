@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.pathPill {
+    display: flex;
+    height: 80%;
+    gap: 10px;
+    border-radius: 50px;
+    padding: 5px 10px;
+    background-color: var(--color-pill);
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.pathButton {
+    display: flex;
+    border-radius: 10px;
+    height: 30px;
+    background-color: var(--color-actions);
+    transition: ease-in-out 0.2s;
+}
+.pathButton:hover {
+    background-color: var(--color-highlight);
+    color: var(--color-bar);
+    cursor:pointer;
+    transition: ease-in-out 0.3s;
+}
+
+.pathIcon{
+    padding: 6px 8px;
+}
+.pathIcon:hover{
+    color: #2e2e2e;
+}
+
+.pathText {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.01rem;
+    color: var(--color-infoText-dark);
+}
