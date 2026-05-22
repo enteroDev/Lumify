@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.action-pill {
+    display: flex;
+    height: 80%;
+    gap: 5px;
+    border-radius: 50px;
+    padding: 5px 10px;
+    background-color: var(--color-pill);
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    line-height:normal;
+}
+
+.action-button{
+    border-radius: 10px;
+    background-color: var(--color-actions);
+    padding: 5px 8px;
+    transition: ease-in-out 0.2s;
+}
+.action-button:hover{
+    background-color: var(--color-highlight);
+    color: var(--color-bar);
+    cursor: pointer;
+    fill: var(--color-bar);
+    transition: ease-in-out 0.3s;
+}
+
+.icon-sound {
+    fill: var(--color-creamWhite);
+}
+.action-button:hover .icon-sound {
+    fill: var(--color-bar);
+}
+
+.icon-theme {
+    fill: var(--color-creamWhite);
+}
+.action-button:hover .icon-theme {
+    fill: var(--color-bar);
+}

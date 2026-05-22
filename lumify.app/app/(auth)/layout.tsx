@@ -9,7 +9,7 @@ import ToastProvider from "@/components/Toast/ToastProvider";
 import AccountModalProvider from "@/components/AccountModal/AccountModalProvider";
 
 // Components
-import Header from "@/components/Header/Header";
+import HeaderReduced from "@/components/HeaderReduced/HeaderReduced";
 
 
 // -------------- //
@@ -20,8 +20,10 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         <MusicProvider>
             <ToastProvider>
                 <AccountModalProvider>
-                    <Header />
+
+                    <HeaderReduced />
                     <main>{children}</main>
+
                 </AccountModalProvider>
             </ToastProvider>
         </MusicProvider>
