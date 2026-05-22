@@ -1,0 +1,20 @@
+.container {
+    position: relative;
+
+    display: flex;
+
+    width: 800px;
+    height: 550px;
+
+    border-radius: 10px;
+
+    background-color: color-mix(in srgb, var(--color-purple-mid) 20%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15); 
+
+    overflow: hidden;
+    z-index: 1;
+
+}

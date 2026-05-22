@@ -1,0 +1,179 @@
+.container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+
+    padding: 8px 15px;  
+
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+
+    height: auto;
+    width: 320px;
+
+    gap: 10px;
+
+    justify-content: center;
+
+    
+}
+
+
+
+.header {
+    display: flex;
+    padding-bottom: 20px;
+    gap: 10px;
+    align-items: center;
+}
+
+.title {
+    display: flex;
+    height: 3px;
+    align-items: flex-end;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    line-height: 1px;
+}
+
+.icon {
+    height: 32px;
+    width: 32px;
+    color: var(--color-creamWhite);
+    stroke-width: 1.4px;
+}
+
+
+
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    height: 100%;
+    width: 100%;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    gap: 12px;
+
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+
+
+
+.actionArea {
+    padding-top: 10px;
+}
+
+
+
+
+.inputGroup {
+    display: flex;
+    gap: 15px;
+
+    width: 100%;
+}
+
+.inputWrap {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 3px;
+}
+
+.inputGroup > .inputWrap {
+    flex: 1; /* Beide Inputs teilen sich den Platz 50/50 minus Gap */
+    min-width: 0; /* Wichtig, damit Flexbox den Inhalt schrumpfen darf */
+}
+
+.label {
+    font-size: 0.85rem;
+    padding-left: 2px;
+}
+
+.helpLabel {
+    width: fit-content;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--color-highlight);
+}
+.helpLabel:hover {
+    cursor: pointer;
+}
+
+.input {
+    width: 100%;
+    height: 40px;
+
+    padding: 0 10px;
+
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.15);
+
+    background-color: rgba(255,255,255,0.08);
+    color: white;
+
+    font-size: 0.9rem;
+
+    outline: none;
+
+    transition:
+        border-color 0.15s ease,
+        background-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+.input:hover {
+    border: 1px solid rgba(21, 228, 217, 0.3);
+}
+.input:focus {
+    border: 1px solid rgba(21, 228, 217, 0.699);
+}
+
+.button {
+    display: flex;
+
+    min-width: 100px;
+
+    gap: 8px;
+    padding: 15px;
+
+    justify-content: center;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    line-height: 1;
+
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.15s ease, background 0.4s ease;
+
+    background: var(--color-infoText-dark);
+    color: var(--color-creamWhite);
+}
+.button:hover {
+    transform: translateY(-2px);
+
+    background: var(--color-highlight);
+    color: var(--color-infoText-dark);
+}
