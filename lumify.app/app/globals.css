@@ -1,9 +1,45 @@
-@import "tailwindcss/preflight"; /* Nutz ich nicht */
+@import "tailwindcss/preflight"; /* Nutz ich nicht - Nur für base style props */
 
 :root {
   --background: #483672;
   --foreground: #F1EDE6;
 
+  --color-highlight: #44b9c9;
+  --color-highlight-bright: #76e3f1;
+  --color-highlight-dark: #1999aa;
+  --color-bar: #32265A;
+  --color-pill: #6452a0;
+  --color-actions: #2B2147;
+
+  --color-workspace-border: #db8411;
+  --color-workspace-bg: #db841159;
+  --color-privatespace-border: #1999aa;
+  --color-privatespace-bg: #1999aa59;
+
+  --color-infoText-light: #9f81f3;
+  --color-infoText-dark: #20173d;
+
+  --color-button-action: #20173d;
+  --color-button-action-hov: #6452a0;
+  --color-button-gray: #cccbc0;
+
+  --color-purple-light: #8560dd;
+  --color-purple-mid: #7157af;
+  --color-purple-dark: #483672;
+  --color-creamWhite: #F1EDE6;
+
+  --color-pending: #fbbf24;
+  --color-done: #008040;
+
+  --color-success: #008040;
+  --color-success-bright: #6aa807;
+  --color-info: #fbbf24;
+  --color-error: #b43b3b;
+  --color-error-bright: #f34848;
+
+  --color-abort: #b43b3b;
+
+  --header-height: 60px;
   --font-heading: var(--font-borel);
   --font-body: var(--font-borel);
 }
@@ -49,5 +85,309 @@ input[type="checkbox"]:checked {
     border: 1px solid #27ac2e;
     border-radius: 3px;
 }
+
+
+
+main{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  height: calc(100dvh - var(--header-height));
+  width: 100vw;
+
+  justify-content: center;
+  align-items: center;
+
+  background:
+    radial-gradient(900px 600px at 50% 20%, rgba(25,227,209,0.15), transparent 60%),
+    linear-gradient(180deg, #3a2e66 0%, #2e2455 55%, #241c44 100%);
+
+    z-index: 0;
+    overflow: hidden;
+}
+main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+
+  background:
+    /* Sun beam from right-top (warm) */
+    radial-gradient(1100px 800px at 88% 12%,
+      rgba(255,214,150,0.18) 0%,
+      rgba(255,214,150,0.12) 28%,
+      rgba(255,214,150,0.06) 52%,
+      rgba(255,214,150,0.02) 70%,
+      rgba(255,214,150,0.0) 88%
+    ),
+
+    /* Soft room haze */
+    radial-gradient(1000px 700px at 30% 85%, rgba(255,255,255,0.06), transparent 65%),
+
+    /* Dust particles (lofi air) */
+    radial-gradient(2.2px 2.2px at 12% 22%, rgba(255,255,255,0.70), transparent),
+    radial-gradient(1.6px 1.6px at 18% 48%, rgba(255,255,255,0.55), transparent),
+    radial-gradient(2.0px 2.0px at 26% 64%, rgba(255,255,255,0.60), transparent),
+    radial-gradient(1.4px 1.4px at 33% 30%, rgba(255,255,255,0.45), transparent),
+    radial-gradient(2.4px 2.4px at 41% 58%, rgba(255,255,255,0.55), transparent),
+    radial-gradient(1.6px 1.6px at 48% 38%, rgba(255,255,255,0.50), transparent),
+    radial-gradient(2.8px 2.8px at 56% 18%, rgba(255,255,255,0.55), transparent),
+    radial-gradient(1.4px 1.4px at 62% 44%, rgba(255,255,255,0.42), transparent),
+    radial-gradient(2.0px 2.0px at 68% 72%, rgba(255,255,255,0.48), transparent),
+    radial-gradient(1.6px 1.6px at 74% 52%, rgba(255,255,255,0.40), transparent),
+    radial-gradient(2.6px 2.6px at 82% 28%, rgba(255,255,255,0.50), transparent),
+    radial-gradient(1.4px 1.4px at 88% 66%, rgba(255,255,255,0.38), transparent),
+
+    /* Bigger soft specks (depth) */
+    radial-gradient(6px 6px at 22% 26%, rgba(255,255,255,0.10), transparent 70%),
+    radial-gradient(8px 8px at 78% 40%, rgba(255,255,255,0.08), transparent 70%);
+
+  background-repeat: no-repeat, no-repeat, repeat, repeat, repeat, repeat, repeat;
+  background-size: auto, auto, 360px 360px, 420px 420px, 520px 520px, 600px 600px, 700px 700px;
+
+  filter: blur(0px);
+  mix-blend-mode: screen;
+
+}
+main::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+
+  background:
+    /* Sun beam from right-top (warm) */
+    radial-gradient(900px 600px at 85% 12%, rgba(255,214,150,0.16), transparent 62%),
+    /* Soft room haze */
+    radial-gradient(1000px 700px at 30% 85%, rgba(255,255,255,0.06), transparent 65%),
+    /* Dust particles (lofi air) */
+    radial-gradient(2.2px 2.2px at 12% 22%, rgba(255,255,255,0.55), transparent),
+    radial-gradient(1.8px 1.8px at 26% 64%, rgba(255,255,255,0.45), transparent),
+    radial-gradient(2px 2px at 48% 38%, rgba(255,255,255,0.40), transparent),
+    radial-gradient(1.6px 1.6px at 68% 72%, rgba(255,255,255,0.38), transparent),
+    radial-gradient(2.4px 2.4px at 82% 28%, rgba(255,255,255,0.40), transparent);
+
+  background-repeat: no-repeat, no-repeat, repeat, repeat, repeat, repeat, repeat;
+  background-size: auto, auto, 600px 600px, 750px 750px, 9000px 900px, 1000px 1000px, 1200px 1200px;
+
+  filter: blur(0px);
+  mix-blend-mode: screen;
+}
+
+.scrollView {
+  position: relative;
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+
+  justify-content: safe center;
+  align-items: safe center;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* smoother on iOS */
+  -webkit-overflow-scrolling: touch;
+
+  box-sizing: border-box;
+}
+
+.content,
+.content-fullHeight {
+  position: relative;
+  display: flex;
+
+  width: max-content;
+  max-height: 95%  !important;
+  gap: 20px;
+  padding-top: 20px;
+
+  z-index: 201;
+}
+.content {
+  height: 705px;
+}
+.content-fullHeight {
+  flex-direction: column;
+  height: 100%;
+
+  align-items: center;
+}
+
+
+.bg-overlay {
+  position: absolute;
+
+  transform: translateY(var(--py, 0px));
+  transition: transform 60ms linear;
+
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background: url("/src/bg-overlay-lofi.png") no-repeat right bottom;
+  background-size: auto 1000px;
+}
+
+
+/* Webkit Scrollbar Styles */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--foreground) transparent;
+}
+
+/* WebKit (Chrome/Edge/Safari) */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--foreground);
+  border-radius: 999px;
+  border: 3px solid transparent;     /* gives padding */
+  background-clip: content-box;      /* IMPORTANT, sonst bringt border nix */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground);
+}
+
+
+/* Reusables */
+.spacer-h-5 {
+  height: 5px;
+  width: 100%;
+}
+.spacer-h-10 {
+  height: 10px;
+  width: 100%;
+}
+.spacer-h-20 {
+  height: 20px;
+  width: 100%;
+}
+.spacer-h-30{
+  height: 30px;
+  width: 100%;
+}
+.spacer-h-40 {
+  height: 40px;
+  width: 100%;
+}
+
+.gap-5 {
+  gap: 5px;
+}
+.gap-10 {
+  gap: 10px;
+}
+.gap-15 {
+  gap: 15px;
+}
+.gap-20 {
+  gap: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-bold {
+  font-weight: bold;
+}
+.text-italic {
+  font-style: italic;
+}
+
+.flex-box {
+  display: flex;
+  flex-direction: row;
+}
+.block-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.center-hz {
+  display: flex;
+  Justify-content: center;
+}
+
+
+
+
+
+
+
+
+/* Dashboard */
+.featureSelectionArea {
+  display: flex;
+  position: relative;
+
+  width: 100%;
+
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.dashboard-headingArea {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+/* SpaceHub */
+.spaceHub-headingArea {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+
+
+
+
+/* ANIMATIONS */
+@keyframes lofiDrift {
+  0%, 100% { transform: translateY(0px); opacity: 1; }
+  50% { transform: translateY(6px); opacity: 0.95; }
+}
+
+
+
+
+
+/*
+Z-INDEX SYSTEM
+
+50   = decorative overlays idle
+200+ = standard surfaces
+300+ = global interactive UI / hover overlays / header / dropdowns
+500+ = modals
+600+ = alerts / toasts / critical overlays
+*/
 
 
