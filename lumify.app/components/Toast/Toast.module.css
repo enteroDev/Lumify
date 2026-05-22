@@ -1,0 +1,139 @@
+.viewport {
+    display: flex;
+    position: fixed;
+    right: 18px;
+    top: calc(var(--header-height) + 18px);
+
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.toast {
+    display: grid;
+    position: relative;
+    width: 340px;
+    max-width: calc(100vw - 36px);
+    border-radius: 10px;
+    padding: 12px 12px 12px 22px;
+
+    grid-template-columns: 26px 1fr 28px;
+    align-items: center;
+    gap: 15px;
+
+    pointer-events: auto;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    background: rgba(30, 26, 46, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.28),
+        0 2px 8px rgba(0, 0, 0, 0.20);
+
+    transform: translateY(6px);
+    opacity: 0;
+    animation: toastIn 160ms ease-out forwards;
+    overflow: hidden;
+}
+
+.accent {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 10px;
+    opacity: 0.95;
+}
+
+.icon {
+    display: flex;
+    width: 26px;
+    height: 26px;
+    border-radius: 10px;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.92);
+    margin-top: 1px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 1px;
+}
+
+.title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.message {
+    font-size: 13px;
+    line-height: 1.25;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.action {
+    margin-top: 6px;
+    align-self: flex-start;
+    padding: 6px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.90);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.action:hover {
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.close {
+    width: 28px;
+    height: 28px;
+    border-radius: 10px;
+    border: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 18px;
+    cursor: pointer;
+    justify-self: end;
+}
+
+.close:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.hoverGlow {
+    position: absolute;
+    inset: -40px;
+    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.10), transparent 60%);
+    pointer-events: none;
+}
+
+.success .accent { background-color: var(--color-success); }
+.info .accent { background-color: var(--color-info); }
+.error .accent { background-color: var(--color-error); }
+
+
+
+@keyframes toastIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
