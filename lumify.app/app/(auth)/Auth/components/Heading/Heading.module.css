@@ -15,7 +15,7 @@
   text-align: center;
   color: var(--color-creamWhite);             /* hard contrast in the core */
   letter-spacing: 0.02em;
-  line-height: 2rem;                            /* Adjust to currently used font */
+  line-height: 2rem;                          /* Adjust to currently used font */
 
   /* hard + soft glow */
   text-shadow:

@@ -35,6 +35,8 @@ export default function MusicProvider({
     }: {
     children: React.ReactNode;
     }) {
+
+
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const [isEnabled, setIsEnabled] = useState(false);
 
@@ -43,20 +45,13 @@ export default function MusicProvider({
         const audio = new Audio("/sounds/lofi.mp3");
         audio.loop = true;
         audio.volume = 0.03;
+
         audioRef.current = audio;
 
-        // Start ON
-        audio.play().then(() => {
-        setIsEnabled(true);
-        }).catch(() => {
-        // Autoplay blocked – stays off until user clicks
-        setIsEnabled(false);
-        });
-
         return () => {
-        audio.pause();
-        audio.src = "";
-        audioRef.current = null;
+            audio.pause();
+            audio.src = "";
+            audioRef.current = null;
         };
     }, []);
 
