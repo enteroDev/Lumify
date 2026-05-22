@@ -4,7 +4,6 @@
 // --- Imports --- //
 // --------------- //
 
-
 // Styles
 import styles from "./AccountModal.module.css";
 
