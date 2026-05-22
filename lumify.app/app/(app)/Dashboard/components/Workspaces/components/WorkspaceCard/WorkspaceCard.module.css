@@ -1,0 +1,368 @@
+.container {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    min-width: 200px;
+    width: 200px;
+
+    border-radius: 6px;
+    border: 1px solid var(--color-workspace-border);
+
+    background-color: var(--color-workspace-bg);
+
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.container:hover {
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+
+    padding: 5px 11px 5px 9px;
+}
+
+.title {
+    display: flex;
+
+    height: 100%;
+    width: 100%;
+
+    align-items: flex-start;
+
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-creamWhite);
+}
+
+.info {
+    display: flex;
+}
+
+.infoLabel {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: rgba(200,200,200,0.85);
+
+    padding-right: 5px;
+}
+
+.infoValue {
+    display: flex;
+    width: 100%;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    align-items: flex-start;
+
+    color: var(--color-creamWhite);
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    margin-top: 5px;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 0.8rem;
+    font-weight: 400;
+
+    color: var(--color-creamWhite);
+
+    z-index: 200;
+}
+
+.featureBox {
+    position: absolute;
+    left: 0;
+    bottom: -80px;
+
+    display: flex;
+    gap: 1px;
+
+    height: 80px;
+    width: 100%;
+
+    border-radius: 0 0 6px 6px;
+    background-color: rgba(128, 128, 128, 0.15);
+
+    transition: bottom 0.25s ease;
+
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
+
+    z-index: 201;
+}
+.container:hover .featureBox {
+    bottom: 0;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 5px;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.1);
+}
+.item:hover {
+    background: linear-gradient(135deg, rgba(250, 193, 38, 0.6) 0%, rgba(238, 139, 9, 0.692) 100%);
+}
+
+.itemLabel {
+    display: flex;
+    height: 25px;
+
+    align-items: flex-start;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-creamWhite);
+}
+
+.itemIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+
+    stroke-width: 2.2px;
+}
+.itemIcon svg {
+    height: 40px;
+    width: 40px;
+}
+.itemIcon svg path {
+    stroke: none;
+    fill: var(--color-creamWhite);
+}
+
+.memberTag {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+
+    gap: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container:hover .memberTag {
+    opacity: 0;
+}
+
+.memberIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--color-creamWhite);
+}
+
+.memberIcon svg {
+    height: 26px;
+    width: 26px;
+
+    fill: var(--color-creamWhite);
+}
+
+.memberCount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-creamWhite);
+}
+
+.contextButton {
+    position: absolute;
+    top: -64px;
+    right: 0px;
+
+    width: 49px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 8px;
+
+    border-radius: 0 0px 0px 5px;
+
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-creamWhite);
+
+    opacity: 1;
+}
+.container .contextButton {
+    border: 1px solid rgba(187, 125, 11, 0.719);
+    background-color: rgba(151, 105, 52, 0.5);
+}
+.container .contextButton:hover {
+    border: 1px solid rgba(187, 125, 11, 0.719);
+    background-color: rgb(216, 143, 59);
+}
+.container:hover .contextButton {
+    top: -15px;
+    right: 0px;
+}
+
+.contextMenu {
+    position: absolute;
+    top: 42px;
+    right: 0px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #b6731b;
+    border: 1px solid var(--color-workspace-border);
+    border-radius: 4px;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.25s ease;
+
+    z-index: 500;
+}
+.contextMenuOpen {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.contextMenuItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5px 10px;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-creamWhite);
+}
+.contextMenuItem:hover {
+    background-color: rgba(238, 235, 235, 0.15);
+}
+
+.editWrap {
+    display: flex;
+    flex: 1;
+
+    align-items: center;
+    gap: 8px;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 5px 8px;
+    border: 1px solid var(--color-highlight);
+    border-radius: 10px;
+}
+
+.titleInput {
+    min-width: 0;
+    flex: 1;
+
+    height: 25px;
+    padding: 0;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    font-size: 1.1rem;
+    color: var(--color-creamWhite);
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+
+    color: var(--color-creamWhite);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.abortButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 22px;
+    height: 22px;
+
+    color: var(--color-creamWhite);
+    stroke: var(--color-creamWhite);
+
+    transition: transform 0.15s ease;
+    transform-origin: center;
+}
+.abortButton:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.abortButton:active {
+    transform: scale(1.08);
+}
+.abortButton svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 2.3;
+}
+
+.saveButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 22px;
+    height: 22px;
+
+    color: var(--color-creamWhite);
+    stroke: var(--color-creamWhite);
+
+    transition: transform 0.15s ease;
+    transform-origin: center;
+}
+.saveButton:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.saveButton:active {
+    transform: scale(1.08);
+}
+.saveButton svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 1.5;
+}

@@ -1,0 +1,130 @@
+.container {
+    display: flex;
+    flex-direction: column;
+
+    height: 320px;
+    width: 100%;
+
+    padding: 10px 12px 10px 12px;
+
+    border-radius: 10px;
+    border: 1px solid var(--color-pill);
+
+    background-color: rgba(128, 128, 128, 0.15);
+    backdrop-filter: blur(5px);
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+    display: flex;
+    height: 40px;
+
+    align-content: center;
+
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1;
+
+    color: var(--color-creamWhite);
+}
+
+.body {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    gap: 10px;
+
+    padding-bottom: 10px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+
+
+
+
+.addCard {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    min-width: 200px;
+    width: 200px;
+
+    border-radius: 6px;
+    border: 1px solid var(--color-creamWhite);
+
+    background-color: rgba(200, 200, 200, 0.267);
+
+    overflow: hidden;
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease,
+        filter 0.2s ease;
+}
+
+.addCard::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.18) 0%,
+        rgba(255, 255, 255, 0.08) 28%,
+        rgba(255, 255, 255, 0.00) 60%
+    );
+
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.addCard:hover {
+    cursor: pointer;
+    border-color: var(--color-highlight);
+    background-color: rgba(220, 220, 220, 0.32);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.06),
+        0 8px 22px rgba(0, 0, 0, 0.22),
+        0 0 18px rgba(255, 255, 255, 0.10);
+}
+
+.addCard:hover::before {
+    opacity: 1;
+}
+
+.addCardIcon {
+    position: relative;
+    z-index: 1;
+
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-creamWhite);
+
+    transition:
+        color 0.2s ease,
+        filter 0.2s ease;
+}
+
+.addCard:hover .addCardIcon {
+    color: var(--color-highlight);
+    filter:
+        drop-shadow(0 0 8px rgba(255, 255, 255, 0.18))
+        drop-shadow(0 0 16px rgba(255, 255, 255, 0.10));
+}
+
+.addCardIcon svg {
+    width: 3em;
+    height: 3em;
+}
