@@ -5,8 +5,8 @@
 // --------------- //
 
 // React
-import { createContext, useContext } from "react";
-
+import { createContext, useCallback, useContext, useMemo, useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 // Components
 import AccountModal from "./AccountModal";
 // Service
@@ -45,7 +45,70 @@ const AccountModalContext = createContext<AccountModalContextValue | null>(null)
 // ----------------- //
 export default function AccountModalProvider({ children }: AccountModalProps) {
 
-    const value = null;
+    const pathname = usePathname();
+
+    const [modalState, setModalState] = useState<AccountModalState | null>(null);
+    const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
+    const [displayName, setDisplayName] = useState<string | null>(null);
+
+
+
+    // -------------- //
+    // --- States --- //
+    // -------------- //
+    const closeModal = useCallback(() => {
+        setModalState(null);
+    }, []);
+
+    const showModal = useCallback(() => {
+        setModalState({
+            isOpen: true,
+        });
+    }, []);
+
+
+
+    // ------------ //
+    // --- Memo --- //
+    // ------------ //
+    const value = useMemo(() => ({
+        showModal,
+        closeModal,
+        isOpen: !!modalState?.isOpen,
+        avatarUrl,
+        setAvatarUrl,
+        displayName,
+        setDisplayName,
+    }), [showModal, closeModal, modalState?.isOpen, avatarUrl, displayName]);
+
+
+
+    // --------------- //
+    // --- Effects --- //
+    // --------------- //
+    useEffect(() => {
+        async function loadAccountModalData() {
+            try {
+                const isAuthPage = pathname?.toLowerCase().startsWith("/auth");
+                if (isAuthPage) { return; }
+
+                const [avatarUrl, profile, accountInfo] = await Promise.all([
+                    UserService.getAvatarOfUser(),
+                    UserService.getUserProfile(),
+                    UserService.getUserAccountInfo(),
+                ]);
+
+                setAvatarUrl(avatarUrl || null);
+                setDisplayName(profile?.displayName || accountInfo?.username || null);
+            } catch (err) {
+                console.warn("AccountModal data could not be loaded.", err);
+            }
+        }
+
+        void loadAccountModalData();
+    }, [pathname]);
+
+
 
     // ----------- //
     // --- JSX --- //
