@@ -6,6 +6,10 @@
 .heading-big {
   position: relative;
   display: inline-block;
+
+  height: 100px;
+  padding-top: 40px;
+
   font-family: var(--font-borel), sans-serif;
   font-size: 4.5rem;
   text-align: center;
