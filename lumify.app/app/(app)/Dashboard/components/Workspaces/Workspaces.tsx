@@ -128,6 +128,8 @@ export default function Workspaces() {
     /* --- */
     /* ADD */
     /* --- */
+
+    // Create draft
     const createDraftWorkspace = () => {
         if (editingID) { return; }
 
@@ -146,6 +148,7 @@ export default function Workspaces() {
         setEditingID(draftID);
     };
 
+    // Add workspace to database
     const addWorkspace = async (workspaceID: string, name: string) => {
         const trimmedName = name.trim();
 
@@ -185,6 +188,7 @@ export default function Workspaces() {
         }
     };
 
+    // Chancel adding workspace -> remove draft
     const cancelAddWorkspace = (workspaceID: string) => {
         const isDraft = workspaceID.startsWith("draft_");
 
