@@ -1,21 +1,24 @@
 .container{
     display: flex;
     flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
 }
 
 .heading-big {
-  position: relative;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  height: 100px;
-  padding-top: 40px;
+  padding-top: 30px;
 
   font-family: var(--font-borel), sans-serif;
   font-size: 4.5rem;
   text-align: center;
-  color: var(--color-creamWhite);             /* hard contrast in the core */
+  color: var(--color-creamWhite);
   letter-spacing: 0.02em;
-  line-height: 2rem;                          /* Adjust to currently used font */
+  line-height: 1;
 
   /* hard + soft glow */
   text-shadow:
