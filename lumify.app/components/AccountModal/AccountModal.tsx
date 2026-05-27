@@ -8,6 +8,7 @@
 import { useState, useEffect } from "react";
 // Components
 import SidePanel from "@/components/AccountModal/components/SidePanel/SidePanel";
+import AccountView from "@/components/AccountModal/components/AccountView/AccountView";
 import ProfileView from "@/components/AccountModal/components/ProfileView/ProfileView";
 // Provider
 import { useAccountModal } from "@/components/AccountModal/AccountModalProvider";
@@ -18,7 +19,7 @@ import { UserService } from "@/services/api/userService";
 // Icons
 import CloseIcon from "@/app/src/svg/close.svg";
 // Models
-import { UserProfile, UserAccountInfo, SaveUserProfileRequest } from "@/models/User";
+import { UserProfile, UserAccountInfo, SaveUserProfileRequest, SaveAccountInfoRequest } from "@/models/User";
 // Styles
 import styles from "./AccountModal.module.css";
 
@@ -52,6 +53,7 @@ export default function AccountModal() {
     const [isLoggingOut, setIsLoggingOut] = useState(false);
     const [isChangingAvatar, setIsChangingAvatar] = useState(false);
     const [isSavingProfile, setIsSavingProfile] = useState(false);
+    const [isSavingAccountInfo, setIsSavingAccountInfo] = useState(false);
 
 
 
@@ -59,6 +61,16 @@ export default function AccountModal() {
     // --- UI Handler --- //
     // ------------------ //
     function renderContent() {
+        if (activeTab === "account") {
+            return <AccountView
+            firstName={accountInfo?.firstName ?? ""}
+            lastName={accountInfo?.lastName ?? ""}
+            email={accountInfo?.email ?? ""}
+            username={accountInfo?.username ?? ""}
+            onSaveAccountInfo={saveAccountInfo}
+            isSavingAccountInfo={isSavingAccountInfo} />;
+        }
+
         if (activeTab === "profile") {
             return <ProfileView
             avatarUrl={avatarUrl}
@@ -70,8 +82,6 @@ export default function AccountModal() {
             onSaveProfile={saveUserProfile}
             isSavingProfile={isSavingProfile} />;
         }
-
-        // More tabs will come here
 
         return <ProfileView
         avatarUrl={avatarUrl}
@@ -180,6 +190,30 @@ export default function AccountModal() {
             toast.error("Fehler beim Speichern des Profils.");
         } finally {
             setIsSavingProfile(false);
+        }
+    }
+
+    async function saveAccountInfo(data: SaveAccountInfoRequest) {
+        try {
+            setIsSavingAccountInfo(true);
+
+            const savedAccountInfo = await UserService.saveAccountInfo(data);
+
+            setAccountInfo((prev) => {
+                if (!prev) { return savedAccountInfo; }
+
+                return {
+                    ...prev,
+                    ...savedAccountInfo,
+                };
+            });
+
+            toast.success("Konto-Informationen erfolgreich gespeichert.");
+        } catch (err) {
+            console.error("Failed to save user account info:", err);
+            toast.error("Fehler beim Speichern der Kontoinformationen.");
+        } finally {
+            setIsSavingAccountInfo(false);
         }
     }
 
