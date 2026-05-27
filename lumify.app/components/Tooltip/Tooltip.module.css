@@ -1,0 +1,30 @@
+.container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+
+    max-width: 240px;
+    padding: 6px 10px;
+    border-radius: 10px;
+
+    background: var(--color-creamWhite);
+    border: 2px solid rgba(3, 3, 3, 0.8);
+
+    color: var(--color-infoText-dark);
+    font-size: 0.9rem;
+    line-height: 1.25;
+
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+
+    opacity: 0;
+    transform: translate(12px, 12px);
+    transition: opacity 0.12s ease-in-out;
+    box-sizing: border-box;
+}
+
+.visible {
+    opacity: 1;
+}
