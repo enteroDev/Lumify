@@ -1,0 +1,121 @@
+.container {
+    display: flex;
+    flex-direction: row;
+
+    padding: 0px 15px 0px 10px;
+
+    gap: 12px;
+    padding-bottom: 8px;
+}
+
+
+
+
+/* TIMELINE */
+.iconArea {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+
+    width: 18px;
+}
+
+/* continuous vertical line */
+.iconArea::after {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    bottom: -10px;
+
+    width: 2px;
+
+    background: rgba(255,255,255,0.08);
+}
+
+/* DOT */
+.icon {
+    position: relative;
+    z-index: 1;
+
+    width: 8px;
+    height: 8px;
+
+    margin-top: 4px;
+
+    border-radius: 50%;
+    background: #60a5fa;
+}
+
+
+
+
+
+
+.infoArea {
+    position: relative;
+
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    justify-content: center;
+    gap: 2px;
+
+    border-bottom: 1px solid rgba(200,200,200,0.1);
+}
+
+
+
+.date {
+    font-size: 0.8rem;
+    opacity: 0.6;
+
+    letter-spacing: 0.5;
+}
+
+.workspace {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    display: flex;
+    gap: 4px;
+
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.workspaceLabel {
+    opacity: 0.8;
+}
+
+.workspaceValue {
+    color: var(--color-highlight-bright);
+    opacity: 1;
+}
+
+
+
+
+.message {
+    display: flex;
+    gap: 6px;
+    align-items: baseline;
+}
+
+.actionText {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+}
+
+.itemName {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+}
+
+
+
+

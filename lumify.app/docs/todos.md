@@ -1,7 +1,7 @@
 # GENERAL
 
 ## Fixes
-[] Remove Workspace entry in Sidebar of AccountModal (Not needed)
+[] Remove Workspace entry in Sidebar of AccountModal (Not needed probably)
 
 ## Implementations
 

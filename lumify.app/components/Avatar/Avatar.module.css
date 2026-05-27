@@ -1,0 +1,98 @@
+.container {
+    display: flex;
+
+    align-items: center;
+
+    width: 50px;
+    height: 100%;
+}
+
+
+
+
+.avatar {
+    position: relative;
+    display: flex;
+
+    height: 40px;
+    width: 40px;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50px;
+    border: 2px solid var(--color-highlight);
+
+    background-size: auto;
+}
+.avatar img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+}
+
+
+
+
+.presenceIndicator {
+    position: absolute;
+    top: -4px;
+    right: -3.5px;
+}
+.presenceIndicator svg {
+    height: 11px;
+    width: 11px;
+
+    stroke-width: 3;
+}
+
+.indicator-online {
+    height: 100%;
+    width: 100%;
+
+    padding: 2px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgb(131, 204, 98);
+    background-color: green;
+}
+
+.indicator-offline {
+    height: 100%;
+    width: 100%;
+
+    padding: 2px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgb(207, 207, 207);
+    background-color: rgb(117, 117, 117);
+    fill: rgb(207, 207, 207);
+}
+
+.indicator-idle {
+    height: 100%;
+    width: 100%;
+
+    padding: 2px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgb(212, 181, 1);
+    background-color: rgb(122, 100, 2);
+    fill: rgb(207, 207, 207);
+}
+
+.indicator-dnd {
+    height: 100%;
+    width: 100%;
+
+    padding: 2px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgb(243, 72, 72);
+    background-color: rgb(140, 30, 30);
+    fill: rgb(207, 207, 207);
+}

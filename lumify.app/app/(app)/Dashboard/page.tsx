@@ -6,6 +6,8 @@
 // Components
 import DashboardHeading from "./components/DashboardHeading/DashboardHeading";
 import Workspaces from "./components/Workspaces/Workspaces";
+import FriendList from "./components/Friends/Friends";
+import Recents from "./components/Recents/Recents";
 // Styles
 import styles from "./Dashboard.module.css";
 
@@ -41,10 +43,10 @@ export default function Dashboard() {
                         <Workspaces />
                     </div>
                     <div className={c.oneSpan}>
-
+                        <FriendList />
                     </div>
                     <div className={c.oneSpan}>
-
+                        <Recents />
                     </div>
                 </div>
             </div>
