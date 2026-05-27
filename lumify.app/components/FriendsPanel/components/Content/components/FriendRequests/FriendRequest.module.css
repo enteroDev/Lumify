@@ -1,0 +1,65 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+
+    gap: 12px;
+    padding-top: 5px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+
+.section {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.sectionHeader {
+    display: flex;
+
+    padding-left: 3px;
+    gap: 5px;
+
+    font-size: 1rem;
+}
+
+.sectionTitle {
+    display: flex;
+}
+
+.sectionIcon {
+    display: flex;
+
+    align-items: center;
+}
+.sectionIcon svg {
+    height: 20px;
+    width: 20px;
+}
+
+
+
+.list {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    min-height: 100px;
+
+    padding: 3px;
+    gap:2px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 10px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}

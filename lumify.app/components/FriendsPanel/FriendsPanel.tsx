@@ -5,13 +5,15 @@
 // --------------- //
 
 // React
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // Services
 import { FriendshipService } from "@/services/api/friendshipService";
 import { UserService } from "@/services/api/userService";
-
+// Provider
+import { usePresenceContext } from "@/components/_Presence/PresenceProvider";
 // Components
 import TabLine from "./components/TabLine/TabLine";
+import Content from "./components/Content/Content";
 // Models
 import type { UserPreviewDTO } from "@/models/User";
 import type { FriendshipDTO } from "@/models/Friendship";
@@ -50,9 +52,16 @@ export default function FriendsPanel({
 
     const [friends, setFriends] = useState<UserPreviewDTO[]>([]);
     const [relatedUsers, setRelatedUsers] = useState<UserPreviewDTO[]>([]);
+    const [searchedUsers, setSearchedUsers] = useState<UserPreviewDTO[]>([]);
 
     const [outgoingFriendRequests, setOutgoingFriendRequests] = useState<FriendshipDTO[]>([]);
     const [incomingFriendRequests, setIncomingFriendRequests] = useState<FriendshipDTO[]>([]);
+
+    const [friendSearchValue, setFriendSearchValue] = useState("");
+    const [userSearchValue, setUserSearchValue] = useState("");
+    const [debouncedUserSearchValue, setDebouncedUserSearchValue] = useState("");
+
+    const { getPresenceStatus } = usePresenceContext();
 
 
 
@@ -159,6 +168,83 @@ export default function FriendsPanel({
     };
 
 
+    // ### SEARCH ### //
+    const searchUsers = async () => {
+        try {
+            const data = await UserService.searchUsers(debouncedUserSearchValue);
+            setSearchedUsers(data);
+
+        } catch (error) {
+            console.error("Failed to search users", error);
+            setSearchedUsers([]);
+        }
+    };
+
+
+
+    // ----------------- //
+    // --- UseEffect --- //
+    // ----------------- //
+    useEffect(() => {
+        void loadFriends();
+        void loadRelatedUsers();
+        void loadOutgoingFriendRequests();
+        void loadIncomingFriendRequests();
+    }, []);
+
+    useEffect(() => {
+        const timeout = window.setTimeout(() => {
+            setDebouncedUserSearchValue(userSearchValue.trim().toLowerCase());
+        }, 300);
+
+        return () => window.clearTimeout(timeout);
+    }, [userSearchValue]);
+
+    useEffect(() => {
+        if (!debouncedUserSearchValue) {
+            void loadRelatedUsers();
+            return;
+        }
+
+        void searchUsers();
+    }, [debouncedUserSearchValue]);
+
+
+
+    // ---------------- //
+    // --- Computed --- //
+    // ---------------- //
+    const friendIDs = new Set(friends.map(friend => friend.id));
+    const debouncedFriendSearchValue = friendSearchValue.trim().toLowerCase();
+
+    const filteredFriends = friends.filter(friend => {
+        const effectiveName = (friend.displayName || friend.username || "").toLowerCase();
+
+        if (!debouncedFriendSearchValue) {
+            return true;
+        }
+
+        return effectiveName.includes(debouncedFriendSearchValue);
+    });
+
+    const friendsWithPresenceInfo = filteredFriends.map(friend => ({
+        ...friend,
+        presenceStatus: getPresenceStatus(friend.id, friend.presenceStatus),
+    }));
+
+    const relatedUsersWithPresenceInfo = relatedUsers.map(user => ({
+        ...user,
+        presenceStatus: getPresenceStatus(user.id, user.presenceStatus),
+    }));
+
+    const searchedUsersWithPresenceInfo = searchedUsers.map(user => ({
+        ...user,
+        presenceStatus: getPresenceStatus(user.id, user.presenceStatus),
+    }));
+
+    const filteredUsers = debouncedUserSearchValue
+        ? searchedUsersWithPresenceInfo
+        : relatedUsersWithPresenceInfo;
 
 
 
@@ -175,7 +261,28 @@ export default function FriendsPanel({
 
             {/* Content */}
             <div className={c.content}>
+                <Content
+                    activeTab={activeTab}
 
+                    friends={friendsWithPresenceInfo}
+                    users={filteredUsers}
+                    requestUsers={relatedUsersWithPresenceInfo}
+                    friendIDs={friendIDs}
+                    outgoingFriendRequests={outgoingFriendRequests}
+                    incomingFriendRequests={incomingFriendRequests}
+
+                    friendSearchValue={friendSearchValue}
+                    onFriendSearchChange={setFriendSearchValue}
+                    userSearchValue={userSearchValue}
+                    onUserSearchChange={setUserSearchValue}
+
+                    onSendFriendRequest={sendFriendRequest}
+                    onAcceptFriendRequest={acceptFriendRequest}
+                    onRejectFriendRequest={rejectFriendRequest}
+                    onRemoveFriend={removeFriend}
+
+                    onOpenChat={onOpenChat}
+                />
             </div>
         </div>
     );

@@ -4,7 +4,6 @@
 // --------------- //
 
 // Provider
-import MusicProvider from "@/components/_Audio/MusicProvider";
 import ToastProvider from "@/components/Toast/ToastProvider";
 import TooltipProvider from "@/components/Tooltip/TooltipProvider";
 import AccountModalProvider from "@/components/AccountModal/AccountModalProvider";
@@ -18,17 +17,15 @@ import HeaderReduced from "@/components/HeaderReduced/HeaderReduced";
 // -------------- //
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
     return (
-        <MusicProvider>
-            <ToastProvider>
-                <TooltipProvider>
-                    <AccountModalProvider>
+        <ToastProvider>
+            <TooltipProvider>
+                <AccountModalProvider>
 
-                        <HeaderReduced />
-                        <main>{children}</main>
+                    <HeaderReduced />
+                    <main>{children}</main>
 
-                    </AccountModalProvider>
-                </TooltipProvider>
-            </ToastProvider>
-        </MusicProvider>
+                </AccountModalProvider>
+            </TooltipProvider>
+        </ToastProvider>
     );
 }

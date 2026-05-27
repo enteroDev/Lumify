@@ -5,6 +5,7 @@
 
 // Components
 import Header from "@/components/Header/Header";
+import PresenceBridge from "@/services/utils/presenceBridge";
 
 // Providers
 import MusicProvider from "@/components/_Audio/MusicProvider";
@@ -19,17 +20,19 @@ import AccountModalProvider from "@/components/AccountModal/AccountModalProvider
 // -------------- //
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      <ToastProvider>
-        <TooltipProvider>
+    <ToastProvider>
+      <TooltipProvider>
+        <PresenceBridge>
           <MusicProvider>
             <AccountModalProvider>
+
               <Header />
               <main>{children}</main>
+
             </AccountModalProvider>
           </MusicProvider>
-        </TooltipProvider>
-      </ToastProvider>
-    </>
+        </PresenceBridge>
+      </TooltipProvider>
+    </ToastProvider>
   );
 }
