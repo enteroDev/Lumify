@@ -1,0 +1,109 @@
+.container {
+    position: absolute;
+
+    top: 77px;
+    right: 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 180px;
+    gap: 0px;
+
+    border-radius: 10px;
+
+    overflow: visible;
+    z-index: 402;
+    opacity: 0.5;
+
+    transition: width 0.25s ease;
+}
+
+.container:hover {
+    opacity: 1;
+}
+
+.containerExpanded {
+    width: 350px;
+    opacity: 1;
+}
+
+
+
+
+.trigger {
+    display: flex;
+    height: 47px;
+
+    align-items: center;
+
+    z-index: 2;
+}
+
+
+
+
+.dropClosed {
+    display: flex;
+    flex-direction: column;
+
+    height: 0;
+    max-height: 0;
+    padding: 0;
+
+    border-radius: 6.5px;
+    background-color: rgba(10, 10, 10, 0.7);
+
+    opacity: 0;
+    overflow: hidden;
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        max-height 0.25s ease,
+        padding 0.25s ease,
+        opacity 0.2s ease;
+}
+
+.dropOpened {
+    display: flex;
+    flex-direction: column;
+
+    height: 350px;
+    max-height: 350px;
+    padding: 14px 10px 10px 10px;
+
+    opacity: 1;
+}
+
+
+
+
+.chatClosed {
+    position: absolute;
+    top: 0;
+    left: -353px;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 350px;
+    height: 398px;
+    padding: 8px;
+
+    border-radius: 6.5px;
+    background-color: rgba(10, 10, 10, 0.7);
+
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+
+    backdrop-filter: blur(10px);
+
+    transition: opacity 0.2s ease;
+}
+
+.chatOpened {
+    opacity: 1;
+    pointer-events: auto;
+}

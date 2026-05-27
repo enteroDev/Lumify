@@ -6,6 +6,7 @@
 // Components
 import Header from "@/components/Header/Header";
 import PresenceBridge from "@/services/utils/presenceBridge";
+import Friends from "@/components/FriendsOverlay/FriendsOverlay";
 
 // Providers
 import MusicProvider from "@/components/_Audio/MusicProvider";
@@ -27,6 +28,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             <AccountModalProvider>
 
               <Header />
+              <Friends />
               <main>{children}</main>
 
             </AccountModalProvider>

@@ -1,0 +1,104 @@
+.container {
+    display: flex;
+    padding: 10px 12px 10px 12px;
+
+    height: 100%;
+    width: 100%;
+
+    gap: 10px;
+
+    border: 1px solid var(--color-pill);
+    border-radius: 8px;
+
+    background-color: var(--color-bar);
+}
+
+.container:hover {
+    cursor: pointer;
+}
+
+
+
+.titleArea {
+    display: flex;
+
+    height: 100%;
+    width: 100%;
+    gap: 5px;
+
+    align-items: center;
+}
+
+.icon {
+    display: flex;
+
+    height: 100%;
+
+    justify-content: center;
+    align-items: center;
+}
+.icon svg {
+    height: 30px;
+    width: 30px;
+}
+
+.title {
+    display: flex;
+
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.225;
+
+    color: var(--color-creamWhite);
+}
+
+
+
+
+.notificationArea {
+    display: flex;
+
+    width: 50px;
+
+    gap: 2px;
+
+    align-items:center;
+    justify-content: flex-end;
+}
+
+.notificationIcon {
+    position: relative;
+    display: flex;
+}
+.notificationIcon svg {
+    height: 20px;
+    width: 20px;
+}
+
+.notificationCounter {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+
+    display: flex;
+
+    height: 16px;
+    width: 16px;
+
+    align-items:center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: 1px solid var(--color-actions);
+    background-color: var(--color-highlight);
+
+    color: var(--color-actions);
+    font-size: 0.8rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+
+
+
+

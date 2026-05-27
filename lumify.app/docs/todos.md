@@ -1,7 +1,8 @@
 # GENERAL
 
 ## Fixes
-[] Remove Workspace entry in Sidebar of AccountModal (Not needed probably)
+[] AccountModal: Remove Workspace entry in Sidebar of AccountModal (Not needed probably)
+[] FriendsPanel: Add notification count in TabButton
 
 ## Implementations
 
