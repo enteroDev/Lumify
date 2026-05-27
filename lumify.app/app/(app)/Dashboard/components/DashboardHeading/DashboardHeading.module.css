@@ -4,8 +4,6 @@
 
     justify-content: center;
     align-items: center;
-
-    height: 100%;
 }
 
 .heading-big {
@@ -18,7 +16,7 @@
   text-align: center;
   color: var(--color-creamWhite);
   letter-spacing: 0.02em;
-  line-height: 0.6;
+  line-height: 1;
 
   /* hard + soft glow */
   text-shadow:
