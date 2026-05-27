@@ -1,0 +1,58 @@
+.overlay {
+    position: fixed;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+
+    inset: 0;
+    z-index: 1000;
+}
+
+.modal {
+    position: relative;
+    display: flex;
+
+    height: 550px;
+    width: 700px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    background-color: var(--color-creamWhite);
+}
+
+.close {
+    position: absolute;
+    height: 15px;
+    width: 15px;
+
+    top: 10px;
+    right: 10px;
+
+    color: black;
+    cursor: pointer;
+
+    transition: ease-in-out 0.2s;
+}
+.close:hover {
+    transform: scale(1.2);
+}
+
+
+.sidePanel {
+    flex: 0 0 250px;
+}
+
+
+.content {
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 100%;
+}

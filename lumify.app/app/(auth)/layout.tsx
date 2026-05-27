@@ -6,6 +6,7 @@
 // Provider
 import MusicProvider from "@/components/_Audio/MusicProvider";
 import ToastProvider from "@/components/Toast/ToastProvider";
+import TooltipProvider from "@/components/Tooltip/TooltipProvider";
 import AccountModalProvider from "@/components/AccountModal/AccountModalProvider";
 
 // Components
@@ -19,12 +20,14 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
     return (
         <MusicProvider>
             <ToastProvider>
-                <AccountModalProvider>
+                <TooltipProvider>
+                    <AccountModalProvider>
 
-                    <HeaderReduced />
-                    <main>{children}</main>
+                        <HeaderReduced />
+                        <main>{children}</main>
 
-                </AccountModalProvider>
+                    </AccountModalProvider>
+                </TooltipProvider>
             </ToastProvider>
         </MusicProvider>
     );
