@@ -137,7 +137,7 @@ namespace lumify.api.Controllers
         // --- NoteModules --- //
         [HttpPost]
         [ActionName("addTextBlock")]
-        public async Task<ActionResult<TextBlockResponse>> AddTextBlock([FromBody] AddTextBlockRequest request, CancellationToken ct)
+        public async Task<ActionResult<TextblockResponse>> AddTextBlock([FromBody] AddTextBlockRequest request, CancellationToken ct)
         {
             // Check all neccessary params if available
             if (string.IsNullOrWhiteSpace(request.NoteID))
@@ -193,7 +193,7 @@ namespace lumify.api.Controllers
             await _db.SaveChangesAsync(ct);
 
             // Create result object
-            var result = new TextBlockResponse
+            var result = new TextblockResponse
             {
                 ID = textBlock.ID,
                 NoteID = textBlock.NoteID,
@@ -450,7 +450,7 @@ namespace lumify.api.Controllers
         // --- NoteModules --- //
         [HttpPatch]
         [ActionName("saveTextBlock")]
-        public async Task<ActionResult<TextBlockResponse>> SaveTextBlock([FromBody] SaveTextBlockRequest request, CancellationToken ct)
+        public async Task<ActionResult<TextblockResponse>> SaveTextBlock([FromBody] SaveTextblockRequest request, CancellationToken ct)
         {
             // ::: Prepare ::: //
 
@@ -588,7 +588,7 @@ namespace lumify.api.Controllers
             // ::: Respond ::: //
 
             // Create result object
-            var result = new TextBlockResponse
+            var result = new TextblockResponse
             {
                 ID = textBlock.ID,
                 NoteID = textBlock.NoteID,
@@ -1018,7 +1018,7 @@ namespace lumify.api.Controllers
         // --- NoteModules --- //
         [HttpGet]
         [ActionName("getTextBlocksOfNote")]
-        public async Task<ActionResult<List<TextBlockResponse>>> GetTextBlocksOfNote(string noteID, CancellationToken ct)
+        public async Task<ActionResult<List<TextblockResponse>>> GetTextBlocksOfNote(string noteID, CancellationToken ct)
         {
             // Check all neccessary params if available
             if (string.IsNullOrWhiteSpace(noteID))
@@ -1038,7 +1038,7 @@ namespace lumify.api.Controllers
             var textBlocks = await _db.Note_TextBlocks
                 .Where(x => x.NoteID == noteID && x.DeletedAt == null)
                 .OrderBy(x => x.NotePos)
-                .Select(x => new TextBlockResponse
+                .Select(x => new TextblockResponse
                 {
                     ID = x.ID,
                     NoteID = x.NoteID,
