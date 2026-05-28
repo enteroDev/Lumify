@@ -309,6 +309,8 @@ namespace lumify.api.Controllers
         [ActionName("saveNote")]
         public async Task<ActionResult<NoteResponse>> SaveNote([FromBody] SaveNoteRequest request, CancellationToken ct)
         {
+            // ::: Prepare ::: //
+
             // Check all neccessary params if available
             if (string.IsNullOrWhiteSpace(request.ID))
             {
@@ -336,7 +338,9 @@ namespace lumify.api.Controllers
             // Track whether any field actually changed to avoid unnecessary DB writes
             var changed = false;
 
-            // Apply each optional field only if provided and different from the current value
+
+
+            // ::: Apply ::: //
 
             // Note.Name
             if (request.Name != null)
@@ -404,12 +408,21 @@ namespace lumify.api.Controllers
                 }
             }
 
+
+
+
+            // ::: Persist ::: //
+
             // Only persist and update the timestamp if something actually changed
             if (changed)
             {
                 note.UpdatedAt = DateTime.UtcNow.ToString("o");
                 await _db.SaveChangesAsync(ct);
             }
+
+
+
+            // ::: Respond ::: //
 
             // Create result object
             var result = new NoteResponse
@@ -439,6 +452,8 @@ namespace lumify.api.Controllers
         [ActionName("saveTextBlock")]
         public async Task<ActionResult<TextBlockResponse>> SaveTextBlock([FromBody] SaveTextBlockRequest request, CancellationToken ct)
         {
+            // ::: Prepare ::: //
+
             // Check all neccessary params if available
             if (string.IsNullOrWhiteSpace(request.ID))
             {
@@ -475,7 +490,9 @@ namespace lumify.api.Controllers
             // Track whether any field actually changed to avoid unnecessary DB writes
             var changed = false;
 
-            // Apply each optional field only if provided and different from the current value
+
+
+            // ::: Apply ::: //
 
             // Note_TextBlock.Type
             if (request.Type.HasValue)
@@ -550,6 +567,11 @@ namespace lumify.api.Controllers
                 }
             }
 
+
+
+
+            // ::: Persist ::: //
+
             // Only persist and update the timestamp if something actually changed
             if (changed)
             {
@@ -560,6 +582,10 @@ namespace lumify.api.Controllers
 
                 await _db.SaveChangesAsync(ct);
             }
+
+
+
+            // ::: Respond ::: //
 
             // Create result object
             var result = new TextBlockResponse

@@ -179,6 +179,8 @@ namespace lumify.api.Controllers
         [ActionName("saveTodoList")]
         public async Task<ActionResult<TodoListResponse>> SaveTodoList([FromBody] SaveTodoListRequest request, CancellationToken ct)
         {
+            // ::: Prepare ::: //
+
             // Check all neccessary params if available
             if (string.IsNullOrWhiteSpace(request.ID))
             {
@@ -206,7 +208,10 @@ namespace lumify.api.Controllers
             // Track whether any field actually changed to avoid unnecessary DB writes
             var changed = false;
 
-            // Apply each optional field only if provided and different from the current value
+
+
+            // ::: Apply ::: //
+
             if (request.Name != null)
             {
                 var trimmed = request.Name.Trim();
@@ -248,6 +253,11 @@ namespace lumify.api.Controllers
                 }
             }
 
+
+
+
+            // ::: Persist ::: //
+
             // Only persist and update the timestamp if something actually changed
             if (changed)
             {
@@ -256,6 +266,10 @@ namespace lumify.api.Controllers
 
                 await _db.SaveChangesAsync(ct);
             }
+
+
+
+            // ::: Respond ::: //
 
             // Create result object
             var result = new TodoListResponse
@@ -284,45 +298,51 @@ namespace lumify.api.Controllers
         [ActionName("saveTodoEntry")]
         public async Task<ActionResult<TodoEntryResponse>> SaveTodoEntry([FromBody] SaveTodoEntryRequest request, CancellationToken ct)
         {
-            // Check if needed params are available
+            // ::: Prepare ::: //
+
+            // Check all neccessary params if available
             if (string.IsNullOrWhiteSpace(request.ID))
             {
                 return BadRequest("ID is required");
             }
 
+            // Get userID from JWT/Cookie
             var userID = GetCurrentUserID();
 
-            // Get TodoEntry
+            // Find the TodoEntry in the database
             var todoEntry = await _db.TodoEntries
                 .FirstOrDefaultAsync(x => x.ID == request.ID && x.DeletedAt == null, ct);
 
-            // Check if TodoEntry is available
             if (todoEntry == null)
             {
                 return NotFound("TodoEntry not found");
             }
 
-            // Check if currentUser is allowed to edit
+            // Only the owner is allowed to update the TodoEntry
             if (todoEntry.OwnerID != userID)
             {
                 return Forbid();
             }
 
-            // Get corresponding TodoList
+            // Find the parent TodoList to resolve workspace for SignalR and track status changes
             var todoList = await _db.TodoLists
                 .FirstOrDefaultAsync(x => x.ID == todoEntry.TodoListID && x.DeletedAt == null, ct);
 
-            // Check if TodoList was found
             if (todoList == null)
             {
                 return NotFound("Parent TodoList not found");
             }
 
+            // Track whether any field actually changed to avoid unnecessary DB writes
             var changed = false;
             var statusChanged = false;
             var wasLastUnchecked = false;
 
-            // Patch: Name
+
+
+            // ::: Apply ::: //
+
+            // TodoEntry.Name
             if (request.Name != null)
             {
                 var trimmed = request.Name.Trim();
@@ -339,7 +359,7 @@ namespace lumify.api.Controllers
                 }
             }
 
-            // Patch: Description
+            // TodoEntry.Description
             if (request.Description != null)
             {
                 var trimmed = request.Description.Trim();
@@ -352,7 +372,7 @@ namespace lumify.api.Controllers
                 }
             }
 
-            // Patch: Status
+            // TodoEntry.Status
             if (request.Status.HasValue)
             {
                 if (request.Status.Value != 1 && request.Status.Value != 2)
@@ -368,6 +388,12 @@ namespace lumify.api.Controllers
                 }
             }
 
+
+
+
+            // ::: Persist ::: //
+
+            // Only persist and update the timestamp if something actually changed
             if (changed)
             {
                 var now = DateTime.UtcNow.ToString("o");
@@ -396,6 +422,12 @@ namespace lumify.api.Controllers
                 await _db.SaveChangesAsync(ct);
             }
 
+
+
+
+            // ::: Respond ::: //
+
+            // Create result object
             var result = new TodoEntryResponse
             {
                 ID = todoEntry.ID,
