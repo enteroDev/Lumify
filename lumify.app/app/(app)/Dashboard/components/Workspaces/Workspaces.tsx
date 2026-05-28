@@ -15,7 +15,11 @@ import PrivatespaceCard from "./components/PrivatespaceCard/PrivatespaceCard";
 import WorkspaceCard from "./components/WorkspaceCard/WorkspaceCard";
 // Providers
 import { useAccountModal } from "@/components/AccountModal/AccountModalProvider";
+import { useSpace } from "@/components/_Space/SpaceProvider";
+import { useModal } from "@/components/Modal/ModalProvider";
 import { useToast } from "@/components/Toast/ToastProvider";
+import { useAlert } from "@/components/AlertModal/AlertProvider";
+import { useTooltip } from "@/components/Tooltip/TooltipProvider";
 // Models
 import type { WorkspaceDTO, WorkspaceVM } from "@/models/Space";
 // Icons
@@ -29,11 +33,11 @@ import styles from "./Workspaces.module.css";
 // --- Types & Props --- //
 // --------------------- //
 export const c = {
-    container: styles["container"],
-    header: styles["header"],
-    body: styles["body"],
-    addCard: styles["addCard"],
-    addCardIcon: styles["addCardIcon"],
+    container:          styles["container"],
+    header:             styles["header"],
+    body:               styles["body"],
+    addCard:            styles["addCard"],
+    addCardIcon:        styles["addCardIcon"],
 } as const;
 
 
@@ -44,8 +48,12 @@ export default function Workspaces() {
 
     const router = useRouter();
     const toast = useToast();
+    const { showTooltip, hideTooltip } = useTooltip();
+    const { showAlert } = useAlert();
 
     const { displayName } = useAccountModal();
+    const { setCurrentSpace } = useSpace();
+    const { openWorkspaceModal } = useModal();
 
     const [editingID, setEditingID] = useState<string | null>(null);
     const [currentUserID, setCurrentUserID] = useState<string | null>(null);
@@ -53,39 +61,80 @@ export default function Workspaces() {
 
 
 
+    // ----------------- //
+    // --- UI-Helper --- //
+    // ----------------- //
+    const handleTooltipMove = (e: React.MouseEvent<HTMLElement>, text: string) => {
+        showTooltip({
+            text,
+            x: e.clientX,
+            y: e.clientY,
+        });
+    };
+
+
+
     // ---------------- //
     // --- Handlers --- //
     // ---------------- //
     const openPrivateSpace = () => {
+        setCurrentSpace({ type: "private" });
         router.push("/SpaceHub");
     };
 
     const openPrivateTodos = () => {
+        setCurrentSpace({ type: "private" });
         router.push("/Todos");
     };
 
     const openPrivateEvents = () => {
+        setCurrentSpace({ type: "private" });
         router.push("/Events");
     };
 
     const openPrivateNotes = () => {
+        setCurrentSpace({ type: "private" });
         router.push("/Notes");
     };
 
 
-    const openWorkspace = () => {
+    const openWorkspace = (workspace: WorkspaceVM) => {
+        setCurrentSpace({
+            type: "workspace",
+            workspaceID: workspace.id,
+            name: workspace.name,
+        });
+
         router.push("/SpaceHub");
     };
 
-    const openWorkspaceTodos = () => {
+    const openWorkspaceTodos = (workspace: WorkspaceVM) => {
+        setCurrentSpace({
+            type: "workspace",
+            workspaceID: workspace.id,
+            name: workspace.name,
+        });
+
         router.push("/Todos");
     };
 
-    const openWorkspaceEvents = () => {
+    const openWorkspaceEvents = (workspace: WorkspaceVM) => {
+        setCurrentSpace({
+            type: "workspace",
+            workspaceID: workspace.id,
+            name: workspace.name,
+        });
+
         router.push("/Events");
     };
 
-    const openWorkspaceNotes = () => {
+    const openWorkspaceNotes = (workspace: WorkspaceVM) => {
+        setCurrentSpace({
+            type: "workspace",
+            workspaceID: workspace.id,
+            name: workspace.name,
+        });
+
         router.push("/Notes");
     };
 
@@ -128,8 +177,6 @@ export default function Workspaces() {
     /* --- */
     /* ADD */
     /* --- */
-
-    // Create draft
     const createDraftWorkspace = () => {
         if (editingID) { return; }
 
@@ -148,7 +195,6 @@ export default function Workspaces() {
         setEditingID(draftID);
     };
 
-    // Add workspace to database
     const addWorkspace = async (workspaceID: string, name: string) => {
         const trimmedName = name.trim();
 
@@ -188,7 +234,6 @@ export default function Workspaces() {
         }
     };
 
-    // Chancel adding workspace -> remove draft
     const cancelAddWorkspace = (workspaceID: string) => {
         const isDraft = workspaceID.startsWith("draft_");
 
@@ -207,25 +252,39 @@ export default function Workspaces() {
         const workspace = workspaces.find(x => x.id === workspaceID);
         if (!workspace) { return; }
 
-        handleWorkspaceSaved(workspace);
-        handleMemberCountChanged(workspaceID, workspace.memberCount);
+        openWorkspaceModal({
+            workspace,
+            onWorkspaceSaved: handleWorkspaceSaved,
+            onMemberCountChanged: handleMemberCountChanged,
+        });
     };
 
 
     /* ------ */
     /* DELETE */
     /* ------ */
-    const deleteWorkspace = async (workspaceID: string) => {
-        try {
-            await WorkspaceService.deleteWorkspace(workspaceID);
+    const deleteWorkspace = (workspaceID: string) => {
+        const workspace = workspaces.find(x => x.id === workspaceID);
 
-            setWorkspaces(prev => prev.filter(x => x.id !== workspaceID));
-            toast.success("Workspace wurde gelöscht.");
+        showAlert({
+            title: "Workspace löschen",
+            message: `Workspace "${workspace?.name ?? workspaceID}" löschen?`,
+            status: "delete",
+            confirmText: "Ja",
+            cancelText: "Nein",
+            onConfirm: async () => {
+                try {
+                    await WorkspaceService.deleteWorkspace(workspaceID);
 
-        } catch (error) {
-            console.error("Failed to delete workspace", error);
-            toast.error("Fehler beim Löschen des Workspaces.");
-        }
+                    setWorkspaces(prev => prev.filter(x => x.id !== workspaceID));
+                    toast.success("Workspace wurde gelöscht.");
+
+                } catch (error) {
+                    console.error("Failed to delete workspace", error);
+                    toast.error("Fehler beim Löschen des Workspaces.");
+                }
+            }
+        });
     };
 
 
@@ -331,16 +390,20 @@ export default function Workspaces() {
                         onDeleteWorkspace={deleteWorkspace}
                         onEditWorkspace={editWorkspace}
 
-                        onOpenSpace={() => openWorkspace()}
-                        onOpenTodos={() => openWorkspaceTodos()}
-                        onOpenEvents={() => openWorkspaceEvents()}
-                        onOpenNotes={() => openWorkspaceNotes()}
+                        onOpenSpace={() => openWorkspace(ws)}
+                        onOpenTodos={() => openWorkspaceTodos(ws)}
+                        onOpenEvents={() => openWorkspaceEvents(ws)}
+                        onOpenNotes={() => openWorkspaceNotes(ws)}
                     />
                 ))}
 
                 <div
                     className={c.addCard}
-                    title="Space hinzufügen"
+
+                    onMouseEnter={(e) => handleTooltipMove(e, "Space hinzufügen")}
+                    onMouseMove={(e) => handleTooltipMove(e, "Space hinzufügen")}
+                    onMouseLeave={hideTooltip}
+
                     onClick={() => {
                         if (editingID) { return; }
                         createDraftWorkspace();

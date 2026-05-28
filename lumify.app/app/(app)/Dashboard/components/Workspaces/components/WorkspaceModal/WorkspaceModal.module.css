@@ -1,0 +1,173 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+}
+
+.modal {
+    width: 440px;
+
+    min-height: 400px;
+    height: 400px;
+    max-height: 550px;
+
+    overflow: hidden;
+
+    padding: 0px 0px 10px 0px;
+
+    border: 1px solid rgba(100,100,100,0.05);
+    border-radius: 10px;
+
+    background-color: var(--color-creamWhite);
+    color: var(--color-infoText-dark);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+/* Firefox */
+.modal {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-pill) transparent;
+}
+
+/* Chromium / Edge / Chrome */
+.modal::-webkit-scrollbar {
+    width: 8px;
+}
+.modal::-webkit-scrollbar-track {
+    background: transparent;
+}
+.modal::-webkit-scrollbar-thumb {
+    background: var(--color-pill);
+    border-radius: 6px;
+}
+.modal::-webkit-scrollbar-thumb:hover {
+    background: var(--color-highlight-dark);
+}
+
+
+
+.header {
+    height: 43px;
+}
+
+
+
+.body {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: calc(100% - 43px);
+
+    box-sizing: border-box;
+
+    overflow-y: auto;
+}
+
+.titleBar {
+    display: flex;
+    padding: 10px 15px;
+}
+
+.title {
+    display: flex;
+    font-size: 1rem;
+    align-items: center;
+}
+
+.actionArea {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    width:100%;
+}
+
+.searchBar {
+    display: flex;
+
+    height: 33px;
+    width: 200px;
+
+    padding: 2px 5px;
+
+    border-radius: 10px;
+    border: 1px solid rgba(200,200,200,0.8);
+}
+
+.searchIcon {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 40px;
+}
+.searchIcon svg {
+    height: 25px;
+    width: 25px;
+}
+
+.input {
+    height: 100%;
+    width: 100%;
+
+
+    outline: none;
+
+    padding: 2px 5px;
+}
+
+.button {
+    padding: 3px 12px;
+    border-radius: 10px;
+    background: var(--color-success);
+
+    color: var(--color-creamWhite);
+}
+.button:hover {
+    cursor: pointer;
+    background: var(--color-highlight);
+    color: var(--color-infoText-dark);
+}
+
+
+
+/* Firefox */
+.body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-pill) transparent;
+}
+/* Chromium / Edge / Chrome */
+.body::-webkit-scrollbar {
+    width: 8px;
+}
+.body::-webkit-scrollbar-track {
+    background: transparent;
+}
+.body::-webkit-scrollbar-thumb {
+    background: var(--color-pill);
+    border-radius: 6px;
+}
+.body::-webkit-scrollbar-thumb:hover {
+    background: var(--color-highlight-dark);
+}
+
+
+
+
+.footer {
+
+
+}

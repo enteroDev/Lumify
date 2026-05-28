@@ -5,13 +5,17 @@
 
 // Components
 import Header from "@/components/Header/Header";
-import PresenceBridge from "@/services/utils/presenceBridge";
 import Friends from "@/components/FriendsOverlay/FriendsOverlay";
+import PresenceBridge from "@/services/utils/presenceBridge";
 
 // Providers
 import MusicProvider from "@/components/_Audio/MusicProvider";
 import ToastProvider from "@/components/Toast/ToastProvider";
 import TooltipProvider from "@/components/Tooltip/TooltipProvider";
+import AlertProvider from "@/components/AlertModal/AlertProvider";
+import SpaceProvider from "@/components/_Space/SpaceProvider";
+
+import ModalProvider from "@/components/Modal/ModalProvider";
 import AccountModalProvider from "@/components/AccountModal/AccountModalProvider";
 
 
@@ -21,20 +25,31 @@ import AccountModalProvider from "@/components/AccountModal/AccountModalProvider
 // -------------- //
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
-    <ToastProvider>
-      <TooltipProvider>
-        <PresenceBridge>
-          <MusicProvider>
-            <AccountModalProvider>
+    <MusicProvider>
 
-              <Header />
-              <Friends />
-              <main>{children}</main>
+      <ToastProvider>
+        <TooltipProvider>
+          <AlertProvider>
 
-            </AccountModalProvider>
-          </MusicProvider>
-        </PresenceBridge>
-      </TooltipProvider>
-    </ToastProvider>
+            <ModalProvider>
+              <AccountModalProvider>
+
+                <PresenceBridge>
+                  <SpaceProvider>
+                    <Header />
+                    <Friends />
+                    <main>{children}</main>
+                  </SpaceProvider>
+                </PresenceBridge>
+
+              </AccountModalProvider>
+            </ModalProvider>
+
+          </AlertProvider>
+        </TooltipProvider>
+      </ToastProvider>
+
+    </MusicProvider>
+
   );
 }

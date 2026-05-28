@@ -3,9 +3,10 @@
 ## Fixes
 [] AccountModal: Remove Workspace entry in Sidebar of AccountModal (Not needed probably)
 [] FriendsPanel: Check LiveSync when getting added by another user. Needs a reload currently
+[] App-Layouts: Remove AccountModalProvider from auth-layout. It wont be neccessary here.
 
 ## Implementations
-[] FriendsPanel: Add notification count in TabButton
+[] FriendsPanel: Add notification count in TabButton of Friendspanel aswell.
 [] FriendsPanel: If no related user yet, display some other user, so the field is not empty. Or add a placeholder with text "Search for a user"
 
 
