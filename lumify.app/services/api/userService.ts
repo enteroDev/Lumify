@@ -5,6 +5,10 @@ import { getCsrfFromCookie } from "@/services/utils/auth";
 // Misc
 import { CONFIG } from "@/app/(app)/config/config";
 import { SaveAccountInfoRequest, SaveUserProfileRequest } from "@/models/User";
+// Types
+import type { TodoEntryDTO } from "@/models/todo";
+import type { CalendarEventDTO } from "@/models/Events";
+import type { Note } from "@/models/notes";
 
 const API_BASE = CONFIG.API.API_BASE;
 
@@ -174,7 +178,7 @@ export const UserService = {
 
 
     // --- Get last modified data of user --- //
-    async getLast5ModifiedTodosOfUser() {
+    async getLast5ModifiedTodosOfUser(): Promise<TodoEntryDTO[]> {
 
         const res = await saveFetch(`${API_BASE}/users/get5LastModifiedTodosOfUser`, {
             method: "GET",
@@ -184,10 +188,10 @@ export const UserService = {
             throw new Error("Failed to fetch last modified todos of user");
         }
 
-        return await res.json();
+        return await res.json() as TodoEntryDTO[];
     },
 
-    async getLast5ModifiedEventsOfUser() {
+    async getLast5ModifiedEventsOfUser(): Promise<CalendarEventDTO[]> {
 
         const res = await saveFetch(`${API_BASE}/users/getLast5ModifiedEventsOfUser`, {
             method: "GET",
@@ -197,10 +201,10 @@ export const UserService = {
             throw new Error("Failed to fetch last modified events of user");
         }
 
-        return await res.json();
+        return await res.json() as CalendarEventDTO[];
     },
 
-    async getLast5ModifiedNotesOfUser() {
+    async getLast5ModifiedNotesOfUser(): Promise<Note[]> {
 
         const res = await saveFetch(`${API_BASE}/users/getLast5ModifiedNotesOfUser`, {
             method: "GET",
@@ -210,7 +214,7 @@ export const UserService = {
             throw new Error("Failed to fetch last modified notes of user");
         }
 
-        return await res.json();
+        return await res.json() as Note[];
     },
 
 

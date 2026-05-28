@@ -4,7 +4,17 @@
 // --- Imports --- //
 // --------------- //
 
-
+// React
+import { useEffect, useState } from "react";
+// Services
+import { UserService } from "@/services/api/userService";
+import { TodoService } from "@/services/api/todoService";
+import { EventService } from "@/services/api/eventService";
+import { NoteService } from "@/services/api/noteService";
+// Types
+import type { TodoEntryDTO } from "@/models/todo";
+import type { CalendarEventDTO } from "@/models/Events";
+import type { Note } from "@/models/notes";
 // Components
 import RecentItem from "./components/RecentItem/RecentItem";
 // Icons
@@ -40,6 +50,57 @@ export const c = {
 export default function Recents() {
 
 
+    // -------------- //
+    // --- States --- //
+    // -------------- //
+    const [todos, setTodos] = useState<TodoEntryDTO[]>([]);
+    const [events, setEvents] = useState<CalendarEventDTO[]>([]);
+    const [notes, setNotes] = useState<Note[]>([]);
+
+
+
+    // ------------- //
+    // --- Logic --- //
+    // ------------- //
+    async function loadRecents() {
+
+        const [todosRes, eventsRes, notesRes] = await Promise.all([
+            UserService.getLast5ModifiedTodosOfUser(),
+            UserService.getLast5ModifiedEventsOfUser(),
+            UserService.getLast5ModifiedNotesOfUser(),
+        ]);
+
+        setTodos(todosRes);
+        setEvents(eventsRes);
+        setNotes(notesRes);
+    }
+
+
+    async function getSpaceInfoOfTodoEntry(todoEntryID: string) {
+        const workspace = await TodoService.getSpaceInfosOfTodoEntry(todoEntryID);
+        return workspace;
+    }
+
+    async function getSpaceInfoOfEvent(eventID: string) {
+        const workspace = await EventService.getSpaceInfosOfEvent(eventID);
+        return workspace;
+    }
+
+    async function getSpaceInfoOfNote(noteID: string) {
+        const workspace = await NoteService.getSpaceInfosOfNote(noteID);
+        return workspace;
+    }
+
+
+
+    // --------------- //
+    // --- Effects --- //
+    // --------------- //
+    useEffect(() => {
+        loadRecents();
+    }, []);
+
+
 
     // ----------- //
     // --- JSX --- //
@@ -54,7 +115,7 @@ export default function Recents() {
             {/* BODY */}
             <div className={c.body}>
 
-                {/* Group: Todos */}
+                {/* Group */}
                 <div className={c.group}>
                     {/* GroupHeader */}
                     <div className={c.groupHeader}>
@@ -63,12 +124,18 @@ export default function Recents() {
                     </div>
                     {/* GroupContent */}
                     <div className={c.groupContent}>
-                        {/* Map todos here */}
+                        {todos.map((todo) => (
+                            <RecentItem
+                                key={todo.id}
+                                todo={todo}
+                                getSpaceInfoOfTodoEntry={getSpaceInfoOfTodoEntry}
+                            />
+                        ))}
                     </div>
                 </div>
 
 
-                {/* Group: Events */}
+                {/* Group */}
                 <div className={c.group}>
                     {/* GroupHeader */}
                     <div className={c.groupHeader}>
@@ -77,11 +144,17 @@ export default function Recents() {
                     </div>
                     {/* GroupContent */}
                     <div className={c.groupContent}>
-                        {/* Map events here */}
+                        {events.map((event) => (
+                            <RecentItem
+                                key={event.id}
+                                event={event}
+                                getSpaceInfoOfEvent={getSpaceInfoOfEvent}
+                            />
+                        ))}
                     </div>
                 </div>
 
-                {/* Group: Notes */}
+                {/* Group */}
                 <div className={c.group}>
                     {/* GroupHeader */}
                     <div className={c.groupHeader}>
@@ -90,7 +163,13 @@ export default function Recents() {
                     </div>
                     {/* GroupContent */}
                     <div className={c.groupContent}>
-                        {/* Map notes here */}
+                        {notes.map((note) => (
+                            <RecentItem
+                                key={note.id}
+                                note={note}
+                                getSpaceInfoOfNote={getSpaceInfoOfNote}
+                            />
+                        ))}
                     </div>
                 </div>
 
