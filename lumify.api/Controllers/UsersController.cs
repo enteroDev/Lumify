@@ -171,9 +171,9 @@ namespace lumify.api.Controllers
         // --- GET --- //
         // ----------- //
 
-        // ----------------------
-        // USERINFOS: USER BY ID
-        // ----------------------
+        // ------------
+        // USER BY ID
+        // ------------
 
         // Gets userProfile of specific user by ID
         [HttpGet]
@@ -270,9 +270,9 @@ namespace lumify.api.Controllers
         }
 
 
-        // ------------------------
-        // USERINFOS: CURRENT USER
-        // ------------------------
+        // -------------
+        // CURRENT USER
+        // -------------
 
         // Get userProfile of current User
         [HttpGet]
@@ -338,11 +338,7 @@ namespace lumify.api.Controllers
         }
 
 
-        // ----------------------
-        // AVATAR: CURRENT USER
-        // ----------------------
-
-        // Get avatar of User
+        // Get avatar of current user
         [HttpGet]
         [ActionName("getAvatarOfUser")]
         public async Task<ActionResult<string>> GetAvatarOfUser(CancellationToken ct)
@@ -363,9 +359,8 @@ namespace lumify.api.Controllers
         }
 
 
-        // ---------------------------
-        // RELATED USERS: CURRENT USER
-        // ---------------------------
+
+        // Get related users to current user
         [HttpGet]
         [ActionName("getRelatedUsers")]
         public async Task<IActionResult> GetRelatedUsers(CancellationToken ct)
@@ -413,9 +408,7 @@ namespace lumify.api.Controllers
         }
 
 
-        // ---------------------------
-        // RECENTS: CURRENT USER
-        // ---------------------------
+        // Get recent TODO-activities of current user
         [HttpGet]
         [ActionName("get5LastModifiedTodosOfUser")]
         public async Task<IActionResult> Get5LastModifiedTodosOfUser(CancellationToken ct)
@@ -442,6 +435,7 @@ namespace lumify.api.Controllers
             return Ok(todos);
         }
 
+        // Get recent Event-activities of current user
         [HttpGet]
         [ActionName("getLast5ModifiedEventsOfUser")]
         public async Task<IActionResult> GetLast5ModifiedEventsOfUser(CancellationToken ct)
@@ -475,6 +469,7 @@ namespace lumify.api.Controllers
             return Ok(events);
         }
 
+        // Get recent Note-activities of current user
         [HttpGet]
         [ActionName("getLast5ModifiedNotesOfUser")]
         public async Task<IActionResult> GetLast5ModifiedNotesOfUser(CancellationToken ct)
@@ -625,7 +620,6 @@ namespace lumify.api.Controllers
 
             return Ok(users);
         }
-
 
 
 
