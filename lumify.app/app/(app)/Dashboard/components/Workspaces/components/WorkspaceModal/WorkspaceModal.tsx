@@ -8,13 +8,16 @@
 import { useState, useEffect } from "react";
 // Services
 import { WorkspaceService } from "@/services/api/workspaceService";
+import { UserService } from "@/services/api/userService";
 // Provider
 import { useToast } from "@/components/Toast/ToastProvider";
 import { useAlert } from "@/components/AlertModal/AlertProvider";
 // Components
 import Header from "./components/Header/Header";
+import ActionBar from "./components/ActionBar/ActionBar";
 // Models
 import type { WorkspaceVM, WorkspaceMembersDTO } from "@/models/Space";
+import type { RelatedUserDTO } from "@/models/User";
 // Styles
 import styles from "./WorkspaceModal.module.css";
 
@@ -59,6 +62,35 @@ export default function WorkspaceModal({
 
     const [name, setName] = useState(workspace.name ?? "");
     const [members, setMembers] = useState<WorkspaceMembersDTO[]>([]);
+    const [relatedUsers, setRelatedUsers] = useState<RelatedUserDTO[]>([]);
+    const [isAddMemberOpen, setIsAddMemberOpen] = useState(false);
+
+    const [memberSearchValue, setMemberSearchValue] = useState("");
+
+    const [userSearchValue, setUserSearchValue] = useState("");
+    const [debouncedUserSearchValue, setDebouncedUserSearchValue] = useState("");
+
+
+
+    // ----------------- //
+    // --- UI-Helper --- //
+    // ----------------- //
+    const showAddMemberOverlay = async () => {
+        setIsAddMemberOpen(true);
+
+        // Initially load related users of the current user if available.
+        if (relatedUsers.length === 0) {
+            await getRelatedUsers();
+        }
+    };
+
+    const closeAddMemberOverlay = () => {
+        setIsAddMemberOpen(false);
+
+        // Clear search values
+        setUserSearchValue("");
+        setDebouncedUserSearchValue("");
+    };
 
 
 
@@ -85,6 +117,29 @@ export default function WorkspaceModal({
 
         } catch (error) {
             console.error("Failed to save workspace", error);
+        }
+    };
+
+    const addWorkspaceMember = async (userID: string) => {
+        if (!userID.trim()) { return; }
+
+        try {
+            await WorkspaceService.addWorkspaceMember({
+                workspaceID: workspace.id,
+                userID: userID,
+            });
+
+            const updatedMembers = await WorkspaceService.getWorkspaceMembers(workspace.id);
+            setMembers(updatedMembers);
+            onMemberCountChanged?.(workspace.id, updatedMembers.length);
+
+            closeAddMemberOverlay();
+
+            toast.success("User erfolgreich zu Workspace hinzugefügt.");
+
+        } catch (error) {
+            toast.error("Fehler beim hinzufügen des Workspaces");
+            console.error("Failed to add workspace member", error);
         }
     };
 
@@ -121,6 +176,32 @@ export default function WorkspaceModal({
         });
     };
 
+    const searchAvailableUsersForWorkspace = async () => {
+        if (!workspace.id.trim()) {
+            console.error("No workspaceID was given");
+            return;
+        }
+
+        try {
+            const users = await UserService.searchAvailableUsersForWorkspace(workspace.id, debouncedUserSearchValue);
+            setRelatedUsers(users);
+
+        } catch (error) {
+            console.error("Failed to search available users for workspace", error);
+            setRelatedUsers([]);
+        }
+    };
+
+    const getRelatedUsers = async () => {
+        try {
+            const relatedUsers = await UserService.getRelatedUsers();
+            setRelatedUsers(relatedUsers);
+
+        } catch (error) {
+            console.error("Failed to fetch related users", error);
+        }
+    };
+
     const loadMembers = async () => {
         try {
             const data = await WorkspaceService.getWorkspaceMembers(workspace.id);
@@ -141,6 +222,39 @@ export default function WorkspaceModal({
     useEffect(() => {
         void loadMembers();
     }, []);
+
+    // Debounce userSearch
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setDebouncedUserSearchValue(userSearchValue.trim().toLowerCase());
+        }, 300);
+
+        return () => clearTimeout(timeout);
+    }, [userSearchValue]);
+
+    useEffect(() => {
+        if (!isAddMemberOpen) {
+            return;
+        }
+
+        if (!debouncedUserSearchValue) {
+            void getRelatedUsers();
+            return;
+        }
+
+        void searchAvailableUsersForWorkspace();
+    }, [debouncedUserSearchValue, isAddMemberOpen]);
+
+
+
+    // ---------------- //
+    // --- Computed --- //
+    // ---------------- //
+
+    // Filter users away that are already in the current Workspace
+    const filteredRelatedUsers = relatedUsers.filter(user =>
+        !members.some(member => member.userID === user.userID)
+    );
 
 
 
@@ -164,7 +278,20 @@ export default function WorkspaceModal({
 
                 {/* BODY */}
                 <div className={c.body}>
+                    <ActionBar
+                        memberSearchValue={memberSearchValue}
+                        onMemberSearchChange={setMemberSearchValue}
 
+                        userSearchValue={userSearchValue}
+                        onUserSearchChange={setUserSearchValue}
+
+                        isAddMemberOpen={isAddMemberOpen}
+                        relatedUsers={filteredRelatedUsers}
+
+                        onShowAddMemberOverlay={showAddMemberOverlay}
+                        onCloseAddMemberOverlay={closeAddMemberOverlay}
+                        onAddMember={addWorkspaceMember}
+                    />
                 </div>
 
 

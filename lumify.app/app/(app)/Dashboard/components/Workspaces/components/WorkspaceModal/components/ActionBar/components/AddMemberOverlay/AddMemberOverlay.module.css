@@ -1,0 +1,165 @@
+.container {
+    position: absolute;
+    top: 40px;
+    right: -1px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    width: 243px;
+    height: 260px;
+
+    padding: 8px 8px 10px 8px;
+
+    background-color: var(--color-pill);
+    border: 1px solid #8f82ce;
+    border-radius: 8px;
+
+    box-shadow: 0 4px 12px rgba(100, 100, 100, 0.35),
+            0 8px 24px rgba(82, 82, 82, 0.15);
+    
+    color: var(--color-creamWhite);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    box-sizing: border-box;
+
+    z-index: 500;
+}
+
+.containerOpen {
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+
+
+
+.header {
+    display: flex;
+    justify-content: space-between;     
+    align-items: center;
+
+    height: 25px;
+}
+
+.title {
+    font-size: 0.9rem;
+    line-height: 1px;
+
+    color: var(--color-creamWhite);
+}
+
+.closeButton {
+    color: var(--color-creamWhite);
+}
+
+.closeButton svg {
+    height: 15px;
+    width: 15px;
+
+    fill: var(--color-creamWhite);
+
+    opacity: 0.8;
+}
+.closeButton:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.closeButton:active {
+    transform: scale(1.08);
+}
+
+
+
+
+.body {
+    display: flex;
+    flex-direction: column;
+    
+    gap: 10px;
+
+    height: 100%;
+    width: 100%;
+    min-height: 0;
+}
+
+.searchBar {
+    display: flex;
+
+    height: 33px;
+    width: 100%;
+
+    padding: 2px 5px;
+
+    border-radius: 10px;
+    border: 1px solid rgba(200,200,200,0.8);
+}
+.searchBar:focus-within {
+    border: 1px solid var(--color-highlight);
+}
+
+.searchIcon {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 40px;
+}
+.searchIcon svg {
+    height: 25px;
+    width: 25px;
+
+    color: var(--color-creamWhite);
+
+    stroke-width: 2;
+}
+.searchBar:hover .searchIcon svg {
+    color: var(--color-highlight);
+}
+.searchBar:focus-within .searchIcon svg {
+    color: var(--color-highlight);
+}
+
+.input {
+    height: 100%;
+    width: 100%;
+
+    outline: none;
+    padding: 2px 5px;
+
+    color: var(--color-creamWhite);
+}
+
+
+
+
+.userListScroll {
+    flex: 1;
+    min-height: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 3px;
+
+    border-radius: 8px;
+    border: 1px solid rgba(200,200,200,0.8);
+}
+
+.userList {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1px;
+
+    width: 100%;
+
+    overflow: hidden;
+}
+
