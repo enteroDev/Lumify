@@ -4,12 +4,10 @@
 // --- Imports --- //
 // --------------- //
 
-// React
-import { useState } from "react";
 // Components
 import FriendsPanel from "@/components/FriendsPanel/FriendsPanel";
-// Models
-import type { SelectedChatUserVM } from "@/models/Chat";
+// Context
+import { useFriendsOverlay } from "@/components/FriendsOverlay/FriendsOverlay";
 // Styles
 import styles from "./Friends.module.css";
 
@@ -31,25 +29,14 @@ export const c = {
 // ----------------- //
 export default function Friends() {
 
-
-    const [selectedChatUser, setSelectedChatUser] = useState<SelectedChatUserVM | null>(null);
-
-
-    // --------------- //
-    // --- Handler --- //
-    // --------------- //
-    function handleOpenChat(selectedUser: SelectedChatUserVM) {
-        setSelectedChatUser(selectedUser);
-        // Logic to open chat panel here.
-    }
-
+    const { openChat } = useFriendsOverlay();
 
     return (
         <div className={c.container}>
             <div className={c.header}>Freunde</div>
 
             <div className={c.body}>
-                <FriendsPanel onOpenChat={handleOpenChat}/>
+                <FriendsPanel onOpenChat={openChat} />
             </div>
         </div>
     );

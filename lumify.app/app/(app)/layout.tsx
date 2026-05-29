@@ -37,8 +37,9 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 <PresenceBridge>
                   <SpaceProvider>
                     <Header />
-                    <Friends />
-                    <main>{children}</main>
+                    <Friends>
+                      <main>{children}</main>
+                    </Friends>
                   </SpaceProvider>
                 </PresenceBridge>
 

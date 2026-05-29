@@ -5,7 +5,7 @@
 // --------------- //
 
 // React
-import { useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 // Services
 import { FriendshipService } from "@/services/api/friendshipService";
 // Components
@@ -16,6 +16,23 @@ import ChatSection from "@/components/FriendsOverlay/components/ChatSection/Chat
 import type { SelectedChatUserVM } from "@/models/Chat";
 // Styles
 import styles from "./FriendsOverlay.module.css";
+
+
+
+// --------------- //
+// --- Context --- //
+// --------------- //
+type FriendsOverlayContextType = {
+    openChat: (user: SelectedChatUserVM) => void;
+};
+
+const FriendsOverlayContext = createContext<FriendsOverlayContextType | null>(null);
+
+export function useFriendsOverlay() {
+    const ctx = useContext(FriendsOverlayContext);
+    if (!ctx) throw new Error("useFriendsOverlay must be used within FriendsOverlay");
+    return ctx;
+}
 
 
 
@@ -40,7 +57,7 @@ export const c = {
 // ----------------- //
 // --- Component --- //
 // ----------------- //
-export default function FriendsOverlay() {
+export default function FriendsOverlay({ children }: { children?: React.ReactNode }) {
 
 
     const [notificationCount, setNotificationCount] = useState(0);
@@ -80,7 +97,17 @@ export default function FriendsOverlay() {
     // --------------- //
     function handleOpenChat(selectedUser: SelectedChatUserVM) {
         setSelectedChatUser(selectedUser);
-        setIsChatPanelOpen(true);
+
+        if (!isExpanded) {
+            setIsExpanded(true);
+            window.setTimeout(() => {
+                setIsFriendPanelOpen(true);
+                setIsChatPanelOpen(true);
+            }, 250);
+        } else {
+            setIsFriendPanelOpen(true);
+            setIsChatPanelOpen(true);
+        }
     }
 
     function handleCloseChat() {
@@ -119,18 +146,22 @@ export default function FriendsOverlay() {
     // --- JSX --- //
     // ----------- //
     return (
-        <div className={`${c.container} ${isExpanded ? c.containerExpanded : ""}`}>
-            <div className={c.trigger}>
-                <Trigger onToggle={toggleFriends} notificationCount={notificationCount} />
+        <FriendsOverlayContext.Provider value={{ openChat: handleOpenChat }}>
+            <div className={`${c.container} ${isExpanded ? c.containerExpanded : ""}`}>
+                <div className={c.trigger}>
+                    <Trigger onToggle={toggleFriends} notificationCount={notificationCount} />
+                </div>
+
+                <div className={`${c.dropClosed} ${isFriendPanelOpen ? c.dropOpened : ""}`}>
+                    <FriendsSection onOpenChat={handleOpenChat} />
+                </div>
+
+                <div className={`${c.chatClosed} ${isChatPanelOpen ? c.chatOpened : ""}`}>
+                    <ChatSection selectedChatUser={selectedChatUser} onCloseChat={handleCloseChat} />
+                </div>
             </div>
 
-            <div className={`${c.dropClosed} ${isFriendPanelOpen ? c.dropOpened : ""}`}>
-                <FriendsSection onOpenChat={handleOpenChat} />
-            </div>
-
-            <div className={`${c.chatClosed} ${isChatPanelOpen ? c.chatOpened : ""}`}>
-                <ChatSection selectedChatUser={selectedChatUser} onCloseChat={handleCloseChat} />
-            </div>
-        </div>
+            {children}
+        </FriendsOverlayContext.Provider>
     );
 }
