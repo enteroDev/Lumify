@@ -213,6 +213,12 @@ main::before{
   flex-direction: column;
   align-items: center;
 }
+.content-fullHeightAlt {
+  flex-direction: column;
+  align-items: center;
+  height: 90vh;
+  padding-top: 50px;
+}
 
 
 .bg-overlay {

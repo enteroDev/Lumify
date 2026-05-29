@@ -1,0 +1,95 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.heading {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  font-family: var(--font-borel), sans-serif;
+  font-size: 3rem;
+  text-align: center;               /* hard contrast in the core */
+  letter-spacing: 0.02em;
+  line-height: 0.8;
+
+  color: var(--color-creamWhite); /* Adjust to currently used font */
+
+  /* hard + soft glow */
+  text-shadow:
+    0 0 2px rgba(255,255,255,0.6),
+    0 0 14px rgba(255, 162, 40, 0.6),
+    0 0 50px rgba(255, 162, 40, 0.25);
+}
+
+/* Soft top light source */
+.heading::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -60px;                 /* moved further down */
+  width: 900px;               /* wide spread */
+  height: 420px;
+  transform: translate(-50%, -50% );
+  z-index: -1;
+  pointer-events: none;
+
+  /* central light dome */
+  background: radial-gradient(
+    ellipse at 50% 80%,       /* center slightly below the top edge */
+    rgba(255, 162, 40, 0.808) 5%,
+    rgba(255, 162, 40, 0.5) 10%,
+    rgba(255, 162, 40, 0.2) 30%,
+    rgba(255, 162, 40, 0.2) 50%,
+    rgba(255, 162, 40, 0.1) 70%,
+    rgba(255, 162, 40, 0.0) 85%
+  );
+
+  filter: blur(60px);
+  opacity: 0.3;
+}
+
+
+
+
+
+.spaceTag {
+  margin-top: 10px;
+  align-self: center;
+
+  padding: 6px 16px;
+
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+
+  color: var(--color-creamWhite);
+
+  border-radius: 999px;
+
+  backdrop-filter: blur(6px);
+}
+
+
+/* --- Workspace/Public (Orange) --- */
+.spaceTagPublic {
+  background: var(--color-workspace-bg);
+  border: 1px solid var(--color-workspace-border);
+
+  text-shadow:
+    0 0 6px var(--color-workspace-border);
+}
+
+
+/* --- Private (Blue) --- */
+.spaceTagPrivate {
+  background: var(--color-privatespace-bg);
+  border: 1px solid var(--color-privatespace-border);
+
+  text-shadow:
+    0 0 6px var(--color-privatespace-border);
+}

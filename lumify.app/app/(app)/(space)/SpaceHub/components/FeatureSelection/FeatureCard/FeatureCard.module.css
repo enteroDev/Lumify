@@ -1,0 +1,54 @@
+.container {
+    display: flex; 
+    flex-direction: column;
+    gap: 15px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: #3a2f66;
+    border: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+.container:hover {
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 2px 35px color-mix(in srgb, var(--color-highlight) 20%, transparent);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.previewArea {
+    display: flex;
+    height: 350px;
+    align-items: center;
+    justify-content: center;
+}
+
+.previewImage {
+    object-fit: contain;
+    padding: 60px;
+}
+/* SVG-Config of previewImage */
+.previewImage path {
+    fill: var(--color-creamWhite);
+    stroke: none;
+}
+
+.infoArea {
+    display: flex;
+    height: 50px;
+    background-color: var(--color-highlight) ;
+    color: #2e2e2e;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.infoLabel {
+    display: flex;
+}
+
+.infoValue {
+    font-weight: bold;
+}
+
