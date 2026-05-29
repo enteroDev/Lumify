@@ -35,6 +35,7 @@ export type RelatedUserDTO = {
     displayName: string;
     username: string;
     email: string;
+    presenceStatus?: PresenceStatus;
 };
 
 

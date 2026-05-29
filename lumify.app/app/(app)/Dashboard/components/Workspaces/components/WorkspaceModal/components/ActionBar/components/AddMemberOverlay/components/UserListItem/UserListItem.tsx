@@ -6,7 +6,10 @@
 
 // Provider
 import { useTooltip } from "@/components/Tooltip/TooltipProvider";
-
+// Components
+import AvatarBubble from "@/components/Avatar/Avatar";
+// Models
+import type { PresenceStatus } from "@/models/User";
 // Styles
 import styles from "./UserListItem.module.css";
 
@@ -16,6 +19,8 @@ import styles from "./UserListItem.module.css";
 // ------------------- //
 const c = {
     container:          styles["container"],
+
+    avatarArea:         styles["avatarArea"],
 
     infoArea:           styles["infoArea"],
     name:               styles["name"],
@@ -27,9 +32,11 @@ const c = {
 
 export type UserListItemProps = {
     userID: string;
+    avatarUrl?: string | null;
     displayName: string;
     username: string;
     email: string;
+    presenceStatus?: PresenceStatus;
     onAddMember: (userID: string) => void;
 };
 
@@ -40,11 +47,14 @@ export type UserListItemProps = {
 // ----------------- //
 export default function UserListItem({
     userID,
+    avatarUrl,
     displayName,
     username,
     email,
+    presenceStatus,
     onAddMember,
 }: UserListItemProps) {
+
 
     const { showTooltip, hideTooltip } = useTooltip();
 
@@ -53,17 +63,17 @@ export default function UserListItem({
     // --- UI-Helpers --- //
     // ------------------ //
     const renderName = () => {
-        if (!displayName){
+        if (!displayName) {
             return username;
         }
 
         return displayName;
-    } 
+    };
 
 
-    // ----------------- //
-    // --- UI-Helper --- //
-    // ----------------- //
+    // --------------- //
+    // --- Handler --- //
+    // --------------- //
     const handleTooltipMove = (e: React.MouseEvent<HTMLElement>, text: string) => {
         showTooltip({
             text,
@@ -72,10 +82,6 @@ export default function UserListItem({
         });
     };
 
-
-    // ------------------- //
-    // --- Handlers --- //
-    // ------------------- //
     const handleAddMember = () => {
         onAddMember(userID);
     };
@@ -86,13 +92,22 @@ export default function UserListItem({
     // ----------- //
     return (
         <div className={c.container}>
+            <div className={c.avatarArea}>
+                <AvatarBubble
+                    avatarUrl={avatarUrl}
+                    displayName={displayName}
+                    presenceStatus={presenceStatus}
+                />
+            </div>
+
             <div className={c.infoArea}>
                 <div className={c.name}>{renderName()}</div>
                 <div className={c.info}>{email}</div>
             </div>
+
             <div className={c.actionArea}>
-                <button 
-                    className={c.button} 
+                <button
+                    className={c.button}
 
                     onMouseEnter={(e) => handleTooltipMove(e, "Member hinzufügen")}
                     onMouseMove={(e) => handleTooltipMove(e, "Member hinzufügen")}

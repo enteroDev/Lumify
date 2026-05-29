@@ -82,12 +82,12 @@ export default function AddMemberOverlay({
                 <div className={c.title}>Member hinzufügen</div>
                 <button className={c.closeButton} onClick={onClose}><CloseIcon /></button>
             </div>
-            
+
             <div className={c.body}>
                 <div className={c.searchBar}>
                     <div className={c.searchIcon}><SearchIcon /></div>
-                    <input 
-                        className={c.input} 
+                    <input
+                        className={c.input}
                         placeholder="Suche User"
                         value={userSearchValue}
                         onChange={(e) => onUserSearchChange(e.target.value)}
@@ -100,15 +100,17 @@ export default function AddMemberOverlay({
                             <UserListItem
                                 key={user.userID}
                                 userID={user.userID}
+                                avatarUrl={user.avatarUrl}
                                 displayName={user.displayName}
                                 username={user.username}
                                 email={user.email}
+                                presenceStatus={user.presenceStatus}
                                 onAddMember={onAddMember}
                             />
                         ))}
                     </div>
                 </div>
-            </div>     
+            </div>
         </div>
     );
 }

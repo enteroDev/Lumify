@@ -11,34 +11,61 @@
     border-radius: 8px;
     background-color: var(--color-bar);
 }
+
 .container:hover {
     color: var(--color-highlight);
 }
+
+
+
+
+.avatarArea {
+    display: flex;
+    flex-shrink: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 55px;
+    height: 100%;
+}
+
+
 
 
 .infoArea {
     display: flex;
     flex-direction: column;
 
-    gap: -0px;
-    width: 100%;
-
-    padding: 2px 10px;
-
     justify-content: center;
+
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+
+    padding: 2px 10px 2px 0;
 }
 
 .name {
-    min-width: 50px;
-    width: 50px;
+    max-width: 100%;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
     font-size: 0.95rem;
     font-weight: bold;
-    letter-spacing: 0.3;
+    letter-spacing: 0.3px;
     line-height: 1.1;
 }
 
 .info {
+    max-width: 100%;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
     font-size: 0.85rem;
     line-height: 1.1;
 
@@ -50,9 +77,13 @@
 
 .actionArea {
     display: flex;
+    flex-shrink: 0;
+
+    align-items: center;
     justify-content: flex-end;
 
-    width: 100%;
+    width: 45px;
+    height: 100%;
 
     padding-right: 5px;
 }
@@ -66,6 +97,7 @@
     background-color: rgb(143, 140, 140);
     color: var(--color-bar);
 }
+
 .button:hover {
     cursor: pointer;
     background-color: var(--color-success);

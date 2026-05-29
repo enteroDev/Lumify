@@ -618,6 +618,11 @@ namespace lumify.api.Controllers
                 })
                 .ToListAsync(ct);
 
+            foreach (var user in users)
+            {
+                user.PresenceStatus = _presenceService.GetPresenceStatus(user.UserID);
+            }
+
             return Ok(users);
         }
 

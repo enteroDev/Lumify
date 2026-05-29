@@ -15,6 +15,7 @@ import { useAlert } from "@/components/AlertModal/AlertProvider";
 // Components
 import Header from "./components/Header/Header";
 import ActionBar from "./components/ActionBar/ActionBar";
+import MemberList from "./components/MemberList/MemberList";
 // Models
 import type { WorkspaceVM, WorkspaceMembersDTO } from "@/models/Space";
 import type { RelatedUserDTO } from "@/models/User";
@@ -34,6 +35,13 @@ const c = {
     title:              styles["title"],
 
     body:               styles["body"],
+
+    titleBar:           styles["titleBar"],
+    actionArea:         styles["actionArea"],
+    searchBar:          styles["searchBar"],
+    input:              styles["input"],
+    searchIcon:         styles["searchIcon"],
+    button:             styles["button"],
 
     footer:             styles["footer"],
 } as const;
@@ -66,6 +74,7 @@ export default function WorkspaceModal({
     const [isAddMemberOpen, setIsAddMemberOpen] = useState(false);
 
     const [memberSearchValue, setMemberSearchValue] = useState("");
+    const [debouncedMemberSearchValue, setDebouncedMemberSearchValue] = useState("");
 
     const [userSearchValue, setUserSearchValue] = useState("");
     const [debouncedUserSearchValue, setDebouncedUserSearchValue] = useState("");
@@ -91,7 +100,6 @@ export default function WorkspaceModal({
         setUserSearchValue("");
         setDebouncedUserSearchValue("");
     };
-
 
 
     // ------------- //
@@ -223,6 +231,15 @@ export default function WorkspaceModal({
         void loadMembers();
     }, []);
 
+    // Debounce memberSearch
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setDebouncedMemberSearchValue(memberSearchValue.trim().toLowerCase());
+        }, 300);
+
+        return () => clearTimeout(timeout);
+    }, [memberSearchValue]);
+
     // Debounce userSearch
     useEffect(() => {
         const timeout = setTimeout(() => {
@@ -247,6 +264,8 @@ export default function WorkspaceModal({
 
 
 
+
+
     // ---------------- //
     // --- Computed --- //
     // ---------------- //
@@ -255,6 +274,16 @@ export default function WorkspaceModal({
     const filteredRelatedUsers = relatedUsers.filter(user =>
         !members.some(member => member.userID === user.userID)
     );
+
+    const filteredMembers = members.filter(member => {
+        const effectiveName = (member.displayName || member.username || "").toLowerCase();
+
+        if (!debouncedMemberSearchValue) {
+            return true;
+        }
+
+        return effectiveName.includes(debouncedMemberSearchValue);
+    });
 
 
 
@@ -291,6 +320,10 @@ export default function WorkspaceModal({
                         onShowAddMemberOverlay={showAddMemberOverlay}
                         onCloseAddMemberOverlay={closeAddMemberOverlay}
                         onAddMember={addWorkspaceMember}
+                    />
+                    <MemberList
+                        members={filteredMembers}
+                        onRemoveMember={removeWorkspaceMember}
                     />
                 </div>
 

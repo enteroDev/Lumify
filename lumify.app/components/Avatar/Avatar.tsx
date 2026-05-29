@@ -33,6 +33,7 @@ export const c = {
 
     avatar:             styles["avatar"],
     presenceIndicator:  styles["presenceIndicator"],
+    
     indicatorOnline:    styles["indicator-online"],
     indicatorOffline:   styles["indicator-offline"],
     indicatorIdle:      styles["indicator-idle"],
@@ -42,7 +43,7 @@ export const c = {
 type AvatarProps = {
     avatarUrl?: string | null;
     displayName: string;
-    presenceStatus: PresenceStatus;
+    presenceStatus?: PresenceStatus;
 };
 
 
@@ -53,7 +54,7 @@ type AvatarProps = {
 export default function Avatar({
     avatarUrl,
     displayName,
-    presenceStatus,
+    presenceStatus = PresenceStatus.Offline,
 }: AvatarProps) {
 
     const { showTooltip, hideTooltip } = useTooltip();
