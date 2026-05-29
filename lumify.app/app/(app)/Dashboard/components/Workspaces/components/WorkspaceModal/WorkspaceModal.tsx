@@ -11,6 +11,8 @@ import { WorkspaceService } from "@/services/api/workspaceService";
 // Provider
 import { useToast } from "@/components/Toast/ToastProvider";
 import { useAlert } from "@/components/AlertModal/AlertProvider";
+// Components
+import Header from "./components/Header/Header";
 // Models
 import type { WorkspaceVM, WorkspaceMembersDTO } from "@/models/Space";
 // Styles
@@ -151,7 +153,11 @@ export default function WorkspaceModal({
 
                 {/* HEADER */}
                 <div className={c.header}>
-
+                    <Header
+                        workspace={workspace}
+                        onClose={onClose}
+                        onSaveWorkspace={saveWorkspace}
+                    />
                 </div>
                 <div className="spacer-h-20"></div>
 
