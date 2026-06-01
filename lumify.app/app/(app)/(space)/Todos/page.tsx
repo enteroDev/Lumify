@@ -8,6 +8,7 @@
 import { useState, useEffect } from "react";
 // Components
 import SidePanel from "@/components/SidePanel/SidePanel";
+import TodoCollection from "./components/TodoCollection/TodoCollection";
 // Provider
 import { useSpace } from "@/components/_Space/SpaceProvider";
 import { useToast } from "../../../../components/Toast/ToastProvider";
@@ -440,6 +441,11 @@ export default function Todos() {
     return (
         <div className="scrollView">
             <div className="content">
+                <SidePanel title="Übersicht">
+                    <TodoCollection
+                        todoLists={todoLists}
+                    />
+                </SidePanel>
 
             </div>
         </div>

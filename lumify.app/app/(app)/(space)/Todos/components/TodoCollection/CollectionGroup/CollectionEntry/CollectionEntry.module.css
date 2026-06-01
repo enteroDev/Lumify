@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    width: 100%;
+    border-radius: 5px;
+    background-color: rgba(200,200,200,0.1);
+}
+.container:hover {
+    background-color: var(--color-highlight);
+    cursor: pointer;
+}
+.container:hover .title {
+    color: var(--color-infoText-dark);
+}
+.container:hover .status svg{
+    color: var(--color-infoText-dark);
+    stroke: var(--color-infoText-dark);
+}
+
+.title {
+    display: flex;
+    flex: 1 0 auto;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 10px;
+    font-weight: 500;
+}
+
+.status {
+    display: flex;
+    flex: 0 0 auto;
+    font-size: 12px;
+    color: var(--color-pending);
+    padding: 5px 10px;
+}
+.status svg {
+    width: 20px;
+    height: 20px;
+}
+.pending .status svg {
+    color: var(--color-pending);
+    stroke: var(--color-pending);
+}
+.pending:hover .status svg path {
+    stroke-width: 2px;
+}
+.pending .indicator {
+    background-color: var(--color-pending);
+}
+.completed .status svg {
+    color: var(--color-done);
+    stroke: var(--color-done);
+    stroke-width: 5px;
+}
+.completed:hover .status svg path {
+    stroke-width: 2px;
+}
+.completed .indicator {
+    background-color: var(--color-done);
+}
+
+
+.indicator {
+    display: flex;
+    flex: 0 0 auto;
+    width: 10px;
+    height: 100%;
+    border-left: 1px solid rgba(200,200,200,0.2);
+    border-radius: 0px 5px 5px 0px;
+    background-color: var(--color-pending);
+}

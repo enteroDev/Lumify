@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title {
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: var(--color-pill);
+    font-size: 0.95rem;
+    letter-spacing: 0.03rem;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
