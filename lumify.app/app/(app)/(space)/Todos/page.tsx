@@ -14,6 +14,8 @@ import { useToast } from "../../../../components/Toast/ToastProvider";
 import { useAlert } from "../../../../components/AlertModal/AlertProvider";
 // Service
 import { TodoService } from "@/services/api/todoService";
+// Hooks
+import { useTodoHub } from "@/hooks/useTodoHub";
 // Models
 import type { TodoListDTO, TodoEntryDTO } from "@/models/todo";
 import { TODO_STATUS } from "@/models/todo";
@@ -82,6 +84,62 @@ export default function Todos() {
         return () => { cancelled = true; };
 
     }, [isPrivate, workspaceID]);
+
+
+
+    // ------------- //
+    // --- Hooks --- //
+    // ------------- //
+    useTodoHub({
+        isPrivate,
+        workspaceID,
+
+        onTodoListCreated: (todoList) => {
+            setTodoLists(prev => {
+                const exists = prev.some(x => x.id === todoList.id);
+                if (exists) { return prev; }
+
+                return [...prev, todoList];
+            });
+        },
+
+        onTodoListUpdated: (todoList) => {
+            setTodoLists(prev => prev.map(x => {
+                if (x.id !== todoList.id) { return x; }
+                return todoList;
+            }));
+        },
+
+        onTodoListDeleted: ({ todoListID }) => {
+            setTodoLists(prev => prev.filter(x => x.id !== todoListID));
+            setTodoEntries(prev => prev.filter(x => x.todoListID !== todoListID));
+
+            setEditingTodoListID(prev => {
+                if (prev !== todoListID) { return prev; }
+                return null;
+            });
+        },
+
+        onTodoEntryCreated: (todoEntry) => {
+            setTodoEntries(prev => {
+                const exists = prev.some(x => x.id === todoEntry.id);
+                if (exists) { return prev; }
+
+                return [...prev, todoEntry];
+            });
+        },
+
+        onTodoEntryUpdated: (todoEntry) => {
+            setTodoEntries(prev => prev.map(x => {
+                if (x.id !== todoEntry.id) { return x; }
+                return todoEntry;
+            }));
+        },
+
+        onTodoEntryDeleted: ({ todoEntryID }) => {
+            setTodoEntries(prev => prev.filter(x => x.id !== todoEntryID));
+        },
+    });
 
 
 
