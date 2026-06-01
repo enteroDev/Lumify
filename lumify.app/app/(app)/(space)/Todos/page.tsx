@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 // Components
 import SidePanel from "@/components/SidePanel/SidePanel";
 import TodoCollection from "./components/TodoCollection/TodoCollection";
+import TodoBoard from "./components/TodoBoard/TodoBoard";
 // Provider
 import { useSpace } from "@/components/_Space/SpaceProvider";
 import { useToast } from "../../../../components/Toast/ToastProvider";
@@ -447,6 +448,27 @@ export default function Todos() {
                     />
                 </SidePanel>
 
+                <TodoBoard
+                    todoLists={todoLists}
+                    todoEntries={todoEntries}
+                    editingTodoListID={editingTodoListID}
+                    editingTodoEntryID={editingTodoEntryID}
+
+                    onStartEditTodoList={startEditTodoList}
+                    onCancelEditTodoList={cancelEditTodoList}
+                    onCancelEditTodoEntry={cancelEditTodoEntry}
+
+                    onCreateDraftTodoList={createDraftTodoList}
+                    onAddTodoList={addTodoList}
+                    onSaveTodoList={saveTodoList}
+
+                    onCreateDraftTodoEntry={createDraftTodoEntry}
+                    onAddTodoEntry={addTodoEntry}
+                    onSaveTodoEntry={saveTodoEntry}
+
+                    ondeleteTodoList={deleteTodoList}
+                    onDeleteTodoEntry={deleteTodoEntry}
+                />
             </div>
         </div>
     );
