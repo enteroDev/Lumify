@@ -1,0 +1,34 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.custom-area {
+    display: flex;
+    gap: 5px;
+    flex: 1;
+}
+
+.delete-area {
+    display: flex;
+    flex: 0;
+    width: 40px;
+    justify-content: center;
+    align-content: center;
+}
+
+
+
+.action-button {
+    height: 25px;
+    width: 25px;
+    color: var(--color-creamWhite);
+}
+.action-button:hover {
+    cursor: pointer;
+    color: var(--color-highlight);
+}

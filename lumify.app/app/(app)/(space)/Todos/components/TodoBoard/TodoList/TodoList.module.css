@@ -1,0 +1,197 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    min-width: 200px;
+    height: 300px;
+    min-height: 250px;
+    border-radius: 7px;
+    border: 2px solid  var(--color-pill);
+    background-color: var(--color-purple-dark);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    gap: 5px;
+}
+
+
+
+
+.header {
+    display: flex;
+    flex-shrink: 0;
+
+    align-items: center;
+    justify-content: space-between;
+
+    height: 30px;
+
+    padding: 0 10px;
+    margin: 9px;
+    gap: 10px;
+
+    border-radius: 15px;
+    background-color: var(--color-bar);
+    color: var(--color-creamWhite);
+
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 0.03rem;
+    line-height: 1;
+
+    opacity: 0.9;
+    box-sizing: border-box;
+}
+.header > * {
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+.titleArea {
+    display: flex;
+    flex: 1;
+    align-items: center;
+
+    min-width: 0;
+}
+
+.actionArea {
+    display: flex;
+    flex-shrink: 0;
+
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.editWrap {
+    display: flex;
+    flex: 1;
+
+    align-items: center;
+    gap: 5px;
+
+    width: 100%;
+    min-width: 0;
+}
+
+/* Input TodoListTitle */
+.titleInput {
+    flex: 1;
+    min-width: 0;
+    padding: 1px 8px;
+    padding-top: 2px;
+
+    border: none;
+    outline: none;
+
+    border-radius: 5px;
+    background-color: rgba(200,200,200,0.2);
+
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: var(--color-creamWhite);
+}
+
+/* ActionArea bleibt wie gehabt, nur Buttons stylen */
+.saveButton,
+.abortButton,
+.editButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    color: var(--color-creamWhite);
+    stroke: var(--color-creamWhite);
+
+    transition: transform 0.15s ease;
+    transform-origin: center;
+}
+
+.saveButton svg,
+.abortButton svg,
+.editButton svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Hover / Feedback */
+.saveButton:hover,
+.abortButton:hover,
+.editButton:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+.saveButton:active,
+.abortButton:active,
+.editButton:active {
+    transform: scale(1.05);
+}
+
+.editButton {
+    padding: 0px;
+}
+.editButton svg {
+    height: 20px;
+    width: 20px;
+}
+
+
+
+
+
+.body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    gap: 4px;
+    padding: 5px 8px;
+
+    background-color: transparent;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.empty {
+    display: flex;
+    
+    width: 100%;
+
+    margin-top: 10px;
+    padding: 7px 10px;
+
+    align-content: center;
+
+    border-radius: 10px;
+    border: 1px solid rgba(255, 1, 1, 0.45);
+
+    background-color: rgba(255, 1, 1, 0.3);
+    color: var(--color-creamWhite);
+
+    opacity: 0.8;
+    line-height: 1;
+    box-sizing: border-box;
+}
+
+
+
+
+
+.footer {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    padding: 7px;
+}
+

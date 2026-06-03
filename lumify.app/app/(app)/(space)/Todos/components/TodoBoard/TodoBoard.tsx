@@ -5,11 +5,13 @@
 // -------------- //
 
 // Components
+import TodoList from "./TodoList/TodoList";
 import AddCard from "./AddCard/AddCard";
 // Models
 import type { TodoListDTO, TodoEntryDTO } from "@/models/todo";
 // Styles
 import styles from "./TodoBoard.module.css";
+
 
 
 
@@ -70,12 +72,44 @@ export default function TodoBoard({
 }: TodoBoardProps) {
 
 
+    // ---------------- //
+    // --- Computed --- //
+    // ---------------- //
+    const todoListPackage = todoLists.map((todoList) => ({
+        todoList,
+        entries: todoEntries.filter((entry) => entry.todoListID === todoList.id),
+    }));
+
 
     // ----------- //
     // --- JSX --- //
     // ----------- //
     return (
     <div className={c.container}>
+        {todoListPackage.map(({ todoList, entries }) => (
+            <TodoList
+                key={todoList.id}
+                todoList={todoList}
+                todoEntries={entries}
+
+                isEditing={editingTodoListID === todoList.id}
+                editingTodoEntryID={editingTodoEntryID}
+
+                onStartEdit={onStartEditTodoList}
+                onCancelEdit={onCancelEditTodoList}
+                onCancelEditTodoEntry={onCancelEditTodoEntry}
+
+                onAddTodoList={onAddTodoList}
+                onSaveTodoList={onSaveTodoList}
+
+                onCreateDraftTodoEntry={onCreateDraftTodoEntry}
+                onAddTodoEntry={onAddTodoEntry}
+                onSaveTodoEntry={onSaveTodoEntry}
+
+                ondeleteTodoList={ondeleteTodoList}
+                onDeleteTodoEntry={onDeleteTodoEntry}
+            />
+        ))}
         <AddCard onCreateDraftTodoList={onCreateDraftTodoList} />
     </div>
 );

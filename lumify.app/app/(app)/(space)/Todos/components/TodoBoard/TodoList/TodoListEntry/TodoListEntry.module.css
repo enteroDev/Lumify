@@ -1,0 +1,227 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    min-height: 40px;
+    width: 100%;
+    padding: 5px 0;
+
+    border-radius: 8px;
+    background-color: var(--color-pill);
+}
+
+.container:hover {
+    background-color: var(--color-purple-light);
+}
+
+.title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+
+    min-width: 0;
+    flex: 1;
+    padding-left: 10px;
+
+    color: var(--color-creamWhite);
+    font-size: 0.82rem;
+    line-height: 1.1rem;
+    word-break: break-word;
+}
+
+
+
+
+/* Checkbox */
+.checkBoxWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+
+    padding-right: 3px;
+}
+
+.checkbox {
+    height: 18px;
+    width: 18px;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.checkboxInput {
+    display: none;
+}
+
+.checkboxBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 20px;
+    height: 20px;
+
+    padding: 5px;
+
+    border: 2px solid rgba(250,250,250,0.3);
+    border-radius: 5px;
+    background-color: var(--color-purple-dark);
+
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.15s ease;
+}
+
+.checkboxLabel:hover .checkboxBox {
+    transform: scale(1.06);
+}
+
+.checkboxInput:checked + .checkboxBox {
+    border-color: #36ac13;
+    background-color: var(--color-success);
+}
+
+.checkIcon {
+    font-size: 0.75rem;
+    line-height: 1;
+    font-weight: bold;
+    color: white;
+}
+
+
+
+
+/* ---------- */
+/* ActionArea */
+/* ---------- */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+
+    padding-right: 5px;
+    flex-shrink: 0;
+}
+
+.deleteButton {
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
+}
+.container:hover .deleteButton {
+    opacity: 1;
+    pointer-events: auto;
+}
+.deleteButton svg {
+    min-width: 18px;
+    min-height: 18px;
+    width: 18px;
+    height: 18px;
+    stroke-width: 2.5;
+
+    color: var(--color-creamWhite);
+    stroke: var(--color-creamWhite);
+}
+.deleteButton:hover svg {
+    color: var(--color-creamWhite);
+    stroke: var(--color-creamWhite);
+}
+
+.editButton,
+.abortButton,
+.saveButton,
+.deleteButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 18px;
+    height: 18px;
+
+    color: var(--color-infoText-dark);
+    stroke: var(--color-infoText-dark);
+
+    transition: transform 0.15s ease;
+    transform-origin: center;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+.editButton:hover,
+.abortButton:hover,
+.saveButton:hover,
+.deleteButton:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.editButton:active,
+.abortButton:active,
+.saveButton:active,
+.deleteButton:active {
+    transform: scale(1.08);
+}
+.editButton svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 1.5;
+    color: rgba(71, 71, 71, 0.3);
+}
+.abortButton svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 2.3;
+}
+.saveButton svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 1.5;
+}
+
+
+
+
+
+/* ----------------- */
+/* Edit Mode - Entry */
+/* ----------------- */
+
+.editWrap {
+    display: flex;
+    flex: 1;
+
+    height: 33px;
+    min-width: 0;
+
+    align-items: center;
+
+    border-radius: 8px;
+    border: 1px solid rgba(200,200,200,0.55);
+    background-color: var(--color-purple-light);
+}
+
+.titleInput {
+    min-width: 0;
+    flex: 1;
+
+    margin-left: 5px;
+    padding-left: 5px;
+
+    border-radius: 4px;
+    outline: none;
+
+    font-size: 0.82rem;
+}
+
