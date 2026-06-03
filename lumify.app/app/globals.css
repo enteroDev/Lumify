@@ -207,7 +207,9 @@ main::before{
   z-index: 201;
 }
 .content {
-  height: 705px;
+  height: 100%;
+  min-height: 90vh;
+  padding-top: 50px;
 }
 .content-fullHeight {
   flex-direction: column;
@@ -216,7 +218,7 @@ main::before{
 .content-fullHeightAlt {
   flex-direction: column;
   align-items: center;
-  height: 90vh;
+  min-height: 90vh;
   padding-top: 50px;
 }
 
