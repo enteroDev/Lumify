@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    width: 100%;
+    padding: 4px 10px;
+    border-radius: 10px;
+    background-color: rgba(200,200,200,0.1);
+}
+.container:hover {
+    background-color: var(--color-highlight);
+    cursor: pointer;
+}
+.container:hover .label {
+        color: var(--color-infoText-dark);
+}
+
+.label {
+    font-size: 0.9rem;
+    color: var(--color-creamWhite);
+}
