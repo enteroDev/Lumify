@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 0 9px;
+}
+
+.pill {
+    display: flex;
+    width: 100%;
+
+    gap: 24px;
+    padding: 5px 10px;
+
+    border-radius: 10px;
+    background-color: rgba(50,50,50,0.07);
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-size: 0.9rem;
+    color: rgb(163, 163, 163);
+}
+
+.value {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: gray;
+}

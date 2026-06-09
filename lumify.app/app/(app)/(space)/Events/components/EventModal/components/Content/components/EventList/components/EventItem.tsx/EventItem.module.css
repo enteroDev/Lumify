@@ -1,0 +1,137 @@
+.container {
+    display: flex;
+
+    height: 45px;
+    width: 100%;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 10px;
+
+    color: var(--color-creamWhite);
+
+    overflow: hidden;
+    cursor: pointer;
+
+    box-sizing: border-box;
+}
+.container:hover {
+    filter: brightness(1.15);
+}
+
+.selected {
+    border-color: var(--color-primary);
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+
+
+/* TimeArea */
+.timeArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 74px;
+    flex-shrink: 0;
+
+    padding: 0 8px;
+
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1.25;
+
+    color: var(--color-bar);
+
+    box-sizing: border-box;
+}
+
+.time {
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1;;
+}
+
+
+
+/* InfoArea */
+.infoArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-width: 0;
+    flex: 1;
+    padding: 0 12px;
+
+    background-color: var(--color-actions);
+
+    text-align: left;
+
+    box-sizing: border-box;
+}
+
+.title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.1;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.description {
+    margin-top: 4px;
+
+    font-size: 0.75rem;
+    line-height: 1.1;
+
+    color: var(--color-highlight);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+/* IndicatorArea */
+.indicatorArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    flex-shrink: 0;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon svg {
+    width: 19px;
+    height: 19px;
+
+    color: var(--color-bar);
+    stroke-width: 2.4;
+}
+
+
+
+/* Types */
+.fullDay {
+    background-color: #8ed081;
+}
+
+.timed {
+    background-color: #7db7ff;
+}
+
+.multiDay {
+    background-color: #f5c16c;
+}

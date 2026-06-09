@@ -10,6 +10,8 @@ import { useState } from "react";
 import CalendarNavigation from "./components/CalendarNavigation/CalenderNavigation";
 import DayHeader from "./components/DayHeader/DayHeader";
 import CalendarDay from "./components/CalendarDay/CalendarDay";
+import AddEventModal from "./components/AddEventModal/AddEventModal";
+import type { AddEventFormData } from "@/components/_Forms/AddEventForm/AddEventForm";
 // Utils
 import { buildMonthDays, needsSixthRow } from "./utils/calendarUtils";
 // Models
@@ -34,6 +36,16 @@ export type CalenderProps = {
     fullDayEvents: CalendarEventDTO[];
     timedEvents: CalendarEventDTO[];
     multiDayEvents: CalendarEventDTO[];
+
+    onOpenEventModal: (
+        selectedDate: string,
+
+        multiDayEvents: CalendarEventDTO[],
+        fullDayEvents: CalendarEventDTO[],
+        timedEvents: CalendarEventDTO[],
+    ) => void;
+
+    onAddEvent: (data: AddEventFormData) => Promise<void>;
 };
 
 
@@ -45,6 +57,9 @@ export default function Calendar({
     multiDayEvents,
     fullDayEvents,
     timedEvents,
+
+    onOpenEventModal,
+    onAddEvent,
 }: CalenderProps) {
 
 
@@ -89,11 +104,8 @@ export default function Calendar({
         setShowAddEventModal(true);
     }
 
-    async function handleSaveEvent() {
-        setShowAddEventModal(false);
-    }
-
-    async function onOpenEventModal() {
+    async function handleSaveEvent(data: AddEventFormData) {
+        await onAddEvent(data);
         setShowAddEventModal(false);
     }
 
@@ -188,6 +200,17 @@ export default function Calendar({
                     />
                 ))}
             </div>
+
+
+            {/* AddEventModal */}
+            {showAddEventModal && (
+                <AddEventModal
+                    isOpen={showAddEventModal}
+                    startDate={selectedDate}
+                    onClose={() => setShowAddEventModal(false)}
+                    onSave={handleSaveEvent}
+                />
+            )}
 
         </div>
     );

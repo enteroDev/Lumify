@@ -10,15 +10,20 @@ import { useEffect, useState } from "react";
 import SidePanel from "@/components/SidePanel/SidePanel";
 import Calendar from "./components/Calendar/Calendar";
 import TaskList from "./components/TaskList/TaskList";
+import Overlay from "@/components/OverlayContainer/OverlayContainer";
+import type { AddEventFormData } from "@/components/_Forms/AddEventForm/AddEventForm";
 // Provider
 import { useSpace } from "@/components/_Space/SpaceProvider";
+import { useModal } from "@/components/Modal/ModalProvider";
 import { useToast } from "@/components/Toast/ToastProvider";
 // Services
 import { EventService } from "@/services/api/eventService";
 // Hooks
 import { useEventHub } from "@/hooks/useEventHub";
 // Models
-import type { CalendarEventDTO } from "@/models/Events";
+import type { CalendarEventDTO, SaveEventDTO } from "@/models/Events";
+
+
 
 
 
@@ -31,9 +36,112 @@ export default function Events() {
 
     const toast = useToast();
     const { isPrivate, workspaceID } = useSpace();
+    const { openEventModal } = useModal();
 
     const [events, setEvents] = useState<CalendarEventDTO[]>([]);
 
+
+
+    // --------------- //
+    // --- Handler --- //
+    // --------------- //
+    function handleOpenEventModal(
+        selectedDate: string,
+        multiDayEvents: CalendarEventDTO[],
+        fullDayEvents: CalendarEventDTO[],
+        timedEvents: CalendarEventDTO[],
+    ) {
+        openEventModal({
+            selectedDate,
+
+            initialMultiDayEvents: multiDayEvents,
+            initialFullDayEvents: fullDayEvents,
+            initialTimedEvents: timedEvents,
+
+            deleteEvent,
+            saveEvent,
+        });
+    }
+
+
+
+    // ------------- //
+    // --- Logic --- //
+    // ------------- //
+
+    /* --- */
+    /* ADD */
+    /* --- */
+    async function addEvent(data: AddEventFormData) {
+        try {
+            const createdEvent = await EventService.addEvent({
+                name: data.name.trim(),
+                description: data.description.trim() || null,
+                isAllDay: data.isAllDay,
+                startTime: data.startTime,
+                endTime: data.endTime,
+                workspaceID: isPrivate ? null : workspaceID,
+            });
+
+            setEvents(prev => {
+                const exists = prev.some(x => x.id === createdEvent.id);
+                if (exists) { return prev; }
+
+                return [...prev, createdEvent];
+            });
+
+            toast.success("Termin wurde erstellt.");
+
+        } catch (error) {
+            console.error("Failed to add event", error);
+
+            toast.error("Fehler beim Erstellen des Termins.");
+        }
+    }
+
+
+    /* ------ */
+    /* DELETE */
+    /* ------ */
+    const deleteEvent = async (eventID: string) => {
+        try {
+            await EventService.deleteEvent(eventID);
+
+            setEvents(prev => prev.filter(x => x.id !== eventID));
+
+            toast.success("Event wurde gelöscht.");
+
+        } catch (error) {
+            console.error("Failed to delete event", error);
+            toast.error("Fehler beim Löschen des Events");
+        }
+    };
+
+
+    /* ---- */
+    /* SAVE */
+    /* ---- */
+    async function saveEvent(data: SaveEventDTO): Promise<CalendarEventDTO | null> {
+        try {
+            const savedEvent = await EventService.saveEvent(data);
+
+            setEvents(prev => prev.map(event => {
+                if (event.id !== savedEvent.id) { return event; }
+
+                return savedEvent;
+            }));
+
+            toast.success("Event wurde gespeichert.");
+
+            return savedEvent;
+
+        } catch (error) {
+            console.error("Failed to save event", error);
+            toast.error("Fehler beim Speichern des Events.");
+
+            return null;
+        }
+    }
 
 
 
@@ -106,7 +214,6 @@ export default function Events() {
 
 
 
-
     // ---------------- //
     // --- Computed --- //
     // ---------------- //
@@ -133,12 +240,14 @@ export default function Events() {
 
 
 
-
     // ----------- //
     // --- JSX --- //
     // ----------- //
     return (
         <div className="scrollView">
+            {/* Overlay */}
+            <Overlay />
+
             {/* Content */}
             <div className="content">
                 <SidePanel title="Events">
@@ -153,6 +262,9 @@ export default function Events() {
                     fullDayEvents={fullDayEvents}
                     timedEvents={timedEvents}
                     multiDayEvents={multiDayEvents}
+
+                    onOpenEventModal={handleOpenEventModal}
+                    onAddEvent={addEvent}
                 />
             </div>
         </div>

@@ -1,0 +1,70 @@
+.container {
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    gap: 12px;
+    padding: 9px 13px 9px 13px;
+
+    background: var(--color-creamWhite);
+
+    z-index: 20;
+}
+
+
+
+.titleArea {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    min-width: 0;
+    flex: 1;
+}
+
+.title {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    font-size: 1.1rem;
+    color: var(--color-infoText-dark);
+}
+
+
+
+
+.actionArea {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+
+
+
+.closeButton {
+    width: 15px;
+    height: 15px;
+    color: var(--color-infoText-dark);
+    stroke: var(--color-infoText-dark);
+    transition: transform 0.15s ease;
+    transform-origin: center;
+}
+.closeButton:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.closeButton:active {
+    transform: scale(1.08);
+}
+.closeButton svg {
+    width: 100%;
+    height: 100%;
+}

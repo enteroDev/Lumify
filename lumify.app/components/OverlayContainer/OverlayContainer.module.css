@@ -1,0 +1,105 @@
+
+/* Image */
+.overlay-image {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    z-index: 50;
+    height: 250px;
+    opacity: 0.5;
+
+    transform: scale(1);
+    transition: opacity 260ms ease, transform 550ms ease; /* langsamer Katze */
+    will-change: transform, opacity;
+}
+.overlay-image:hover {
+    opacity: 1;
+    transform: scale(1.08);
+    z-index: 300;
+}
+
+/* Bubble */
+.chat-bubble {
+    position: absolute;
+    right: 180px;
+    bottom: 250px;
+    z-index: 51;
+    height: 150px;
+
+    opacity: 0;
+    transform: translateY(50px);        /* Starts Lower */
+
+    transition: opacity 250ms ease 40ms, transform 900ms ease 50ms;      /* Slowly upwards */
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+.overlay-image:hover + .chat-bubble {
+    opacity: 1;
+    transform: translateY(0px);
+    z-index: 300;
+}
+.overlay-image:hover + .chat-bubble + .bubble-text {
+    opacity: 1;
+    transform: translate(-120px, -35px) translateY(0px);
+    z-index: 300;
+}
+
+
+/* Bubble-Text */
+.bubble-text {
+    position: absolute;
+    z-index: 52;
+
+    right: 55px;
+    bottom: 252px;
+
+    width: 260px;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    letter-spacing: 0.2rem;
+    font-weight: bold;
+    font-family: fantasy;
+    font-size: 1.1rem;
+    color: var(--color-pill);
+
+    transform: translate(-120px, -35px) translateY(45px);
+
+    z-index: 52;
+    opacity: 0;
+    transition:
+        opacity 250ms ease 60ms,
+        transform 900ms ease 60ms;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+/* individual letters */
+.bubble-text span {
+    display: inline-block;
+    animation: jitter 0.5s infinite alternate; /* was 0.12s */
+    animation-play-state: paused;
+}
+
+/* activate animation only on hover */
+.overlay-image:hover + .chat-bubble + .bubble-text span {
+    animation-play-state: running;
+}
+
+.bubble-text span {
+    animation-play-state: paused;
+}
+
+/* subtle jitter */
+@keyframes jitter {
+    0%   { transform: translate(0px, 0px); }
+    25%  { transform: translate(0.9px, -0.7px); }
+    50%  { transform: translate(-0.8px, 1.1px); }
+    75%  { transform: translate(0.7px, 0.6px); }
+    100% { transform: translate(0px, 0px); }
+}

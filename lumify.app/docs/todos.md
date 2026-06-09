@@ -56,3 +56,4 @@
 ## Fixes
 
 ## Implementations
+[] Add logic to button "New Event" in eventDetails-modal (EventModal)
