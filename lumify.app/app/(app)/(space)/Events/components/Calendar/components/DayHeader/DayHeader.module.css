@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    gap: 3px;
+}
+
+.label {
+    width: 120px;
+    text-align: center;
+}

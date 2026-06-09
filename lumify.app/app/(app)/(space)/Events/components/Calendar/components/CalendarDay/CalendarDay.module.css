@@ -1,0 +1,190 @@
+.container {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 120px;
+    height: 120px;
+
+    background-color: var(--color-pill);
+    color: var(--color-creamWhite);
+
+    transform-origin: center center;
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+
+    z-index: 1;
+}
+
+.container:hover {
+    z-index: 500;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+
+
+.compact {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    min-height: 0;
+
+    overflow: hidden;
+}
+
+.detail {
+    position: fixed;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 180px;
+    height: 180px;
+
+    padding: 4px;
+    gap: 6px;
+
+    background-color: var(--color-pill);
+    color: var(--color-creamWhite);
+
+    transform: translate(-50%, -50%) scale(0.66);
+    transform-origin: center center;
+
+    border: 2px solid var(--color-bar);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+
+    z-index: 500;
+    opacity: 0;
+
+    animation: zoomIn 0.18s ease forwards;
+    pointer-events: auto;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+
+
+
+
+.dayLabelShort {
+    padding-left: 8px;
+    padding-top: 5px;
+    width: 100%;
+    color: var(--color-creamWhite);
+}
+.currentDay .dayLabelShort {
+    color: var(--color-highlight-bright);
+    font-weight: bold;
+}
+
+.dayLabelFull {
+    width: 100%;
+    color: var(--color-creamWhite);
+    padding-left: 5px;
+}
+
+.eventsPreview {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 2px;
+    gap: 2px;
+
+    flex: 1;
+    min-height: 0;
+
+    overflow: hidden;
+}
+
+.eventsDetailed {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+
+
+
+.notCurrentMonth {
+    opacity: 0.5;
+}
+
+.currentDay {
+    position: relative;
+    background-color:#8560dd;
+}
+.currentDay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--color-highlight);
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+
+
+
+
+.additionalInfo {
+    display: flex;
+
+    justify-content: center;
+    padding: 4px 0;
+
+    font-size: 0.75rem;
+    line-height: 1;
+
+    opacity: 0.75;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    padding: 6px 0;
+
+    border: 1px solid var(--color-highlight);
+    border-radius: 4px;
+
+    font-size: 0.85rem;
+    line-height: 1;
+
+    opacity: 1;
+    cursor: pointer;
+
+    transition: opacity 0.15s ease;
+}
+.button:hover {
+    background-color: var(--color-highlight);
+    color: var(--color-bar);
+
+    font-weight: bold;
+}
+
+
+
+
+
+
+@keyframes zoomIn {
+    from {
+        transform: translate(-50%, -50%) scale(0.66);
+        opacity: 0.8;
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}

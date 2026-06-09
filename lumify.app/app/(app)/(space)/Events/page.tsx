@@ -8,6 +8,7 @@
 import { useEffect, useState } from "react";
 // Components
 import SidePanel from "@/components/SidePanel/SidePanel";
+import Calendar from "./components/Calendar/Calendar";
 import TaskList from "./components/TaskList/TaskList";
 // Provider
 import { useSpace } from "@/components/_Space/SpaceProvider";
@@ -18,9 +19,6 @@ import { EventService } from "@/services/api/eventService";
 import { useEventHub } from "@/hooks/useEventHub";
 // Models
 import type { CalendarEventDTO } from "@/models/Events";
-
-
-
 
 
 
@@ -150,6 +148,12 @@ export default function Events() {
                         multiDayEvents={multiDayEvents}
                     />
                 </SidePanel>
+
+                <Calendar
+                    fullDayEvents={fullDayEvents}
+                    timedEvents={timedEvents}
+                    multiDayEvents={multiDayEvents}
+                />
             </div>
         </div>
     );
