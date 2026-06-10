@@ -91,7 +91,7 @@ namespace lumify.api.Controllers
                 }
             }
 
-            // Get current time via UTCNow, since it is the base time wherever the user is currently. Otherwise it would differ if one user is from america and another is from china.
+            // Get current time via UTCNow, since it is the base time wherever the user currently is. Otherwise it would differ if one user is from america and another is from china.
             var now = DateTime.UtcNow.ToString("o");
 
             // Create Folder based on the request
