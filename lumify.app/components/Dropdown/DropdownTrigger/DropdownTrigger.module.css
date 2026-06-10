@@ -1,0 +1,85 @@
+.container {
+    width: 100%;
+}
+
+.trigger {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid var(--color-purple-dark);
+    border-radius: 10px;
+    background-color: var(--color-infoText-dark);
+    color: var(--color-infoText-light);
+    font-size: 1.1rem;
+    text-align: left;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.trigger:hover {
+    box-shadow: 0px 0px 12px rgba(200, 200, 200, 0.55);
+}
+
+.label {
+    pointer-events: none;
+}
+
+.chevron {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-left: 12px;
+    pointer-events: none;
+    transition: transform 0.2s ease;
+    transform-origin: center;
+}
+
+.trigger[data-open="true"] .chevron {
+    transform: rotate(90deg);
+}
+
+
+/* Default (private oder fallback) */
+.trigger[data-space="private"] {
+    background-color: var(--color-privatespace-bg);
+    border-color: var( --color-privatespace-border);
+    color: var(--color-creamWhite);
+    animation: privatePulse 600ms ease-out;
+}
+
+/* Workspace */
+.trigger[data-space="workspace"] {
+    background-color: var(--color-workspace-bg);
+    border-color: var(--color-workspace-border);
+    color: var(--color-creamWhite);
+    animation: workspacePulse 600ms ease-out;
+}
+
+
+
+
+@keyframes workspacePulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--color-workspace-border);
+    }
+    40% {
+        box-shadow: 0 4px 8px 10px var(--color-workspace-bg);
+    }
+    100% {
+        box-shadow: 0 0 0 0 transparent;
+    }
+}
+
+@keyframes privatePulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--color-privatespace-border);
+    }
+    40% {
+        box-shadow: 0 4px 8px 10px var(--color-privatespace-bg);
+    }
+    100% {
+        box-shadow: 0 0 0 0 transparent;
+    }
+}

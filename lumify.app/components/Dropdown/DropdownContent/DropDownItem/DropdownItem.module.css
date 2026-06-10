@@ -1,0 +1,12 @@
+.item {
+    padding: 3px 10px;
+    cursor: pointer;
+    background-color: rgba(200,200,200,0.1);
+}
+.item:hover {
+    background-color: rgba(200,200,200,0.2);
+}
+.item[data-disabled="true"] {
+    cursor: default;
+    opacity: 0.5;
+}

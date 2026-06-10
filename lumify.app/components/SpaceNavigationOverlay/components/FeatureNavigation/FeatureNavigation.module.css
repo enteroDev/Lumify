@@ -1,0 +1,81 @@
+.container {
+    display: flex;
+    gap: 5px;
+
+    height: 45px;
+
+    padding: 2px 5px;
+    align-items: center;
+
+    border-radius: 8px;
+    background-color: rgba(200,200,200,0.2);
+}
+
+
+.section {
+    display: flex;
+    gap: 5px;
+
+    justify-content: space-between;
+}
+
+
+.divider {
+    content: "";
+    height: 80%;
+
+    padding-right: 5px;
+
+    border-left: 1px solid rgba(200,200,200,0.2);
+}
+
+
+
+.button,
+.homeButton {
+    display: flex;
+
+    height: 100%;
+
+    padding: 4px;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+}
+.button svg,
+.homeButton svg {
+    height: 30px;
+    width: 30px;
+}
+.button svg path {
+    fill: var(--color-creamWhite);
+    stroke: transparent;
+
+    opacity: 0.8;
+}
+.button:hover {
+    cursor:pointer;
+    background-color: var(--color-highlight);
+}
+.button:hover svg path {
+    fill: var(--color-bar);
+    opacity: 1;
+}
+.buttonActive {
+    background-color: var(--color-highlight);
+}
+
+.buttonActive svg path {
+    fill: var(--color-bar);
+    opacity: 1;
+}
+
+
+.homeButton svg path {
+    opacity: 1;
+}
+.homeButton svg:hover path {
+    cursor: pointer;
+    fill: var(--color-highlight);
+}
