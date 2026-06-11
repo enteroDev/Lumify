@@ -120,8 +120,8 @@ function TreeRow({
                 {/* Indent */}
                 <div className={c.indent} style={{ width: depth * INDENT_WIDTH }} />
 
-                {/* Chevron */}
-                <button type="button" className={c.chevron} onClick={handleToggle} disabled={!isFolder}>
+                {/* Chevron - grayed out (disabled) when there is nothing to expand (files & empty folders) */}
+                <button type="button" className={c.chevron} onClick={handleToggle} disabled={!hasChildren}>
                     {chevron}
                 </button>
 
@@ -195,9 +195,8 @@ export default function TreeView({
             {/* Rootfolder */}
             <div className={rootRowClass} onClick={handleRootClick}>
                 <div className={c.indent} style={{ width: 0 }} />
-                <button type="button" className={c.chevron} disabled>
-                    ▼
-                </button>
+                {/* Root has no chevron - kept as empty spacer so icons stay aligned with child rows */}
+                <button type="button" className={c.chevron} disabled />
                 <div className={c.icon}>
                     <FolderIcon />
                 </div>
