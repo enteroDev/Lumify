@@ -21,13 +21,15 @@ export const c = {
     tabsLeft:   styles["tabsLeft"],
     tabsRight:  styles["tabsRight"],
 
-    tab:        styles["tab"],
-    activeTab:  styles["activeTab"],
+    tab:                    styles["tab"],
+    activeTab:              styles["activeTab"],
+    notificationCounter:    styles["notificationCounter"],
 } as const;
 
 type TabLineProps = {
     activeTab: FriendsPanelTab;
     onTabChange: (tab: FriendsPanelTab) => void;
+    incomingRequestCount: number;
 };
 
 
@@ -38,6 +40,7 @@ type TabLineProps = {
 export default function TabLine({
     activeTab,
     onTabChange,
+    incomingRequestCount,
 }: TabLineProps) {
 
 
@@ -63,6 +66,9 @@ export default function TabLine({
                         onClick={() => onTabChange("requests")}
                     >
                         Anfragen
+                        {incomingRequestCount > 0 && (
+                            <div className={c.notificationCounter}>{incomingRequestCount}</div>
+                        )}
                     </button>
                 </div>
 

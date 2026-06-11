@@ -256,7 +256,11 @@ export default function FriendsPanel({
 
             {/* TabLine */}
             <div className={c.tabLine}>
-                <TabLine activeTab={activeTab} onTabChange={setActiveTab} />
+                <TabLine
+                    activeTab={activeTab}
+                    onTabChange={setActiveTab}
+                    incomingRequestCount={incomingFriendRequests.length}
+                />
             </div>
 
             {/* Content */}

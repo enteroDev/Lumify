@@ -29,6 +29,8 @@
 }
 
 .tab {
+    position: relative;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,4 +58,27 @@
 
 .activeTab {
     background-color: var(--color-pill);
+}
+
+.notificationCounter {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+
+    display: flex;
+
+    height: 16px;
+    width: 16px;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: 1px solid var(--color-actions);
+    background-color: var(--color-highlight);
+
+    color: var(--color-actions);
+    font-size: 0.8rem;
+    font-weight: bold;
+    line-height: 1;
 }
