@@ -5,6 +5,7 @@ using lumify.api.Interfaces;
 using lumify.api.Services;
 using lumify.api.Hubs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
@@ -23,6 +24,7 @@ builder.Services.AddScoped<InternalLogic>();
 builder.Services.AddScoped<FriendshipService>();
 builder.Services.AddSingleton<IPresenceService, PresenceService>();
 builder.Services.AddSignalR();
+builder.Services.AddSingleton<IUserIdProvider, UserIdProvider>();
 
 
 // --- CORS --- //

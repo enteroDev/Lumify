@@ -29,14 +29,14 @@ export const c = {
 // ----------------- //
 export default function Friends() {
 
-    const { openChat } = useFriendsOverlay();
+    const { openChat, friendshipVersion } = useFriendsOverlay();
 
     return (
         <div className={c.container}>
             <div className={c.header}>Freunde</div>
 
             <div className={c.body}>
-                <FriendsPanel onOpenChat={openChat} />
+                <FriendsPanel onOpenChat={openChat} friendshipVersion={friendshipVersion} />
             </div>
         </div>
     );

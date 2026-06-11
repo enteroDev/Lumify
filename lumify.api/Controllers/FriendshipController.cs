@@ -4,8 +4,10 @@ using lumify.api.Models.DTO.Responses;
 using lumify.api.Models.Enum;
 using lumify.api.Interfaces;
 using lumify.api.Services;
+using lumify.api.Hubs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 namespace lumify.api.Controllers
@@ -19,14 +21,16 @@ namespace lumify.api.Controllers
         private readonly LumifyDbContext _db;
         private readonly FriendshipService _friendshipService;
         private readonly IPresenceService _presenceService;
+        private readonly IHubContext<ChatHub> _chatHub;
 
 
-        public FriendshipController(ILogger<FriendshipController> logger, LumifyDbContext db, FriendshipService friendshipService, IPresenceService presenceService)
+        public FriendshipController(ILogger<FriendshipController> logger, LumifyDbContext db, FriendshipService friendshipService, IPresenceService presenceService, IHubContext<ChatHub> chatHub)
         {
             _logger = logger;
             _db = db;
             _friendshipService = friendshipService;
             _presenceService = presenceService;
+            _chatHub = chatHub;
         }
 
 
@@ -48,6 +52,9 @@ namespace lumify.api.Controllers
             try
             {
                 await _friendshipService.SendFriendRequest(requesterID, addresseeID);
+
+                // Live-notify the addressee so the incoming request appears without a reload.
+                await NotifyFriendshipChanged(addresseeID);
 
                 return Ok(new { Success = true });
             }
@@ -76,7 +83,10 @@ namespace lumify.api.Controllers
 
             try
             {
-                await _friendshipService.AcceptFriendRequest(friendshipID, currentUserID);
+                var requesterID = await _friendshipService.AcceptFriendRequest(friendshipID, currentUserID);
+
+                // Live-notify the requester so their friend list updates without a reload.
+                await NotifyFriendshipChanged(requesterID);
 
                 return Ok(new { Success = true });
             }
@@ -105,7 +115,10 @@ namespace lumify.api.Controllers
 
             try
             {
-                await _friendshipService.RejectFriendRequest(friendshipID, currentUserID);
+                var requesterID = await _friendshipService.RejectFriendRequest(friendshipID, currentUserID);
+
+                // Live-notify the requester so their outgoing request disappears without a reload.
+                await NotifyFriendshipChanged(requesterID);
 
                 return Ok(new { Success = true });
             }
@@ -130,6 +143,9 @@ namespace lumify.api.Controllers
             try
             {
                 await _friendshipService.RemoveFriend(currentUserID, friendID);
+
+                // Live-notify the removed friend so their friend list updates without a reload.
+                await NotifyFriendshipChanged(friendID);
 
                 return Ok(new { Success = true });
             }
@@ -251,6 +267,20 @@ namespace lumify.api.Controllers
         // -------------- //
         // --- HELPER --- //
         // -------------- //
+
+        // Pushes a "FriendshipChanged" event over the ChatHub to all active connections
+        // of the given user, so the client can re-fetch its friendship data live.
+        // Targeting via Clients.User relies on the custom UserIdProvider (see Program.cs).
+        private async Task NotifyFriendshipChanged(string userID)
+        {
+            if (string.IsNullOrWhiteSpace(userID))
+            {
+                return;
+            }
+
+            await _chatHub.Clients.User(userID).SendAsync("FriendshipChanged");
+        }
+
         private string GetCurrentUserID()
         {
             var userID = User.FindFirst("UserID")?.Value;

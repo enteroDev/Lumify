@@ -34,6 +34,7 @@ export const c = {
 
 type FriendsPanelProps = {
     onOpenChat: (selectedUser: SelectedChatUserVM) => void;
+    friendshipVersion: number;
 };
 
 export type FriendsPanelTab = "friendList" | "userList" | "requests";
@@ -45,6 +46,7 @@ export type FriendsPanelTab = "friendList" | "userList" | "requests";
 // ----------------- //
 export default function FriendsPanel({
     onOpenChat,
+    friendshipVersion,
 }: FriendsPanelProps) {
 
 
@@ -185,12 +187,13 @@ export default function FriendsPanel({
     // ----------------- //
     // --- UseEffect --- //
     // ----------------- //
+    // Runs on mount and whenever a live "FriendshipChanged" event bumps the version.
     useEffect(() => {
         void loadFriends();
         void loadRelatedUsers();
         void loadOutgoingFriendRequests();
         void loadIncomingFriendRequests();
-    }, []);
+    }, [friendshipVersion]);
 
     useEffect(() => {
         const timeout = window.setTimeout(() => {

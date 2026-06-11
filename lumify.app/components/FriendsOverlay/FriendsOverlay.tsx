@@ -8,6 +8,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
 // Services
 import { FriendshipService } from "@/services/api/friendshipService";
+// Provider
+import { usePresenceContext } from "@/components/_Presence/PresenceProvider";
 // Components
 import Trigger from "./components/Trigger/Trigger";
 import FriendsSection from "@/components/FriendsOverlay/components/FriendsSection/FriendsSection";
@@ -24,6 +26,7 @@ import styles from "./FriendsOverlay.module.css";
 // --------------- //
 type FriendsOverlayContextType = {
     openChat: (user: SelectedChatUserVM) => void;
+    friendshipVersion: number;
 };
 
 const FriendsOverlayContext = createContext<FriendsOverlayContextType | null>(null);
@@ -66,6 +69,11 @@ export default function FriendsOverlay({ children }: { children?: React.ReactNod
     const [isExpanded, setIsExpanded] = useState(false); // Trigger width
     const [isFriendPanelOpen, setIsFriendPanelOpen] = useState(false);
     const [isChatPanelOpen, setIsChatPanelOpen] = useState(false);
+
+    // Bumped on every live "FriendshipChanged" event to trigger a refetch in the panel.
+    const [friendshipVersion, setFriendshipVersion] = useState(0);
+
+    const { subscribeFriendshipChanged } = usePresenceContext();
 
 
 
@@ -140,20 +148,30 @@ export default function FriendsOverlay({ children }: { children?: React.ReactNod
         void loadIncomingFriendRequestsCount();
     }, []);
 
+    // Live-sync: refresh the bell count and signal the panel to refetch on any friendship change.
+    useEffect(() => {
+        const unsubscribe = subscribeFriendshipChanged(() => {
+            void loadIncomingFriendRequestsCount();
+            setFriendshipVersion(prev => prev + 1);
+        });
+
+        return unsubscribe;
+    }, [subscribeFriendshipChanged]);
+
 
 
     // ----------- //
     // --- JSX --- //
     // ----------- //
     return (
-        <FriendsOverlayContext.Provider value={{ openChat: handleOpenChat }}>
+        <FriendsOverlayContext.Provider value={{ openChat: handleOpenChat, friendshipVersion }}>
             <div className={`${c.container} ${isExpanded ? c.containerExpanded : ""}`}>
                 <div className={c.trigger}>
                     <Trigger onToggle={toggleFriends} notificationCount={notificationCount} />
                 </div>
 
                 <div className={`${c.dropClosed} ${isFriendPanelOpen ? c.dropOpened : ""}`}>
-                    <FriendsSection onOpenChat={handleOpenChat} />
+                    <FriendsSection onOpenChat={handleOpenChat} friendshipVersion={friendshipVersion} />
                 </div>
 
                 <div className={`${c.chatClosed} ${isChatPanelOpen ? c.chatOpened : ""}`}>

@@ -12,8 +12,6 @@ import styles from "./SidePanel.module.css";
 import ProfileIcon from "@/app/src/svg/account.svg";
 import SettingsIcon from "@/app/src/svg/settings.svg";
 import ImageIcon from "@/app/src/svg/image.svg";
-import WorkspaceIcon from "@/app/src/svg/space.svg";
-import WorkspaceAddIcon from "@/app/src/svg/space_add.svg";
 import DeleteIcon from "@/app/src/svg/trash.svg";
 import LogoutIcon from "@/app/src/svg/logout.svg";
 // Provider
@@ -48,7 +46,7 @@ const c = {
     logoutIcon:         styles["logoutIcon"],
 } as const;
 
-type TabView = "account" | "profile" | "workspaces";
+type TabView = "account" | "profile";
 
 type SidePanelProps = {
     setActiveTab: (tab: TabView) => void;
@@ -197,21 +195,6 @@ export default function SidePanel({
                     </div>
                 </div>
 
-                {/* Section: Workspaces */}
-                <div className={c.section}>
-                    {/* SectionHeader */}
-                    <div className={c.sectionHeader}>Workspaces</div>
-                    <div className={c.sectionBody}>
-                        <div className={c.navigationEntry}>
-                            <div className={c.entryIcon}><WorkspaceIcon /></div>
-                            <div className={c.entryText}>Manage Workspaces</div>
-                        </div>
-                        <div className={c.navigationEntry}>
-                            <div className={c.entryIcon}><WorkspaceAddIcon /></div>
-                            <div className={c.entryText}>Workspace hinzufügen</div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
 

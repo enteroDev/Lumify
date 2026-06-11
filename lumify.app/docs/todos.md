@@ -1,9 +1,10 @@
 # GENERAL
 
 ## Fixes
-[ ] AccountModal: Remove Workspace entry in Sidebar of AccountModal (Not needed probably)
-[ ] FriendsPanel: Check LiveSync when getting added by another user. Needs a reload currently
+[x] AccountModal: Remove Workspace entry in Sidebar of AccountModal (Not needed probably)
+[x] FriendsPanel: Check LiveSync when getting added by another user. Needs a reload currently
 [ ] App-Layouts: Remove AccountModalProvider from auth-layout. It wont be neccessary here.
+[ ] Check what happens if UserA adds UserB -> While UserB has not accepted, UserB tries to add UserA aswell. -> What happens? Maybe fix this situation.
 
 ## Implementations
 [x] FriendsPanel: Add notification count in TabButton of Friendspanel aswell.

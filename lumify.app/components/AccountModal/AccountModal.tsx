@@ -35,7 +35,7 @@ const c = {
     close:          styles["close"],
 } as const;
 
-type TabView = "account" | "profile" | "workspaces";
+type TabView = "account" | "profile";
 
 
 // ----------------- //

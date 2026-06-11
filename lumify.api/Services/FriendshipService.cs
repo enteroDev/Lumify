@@ -76,7 +76,8 @@ namespace lumify.api.Services
             await _db.SaveChangesAsync();
         }
 
-        public async Task AcceptFriendRequest(string friendshipID, string currentUserID)
+        // Returns the RequesterID so the caller can notify the counterpart about the change.
+        public async Task<string> AcceptFriendRequest(string friendshipID, string currentUserID)
         {
             if (string.IsNullOrWhiteSpace(friendshipID))
             {
@@ -115,9 +116,12 @@ namespace lumify.api.Services
             friendship.UpdatedAt = now;
 
             await _db.SaveChangesAsync();
+
+            return friendship.RequesterID;
         }
-        
-        public async Task RejectFriendRequest(string friendshipID, string currentUserID)
+
+        // Returns the RequesterID so the caller can notify the counterpart about the change.
+        public async Task<string> RejectFriendRequest(string friendshipID, string currentUserID)
         {
             if (string.IsNullOrWhiteSpace(friendshipID))
             {
@@ -156,6 +160,8 @@ namespace lumify.api.Services
             friendship.UpdatedAt = now;
 
             await _db.SaveChangesAsync();
+
+            return friendship.RequesterID;
         }
 
 

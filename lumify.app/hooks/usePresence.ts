@@ -34,13 +34,14 @@ type PresenceChangedHandler = (
 // ------------ //
 export function usePresence(
     userID: string | null,
-    onPresenceChanged:
-    PresenceChangedHandler
+    onPresenceChanged: PresenceChangedHandler,
+    onFriendshipChanged?: () => void
 ) {
 
 
     const connectionRef = useRef<HubConnection | null>(null);
     const onPresenceChangedRef = useRef(onPresenceChanged);
+    const onFriendshipChangedRef = useRef(onFriendshipChanged);
 
 
     // --------------- //
@@ -49,6 +50,10 @@ export function usePresence(
     useEffect(() => {
         onPresenceChangedRef.current = onPresenceChanged;
     }, [onPresenceChanged]);
+
+    useEffect(() => {
+        onFriendshipChangedRef.current = onFriendshipChanged;
+    }, [onFriendshipChanged]);
 
 
     useEffect(() => {
@@ -67,6 +72,11 @@ export function usePresence(
 
         connection.on("PresenceChanged", (changedUserID: string, presenceStatus: PresenceStatus) => {
             onPresenceChangedRef.current(changedUserID, presenceStatus);
+        });
+
+        // Friendship live-sync rides on the same ChatHub connection (see FriendshipController).
+        connection.on("FriendshipChanged", () => {
+            onFriendshipChangedRef.current?.();
         });
 
         connectionRef.current = connection;
@@ -97,6 +107,7 @@ export function usePresence(
         return () => {
             cancelled = true;
             connection.off("PresenceChanged");
+            connection.off("FriendshipChanged");
             void connection.stop();
         };
     }, [userID]);

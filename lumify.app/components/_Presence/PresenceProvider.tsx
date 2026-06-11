@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useCallback, useContext, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useMemo, useRef, useState } from "react";
 import { PresenceStatus } from "@/models/User";
 import { usePresence } from "@/hooks/usePresence";
 
@@ -12,6 +12,7 @@ type PresenceMap = Record<string, PresenceStatus>;
 
 type PresenceContextValue = {
     getPresenceStatus: (userID: string, fallbackStatus?: PresenceStatus) => PresenceStatus;
+    subscribeFriendshipChanged: (handler: () => void) => () => void;
 };
 
 const PresenceContext = createContext<PresenceContextValue | null>(null);
@@ -29,6 +30,8 @@ type PresenceProviderProps = {
 export default function PresenceProvider({ userID, children }: PresenceProviderProps) {
     const [presenceMap, setPresenceMap] = useState<PresenceMap>({});
 
+    const friendshipSubscribersRef = useRef<Set<() => void>>(new Set());
+
     const handlePresenceChanged = useCallback((changedUserID: string, presenceStatus: PresenceStatus) => {
         setPresenceMap(prev => ({
             ...prev,
@@ -36,7 +39,20 @@ export default function PresenceProvider({ userID, children }: PresenceProviderP
         }));
     }, []);
 
-    usePresence(userID, handlePresenceChanged);
+    // Fan out a single ChatHub "FriendshipChanged" event to all subscribed components.
+    const handleFriendshipChanged = useCallback(() => {
+        friendshipSubscribersRef.current.forEach(handler => handler());
+    }, []);
+
+    const subscribeFriendshipChanged = useCallback((handler: () => void) => {
+        friendshipSubscribersRef.current.add(handler);
+
+        return () => {
+            friendshipSubscribersRef.current.delete(handler);
+        };
+    }, []);
+
+    usePresence(userID, handlePresenceChanged, handleFriendshipChanged);
 
     const getPresenceStatus = useCallback((userID: string, fallbackStatus?: PresenceStatus) => {
         const liveStatus = presenceMap[userID];
@@ -51,8 +67,9 @@ export default function PresenceProvider({ userID, children }: PresenceProviderP
     const value = useMemo(() => {
         return {
             getPresenceStatus,
+            subscribeFriendshipChanged,
         };
-    }, [getPresenceStatus]);
+    }, [getPresenceStatus, subscribeFriendshipChanged]);
 
     return (
         <PresenceContext.Provider value={value}>
