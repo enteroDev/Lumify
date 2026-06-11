@@ -1,0 +1,74 @@
+.container {
+    display: flex;
+    width: auto;
+    min-width: 150px;
+    align-items: center;
+    padding: 5px 14px 5px 8px;
+    border-radius: 10px;
+    background-color: var(--color-pill);
+
+    box-sizing: border-box;
+}
+
+.divider {
+    width: 1px;
+    height: 28px;
+    background: rgba(255,255,255,0.12);
+    margin: 0 6px;
+    border-radius: 1px;
+}
+
+.action-button {
+    height: 45px;
+    width: 45px;
+    padding: 5px;
+    border-radius: 50px;
+    border: 2px solid transparent;
+    color: var(--color-creamWhite);
+    stroke-width: 1.8;
+    transition: ease-in-out 0.1s;
+}
+.action-button:hover {
+    cursor: pointer;
+    background-color: rgba(195, 174, 250, 0.4);
+    transition: ease-in-out 0.2s;
+}
+.action-button:disabled {
+    opacity: 0.33;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+.action-button:disabled:hover {
+    color: inherit;
+    background: inherit;
+    border-color: inherit;
+    box-shadow: none;
+}
+
+.delete-button {
+    height: 42px;
+    width: 42px;
+    padding: 5px;
+    margin-left: 4px;
+    border-radius: 50px;
+    background-color: var(--color-error); 
+    border: 2px solid rgba(250,100,100,0.5);
+    transition: ease-in-out 0.1s;
+}
+.delete-button:hover {
+    cursor: pointer;
+    border: 2px solid var(--color-highlight);
+    transition: ease-in-out 0.2s;
+    box-shadow: 0 2px 5px 6px color-mix(in srgb, var(--color-highlight) 15%, transparent);
+}
+.delete-button:disabled {
+    opacity: 0.33;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+.delete-button:disabled:hover {
+    color: inherit;
+    background: inherit;
+    border-color: inherit;
+    box-shadow: none;
+}

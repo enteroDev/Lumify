@@ -1,37 +1,50 @@
 .container{
     display: flex;
     flex-direction: column;
-    height: 705px;
+
+    height: 720px;
     max-height: min(80vh, 800px);
+
     border-radius: 10px;
     gap: 10px;
     z-index: 100;
     color: var(--color-creamWhite);
 }
 
+
+
 .header {
     display: flex;
     flex-direction: column;
-    min-height: 50px;
-    width: 100%;
-    border-radius: 10px 10px 0 0;
+
     align-items:center;
     gap: 10px;
 
+    min-height: 50px;
+    width: 100%;
+
+    border-radius: 10px 10px 0 0;
     /*background-color:var(--color-bar);*/
 }
+
+
 
 .body {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+
     min-height: 100px;
     width: 100%;
+
     gap: 2px;
     padding: 6px 6px !important;
-    border-radius: 10px;
     justify-content: center;
+
+    border-radius: 10px;
+
     background-color:var(--color-bar);
     box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+
     overflow-y: auto;
     overflow-x: visible;
 }

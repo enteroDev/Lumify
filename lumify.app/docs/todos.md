@@ -8,6 +8,7 @@
 ## Implementations
 [] FriendsPanel: Add notification count in TabButton of Friendspanel aswell.
 [] FriendsPanel: If no related user yet, display some other user, so the field is not empty. Or add a placeholder with text "Search for a user"
+[] Implement Test Project for unit tests. -> Implement tests
 
 
 # AUTH
@@ -37,6 +38,8 @@
 # NOTES
 
 ## Fixes
+[] Root should not have a chevron at all. Needs to be blended away.
+[] Make the chevron gray if expanding is not possible (Example: Folder to expand has no content in it. Therefore nothing is seen and the chevron is useless.)
 
 ## Implementations
 

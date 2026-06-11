@@ -47,3 +47,16 @@ export type Note_TextBlock = {
 
 
 
+
+// --- ViewModels --- //
+
+// Represents a folder or note in the file tree
+export type TreeNode = {
+    id: string;
+    name: string;
+    type: "folder" | "note";
+    children?: TreeNode[];
+};
+
+
+

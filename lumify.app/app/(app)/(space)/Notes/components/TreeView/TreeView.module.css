@@ -1,0 +1,72 @@
+.container {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    gap: 2px;
+    padding-top: 10px;
+}
+
+.node {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    height: 33px;
+    border-radius: 8px;
+    cursor: pointer;
+    padding-right: 8px;
+    gap: 5px;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.row:hover {
+    background-color: rgba(200,200,200,0.15);
+    transition: ease-in-out 0.1355s;
+}
+
+.row:hover {
+    opacity: 0.9;
+}
+
+.rowSelected {
+    outline: 1px solid var(--color-highlight);
+}
+
+.indent {
+    flex: 0 0 auto;
+}
+
+.chevron {
+    width: 12px;
+    height: 22px;
+    min-width: 12px;
+    min-height: 22px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+.chevron:disabled {
+    cursor: default;
+    opacity: 0.3;
+}
+
+.label {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.icon {
+    height: 25px;
+    width: 25px;
+    min-height: 25px;
+    min-width: 25px;
+}
