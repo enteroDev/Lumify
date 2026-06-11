@@ -29,6 +29,7 @@ export const c = {
     input:              styles["input"],
 
     list:               styles["list"],
+    empty:              styles["empty"],
 } as const;
 
 export type UserlistProps = {
@@ -113,6 +114,11 @@ export default function Userlist({
 
             {/* LIST */}
             <div className={c.list}>
+
+                {/* Empty-State */}
+                {users.length === 0 && (
+                    <div className={c.empty}>Suche einen User, um ihn als Freund hinzuzufügen.</div>
+                )}
 
                 {/* Users */}
                 {users.map(user => (

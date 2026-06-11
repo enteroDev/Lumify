@@ -7,7 +7,7 @@
 
 ## Implementations
 [x] FriendsPanel: Add notification count in TabButton of Friendspanel aswell.
-[ ] FriendsPanel: If no related user yet, display some other user, so the field is not empty. Or add a placeholder with text "Search for a user"
+[x] FriendsPanel: If no related user yet, display some other user, so the field is not empty. Or add a placeholder with text "Search for a user"
 [ ] Implement Test Project for unit tests. -> Implement tests
 
 
