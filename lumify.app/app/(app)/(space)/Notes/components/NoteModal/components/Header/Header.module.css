@@ -1,0 +1,181 @@
+.container {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 9px 13px 9px 13px;
+
+    background: var(--color-creamWhite);
+}
+
+
+
+.titleWrap {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    min-width: 0;
+    flex: 1;
+}
+
+.title {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    font-size: 1.1rem;
+    color: var(--color-infoText-dark);
+}
+
+
+
+.editWrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    flex: 1;
+
+    padding: 5px 8px;
+    border: 1px solid var(--color-highlight);
+    border-radius: 10px;
+}
+
+.titleInput {
+    min-width: 0;
+    flex: 1;
+
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+
+    font-size: 1.1rem;
+    color: var(--color-infoText-dark);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+
+
+
+.closeButton {
+    width: 15px;
+    height: 15px;
+    color: var(--color-infoText-dark);
+    stroke: var(--color-infoText-dark);
+    transition: transform 0.15s ease;
+    transform-origin: center;
+}
+.closeButton:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.closeButton:active {
+    transform: scale(1.08);
+}
+.closeButton svg {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.editButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 18px;
+    height: 18px;
+
+    color: var(--color-infoText-dark);
+    stroke: var(--color-infoText-dark);
+
+    transition: transform 0.15s ease;
+    transform-origin: center;
+}
+.editButton:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.editButton:active {
+    transform: scale(1.08);
+}
+.editButton svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 1.5;
+    color: rgba(71, 71, 71, 0.3)
+}
+
+
+
+.abortButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 22px;
+    height: 22px;
+
+    color: var(--color-infoText-dark);
+    stroke: var(--color-infoText-dark);
+
+    transition: transform 0.15s ease;
+    transform-origin: center;
+}
+.abortButton:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.abortButton:active {
+    transform: scale(1.08);
+}
+.abortButton svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 2.3;
+}
+.abortButton:hover svg {
+    color: var(--color-abort);
+}
+
+
+
+.saveButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 22px;
+    height: 22px;
+
+    color: var(--color-infoText-dark);
+    stroke: var(--color-infoText-dark);
+
+    transition: transform 0.15s ease;
+    transform-origin: center;
+}
+.saveButton:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.saveButton:active {
+    transform: scale(1.08);
+}
+.saveButton svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 1.5;
+}

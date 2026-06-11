@@ -57,6 +57,7 @@
 # EVENTS
 
 ## Fixes
+[] Set Calendar to current month (Show current month when visiting the Events-page)
 
 ## Implementations
 [] Add logic to button "New Event" in eventDetails-modal (EventModal)

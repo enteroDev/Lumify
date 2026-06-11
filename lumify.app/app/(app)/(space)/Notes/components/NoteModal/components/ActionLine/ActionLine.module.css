@@ -1,0 +1,63 @@
+.container {
+    padding: 6px 8px;
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px;
+    border-radius: 50px;
+    background: var(--color-bar);
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    padding: 0;
+    border: none;
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.button:active {
+    transform: scale(0.96);
+}
+
+.iconWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 18px;
+    height: 18px;
+}
+
+.iconWrap {
+    width: 20px;
+    height: 20px;
+    color: var(--color-creamWhite);
+    --icon-stroke-width: 1.5px;
+}
+
+.iconWrap :global([stroke]) {
+    stroke: currentColor;
+    stroke-width: var(--icon-stroke-width);
+}
+
+.iconWrap :global([fill="currentColor"]) {
+    fill: currentColor;
+}

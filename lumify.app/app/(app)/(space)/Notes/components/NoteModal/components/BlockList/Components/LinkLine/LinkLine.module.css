@@ -1,0 +1,283 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+
+    background-color:var(--color-bar);
+}
+
+
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 8px 12px;
+
+    background: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+}
+
+.titleWrap {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    gap: 10px;
+    flex: 1;
+}
+
+.headerIcon {
+    height: 20px;
+    width: 20px;
+    color: var(--color-creamWhite);
+}
+
+.title {
+    overflow: hidden;
+
+    color: var(--foreground);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 20px;
+    height: 20px;
+    padding: 12px;
+    margin-left: 8px;
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--foreground);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.2;
+    box-sizing: border-box;
+}
+
+
+
+
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding: 14px 10px;
+    padding-top: 0px;
+
+    color: var(--color-infoText-dark);
+    font-size: 14px;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+.linkList {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    width: 100%;
+    min-height: 44px;
+    padding: 8px 10px;
+    border-radius: 999px;
+
+    background: var(--color-pill);
+    box-sizing: border-box;
+}
+
+.linkItem {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+    border-radius: 50px;
+    border: 3px solid var(--color-highlight);
+
+    background: var(--color-creamWhite);
+
+    flex-shrink: 0;
+    transition: background-color 0.18s ease-in-out;
+}
+.linkItem:hover {
+    cursor: pointer;
+    background: var(--color-highlight);
+}
+.linkItem:hover .linkItemOverlay {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    animation: blobIn 0.34s cubic-bezier(0.22, 1.35, 0.36, 1) 0.22s both;
+}
+.linkItem:hover .linkItemOverlay:hover {
+    cursor: pointer;
+    animation: none;
+    transform: scale(1.15);
+}
+
+
+
+.linkItemText {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+
+
+.linkItemOverlay {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1px 6px 4px 6px;
+
+    border-radius: 50px;
+    border: 1px solid rgba(221, 48, 48, 0.575);
+
+    background-color: rgba(49, 49, 49, 0.9);
+    color: var(--color-creamWhite);
+
+    font-size: 1rem;
+    line-height: 1;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(0.2);
+
+    transition:
+        opacity 0.16s ease,
+        visibility 0s linear 0.16s,
+        transform 0.16s ease;
+}
+
+
+
+
+.actionsArea {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+
+
+
+
+.buttonDelete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    padding: 0;
+    border: 1px solid transparent;  
+    border-radius: 999px;
+
+    color: var(--color-creamWhite);
+
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+.buttonDelete:hover {
+    background: var(--color-error);
+    box-shadow: 0 0 8px rgba(255, 27, 27, 0.85);
+    border: 1px solid rgb(253, 109, 109);
+}
+.buttonDelete:active {
+    transform: scale(0.96);
+}
+.buttonDelete :global(svg) {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+
+    color: var(--color-creamWhite);
+    background: transparent;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
+}
+.button:hover {
+    background: rgba(255, 255, 255, 0.38);
+    color: var(--color-creamWhite);
+}
+.button:active {
+    transform: scale(0.96);
+}
+.button :global(svg) {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+
+
+.chevron {
+    transition: transform 0.2s ease;
+}
+
+.chevronCollapsed {
+    transform: rotate(180deg);
+}
+
+
+
+
+
+@keyframes blobIn {
+    0% {
+        transform: scale(0.2);
+    }
+    55% {
+        transform: scale(1.1);
+    }
+    75% {
+        transform: scale(0.92);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

@@ -13,16 +13,18 @@ import TreeView from "./components/TreeView/TreeView";
 import FileView from "./components/FileView/FileView";
 import Overlay from "@/components/OverlayContainer/OverlayContainer";
 // Models
-import type { Folder, Note } from "@/models/notes";
+import type { Folder, Note, Note_TextBlock, Note_LinkItem } from "@/models/notes";
 // Utils
 import { buildTreeNodes } from "./utils/buildTreeNodes";
 // Provider
 import { useSpace } from "../../../../components/_Space/SpaceProvider";
 import { useToast } from "../../../../components/Toast/ToastProvider";
 import { useAlert } from "../../../../components/AlertModal/AlertProvider";
+import { useModal } from "@/components/Modal/ModalProvider";
 // Services
 import { FolderService } from "@/services/api/folderServices";
 import { NoteService } from "@/services/api/noteService";
+import { UserService } from "@/services/api/userService";
 // Hooks
 import { useNoteHub } from "@/hooks/useNoteHub";
 
@@ -35,6 +37,7 @@ export default function Notes() {
 
     const { isPrivate, workspaceID } = useSpace();
     const { showAlert } = useAlert();
+    const { openNoteModal } = useModal();
     const toast = useToast();
 
 
@@ -724,13 +727,38 @@ export default function Notes() {
     /* ---- */
     /* OPEN */
     /* ---- */
-    const openNote = (noteID: string) => {
+    const openNote = async (noteID: string) => {
         const note = notes.find(x => x.id === noteID);
         if (!note) { return; }
 
-        // Select note only. NoteModal was removed from this page.
-        setFileViewSelectedID(noteID);
-        setFileViewSelectedType("note");
+        try {
+            // Get neccessary information of the note
+            const [textBlocks, linkItems, user] = await Promise.all([
+                NoteService.getTextBlocksOfNote(noteID),
+                NoteService.getLinkItemsOfNote(noteID),
+                UserService.getUserAccountInfoWithID(note.ownerID),
+            ]);
+
+            // Add additional NoteInfos to the NoteObject - In this case we add the ownerName to display the name in the noteModal
+            const fullNote: Note = {
+                ...note,
+                ownerName: `${user.firstName ?? "N/A"} ${user.lastName ?? ""}`.trim(),
+            };
+
+            setFileViewSelectedID(noteID);
+            setFileViewSelectedType("note");
+
+            openNoteModal({
+                note: fullNote,
+                textBlocks: textBlocks,
+                linkItems: linkItems,
+            });
+
+        } catch (error) {
+
+            console.error("Failed to open note", error);
+            toast.error("Fehler beim Laden der Notiz.");
+        }
     };
 
 

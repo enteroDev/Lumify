@@ -10,10 +10,12 @@ import { createContext, useCallback, useContext, useMemo, useState } from "react
 // Components
 import WorkspaceModal from "@/app/(app)/Dashboard/components/Workspaces/components/WorkspaceModal/WorkspaceModal";
 import EventModal from "@/app/(app)/(space)/Events/components/EventModal/EventModal";
+import NoteModal from "@/app/(app)/(space)/Notes/components/NoteModal/NoteModal";
 
 // Models
 import type { WorkspaceVM } from "@/models/Space";
 import type { CalendarEventDTO, SaveEventDTO } from "@/models/Events";
+import type { Note, Note_TextBlock, Note_LinkItem } from "@/models/notes";
 
 
 
@@ -38,14 +40,25 @@ type EventModalOptions = {
     deleteEvent: (eventID: string) => void;
 };
 
+type NoteModalOptions = {
+    note: Note;
+    textBlocks: Note_TextBlock[];
+    linkItems: Note_LinkItem[];
+};
+
+
+
+
 type ModalState =
     | { type: null }
     | { type: "workspace"; options: WorkspaceModalOptions }
-    | { type: "event"; options: EventModalOptions };
+    | { type: "event"; options: EventModalOptions }
+    | { type: "note"; options: NoteModalOptions };
 
 
 
 type ModalContextValue = {
+    openNoteModal: (options: NoteModalOptions) => void;
     openWorkspaceModal: (options: WorkspaceModalOptions) => void;
     openEventModal: (options: EventModalOptions) => void;
     closeModal: () => void;
@@ -78,6 +91,13 @@ export default function ModalProvider({ children }: ModalProviderProps) {
         });
     }, []);
 
+    const openNoteModal = useCallback((options: NoteModalOptions) => {
+        setModalState({
+            type: "note",
+            options,
+        });
+    }, []);
+
     const openWorkspaceModal = useCallback((options: WorkspaceModalOptions) => {
         setModalState({
             type: "workspace",
@@ -94,10 +114,11 @@ export default function ModalProvider({ children }: ModalProviderProps) {
 
 
     const value = useMemo(() => ({
+        openNoteModal,
         openWorkspaceModal,
         openEventModal,
         closeModal,
-    }), [openWorkspaceModal, openEventModal, closeModal]);
+    }), [openNoteModal, openWorkspaceModal, openEventModal, closeModal]);
 
 
     // ----------- //
@@ -106,6 +127,20 @@ export default function ModalProvider({ children }: ModalProviderProps) {
     return (
         <ModalContext.Provider value={value}>
             {children}
+
+            {/* NoteModal */}
+            {modalState.type === "note" && (
+                <NoteModal
+                    key={modalState.options.note.id}
+
+                    initialNote={modalState.options.note}
+                    initialTextBlocks={modalState.options.textBlocks}
+                    initialLinkItems={modalState.options.linkItems}
+
+                    isOpen={true}
+                    onClose={closeModal}
+                />
+            )}
 
             {/* WorkspaceModal */}
             {modalState.type === "workspace" && (

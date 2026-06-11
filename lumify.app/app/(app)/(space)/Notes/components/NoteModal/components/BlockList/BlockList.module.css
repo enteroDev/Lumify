@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 8px;
+    gap: 10px;
+}
+
+.text {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.subText {
+    font-size: 0.9rem;
+}
