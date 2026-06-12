@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="lumify.api.csproj" />
+  <Project Path="..\lumify.tests\lumify.tests.csproj" />
 </Solution>
