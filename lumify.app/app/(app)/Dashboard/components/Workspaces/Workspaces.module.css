@@ -1,4 +1,9 @@
 .container {
+    /* z-index:0 makes this a plain stacking context (NOT a backdrop-root), so the ::before blur layer
+       stays contained while the cards inside keep their own working backdrop-filter. */
+    position: relative;
+    z-index: 0;
+
     display: flex;
     flex-direction: column;
 
@@ -10,10 +15,25 @@
     border-radius: 10px;
     border: 1px solid var(--color-pill);
 
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Panel background + blur live on a pseudo-element instead of the container itself.
+   That way the cards are NOT descendants of a backdrop-filtered element, so their own
+   featureBox backdrop-filter is no longer swallowed (nested backdrop-filters don't render). */
+.container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    border-radius: inherit;
     background-color: rgba(128, 128, 128, 0.15);
+
+    -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
 
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
 }
 
 .header {

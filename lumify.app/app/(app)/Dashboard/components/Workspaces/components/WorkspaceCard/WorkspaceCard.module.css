@@ -15,6 +15,9 @@
 
     overflow: hidden;
     box-sizing: border-box;
+
+    /* Own backdrop-root, so the featureBox backdrop-filter blurs the card instead of being swallowed by the parent panel. */
+    isolation: isolate;
 }
 .container:hover {
     cursor: pointer;
@@ -81,6 +84,9 @@
     color: var(--color-creamWhite);
 
     z-index: 200;
+
+    /* Promote the body to its own layer, so its content lands in the featureBox's backdrop and the blur becomes visible. */
+    transform: translateZ(0);
 }
 
 .featureBox {
