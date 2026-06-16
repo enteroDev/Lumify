@@ -64,7 +64,10 @@ export default function Calendar({
 
 
     // Set date to current date (To always load current month on page load).
-    const [view, setView] = useState({ year: 2026, month: 1 }); // 0=Jan, 1=Feb, ...
+    const [view, setView] = useState(() => {
+        const now = new Date();
+        return { year: now.getFullYear(), month: now.getMonth() }; // 0=Jan, 1=Feb, ...
+    });
 
     const [showAddEventModal, setShowAddEventModal] = useState(false);
     const [selectedDate, setSelectedDate] = useState<string | undefined>(undefined);

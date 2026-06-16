@@ -66,4 +66,4 @@
 
 ## Implementations
 [x] Add logic to button "New Event" in eventDetails-modal (EventModal)
-[ ] Use alert-modal at deleting MultiDay-Events. Tell the user that he is deleting the whole series if accepting the alert.
+[x] Use alert-modal at deleting MultiDay-Events. Tell the user that he is deleting the whole series if accepting the alert.

@@ -6,6 +6,8 @@
 
 // React
 import { useState } from "react";
+// Provider
+import { useAlert } from "@/components/AlertModal/AlertProvider";
 // Models
 import type { SaveEventDTO, CalendarEventDTO } from "@/models/Events";
 // Icons
@@ -70,6 +72,8 @@ export default function MetaPanel({
     onSaveEvent,
     onDeleteEvent,
 }: MetaPanelProps) {
+
+    const { showAlert } = useAlert();
 
     const [editMode, setEditMode] = useState(false);
 
@@ -144,6 +148,28 @@ export default function MetaPanel({
         setEditEndTime(selectedEvent.endTime);
 
         setEditMode(true);
+    }
+
+    // Ask for confirmation before deleting. For multi-day events we warn that the whole series is removed.
+    function handleDeleteEvent() {
+        if (!selectedEvent) {
+            return;
+        }
+
+        const isMultiDay = determineType() === "multiDay";
+
+        showAlert({
+            title: "Termin löschen",
+            message: isMultiDay
+                ? `Möchtest du den mehrtägigen Termin "${selectedEvent.name}" wirklich löschen? Dadurch wird die gesamte Terminreihe entfernt.`
+                : `Möchtest du den Termin "${selectedEvent.name}" wirklich löschen?`,
+            status: "delete",
+            confirmText: "Ja",
+            cancelText: "Nein",
+            onConfirm: () => {
+                onDeleteEvent(selectedEvent.id);
+            },
+        });
     }
 
     async function handleSaveEvent() {
@@ -416,7 +442,7 @@ export default function MetaPanel({
                         <div className={c.buttonIcon}><EditIcon/></div>
                         <div className={c.buttonText}>Bearbeiten</div>
                     </button>
-                    <button type="button" className={c.buttonDelete} onClick={() => onDeleteEvent(selectedEvent.id)}>
+                    <button type="button" className={c.buttonDelete} onClick={handleDeleteEvent}>
                         <div className={c.buttonIcon}><DeleteIcon/></div>
                         <div className={c.buttonText}>Löschen</div>
                     </button>
