@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{224D09C1-4530-99A0-A400-7920E818EA4B}|lumify.tests.csproj|solutionrelative:controllertests\\todocontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{224D09C1-4530-99A0-A400-7920E818EA4B}|lumify.tests.csproj|c:\\dev\\lumify\\lumify.tests\\controllertests\\notescontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{224D09C1-4530-99A0-A400-7920E818EA4B}|lumify.tests.csproj|solutionrelative:controllertests\\notescontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{224D09C1-4530-99A0-A400-7920E818EA4B}|lumify.tests.csproj|c:\\dev\\lumify\\lumify.tests\\helper\\signalrmock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{224D09C1-4530-99A0-A400-7920E818EA4B}|lumify.tests.csproj|solutionrelative:helper\\signalrmock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,8 +30,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NotesControllerTests.cs",
+              "DocumentMoniker": "C:\\DEV\\Lumify\\lumify.tests\\ControllerTests\\NotesControllerTests.cs",
+              "RelativeDocumentMoniker": "ControllerTests\\NotesControllerTests.cs",
+              "ToolTip": "C:\\DEV\\Lumify\\lumify.tests\\ControllerTests\\NotesControllerTests.cs",
+              "RelativeToolTip": "ControllerTests\\NotesControllerTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-16T08:07:16.402Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -36,14 +53,14 @@
               "RelativeDocumentMoniker": "ControllerTests\\TodoControllerTests.cs",
               "ToolTip": "C:\\DEV\\Lumify\\lumify.tests\\ControllerTests\\TodoControllerTests.cs",
               "RelativeToolTip": "ControllerTests\\TodoControllerTests.cs",
-              "ViewState": "AgIAAFwFAAAAAAAAAAAowG8FAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAADkFAAAAAAAAAAAqwEUFAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-12T13:13:26.755Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "TestDbFactory.cs",
               "DocumentMoniker": "C:\\DEV\\Lumify\\lumify.tests\\Helper\\TestDbFactory.cs",
               "RelativeDocumentMoniker": "Helper\\TestDbFactory.cs",
@@ -55,7 +72,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "SignalRMock.cs",
               "DocumentMoniker": "C:\\DEV\\Lumify\\lumify.tests\\Helper\\SignalRMock.cs",
               "RelativeDocumentMoniker": "Helper\\SignalRMock.cs",
@@ -63,12 +80,11 @@
               "RelativeToolTip": "Helper\\SignalRMock.cs",
               "ViewState": "AgIAACgAAAAAAAAAAAAgwEAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-12T08:43:15.276Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-12T08:43:15.276Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ControllerContextFactory.cs",
               "DocumentMoniker": "C:\\DEV\\Lumify\\lumify.tests\\Helper\\ControllerContextFactory.cs",
               "RelativeDocumentMoniker": "Helper\\ControllerContextFactory.cs",

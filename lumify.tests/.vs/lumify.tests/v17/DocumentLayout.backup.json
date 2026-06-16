@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "ControllerTests\\TodoControllerTests.cs",
               "ToolTip": "C:\\DEV\\Lumify\\lumify.tests\\ControllerTests\\TodoControllerTests.cs",
               "RelativeToolTip": "ControllerTests\\TodoControllerTests.cs",
-              "ViewState": "AgIAAJAEAAAAAAAAAAAIwL0EAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFwFAAAAAAAAAAAowG8FAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-12T13:13:26.755Z",
               "EditorCaption": ""
@@ -61,9 +61,10 @@
               "RelativeDocumentMoniker": "Helper\\SignalRMock.cs",
               "ToolTip": "C:\\DEV\\Lumify\\lumify.tests\\Helper\\SignalRMock.cs",
               "RelativeToolTip": "Helper\\SignalRMock.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAQwCIAAABAAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAAgwEAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-12T08:43:15.276Z"
+              "WhenOpened": "2026-06-12T08:43:15.276Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
