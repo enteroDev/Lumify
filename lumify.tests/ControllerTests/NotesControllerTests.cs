@@ -51,7 +51,6 @@ namespace lumify.tests.ControllerTests
 
 
 
-
         // --------------- //
         // --- AddNote --- //
         // --------------- //

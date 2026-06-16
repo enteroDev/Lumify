@@ -12,12 +12,13 @@
 ## Implementations
 [x] FriendsPanel: Add notification count in TabButton of Friendspanel aswell.
 [x] FriendsPanel: If no related user yet, display some other user, so the field is not empty. Or add a placeholder with text "Search for a user"
-[ ] Implement Test Project for unit tests. -> Implement tests
+[x] Implement Test Project for unit tests. -> Implement tests
 
 
 # AUTH
 
 ## Fixes
+[x] Hitting "Enter" in PasswordField should also activate "LoginFunction" (Same as hitting the Button)
 
 ## Implementations
 
@@ -61,8 +62,8 @@
 # EVENTS
 
 ## Fixes
-[ ] Set Calendar to current month (Show current month when visiting the Events-page)
+[x] Set Calendar to current month (Show current month when visiting the Events-page)
 
 ## Implementations
-[ ] Add logic to button "New Event" in eventDetails-modal (EventModal)
+[x] Add logic to button "New Event" in eventDetails-modal (EventModal)
 [ ] Use alert-modal at deleting MultiDay-Events. Tell the user that he is deleting the whole series if accepting the alert.

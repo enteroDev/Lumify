@@ -70,6 +70,13 @@ export default function LoginPanel({
         await onLogin(identifier, password);
     }
 
+    // Hitting "Enter" in the input fields should trigger the login, just like clicking the button.
+    function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+        if (e.key === "Enter" && !loading) {
+            handleLogin();
+        }
+    }
+
 
     // --------------- //
     // --- Effects --- //
@@ -124,6 +131,7 @@ export default function LoginPanel({
                                 type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
+                                onKeyDown={handleKeyDown}
                             />
                         </div>
 
