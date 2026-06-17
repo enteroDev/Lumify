@@ -24,6 +24,7 @@ export const c = {
 type FriendsSectionProps = {
     onOpenChat: (selectedUser: SelectedChatUserVM) => void;
     friendshipVersion: number;
+    onFriendshipMutated: () => void;
 };
 
 
@@ -31,7 +32,11 @@ type FriendsSectionProps = {
 // ----------------- //
 // --- Component --- //
 // ----------------- //
-export default function FriendsSection({onOpenChat, friendshipVersion}:FriendsSectionProps) {
+export default function FriendsSection({
+    onOpenChat,
+    friendshipVersion,
+    onFriendshipMutated,
+}:FriendsSectionProps) {
 
 
     // ----------- //
@@ -39,7 +44,11 @@ export default function FriendsSection({onOpenChat, friendshipVersion}:FriendsSe
     // ----------- //
     return (
         <div className={c.container}>
-            <FriendsPanel onOpenChat={onOpenChat} friendshipVersion={friendshipVersion}/>
+            <FriendsPanel
+                onOpenChat={onOpenChat}
+                friendshipVersion={friendshipVersion}
+                onFriendshipMutated={onFriendshipMutated}
+            />
         </div>
     );
 }

@@ -5,7 +5,7 @@
 // --------------- //
 
 // React
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useState } from "react";
 // Services
 import { FriendshipService } from "@/services/api/friendshipService";
 // Provider
@@ -27,6 +27,7 @@ import styles from "./FriendsOverlay.module.css";
 type FriendsOverlayContextType = {
     openChat: (user: SelectedChatUserVM) => void;
     friendshipVersion: number;
+    notifyFriendshipMutated: () => void;
 };
 
 const FriendsOverlayContext = createContext<FriendsOverlayContextType | null>(null);
@@ -70,7 +71,7 @@ export default function FriendsOverlay({ children }: { children?: React.ReactNod
     const [isFriendPanelOpen, setIsFriendPanelOpen] = useState(false);
     const [isChatPanelOpen, setIsChatPanelOpen] = useState(false);
 
-    // Bumped on every live "FriendshipChanged" event to trigger a refetch in the panel.
+    // Bumped on every live "FriendshipChanged" event, to trigger a refetch in the panel.
     const [friendshipVersion, setFriendshipVersion] = useState(0);
 
     const { subscribeFriendshipChanged } = usePresenceContext();
@@ -128,7 +129,7 @@ export default function FriendsOverlay({ children }: { children?: React.ReactNod
     // ------------- //
     // --- Logic --- //
     // ------------- //
-    const loadIncomingFriendRequestsCount = async () => {
+    const loadIncomingFriendRequestsCount = useCallback(async () => {
         try {
             const data = await FriendshipService.getIncomingFriendRequests();
             setNotificationCount(data.length);
@@ -137,7 +138,14 @@ export default function FriendsOverlay({ children }: { children?: React.ReactNod
             console.error("Failed to load incoming friend requests count", error);
             setNotificationCount(0);
         }
-    };
+    }, []);
+
+    // Called by a panel after a local friendship mutation (accept/reject), since the server only
+    // pushes "FriendshipChanged" to the counterparty - not back to the acting user. This keeps the
+    // bell count in sync without a reload.
+    const notifyFriendshipMutated = useCallback(() => {
+        void loadIncomingFriendRequestsCount();
+    }, [loadIncomingFriendRequestsCount]);
 
 
 
@@ -146,7 +154,7 @@ export default function FriendsOverlay({ children }: { children?: React.ReactNod
     // ----------------- //
     useEffect(() => {
         void loadIncomingFriendRequestsCount();
-    }, []);
+    }, [loadIncomingFriendRequestsCount]);
 
     // Live-sync: refresh the bell count and signal the panel to refetch on any friendship change.
     useEffect(() => {
@@ -156,7 +164,7 @@ export default function FriendsOverlay({ children }: { children?: React.ReactNod
         });
 
         return unsubscribe;
-    }, [subscribeFriendshipChanged]);
+    }, [subscribeFriendshipChanged, loadIncomingFriendRequestsCount]);
 
 
 
@@ -164,14 +172,14 @@ export default function FriendsOverlay({ children }: { children?: React.ReactNod
     // --- JSX --- //
     // ----------- //
     return (
-        <FriendsOverlayContext.Provider value={{ openChat: handleOpenChat, friendshipVersion }}>
+        <FriendsOverlayContext.Provider value={{ openChat: handleOpenChat, friendshipVersion, notifyFriendshipMutated }}>
             <div className={`${c.container} ${isExpanded ? c.containerExpanded : ""}`}>
                 <div className={c.trigger}>
                     <Trigger onToggle={toggleFriends} notificationCount={notificationCount} />
                 </div>
 
                 <div className={`${c.dropClosed} ${isFriendPanelOpen ? c.dropOpened : ""}`}>
-                    <FriendsSection onOpenChat={handleOpenChat} friendshipVersion={friendshipVersion} />
+                    <FriendsSection onOpenChat={handleOpenChat} friendshipVersion={friendshipVersion} onFriendshipMutated={notifyFriendshipMutated} />
                 </div>
 
                 <div className={`${c.chatClosed} ${isChatPanelOpen ? c.chatOpened : ""}`}>

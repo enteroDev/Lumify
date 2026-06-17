@@ -35,6 +35,7 @@ export const c = {
 type FriendsPanelProps = {
     onOpenChat: (selectedUser: SelectedChatUserVM) => void;
     friendshipVersion: number;
+    onFriendshipMutated?: () => void;
 };
 
 export type FriendsPanelTab = "friendList" | "userList" | "requests";
@@ -47,6 +48,7 @@ export type FriendsPanelTab = "friendList" | "userList" | "requests";
 export default function FriendsPanel({
     onOpenChat,
     friendshipVersion,
+    onFriendshipMutated,
 }: FriendsPanelProps) {
 
 
@@ -139,6 +141,9 @@ export default function FriendsPanel({
             await loadOutgoingFriendRequests();
             await loadRelatedUsers();
 
+            // Tell the overlay to refresh its bell count (the server only notifies the counterparty).
+            onFriendshipMutated?.();
+
         } catch (error) {
             console.error("Failed to accept friend request", error);
         }
@@ -151,6 +156,9 @@ export default function FriendsPanel({
             await loadIncomingFriendRequests();
             await loadOutgoingFriendRequests();
             await loadRelatedUsers();
+
+            // Tell the overlay to refresh its bell count (the server only notifies the counterparty).
+            onFriendshipMutated?.();
 
         } catch (error) {
             console.error("Failed to reject friend request", error);
