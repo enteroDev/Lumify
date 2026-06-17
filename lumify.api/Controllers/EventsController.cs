@@ -160,8 +160,8 @@ namespace lumify.api.Controllers
                 return NotFound();
             }
 
-            // Only the owner is allowed to delete the event
-            if (eventEntry.OwnerID != userID)
+            // Personal event: only the owner may delete. Workspace event: any workspace member may.
+            if (!await CanModify(eventEntry.WorkspaceID, eventEntry.OwnerID, userID, ct))
             {
                 return Forbid();
             }
@@ -218,8 +218,8 @@ namespace lumify.api.Controllers
                 return NotFound("Event not found");
             }
 
-            // Only the owner is allowed to update the event
-            if (eventEntry.OwnerID != userID)
+            // Personal event: only the owner may modify. Workspace event: any workspace member may.
+            if (!await CanModify(eventEntry.WorkspaceID, eventEntry.OwnerID, userID, ct))
             {
                 return Forbid();
             }
@@ -496,7 +496,6 @@ namespace lumify.api.Controllers
                 join user in _db.Users on calendarEvent.OwnerID equals user.ID
                 where calendarEvent.WorkspaceID == trimmedWorkspaceID
                     && calendarEvent.DeletedAt == null
-                    && user.DeletedAt == null
                 orderby calendarEvent.StartDate
                 select new EventResponse
                 {
@@ -572,6 +571,20 @@ namespace lumify.api.Controllers
             }
 
             return userID;
+        }
+
+        // Decides whether the current user may modify/delete an item.
+        //  - Personal item (workspaceID == null): only its owner may.
+        //  - Workspace item: any active member of that workspace may (creator != owner).
+        private async Task<bool> CanModify(string? workspaceID, string ownerID, string userID, CancellationToken ct)
+        {
+            if (string.IsNullOrWhiteSpace(workspaceID))
+            {
+                return ownerID == userID;
+            }
+
+            return await _db.WorkspaceMembers.AnyAsync(
+                x => x.WorkspaceID == workspaceID && x.UserID == userID && x.DeletedAt == null, ct);
         }
     }
 }

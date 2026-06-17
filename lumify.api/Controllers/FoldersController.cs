@@ -164,8 +164,8 @@ namespace lumify.api.Controllers
                 return NotFound("Folder not found");
             }
 
-            // Only the owner is allowed to update the Folder
-            if (folder.OwnerID != userID)
+            // Personal folder: only the owner may modify. Workspace folder: any workspace member may.
+            if (!await CanModify(folder.WorkspaceID, folder.OwnerID, userID, ct))
             {
                 return Forbid();
             }
@@ -334,10 +334,10 @@ namespace lumify.api.Controllers
                 return NotFound();
             }
 
-            // Only the owner is allowed to delete the Folder
-            if (rootFolder.OwnerID != userID)
+            // Personal folder: only the owner may delete. Workspace folder: any workspace member may.
+            if (!await CanModify(rootFolder.WorkspaceID, rootFolder.OwnerID, userID, ct))
             {
-                _logger.LogInformation("DeleteFolder aborted: owner mismatch. Expected {ExpectedOwnerID}, actual {ActualOwnerID}.", userID, rootFolder.OwnerID);
+                _logger.LogInformation("DeleteFolder aborted: user {UserID} is not allowed to delete folder {FolderID}.", userID, rootFolder.ID);
                 return Forbid();
             }
 
@@ -479,6 +479,20 @@ namespace lumify.api.Controllers
             }
 
             return userID;
+        }
+
+        // Decides whether the current user may modify/delete an item.
+        //  - Personal item (workspaceID == null): only its owner may.
+        //  - Workspace item: any active member of that workspace may (creator != owner).
+        private async Task<bool> CanModify(string? workspaceID, string ownerID, string userID, CancellationToken ct)
+        {
+            if (string.IsNullOrWhiteSpace(workspaceID))
+            {
+                return ownerID == userID;
+            }
+
+            return await _db.WorkspaceMembers.AnyAsync(
+                x => x.WorkspaceID == workspaceID && x.UserID == userID && x.DeletedAt == null, ct);
         }
 
     }

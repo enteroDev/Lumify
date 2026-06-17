@@ -44,11 +44,13 @@ namespace lumify.api.Controllers
         [ActionName("loginUser")]
         public async Task<IActionResult> LoginUser([FromBody] LoginRequest dto)
         {
-            // 1) Find user (Username or e-mail, case-insensitive)
+            // 1) Find user (Username or e-mail, case-insensitive). Soft-deleted accounts (DeletedAt set)
+            // are treated as non-existent, so a deleted user can no longer log in.
             var identifier = dto.Identifier.Trim().ToLower();
             var user = await _context.Users.FirstOrDefaultAsync(u =>
-                u.Username.ToLower() == identifier ||
-                u.Email.ToLower() == identifier);
+                (u.Username.ToLower() == identifier ||
+                u.Email.ToLower() == identifier) &&
+                u.DeletedAt == null);
 
             if (user == null)
                 return Unauthorized("Invalid credentials.");

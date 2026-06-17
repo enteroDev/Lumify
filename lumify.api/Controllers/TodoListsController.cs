@@ -199,8 +199,8 @@ namespace lumify.api.Controllers
                 return NotFound("TodoList not found");
             }
 
-            // Only the owner is allowed to update the TodoList
-            if (todoList.OwnerID != userID)
+            // Personal list: only the owner may modify. Workspace list: any workspace member may.
+            if (!await CanModify(todoList.WorkspaceID, todoList.OwnerID, userID, ct))
             {
                 return Forbid();
             }
@@ -318,19 +318,20 @@ namespace lumify.api.Controllers
                 return NotFound("TodoEntry not found");
             }
 
-            // Only the owner is allowed to update the TodoEntry
-            if (todoEntry.OwnerID != userID)
-            {
-                return Forbid();
-            }
-
-            // Find the parent TodoList to resolve workspace for SignalR and track status changes
+            // Find the parent TodoList first - it carries the WorkspaceID needed for the permission check,
+            // resolves the workspace for SignalR and lets us track status changes.
             var todoList = await _db.TodoLists
                 .FirstOrDefaultAsync(x => x.ID == todoEntry.TodoListID && x.DeletedAt == null, ct);
 
             if (todoList == null)
             {
                 return NotFound("Parent TodoList not found");
+            }
+
+            // Personal entry: only the owner may modify. Workspace entry: any workspace member may.
+            if (!await CanModify(todoList.WorkspaceID, todoEntry.OwnerID, userID, ct))
+            {
+                return Forbid();
             }
 
             // Track whether any field actually changed to avoid unnecessary DB writes
@@ -495,8 +496,8 @@ namespace lumify.api.Controllers
                 return NotFound();
             }
 
-            // Only the owner is allowed to delete the TodoList
-            if (todoList.OwnerID != userID)
+            // Personal list: only the owner may delete. Workspace list: any workspace member may.
+            if (!await CanModify(todoList.WorkspaceID, todoList.OwnerID, userID, ct))
             {
                 return Forbid();
             }
@@ -546,19 +547,20 @@ namespace lumify.api.Controllers
                 return NotFound();
             }
 
-            // Only the owner is allowed to delete the entry
-            if (todoEntry.OwnerID != userID)
-            {
-                return Forbid();
-            }
-
-            // Find the parent TodoList to resolve the workspace for SignalR notification
+            // Find the parent TodoList first - it carries the WorkspaceID needed for the permission check
+            // and resolves the workspace for the SignalR notification.
             var todoList = await _db.TodoLists
                 .FirstOrDefaultAsync(x => x.ID == todoEntry.TodoListID && x.DeletedAt == null, ct);
 
             if (todoList == null)
             {
                 return NotFound("Parent TodoList not found");
+            }
+
+            // Personal entry: only the owner may delete. Workspace entry: any workspace member may.
+            if (!await CanModify(todoList.WorkspaceID, todoEntry.OwnerID, userID, ct))
+            {
+                return Forbid();
             }
 
             // Soft-delete the TodoEntry by setting DeletedAt instead of removing the record
@@ -638,7 +640,6 @@ namespace lumify.api.Controllers
                 join user in _db.Users on todoList.OwnerID equals user.ID
                 where todoList.WorkspaceID == workspaceID
                     && todoList.DeletedAt == null
-                    && user.DeletedAt == null
                 orderby todoList.CreatedAt
                 select new TodoListResponse
                 {
@@ -711,7 +712,6 @@ namespace lumify.api.Controllers
                 where todoEntry.DeletedAt == null
                     && todoList.DeletedAt == null
                     && todoList.WorkspaceID == workspaceID
-                    && user.DeletedAt == null
                 orderby todoEntry.CreatedAt
                 select new TodoEntryResponse
                 {
@@ -747,7 +747,6 @@ namespace lumify.api.Controllers
                 join user in _db.Users on tdl.OwnerID equals user.ID
                 where tdl.ID == todoListID
                     && tdl.DeletedAt == null
-                    && user.DeletedAt == null
                 select new TodoListResponse
                 {
                     ID = tdl.ID,
@@ -892,6 +891,20 @@ namespace lumify.api.Controllers
             }
 
             return userID;
+        }
+
+        // Decides whether the current user may modify/delete an item.
+        //  - Personal item (workspaceID == null): only its owner may.
+        //  - Workspace item: any active member of that workspace may (creator != owner).
+        private async Task<bool> CanModify(string? workspaceID, string ownerID, string userID, CancellationToken ct)
+        {
+            if (string.IsNullOrWhiteSpace(workspaceID))
+            {
+                return ownerID == userID;
+            }
+
+            return await _db.WorkspaceMembers.AnyAsync(
+                x => x.WorkspaceID == workspaceID && x.UserID == userID && x.DeletedAt == null, ct);
         }
 
         private async Task<bool> CheckIfLastUnchecked(string todoListID, string todoEntryID, int newStatus, CancellationToken ct)

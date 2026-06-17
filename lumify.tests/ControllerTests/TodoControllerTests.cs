@@ -243,7 +243,7 @@ namespace lumify.tests.ControllerTests
             AddTodoEntryRequest request = new AddTodoEntryRequest
             {
                 Name = "  Duftbaum kaufen  ",
-                Description = "  2 Stück  ",
+                Description = "  2 Stï¿½ck  ",
                 TodoListID = "tl-1"
             };
 
@@ -256,7 +256,7 @@ namespace lumify.tests.ControllerTests
             TodoEntryResponse body = Assert.IsType<TodoEntryResponse>(ok.Value);    // We expect the response to be type TodoEntryResponse.
 
             Assert.Equal("Duftbaum kaufen", body.Name);                             // We expect the name to be existent and correctly trimmed.
-            Assert.Equal("2 Stück", body.Description);                              // We expect the description to be existent and correctly trimmed.
+            Assert.Equal("2 Stï¿½ck", body.Description);                              // We expect the description to be existent and correctly trimmed.
             Assert.Equal("tl-1", body.TodoListID);                                  // We expect the TodoEntry to belong to our created TodoList.
             Assert.Equal(1, body.Status);                                           // We expect the status to be "1" (pending - offen).
 
@@ -479,6 +479,7 @@ namespace lumify.tests.ControllerTests
             // * We seed a workspace and a TodoList inside it.
             // * We create a request that reuses the seeded name -> nothing actually changes.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             TodoList seeded = SeedList("tl-1", DefaultUserID, "ws-1");
             SaveTodoListRequest request = new SaveTodoListRequest { ID = "tl-1", Name = seeded.Name };
 
@@ -505,6 +506,7 @@ namespace lumify.tests.ControllerTests
             // * We seed a workspace and a list inside it.
             // * We create a request that renames the list.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             SeedList("tl-1", DefaultUserID, "ws-1");
             SaveTodoListRequest request = new SaveTodoListRequest { ID = "tl-1", Name = "Renamed" };
 
@@ -737,6 +739,7 @@ namespace lumify.tests.ControllerTests
             // * We seed a workspace, a list inside it and an entry.
             // * We create a request that reuses the seeded name and description -> nothing changes.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             SeedList("tl-1", DefaultUserID, "ws-1");
             TodoEntry seeded = SeedEntry("t2-1", "tl-1", DefaultUserID, 1, "keep");
             SaveTodoEntryRequest request = new SaveTodoEntryRequest { ID = "t2-1", Name = seeded.Name, Description = "keep" };
@@ -761,6 +764,7 @@ namespace lumify.tests.ControllerTests
             // * We seed a workspace, an open list inside it and an open entry.
             // * We create a request that checks (status 2) the entry.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             SeedList("tl-1", DefaultUserID, "ws-1", 1);
             SeedEntry("t2-1", "tl-1", DefaultUserID, 1);
             SaveTodoEntryRequest request = new SaveTodoEntryRequest { ID = "t2-1", Status = 2 };
@@ -858,6 +862,7 @@ namespace lumify.tests.ControllerTests
             // --- Arrange --- //
             // * We seed a workspace and a list inside it.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             SeedList("tl-1", DefaultUserID, "ws-1");
 
             // --- Act --- //
@@ -973,6 +978,7 @@ namespace lumify.tests.ControllerTests
             // --- Arrange --- //
             // * We seed a workspace, a list inside it and an entry.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             SeedList("tl-1", DefaultUserID, "ws-1");
             SeedEntry("t2-1", "tl-1");
 

@@ -191,3 +191,47 @@
 .buttonLabel {
     font-size: 0.9rem;
 }
+
+
+
+
+/* Danger Zone */
+.dangerZone {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    /* push the destructive action to the very bottom of the body, away from the inputs */
+    margin-top: auto;
+    padding-top: 14px;
+
+    border-top: 1px solid rgba(229, 72, 77, 0.25);
+}
+
+.dangerHint {
+    font-size: 0.75rem;
+    color: rgb(145, 145, 145);
+
+    padding-left: 3px;
+}
+
+.deleteText {
+    align-self: flex-start;
+
+    padding: 0;
+
+    background: none;
+    border: none;
+
+    color: #e5484d;
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-style: italic;
+
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+.deleteText:hover {
+    text-decoration: underline;
+    opacity: 0.85;
+}

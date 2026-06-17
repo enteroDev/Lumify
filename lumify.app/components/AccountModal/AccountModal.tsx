@@ -13,6 +13,7 @@ import ProfileView from "@/components/AccountModal/components/ProfileView/Profil
 // Provider
 import { useAccountModal } from "@/components/AccountModal/AccountModalProvider";
 import { useToast } from "@/components/Toast/ToastProvider";
+import { useAlert } from "@/components/AlertModal/AlertProvider";
 // Services
 import { AuthService } from "@/services/api/authService";
 import { UserService } from "@/services/api/userService";
@@ -45,6 +46,7 @@ export default function AccountModal() {
 
     const { isOpen, closeModal, avatarUrl, setAvatarUrl, displayName, setDisplayName } = useAccountModal();
     const toast = useToast();
+    const { showAlert } = useAlert();
 
     const [activeTab, setActiveTab] = useState<TabView>("profile");
     const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
@@ -68,7 +70,8 @@ export default function AccountModal() {
             email={accountInfo?.email ?? ""}
             username={accountInfo?.username ?? ""}
             onSaveAccountInfo={saveAccountInfo}
-            isSavingAccountInfo={isSavingAccountInfo} />;
+            isSavingAccountInfo={isSavingAccountInfo}
+            onDeleteAccount={deleteAccount} />;
         }
 
         if (activeTab === "profile") {
@@ -233,6 +236,39 @@ export default function AccountModal() {
         } finally {
             setIsLoggingOut(false);
         }
+    }
+
+
+    // ### DELETE ### //
+    function deleteAccount() {
+        showAlert({
+            title: "Account löschen",
+            message:
+                "Willst du deinen Account wirklich löschen? Du wirst danach abgemeldet und kannst dich " +
+                "nicht mehr einloggen. Inhalte, die du in Workspaces erstellt hast, bleiben dort erhalten.",
+            status: "delete",
+            confirmText: "Endgültig löschen",
+            cancelText: "Abbrechen",
+            onConfirm: async () => {
+                try {
+                    // Soft-delete the account on the server
+                    await UserService.deleteAccount();
+
+                    // Account is gone -> clear cookies, close modal and redirect to login-page
+                    try {
+                        await AuthService.logout();
+                    } catch {
+                        // Cookies belong to a now-deleted user - a failing logout is not fatal here
+                    }
+
+                    closeModal();
+                    window.location.href = "/Auth";
+                } catch (err) {
+                    console.error("Failed to delete account:", err);
+                    toast.error("Fehler beim Löschen des Accounts.");
+                }
+            },
+        });
     }
 
 

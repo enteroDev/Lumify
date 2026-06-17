@@ -36,9 +36,13 @@ const c = {
     buttonIcon:         styles["buttonIcon"],
     buttonText:         styles["buttonText"],
 
+    dangerZone:         styles["dangerZone"],
+    dangerHint:         styles["dangerHint"],
+    deleteText:         styles["deleteText"],
+
 } as const;
 
-type AccountViewProps = {    
+type AccountViewProps = {
     firstName: string;
     lastName: string;
     email: string;
@@ -46,6 +50,8 @@ type AccountViewProps = {
 
     onSaveAccountInfo: (data: SaveAccountInfoRequest) => void | Promise<void>;
     isSavingAccountInfo?: boolean;
+
+    onDeleteAccount: () => void;
 }
 
 
@@ -59,8 +65,9 @@ export default function AccountView({
     email,
     username,
 
-    onSaveAccountInfo, 
+    onSaveAccountInfo,
     isSavingAccountInfo,
+    onDeleteAccount,
 }: AccountViewProps) {
     
     const fileInputRef = useRef<HTMLInputElement>(null);
@@ -138,6 +145,14 @@ export default function AccountView({
                         </div>
                     </div>
 
+                </div>
+
+                {/* Danger Zone - destructive, irreversible action kept apart from the rest */}
+                <div className={c.dangerZone}>
+                    <div className={c.dangerHint}>Diese Aktion kann nicht rückgängig gemacht werden.</div>
+                    <button type="button" className={c.deleteText} onClick={onDeleteAccount}>
+                        Account löschen
+                    </button>
                 </div>
             </div>
 

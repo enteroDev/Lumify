@@ -167,6 +167,42 @@ namespace lumify.api.Controllers
 
 
 
+        // -------------- //
+        // --- DELETE --- //
+        // -------------- //
+
+        // Soft-deletes the current user's own account by setting DeletedAt (the app uses soft-delete
+        // everywhere). The user's content is NOT cascaded: personal items become inaccessible (the
+        // user can no longer log in), while workspace items stay with the workspace and remain visible
+        // and editable for the other members.
+        [HttpDelete]
+        [ActionName("deleteAccount")]
+        [Authorize]
+        public async Task<IActionResult> DeleteAccount(CancellationToken ct)
+        {
+            var userID = GetCurrentUserID();
+            if (string.IsNullOrWhiteSpace(userID))
+            {
+                return Unauthorized("User ID claim missing");
+            }
+
+            var user = await _db.Users.FirstOrDefaultAsync(x => x.ID == userID && x.DeletedAt == null, ct);
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+
+            var now = DateTime.UtcNow.ToString("o");
+            user.DeletedAt = now;
+            user.UpdatedAt = now;
+
+            await _db.SaveChangesAsync(ct);
+
+            return Ok(new { success = true });
+        }
+
+
+
         // ----------- //
         // --- GET --- //
         // ----------- //

@@ -54,6 +54,19 @@ export const UserService = {
         return await res.json();
     },
 
+    async deleteAccount() {
+
+        const res = await saveFetch(`${API_BASE}/users/deleteAccount`, {
+            method: "DELETE",
+        });
+
+        if (!res.ok) {
+            throw new Error("Failed to delete account");
+        }
+
+        return true;
+    },
+
     async saveUserAvatar(file: File) {
         const formData = new FormData();
         formData.append("file", file);

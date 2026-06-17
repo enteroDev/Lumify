@@ -158,8 +158,8 @@ namespace lumify.api.Controllers
                 return NotFound("Note not found");
             }
 
-            // Only the owner is allowed to add modules to the Note
-            if (note.OwnerID != userID)
+            // Personal note: only the owner may modify. Workspace note: any workspace member may.
+            if (!await CanModify(note.WorkspaceID, note.OwnerID, userID, ct))
             {
                 return Forbid();
             }
@@ -240,8 +240,8 @@ namespace lumify.api.Controllers
                 return NotFound("Note not found");
             }
 
-            // Only the owner is allowed to add modules to the Note
-            if (note.OwnerID != userID)
+            // Personal note: only the owner may modify. Workspace note: any workspace member may.
+            if (!await CanModify(note.WorkspaceID, note.OwnerID, userID, ct))
             {
                 return Forbid();
             }
@@ -329,8 +329,8 @@ namespace lumify.api.Controllers
                 return NotFound("Note not found");
             }
 
-            // Only the owner is allowed to update the Note
-            if (note.OwnerID != userID)
+            // Personal note: only the owner may modify. Workspace note: any workspace member may.
+            if (!await CanModify(note.WorkspaceID, note.OwnerID, userID, ct))
             {
                 return Forbid();
             }
@@ -481,8 +481,8 @@ namespace lumify.api.Controllers
                 return NotFound("Parent note not found");
             }
 
-            // Only the owner is allowed to update the TextBlock
-            if (note.OwnerID != userID)
+            // Personal note: only the owner may modify. Workspace note: any workspace member may.
+            if (!await CanModify(note.WorkspaceID, note.OwnerID, userID, ct))
             {
                 return Forbid();
             }
@@ -642,8 +642,8 @@ namespace lumify.api.Controllers
                 return NotFound();
             }
 
-            // Only the owner is allowed to delete the Note
-            if (note.OwnerID != userID)
+            // Personal note: only the owner may delete. Workspace note: any workspace member may.
+            if (!await CanModify(note.WorkspaceID, note.OwnerID, userID, ct))
             {
                 return Forbid();
             }
@@ -735,8 +735,8 @@ namespace lumify.api.Controllers
                 return NotFound("Parent note not found");
             }
 
-            // Only the owner is allowed to delete the TextBlock
-            if (note.OwnerID != userID)
+            // Personal note: only the owner may delete. Workspace note: any workspace member may.
+            if (!await CanModify(note.WorkspaceID, note.OwnerID, userID, ct))
             {
                 return Forbid();
             }
@@ -801,8 +801,8 @@ namespace lumify.api.Controllers
                 return NotFound("Parent note not found");
             }
 
-            // Only the owner is allowed to delete the LinkItem
-            if (note.OwnerID != userID)
+            // Personal note: only the owner may delete. Workspace note: any workspace member may.
+            if (!await CanModify(note.WorkspaceID, note.OwnerID, userID, ct))
             {
                 return Forbid();
             }
@@ -880,19 +880,22 @@ namespace lumify.api.Controllers
         [ActionName("getAllNotesOfWorkspace")]
         public async Task<ActionResult<List<NoteResponse>>> GetAllNotesOfWorkspace(string workspaceID, CancellationToken ct)
         {
-            // Query all Notes of the workspace, joined with the user table to include OwnerName and exclude deleted users, sorted by creation date
+            // Query all Notes of the workspace, joined with the user table to include OwnerName, sorted by creation date.
+            // We intentionally keep notes whose creator was soft-deleted (content belongs to the workspace) and
+            // surface the creator as "Gelöschter Benutzer" in that case.
             var notes = await (
                 from note in _db.Notes
                 join user in _db.Users on note.OwnerID equals user.ID
                 where note.WorkspaceID == workspaceID
                     && note.DeletedAt == null
-                    && user.DeletedAt == null
                 orderby note.CreatedAt
                 select new NoteResponse
                 {
                     ID = note.ID,
                     OwnerID = note.OwnerID,
-                    OwnerName = user.FirstName != null && user.LastName != null
+                    OwnerName = user.DeletedAt != null
+                        ? "Gelöschter Benutzer"
+                        : user.FirstName != null && user.LastName != null
                         ? user.FirstName + " " + user.LastName
                         : user.FirstName ?? user.LastName ?? user.ID,
                     FolderID = note.FolderID,
@@ -923,12 +926,13 @@ namespace lumify.api.Controllers
                 join user in _db.Users on n.OwnerID equals user.ID
                 where n.ID == noteID
                     && n.DeletedAt == null
-                    && user.DeletedAt == null
                 select new NoteResponse
                 {
                     ID = n.ID,
                     OwnerID = n.OwnerID,
-                    OwnerName = user.FirstName != null && user.LastName != null
+                    OwnerName = user.DeletedAt != null
+                        ? "Gelöschter Benutzer"
+                        : user.FirstName != null && user.LastName != null
                         ? user.FirstName + " " + user.LastName
                         : user.FirstName ?? user.LastName ?? user.ID,
                     FolderID = n.FolderID,
@@ -1145,6 +1149,20 @@ namespace lumify.api.Controllers
             }
 
             return userID;
+        }
+
+        // Decides whether the current user may modify/delete an item.
+        //  - Personal item (workspaceID == null): only its owner may.
+        //  - Workspace item: any active member of that workspace may (creator != owner).
+        private async Task<bool> CanModify(string? workspaceID, string ownerID, string userID, CancellationToken ct)
+        {
+            if (string.IsNullOrWhiteSpace(workspaceID))
+            {
+                return ownerID == userID;
+            }
+
+            return await _db.WorkspaceMembers.AnyAsync(
+                x => x.WorkspaceID == workspaceID && x.UserID == userID && x.DeletedAt == null, ct);
         }
     }
 }

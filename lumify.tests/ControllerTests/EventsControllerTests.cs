@@ -411,6 +411,7 @@ namespace lumify.tests.ControllerTests
             // * We seed a workspace and an event inside it.
             // * We request a save that reuses the seeded name -> nothing actually changes.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             Event seeded = SeedEvent("e-1", DefaultUserID, "ws-1");
             SaveEventRequest request = new SaveEventRequest { ID = "e-1", Name = seeded.Name };
 
@@ -436,6 +437,7 @@ namespace lumify.tests.ControllerTests
             // --- Arrange --- //
             // * We seed a workspace and an event inside it, then request a rename.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             SeedEvent("e-1", DefaultUserID, "ws-1");
             SaveEventRequest request = new SaveEventRequest { ID = "e-1", Name = "Renamed" };
 
@@ -531,6 +533,7 @@ namespace lumify.tests.ControllerTests
             // --- Arrange --- //
             // * We seed a workspace and an event inside it.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             SeedEvent("e-1", DefaultUserID, "ws-1");
 
             // --- Act --- //

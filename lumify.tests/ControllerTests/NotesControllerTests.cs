@@ -339,6 +339,7 @@ namespace lumify.tests.ControllerTests
             // --- Arrange --- //
             // * We seed a workspace and our own note inside that workspace.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             SeedNote("n-1", DefaultUserID, "ws-1");
             AddTextBlockRequest request = new AddTextBlockRequest { NoteID = "n-1", Type = 0 };
 
@@ -495,6 +496,7 @@ namespace lumify.tests.ControllerTests
             // --- Arrange --- //
             // * We seed a workspace and our own note inside that workspace.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             SeedNote("n-1", DefaultUserID, "ws-1");
             AddLinkItemRequest request = new AddLinkItemRequest { NoteID = "n-1", Url = "https://example.com" };
 
@@ -659,6 +661,7 @@ namespace lumify.tests.ControllerTests
             // --- Arrange --- //
             // * We seed two workspaces, a note in the first and a folder in the second.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             SeedWorkspace("ws-2");
             SeedNote("n-1", DefaultUserID, "ws-1");
             SeedFolder("f-1", DefaultUserID, "ws-2");
@@ -736,6 +739,7 @@ namespace lumify.tests.ControllerTests
             // * We seed a workspace and a note inside it.
             // * We request a save that reuses the seeded name -> nothing actually changes.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             Note seeded = SeedNote("n-1", DefaultUserID, "ws-1");
             SaveNoteRequest request = new SaveNoteRequest { ID = "n-1", Name = seeded.Name };
 
@@ -761,6 +765,7 @@ namespace lumify.tests.ControllerTests
             // --- Arrange --- //
             // * We seed a workspace and a note inside it, then request a rename.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             SeedNote("n-1", DefaultUserID, "ws-1");
             SaveNoteRequest request = new SaveNoteRequest { ID = "n-1", Name = "Renamed" };
 
@@ -925,6 +930,7 @@ namespace lumify.tests.ControllerTests
             // * We seed a workspace, a note inside it and a block.
             // * We request a save that reuses the seeded values -> nothing changes.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             SeedNote("n-1", DefaultUserID, "ws-1");
             SeedTextBlock("tb-1", "n-1", 1, 0, "Keep", "keep content");
             SaveTextblockRequest request = new SaveTextblockRequest
@@ -955,6 +961,7 @@ namespace lumify.tests.ControllerTests
             // --- Arrange --- //
             // * We seed a workspace, a note inside it and a block, then request a content change.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             SeedNote("n-1", DefaultUserID, "ws-1");
             SeedTextBlock("tb-1", "n-1");
             SaveTextblockRequest request = new SaveTextblockRequest { ID = "tb-1", Content = "Changed" };
@@ -1057,6 +1064,7 @@ namespace lumify.tests.ControllerTests
             // --- Arrange --- //
             // * We seed a workspace and a note inside it.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             SeedNote("n-1", DefaultUserID, "ws-1");
 
             // --- Act --- //
@@ -1172,6 +1180,7 @@ namespace lumify.tests.ControllerTests
             // --- Arrange --- //
             // * We seed a workspace, a note inside it and a block.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             SeedNote("n-1", DefaultUserID, "ws-1");
             SeedTextBlock("tb-1", "n-1");
 
@@ -1288,6 +1297,7 @@ namespace lumify.tests.ControllerTests
             // --- Arrange --- //
             // * We seed a workspace, a note inside it and a link.
             SeedWorkspace("ws-1");
+            SeedMember("ws-1", DefaultUserID);
             SeedNote("n-1", DefaultUserID, "ws-1");
             SeedLinkItem("li-1", "n-1");
 
