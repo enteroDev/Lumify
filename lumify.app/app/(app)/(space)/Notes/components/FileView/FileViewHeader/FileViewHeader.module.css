@@ -1,8 +1,12 @@
 .container {
     display: flex;
+
     width: 100%;
+
+    gap: 20px;
     align-items: space-between;
     justify-content: space-between;
+
     box-sizing: border-box;
 }
 

@@ -13,7 +13,7 @@ import TreeView from "./components/TreeView/TreeView";
 import FileView from "./components/FileView/FileView";
 import Overlay from "@/components/OverlayContainer/OverlayContainer";
 // Models
-import type { Folder, Note, Note_TextBlock, Note_LinkItem } from "@/models/notes";
+import type { Folder, Note, Note_TextBlock, Note_LinkItem, TreeNode } from "@/models/notes";
 // Utils
 import { buildTreeNodes } from "./utils/buildTreeNodes";
 // Provider
@@ -65,6 +65,20 @@ export default function Notes() {
     // --- Build UI-Tree --- //
     // --------------------- //
     const nodes = useMemo(() => buildTreeNodes(folders, notes), [folders, notes]);
+
+    // Safety net: if the currently opened item no longer exists in the tree (e.g. it or one of
+    // its ancestors was deleted - including deletions coming in via the hub from other users),
+    // fall back to the root so the FileView never gets stuck on a "not found" message.
+    useEffect(() => {
+        if (openedFolderID === null) { return; }
+
+        const exists = (items: TreeNode[]): boolean =>
+            items.some(x => x.id === openedFolderID || (x.children ? exists(x.children) : false));
+
+        if (!exists(nodes)) {
+            setOpenedFolderID(null);
+        }
+    }, [nodes, openedFolderID]);
 
 
 
@@ -673,8 +687,10 @@ export default function Notes() {
                         clearTreeSelection();
                     }
 
+                    // If the deleted folder was the "opened" one, fall back to its parent folder
+                    // (or root) instead of leaving the FileView pointed at a now-missing node.
                     if (openedFolderID === folderID) {
-                        setOpenedFolderID(null);
+                        setOpenedFolderID(folder?.parentFolderID ?? null);
                     }
 
                     setExpandedIDs(new Set());
@@ -710,6 +726,13 @@ export default function Notes() {
 
                     if (treeViewSelectedID === noteID) {
                         clearTreeSelection();
+                    }
+
+                    // If the deleted note was the "opened" item (e.g. it was selected via the
+                    // TreeView, which opens it in the FileView), stay in its parent folder instead
+                    // of leaving the FileView pointed at a now-missing node ("not found").
+                    if (openedFolderID === noteID) {
+                        setOpenedFolderID(note?.folderID ?? null);
                     }
 
                     toast.success("Note wurde gelöscht.");
