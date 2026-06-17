@@ -101,6 +101,10 @@ export default function CalendarDay({
     }
 
     function handleOpenEventModal() {
+        // Hide the hover detail popup before opening the modal, otherwise it stays visible
+        // on top of (or behind) the modal since the cursor is still over this day cell.
+        setShowDetail(false);
+
         onOpenEventModal(
             date,
             dayMultiDayEvents,
