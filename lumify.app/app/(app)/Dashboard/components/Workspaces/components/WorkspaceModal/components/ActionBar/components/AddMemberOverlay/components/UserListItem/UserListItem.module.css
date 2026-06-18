@@ -9,7 +9,8 @@
     align-items: center;
 
     border-radius: 8px;
-    background-color: var(--color-bar);
+    /* Deeper banner tone, swapped with the (now light) overlay background. */
+    background-color: var(--color-pill);
 }
 
 .container:hover {
@@ -101,5 +102,5 @@
 .button:hover {
     cursor: pointer;
     background-color: var(--color-success);
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }

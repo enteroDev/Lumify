@@ -32,14 +32,22 @@
 }
 
 .icon-sound {
-    fill: var(--color-creamWhite);
+    fill: var(--icon-color);
+}
+[data-theme="beach"] .icon-sound {
+    color: #2e2e2e;
 }
 .action-button:hover .icon-sound {
     fill: var(--color-bar);
 }
 
 .icon-theme {
-    fill: var(--color-creamWhite);
+    fill: var(--icon-color);
+}
+[data-theme="beach"] .icon-theme {
+    color: #2e2e2e;
+    fill: #2e2e2e;
+    stroke: #2e2e2e;
 }
 .action-button:hover .icon-theme {
     fill: var(--color-bar);

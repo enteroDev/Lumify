@@ -9,7 +9,7 @@
     border: none;
     border-radius: 10px;
 
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 
     overflow: hidden;
     cursor: pointer;

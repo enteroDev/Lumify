@@ -33,6 +33,9 @@
 .pathIcon{
     padding: 6px 8px;
 }
+[data-theme="beach"] .pathIcon {
+    color: #2e2e2e;
+}
 .pathIcon:hover{
     color: #2e2e2e;
 }

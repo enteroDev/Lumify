@@ -1,6 +1,10 @@
 
 /* Image */
 .overlay-image {
+    /* Swaps with the theme: sleeping basket cat (chill) / sunglasses beach cat (beach).
+       The <img src> in the markup is just the fallback; the theme token wins. */
+    content: var(--overlay-cat);
+
     position: absolute;
     right: 20px;
     bottom: 20px;

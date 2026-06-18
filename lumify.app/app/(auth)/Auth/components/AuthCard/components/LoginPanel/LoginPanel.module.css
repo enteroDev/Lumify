@@ -41,7 +41,7 @@
 .icon {
     height: 30px;
     width: 30px;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
     stroke-width: 0.1px;
 }
 
@@ -160,7 +160,7 @@
     transition: transform 0.15s ease, opacity 0.15s ease, background 0.4s ease;
 
     background: var(--color-infoText-dark);
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 .button:hover {
     transform: translateY(-2px);

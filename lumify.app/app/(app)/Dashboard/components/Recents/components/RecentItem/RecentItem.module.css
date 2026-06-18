@@ -45,7 +45,7 @@
     margin-top: 4px;
 
     border-radius: 50%;
-    background: #60a5fa;
+    background: #424242;
 }
 
 
@@ -108,12 +108,12 @@
 .actionText {
     font-size: 0.9rem;
     font-weight: 600;
-    color: rgba(255,255,255,0.9);
+    color: var(--foreground);
 }
 
 .itemName {
     font-size: 0.9rem;
-    color: rgba(255,255,255,0.7);
+    color: color-mix(in srgb, var(--foreground) 70%, transparent);
 }
 
 

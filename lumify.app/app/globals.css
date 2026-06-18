@@ -1,33 +1,18 @@
 @import "tailwindcss/preflight"; /* Nutz ich nicht - Nur für base style props */
 
+/* =========================================================
+   THEME TOKENS
+   ---------------------------------------------------------
+   Components consume the SEMANTIC keys below. Only their
+   VALUES change between themes - never the key names.
+   The active palette is chosen via <html data-theme="...">,
+   which ThemeProvider sets. Two palettes exist:
+       chill : original purple / teal "lofi night" vibe
+       beach : brighter sand / teal "sunny day" vibe
+   ========================================================= */
+
+/* ---- Theme-INDEPENDENT tokens (identical in every theme) ---- */
 :root {
-  --background: #483672;
-  --foreground: #F1EDE6;
-
-  --color-highlight: #44b9c9;
-  --color-highlight-bright: #76e3f1;
-  --color-highlight-dark: #1999aa;
-  --color-bar: #32265A;
-  --color-pill: #6452a0;
-  --color-actions: #2B2147;
-
-  --color-workspace-border: #db8411;
-  --color-workspace-bg: #db841159;
-  --color-privatespace-border: #1999aa;
-  --color-privatespace-bg: #1999aa59;
-
-  --color-infoText-light: #9f81f3;
-  --color-infoText-dark: #20173d;
-
-  --color-button-action: #20173d;
-  --color-button-action-hov: #6452a0;
-  --color-button-gray: #cccbc0;
-
-  --color-purple-light: #8560dd;
-  --color-purple-mid: #7157af;
-  --color-purple-dark: #483672;
-  --color-creamWhite: #F1EDE6;
-
   --color-pending: #fbbf24;
   --color-done: #008040;
 
@@ -44,6 +29,179 @@
   --font-body: var(--font-borel);
 }
 
+
+/* ===================== THEME: CHILL ===================== */
+/* purple / teal, dark "lofi night" mood (the original look). */
+/* Also the default (bare :root) so the app is themed even before JS runs. */
+:root,
+[data-theme="chill"] {
+  --background: #483672;
+  --foreground: #F1EDE6;
+
+  --color-highlight: #44b9c9;
+  --color-highlight-bright: #76e3f1;
+  --color-highlight-dark: #1999aa;
+
+  --color-bar: #32265A;
+  --color-pill: #6452a0;
+  --color-actions: #2B2147;
+
+  --color-workspace-border: #db8411;
+  --color-workspace-bg: #db841159;
+  --color-privatespace-border: #1999aa;
+  --color-privatespace-bg: #1999aa59;
+
+  --color-infoText-light: #9f81f3;
+  --color-infoText-dark: #20173d;
+
+  --color-button-action: #20173d;
+  --color-button-action-hov: #6452a0;
+  --color-button-gray: #cccbc0;
+
+  /* Accent ramp - semantic names. The legacy --color-purple-* keys
+     (still used across ~28 files) are kept as aliases of these, so old
+     code keeps working while new code can use the readable names. */
+  --color-accent-soft: #8560dd;
+  --color-accent-mid:  #7157af;
+  --color-accent-deep: #483672;
+  --color-purple-light: var(--color-accent-soft);
+  --color-purple-mid:   var(--color-accent-mid);
+  --color-purple-dark:  var(--color-accent-deep);
+
+  --color-creamWhite: #F1EDE6;
+
+  /* App backdrop: the <main> gradient + the decorative corner scene. */
+  --app-backdrop:
+    radial-gradient(900px 600px at 50% 20%, rgba(25,227,209,0.15), transparent 60%),
+    linear-gradient(180deg, #3a2e66 0%, #2e2455 55%, #241c44 100%);
+  --app-scene: url("/src/bg-overlay-lofi.png");
+  --app-scene-size: auto 1000px;
+
+  /* Top header bar */
+  --header-bg: linear-gradient(180deg, #3a2f66 0%, #2f2557 100%);
+  --header-text: #F1EDE6;
+  --header-shadow: 0 8px 24px rgba(0,0,0,0.25);
+
+  /* Hero headings (Lumify / SpaceHub / Auth) */
+  --heading-color: #F1EDE6;
+  --heading-glow:
+    0 0 2px rgba(255,255,255,0.6),
+    0 0 14px rgba(255,162,40,0.6),
+    0 0 50px rgba(255,162,40,0.25);
+  --heading-aura: radial-gradient(
+    ellipse at 50% 80%,
+    rgba(255,162,40,0.808) 5%,
+    rgba(255,162,40,0.5) 10%,
+    rgba(255,162,40,0.2) 30%,
+    rgba(255,162,40,0.2) 50%,
+    rgba(255,162,40,0.1) 70%,
+    rgba(255,162,40,0.0) 85%
+  );
+
+  /* Feature / space card body */
+  --surface-card: #3a2f66;
+
+  /* Decorative corner cat (OverlayContainer on space pages) */
+  --overlay-cat: url("/src/cat-sleep.png");
+
+  /* Note editor: focused text block background */
+  --block-bg-active: var(--color-purple-mid);
+
+  /* Space selector pill text (SpaceSwitcher) */
+  --space-pill-text: var(--foreground);
+
+  /* Chat-bubble icon dots (ProfileTag) - dark dots on the light chill bubble */
+  --bubble-dots: rgba(90, 90, 90, 0.85);
+
+  /* Friends/Chat flyout glass (FriendsOverlay) */
+  --overlay-glass-bg: rgba(10, 10, 10, 0.7);
+
+  /* Standalone icon tone (slightly separate from text so it can be softened per theme) */
+  --icon-color: var(--foreground);
+}
+
+
+/* ===================== THEME: BEACH ===================== */
+/* sand / teal, bright "sunny day" mood. */
+[data-theme="beach"] {
+  --background: #e7d8b5;
+  --foreground: #2c3a3d;
+
+  --color-highlight: #17a8b8;
+  --color-highlight-bright: #4fd0dd;
+  --color-highlight-dark: #0f7c89;
+
+  --color-bar: #f1e6cb;
+  --color-pill: #d8c397;
+  --color-actions: #e6d6b0;
+
+  --color-workspace-border: #db8411;
+  --color-workspace-bg: #db841159;
+  --color-privatespace-border: #17a8b8;
+  --color-privatespace-bg: #17a8b859;
+
+  --color-infoText-light: #0f7c89;
+  --color-infoText-dark: #2c3a3d;
+
+  --color-button-action: #17a8b8;
+  --color-button-action-hov: #0f7c89;
+  --color-button-gray: #b8b09a;
+
+  --color-accent-soft: #5cc7d4;
+  --color-accent-mid:  #2aa7b5;
+  --color-accent-deep: #c9a86a;
+  --color-purple-light: var(--color-accent-soft);
+  --color-purple-mid:   var(--color-accent-mid);
+  --color-purple-dark:  var(--color-accent-deep);
+
+  --color-creamWhite: #fffdf7;
+
+  --app-backdrop:
+    radial-gradient(1000px 720px at 82% 10%, rgba(255,224,140,0.65), transparent 58%),
+    linear-gradient(180deg, #aee4ec 0%, #cfeadf 42%, #e7d8b5 76%, #ddc89c 100%);
+  --app-scene: url("/src/cat-beachvibe.png");
+  --app-scene-size: auto 460px;
+
+  /* Top header bar - solid deep teal (matches the hero heading), no gradient, soft shadow */
+  --header-bg: #1b8c9b;
+  --header-text: #F1EDE6;
+  --header-shadow: 0 2px 10px rgba(0,0,0,0.12);
+
+  /* Hero headings - teal brand tone (lighter than body ink) + a soft sunny halo */
+  --heading-color: #1b8c9b;
+  --heading-glow:
+    0 0 1px rgba(255,255,255,0.7),
+    0 0 10px rgba(255,210,120,0.45);
+  --heading-aura: radial-gradient(
+    ellipse at 50% 80%,
+    rgba(255,236,180,0.70) 5%,
+    rgba(255,236,180,0.40) 20%,
+    rgba(255,236,180,0.15) 45%,
+    rgba(255,236,180,0.0) 80%
+  );
+
+  /* Feature / space card body - warm sand, a touch deeper than the backdrop */
+  --surface-card: #ddcaa0;
+
+  /* Decorative corner cat: the sunglasses beach cat replaces the sleeping one */
+  --overlay-cat: url("/src/cat-beachvibe.png");
+
+  /* Note editor: focused text block = deeper warm sand (NOT the teal accent) */
+  --block-bg-active: #cdb079;
+
+  /* Space selector pill text - deep teal ink, readable on the light tinted pill */
+  --space-pill-text: #15454d;
+
+  /* Chat-bubble icon dots - light dots on the dark beach bubble */
+  --bubble-dots: #F1EDE6;
+
+  /* Friends/Chat flyout glass - warm sand glass instead of the dark one */
+  --overlay-glass-bg: rgba(245, 235, 205, 0.82);
+
+  /* Shared icon tone - one mid tone for both the card icons and the roll-up feature icons */
+  --icon-color: #43555a;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -51,12 +209,8 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #32265A;
-    --foreground: #ededed;
-  }
-}
+/* Note: no prefers-color-scheme override here on purpose - the active look is
+   driven explicitly by [data-theme], so the OS dark-mode must not fight it. */
 
 
 /* HTML Base Styles */
@@ -96,9 +250,7 @@ main{
   justify-content: center;
   align-items: center;
 
-  background:
-    radial-gradient(900px 600px at 50% 20%, rgba(25,227,209,0.15), transparent 60%),
-    linear-gradient(180deg, #3a2e66 0%, #2e2455 55%, #241c44 100%);
+  background: var(--app-backdrop);
 
     z-index: 0;
     overflow: hidden;
@@ -230,8 +382,8 @@ main::before{
   pointer-events: none;
   z-index: 1;
 
-  background: url("/src/bg-overlay-lofi.png") no-repeat right bottom;
-  background-size: auto 1000px;
+  background: var(--app-scene) no-repeat right bottom;
+  background-size: var(--app-scene-size);
   background-attachment: fixed;
 }
 

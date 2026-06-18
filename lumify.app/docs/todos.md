@@ -39,7 +39,7 @@
 
 ## Implementations
 
-* Keine
+* [ ] In module recents: Make the groups expandable. (Initially is closed. Click expands) -> Heading with icon is trigger. Expandable content = Content (Liste der Recents in der Gruppe).
 
 <br>...<br>
 
@@ -61,7 +61,7 @@
 
 * [x] Root should not have a chevron at all. Needs to be blended away.
 * [x] Make the chevron gray if expanding is not possible (Example: Folder to expand has no content in it. Therefore nothing is seen and the chevron is useless.)
-* [x] If the user first clicks a file or potentionally also when clicking a folder in the fileTree, and THEN, while it is marked, deletes this file, FilwView shows message: File couldnt be found. In this case we want to stay in the currently shown folder of the fileView. If folders create the same problem, we want to show the parent folder, or we want to redirect to the root. Either way is in this case Ok.
+* [x] If the user first clicks a file or potentionally also when clicking a folder in the fileTree, and THEN, while it is marked, deletes this file, FilwView shows message: File couldnt be found. In this case we want to stay in the currently shown folder of the fileView.
 
 ## Implementations
 

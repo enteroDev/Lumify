@@ -125,7 +125,7 @@
     border: 1px solid rgba(255, 1, 1, 0.45);
 
     background-color: rgba(255, 1, 1, 0.25);
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 
     opacity: 0.8;
     box-sizing: border-box;

@@ -38,7 +38,7 @@
 .redirectLabel {
     font-size: 1rem;
     letter-spacing: 0.3px;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 
 .redirect {
@@ -121,7 +121,7 @@
 .itemIcon {
     display: flex;
     justify-content: center;
-    fill: var(--color-creamWhite);
+    fill: var(--icon-color);
 
     padding: 5px 8px;
 
@@ -133,7 +133,7 @@
     width: 40px;
 }
 .itemIcon path {
-    fill: var(--color-creamWhite);
+    fill: var(--icon-color);
     stroke: none;
 }
 

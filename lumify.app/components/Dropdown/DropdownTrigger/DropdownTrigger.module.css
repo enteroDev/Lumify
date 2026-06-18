@@ -45,7 +45,7 @@
 .trigger[data-space="private"] {
     background-color: var(--color-privatespace-bg);
     border-color: var( --color-privatespace-border);
-    color: var(--color-creamWhite);
+    color: var(--space-pill-text);
     animation: privatePulse 600ms ease-out;
 }
 
@@ -53,7 +53,7 @@
 .trigger[data-space="workspace"] {
     background-color: var(--color-workspace-bg);
     border-color: var(--color-workspace-border);
-    color: var(--color-creamWhite);
+    color: var(--space-pill-text);
     animation: workspacePulse 600ms ease-out;
 }
 

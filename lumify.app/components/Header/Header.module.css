@@ -12,18 +12,13 @@
 
     height: var(--header-height);
 
-    background: linear-gradient(
-        180deg,
-        #3a2f66 0%,
-        #2f2557 100%
-    );
+    background: var(--header-bg);
 
     border-bottom: 1px solid rgba(255,255,255,0.08);
 
-    color: #F1EDE6;
+    color: var(--header-text);
 
-    box-shadow:
-        0 8px 24px rgba(0,0,0,0.25);
+    box-shadow: var(--header-shadow);
 
     box-sizing: border-box;
     z-index: 300;

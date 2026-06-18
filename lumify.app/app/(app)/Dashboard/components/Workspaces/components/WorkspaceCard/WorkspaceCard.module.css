@@ -40,7 +40,7 @@
 
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 
 .info {
@@ -50,7 +50,7 @@
 .infoLabel {
     font-size: 0.8rem;
     font-weight: 400;
-    color: rgba(200,200,200,0.85);
+    color: color-mix(in srgb, var(--foreground) 65%, transparent);
 
     padding-right: 5px;
 }
@@ -64,7 +64,7 @@
 
     align-items: flex-start;
 
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 
 .body {
@@ -81,7 +81,7 @@
     font-size: 0.8rem;
     font-weight: 400;
 
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 
     z-index: 200;
 
@@ -137,7 +137,7 @@
 
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 
 .itemIcon {
@@ -156,7 +156,7 @@
 }
 .itemIcon svg path {
     stroke: none;
-    fill: var(--color-creamWhite);
+    fill: var(--icon-color);
 }
 
 .memberTag {
@@ -179,14 +179,14 @@
     justify-content: center;
     align-items: center;
 
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 
 .memberIcon svg {
     height: 26px;
     width: 26px;
 
-    fill: var(--color-creamWhite);
+    fill: var(--icon-color);
 }
 
 .memberCount {
@@ -196,7 +196,7 @@
 
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 
 .contextButton {
@@ -216,7 +216,7 @@
 
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 
     opacity: 1;
 }
@@ -266,7 +266,7 @@
 
     font-size: 0.9rem;
     font-weight: 500;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 .contextMenuItem:hover {
     background-color: rgba(238, 235, 235, 0.15);
@@ -299,7 +299,7 @@
     background: transparent;
 
     font-size: 1.1rem;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 
 .icon {
@@ -309,7 +309,7 @@
     width: 150px;
     height: 150px;
 
-    color: var(--color-creamWhite);
+    color: var(--icon-color);
 }
 
 .actions {
@@ -327,7 +327,7 @@
     width: 22px;
     height: 22px;
 
-    color: var(--color-creamWhite);
+    color: var(--foreground);
     stroke: var(--color-creamWhite);
 
     transition: transform 0.15s ease;
@@ -354,7 +354,7 @@
     width: 22px;
     height: 22px;
 
-    color: var(--color-creamWhite);
+    color: var(--foreground);
     stroke: var(--color-creamWhite);
 
     transition: transform 0.15s ease;

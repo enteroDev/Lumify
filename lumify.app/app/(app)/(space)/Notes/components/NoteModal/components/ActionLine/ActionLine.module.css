@@ -24,13 +24,17 @@
     border: none;
     border-radius: 50px;
 
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.18);
     cursor: pointer;
     transition: background-color 0.15s ease, transform 0.15s ease;
 }
 
 .button:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: var(--color-pill);
+}
+/* On hover the bubble fills, so the icon flips to a light tone to stay readable. */
+.button:hover .iconWrap {
+    color: var(--color-creamWhite);
 }
 
 .button:active {
@@ -49,7 +53,7 @@
 .iconWrap {
     width: 20px;
     height: 20px;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
     --icon-stroke-width: 1.5px;
 }
 

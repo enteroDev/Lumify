@@ -10,10 +10,11 @@
     gap: 10px;
 
     border-radius: 10px;
-    background-color: rgba(200,200,200,0.15);
+    /* Same deeper tone as the header path pill, so the row reads as a solid banner. */
+    background-color: var(--color-pill);
 }
 .container:hover {
-    background-color: rgba(200,200,200,0.2);
+    background-color: color-mix(in srgb, var(--color-pill) 88%, var(--foreground));
 }
 
 
@@ -56,7 +57,7 @@
     text-overflow: ellipsis;
 
     font-size: 0.95rem;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 
 .email {
@@ -67,7 +68,7 @@
     text-overflow: ellipsis;
 
     font-size: 0.85rem;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
     opacity: 0.5;
 }
 
@@ -88,12 +89,12 @@
 
     flex-shrink: 0;
 
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 
 .button {
     stroke-width: 2;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
     transition: ease-in-out 0.2s;
 }
 .button svg {

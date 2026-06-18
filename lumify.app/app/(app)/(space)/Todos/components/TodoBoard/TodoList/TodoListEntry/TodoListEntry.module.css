@@ -26,7 +26,7 @@
     flex: 1;
     padding-left: 10px;
 
-    color: var(--color-creamWhite);
+    color: var(--foreground);
     font-size: 0.82rem;
     line-height: 1.1rem;
     word-break: break-word;
@@ -132,11 +132,11 @@
     height: 18px;
     stroke-width: 2.5;
 
-    color: var(--color-creamWhite);
+    color: var(--foreground);
     stroke: var(--color-creamWhite);
 }
 .deleteButton:hover svg {
-    color: var(--color-creamWhite);
+    color: var(--foreground);
     stroke: var(--color-creamWhite);
 }
 

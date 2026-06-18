@@ -32,14 +32,14 @@
 }
 
 .icon-sound {
-    fill: var(--color-creamWhite);
+    fill: var(--icon-color);
 }
 .action-button:hover .icon-sound {
     fill: var(--color-bar);
 }
 
 .icon-theme {
-    fill: var(--color-creamWhite);
+    fill: var(--icon-color);
 }
 .action-button:hover .icon-theme {
     fill: var(--color-bar);

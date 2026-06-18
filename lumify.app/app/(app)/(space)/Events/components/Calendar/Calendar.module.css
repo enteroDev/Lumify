@@ -8,7 +8,7 @@
     border-radius: 10px;
     gap: 10px;
     z-index: 100;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 
 

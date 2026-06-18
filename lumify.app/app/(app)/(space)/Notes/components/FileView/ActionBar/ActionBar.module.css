@@ -24,7 +24,7 @@
     padding: 5px;
     border-radius: 50px;
     border: 2px solid transparent;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
     stroke-width: 1.8;
     transition: ease-in-out 0.1s;
 }

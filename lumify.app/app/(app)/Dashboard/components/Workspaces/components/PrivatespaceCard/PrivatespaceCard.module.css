@@ -38,7 +38,7 @@
 
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 
 .info {
@@ -48,7 +48,7 @@
 .infoLabel {
     font-size: 0.8rem;
     font-weight: 400;
-    color: rgba(200,200,200,0.85);
+    color: color-mix(in srgb, var(--foreground) 65%, transparent);
 
     padding-right: 5px;
 }
@@ -62,7 +62,7 @@
 
     align-items: flex-start;
 
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 
 .body {
@@ -79,7 +79,7 @@
     font-size: 0.8rem;
     font-weight: 400;
 
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 
     z-index: 200;
 
@@ -140,7 +140,7 @@
 
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 
 .itemIcon {
@@ -159,7 +159,7 @@
 }
 .itemIcon svg path {
     stroke: none;
-    fill: var(--color-creamWhite);
+    fill: var(--icon-color);
 }
 
 .icon {
@@ -169,5 +169,5 @@
     width: 150px;
     height: 150px;
 
-    color: var(--color-creamWhite);
+    color: var(--icon-color);
 }

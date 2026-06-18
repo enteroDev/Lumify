@@ -202,7 +202,7 @@
     border-radius: 8px;
     border: 1px solid var(--color-pill);
 
-    color: var(--color-creamWhite);
+    color: var(--foreground);
     background-color: var(--color-bar);
 }
 .button:hover {
@@ -215,5 +215,5 @@
     width: 25px;
     height: 25px;
 
-    fill: var(--color-creamWhite);
+    fill: var(--icon-color);
 }

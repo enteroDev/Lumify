@@ -31,7 +31,7 @@
 
     border-radius: 15px;
     background-color: var(--color-bar);
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 
     font-size: 0.95rem;
     font-weight: bold;
@@ -93,7 +93,7 @@
 
     font-size: 0.95rem;
     font-weight: bold;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 
 /* ActionArea bleibt wie gehabt, nur Buttons stylen */
@@ -108,7 +108,7 @@
     border: none;
     background: transparent;
 
-    color: var(--color-creamWhite);
+    color: var(--foreground);
     stroke: var(--color-creamWhite);
 
     transition: transform 0.15s ease;
@@ -177,7 +177,7 @@
     border: 1px solid rgba(255, 1, 1, 0.45);
 
     background-color: rgba(255, 1, 1, 0.3);
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 
     opacity: 0.8;
     line-height: 1;

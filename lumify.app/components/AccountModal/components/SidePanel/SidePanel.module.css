@@ -106,7 +106,7 @@
     
     font-size: 0.8rem;
     font-weight: bold;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 
     white-space: nowrap;
     overflow: hidden;

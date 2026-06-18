@@ -46,7 +46,7 @@
     font-weight: 600;
     line-height: 1;
 
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 
 .body {
@@ -130,7 +130,7 @@
 
     font-size: 2rem;
     font-weight: 500;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 
     transition:
         color 0.2s ease,

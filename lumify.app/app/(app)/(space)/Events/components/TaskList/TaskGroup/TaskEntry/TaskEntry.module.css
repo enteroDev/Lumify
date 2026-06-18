@@ -15,5 +15,5 @@
 
 .label {
     font-size: 0.9rem;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }

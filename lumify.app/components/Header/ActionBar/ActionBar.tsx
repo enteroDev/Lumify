@@ -1,11 +1,12 @@
 "use client";
 
 import { useMusic } from "../../_Audio/MusicProvider";
+import { useTheme } from "../../_Theme/ThemeProvider";
 
 import SoundOn from "../../../app/src/svg/soundOn.svg";
 import SoundOff from "../../../app/src/svg/soundOff.svg";
 import Sun from "../../../app/src/svg/sun.svg";
-import Star from "../../../app/src/svg/star.svg";
+import Moon from "../../../app/src/svg/moon.svg";
 
 import styles from "./ActionBar.module.css";
 
@@ -24,6 +25,7 @@ export const c = {
 
 export default function ActionBar() {
     const { isEnabled, toggle } = useMusic();
+    const { theme, toggle: toggleTheme } = useTheme();
 
     return (
         <div className={c.container}>
@@ -34,8 +36,12 @@ export default function ActionBar() {
                         : <SoundOff className={c.iconSound} width={20} height={20} />
                     }
                 </button>
-                <button className={c.actionButton}>
-                    <Sun className={c.iconTheme} width={20} height={20} />
+                <button className={c.actionButton} onClick={toggleTheme} type="button" aria-label="Theme wechseln" >
+                    {/* Icon shows the theme you'd switch INTO: chill -> sunny beach, beach -> chill night. */}
+                    {theme === "chill"
+                        ? <Sun className={c.iconTheme} width={20} height={20} />
+                        : <Moon className={c.iconTheme} width={20} height={20} />
+                    }
                 </button>
             </div>
         </div>

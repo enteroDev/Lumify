@@ -36,7 +36,7 @@
 .headerIcon {
     height: 20px;
     width: 20px;
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 
 .title {
@@ -160,7 +160,7 @@
     border: 1px solid rgba(221, 48, 48, 0.575);
 
     background-color: rgba(49, 49, 49, 0.9);
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 
     font-size: 1rem;
     line-height: 1;
@@ -202,7 +202,7 @@
     border: 1px solid transparent;  
     border-radius: 999px;
 
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 
     cursor: pointer;
     transition: 0.2s ease-in-out;
@@ -235,14 +235,14 @@
     border: none;
     border-radius: 999px;
 
-    color: var(--color-creamWhite);
+    color: var(--foreground);
     background: transparent;
     cursor: pointer;
     transition: background-color 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
 }
 .button:hover {
     background: rgba(255, 255, 255, 0.38);
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 .button:active {
     transform: scale(0.96);

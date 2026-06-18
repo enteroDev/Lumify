@@ -175,7 +175,7 @@
     transition: transform 0.15s ease, opacity 0.15s ease;
 
     background: var(--color-button-action);
-    color: var(--color-creamWhite);
+    color: var(--foreground);
 }
 .button:hover {
     background: var(--color-button-action-hov);

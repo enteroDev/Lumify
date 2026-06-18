@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import ThemeProvider from "@/components/_Theme/ThemeProvider";
 
 const sulphur = localFont({ src: "./src/fonts/Sulphur_Point/SulphurPoint-Regular.ttf", variable: "--font-sulphur" });
 const borel   = localFont({ src: "./src/fonts/Borel/Borel-Regular.ttf", variable: "--font-borel" });
@@ -16,9 +17,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="chill">
       <body className={`${borel.variable} ${sulphur.variable} ${funnel.variable} ${vend.variable}`}>
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
