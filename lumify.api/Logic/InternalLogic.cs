@@ -68,6 +68,30 @@ namespace lumify.api.Logic
             return true;
         }
 
+        // Creates a new password-reset token. Returns the raw token (goes into the email link)
+        // and its SHA-256 hash (the only thing we store in the DB). The raw token is never persisted.
+        internal (string rawToken, string tokenHash) GenerateResetToken()
+        {
+            var bytes = RandomNumberGenerator.GetBytes(32);
+
+            // URL-safe Base64 so the token can live in a query string without escaping surprises.
+            var rawToken = Convert.ToBase64String(bytes)
+                .TrimEnd('=')
+                .Replace('+', '-')
+                .Replace('/', '_');
+
+            return (rawToken, HashResetToken(rawToken));
+        }
+
+        // Hashes a raw reset token for storage / lookup. (No salt needed: the token itself is
+        // 32 bytes of randomness, so it is not guessable like a user-chosen password.)
+        internal string HashResetToken(string rawToken)
+        {
+            var hashBytes = SHA256.HashData(Encoding.UTF8.GetBytes(rawToken));
+            return Convert.ToBase64String(hashBytes);
+        }
+
+
         public string GetExtensionFromDataUrl(string dataUrl)
         {
 

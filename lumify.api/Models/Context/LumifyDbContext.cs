@@ -29,6 +29,7 @@ public partial class LumifyDbContext : DbContext
     public virtual DbSet<NoteAttachment> NoteAttachments { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
+    public virtual DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
     public virtual DbSet<Friendship> Friendships { get; set; }
 
     public virtual DbSet<Workspace> Workspaces { get; set; }
@@ -218,6 +219,20 @@ public partial class LumifyDbContext : DbContext
 
             entity.Property(e => e.Bio)
                 .IsRequired(false);
+        });
+
+        // --- PasswordResetToken --- //
+        modelBuilder.Entity<PasswordResetToken>(entity =>
+        {
+            entity.ToTable("PasswordResetToken");
+
+            // We look tokens up by their hash, so that lookup must be unique and indexed.
+            entity.HasIndex(e => e.TokenHash, "ux_passwordresettoken_hash").IsUnique();
+            entity.HasIndex(e => e.UserID, "ix_passwordresettoken_user");
+
+            entity.HasOne(d => d.User).WithMany()
+                .HasForeignKey(d => d.UserID)
+                .OnDelete(DeleteBehavior.ClientSetNull);
         });
 
         // --- Friendship --- //

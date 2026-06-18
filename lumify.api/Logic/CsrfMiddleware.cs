@@ -20,7 +20,9 @@ namespace lumify.api.Logic
         {
             "/account/loginUser",
             "/account/registerUser",
-            "/account/logoutUser"
+            "/account/logoutUser",
+            "/account/requestPasswordReset",
+            "/account/resetPassword"
         };
 
         private readonly RequestDelegate _next;

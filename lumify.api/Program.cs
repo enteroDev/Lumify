@@ -22,7 +22,12 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddScoped<InternalLogic>();
 builder.Services.AddScoped<FriendshipService>();
+builder.Services.AddScoped<IEmailService, SmtpEmailService>();
 builder.Services.AddSingleton<IPresenceService, PresenceService>();
+
+// --- Email + App settings --- //
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("Email"));
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("App"));
 builder.Services.AddSignalR();
 builder.Services.AddSingleton<IUserIdProvider, UserIdProvider>();
 
