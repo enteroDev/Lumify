@@ -22,7 +22,7 @@ import type { Note_TextBlock } from "@/models/notes";
 
 // Utils
 import { animateCollapse } from "../../Utils/animateCollapse";
-import { CONFIG } from "@/app/(app)/config/config";
+import { CONFIG } from "@/app/config/config";
 
 
 // ------------------- //

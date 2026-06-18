@@ -1,5 +1,5 @@
 
-import { CONFIG } from "@/app/(app)/config/config";
+import { CONFIG } from "@/app/config/config";
 import { saveFetch } from "@/services/utils/auth";
 
 import type { CalendarEventDTO, SaveEventDTO } from "@/models/Events";

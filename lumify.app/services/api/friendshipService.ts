@@ -7,7 +7,7 @@
 // Utils
 import { saveFetch } from "@/services/utils/auth";
 // Config
-import { CONFIG } from "@/app/(app)/config/config";
+import { CONFIG } from "@/app/config/config";
 // Models
 import type { FriendshipDTO } from "@/models/Friendship";
 import type { UserPreviewDTO } from "@/models/User";

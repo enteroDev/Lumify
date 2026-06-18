@@ -1,7 +1,7 @@
 // services/utils/auth.ts
 // Small framework for the api-authentication in fetches
 
-import { CONFIG } from "@/app/(app)/config/config";
+import { CONFIG } from "@/app/config/config";
 
 const API_BASE = CONFIG.API.API_BASE;
 

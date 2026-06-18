@@ -1,7 +1,7 @@
 // app/page.tsx  (Server Component)
 import { headers as nextHeaders } from "next/headers";
 import { redirect } from "next/navigation";
-import { CONFIG } from "@/app/(app)/config/config";
+import { CONFIG } from "@/app/config/config";
 
 const API_BASE = CONFIG.API.API_BASE;
 

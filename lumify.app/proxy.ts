@@ -1,7 +1,7 @@
 
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { CONFIG } from "@/app/(app)/config/config";
+import { CONFIG } from "@/app/config/config";
 
 const API_BASE = CONFIG.API.API_BASE;
 

@@ -9,7 +9,7 @@ import { useEffect, useRef } from "react";
 // SignalR
 import { HubConnection, HubConnectionBuilder, HubConnectionState, LogLevel } from "@microsoft/signalr";
 // Config
-import { CONFIG } from "@/app/(app)/config/config";
+import { CONFIG } from "@/app/config/config";
 
 
 

@@ -13,7 +13,7 @@
 import { useEffect, useRef } from "react";
 import { HubConnection, HubConnectionBuilder } from "@microsoft/signalr";
 // Utils
-import { CONFIG } from "@/app/(app)/config/config";
+import { CONFIG } from "@/app/config/config";
 // Models
 import { PresenceStatus } from "@/models/User";
 

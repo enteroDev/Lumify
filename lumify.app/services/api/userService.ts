@@ -3,7 +3,7 @@
 import { saveFetch } from "@/services/utils/auth";
 import { getCsrfFromCookie } from "@/services/utils/auth";
 // Misc
-import { CONFIG } from "@/app/(app)/config/config";
+import { CONFIG } from "@/app/config/config";
 import { SaveAccountInfoRequest, SaveUserProfileRequest } from "@/models/User";
 // Types
 import type { TodoEntryDTO } from "@/models/todo";

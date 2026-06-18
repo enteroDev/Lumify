@@ -9,7 +9,7 @@ import { MouseEvent } from "react";
 import { useTooltip } from "@/components/Tooltip/TooltipProvider";
 
 // Utils
-import { CONFIG } from "@/app/(app)/config/config";
+import { CONFIG } from "@/app/config/config";
 
 // Models
 import { PresenceStatus } from "@/models/User";
