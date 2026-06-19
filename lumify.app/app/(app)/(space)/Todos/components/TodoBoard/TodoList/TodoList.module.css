@@ -12,6 +12,9 @@
     overflow: hidden;
     gap: 5px;
 }
+[data-theme="beach"] .container {
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.05);
+}
 
 
 

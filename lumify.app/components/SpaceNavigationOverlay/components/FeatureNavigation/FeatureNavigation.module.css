@@ -29,7 +29,7 @@
 
     padding-right: 5px;
 
-    border-left: 1px solid rgba(200,200,200,0.2);
+    border-left: 1px solid rgba(200,200,200,0.8);
 }
 [data-theme="beach"] .divider {
     border-left: 1px solid rgba(100,100,100,0.8);
