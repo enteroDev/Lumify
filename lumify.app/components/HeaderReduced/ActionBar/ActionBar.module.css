@@ -19,7 +19,7 @@
 
 .action-button{
     border-radius: 10px;
-    background-color: var(--color-actions);
+    background-color: var(--color-bar);
     padding: 5px 8px;
     transition: ease-in-out 0.2s;
 }
@@ -34,12 +34,20 @@
 .icon-sound {
     fill: var(--icon-color);
 }
+[data-theme="beach"] .icon-sound {
+    color: #2e2e2e;
+}
 .action-button:hover .icon-sound {
     fill: var(--color-bar);
 }
 
 .icon-theme {
     fill: var(--icon-color);
+}
+[data-theme="beach"] .icon-theme {
+    color: #2e2e2e;
+    fill: #2e2e2e;
+    stroke: #2e2e2e;
 }
 .action-button:hover .icon-theme {
     fill: var(--color-bar);

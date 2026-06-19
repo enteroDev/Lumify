@@ -20,7 +20,7 @@
     display: flex;
     border-radius: 10px;
     height: 30px;
-    background-color: var(--color-actions);
+    background-color: var(--color-bar);
     transition: ease-in-out 0.2s;
 }
 .pathButton:hover {
@@ -32,6 +32,9 @@
 
 .pathIcon{
     padding: 6px 8px;
+}
+[data-theme="beach"] .pathIcon {
+    color: #2e2e2e;
 }
 .pathIcon:hover{
     color: #2e2e2e;

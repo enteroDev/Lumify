@@ -15,6 +15,7 @@ import NoteModal from "@/app/(app)/(space)/Notes/components/NoteModal/NoteModal"
 // Models
 import type { WorkspaceVM } from "@/models/Space";
 import type { CalendarEventDTO, SaveEventDTO } from "@/models/Events";
+import type { AddEventFormData } from "@/components/_Forms/AddEventForm/AddEventForm";
 import type { Note, Note_TextBlock, Note_LinkItem } from "@/models/notes";
 
 
@@ -38,6 +39,7 @@ type EventModalOptions = {
 
     saveEvent: (data: SaveEventDTO) => Promise<CalendarEventDTO | null>;
     deleteEvent: (eventID: string) => void;
+    addEvent: (data: AddEventFormData) => Promise<void>;
 };
 
 type NoteModalOptions = {
@@ -171,6 +173,7 @@ export default function ModalProvider({ children }: ModalProviderProps) {
 
                     saveEvent={modalState.options.saveEvent}
                     deleteEvent={modalState.options.deleteEvent}
+                    addEvent={modalState.options.addEvent}
                 />
             )}
         </ModalContext.Provider>

@@ -60,6 +60,7 @@ export default function Events() {
 
             deleteEvent,
             saveEvent,
+            addEvent,
         });
     }
 

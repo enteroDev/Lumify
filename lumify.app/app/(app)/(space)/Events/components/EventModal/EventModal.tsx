@@ -10,6 +10,8 @@ import { useState } from "react";
 import Header from "./components/Header/Header";
 import InfoLine from "./components/InfoLine/InfoLine";
 import Content from "./components/Content/Content";
+import AddEventModal from "../Calendar/components/AddEventModal/AddEventModal";
+import type { AddEventFormData } from "@/components/_Forms/AddEventForm/AddEventForm";
 // Models
 import type { SaveEventDTO, CalendarEventDTO } from "@/models/Events";
 // Styles
@@ -45,6 +47,7 @@ export type EventModalProps = {
 
     saveEvent: (data: SaveEventDTO) => Promise<CalendarEventDTO | null>;
     deleteEvent: (eventID: string) => void;
+    addEvent: (data: AddEventFormData) => Promise<void>;
 };
 
 
@@ -63,6 +66,7 @@ export default function EventModal({
     onClose,
     saveEvent,
     deleteEvent,
+    addEvent,
 }: EventModalProps) {
 
     // -------------- //
@@ -71,6 +75,8 @@ export default function EventModal({
     const [multiDayEvents, setMultiDayEvents] = useState<CalendarEventDTO[]>(initialMultiDayEvents);
     const [fullDayEvents, setFullDayEvents] = useState<CalendarEventDTO[]>(initialFullDayEvents);
     const [timedEvents, setTimedEvents] = useState<CalendarEventDTO[]>(initialTimedEvents);
+
+    const [showAddEventModal, setShowAddEventModal] = useState(false);
 
 
 
@@ -128,6 +134,11 @@ export default function EventModal({
         return savedEvent;
     }
 
+    async function handleAddEvent(data: AddEventFormData) {
+        await addEvent(data);
+        setShowAddEventModal(false);
+    }
+
 
     if (!isOpen) { return null; }
 
@@ -161,7 +172,13 @@ export default function EventModal({
 
                 {/* ACTIONLINE */}
                 <div className={c.actionLine}>
-                    <button type="button" className={c.button}>+ Neuer Termin</button>
+                    <button
+                        type="button"
+                        className={c.button}
+                        onClick={() => setShowAddEventModal(true)}
+                    >
+                        + Neuer Termin
+                    </button>
                 </div>
 
                 {/* BODY */}
@@ -177,6 +194,19 @@ export default function EventModal({
                 </div>
 
             </div>
+
+            {/* AddEventModal */}
+            {showAddEventModal && (
+                <div onClick={(e) => e.stopPropagation()}>
+                    <AddEventModal
+                        isOpen={showAddEventModal}
+                        startDate={selectedDate}
+                        onClose={() => setShowAddEventModal(false)}
+                        onSave={handleAddEvent}
+                    />
+                </div>
+            )}
+
         </div>
     );
 }

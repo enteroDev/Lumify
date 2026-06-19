@@ -116,7 +116,7 @@
 
 .currentDay {
     position: relative;
-    background-color: var(--color-actions);
+    background-color: var(--color-bar);
 }
 .currentDay::before {
     content: "";
@@ -128,6 +128,10 @@
     background: var(--color-highlight);
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
+}
+
+[data-theme="beach"] .currentDay {
+    background-color: var(--color-actions);
 }
 
 

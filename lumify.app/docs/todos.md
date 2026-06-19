@@ -11,6 +11,8 @@
   * Also wenns eine Anfrage gibt, gibts die bei beiden usern. Also race condition auch hier nicht möglich.
   * Frontend: Bei eingehender Anfrage wird der add-Button durch "annehmen/Ablehnen" ersetzt. Auch hier alles bestens.
 
+  [ ] Root Folder -> Chevron hin und schauen wegen indent
+
 ## Implementations
 
 * [x] FriendsPanel: Add notification count in TabButton of Friendspanel aswell.
@@ -86,6 +88,8 @@
 ## Fixes
 
 * [x] Set Calendar to current month (Show current month when visiting the Events-page)
+* [ ] Erstellt von leer? In the metaInfo, when an event is clicked in the EventModal, it doesnt show erstellt von or aktualisiert von
+* [x] Neuer Termin Button in EventModal happens to not do anything anymore. This needs to be fixed.
 
 ## Implementations
 
