@@ -104,11 +104,16 @@ namespace lumify.api.Controllers
             _db.Events.Add(calendarEvent);
             await _db.SaveChangesAsync(ct);
 
+            // Resolve the creator's display name for the response.
+            // Privacy: never expose the real name (FirstName/LastName) - only DisplayName, then Username, then ID.
+            var owner = await _db.Users.FirstOrDefaultAsync(x => x.ID == calendarEvent.OwnerID, ct);
+
             // Create result object
             var result = new EventResponse
             {
                 ID = calendarEvent.ID,
                 OwnerID = calendarEvent.OwnerID,
+                CreatedBy = owner?.DisplayName ?? owner?.Username ?? calendarEvent.OwnerID,
                 WorkspaceID = calendarEvent.WorkspaceID,
 
                 Name = calendarEvent.Name,
@@ -320,11 +325,16 @@ namespace lumify.api.Controllers
 
             // ::: Respond ::: //
 
+            // Resolve the owner's display name for the response.
+            // Privacy: never expose the real name (FirstName/LastName) - only DisplayName, then Username, then ID.
+            var owner = await _db.Users.FirstOrDefaultAsync(x => x.ID == eventEntry.OwnerID, ct);
+
             // Create result object
             var result = new EventResponse
             {
                 ID = eventEntry.ID,
                 OwnerID = eventEntry.OwnerID,
+                CreatedBy = owner?.DisplayName ?? owner?.Username ?? eventEntry.OwnerID,
                 WorkspaceID = eventEntry.WorkspaceID,
 
                 Name = eventEntry.Name,
@@ -440,6 +450,8 @@ namespace lumify.api.Controllers
                 {
                     ID = calendarEvent.ID,
                     OwnerID = calendarEvent.OwnerID,
+                    // Privacy: never expose the real name - only DisplayName, then Username, then ID.
+                    CreatedBy = user.DisplayName ?? user.Username ?? user.ID,
                     WorkspaceID = calendarEvent.WorkspaceID,
 
                     Name = calendarEvent.Name,
@@ -501,6 +513,12 @@ namespace lumify.api.Controllers
                 {
                     ID = calendarEvent.ID,
                     OwnerID = calendarEvent.OwnerID,
+                    // Keep events whose creator was soft-deleted (content belongs to the workspace)
+                    // and surface the creator as "Gelöschter Benutzer" in that case.
+                    // Privacy: never expose the real name - only DisplayName, then Username, then ID.
+                    CreatedBy = user.DeletedAt != null
+                        ? "Gelöschter Benutzer"
+                        : user.DisplayName ?? user.Username ?? user.ID,
                     WorkspaceID = calendarEvent.WorkspaceID,
 
                     Name = calendarEvent.Name,

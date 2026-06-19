@@ -6,6 +6,7 @@ public class EventResponse
 {
     public string ID { get; set; } = "";
     public string OwnerID { get; set; } = "";
+    public string CreatedBy { get; set; } = "";
     public string? WorkspaceID { get; set; }
 
     public string Name { get; set; } = "";

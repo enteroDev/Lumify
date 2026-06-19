@@ -22,6 +22,7 @@ const c = {
 
     memberList:     styles["memberList"],
     memberItem:     styles["memberItem"],
+    empty:          styles["empty"],
 
     avatarArea:     styles["avatarArea"],
     avatar:         styles["avatar"],
@@ -56,21 +57,21 @@ export default function MemberList({
     // --- UI Helper --- //
     // ----------------- //
 
-    // Render workspace members, excluding the owner. ( 1=Owner | 2=Admin | 3=User )
-    const renderMemberList = () => {
-        return members
-            .filter(member => member.role !== 1)
-            .map(member => (
+    // Workspace members excluding the owner. ( 1=Owner | 2=Admin | 3=User )
+    const otherMembers = members.filter(member => member.role !== 1);
 
-                <MemberItem
-                    key={member.userID}
-                    avatar={member.avatarUrl ?? ""}
-                    displayName={member.displayName ?? ""}
-                    username={member.username}
-                    email={member.email ?? ""}
-                    onRemove={() => onRemoveMember(member.userID)}
-                />
-            ));
+    const renderMemberList = () => {
+        return otherMembers.map(member => (
+
+            <MemberItem
+                key={member.userID}
+                avatar={member.avatarUrl ?? ""}
+                displayName={member.displayName ?? ""}
+                username={member.username}
+                email={member.email ?? ""}
+                onRemove={() => onRemoveMember(member.userID)}
+            />
+        ));
     };
 
 
@@ -85,9 +86,15 @@ export default function MemberList({
     // ----------- //
     return (
         <div className={c.container}>
-            <div className={c.memberList}>
-                {renderMemberList()}
-            </div>
+            {otherMembers.length === 0 ? (
+                <div className={c.empty}>
+                    Noch keine Mitglieder in diesem Workspace
+                </div>
+            ) : (
+                <div className={c.memberList}>
+                    {renderMemberList()}
+                </div>
+            )}
         </div>
     );
 }

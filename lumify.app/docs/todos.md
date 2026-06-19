@@ -37,11 +37,11 @@
 
 ## Fixes
 
-* [ ] Add NoMemberInfo in WorkspaceModal if no member yet. (Red Line like in FileView -> If no content in a folder)
+* [x] Add NoMemberInfo in WorkspaceModal if no member yet. (Red Line like in FileView -> If no content in a folder)
 
 ## Implementations
 
-* [ ] In module recents: Make the groups expandable. (Initially is closed. Click expands) -> Heading with icon is trigger. Expandable content = Content (Liste der Recents in der Gruppe).
+* [x] In module recents: Make the groups expandable. (Initially is closed. Click expands) -> Heading with icon is trigger. Expandable content = Content (Liste der Recents in der Gruppe).
 
 <br>...<br>
 
@@ -88,7 +88,7 @@
 ## Fixes
 
 * [x] Set Calendar to current month (Show current month when visiting the Events-page)
-* [ ] Erstellt von leer? In the metaInfo, when an event is clicked in the EventModal, it doesnt show erstellt von or aktualisiert von
+* [x] Erstellt von leer? In the metaInfo, when an event is clicked in the EventModal, it doesnt show erstellt von or aktualisiert von
 * [x] Neuer Termin Button in EventModal happens to not do anything anymore. This needs to be fixed.
 
 ## Implementations
