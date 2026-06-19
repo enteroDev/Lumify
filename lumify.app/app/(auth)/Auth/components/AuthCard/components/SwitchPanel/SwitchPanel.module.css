@@ -10,6 +10,10 @@
     z-index: 200;
 }
 
+[data-theme="beach"] .container {
+    background-color: var(--color-actions);
+}
+
 
 
 .header {

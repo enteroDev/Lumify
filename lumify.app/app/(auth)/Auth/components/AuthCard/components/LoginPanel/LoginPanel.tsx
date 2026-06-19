@@ -25,17 +25,22 @@ import styles from "./LoginPanel.module.css";
 export const c = {
     container:      styles["container"],
     header:         styles["header"],
+
     title:          styles["title"],
     icon:           styles["icon"],
+
     body:           styles["body"],
     content:        styles["content"],
     loginForm:      styles["loginForm"],
+
     actionArea:     styles["actionArea"],
     button:         styles["button"],
+
     inputWrap:      styles["inputWrap"],
     inputGroup:     styles["inputGroup"],
     label:          styles["label"],
     input:          styles["input"],
+
     helpLabel:      styles["helpLabel"],
 } as const;
 

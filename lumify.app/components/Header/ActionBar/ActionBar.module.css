@@ -19,7 +19,7 @@
 
 .action-button{
     border-radius: 10px;
-    background-color: var(--color-actions);
+    background-color: var(--color-bar);
     padding: 5px 8px;
     transition: ease-in-out 0.2s;
 }

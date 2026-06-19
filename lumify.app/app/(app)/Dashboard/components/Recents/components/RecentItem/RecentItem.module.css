@@ -45,9 +45,11 @@
     margin-top: 4px;
 
     border-radius: 50%;
-    background: #424242;
+    background: var(--color-highlight-bright);
 }
-
+[data-theme="beach"] .icon {
+    background: var(--color-highlight-dark);
+}
 
 
 
@@ -92,8 +94,13 @@
 }
 
 .workspaceValue {
+    font-weight: bold;
     color: var(--color-highlight-bright);
     opacity: 1;
+}
+[data-theme="beach"] .workspaceValue {
+    font-weight: bold;
+    color: var(--color-highlight-dark);
 }
 
 

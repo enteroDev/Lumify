@@ -12,9 +12,14 @@
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 
-    border: 1px solid rgba(255, 255, 255, 0.15); 
+    border: 1px solid rgba(255, 255, 255, 0.15);
 
     overflow: hidden;
     z-index: 1;
+}
 
+[data-theme="beach"] .container {
+    border: 1px solid var(--color-bar);
+    background-color: var(--color-purple-mid);
+    color: white;
 }

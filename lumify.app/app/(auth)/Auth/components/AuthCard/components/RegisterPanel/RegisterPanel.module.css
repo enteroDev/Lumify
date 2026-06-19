@@ -19,8 +19,6 @@
     gap: 10px;
 
     justify-content: center;
-
-    
 }
 
 
@@ -47,7 +45,7 @@
 .icon {
     height: 32px;
     width: 32px;
-    color: var(--foreground);
+    color: white;
     stroke-width: 1.4px;
 }
 
@@ -176,4 +174,8 @@
 
     background: var(--color-highlight);
     color: var(--color-infoText-dark);
+}
+
+[data-theme="beach"] .button {
+    background-color: var(--color-actions);
 }

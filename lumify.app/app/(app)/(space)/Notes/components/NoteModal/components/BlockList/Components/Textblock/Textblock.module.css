@@ -116,12 +116,20 @@
     box-sizing: border-box;
     transition: background-color 0.15s ease, box-shadow 0.15s ease;
 }
+[data-theme="beach"] .codeBlock {
+    background-color: #5c5c5c;
+    transition: ease-in-out 0.3s;
+}
 .codeBlock:hover {
 
 }
 .codeBlock:focus {
     background-color: #3f3f3f;
     border: 1px solid var(--color-highlight);
+}
+[data-theme="beach"] .codeBlock:focus {
+    background-color: #7c7c7c;
+    transition: ease-in-out 0.3s;
 }
 
 .textBlock {
@@ -156,8 +164,6 @@
 
 
 
-
-
 .buttonSave {
     display: flex;
     align-items: center;
@@ -167,7 +173,7 @@
     height: 30px;
 
     padding: 0;
-    border: 1px solid transparent;  
+    border: 1px solid transparent;
     border-radius: 999px;
 
     color: var(--foreground);

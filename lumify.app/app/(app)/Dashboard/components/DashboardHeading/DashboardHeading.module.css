@@ -22,6 +22,10 @@
   text-shadow: var(--heading-glow);
 }
 
+[data-theme="beach"] .heading-big {
+  text-shadow: none;
+}
+
 /* Soft top light source */
 .heading-big::before {
   content: "";
@@ -44,7 +48,7 @@
 
 
 .heading-small {
-  font-family: 'Trebuchet MS','Lucida Sans Unicode','Lucida Grande','Lucida Sans',Arial,sans-serif;
+  font-family: var(--font-body);
   font-size: 1.3rem;
   text-align:center;
   letter-spacing: 0.05em;

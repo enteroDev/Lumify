@@ -3,12 +3,14 @@
     height: 100%;
     width: 100%;
 
-    padding: 8px 15px;  
+    padding: 8px 15px;
 
     justify-content: center;
     align-items: center;
 
     z-index: 2;
+
+    color: white;
 }
 
 .content {
@@ -18,7 +20,7 @@
     height: auto;
     width: 320px;
 
-    gap: 10px;
+    gap: 15px;
 }
 
 
@@ -41,7 +43,7 @@
 .icon {
     height: 30px;
     width: 30px;
-    color: var(--foreground);
+    color: rgba(255, 255, 255, 1);
     stroke-width: 0.1px;
 }
 
@@ -51,7 +53,6 @@
 .body {
     display: flex;
     flex-direction: column;
-    gap: 25px;
 
     height: 100%;
     width: 100%;
@@ -62,7 +63,7 @@
     flex-direction: column;
 
     width: 100%;
-    gap: 12px;
+    gap: 20px;
 
     overflow: hidden;
     box-sizing: border-box;
@@ -74,7 +75,6 @@
 .actionArea {
     padding-top: 10px;
 }
-
 
 
 
@@ -91,7 +91,7 @@
 
     width: 100%;
 
-    gap: 3px;
+    gap: 4px;
 }
 
 .inputGroup > .inputWrap {
@@ -139,6 +139,8 @@
     border: 1px solid rgba(21, 228, 217, 0.699);
 }
 
+
+
 .button {
     display: flex;
 
@@ -167,4 +169,8 @@
 
     background: var(--color-highlight);
     color: var(--color-infoText-dark);
+}
+
+[data-theme="beach"] .button {
+    background-color: var(--color-actions);
 }

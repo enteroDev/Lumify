@@ -24,6 +24,10 @@
   text-shadow: var(--heading-glow);
 }
 
+[data-theme="beach"] .heading-big {
+  text-shadow: none;
+}
+
 /* Soft top light source */
 .heading-big::before {
   content: "";

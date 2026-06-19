@@ -29,10 +29,11 @@
 .row:hover {
     background-color: rgba(200,200,200,0.15);
     transition: ease-in-out 0.1355s;
-}
-
-.row:hover {
     opacity: 0.9;
+}
+[data-theme="beach"] .row:hover {
+    background:  var(--color-actions);
+    opacity: 1;
 }
 
 .rowSelected {

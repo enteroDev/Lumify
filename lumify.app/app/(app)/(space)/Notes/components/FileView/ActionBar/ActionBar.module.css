@@ -17,6 +17,9 @@
     margin: 0 6px;
     border-radius: 1px;
 }
+[data-theme="beach"] .divider {
+    background-color: #7c7c7c;
+}
 
 .action-button {
     height: 45px;
@@ -48,11 +51,15 @@
 .delete-button {
     height: 42px;
     width: 42px;
+
     padding: 5px;
     margin-left: 4px;
+
     border-radius: 50px;
-    background-color: var(--color-error); 
+    background-color: var(--color-error);
     border: 2px solid rgba(250,100,100,0.5);
+    color: white;
+
     transition: ease-in-out 0.1s;
 }
 .delete-button:hover {

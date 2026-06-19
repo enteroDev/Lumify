@@ -35,7 +35,7 @@
 
 ## Fixes
 
-* Keine
+* [ ] Add NoMemberInfo in WorkspaceModal if no member yet. (Red Line like in FileView -> If no content in a folder)
 
 ## Implementations
 

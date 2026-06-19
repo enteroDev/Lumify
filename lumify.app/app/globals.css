@@ -132,7 +132,7 @@
   --color-highlight-dark: #0f7c89;
 
   --color-bar: #f1e6cb;
-  --color-pill: #d8c397;
+  --color-pill: #e2cb94;
   --color-actions: #e6d6b0;
 
   --color-workspace-border: #db8411;
@@ -181,13 +181,13 @@
   );
 
   /* Feature / space card body - warm sand, a touch deeper than the backdrop */
-  --surface-card: #ddcaa0;
+  --surface-card: var(--color-actions);
 
   /* Decorative corner cat: the sunglasses beach cat replaces the sleeping one */
   --overlay-cat: url("/src/cat-beachvibe.png");
 
   /* Note editor: focused text block = deeper warm sand (NOT the teal accent) */
-  --block-bg-active: #cdb079;
+  --block-bg-active: #f1d5a1;
 
   /* Space selector pill text - deep teal ink, readable on the light tinted pill */
   --space-pill-text: #15454d;

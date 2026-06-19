@@ -20,7 +20,7 @@
     display: flex;
     border-radius: 10px;
     height: 30px;
-    background-color: var(--color-actions);
+    background-color: var(--color-bar);
     transition: ease-in-out 0.2s;
 }
 .pathButton:hover {

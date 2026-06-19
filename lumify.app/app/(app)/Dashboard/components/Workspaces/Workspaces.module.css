@@ -119,6 +119,12 @@
         0 8px 22px rgba(0, 0, 0, 0.22),
         0 0 18px rgba(255, 255, 255, 0.10);
 }
+[data-theme="beach"] .addCard:hover {
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        0 8px 22px rgba(0, 0, 0, 0.15),
+        0 0 18px rgba(255, 255, 255, 0.5);
+}
 
 .addCard:hover::before {
     opacity: 1;
@@ -130,7 +136,7 @@
 
     font-size: 2rem;
     font-weight: 500;
-    color: var(--foreground);
+    color: white;
 
     transition:
         color 0.2s ease,
@@ -147,4 +153,5 @@
 .addCardIcon svg {
     width: 3em;
     height: 3em;
+    stroke-width: 1.3;
 }

@@ -7,13 +7,13 @@
     align-items: center;
 
     border-radius: 7px;
-    background-color: var(--color-purple-dark);
+    background-color: var(--color-bar);
 
     border: 2px dashed rgba(100, 82, 160, 0.9);
     outline: 1px solid rgba(20, 15, 40, 0.35);
 
     color: var(--color-infoText-light);
-    transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease, color 120ms ease;
+    transition: box-shadow 120ms ease, border-color 120ms ease, color 120ms ease;
 }
 
 .container svg {
@@ -29,6 +29,5 @@
     cursor: pointer;
     border-color: var(--color-highlight);
     box-shadow: 0 0 22px rgba(25, 227, 209, 0.20);
-    transform: translateY(-1px);
     color: var(--color-highlight);
 }

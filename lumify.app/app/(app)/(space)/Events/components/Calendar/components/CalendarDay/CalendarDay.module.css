@@ -116,7 +116,7 @@
 
 .currentDay {
     position: relative;
-    background-color: var(--color-accent-soft);
+    background-color: var(--color-actions);
 }
 .currentDay::before {
     content: "";
