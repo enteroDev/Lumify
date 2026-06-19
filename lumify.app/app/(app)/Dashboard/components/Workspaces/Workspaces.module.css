@@ -17,10 +17,13 @@
 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 }
+[data-theme="beach"] .container {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+}
 
-/* Panel background + blur live on a pseudo-element instead of the container itself.
-   That way the cards are NOT descendants of a backdrop-filtered element, so their own
-   featureBox backdrop-filter is no longer swallowed (nested backdrop-filters don't render). */
+/*  Panel background + blur live on a pseudo-element instead of the container itself.
+    That way the cards are NOT descendants of a backdrop-filtered element, so their own
+    featureBox backdrop-filter is no longer swallowed (nested backdrop-filters don't render). */
 .container::before {
     content: "";
     position: absolute;

@@ -39,6 +39,7 @@ export const c = {
     groupContent:       styles["groupContent"],
     icon:               styles["icon"],
     title:              styles["title"],
+    chevron:            styles["chevron"],
 
     item:               styles["item"],
 } as const;
@@ -56,6 +57,11 @@ export default function Recents() {
     const [todos, setTodos] = useState<TodoEntryDTO[]>([]);
     const [events, setEvents] = useState<CalendarEventDTO[]>([]);
     const [notes, setNotes] = useState<Note[]>([]);
+
+    // Collapsed state per group - all collapsed initially
+    const [todosOpen, setTodosOpen] = useState(false);
+    const [eventsOpen, setEventsOpen] = useState(false);
+    const [notesOpen, setNotesOpen] = useState(false);
 
 
 
@@ -118,59 +124,68 @@ export default function Recents() {
                 {/* Group */}
                 <div className={c.group}>
                     {/* GroupHeader */}
-                    <div className={c.groupHeader}>
+                    <div className={c.groupHeader} onClick={() => setTodosOpen((open) => !open)}>
                         <div className={c.icon}><TodoIcon /></div>
                         <div className={c.title}>Todos:</div>
+                        <button type="button" className={c.chevron}>{todosOpen ? "▼" : "▶"}</button>
                     </div>
                     {/* GroupContent */}
-                    <div className={c.groupContent}>
-                        {todos.map((todo) => (
-                            <RecentItem
-                                key={todo.id}
-                                todo={todo}
-                                getSpaceInfoOfTodoEntry={getSpaceInfoOfTodoEntry}
-                            />
-                        ))}
-                    </div>
+                    {todosOpen && (
+                        <div className={c.groupContent}>
+                            {todos.map((todo) => (
+                                <RecentItem
+                                    key={todo.id}
+                                    todo={todo}
+                                    getSpaceInfoOfTodoEntry={getSpaceInfoOfTodoEntry}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
 
 
                 {/* Group */}
                 <div className={c.group}>
                     {/* GroupHeader */}
-                    <div className={c.groupHeader}>
+                    <div className={c.groupHeader} onClick={() => setEventsOpen((open) => !open)}>
                         <div className={c.icon}><EventIcon /></div>
                         <div className={c.title}>Events:</div>
+                        <button type="button" className={c.chevron}>{eventsOpen ? "▼" : "▶"}</button>
                     </div>
                     {/* GroupContent */}
-                    <div className={c.groupContent}>
-                        {events.map((event) => (
-                            <RecentItem
-                                key={event.id}
-                                event={event}
-                                getSpaceInfoOfEvent={getSpaceInfoOfEvent}
-                            />
-                        ))}
-                    </div>
+                    {eventsOpen && (
+                        <div className={c.groupContent}>
+                            {events.map((event) => (
+                                <RecentItem
+                                    key={event.id}
+                                    event={event}
+                                    getSpaceInfoOfEvent={getSpaceInfoOfEvent}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 {/* Group */}
                 <div className={c.group}>
                     {/* GroupHeader */}
-                    <div className={c.groupHeader}>
+                    <div className={c.groupHeader} onClick={() => setNotesOpen((open) => !open)}>
                         <div className={c.icon}><NoteIcon /></div>
                         <div className={c.title}>Notes:</div>
+                        <button type="button" className={c.chevron}>{notesOpen ? "▼" : "▶"}</button>
                     </div>
                     {/* GroupContent */}
-                    <div className={c.groupContent}>
-                        {notes.map((note) => (
-                            <RecentItem
-                                key={note.id}
-                                note={note}
-                                getSpaceInfoOfNote={getSpaceInfoOfNote}
-                            />
-                        ))}
-                    </div>
+                    {notesOpen && (
+                        <div className={c.groupContent}>
+                            {notes.map((note) => (
+                                <RecentItem
+                                    key={note.id}
+                                    note={note}
+                                    getSpaceInfoOfNote={getSpaceInfoOfNote}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
 
             </div>

@@ -10,6 +10,9 @@
     border-radius: 8px;
     background-color: rgba(200,200,200,0.2);
 }
+[data-theme="beach"] .container {
+    background-color: rgba(250,250,250,0.5);
+}
 
 
 .section {
@@ -27,6 +30,9 @@
     padding-right: 5px;
 
     border-left: 1px solid rgba(200,200,200,0.2);
+}
+[data-theme="beach"] .divider {
+    border-left: 1px solid rgba(100,100,100,0.8);
 }
 
 

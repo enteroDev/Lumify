@@ -61,7 +61,7 @@
 
     border-radius: 10px;
     border: 1px solid rgba(200,200,200,0.2);
-    background-color: rgba(200,200,200,0.2);
+    background-color: var(--color-actions);
 }
 
 .searchIcon {
@@ -86,8 +86,6 @@
 
     padding: 2px 5px;
 }
-
-
 
 
 
