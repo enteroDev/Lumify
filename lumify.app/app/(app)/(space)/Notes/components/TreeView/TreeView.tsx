@@ -31,6 +31,7 @@ export const c = {
 
 export type TreeViewProps = {       // Whole Tree - Carries entries/nodes, the current selectedElement if available, inormation about expanded nodes, and correpsonding Listeners
     nodes: TreeNode[];
+    rootName?: string;
     selectedId?: string | null;
     expandedIds: Set<string>;
 
@@ -164,6 +165,7 @@ function TreeRow({
 // ----------------- //
 export default function TreeView({
     nodes,
+    rootName = ".root",
     selectedId,
     expandedIds,
 
@@ -222,7 +224,7 @@ export default function TreeView({
                 <div className={c.icon}>
                     <FolderIcon />
                 </div>
-                <div className={c.label}>.root</div>
+                <div className={c.label}>{rootName}</div>
             </div>
 
             {/* Generated Nodes - children of root, so indented one level deeper (depth 1) */}

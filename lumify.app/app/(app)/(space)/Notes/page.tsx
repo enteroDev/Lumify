@@ -35,7 +35,7 @@ import { useNoteHub } from "@/hooks/useNoteHub";
 // ----------------- //
 export default function Notes() {
 
-    const { isPrivate, workspaceID } = useSpace();
+    const { isPrivate, workspaceID, currentSpace } = useSpace();
     const { showAlert } = useAlert();
     const { openNoteModal } = useModal();
     const toast = useToast();
@@ -65,6 +65,10 @@ export default function Notes() {
     // --- Build UI-Tree --- //
     // --------------------- //
     const nodes = useMemo(() => buildTreeNodes(folders, notes), [folders, notes]);
+
+    // Root node is labelled after the current space - the workspace name (e.g. "Liebherr_1"),
+    // or "Privat" for the personal space - so ".root" is never shown to non-devs.
+    const rootName = currentSpace.type === "workspace" ? currentSpace.name : "Privat";
 
     // Safety net: if the currently opened item no longer exists in the tree (e.g. it or one of
     // its ancestors was deleted - including deletions coming in via the hub from other users),
@@ -804,6 +808,7 @@ export default function Notes() {
                     {/* TreeView */}
                     <TreeView
                         nodes={nodes}
+                        rootName={rootName}
                         selectedId={treeViewSelectedID}
                         expandedIds={expandedIds}
                         onToggle={onToggle}
