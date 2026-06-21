@@ -156,7 +156,7 @@
 }
 .itemIcon svg path {
     stroke: none;
-    fill: var(--icon-color);
+    fill: var(--icon-space-workspace);
 }
 
 .memberTag {
@@ -186,7 +186,7 @@
     height: 26px;
     width: 26px;
 
-    fill: var(--icon-color);
+    fill: var(--icon-space-workspace);
 }
 
 .memberCount {
@@ -309,7 +309,7 @@
     width: 150px;
     height: 150px;
 
-    color: var(--icon-color);
+    color: var(--icon-space-workspace);
 }
 
 .actions {

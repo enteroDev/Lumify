@@ -51,6 +51,11 @@
   --color-privatespace-border: #1999aa;
   --color-privatespace-bg: #1999aa59;
 
+  /* Space-card icon tone. In chill the cards are deep/tinted over the dark
+     backdrop, so a light (cream) icon reads best - same as the body text. */
+  --icon-space-workspace: var(--foreground);
+  --icon-space-private: var(--foreground);
+
   --color-infoText-light: #9f81f3;
   --color-infoText-dark: #20173d;
 
@@ -135,10 +140,19 @@
   --color-pill: #e2cb94;
   --color-actions: #e6d6b0;
 
-  --color-workspace-border: #db8411;
-  --color-workspace-bg: #db841159;
-  --color-privatespace-border: #17a8b8;
-  --color-privatespace-bg: #17a8b859;
+  /* Cards sit on the BRIGHT sand backdrop here, so the low-alpha tints used in
+     chill look washed-out. Use richer, more opaque fills + slightly deeper
+     borders so the cards read as defined warm/teal surfaces, not faded ghosts. */
+  --color-workspace-border: #e08a0f;
+  --color-workspace-bg: #f5a623b3;
+  --color-privatespace-border: #0f8e9c;
+  --color-privatespace-bg: #2bbecbb3;
+
+  /* The shared --icon-color (#43555a) is a cold slate meant for free-standing
+     icons; on the warm/teal cards it reads heavy and "too dark". Use a deep
+     tone of each card's own accent so the icons stay readable but harmonious. */
+  --icon-space-workspace: #8a4f0a;
+  --icon-space-private: #0b6c78;
 
   --color-infoText-light: #0f7c89;
   --color-infoText-dark: #2c3a3d;
