@@ -9,6 +9,11 @@
 
     border-radius: 8px;
     background-color: rgba(200,200,200,0.2);
+
+    /* Blur whatever sits behind the bar (e.g. the sidebar it overlaps),
+       so the semi-transparent background reads cleanly instead of muddy. */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 }
 [data-theme="beach"] .container {
     background-color: rgba(250,250,250,0.5);
