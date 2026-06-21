@@ -41,6 +41,12 @@ export const c = {
 } as const;
 
 
+// Resolve a human-readable owner name. NEVER fall back to the raw userID (GUID) -
+// prefer the displayName, then the username, and only then a neutral placeholder.
+const resolveOwnerName = (displayName?: string | null, username?: string | null): string =>
+    displayName?.trim() || username?.trim() || "Unbekannt";
+
+
 // ----------------- //
 // --- Component --- //
 // ----------------- //
@@ -212,7 +218,7 @@ export default function Workspaces() {
                 name: trimmedName,
             });
 
-            const owner = await UserService.getUserProfileWithID(createdWorkspace.ownerID);
+            const owner = await UserService.getUserPreviewWithID(createdWorkspace.ownerID);
 
             setWorkspaces(prev => prev.map(x => {
                 if (x.id !== workspaceID) { return x; }
@@ -221,7 +227,7 @@ export default function Workspaces() {
                     id: createdWorkspace.id,
                     name: createdWorkspace.name ?? "[Unbenannter Space]",
                     ownerID: createdWorkspace.ownerID,
-                    ownerName: owner.displayName ?? createdWorkspace.ownerID,
+                    ownerName: resolveOwnerName(owner.displayName, owner.username),
                     memberCount: 0,
                 } satisfies WorkspaceVM;
             }));
@@ -310,14 +316,14 @@ export default function Workspaces() {
 
             const workspaceCards = await Promise.all(
                 data.map(async (ws: WorkspaceDTO) => {
-                    const owner = await UserService.getUserProfileWithID(ws.ownerID);
+                    const owner = await UserService.getUserPreviewWithID(ws.ownerID);
                     const members = await getWorkspaceMembers(ws.id);
 
                     return {
                         id: ws.id,
                         name: ws.name ?? "[Unbenannter Space]",
                         ownerID: ws.ownerID,
-                        ownerName: owner.displayName ?? ws.ownerID,
+                        ownerName: resolveOwnerName(owner.displayName, owner.username),
                         memberCount: members.length,
                     } satisfies WorkspaceVM;
                 })
