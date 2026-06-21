@@ -41,7 +41,7 @@ export function findNode(nodes: TreeNode[], targetId: string): FindResult {
 // Build breadcrumb text from a path (folders only)
 export function buildBreadcrumb(path: TreeNode[]): string {
     const folderPath = path.filter((x) => x.type === "folder").map((x) => x.name);
-    return folderPath.length > 0 ? folderPath.join(" / ") : ".root";
+    return folderPath.length > 0 ? folderPath.join(" / ") : "";
 }
 
 function normalize(s: string): string {
@@ -64,7 +64,7 @@ export function buildFileViewVM(nodes: TreeNode[], selectedId: string | null, qu
         const items = filterItems(nodes, query);
 
         return {
-            breadcrumb: ".root",
+            breadcrumb: "",
             currentFolderID: null,
             items,
             isEmpty: items.length === 0,

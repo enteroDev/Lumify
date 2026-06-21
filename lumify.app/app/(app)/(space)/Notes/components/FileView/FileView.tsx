@@ -154,7 +154,8 @@ export default function FileView({
     // ---------------- //
     // --- Computed --- //
     // ---------------- //
-    const path = "/ " + vm.breadcrumb;
+    // Root shows just "/"; deeper folders show "/ A / B".
+    const path = vm.breadcrumb ? "/ " + vm.breadcrumb : "/";
 
 
     // ----------- //
