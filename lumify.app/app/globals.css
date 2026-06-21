@@ -394,6 +394,10 @@ main::before{
   /* Feature pages use .content (which already fills); the dashboard uses this
      wrapper, so it needs the same full height to fill the scroll area. */
   height: 100%;
+
+  /* Same gap below the header as the Auth page.
+     Auth stacks 50px (.content) + 40px (.container) = 90px; we match that 90px here. */
+  padding-top: 50px;
 }
 .content-fullHeightAlt {
   flex-direction: column;
