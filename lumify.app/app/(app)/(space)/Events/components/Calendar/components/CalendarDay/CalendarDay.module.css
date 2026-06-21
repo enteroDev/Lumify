@@ -81,6 +81,9 @@
     color: var(--color-highlight-bright);
     font-weight: bold;
 }
+[data-theme="beach"] .currentDay .dayLabelShort {
+    color: var(--color-highlight);
+}
 
 .dayLabelFull {
     width: 100%;
@@ -116,7 +119,7 @@
 
 .currentDay {
     position: relative;
-    background-color: var(--color-bar);
+    background-color: var(--color-purple-light);
 }
 .currentDay::before {
     content: "";

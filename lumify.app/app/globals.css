@@ -406,6 +406,13 @@ main::before{
   padding-top: 50px;
 }
 
+/* Space pages (Notes/Events/Todos) have a fixed SpaceNavigationOverlay
+   (SpaceSwitcher + FeatureNav) floating at top-left. Push their content down so
+   the sidebar starts below that overlay instead of being covered by it. */
+.content--belowNav {
+  padding-top: 115px;
+}
+
 
 .bg-overlay {
   position: absolute;

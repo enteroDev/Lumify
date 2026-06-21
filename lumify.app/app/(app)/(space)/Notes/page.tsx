@@ -800,7 +800,7 @@ export default function Notes() {
             <Overlay />
 
             {/* Content */}
-            <div className="content">
+            <div className="content content--belowNav">
 
                 {/* SidePanel */}
                 <SidePanel title="Baumansicht">

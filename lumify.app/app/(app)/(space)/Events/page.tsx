@@ -250,7 +250,7 @@ export default function Events() {
             <Overlay />
 
             {/* Content */}
-            <div className="content">
+            <div className="content content--belowNav">
                 <SidePanel title="Events">
                     <TaskList
                         fullDayEvents={fullDayEvents}
