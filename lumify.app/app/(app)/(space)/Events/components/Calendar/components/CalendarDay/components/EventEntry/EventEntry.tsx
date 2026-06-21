@@ -1,8 +1,13 @@
+"use client";
 
 // --------------- //
 // --- Imports --- //
 // --------------- //
 
+// React
+import type { MouseEvent } from "react";
+// Provider
+import { useTooltip } from "@/components/Tooltip/TooltipProvider";
 // Models
 import { CalendarEventDTO, EventEntryType, EventEntryVariant } from "@/models/Events";
 // Icons
@@ -55,9 +60,19 @@ export default function EventEntry({
 }: EventEntryProps) {
 
 
+    const { showTooltip, hideTooltip } = useTooltip();
+
+
     // ----------------- //
     // --- UI-Helper --- //
     // ----------------- //
+
+    // Show the event's description in a tooltip while hovering (only if it has one).
+    const showDescriptionTooltip = (e: MouseEvent<HTMLElement>) => {
+        if (!event.description) { return; }
+        showTooltip({ text: event.description, x: e.clientX, y: e.clientY });
+    };
+
     function renderMeta() {
 
         const start = event.startTime.slice(11, 16);
@@ -128,7 +143,12 @@ export default function EventEntry({
     // --- JSX --- //
     // ----------- //
     return (
-        <div className={containerStyle}>
+        <div
+            className={containerStyle}
+            onMouseEnter={showDescriptionTooltip}
+            onMouseMove={showDescriptionTooltip}
+            onMouseLeave={hideTooltip}
+        >
 
             {/* InfoArea */}
             <div className={c.infoArea}>

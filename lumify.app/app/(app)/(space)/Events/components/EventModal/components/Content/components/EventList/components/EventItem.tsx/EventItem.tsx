@@ -4,6 +4,10 @@
 // --- Imports --- //
 // --------------- //
 
+// React
+import type { MouseEvent } from "react";
+// Provider
+import { useTooltip } from "@/components/Tooltip/TooltipProvider";
 // Models
 import { CalendarEventDTO, EventEntryType } from "@/models/Events";
 // Icons
@@ -62,9 +66,19 @@ export default function EventItem({
 
 
 
+    const { showTooltip, hideTooltip } = useTooltip();
+
+
     // ----------------- //
     // --- UI-Helper --- //
     // ----------------- //
+
+    // Show the event's description in a tooltip while hovering (only if it has one).
+    const showDescriptionTooltip = (e: MouseEvent<HTMLElement>) => {
+        if (!event.description) { return; }
+        showTooltip({ text: event.description, x: e.clientX, y: e.clientY });
+    };
+
     function renderTimeText() {
         if (type === "fullDay") {
             return "Ganztag";
@@ -132,7 +146,13 @@ export default function EventItem({
     // --- JSX --- //
     // ----------- //
     return (
-        <div className={containerStyle} onClick={onClick}>
+        <div
+            className={containerStyle}
+            onClick={onClick}
+            onMouseEnter={showDescriptionTooltip}
+            onMouseMove={showDescriptionTooltip}
+            onMouseLeave={hideTooltip}
+        >
 
             {/* TimeArea */}
             <div className={c.timeArea}>
