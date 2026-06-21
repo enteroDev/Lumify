@@ -89,8 +89,6 @@
 .container:hover .body {
     overflow-y: auto;
     scrollbar-color: rgba(255, 255, 255, 1) transparent;
-
-    padding: 0px 5px 0px 0px;
 }
 .container:hover .body::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 1);
