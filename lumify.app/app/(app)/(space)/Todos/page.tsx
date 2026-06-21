@@ -441,7 +441,7 @@ export default function Todos() {
     // ----------- //
     return (
         <div className="scrollView">
-            <div className="content">
+            <div className="content content--belowNav">
                 <SidePanel title="Übersicht">
                     <TodoCollection
                         todoLists={todoLists}
