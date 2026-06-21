@@ -5,7 +5,7 @@
 // React
 import type { KeyboardEvent, MouseEvent } from "react";
 // Models
-import type { TreeNode } from "@/models/notes";
+import type { TreeNode } from "@/models/Notes";
 // Styles & Icons
 import styles from "./BrowserItem.module.css";
 import FolderIcon from "../../../../../../../src/svg/folder.svg";

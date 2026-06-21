@@ -15,7 +15,7 @@ import ActionLine from "./components/ActionLine/ActionLine";
 import BlockList from "./components/BlockList/BlockList";
 import AddLinkModal from "./components/AddLinkModal/AddLinkModal";
 // Models
-import type { Note, Note_TextBlock, Note_LinkItem } from "@/models/notes";
+import type { Note, Note_TextBlock, Note_LinkItem } from "@/models/Notes";
 // Service
 import { NoteService } from "@/services/api/noteService";
 // Provider

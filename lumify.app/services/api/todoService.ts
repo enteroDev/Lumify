@@ -1,7 +1,7 @@
 
 import { CONFIG } from "@/app/config/config";
 import { saveFetch } from "@/services/utils/auth";
-import type { TodoListDTO, TodoEntryDTO } from "@/models/todo";
+import type { TodoListDTO, TodoEntryDTO } from "@/models/Todos";
 import type { WorkspaceDTO } from "@/models/Space";
 
 

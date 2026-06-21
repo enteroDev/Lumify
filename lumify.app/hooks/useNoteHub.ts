@@ -11,7 +11,7 @@ import { HubConnectionBuilder, HubConnectionState, LogLevel } from "@microsoft/s
 // Config
 import { CONFIG } from "@/app/config/config";
 // Models
-import type { Folder, Note, Note_TextBlock, Note_LinkItem } from "@/models/notes";
+import type { Folder, Note, Note_TextBlock, Note_LinkItem } from "@/models/Notes";
 
 
 

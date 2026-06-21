@@ -16,7 +16,7 @@ import AbortIcon from "@/app/src/svg/abort.svg";
 // Styles
 import styles from "./TodoList.module.css";
 // Models
-import type { TodoEntryDTO, TodoListDTO } from "@/models/todo";
+import type { TodoEntryDTO, TodoListDTO } from "@/models/Todos";
 
 
 

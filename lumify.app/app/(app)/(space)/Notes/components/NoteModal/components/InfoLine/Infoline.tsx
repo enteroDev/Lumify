@@ -8,7 +8,7 @@
 import styles from "./InfoLine.module.css";
 
 // Models
-import type { Note } from "../../../../../../../../models/notes";
+import type { Note } from "../../../../../../../../models/Notes";
 
 
 // ------------------- //

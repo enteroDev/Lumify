@@ -8,7 +8,7 @@
 import TodoList from "./TodoList/TodoList";
 import AddCard from "./AddCard/AddCard";
 // Models
-import type { TodoListDTO, TodoEntryDTO } from "@/models/todo";
+import type { TodoListDTO, TodoEntryDTO } from "@/models/Todos";
 // Styles
 import styles from "./TodoBoard.module.css";
 

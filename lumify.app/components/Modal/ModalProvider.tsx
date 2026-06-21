@@ -16,7 +16,7 @@ import NoteModal from "@/app/(app)/(space)/Notes/components/NoteModal/NoteModal"
 import type { WorkspaceVM } from "@/models/Space";
 import type { CalendarEventDTO, SaveEventDTO } from "@/models/Events";
 import type { AddEventFormData } from "@/components/_Forms/AddEventForm/AddEventForm";
-import type { Note, Note_TextBlock, Note_LinkItem } from "@/models/notes";
+import type { Note, Note_TextBlock, Note_LinkItem } from "@/models/Notes";
 
 
 

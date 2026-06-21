@@ -13,7 +13,7 @@ import AbortIcon from "@/app/src/svg/abort.svg";
 import RenameIcon from "@/app/src/svg/rename_2.svg";
 import SaveIcon from "@/app/src/svg/save.svg";
 // Models
-import type { Note } from "@/models/notes";
+import type { Note } from "@/models/Notes";
 
 
 

@@ -12,9 +12,9 @@ import { TodoService } from "@/services/api/todoService";
 import { EventService } from "@/services/api/eventService";
 import { NoteService } from "@/services/api/noteService";
 // Types
-import type { TodoEntryDTO } from "@/models/todo";
+import type { TodoEntryDTO } from "@/models/Todos";
 import type { CalendarEventDTO } from "@/models/Events";
-import type { Note } from "@/models/notes";
+import type { Note } from "@/models/Notes";
 // Components
 import RecentItem from "./components/RecentItem/RecentItem";
 // Icons

@@ -14,7 +14,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 // Component
-import DropdownItem from "./DropdownItem/DropdownItem";
+import DropdownItem from "./DropDownItem/DropdownItem";
 // Models
 import type { DropdownEntry } from "@/models/Dropdown";
 // Styles

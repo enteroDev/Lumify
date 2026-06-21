@@ -11,7 +11,7 @@ import CodeIcon from "@/app/src/svg/code.svg";
 import LinkIcon from "@/app/src/svg/link.svg";
 
 // Models
-import type { Note } from "@/models/notes";
+import type { Note } from "@/models/Notes";
 
 // Provider
 import { useTooltip } from "@/components/Tooltip/TooltipProvider";

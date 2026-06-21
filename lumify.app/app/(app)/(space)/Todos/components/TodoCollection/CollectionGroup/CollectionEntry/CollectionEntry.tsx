@@ -13,8 +13,8 @@
 // --------------- //
 
 // Models
-import type { TodoStatus } from "@/models/todo";
-import { TODO_STATUS } from "@/models/todo";
+import type { TodoStatus } from "@/models/Todos";
+import { TODO_STATUS } from "@/models/Todos";
 // Icons
 import PendingIcon from "@/app/src/svg/clock.svg";
 import DoneIcon from "@/app/src/svg/done.svg";

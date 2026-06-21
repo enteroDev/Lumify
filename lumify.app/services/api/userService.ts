@@ -6,9 +6,9 @@ import { getCsrfFromCookie } from "@/services/utils/auth";
 import { CONFIG } from "@/app/config/config";
 import { SaveAccountInfoRequest, SaveUserProfileRequest } from "@/models/User";
 // Types
-import type { TodoEntryDTO } from "@/models/todo";
+import type { TodoEntryDTO } from "@/models/Todos";
 import type { CalendarEventDTO } from "@/models/Events";
-import type { Note } from "@/models/notes";
+import type { Note } from "@/models/Notes";
 
 const API_BASE = CONFIG.API.API_BASE;
 

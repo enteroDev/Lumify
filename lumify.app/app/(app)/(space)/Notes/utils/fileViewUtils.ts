@@ -1,4 +1,4 @@
-import type { TreeNode } from "../../../../../models/notes";
+import type { TreeNode } from "../../../../../models/Notes";
 
 export type FindResult = {
     node: TreeNode | null;

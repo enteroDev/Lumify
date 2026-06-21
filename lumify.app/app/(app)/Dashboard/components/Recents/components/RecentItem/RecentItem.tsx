@@ -8,9 +8,9 @@
 import { useEffect, useState } from "react";
 // Models
 import { WorkspaceDTO } from "@/models/Space";
-import { TodoEntryDTO } from "@/models/todo";
+import { TodoEntryDTO } from "@/models/Todos";
 import { CalendarEventDTO } from "@/models/Events";
-import { Note } from "@/models/notes";
+import { Note } from "@/models/Notes";
 // Styles
 import styles from "./RecentItem.module.css";
 

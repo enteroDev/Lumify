@@ -8,8 +8,8 @@
 // Components
 import TodoCollectionEntry from "./CollectionEntry/CollectionEntry";
 // Models
-import type { TodoListDTO} from "@/models/todo";
-import { TODO_STATUS } from "@/models/todo";
+import type { TodoListDTO} from "@/models/Todos";
+import { TODO_STATUS } from "@/models/Todos";
 // Styles
 import styles from "./CollectionGroup.module.css";
 

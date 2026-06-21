@@ -15,7 +15,7 @@ import TextBlock from "./Components/Textblock/Textblock";
 import LinkLine from "./Components/LinkLine/LinkLine";
 
 // Models
-import type { Note_TextBlock, Note_LinkItem } from "../../../../../../../../models/notes";
+import type { Note_TextBlock, Note_LinkItem } from "../../../../../../../../models/Notes";
 
 
 // ------------------- //

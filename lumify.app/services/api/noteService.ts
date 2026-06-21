@@ -1,7 +1,7 @@
 import { CONFIG } from "@/app/config/config";
 import { saveFetch } from "@/services/utils/auth";
 
-import type { Note_TextBlock } from "@/models/notes";
+import type { Note_TextBlock } from "@/models/Notes";
 import type { WorkspaceDTO } from "@/models/Space";
 
 

@@ -19,8 +19,8 @@ import { TodoService } from "@/services/api/todoService";
 // Hooks
 import { useTodoHub } from "@/hooks/useTodoHub";
 // Models
-import type { TodoListDTO, TodoEntryDTO } from "@/models/todo";
-import { TODO_STATUS } from "@/models/todo";
+import type { TodoListDTO, TodoEntryDTO } from "@/models/Todos";
+import { TODO_STATUS } from "@/models/Todos";
 
 
 

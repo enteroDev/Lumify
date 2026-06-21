@@ -18,7 +18,7 @@ import CodeIcon from "@/app/src/svg/code.svg";
 import TextIcon from "@/app/src/svg/text_2.svg";
 
 // Models
-import type { Note_TextBlock } from "@/models/notes";
+import type { Note_TextBlock } from "@/models/Notes";
 
 // Utils
 import { animateCollapse } from "../../Utils/animateCollapse";

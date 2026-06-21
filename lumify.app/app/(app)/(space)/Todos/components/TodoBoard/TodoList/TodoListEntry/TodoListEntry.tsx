@@ -14,8 +14,8 @@ import DeleteIcon from "@/app/src/svg/trash.svg";
 // Styles
 import styles from "./TodoListEntry.module.css";
 // Models
-import type { TodoEntryDTO } from "@/models/todo";
-import { TODO_STATUS } from "@/models/todo";
+import type { TodoEntryDTO } from "@/models/Todos";
+import { TODO_STATUS } from "@/models/Todos";
 
 
 

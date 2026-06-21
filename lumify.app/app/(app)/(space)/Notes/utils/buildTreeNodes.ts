@@ -1,4 +1,4 @@
-import type { Folder, Note, TreeNode } from "../../../../../models/notes";
+import type { Folder, Note, TreeNode } from "../../../../../models/Notes";
 
 type FolderEntry = {
     folder: Folder;

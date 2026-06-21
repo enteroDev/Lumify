@@ -11,7 +11,7 @@
 // React
 import { useMemo, useState } from "react";
 // Models
-import type { TreeNode } from "@/models/notes";
+import type { TreeNode } from "@/models/Notes";
 // Components
 import FileViewHeader from "./FileViewHeader/FileViewHeader";
 import BrowserContent from "./BrowserContent/BrowserContent";

@@ -32,12 +32,14 @@ const c = {
 // --- Component --- //
 // ----------------- //
 export default function SpaceSwitcher() {
+
     const { currentSpace, setCurrentSpace } = useSpace();
 
     // Holds dropdown entries including private + fetched workspaces
     const [entries, setEntries] = useState<DropdownEntry<Space>[]>([
         { value: "private", text: "Privat", payload: { type: "private" } },
     ]);
+    
 
     useEffect(() => {
         // Fetch workspaces where the current user is owner or member

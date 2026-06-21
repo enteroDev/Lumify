@@ -3,7 +3,7 @@
 // --------------- //
 
 // Models
-import type { TreeNode } from "@/models/notes";
+import type { TreeNode } from "@/models/Notes";
 // Components
 import BrowserItem from "./BrowserItem/BrowserItem";
 // Styles

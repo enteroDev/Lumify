@@ -13,7 +13,7 @@ import TreeView from "./components/TreeView/TreeView";
 import FileView from "./components/FileView/FileView";
 import Overlay from "@/components/OverlayContainer/OverlayContainer";
 // Models
-import type { Folder, Note, Note_TextBlock, Note_LinkItem, TreeNode } from "@/models/notes";
+import type { Folder, Note, Note_TextBlock, Note_LinkItem, TreeNode } from "@/models/Notes";
 // Utils
 import { buildTreeNodes } from "./utils/buildTreeNodes";
 // Provider

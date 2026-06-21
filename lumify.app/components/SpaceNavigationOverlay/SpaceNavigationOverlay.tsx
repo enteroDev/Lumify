@@ -4,8 +4,7 @@
 // --- Imports --- //
 // --------------- //
 
-// React
-import { useEffect, useState } from "react";
+
 // Components
 import SpaceSwitcher from "./components/SpaceSwitcher/SpaceSwitcher";
 import FeatureNavigation from "./components/FeatureNavigation/FeatureNavigation";

@@ -16,7 +16,7 @@ import DeleteIcon from "@/app/src/svg/trash.svg";
 import LinkIcon from "@/app/src/svg/link.svg";
 
 // Models
-import type { Note_LinkItem } from "@/models/notes";
+import type { Note_LinkItem } from "@/models/Notes";
 
 // Utils
 import { animateCollapse } from "../../Utils/animateCollapse";

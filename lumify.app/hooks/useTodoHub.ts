@@ -11,7 +11,7 @@ import { HubConnectionBuilder, HubConnectionState, LogLevel } from "@microsoft/s
 // Config
 import { CONFIG } from "@/app/config/config";
 // Models
-import type { TodoListDTO, TodoEntryDTO } from "@/models/todo";
+import type { TodoListDTO, TodoEntryDTO } from "@/models/Todos";
 
 
 
