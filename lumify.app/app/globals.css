@@ -269,6 +269,13 @@ main{
 
   background: var(--app-backdrop);
 
+    /* Anchor the whole app shell to the viewport. Without a definite height here,
+       the child .scrollView's `calc(100% - header)` resolves against `auto` and
+       collapses to content height - leaving empty space below on large displays.
+       100vh is viewport-relative, so it works regardless of the html/body chain. */
+    height: 100vh;
+    width: 100%;
+
     z-index: 0;
     overflow: hidden;
 }
@@ -383,6 +390,10 @@ main::before{
 .content-fullHeight {
   flex-direction: column;
   align-items: center;
+
+  /* Feature pages use .content (which already fills); the dashboard uses this
+     wrapper, so it needs the same full height to fill the scroll area. */
+  height: 100%;
 }
 .content-fullHeightAlt {
   flex-direction: column;
