@@ -51,6 +51,7 @@ type AccountViewProps = {
     onSaveAccountInfo: (data: SaveAccountInfoRequest) => void | Promise<void>;
     isSavingAccountInfo?: boolean;
 
+    onOpenTwoFactor: () => void;
     onDeleteAccount: () => void;
 }
 
@@ -67,6 +68,7 @@ export default function AccountView({
 
     onSaveAccountInfo,
     isSavingAccountInfo,
+    onOpenTwoFactor,
     onDeleteAccount,
 }: AccountViewProps) {
     
@@ -145,6 +147,16 @@ export default function AccountView({
                         </div>
                     </div>
 
+                </div>
+
+                {/* Security */}
+                <div className={c.group}>
+                    <div className={c.groupHeader}>Sicherheit</div>
+                    <div className={c.groupContent}>
+                        <button type="button" className={c.button} onClick={onOpenTwoFactor}>
+                            <div className={c.buttonText}>Zwei-Faktor-Authentifizierung</div>
+                        </button>
+                    </div>
                 </div>
 
                 {/* Danger Zone - destructive, irreversible action kept apart from the rest */}

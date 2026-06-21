@@ -43,36 +43,58 @@ namespace lumify.api.Services
             string userLowID = string.Compare(requesterID, addresseeID, StringComparison.Ordinal) < 0 ? requesterID : addresseeID;
             string userHighID = string.Compare(requesterID, addresseeID, StringComparison.Ordinal) < 0 ? addresseeID : requesterID;
 
+            // Look up ANY row for this pair, including soft-deleted ones. The unique index
+            // on (UserLowID, UserHighID) is plain (MariaDB has no filtered indexes), so a
+            // leftover soft-deleted row must be resurrected rather than inserting a duplicate.
             Friendship? existingFriendship = await _db.Friendships
                 .FirstOrDefaultAsync(x =>
                     x.UserLowID == userLowID &&
-                    x.UserHighID == userHighID &&
-                    x.DeletedAt == null);
+                    x.UserHighID == userHighID);
 
-            if (existingFriendship != null)
+            // An active (not soft-deleted) relationship already exists -> nothing to do.
+            if (existingFriendship != null && existingFriendship.DeletedAt == null)
             {
                 throw new Exception("Friendship already exists.");
             }
 
             string now = DateTime.UtcNow.ToString("o");
 
-            Friendship friendship = new Friendship
+            if (existingFriendship != null)
             {
-                ID = Guid.NewGuid().ToString(),
+                // Resurrect the previously removed row as a fresh pending request.
+                existingFriendship.RequesterID = requesterID;
+                existingFriendship.AddresseeID = addresseeID;
+                existingFriendship.Status = (int)FriendshipStatus.Pending;
 
-                UserLowID = userLowID,
-                UserHighID = userHighID,
+                existingFriendship.DeletedAt = null;
+                existingFriendship.AcceptedAt = null;
+                existingFriendship.RejectedAt = null;
+                existingFriendship.BlockedAt = null;
 
-                RequesterID = requesterID,
-                AddresseeID = addresseeID,
+                existingFriendship.CreatedAt = now;
+                existingFriendship.UpdatedAt = now;
+            }
+            else
+            {
+                Friendship friendship = new Friendship
+                {
+                    ID = Guid.NewGuid().ToString(),
 
-                Status = (int)FriendshipStatus.Pending,
+                    UserLowID = userLowID,
+                    UserHighID = userHighID,
 
-                CreatedAt = now,
-                UpdatedAt = now,
-            };
+                    RequesterID = requesterID,
+                    AddresseeID = addresseeID,
 
-            _db.Friendships.Add(friendship);
+                    Status = (int)FriendshipStatus.Pending,
+
+                    CreatedAt = now,
+                    UpdatedAt = now,
+                };
+
+                _db.Friendships.Add(friendship);
+            }
+
             await _db.SaveChangesAsync();
         }
 

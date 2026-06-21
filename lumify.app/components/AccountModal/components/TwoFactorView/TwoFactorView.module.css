@@ -1,0 +1,162 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    flex-shrink: 0;
+
+    height: 60px;
+    width: 100%;
+    padding: 0px 20px;
+
+    align-items: center;
+
+    color: var(--color-infoText-dark);
+}
+
+.title {
+    font-size: 1.3rem;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    gap: 14px;
+    padding: 10px 20px;
+
+    color: var(--foreground);
+
+    overflow-y: auto;
+}
+
+.hint {
+    font-size: 0.85rem;
+    color: color-mix(in srgb, var(--foreground) 70%, transparent);
+}
+
+.statusRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.statusBadge {
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.statusOn {
+    background-color: var(--color-success);
+    color: #ffffff;
+}
+.statusOff {
+    background-color: color-mix(in srgb, var(--foreground) 20%, transparent);
+    color: var(--foreground);
+}
+
+.qrArea {
+    display: flex;
+    justify-content: center;
+
+    padding: 12px;
+}
+.qr {
+    width: 200px;
+    height: 200px;
+
+    border-radius: 10px;
+    background: #ffffff;
+    padding: 8px;
+}
+
+.secretLabel {
+    font-size: 0.8rem;
+    color: color-mix(in srgb, var(--foreground) 70%, transparent);
+}
+.secret {
+    font-family: var(--font-mono), monospace;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    word-break: break-all;
+
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px dashed var(--color-pill);
+    background: color-mix(in srgb, var(--foreground) 6%, transparent);
+}
+
+.codeInput {
+    height: 46px;
+    width: 180px;
+
+    text-align: center;
+    letter-spacing: 0.4em;
+    font-size: 1.3rem;
+
+    border-radius: 10px;
+    border: 1.5px solid var(--color-pill);
+    background: transparent;
+    color: var(--foreground);
+
+    outline: none;
+}
+.codeInput:focus {
+    border-color: var(--color-highlight);
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.button,
+.buttonGhost,
+.buttonDanger {
+    padding: 9px 16px;
+    border-radius: 10px;
+    border: none;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.button {
+    background: var(--color-button-action);
+    color: var(--foreground);
+}
+.button:hover:not(:disabled) {
+    background: var(--color-button-action-hov);
+}
+
+.buttonGhost {
+    background: transparent;
+    color: var(--foreground);
+    border: 1px solid var(--color-pill);
+}
+
+.buttonDanger {
+    background: var(--color-abort);
+    color: #ffffff;
+}
+.buttonDanger:hover:not(:disabled) {
+    border: 1px solid #fd4848;
+    box-shadow: 0 0 10px #fd4848;
+}
+
+.button:disabled,
+.buttonGhost:disabled,
+.buttonDanger:disabled {
+    opacity: 0.5;
+    cursor: default;
+}

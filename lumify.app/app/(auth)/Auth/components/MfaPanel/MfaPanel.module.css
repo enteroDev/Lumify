@@ -1,0 +1,96 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    width: 340px;
+    max-width: 90vw;
+    padding: 24px;
+
+    border-radius: 12px;
+    border: 1px solid var(--color-pill);
+    background-color: var(--color-bar);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+
+    color: var(--foreground);
+}
+
+.title {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: color-mix(in srgb, var(--foreground) 70%, transparent);
+}
+
+.input {
+    height: 48px;
+
+    text-align: center;
+    letter-spacing: 0.4em;
+    font-size: 1.4rem;
+
+    border-radius: 10px;
+    border: 1.5px solid var(--color-pill);
+    background: transparent;
+    color: var(--foreground);
+
+    outline: none;
+}
+.input:focus {
+    border-color: var(--color-highlight);
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.verifyButton,
+.cancelButton {
+    padding: 9px 16px;
+
+    border-radius: 10px;
+    border: none;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.verifyButton {
+    background: var(--color-button-action);
+    color: var(--foreground);
+}
+.verifyButton:hover:not(:disabled) {
+    background: var(--color-button-action-hov);
+}
+.verifyButton:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.cancelButton {
+    background: transparent;
+    color: var(--foreground);
+    border: 1px solid var(--color-pill);
+}
+.cancelButton:disabled {
+    opacity: 0.5;
+    cursor: default;
+}

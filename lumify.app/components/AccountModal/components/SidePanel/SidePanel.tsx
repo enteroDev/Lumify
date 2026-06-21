@@ -14,6 +14,7 @@ import SettingsIcon from "@/app/src/svg/settings.svg";
 import ImageIcon from "@/app/src/svg/image.svg";
 import DeleteIcon from "@/app/src/svg/trash.svg";
 import LogoutIcon from "@/app/src/svg/logout.svg";
+import LockIcon from "@/app/src/svg/lock.svg";
 // Provider
 import { useTooltip } from "@/components/Tooltip/TooltipProvider";
 
@@ -48,7 +49,7 @@ const c = {
     logoutIcon:         styles["logoutIcon"],
 } as const;
 
-type TabView = "account" | "profile";
+type TabView = "account" | "profile" | "twofactor";
 
 type SidePanelProps = {
     setActiveTab: (tab: TabView) => void;
@@ -104,6 +105,10 @@ export default function SidePanel({
 
     function openAccountView() {
         setActiveTab("account");
+    }
+
+    function openTwoFactorView() {
+        setActiveTab("twofactor");
     }
 
 
@@ -192,6 +197,10 @@ export default function SidePanel({
                         <div className={`${c.navigationEntry} ${c.viewEntry}`} onClick={openAccountView}>
                             <div className={c.entryIcon}><SettingsIcon /></div>
                             <div className={c.entryText}>Account verwalten</div>
+                        </div>
+                        <div className={c.navigationEntry} onClick={openTwoFactorView}>
+                            <div className={c.entryIcon}><LockIcon /></div>
+                            <div className={c.entryText}>Zwei-Faktor (2FA)</div>
                         </div>
                         <div className={`${c.navigationEntry} ${c.deleteEntry}`} onClick={onDeleteAccount}>
                             <div className={c.entryIcon}><DeleteIcon /></div>

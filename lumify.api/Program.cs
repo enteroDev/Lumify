@@ -113,9 +113,13 @@ builder.Services.AddAuthorization();
 
 
 // --- EF --- //
+// MariaDB via Pomelo. The server version is declared explicitly (instead of AutoDetect)
+// so migrations can be generated without a live DB connection. If your local XAMPP ships
+// a different MariaDB version, only this one number needs adjusting.
+var connectionString = builder.Configuration.GetConnectionString("LumifyDb");
 builder.Services.AddDbContext<LumifyDbContext>(opt =>
 {
-    opt.UseSqlite(builder.Configuration.GetConnectionString("LumifyDb"));
+    opt.UseMySql(connectionString, new MariaDbServerVersion(new Version(10, 4, 32)));
 });
 
 

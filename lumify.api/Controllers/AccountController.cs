@@ -71,35 +71,17 @@ namespace lumify.api.Controllers
                 return Unauthorized("Invalid credentials.");
 
 
-            // 3) Generate JWT
-            var token = _logic.GenerateJwtToken(user);
-
-
-            // 4) Set Cookie (HttpOnly)
-            var authCookieOptions = new CookieOptions
+            // 3) If 2FA is enabled, do NOT issue a session yet. Hand back a short-lived MFA
+            // challenge token; the client must then call verifyTotpLogin with the 6-digit code.
+            if (user.TotpEnabled)
             {
-                HttpOnly = true,
-                Secure = !_env.IsDevelopment(),                                         // PROD: true!
-                IsEssential = true,
-                Path = "/",
-                Expires = DateTimeOffset.UtcNow.AddHours(8),
-                SameSite = _env.IsDevelopment() ? SameSiteMode.Lax : SameSiteMode.None  // PROD: SameSiteMode.None
-            };
-            Response.Cookies.Append("session_token", token, authCookieOptions);
+                var mfaToken = _logic.GenerateMfaChallengeToken(user);
+                return Ok(new { mfaRequired = true, mfaToken });
+            }
 
 
-            // 4b) Set CSRF cookie (not HttpOnly) for double-submit protection
-            var antiCsrf = Convert.ToBase64String(RandomNumberGenerator.GetBytes(32));
-            var csrfCookieOptions = new CookieOptions
-            {
-                HttpOnly = false,
-                Secure = !_env.IsDevelopment(),                                         // PROD: true!
-                IsEssential = true,
-                Path = "/",
-                Expires = DateTimeOffset.UtcNow.AddHours(8),
-                SameSite = _env.IsDevelopment() ? SameSiteMode.Lax : SameSiteMode.None  // PROD: SameSiteMode.None
-            };
-            Response.Cookies.Append("XSRF-TOKEN", antiCsrf, csrfCookieOptions);
+            // 4) No 2FA -> issue the session (cookies) right away.
+            AppendAuthCookies(user);
 
 
             // 5) Response (Without Token - Token is in Cookie)
@@ -114,6 +96,150 @@ namespace lumify.api.Controllers
                     user.AvatarUrl
                 }
             });
+        }
+
+
+        // --------------------- //
+        // --- 2FA (TOTP) ------ //
+        // --------------------- //
+
+        // Login step 2: verify the 6-digit code for an account that has 2FA enabled,
+        // then issue the real session.
+        [HttpPost]
+        [ActionName("verifyTotpLogin")]
+        public async Task<IActionResult> VerifyTotpLogin([FromBody] VerifyTotpLoginRequest dto)
+        {
+            if (dto == null || string.IsNullOrWhiteSpace(dto.MfaToken) || string.IsNullOrWhiteSpace(dto.Code))
+                return BadRequest("MFA token and code are required.");
+
+            var userID = _logic.ValidateMfaChallengeToken(dto.MfaToken);
+            if (userID == null)
+                return Unauthorized("MFA session is invalid or expired. Please log in again.");
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.ID == userID && u.DeletedAt == null);
+            if (user == null || !user.TotpEnabled || string.IsNullOrWhiteSpace(user.TotpSecret))
+                return Unauthorized("Invalid credentials.");
+
+            if (!_logic.VerifyTotpCode(user.TotpSecret, dto.Code))
+                return Unauthorized("Invalid code.");
+
+            AppendAuthCookies(user);
+
+            return Ok(new
+            {
+                user = new
+                {
+                    user.ID,
+                    user.Username,
+                    user.Email,
+                    Role = (int)Enum.Parse<Role>(user.Role),
+                    user.AvatarUrl
+                }
+            });
+        }
+
+
+        // Returns whether 2FA is currently active for the logged-in user.
+        [HttpGet]
+        [Authorize]
+        [ActionName("mfaStatus")]
+        public async Task<IActionResult> MfaStatus()
+        {
+            var userID = GetCurrentUserID();
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.ID == userID && u.DeletedAt == null);
+            if (user == null)
+                return NotFound();
+
+            return Ok(new { enabled = user.TotpEnabled });
+        }
+
+
+        // Starts 2FA setup: generates a secret + QR code. 2FA is NOT active until confirmed.
+        [HttpPost]
+        [Authorize]
+        [ActionName("setupTotp")]
+        public async Task<IActionResult> SetupTotp()
+        {
+            var userID = GetCurrentUserID();
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.ID == userID && u.DeletedAt == null);
+            if (user == null)
+                return NotFound();
+
+            if (user.TotpEnabled)
+                return BadRequest("Two-factor authentication is already enabled.");
+
+            // Fresh secret each time setup is (re)started.
+            var secret = _logic.GenerateTotpSecret();
+            user.TotpSecret = secret;
+            user.UpdatedAt = DateTime.UtcNow.ToString("o");
+            await _context.SaveChangesAsync();
+
+            var label = string.IsNullOrWhiteSpace(user.Email) ? user.Username : user.Email;
+            var otpauthUri = _logic.BuildOtpauthUri(secret, label);
+            var qrCodeDataUri = _logic.GenerateQrCodeDataUri(otpauthUri);
+
+            return Ok(new
+            {
+                secret,          // for manual entry
+                qrCodeDataUri    // for scanning
+            });
+        }
+
+
+        // Confirms setup: a valid code flips 2FA on.
+        [HttpPost]
+        [Authorize]
+        [ActionName("confirmTotp")]
+        public async Task<IActionResult> ConfirmTotp([FromBody] TotpCodeRequest dto)
+        {
+            if (dto == null || string.IsNullOrWhiteSpace(dto.Code))
+                return BadRequest("Code is required.");
+
+            var userID = GetCurrentUserID();
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.ID == userID && u.DeletedAt == null);
+            if (user == null)
+                return NotFound();
+
+            if (string.IsNullOrWhiteSpace(user.TotpSecret))
+                return BadRequest("Start the setup first.");
+
+            if (!_logic.VerifyTotpCode(user.TotpSecret, dto.Code))
+                return BadRequest("Invalid code.");
+
+            user.TotpEnabled = true;
+            user.UpdatedAt = DateTime.UtcNow.ToString("o");
+            await _context.SaveChangesAsync();
+
+            return Ok(new { enabled = true });
+        }
+
+
+        // Disables 2FA. Requires a valid current code so a hijacked session cannot silently turn it off.
+        [HttpPost]
+        [Authorize]
+        [ActionName("disableTotp")]
+        public async Task<IActionResult> DisableTotp([FromBody] TotpCodeRequest dto)
+        {
+            if (dto == null || string.IsNullOrWhiteSpace(dto.Code))
+                return BadRequest("Code is required.");
+
+            var userID = GetCurrentUserID();
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.ID == userID && u.DeletedAt == null);
+            if (user == null)
+                return NotFound();
+
+            if (!user.TotpEnabled || string.IsNullOrWhiteSpace(user.TotpSecret))
+                return BadRequest("Two-factor authentication is not enabled.");
+
+            if (!_logic.VerifyTotpCode(user.TotpSecret, dto.Code))
+                return BadRequest("Invalid code.");
+
+            user.TotpEnabled = false;
+            user.TotpSecret = null;
+            user.UpdatedAt = DateTime.UtcNow.ToString("o");
+            await _context.SaveChangesAsync();
+
+            return Ok(new { enabled = false });
         }
 
 
@@ -382,6 +508,53 @@ namespace lumify.api.Controllers
             }
 
             return Ok(new { Authenticated = authenticated, Claims = claims });
+        }
+
+
+
+        // --------------- //
+        // --- HELPERS --- //
+        // --------------- //
+
+        // Issues the session (HttpOnly JWT cookie) + the CSRF double-submit cookie.
+        // Shared by the normal login and the 2FA second step.
+        private void AppendAuthCookies(User user)
+        {
+            var token = _logic.GenerateJwtToken(user);
+
+            var authCookieOptions = new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = !_env.IsDevelopment(),                                         // PROD: true!
+                IsEssential = true,
+                Path = "/",
+                Expires = DateTimeOffset.UtcNow.AddHours(8),
+                SameSite = _env.IsDevelopment() ? SameSiteMode.Lax : SameSiteMode.None  // PROD: SameSiteMode.None
+            };
+            Response.Cookies.Append("session_token", token, authCookieOptions);
+
+            var antiCsrf = Convert.ToBase64String(RandomNumberGenerator.GetBytes(32));
+            var csrfCookieOptions = new CookieOptions
+            {
+                HttpOnly = false,
+                Secure = !_env.IsDevelopment(),                                         // PROD: true!
+                IsEssential = true,
+                Path = "/",
+                Expires = DateTimeOffset.UtcNow.AddHours(8),
+                SameSite = _env.IsDevelopment() ? SameSiteMode.Lax : SameSiteMode.None  // PROD: SameSiteMode.None
+            };
+            Response.Cookies.Append("XSRF-TOKEN", antiCsrf, csrfCookieOptions);
+        }
+
+        private string GetCurrentUserID()
+        {
+            var userID = User.FindFirst("UserID")?.Value;
+            if (string.IsNullOrWhiteSpace(userID))
+            {
+                throw new UnauthorizedAccessException("Kein User eingeloggt.");
+            }
+
+            return userID;
         }
 
     }

@@ -20,6 +20,12 @@ public partial class User
     public string UpdatedAt { get; set; } = null!;
     public string? DeletedAt { get; set; }
 
+    // --- Two-factor (TOTP) --- //
+    // Base32 shared secret. Null until the user starts 2FA setup.
+    public string? TotpSecret { get; set; }
+    // Only true after the user confirmed setup with a valid code. Drives the login challenge.
+    public bool TotpEnabled { get; set; }
+
 
     public virtual ICollection<Friendship> FriendshipsAsUserLow { get; set; } = new List<Friendship>();
     public virtual ICollection<Friendship> FriendshipsAsUserHigh { get; set; } = new List<Friendship>();

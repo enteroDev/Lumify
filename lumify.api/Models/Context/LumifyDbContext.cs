@@ -191,15 +191,15 @@ public partial class LumifyDbContext : DbContext
         {
             entity.ToTable("User");
 
-            // Email must be unique for active users only
+            // Email must be unique. MariaDB has no filtered indexes, so this is a plain
+            // unique index (the registration check already treats soft-deleted emails as
+            // taken, so behaviour is unchanged).
             entity.HasIndex(e => e.Email, "ux_user_email")
-                .IsUnique()
-                .HasFilter("DeletedAt IS NULL");
+                .IsUnique();
 
-            // Username must be unique for active users only
+            // Username must be unique (same MariaDB note as above).
             entity.HasIndex(e => e.Username, "ux_user_username")
-                .IsUnique()
-                .HasFilter("DeletedAt IS NULL");
+                .IsUnique();
 
             // Role required
             entity.Property(e => e.Role)
@@ -246,9 +246,11 @@ public partial class LumifyDbContext : DbContext
             entity.HasIndex(e => e.AddresseeID, "ix_friendship_addressee");
             entity.HasIndex(e => e.Status, "ix_friendship_status");
 
+            // Plain unique pair (MariaDB has no filtered indexes). SendFriendRequest
+            // resurrects a soft-deleted row instead of inserting a duplicate, so the
+            // re-friend-after-unfriend flow still works without violating this index.
             entity.HasIndex(e => new { e.UserLowID, e.UserHighID }, "ux_friendship_pair")
-                .IsUnique()
-                .HasFilter("DeletedAt IS NULL");
+                .IsUnique();
 
             entity.HasOne(d => d.UserLow).WithMany(p => p.FriendshipsAsUserLow)
                 .HasForeignKey(d => d.UserLowID)

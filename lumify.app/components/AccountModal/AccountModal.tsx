@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import SidePanel from "@/components/AccountModal/components/SidePanel/SidePanel";
 import AccountView from "@/components/AccountModal/components/AccountView/AccountView";
 import ProfileView from "@/components/AccountModal/components/ProfileView/ProfileView";
+import TwoFactorView from "@/components/AccountModal/components/TwoFactorView/TwoFactorView";
 // Provider
 import { useAccountModal } from "@/components/AccountModal/AccountModalProvider";
 import { useToast } from "@/components/Toast/ToastProvider";
@@ -36,7 +37,7 @@ const c = {
     close:          styles["close"],
 } as const;
 
-type TabView = "account" | "profile";
+type TabView = "account" | "profile" | "twofactor";
 
 
 // ----------------- //
@@ -71,7 +72,12 @@ export default function AccountModal() {
             username={accountInfo?.username ?? ""}
             onSaveAccountInfo={saveAccountInfo}
             isSavingAccountInfo={isSavingAccountInfo}
+            onOpenTwoFactor={() => setActiveTab("twofactor")}
             onDeleteAccount={deleteAccount} />;
+        }
+
+        if (activeTab === "twofactor") {
+            return <TwoFactorView />;
         }
 
         if (activeTab === "profile") {

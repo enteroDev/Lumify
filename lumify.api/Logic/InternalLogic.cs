@@ -9,6 +9,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using OtpNet;
+using QRCoder;
 
 
 namespace lumify.api.Logic
@@ -168,6 +170,117 @@ namespace lumify.api.Logic
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+
+        // ---------------------------- //
+        // --- TWO-FACTOR (TOTP) ------ //
+        // ---------------------------- //
+
+        // Generates a new random Base32 secret to share with the authenticator app.
+        internal string GenerateTotpSecret()
+        {
+            var key = KeyGeneration.GenerateRandomKey(20);
+            return Base32Encoding.ToString(key);
+        }
+
+        // Builds the otpauth:// URI that the QR code encodes (scanned by the authenticator app).
+        internal string BuildOtpauthUri(string secret, string accountLabel)
+        {
+            var issuer = Uri.EscapeDataString("Lumify");
+            var label = Uri.EscapeDataString($"Lumify:{accountLabel}");
+            return $"otpauth://totp/{label}?secret={secret}&issuer={issuer}&digits=6&period=30";
+        }
+
+        // Renders any text (here: the otpauth URI) as a PNG QR code, returned as a data URI.
+        internal string GenerateQrCodeDataUri(string content)
+        {
+            using var generator = new QRCodeGenerator();
+            var data = generator.CreateQrCode(content, QRCodeGenerator.ECCLevel.Q);
+            var png = new PngByteQRCode(data);
+            var bytes = png.GetGraphic(10);
+            return "data:image/png;base64," + Convert.ToBase64String(bytes);
+        }
+
+        // Verifies a 6-digit code against the stored secret (allows +/- 1 time step for clock drift).
+        internal bool VerifyTotpCode(string secret, string code)
+        {
+            if (string.IsNullOrWhiteSpace(secret) || string.IsNullOrWhiteSpace(code))
+            {
+                return false;
+            }
+
+            try
+            {
+                var totp = new Totp(Base32Encoding.ToBytes(secret));
+                return totp.VerifyTotp(code.Trim(), out _, new VerificationWindow(previous: 1, future: 1));
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        // Short-lived token proving "password step passed", issued between login and the TOTP step.
+        // It is NOT a session token - it only carries the user id and an mfa_pending marker.
+        internal string GenerateMfaChallengeToken(User user)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim("UserID", user.ID),
+                new Claim("mfa_pending", "true")
+            };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Secret));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                issuer: _jwt.Issuer,
+                audience: _jwt.Audience,
+                claims: claims,
+                expires: DateTime.UtcNow.AddMinutes(5),
+                signingCredentials: creds
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        // Validates an MFA challenge token and returns the user id, or null if invalid/expired.
+        internal string? ValidateMfaChallengeToken(string token)
+        {
+            if (string.IsNullOrWhiteSpace(token))
+            {
+                return null;
+            }
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Secret));
+            var handler = new JwtSecurityTokenHandler();
+
+            try
+            {
+                var principal = handler.ValidateToken(token, new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = key,
+                    ValidateIssuer = true,
+                    ValidIssuer = _jwt.Issuer,
+                    ValidateAudience = true,
+                    ValidAudience = _jwt.Audience,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.FromSeconds(30)
+                }, out _);
+
+                if (principal.FindFirst("mfa_pending")?.Value != "true")
+                {
+                    return null;
+                }
+
+                return principal.FindFirst("UserID")?.Value;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
 

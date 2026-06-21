@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 // Components
 import Heading from "./components/Heading/Heading";
 import AuthCard from "./components/AuthCard/AuthCard";
+import MfaPanel from "./components/MfaPanel/MfaPanel";
 
 // Provider
 import { useToast } from "@/components/Toast/ToastProvider"
@@ -45,6 +46,8 @@ export default function Auth() {
     // --- States --- //
     // -------------- //
     const [loading, setLoading] = useState(false);
+    const [mfaToken, setMfaToken] = useState<string | null>(null);
+    const [mfaLoading, setMfaLoading] = useState(false);
 
 
 
@@ -61,7 +64,13 @@ export default function Auth() {
                 password: password,
             }
 
-            await AuthService.login(dto);
+            const result = await AuthService.login(dto);
+
+            // 2FA enabled -> don't redirect yet, ask for the 6-digit code first.
+            if (result?.mfaRequired) {
+                setMfaToken(result.mfaToken);
+                return;
+            }
 
             router.push("/Dashboard");
             toast.success("Yuhu! Eingeloggt! Jetzt kanns losgehen.");
@@ -72,6 +81,29 @@ export default function Auth() {
         } finally {
             setLoading(false);
         }
+    }
+
+    async function verifyMfa(code: string) {
+        if (!mfaToken) { return; }
+
+        setMfaLoading(true);
+
+        try {
+            await AuthService.verifyTotpLogin({ mfaToken, code });
+
+            router.push("/Dashboard");
+            toast.success("Yuhu! Eingeloggt! Jetzt kanns losgehen.");
+
+        } catch (err) {
+            toast.error(err instanceof Error ? err.message : "Code ungültig.");
+
+        } finally {
+            setMfaLoading(false);
+        }
+    }
+
+    function cancelMfa() {
+        setMfaToken(null);
     }
 
 
@@ -95,6 +127,15 @@ export default function Auth() {
                 </div>
 
             </div>
+
+            {/* 2FA code step (shown after a password login when 2FA is enabled) */}
+            {mfaToken && (
+                <MfaPanel
+                    loading={mfaLoading}
+                    onVerify={verifyMfa}
+                    onCancel={cancelMfa}
+                />
+            )}
         </div>
     );
 }
