@@ -4,11 +4,11 @@ WORKDIR /src
 
 # Erst nur die csproj kopieren + restore (nutzt Docker-Cache, schnellere Re-Builds)
 COPY *.csproj ./
-RUN dotnet restore
+RUN dotnet restore lumify.api.csproj
 
 # Dann den Rest des API-Codes kopieren und veröffentlichen
 COPY . ./
-RUN dotnet publish -c Release -o /app /p:UseAppHost=false
+RUN dotnet publish lumify.api.csproj -c Release -o /app /p:UseAppHost=false
 
 # ---- Lauf-Stufe: schlankes Runtime-Image, nur das fertige Programm ----
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS run
