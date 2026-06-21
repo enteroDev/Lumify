@@ -3,7 +3,8 @@ import { headers as nextHeaders } from "next/headers";
 import { redirect } from "next/navigation";
 import { CONFIG } from "@/app/config/config";
 
-const API_BASE = CONFIG.API.API_BASE;
+// Server Component -> interne API-Adresse verwenden.
+const API_BASE = CONFIG.API.SERVER_API_BASE;
 
 export default async function Home() {
 

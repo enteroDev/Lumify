@@ -1,0 +1,75 @@
+# Startet alle Teile zusammen:  docker compose up -d --build
+# Stoppt alles:                docker compose down
+# Live-Logs:                   docker compose logs -f
+
+services:
+  # --- Datenbank ---
+  db:
+    image: mariadb:11.4
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: lumify
+      MARIADB_USER: lumify
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+
+  # --- .NET-API ---
+  api:
+    build:
+      context: ./lumify.api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ConnectionStrings__LumifyDb: "server=db;port=3306;database=lumify;user=lumify;password=${DB_PASSWORD};"
+      Jwt__Secret: ${JWT_SECRET}
+      Jwt__Issuer: lumify-api
+      Jwt__Audience: lumify-app
+      Jwt__ExpirationMinutes: "480"
+      # LAN ohne HTTPS -> Cookies duerfen nicht "Secure" sein. Bei echtem HTTPS auf "true".
+      Cookies__Secure: "false"
+    volumes:
+      - api_data:/app/Data
+
+  # --- Next.js-Frontend ---
+  app:
+    build:
+      context: ./lumify.app
+      args:
+        # Browser ruft die API ueber den Proxy unter /api auf
+        NEXT_PUBLIC_API_BASE: /api
+    restart: unless-stopped
+    depends_on:
+      - api
+    environment:
+      NODE_ENV: production
+      # Server-seitige Aufrufe (im Container) gehen direkt zur API
+      API_BASE_INTERNAL: http://api:8080
+
+  # --- Reverse-Proxy (eine URL nach aussen) ---
+  proxy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      - app
+      - api
+    ports:
+      - "80:80"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  db_data:
+  api_data:
+  caddy_data:
+  caddy_config:

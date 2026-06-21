@@ -1,0 +1,8 @@
+bin/
+obj/
+# Alte SQLite-Datei + Backups gehören nicht ins Image
+Data/*.db
+Data/*.db-*
+Data/*.bak-*
+**/*.user
+.vs/

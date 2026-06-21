@@ -3,7 +3,8 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { CONFIG } from "@/app/config/config";
 
-const API_BASE = CONFIG.API.API_BASE;
+// Laeuft serverseitig (Middleware) -> interne API-Adresse verwenden.
+const API_BASE = CONFIG.API.SERVER_API_BASE;
 
 export async function proxy(request: NextRequest) {
     const p = request.nextUrl.pathname;

@@ -129,6 +129,14 @@ builder.Services.AddDbContext<LumifyDbContext>(opt =>
 // ----------- //
 var app = builder.Build();
 
+// Apply pending EF migrations on startup -> creates/updates the MariaDB schema
+// automatically (the DB container is waited for via compose healthcheck).
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<LumifyDbContext>();
+    db.Database.Migrate();
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

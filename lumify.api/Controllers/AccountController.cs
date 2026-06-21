@@ -8,6 +8,7 @@ using lumify.api.Logic;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using System.Globalization;
 using System.Security.Cryptography;
@@ -26,6 +27,9 @@ namespace lumify.api.Controllers
         private readonly InternalLogic _logic;
         private readonly IEmailService _emailService;
         private readonly AppSettings _app;
+        // Whether auth cookies are flagged "Secure" (HTTPS-only). On plain-HTTP LAN this must
+        // be false, otherwise the browser refuses to store them. Set Cookies:Secure=true once HTTPS is in place.
+        private readonly bool _cookieSecure;
 
         public AccountController(
             ILogger<AccountController> logger,
@@ -42,6 +46,7 @@ namespace lumify.api.Controllers
             _logic = logic;
             _emailService = emailService;
             _app = appSettings.Value;
+            _cookieSecure = config.GetValue<bool>("Cookies:Secure", false);
         }
 
 
@@ -255,7 +260,7 @@ namespace lumify.api.Controllers
             var options = new CookieOptions
             {
                 HttpOnly = true,
-                Secure = !_env.IsDevelopment(),
+                Secure = _cookieSecure,
                 Path = "/",
                 Expires = DateTimeOffset.UnixEpoch // Expire instantly
             };
@@ -329,30 +334,7 @@ namespace lumify.api.Controllers
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
 
-                var token = _logic.GenerateJwtToken(user);
-
-                var authCookieOptions = new CookieOptions
-                {
-                    HttpOnly = true,
-                    Secure = !_env.IsDevelopment(),                                         // PROD: true!
-                    IsEssential = true,
-                    Path = "/",
-                    Expires = DateTimeOffset.UtcNow.AddHours(8),
-                    SameSite = _env.IsDevelopment() ? SameSiteMode.Lax : SameSiteMode.None  // PROD: SameSiteMode.None
-                };
-                Response.Cookies.Append("session_token", token, authCookieOptions);
-
-                var antiCsrf = Convert.ToBase64String(RandomNumberGenerator.GetBytes(32));
-                var csrfCookieOptions = new CookieOptions
-                {
-                    HttpOnly = false,
-                    Secure = !_env.IsDevelopment(),                                         // PROD: true!
-                    IsEssential = true,
-                    Path = "/",
-                    Expires = DateTimeOffset.UtcNow.AddHours(8),
-                    SameSite = _env.IsDevelopment() ? SameSiteMode.Lax : SameSiteMode.None  // PROD: SameSiteMode.None
-                };
-                Response.Cookies.Append("XSRF-TOKEN", antiCsrf, csrfCookieOptions);
+                AppendAuthCookies(user);
 
                 return Ok(new
                 {
@@ -525,11 +507,11 @@ namespace lumify.api.Controllers
             var authCookieOptions = new CookieOptions
             {
                 HttpOnly = true,
-                Secure = !_env.IsDevelopment(),                                         // PROD: true!
+                Secure = _cookieSecure,                 // true erst bei HTTPS (Config Cookies:Secure)
                 IsEssential = true,
                 Path = "/",
                 Expires = DateTimeOffset.UtcNow.AddHours(8),
-                SameSite = _env.IsDevelopment() ? SameSiteMode.Lax : SameSiteMode.None  // PROD: SameSiteMode.None
+                SameSite = SameSiteMode.Lax             // Single-Origin hinter dem Proxy -> Lax reicht
             };
             Response.Cookies.Append("session_token", token, authCookieOptions);
 
@@ -537,11 +519,11 @@ namespace lumify.api.Controllers
             var csrfCookieOptions = new CookieOptions
             {
                 HttpOnly = false,
-                Secure = !_env.IsDevelopment(),                                         // PROD: true!
+                Secure = _cookieSecure,
                 IsEssential = true,
                 Path = "/",
                 Expires = DateTimeOffset.UtcNow.AddHours(8),
-                SameSite = _env.IsDevelopment() ? SameSiteMode.Lax : SameSiteMode.None  // PROD: SameSiteMode.None
+                SameSite = SameSiteMode.Lax
             };
             Response.Cookies.Append("XSRF-TOKEN", antiCsrf, csrfCookieOptions);
         }

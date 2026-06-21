@@ -1,0 +1,21 @@
+# Eine einzige Eingangstür (Port 80). Caddy verteilt nach innen:
+#  - /api/...  -> .NET-API (das "/api" wird abgeschnitten)
+#  - /Data/... -> .NET-API (Avatare)
+#  - alles andere -> Next.js-Frontend
+#
+# Spaeter fuer eine Domain mit automatischem HTTPS: ":80" durch "deine-domain.at"
+# ersetzen - Caddy holt das Zertifikat dann selbst.
+
+:80 {
+	handle_path /api/* {
+		reverse_proxy api:8080
+	}
+
+	handle /Data/* {
+		reverse_proxy api:8080
+	}
+
+	handle {
+		reverse_proxy app:3333
+	}
+}
