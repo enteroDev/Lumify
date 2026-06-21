@@ -153,6 +153,11 @@
     gap: 5px;
 }
 
+
+
+
+
+
 .navigationEntry {
     display: flex;
     gap: 5px;
@@ -178,7 +183,27 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    font-style: italic;
 }
+
+
+/* View entries (open a view) read as primary navigation: bold + full strength,
+   so they stand apart from the lighter, thin action entries. */
+.viewEntry .entryText {
+    font-style:normal;
+    color: var(--foreground);
+}
+
+/* Destructive action: bold + red so it can never be mistaken for navigation. */
+.deleteEntry .entryText {
+    font-style: italic;
+    color: var(--color-abort);
+}
+.deleteEntry .entryIcon {
+    color: var(--color-abort);
+}
+
 
 
 

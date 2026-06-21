@@ -38,6 +38,8 @@ const c = {
     sectionHeader:      styles["sectionHeader"],
     sectionBody:        styles["sectionBody"],
     navigationEntry:    styles["navigationEntry"],
+    viewEntry:          styles["viewEntry"],
+    deleteEntry:        styles["deleteEntry"],
     entryIcon:          styles["entryIcon"],
     entryText:          styles["entryText"],
 
@@ -59,6 +61,8 @@ type SidePanelProps = {
 
     email: string | null;
     displayName: string | null;
+
+    onDeleteAccount: () => void;
 }
 
 
@@ -76,6 +80,7 @@ export default function SidePanel({
     onChangeAvatar,
     email,
     displayName,
+    onDeleteAccount,
 }:SidePanelProps) {
 
     const fileInputRef = useRef<HTMLInputElement>(null);
@@ -157,7 +162,7 @@ export default function SidePanel({
                     {/* SectionHeader */}
                     <div className={c.sectionHeader}>Profil</div>
                     <div className={c.sectionBody}>
-                        <div className={c.navigationEntry}  onClick={openProfileView}>
+                        <div className={`${c.navigationEntry} ${c.viewEntry}`}  onClick={openProfileView}>
                             <div className={c.entryIcon}><ProfileIcon /></div>
                             <div className={c.entryText}>Profil ansehen/bearbeiten</div>
                         </div>
@@ -184,11 +189,11 @@ export default function SidePanel({
                     {/* SectionHeader */}
                     <div className={c.sectionHeader}>Account</div>
                     <div className={c.sectionBody}>
-                        <div className={c.navigationEntry} onClick={openAccountView}>
+                        <div className={`${c.navigationEntry} ${c.viewEntry}`} onClick={openAccountView}>
                             <div className={c.entryIcon}><SettingsIcon /></div>
                             <div className={c.entryText}>Account verwalten</div>
                         </div>
-                        <div className={c.navigationEntry}>
+                        <div className={`${c.navigationEntry} ${c.deleteEntry}`} onClick={onDeleteAccount}>
                             <div className={c.entryIcon}><DeleteIcon /></div>
                             <div className={c.entryText}>Account löschen</div>
                         </div>

@@ -141,17 +141,29 @@
 .chevron {
     margin-left: auto;
 
-    width: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 22px;
     height: 22px;
-    min-width: 12px;
-    min-height: 22px;
+    min-width: 22px;
 
     border: none;
     background: transparent;
     cursor: pointer;
 
     color: inherit;
-    font-size: 0.8rem;
+
+    /* Closed = pointing right; rotates to point down when opened. */
+    transition: transform 0.2s ease;
+}
+.chevron svg {
+    width: 13px;
+    height: 13px;
+}
+.chevronOpen {
+    transform: rotate(90deg);
 }
 
 .icon svg {
@@ -172,6 +184,19 @@
     flex-direction: column;
 
     padding-bottom: 10px;
+}
+
+/* Shown inside an opened group that currently has no recent entries. */
+.emptyState {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 12px 10px;
+
+    font-size: 0.8rem;
+    font-style: italic;
+    color: color-mix(in srgb, var(--foreground) 55%, transparent);
 }
 
 

@@ -295,6 +295,7 @@ export default function AccountModal() {
                         isChangingAvatar={isChangingAvatar}
                         email={accountInfo?.email ?? ""}
                         displayName={userProfile?.displayName ?? ""}
+                        onDeleteAccount={deleteAccount}
                     />
                 </div>
 

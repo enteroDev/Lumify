@@ -21,6 +21,7 @@ import RecentItem from "./components/RecentItem/RecentItem";
 import TodoIcon from "@/app/src/svg/todo.svg";
 import EventIcon from "@/app/src/svg/calendar.svg";
 import NoteIcon from "@/app/src/svg/folder.svg";
+import ChevronIcon from "@/app/src/svg/arrow_right.svg";
 // Styles
 import styles from "./Recents.module.css";
 
@@ -40,8 +41,10 @@ export const c = {
     icon:               styles["icon"],
     title:              styles["title"],
     chevron:            styles["chevron"],
+    chevronOpen:        styles["chevronOpen"],
 
     item:               styles["item"],
+    emptyState:         styles["emptyState"],
 } as const;
 
 
@@ -127,18 +130,24 @@ export default function Recents() {
                     <div className={c.groupHeader} onClick={() => setTodosOpen((open) => !open)}>
                         <div className={c.icon}><TodoIcon /></div>
                         <div className={c.title}>Todos:</div>
-                        <button type="button" className={c.chevron}>{todosOpen ? "▼" : "▶"}</button>
+                        <button type="button" className={`${c.chevron} ${todosOpen ? c.chevronOpen : ""}`}>
+                            <ChevronIcon />
+                        </button>
                     </div>
                     {/* GroupContent */}
                     {todosOpen && (
                         <div className={c.groupContent}>
-                            {todos.map((todo) => (
-                                <RecentItem
-                                    key={todo.id}
-                                    todo={todo}
-                                    getSpaceInfoOfTodoEntry={getSpaceInfoOfTodoEntry}
-                                />
-                            ))}
+                            {todos.length === 0 ? (
+                                <div className={c.emptyState}>Keine kürzlichen Todos</div>
+                            ) : (
+                                todos.map((todo) => (
+                                    <RecentItem
+                                        key={todo.id}
+                                        todo={todo}
+                                        getSpaceInfoOfTodoEntry={getSpaceInfoOfTodoEntry}
+                                    />
+                                ))
+                            )}
                         </div>
                     )}
                 </div>
@@ -150,18 +159,24 @@ export default function Recents() {
                     <div className={c.groupHeader} onClick={() => setEventsOpen((open) => !open)}>
                         <div className={c.icon}><EventIcon /></div>
                         <div className={c.title}>Events:</div>
-                        <button type="button" className={c.chevron}>{eventsOpen ? "▼" : "▶"}</button>
+                        <button type="button" className={`${c.chevron} ${eventsOpen ? c.chevronOpen : ""}`}>
+                            <ChevronIcon />
+                        </button>
                     </div>
                     {/* GroupContent */}
                     {eventsOpen && (
                         <div className={c.groupContent}>
-                            {events.map((event) => (
-                                <RecentItem
-                                    key={event.id}
-                                    event={event}
-                                    getSpaceInfoOfEvent={getSpaceInfoOfEvent}
-                                />
-                            ))}
+                            {events.length === 0 ? (
+                                <div className={c.emptyState}>Keine kürzlichen Events</div>
+                            ) : (
+                                events.map((event) => (
+                                    <RecentItem
+                                        key={event.id}
+                                        event={event}
+                                        getSpaceInfoOfEvent={getSpaceInfoOfEvent}
+                                    />
+                                ))
+                            )}
                         </div>
                     )}
                 </div>
@@ -172,18 +187,24 @@ export default function Recents() {
                     <div className={c.groupHeader} onClick={() => setNotesOpen((open) => !open)}>
                         <div className={c.icon}><NoteIcon /></div>
                         <div className={c.title}>Notes:</div>
-                        <button type="button" className={c.chevron}>{notesOpen ? "▼" : "▶"}</button>
+                        <button type="button" className={`${c.chevron} ${notesOpen ? c.chevronOpen : ""}`}>
+                            <ChevronIcon />
+                        </button>
                     </div>
                     {/* GroupContent */}
                     {notesOpen && (
                         <div className={c.groupContent}>
-                            {notes.map((note) => (
-                                <RecentItem
-                                    key={note.id}
-                                    note={note}
-                                    getSpaceInfoOfNote={getSpaceInfoOfNote}
-                                />
-                            ))}
+                            {notes.length === 0 ? (
+                                <div className={c.emptyState}>Keine kürzlichen Notes</div>
+                            ) : (
+                                notes.map((note) => (
+                                    <RecentItem
+                                        key={note.id}
+                                        note={note}
+                                        getSpaceInfoOfNote={getSpaceInfoOfNote}
+                                    />
+                                ))
+                            )}
                         </div>
                     )}
                 </div>
