@@ -3,6 +3,8 @@
 // --- Imports --- //
 // --------------- //
 
+// React
+import { useState } from "react";
 // Models
 import type { TreeNode } from "@/models/notes";
 // Styles & Icons
@@ -171,6 +173,15 @@ export default function TreeView({
 }:TreeViewProps) {
 
 
+    // -------------- //
+    // --- States --- //
+    // -------------- //
+
+    // Root is open by default so notes stay visible on load (collapsible via its chevron).
+    const [rootOpen, setRootOpen] = useState(true);
+
+
+
     // ---------------- //
     // --- Handlers --- //
     // ---------------- //
@@ -178,10 +189,19 @@ export default function TreeView({
     // Handle click on root folder
     const isRootSelected = selectedId === null;
     const rootRowClass = isRootSelected ? `${c.row} ${c.rowSelected}` : c.row;
+    const hasRootChildren = nodes.length > 0;
 
     const handleRootClick = () => {
         onSelect(null);
         onOpen(null);
+    };
+
+    // Toggle root expansion without selecting the root row
+    const handleRootToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.stopPropagation();
+        if (hasRootChildren) {
+            setRootOpen((open) => !open);
+        }
     };
 
 
@@ -195,29 +215,33 @@ export default function TreeView({
             {/* Rootfolder */}
             <div className={rootRowClass} onClick={handleRootClick}>
                 <div className={c.indent} style={{ width: 0 }} />
-                {/* Root has no chevron - kept as empty spacer so icons stay aligned with child rows */}
-                <button type="button" className={c.chevron} disabled />
+                {/* Chevron - same as every other folder; grayed out (disabled) when root is empty */}
+                <button type="button" className={c.chevron} onClick={handleRootToggle} disabled={!hasRootChildren}>
+                    {rootOpen ? "▼" : "▶"}
+                </button>
                 <div className={c.icon}>
                     <FolderIcon />
                 </div>
                 <div className={c.label}>.root</div>
             </div>
-            <div className={c.children}>
 
-            {/* Generated Nodes */}
-            {nodes.map((node) => (
-                <TreeRow
-                    key={node.id}
-                    node={node}
-                    depth={0}
-                    selectedId={selectedId}
-                    expandedIds={expandedIds}
-                    onToggle={onToggle}
-                    onSelect={onSelect}
-                    onOpen={onOpen}
-                />
-            ))}
-            </div>
+            {/* Generated Nodes - children of root, so indented one level deeper (depth 1) */}
+            {rootOpen && (
+                <div className={c.children}>
+                    {nodes.map((node) => (
+                        <TreeRow
+                            key={node.id}
+                            node={node}
+                            depth={1}
+                            selectedId={selectedId}
+                            expandedIds={expandedIds}
+                            onToggle={onToggle}
+                            onSelect={onSelect}
+                            onOpen={onOpen}
+                        />
+                    ))}
+                </div>
+            )}
 
         </div>
     );
