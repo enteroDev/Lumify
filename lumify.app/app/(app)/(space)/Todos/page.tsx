@@ -373,18 +373,29 @@ export default function Todos() {
     /* ------ */
     /* DELETE */
     /* ------ */
-    const deleteTodoList = async (todoListID: string) => {
-        try {
-            await TodoService.deleteTodoList(todoListID);
+    const deleteTodoList = (todoListID: string) => {
+        const todoList = todoLists.find(x => x.id === todoListID);
 
-            setTodoLists(prev => prev.filter(x => x.id !== todoListID));
+        showAlert({
+            title: "Todoliste löschen",
+            message: `Todoliste "${todoList?.name ?? todoListID}" wirklich löschen?`,
+            status: "delete",
+            confirmText: "Ja",
+            cancelText: "Nein",
+            onConfirm: async () => {
+                try {
+                    await TodoService.deleteTodoList(todoListID);
 
-            toast.success("Todoliste wurde gelöscht.");
+                    setTodoLists(prev => prev.filter(x => x.id !== todoListID));
 
-        } catch (error) {
-            console.error("Failed to delete todoList", error);
-            toast.error("Fehler beim Löschen der Todoliste");
-        }
+                    toast.success("Todoliste wurde gelöscht.");
+
+                } catch (error) {
+                    console.error("Failed to delete todoList", error);
+                    toast.error("Fehler beim Löschen der Todoliste");
+                }
+            }
+        });
     };
 
     const deleteTodoEntry = async (todoEntryID: string) => {
