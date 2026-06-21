@@ -2,7 +2,7 @@
     display: flex;
     width: 100%;
     border-radius: 5px;
-    background-color: rgba(200,200,200,0.1);
+    background-color: rgba(200,200,200,0.15);
 }
 .container:hover {
     background-color: var(--color-highlight);
@@ -14,6 +14,9 @@
 .container:hover .status svg{
     color: var(--color-infoText-dark);
     stroke: var(--color-infoText-dark);
+}
+[data-theme="beach"] .container {
+    background-color: color-mix(in srgb, var(--color-pill) 30%, transparent);
 }
 
 .title {
@@ -35,6 +38,15 @@
 .status svg {
     width: 20px;
     height: 20px;
+    stroke-width: 2;
+}
+[data-theme="beach"] .status svg {
+    color: var(--color-infoText-dark);
+    stroke: var(--color-infoText-dark);
+}
+[data-theme="beach"] .status svg path {
+    color: var(--color-infoText-dark);
+    stroke: var(--color-infoText-dark);
 }
 .pending .status svg {
     color: var(--color-pending);

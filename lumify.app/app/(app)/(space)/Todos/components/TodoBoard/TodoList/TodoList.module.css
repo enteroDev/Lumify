@@ -32,7 +32,7 @@
     gap: 10px;
 
     border-radius: 15px;
-    background-color: var(--color-bar);
+    background-color: var(--color-pill);
     color: var(--foreground);
 
     font-size: 0.95rem;
@@ -49,6 +49,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 
 
 
@@ -96,6 +97,9 @@
     font-size: 0.95rem;
     font-weight: bold;
     color: var(--foreground);
+}
+[data-theme="beach"] .titleInput {
+    background-color: var(--color-actions);
 }
 
 /* ActionArea bleibt wie gehabt, nur Buttons stylen */

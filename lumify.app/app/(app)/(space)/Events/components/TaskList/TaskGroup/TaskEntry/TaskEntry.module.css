@@ -3,7 +3,7 @@
     width: 100%;
     padding: 4px 10px;
     border-radius: 10px;
-    background-color: var(--color-pill);
+    background-color: rgba(200,200,200,0.15);
 }
 .container:hover {
     background-color: var(--color-highlight);
@@ -13,7 +13,7 @@
         color: var(--color-infoText-dark);
 }
 [data-theme="beach"] .container {
-    background-color: color-mix(in srgb, var(--color-pill) 50%, transparent);
+    background-color: color-mix(in srgb, var(--color-pill) 30%, transparent);
 }
 
 .label {

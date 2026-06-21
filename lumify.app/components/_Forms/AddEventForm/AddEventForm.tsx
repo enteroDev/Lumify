@@ -4,6 +4,8 @@
 
 // React
 import { useEffect, useState } from "react";
+// Provider
+import { useToast } from "@/components/Toast/ToastProvider";
 // Styles
 import styles from "./AddEventForm.module.css";
 
@@ -82,26 +84,64 @@ export default function AddEventForm({
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
 
+    const toast = useToast();
+
 
 
     // ---------------- //
     // --- Handlers --- //
     // ---------------- //
     function handleSubmit() {
+        // Validate required fields so no event can be created without a real date/time.
+        if (!name.trim()) {
+            toast.error("Bitte einen Titel eingeben.");
+            return;
+        }
+
         let finalStartTime = "";
         let finalEndTime = "";
 
         if (eventType === "fullDay") {
+            if (!eventDate) {
+                toast.error("Bitte ein Datum wählen.");
+                return;
+            }
+
             finalStartTime = `${eventDate}T00:00`;
             finalEndTime = `${eventDate}T23:59`;
         }
 
         if (eventType === "timed") {
+            if (!eventDate) {
+                toast.error("Bitte ein Datum wählen.");
+                return;
+            }
+
+            if (!startClockTime || !endClockTime) {
+                toast.error("Bitte Start- und Endzeit angeben.");
+                return;
+            }
+
+            if (endClockTime <= startClockTime) {
+                toast.error("Die Endzeit muss nach der Startzeit liegen.");
+                return;
+            }
+
             finalStartTime = `${eventDate}T${startClockTime}`;
             finalEndTime = `${eventDate}T${endClockTime}`;
         }
 
         if (eventType === "multiDay") {
+            if (!startDateValue || !endDateValue) {
+                toast.error("Bitte Start- und Enddatum wählen.");
+                return;
+            }
+
+            if (endDateValue < startDateValue) {
+                toast.error("Das Enddatum darf nicht vor dem Startdatum liegen.");
+                return;
+            }
+
             finalStartTime = `${startDateValue}T00:00`;
             finalEndTime = `${endDateValue}T23:59`;
         }

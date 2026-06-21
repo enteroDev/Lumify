@@ -1,4 +1,5 @@
-﻿using lumify.api.Hubs;
+﻿using System.Globalization;
+using lumify.api.Hubs;
 using lumify.api.Models.Context;
 using lumify.api.Models.DTO.Requests;
 using lumify.api.Models.DTO.Responses;
@@ -53,6 +54,23 @@ namespace lumify.api.Controllers
             if (string.IsNullOrWhiteSpace(request.EndTime))
             {
                 return BadRequest("EndTime is required.");
+            }
+
+            // Non-empty is not enough: the form produces strings like "T00:00" when the
+            // date field is left blank, which must NOT be accepted as a valid event.
+            if (!DateTime.TryParse(request.StartTime, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsedStart))
+            {
+                return BadRequest("StartTime is invalid.");
+            }
+
+            if (!DateTime.TryParse(request.EndTime, CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsedEnd))
+            {
+                return BadRequest("EndTime is invalid.");
+            }
+
+            if (parsedEnd < parsedStart)
+            {
+                return BadRequest("EndTime must not be before StartTime.");
             }
 
             // Get workspaceID of request
