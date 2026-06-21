@@ -21,7 +21,7 @@
 
     height: 90px;
     width: 100%;
-    background-color: rgba(200,200,200,0.2);
+    background-color: var(--color-pill);
 }
 
 .avatarArea {
@@ -68,6 +68,10 @@
     color: var(--color-infoText-dark);
 }
 
+
+
+
+
 .userInfos {
     display: flex;
     flex: 1;
@@ -97,7 +101,7 @@
     flex-shrink: 0;
     width: 45px;
     font-size: 0.8rem;
-    color: var(--color-button-gray);
+    color: color-mix(in srgb, var(--foreground) 100%, transparent);
 }
 
 .infoLineValue {
@@ -140,7 +144,7 @@
     padding: 5px 10px;
     border-radius: 50px;
 
-    background-color: rgba(200,200,200,0.1);
+    background-color: var(--color-pill);
 }
 
 .sectionBody {
@@ -169,7 +173,7 @@
 .entryText {
     font-size: 0.85rem;
     font-weight: 200;
-    color: rgb(196, 196, 196);
+    color: color-mix(in srgb, var(--foreground) 80%, transparent);
 
     overflow: hidden;
     text-overflow: ellipsis;
@@ -208,6 +212,9 @@
     border-radius: 8px;
     border: 1px solid transparent;
     background-color: var(--color-abort);
+
+    /* Red button keeps white text/icon in every theme (foreground is dark on beach). */
+    color: #ffffff;
 }
 .logoutBtn:hover {
     cursor: pointer;

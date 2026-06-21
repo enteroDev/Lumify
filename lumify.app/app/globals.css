@@ -137,7 +137,10 @@
   --color-highlight-dark: #0f7c89;
 
   --color-bar: #f1e6cb;
-  --color-pill: #e2cb94;
+  /* Deeper warm sand so pills clearly lift off the light --color-actions panel
+     (the old #e2cb94 sat almost on top of it). Mirrors the strong pill/panel
+     contrast the chill theme already has. */
+  --color-pill: #d9bd7e;
   --color-actions: #e6d6b0;
 
   /* Cards sit on the BRIGHT sand backdrop here, so the low-alpha tints used in

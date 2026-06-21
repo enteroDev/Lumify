@@ -27,6 +27,10 @@
     font-size: 1.3rem;
 }
 
+
+
+
+
 .body {
     display: flex;
     flex-direction: column;
@@ -138,6 +142,10 @@
     transform: scale(1.08);
 }
 
+[data-theme="beach"] .cameraBadge {
+    color: white;
+}
+
 
 
 
@@ -174,7 +182,9 @@
 
     font-size: 0.8rem;
     font-weight: 600;
-    color: var(--foreground);
+    /* The banner (.avatarLine) is dark in BOTH themes, so the values must stay
+       light - --foreground is dark ink on beach and would vanish here. */
+    color: var(--color-creamWhite);
 }
 
 
@@ -294,6 +304,10 @@
 
 .buttonLabel {
     font-size: 0.9rem;
+}
+
+[data-theme="beach"] .button {
+    color: white;
 }
 
 
