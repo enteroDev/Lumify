@@ -32,7 +32,7 @@ export default function AccountToggle() {
             <div
                 className={c.avatar}
                 style={{
-                    backgroundImage: "url('/images/Avatar.png')",
+                    backgroundImage: "url('/src/Avatar.png')",
                 }}
             />
         </div>
