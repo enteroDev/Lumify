@@ -5,11 +5,12 @@
 // --------------- //
 
 // React
-import { useRef, useState, useEffect, use } from "react";
+import { useRef, useState, useEffect } from "react";
 // Models
 import { SaveAccountInfoRequest } from "@/models/User";
 // Icons
 import SaveIcon from "@/app/src/svg/save.svg";
+import LockIcon from "@/app/src/svg/lock.svg";
 // Styles
 import styles from "./AccountView.module.css";
 
@@ -19,7 +20,7 @@ import styles from "./AccountView.module.css";
 // --- Types/Props --- //
 // ------------------- //
 const c = {
-    container:        styles["container"],
+    container:          styles["container"],
     header:             styles["header"],
     title:              styles["title"],
 
@@ -35,6 +36,8 @@ const c = {
     button:             styles["button"],
     buttonIcon:         styles["buttonIcon"],
     buttonText:         styles["buttonText"],
+    securityButton:     styles["securityButton"],
+    securityButtonIcon: styles["securityButtonIcon"],
 
     dangerZone:         styles["dangerZone"],
     dangerHint:         styles["dangerHint"],
@@ -60,7 +63,7 @@ type AccountViewProps = {
 // ----------------- //
 // --- Component --- //
 // ----------------- //
-export default function AccountView({ 
+export default function AccountView({
     firstName,
     lastName,
     email,
@@ -71,7 +74,7 @@ export default function AccountView({
     onOpenTwoFactor,
     onDeleteAccount,
 }: AccountViewProps) {
-    
+
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [accountFirstName, setAccountFirstName] = useState(firstName);
     const [accountLastName, setAccountLastName] = useState(lastName);
@@ -79,10 +82,10 @@ export default function AccountView({
 
 
 
-    
+
     // ------------------- //
     // --- UI-Handlers --- //
-    // ------------------- // 
+    // ------------------- //
     function handleSave() {
         onSaveAccountInfo({
             firstName: accountFirstName.trim(),
@@ -95,7 +98,7 @@ export default function AccountView({
 
     // ----------------- //
     // --- UseEffect --- //
-    // ----------------- // 
+    // ----------------- //
     useEffect(() => {
         setAccountFirstName(firstName);
     }, [firstName]);
@@ -123,9 +126,9 @@ export default function AccountView({
             {/* BODY */}
             <div className={c.body}>
 
-                {/* Group */}
+                {/* Group: Persoenliche Daten */}
                 <div className={c.group}>
-                    <div className={c.groupHeader}></div>
+                    <div className={c.groupHeader}>Persönliche Daten</div>
                     <div className={c.groupContent}>
 
                         {/* Input: First Name */}
@@ -149,12 +152,13 @@ export default function AccountView({
 
                 </div>
 
-                {/* Security */}
+                {/* Group: Security */}
                 <div className={c.group}>
                     <div className={c.groupHeader}>Sicherheit</div>
                     <div className={c.groupContent}>
-                        <button type="button" className={c.button} onClick={onOpenTwoFactor}>
-                            <div className={c.buttonText}>Zwei-Faktor-Authentifizierung</div>
+                        <button type="button" className={c.securityButton} onClick={onOpenTwoFactor}>
+                            <span className={c.securityButtonIcon}><LockIcon /></span>
+                            Zwei-Faktor-Authentifizierung
                         </button>
                     </div>
                 </div>
@@ -172,7 +176,7 @@ export default function AccountView({
             <div className={c.footer}>
 
                 {/* Button: Save */}
-                <button 
+                <button
                     className={c.button}
                     onClick={handleSave}
                     disabled={isSavingAccountInfo}
