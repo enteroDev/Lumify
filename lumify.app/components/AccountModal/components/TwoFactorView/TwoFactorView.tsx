@@ -25,6 +25,13 @@ const c = {
 
     body:           styles["body"],
     hint:           styles["hint"],
+    intro:          styles["intro"],
+
+    step:           styles["step"],
+    stepHead:       styles["stepHead"],
+    stepNum:        styles["stepNum"],
+    stepTitle:      styles["stepTitle"],
+    stepBody:       styles["stepBody"],
 
     statusRow:      styles["statusRow"],
     statusBadge:    styles["statusBadge"],
@@ -34,7 +41,10 @@ const c = {
     qrArea:         styles["qrArea"],
     qr:             styles["qr"],
     secretLabel:    styles["secretLabel"],
+    secretRow:      styles["secretRow"],
     secret:         styles["secret"],
+    copyBtn:        styles["copyBtn"],
+    note:           styles["note"],
 
     codeInput:      styles["codeInput"],
 
@@ -95,6 +105,16 @@ export default function TwoFactorView() {
     // ---------------- //
     // --- Handlers --- //
     // ---------------- //
+    async function copySecret() {
+        if (!setup) { return; }
+        try {
+            await navigator.clipboard.writeText(setup.secret);
+            toast.success("Schlüssel kopiert.");
+        } catch {
+            toast.error("Kopieren nicht möglich – bitte manuell markieren.");
+        }
+    }
+
     async function retrySetup() {
         setBusy(true);
         try {
@@ -158,8 +178,13 @@ export default function TwoFactorView() {
                         <span className={c.hint}>Dein Login ist mit einem zweiten Faktor geschützt.</span>
                     </div>
 
+                    <p className={c.intro}>
+                        Beim Login wirst du nach dem Passwort zusätzlich nach dem 6-stelligen Code
+                        aus deiner Authenticator-App gefragt.
+                    </p>
+
                     <div className={c.hint}>
-                        Zum Deaktivieren gib einen aktuellen Code aus deiner Authenticator-App ein.
+                        Zum Deaktivieren gib einen aktuellen 6-stelligen Code aus deiner Authenticator-App ein:
                     </div>
 
                     <input
@@ -173,45 +198,87 @@ export default function TwoFactorView() {
 
                     <div className={c.actions}>
                         <button className={c.buttonDanger} onClick={disable} disabled={busy || code.length < 6}>
-                            {busy ? "..." : "Deaktivieren"}
+                            {busy ? "..." : "2FA deaktivieren"}
                         </button>
                     </div>
                 </>
             );
         }
 
-        // --- Setup in progress: show QR + manual key + confirm --- //
+        // --- Setup in progress: guided 3-step flow --- //
         if (setup) {
             return (
                 <>
-                    <div className={c.hint}>
-                        1. Scanne den QR-Code mit einer Authenticator-App (z. B. Microsoft/Google Authenticator).
+                    <p className={c.intro}>
+                        Die Zwei-Faktor-Authentifizierung (2FA) sichert deinen Login zusätzlich ab: Nach dem
+                        Passwort brauchst du dann einen 6-stelligen Code aus einer Authenticator-App. So
+                        richtest du sie in 3 Schritten ein:
+                    </p>
+
+                    {/* Step 1 */}
+                    <div className={c.step}>
+                        <div className={c.stepHead}>
+                            <span className={c.stepNum}>1</span>
+                            <span className={c.stepTitle}>Authenticator-App installieren</span>
+                        </div>
+                        <div className={c.stepBody}>
+                            Eine kleine, separate App, z. B. Google Authenticator, Microsoft Authenticator
+                            oder Authy – am Handy oder als Desktop-/Browser-App. Eine genügt.
+                        </div>
                     </div>
 
-                    <div className={c.qrArea}>
-                        <img className={c.qr} src={setup.qrCodeDataUri} alt="2FA QR-Code" />
+                    {/* Step 2 */}
+                    <div className={c.step}>
+                        <div className={c.stepHead}>
+                            <span className={c.stepNum}>2</span>
+                            <span className={c.stepTitle}>Lumify in der App hinzufügen</span>
+                        </div>
+                        <div className={c.stepBody}>
+                            In der App „Konto hinzufügen" wählen und den QR-Code scannen – oder den Schlüssel
+                            manuell eintippen.
+
+                            <div className={c.qrArea}>
+                                <img className={c.qr} src={setup.qrCodeDataUri} alt="2FA QR-Code" />
+                            </div>
+
+                            <div className={c.secretLabel}>Schlüssel (falls du nicht scannen kannst):</div>
+                            <div className={c.secretRow}>
+                                <code className={c.secret}>{setup.secret}</code>
+                                <button type="button" className={c.copyBtn} onClick={copySecret}>Kopieren</button>
+                            </div>
+                            <div className={c.note}>
+                                Dieser Schlüssel gehört in die Authenticator-App – nicht in das Code-Feld unten.
+                            </div>
+                        </div>
                     </div>
 
-                    <div className={c.secretLabel}>Oder manuell eingeben:</div>
-                    <div className={c.secret}>{setup.secret}</div>
+                    {/* Step 3 */}
+                    <div className={c.step}>
+                        <div className={c.stepHead}>
+                            <span className={c.stepNum}>3</span>
+                            <span className={c.stepTitle}>Code eingeben &amp; aktivieren</span>
+                        </div>
+                        <div className={c.stepBody}>
+                            Deine App zeigt jetzt einen 6-stelligen Code an (wechselt alle 30 Sekunden).
+                            Gib den aktuellen Code hier ein:
 
-                    <div className={c.hint}>2. Gib zur Bestätigung den angezeigten 6-stelligen Code ein.</div>
+                            <input
+                                className={c.codeInput}
+                                inputMode="numeric"
+                                maxLength={6}
+                                autoFocus
+                                value={code}
+                                placeholder="------"
+                                onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
+                                onKeyDown={(e) => { if (e.key === "Enter") { void confirmSetup(); } }}
+                            />
 
-                    <input
-                        className={c.codeInput}
-                        inputMode="numeric"
-                        maxLength={6}
-                        autoFocus
-                        value={code}
-                        placeholder="------"
-                        onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
-                        onKeyDown={(e) => { if (e.key === "Enter") { void confirmSetup(); } }}
-                    />
-
-                    <div className={c.actions}>
-                        <button className={c.button} onClick={confirmSetup} disabled={busy || code.length < 6}>
-                            {busy ? "..." : "Aktivieren"}
-                        </button>
+                            <div className={c.actions}>
+                                <button className={c.button} onClick={confirmSetup} disabled={busy || code.length < 6}>
+                                    {busy ? "..." : "2FA aktivieren"}
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </>
             );

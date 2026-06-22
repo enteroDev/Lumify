@@ -32,14 +32,14 @@
     gap: 14px;
     padding: 10px 20px;
 
-    color: var(--foreground);
+    color: var(--color-infoText-dark);
 
     overflow-y: auto;
 }
 
 .hint {
     font-size: 0.85rem;
-    color: color-mix(in srgb, var(--foreground) 70%, transparent);
+    color: color-mix(in srgb, var(--color-infoText-dark) 70%, transparent);
 }
 
 .statusRow {
@@ -59,8 +59,8 @@
     color: #ffffff;
 }
 .statusOff {
-    background-color: color-mix(in srgb, var(--foreground) 20%, transparent);
-    color: var(--foreground);
+    background-color: color-mix(in srgb, var(--color-infoText-dark) 20%, transparent);
+    color: var(--color-infoText-dark);
 }
 
 .qrArea {
@@ -80,18 +80,24 @@
 
 .secretLabel {
     font-size: 0.8rem;
-    color: color-mix(in srgb, var(--foreground) 70%, transparent);
+    color: color-mix(in srgb, var(--color-infoText-dark) 70%, transparent);
 }
 .secret {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+
     font-family: var(--font-mono), monospace;
-    font-size: 1rem;
-    letter-spacing: 0.15em;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
     word-break: break-all;
 
     padding: 8px 10px;
     border-radius: 8px;
     border: 1px dashed var(--color-pill);
-    background: color-mix(in srgb, var(--foreground) 6%, transparent);
+    background: color-mix(in srgb, var(--color-infoText-dark) 6%, transparent);
+    color: var(--color-infoText-dark);
 }
 
 .codeInput {
@@ -105,7 +111,7 @@
     border-radius: 10px;
     border: 1.5px solid var(--color-pill);
     background: transparent;
-    color: var(--foreground);
+    color: var(--color-infoText-dark);
 
     outline: none;
 }
@@ -138,10 +144,13 @@
 .button:hover:not(:disabled) {
     background: var(--color-button-action-hov);
 }
+[data-theme="beach"] .button {
+    color: white;
+}
 
 .buttonGhost {
     background: transparent;
-    color: var(--foreground);
+    color: var(--color-infoText-dark);
     border: 1px solid var(--color-pill);
 }
 
@@ -159,4 +168,91 @@
 .buttonDanger:disabled {
     opacity: 0.5;
     cursor: default;
+}
+
+
+
+/* --- Geführte Einrichtung (Intro + Schritte) --- */
+.intro {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: color-mix(in srgb, var(--color-infoText-dark) 85%, transparent);
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stepHead {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stepNum {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+    background: var(--color-button-action);
+    color: var(--foreground);
+
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+[data-theme="beach"] .stepNum {
+    color: white;
+}
+
+.stepTitle {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-infoText-dark);
+}
+
+.stepBody {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding-left: 34px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: color-mix(in srgb, var(--color-infoText-dark) 75%, transparent);
+}
+
+.secretRow {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+}
+
+.copyBtn {
+    flex-shrink: 0;
+    padding: 0 14px;
+
+    border-radius: 8px;
+    border: 1px solid var(--color-pill);
+    background: transparent;
+    color: var(--color-infoText-dark);
+
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.copyBtn:hover {
+    background: color-mix(in srgb, var(--color-infoText-dark) 8%, transparent);
+}
+
+.note {
+    font-size: 0.78rem;
+    font-style: italic;
+    color: color-mix(in srgb, var(--color-infoText-dark) 60%, transparent);
 }
