@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(C:/dotnet/dotnet.exe build *)"
+      "Bash(C:/dotnet/dotnet.exe build *)",
+      "Bash(nslookup -type=A lumify-app.at cns1.cloudpit.de)",
+      "Bash(nslookup -type=A lumify-app.at 8.8.8.8)",
+      "Bash(nslookup -type=A lumify-app.at)",
+      "Bash(nslookup -type=A lumify-app.at.lumify-app.at cns1.cloudpit.de)"
     ]
   }
 }

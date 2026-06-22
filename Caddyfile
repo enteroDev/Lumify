@@ -1,12 +1,18 @@
-# Eine einzige Eingangstür (Port 80). Caddy verteilt nach innen:
+# Eine einzige Eingangstuer. Caddy verteilt nach innen:
 #  - /api/...  -> .NET-API (das "/api" wird abgeschnitten)
 #  - /Data/... -> .NET-API (Avatare)
 #  - alles andere -> Next.js-Frontend
 #
-# Spaeter fuer eine Domain mit automatischem HTTPS: ":80" durch "deine-domain.at"
-# ersetzen - Caddy holt das Zertifikat dann selbst.
+# Mit echter Domain holt Caddy automatisch ein HTTPS-Zertifikat (Let's Encrypt)
+# und leitet http -> https um. Voraussetzung: Domain zeigt auf den Server und
+# Ports 80 UND 443 sind von aussen erreichbar.
 
-:80 {
+# E-Mail fuer Let's Encrypt (Ablauf-/Problem-Benachrichtigungen). Frei aenderbar.
+{
+	email entero.world@yahoo.com
+}
+
+lumify-app.at, www.lumify-app.at {
 	handle_path /api/* {
 		reverse_proxy api:8080
 	}

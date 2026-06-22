@@ -34,8 +34,10 @@ services:
       Jwt__Issuer: lumify-api
       Jwt__Audience: lumify-app
       Jwt__ExpirationMinutes: "480"
-      # LAN ohne HTTPS -> Cookies duerfen nicht "Secure" sein. Bei echtem HTTPS auf "true".
-      Cookies__Secure: "false"
+      # HTTPS aktiv -> Cookies duerfen "Secure" sein (nur ueber https gesendet).
+      Cookies__Secure: "true"
+      # Basis-URL des Frontends (fuer Links, z.B. Passwort-Reset-Mail).
+      App__FrontendBaseUrl: "https://lumify-app.at"
     volumes:
       - api_data:/app/Data
 
@@ -63,6 +65,7 @@ services:
       - api
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
