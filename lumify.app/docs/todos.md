@@ -11,7 +11,7 @@
   * Also wenns eine Anfrage gibt, gibts die bei beiden usern. Also race condition auch hier nicht möglich.
   * Frontend: Bei eingehender Anfrage wird der add-Button durch "annehmen/Ablehnen" ersetzt. Auch hier alles bestens.
 
-  [ ] Root Folder -> Chevron hin und schauen wegen indent
+  [x] Root Folder -> Chevron hin und schauen wegen indent
 
 ## Implementations
 
@@ -26,6 +26,7 @@
 ## Fixes
 
 * [x] Hitting "Enter" in PasswordField should also activate "LoginFunction" (Same as hitting the Button)
+* [ ] When logging in with wrong credentials, the Toast is only showing for a split second, before proxy redirects back from Auth to auth. This needs to be fixed for better UX.
 
 ## Implementations
 
@@ -67,7 +68,7 @@
 
 ## Implementations
 
-* Keine
+* [ ] If changes are made in a note, it should notify the user if he leaves without saving the changes. So the user can abort and save after alert if he forgott.
 
 <br>...<br>
 
@@ -75,7 +76,7 @@
 
 ## Fixes
 
-* Keine
+* [ ] When setting last entry of Todolist to "Done" it sets the whole Todolist as Done. That works. BUT: If an entry is added after setting the Todolist to "Done", it doesnt switch back to "Pending". It keeps the state but has an undone entry. Needs to be fixed.
 
 ## Implementations
 
