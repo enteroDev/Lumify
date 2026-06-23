@@ -20,29 +20,29 @@ import styles from "./AccountView.module.css";
 // --- Types/Props --- //
 // ------------------- //
 const c = {
-    container:          styles["container"],
-    header:             styles["header"],
-    title:              styles["title"],
+    container:        styles["container"],
+    header:           styles["header"],
+    title:            styles["title"],
 
-    body:               styles["body"],
-    group:              styles["group"],
-    groupContent:       styles["groupContent"],
-    groupHeader:        styles["groupHeader"],
-    inputWrap:          styles["inputWrap"],
-    label:              styles["label"],
-    input:              styles["input"],
+    body:             styles["body"],
+    section:          styles["section"],
+    sectionTitle:     styles["sectionTitle"],
+    sectionContent:   styles["sectionContent"],
+    inputWrap:        styles["inputWrap"],
+    label:            styles["label"],
+    input:            styles["input"],
 
-    footer:             styles["footer"],
-    button:             styles["button"],
-    buttonIcon:         styles["buttonIcon"],
-    buttonText:         styles["buttonText"],
-    securityButton:     styles["securityButton"],
-    securityButtonIcon: styles["securityButtonIcon"],
+    saveRow:          styles["saveRow"],
+    button:           styles["button"],
+    buttonIcon:       styles["buttonIcon"],
+    buttonText:       styles["buttonText"],
 
-    dangerZone:         styles["dangerZone"],
-    dangerHint:         styles["dangerHint"],
-    deleteText:         styles["deleteText"],
+    twoFactorButton:  styles["twoFactorButton"],
+    twoFactorIcon:    styles["twoFactorIcon"],
 
+    dangerZone:       styles["dangerZone"],
+    dangerHint:       styles["dangerHint"],
+    deleteText:       styles["deleteText"],
 } as const;
 
 type AccountViewProps = {
@@ -79,7 +79,6 @@ export default function AccountView({
     const [accountFirstName, setAccountFirstName] = useState(firstName);
     const [accountLastName, setAccountLastName] = useState(lastName);
     const [accountEmail, setAccountEmail] = useState(email);
-
 
 
 
@@ -126,64 +125,56 @@ export default function AccountView({
             {/* BODY */}
             <div className={c.body}>
 
-                {/* Group: Persoenliche Daten */}
-                <div className={c.group}>
-                    <div className={c.groupHeader}>Persönliche Daten</div>
-                    <div className={c.groupContent}>
+                {/* Section: Personal data */}
+                <div className={c.section}>
+                    <div className={c.sectionTitle}>Persönliche Daten</div>
 
-                        {/* Input: First Name */}
+                    <div className={c.sectionContent}>
+                        {/* First name (locked) */}
                         <div className={c.inputWrap}>
                             <div className={c.label}>Vorname</div>
-                            <input className={c.input} value={accountFirstName} placeholder="[LEER]" disabled onChange={(e) => setAccountFirstName(e.target.value)}></input>
+                            <input className={c.input} value={accountFirstName} placeholder="[LEER]" disabled onChange={(e) => setAccountFirstName(e.target.value)} />
                         </div>
 
-                        {/* Input: Last Name */}
+                        {/* Last name (locked) */}
                         <div className={c.inputWrap}>
                             <div className={c.label}>Nachname</div>
-                            <input className={c.input} value={accountLastName} placeholder="[LEER]" disabled onChange={(e) => setAccountLastName(e.target.value)}></input>
+                            <input className={c.input} value={accountLastName} placeholder="[LEER]" disabled onChange={(e) => setAccountLastName(e.target.value)} />
                         </div>
 
-                        {/* Input: Email */}
+                        {/* Email (editable) */}
                         <div className={c.inputWrap}>
                             <div className={c.label}>E-Mail</div>
-                            <input className={c.input} value={accountEmail} placeholder="[LEER]" onChange={(e) => setAccountEmail(e.target.value)}></input>
+                            <input className={c.input} value={accountEmail} placeholder="[LEER]" onChange={(e) => setAccountEmail(e.target.value)} />
                         </div>
                     </div>
 
-                </div>
-
-                {/* Group: Security */}
-                <div className={c.group}>
-                    <div className={c.groupHeader}>Sicherheit</div>
-                    <div className={c.groupContent}>
-                        <button type="button" className={c.securityButton} onClick={onOpenTwoFactor}>
-                            <span className={c.securityButtonIcon}><LockIcon /></span>
-                            Zwei-Faktor-Authentifizierung
+                    {/* Save - directly under the fields it saves */}
+                    <div className={c.saveRow}>
+                        <button className={c.button} onClick={handleSave} disabled={isSavingAccountInfo}>
+                            <div className={c.buttonIcon}><SaveIcon /></div>
+                            <div className={c.buttonText}>{isSavingAccountInfo ? "Speichert..." : "Speichern"}</div>
                         </button>
                     </div>
                 </div>
 
-                {/* Danger Zone - destructive, irreversible action kept apart from the rest */}
+                {/* Section: Security */}
+                <div className={c.section}>
+                    <div className={c.sectionTitle}>Sicherheit</div>
+
+                    <button type="button" className={c.twoFactorButton} onClick={onOpenTwoFactor}>
+                        <span className={c.twoFactorIcon}><LockIcon /></span>
+                        Zwei-Faktor-Authentifizierung
+                    </button>
+                </div>
+
+                {/* Danger zone */}
                 <div className={c.dangerZone}>
                     <div className={c.dangerHint}>Diese Aktion kann nicht rückgängig gemacht werden.</div>
                     <button type="button" className={c.deleteText} onClick={onDeleteAccount}>
                         Account löschen
                     </button>
                 </div>
-            </div>
-
-            {/* FOOTER */}
-            <div className={c.footer}>
-
-                {/* Button: Save */}
-                <button
-                    className={c.button}
-                    onClick={handleSave}
-                    disabled={isSavingAccountInfo}
-                >
-                    <div className={c.buttonIcon}><SaveIcon /></div>
-                    <div className={c.buttonText}>{isSavingAccountInfo ? "Speichert..." : "Speichern"}</div>
-                </button>
             </div>
         </div>
     );

@@ -32,50 +32,41 @@
     flex-direction: column;
 
     flex: 1;
-    min-height: 0;          /* Body darf schrumpfen -> scrollt intern, statt den Footer rauszudruecken */
+    min-height: 0;          /* allow the body to shrink so it scrolls instead of pushing content out */
 
-    gap: 20px;
-    padding: 10px 20px;
+    gap: 28px;
+    padding: 14px 20px 20px 20px;
 
     color: var(--color-infoText-dark);
 
     overflow-y: auto;
 }
 
-.footer {
-    display: flex;
-    flex-shrink: 0;
-
-    height: 68px;
-    width: 100%;
-
-    padding: 10px 20px;
-
-    justify-content: flex-start;
-    align-items: center;
-}
 
 
 
-
-/* Group */
-.group {
+/* Section */
+.section {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
 }
 
-.groupHeader {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-infoText-dark);
+.sectionTitle {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+
+    color: color-mix(in srgb, var(--color-infoText-dark) 55%, transparent);
 }
 
-.groupContent {
+.sectionContent {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 14px;
 }
+
 
 
 
@@ -83,8 +74,7 @@
 .inputWrap {
     display: flex;
     flex-direction: column;
-
-    gap: 4px;
+    gap: 5px;
 }
 
 .label {
@@ -93,74 +83,60 @@
 
     padding-left: 3px;
 
-    color: rgb(145, 145, 145);
+    color: rgb(120, 120, 135);
 }
 
 .input {
-    height: 40px;
+    height: 42px;
     width: 100%;
-    padding: 8px 10px;
+    padding: 8px 12px;
 
-    font-size: 0.85rem;
+    font-size: 0.88rem;
 
     border-radius: 10px;
-    border: 1.5px solid rgba(82, 82, 82, 0.1);
+    border: 1.5px solid rgba(40, 40, 60, 0.14);
 
-    background-color: rgba(63, 63, 87, 0);
+    background-color: rgba(255, 255, 255, 0.45);
     color: var(--color-infoText-dark);
 
-    transition: all 0.25s ease-in-out;
+    transition: all 0.2s ease-in-out;
     outline: none;
 }
 .input:focus {
-    box-shadow:
-        inset 0 1px 3px rgba(114, 42, 248, 0.3),
-        0 2px 5px rgba(59, 6, 146, 0.1);
-
     border-color: var(--color-highlight);
+    box-shadow:
+        inset 0 1px 3px rgba(114, 42, 248, 0.18),
+        0 2px 5px rgba(59, 6, 146, 0.08);
+}
+/* Locked (non-editable) fields: muted, clearly read-only */
+.input:disabled {
+    border-color: rgba(82, 82, 82, 0.1);
+    background-color: transparent;
+    color: color-mix(in srgb, var(--color-infoText-dark) 60%, transparent);
+    cursor: default;
 }
 .input::placeholder {
     color: rgba(40, 40, 60, 0.35);
     font-size: 0.9rem;
 }
-.input:focus::placeholder,
-.textarea:focus::placeholder {
+.input:focus::placeholder {
     color: transparent;
 }
 
-.textarea {
-    height: 90px;
-    width: 100%;
 
-    padding: 8px 10px;
 
-    border-radius: 10px;
-    border: 1.5px solid rgba(82, 82, 82, 0.1);
 
-    background-color: rgba(63, 63, 87, 0);
-    color: var(--color-infoText-dark);
-    font-size: 0.85rem;
-
-    transition: all ease-in-out;
-    outline: none;
-}
-.textarea:focus {
-    box-shadow:
-        inset 0 1px 3px rgba(114, 42, 248, 0.3),
-        0 2px 5px rgba(59, 6, 146, 0.1);
-
-    border-color: var(--color-highlight);
+/* Save button (primary, auto-width, in the scrolling body) */
+.saveRow {
+    display: flex;
+    justify-content: flex-start;
 }
 
-
-
-
-/* Button */
 .button {
     display: flex;
     gap: 7px;
     min-width: 100px;
-    padding: 9px 11px 9px 9px;
+    padding: 9px 14px 9px 11px;
 
     justify-content: center;
     align-items: center;
@@ -176,30 +152,31 @@
     background: var(--color-button-action);
     color: var(--foreground);
 }
-.button:hover {
+.button:hover:not(:disabled) {
     background: var(--color-button-action-hov);
 }
-
+.button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
 
 .buttonIcon {
-    height: 22px;
-    width: 22px;
+    height: 20px;
+    width: 20px;
     stroke-width: 1px;
 }
 
-.buttonLabel {
-    font-size: 0.9rem;
-}
 
 
-/* Security button (secondary, navigates to the 2FA view) */
-.securityButton {
-    display: inline-flex;
-    align-self: flex-start;
+
+/* 2FA button (secondary, outlined, full width) */
+.twoFactorButton {
+    display: flex;
+    width: 100%;
     align-items: center;
     gap: 8px;
 
-    padding: 9px 14px;
+    padding: 12px 14px;
 
     border-radius: 10px;
     border: 1.5px solid var(--color-pill);
@@ -208,16 +185,18 @@
 
     font-size: 0.9rem;
     font-weight: 600;
+    text-align: left;
     cursor: pointer;
     transition: background 0.15s ease, border-color 0.15s ease;
 }
-.securityButton:hover {
+.twoFactorButton:hover {
     background: color-mix(in srgb, var(--color-infoText-dark) 6%, transparent);
     border-color: var(--color-highlight);
 }
 
-.securityButtonIcon {
+.twoFactorIcon {
     display: flex;
+    flex-shrink: 0;
     width: 18px;
     height: 18px;
 }
@@ -225,7 +204,7 @@
 
 
 
-/* Danger Zone (Karte) */
+/* Danger zone (card) */
 .dangerZone {
     display: flex;
     flex-direction: column;
