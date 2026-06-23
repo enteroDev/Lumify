@@ -34,7 +34,7 @@
     flex: 1;
     min-height: 0;          /* allow the body to shrink so it scrolls instead of pushing content out */
 
-    gap: 28px;
+    gap: 22px;
     padding: 14px 20px 20px 20px;
 
     color: var(--color-infoText-dark);
@@ -45,15 +45,20 @@
 
 
 
-/* Section */
+/* Section: flat group (no box) - grouped via section label + spacing */
 .section {
     display: flex;
     flex-direction: column;
+
+    width: 100%;
+
     gap: 12px;
 }
 
 .sectionTitle {
-    font-size: 0.72rem;
+    padding-left: 3px; 
+
+    font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.07em;
     text-transform: uppercase;
@@ -64,6 +69,9 @@
 .sectionContent {
     display: flex;
     flex-direction: column;
+
+    width: 100%;
+
     gap: 14px;
 }
 
@@ -74,6 +82,9 @@
 .inputWrap {
     display: flex;
     flex-direction: column;
+
+    width: 100%;
+
     gap: 5px;
 }
 
@@ -130,6 +141,8 @@
 .saveRow {
     display: flex;
     justify-content: flex-start;
+
+    width: 100%;
 }
 
 .button {
@@ -197,6 +210,7 @@
 .twoFactorIcon {
     display: flex;
     flex-shrink: 0;
+
     width: 18px;
     height: 18px;
 }
@@ -208,11 +222,13 @@
 .dangerZone {
     display: flex;
     flex-direction: column;
-    gap: 6px;
 
-    padding: 14px 16px;
-    border-radius: 12px;
+    gap: 6px;
+    padding: 18px;
+
+    border-radius: 14px;
     border: 1px solid rgba(229, 72, 77, 0.22);
+
     background: rgba(229, 72, 77, 0.05);
 }
 
@@ -242,4 +258,9 @@
 .deleteText:hover {
     text-decoration: underline;
     opacity: 0.85;
+}
+
+
+.divider{
+    border-bottom: 1px solid rgba(200,200,200, 0.4);
 }

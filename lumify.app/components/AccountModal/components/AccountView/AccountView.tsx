@@ -20,29 +20,32 @@ import styles from "./AccountView.module.css";
 // --- Types/Props --- //
 // ------------------- //
 const c = {
-    container:        styles["container"],
-    header:           styles["header"],
-    title:            styles["title"],
+    container:          styles["container"],
+    header:             styles["header"],
+    title:              styles["title"],
 
-    body:             styles["body"],
-    section:          styles["section"],
-    sectionTitle:     styles["sectionTitle"],
-    sectionContent:   styles["sectionContent"],
-    inputWrap:        styles["inputWrap"],
-    label:            styles["label"],
-    input:            styles["input"],
+    body:               styles["body"],
+    section:            styles["section"],
+    sectionTitle:       styles["sectionTitle"],
+    sectionContent:     styles["sectionContent"],
 
-    saveRow:          styles["saveRow"],
-    button:           styles["button"],
-    buttonIcon:       styles["buttonIcon"],
-    buttonText:       styles["buttonText"],
+    inputWrap:          styles["inputWrap"],
+    label:              styles["label"],
+    input:              styles["input"],
 
-    twoFactorButton:  styles["twoFactorButton"],
-    twoFactorIcon:    styles["twoFactorIcon"],
+    saveRow:            styles["saveRow"],
+    button:             styles["button"],
+    buttonIcon:         styles["buttonIcon"],
+    buttonText:         styles["buttonText"],
 
-    dangerZone:       styles["dangerZone"],
-    dangerHint:       styles["dangerHint"],
-    deleteText:       styles["deleteText"],
+    twoFactorButton:    styles["twoFactorButton"],
+    twoFactorIcon:      styles["twoFactorIcon"],
+
+    dangerZone:         styles["dangerZone"],
+    dangerHint:         styles["dangerHint"],
+    deleteText:         styles["deleteText"],
+
+    divider:            styles["divider"],
 } as const;
 
 type AccountViewProps = {
@@ -147,16 +150,18 @@ export default function AccountView({
                             <div className={c.label}>E-Mail</div>
                             <input className={c.input} value={accountEmail} placeholder="[LEER]" onChange={(e) => setAccountEmail(e.target.value)} />
                         </div>
-                    </div>
 
-                    {/* Save - directly under the fields it saves */}
-                    <div className={c.saveRow}>
-                        <button className={c.button} onClick={handleSave} disabled={isSavingAccountInfo}>
-                            <div className={c.buttonIcon}><SaveIcon /></div>
-                            <div className={c.buttonText}>{isSavingAccountInfo ? "Speichert..." : "Speichern"}</div>
-                        </button>
+                        {/* Save - directly under the fields it saves */}
+                        <div className={c.saveRow}>
+                            <button className={c.button} onClick={handleSave} disabled={isSavingAccountInfo}>
+                                <div className={c.buttonIcon}><SaveIcon /></div>
+                                <div className={c.buttonText}>{isSavingAccountInfo ? "Speichert..." : "Speichern"}</div>
+                            </button>
+                        </div>
                     </div>
                 </div>
+
+                <div className={c.divider}></div>
 
                 {/* Section: Security */}
                 <div className={c.section}>
