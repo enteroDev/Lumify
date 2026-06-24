@@ -415,7 +415,11 @@ main::before{
 
 
 .bg-overlay {
-  position: absolute;
+  /* Pinned to the viewport (not the scrolling .scrollView), so the scene stays
+     put and fills the whole screen on every size while the content scrolls over
+     it. `absolute` here would anchor it inside the scroll container, letting it
+     drift up out of view on scroll and exposing the purple backdrop behind. */
+  position: fixed;
 
   inset: 0;
   pointer-events: none;
@@ -423,7 +427,6 @@ main::before{
 
   background: var(--app-scene) no-repeat right bottom;
   background-size: var(--app-scene-size);
-  background-attachment: fixed;
 }
 
 

@@ -18,6 +18,7 @@
 * [x] FriendsPanel: Add notification count in TabButton of Friendspanel aswell.
 * [x] FriendsPanel: If no related user yet, display some other user, so the field is not empty. Or add a placeholder with text "Search for a user"
 * [x] Implement Test Project for unit tests. -> Implement tests
+* [ ] Trigger und View in DB machen. (Egal was. Einfach dass jeweils 1 der beiden benutzt wird. Weil schule will das xD)
 
 <br>...<br>
 
