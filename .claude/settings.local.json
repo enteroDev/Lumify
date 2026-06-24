@@ -5,7 +5,8 @@
       "Bash(nslookup -type=A lumify-app.at cns1.cloudpit.de)",
       "Bash(nslookup -type=A lumify-app.at 8.8.8.8)",
       "Bash(nslookup -type=A lumify-app.at)",
-      "Bash(nslookup -type=A lumify-app.at.lumify-app.at cns1.cloudpit.de)"
+      "Bash(nslookup -type=A lumify-app.at.lumify-app.at cns1.cloudpit.de)",
+      "PowerShell($py = \\(Get-Command python -ErrorAction SilentlyContinue\\); if\\($py\\){ & python --version; & python -c \"import pptx; print\\('pptx', pptx.__version__\\)\" 2>&1 } else { \"no python\" })"
     ]
   }
 }

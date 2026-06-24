@@ -27,7 +27,7 @@ export default function DashboardHeading() {
     return (
         <div className={c.container}>
             <div className={c.headingBig}>Lumify</div>
-            <div className={c.headingSmall}>Win clarity in your life</div>
+            <div className={c.headingSmall}>Bring clarity into your life</div>
         </div>
     );
 }
