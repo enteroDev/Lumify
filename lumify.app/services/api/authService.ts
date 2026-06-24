@@ -15,7 +15,7 @@ export const AuthService = {
         const res = await saveFetch(`${API_BASE}/account/loginUser`, {
             method: "POST",
             body: JSON.stringify(data),
-        });
+        }, { redirectOn401: false });
 
         if (!res.ok) {
             let msg = "Login failed";
@@ -37,7 +37,7 @@ export const AuthService = {
         const res = await saveFetch(`${API_BASE}/account/verifyTotpLogin`, {
             method: "POST",
             body: JSON.stringify(data),
-        });
+        }, { redirectOn401: false });
 
         if (!res.ok) {
             let msg = "Code konnte nicht bestätigt werden.";

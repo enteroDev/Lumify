@@ -143,8 +143,19 @@ namespace lumify.api.Controllers
                 DeletedAt = null
             };
 
-            // Add new TodoEntry to the EF-Context and save it into the database
+            // Add new TodoEntry to the EF-Context
             _db.TodoEntries.Add(todoEntry);
+
+            // A freshly added entry is pending (Status 1). If the list was already
+            // marked as done (Status 2), it can no longer be done -> reopen it.
+            var todoListReopened = false;
+            if (todoList.Status == 2)
+            {
+                todoList.Status = 1;
+                todoList.UpdatedAt = now;
+                todoListReopened = true;
+            }
+
             await _db.SaveChangesAsync(ct);
 
             // Create result object
@@ -164,6 +175,24 @@ namespace lumify.api.Controllers
             if (!string.IsNullOrWhiteSpace(todoList.WorkspaceID))
             {
                 await _todoHub.Clients.Group(todoList.WorkspaceID).SendAsync("TodoEntryCreated", result, ct);
+
+                // If the list got reopened -> notify workspace clients about the TodoList update too
+                if (todoListReopened)
+                {
+                    var todoListResult = new TodoListResponse
+                    {
+                        ID = todoList.ID,
+                        OwnerID = todoList.OwnerID,
+                        WorkspaceID = todoList.WorkspaceID,
+                        Name = todoList.Name,
+                        Status = todoList.Status,
+                        IsArchived = todoList.IsArchived,
+                        CreatedAt = todoList.CreatedAt,
+                        UpdatedAt = todoList.UpdatedAt
+                    };
+
+                    await _todoHub.Clients.Group(todoList.WorkspaceID).SendAsync("TodoListUpdated", todoListResult, ct);
+                }
             }
 
             // Return the result

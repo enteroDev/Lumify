@@ -255,6 +255,16 @@ export default function Todos() {
                 return createdTodoEntry;
             }));
 
+            // A freshly added entry is pending. If the list was already marked as
+            // done, it can no longer be done -> reopen it locally (the backend does
+            // the same, but personal lists get no SignalR update).
+            setTodoLists(prev => prev.map(todoList => {
+                if (todoList.id !== todoListID) { return todoList; }
+                if (todoList.status !== TODO_STATUS.DONE) { return todoList; }
+
+                return { ...todoList, status: TODO_STATUS.PENDING };
+            }));
+
             setEditingTodoEntryID(null);
 
             toast.success("Todo-Eintrag wurde hinzugefügt.");

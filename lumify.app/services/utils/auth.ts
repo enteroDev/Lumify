@@ -20,7 +20,19 @@ export function getCsrfFromCookie(): string {
 
 
 
-export async function saveFetch(input: RequestInfo | URL, init: RequestInit = {}) {
+export type SaveFetchOptions = {
+    // The login/auth endpoints legitimately answer 401 for wrong credentials.
+    // In those cases the caller wants to handle the error (e.g. show a toast),
+    // not trigger the global "session expired" redirect to /Auth.
+    redirectOn401?: boolean;
+};
+
+export async function saveFetch(
+    input: RequestInfo | URL,
+    init: RequestInit = {},
+    opts: SaveFetchOptions = {}
+) {
+    const { redirectOn401 = true } = opts;
     const method = (init.method ?? "GET").toUpperCase();
 
     const headers: Record<string, string> = {
@@ -38,7 +50,7 @@ export async function saveFetch(input: RequestInfo | URL, init: RequestInit = {}
 
     const res = await fetch(input, { ...init, headers, credentials: "include" });
 
-    if (res.status === 401) {
+    if (res.status === 401 && redirectOn401) {
 
         try {
         await fetch(`${API_BASE}/account/logoutUser`, {

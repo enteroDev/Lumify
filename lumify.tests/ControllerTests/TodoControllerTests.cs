@@ -330,6 +330,79 @@ namespace lumify.tests.ControllerTests
 
         // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+        [Fact]
+        public async Task AddTodoEntry_ToCompletedList_ReopensList()
+        {
+            // In this test we check that adding a new (pending) entry reopens a previously completed list.
+
+            // --- Arrange --- //
+            // * We seed a completed list (status 2) and create a request to add a new entry to it.
+            SeedList("tl-1", DefaultUserID, null, 2);
+            AddTodoEntryRequest request = new AddTodoEntryRequest { Name = "Task", TodoListID = "tl-1" };
+
+            // --- Act --- //
+            // * We add a new entry to the completed list.
+            ActionResult<TodoEntryResponse> result = await _controller.AddTodoEntry(request, CancellationToken.None);
+
+            // --- Assert --- //
+            OkObjectResult ok = Assert.IsType<OkObjectResult>(result.Result);       // We expect to get a success status.
+            TodoEntryResponse body = Assert.IsType<TodoEntryResponse>(ok.Value);    // We expect the response to be type TodoEntryResponse.
+            Assert.Equal(1, body.Status);                                           // We expect the new entry to be pending (status 1).
+
+            TodoList? list = ReloadList("tl-1");                                      // We reload the parent list to check its status.
+            Assert.Equal(1, list!.Status);                                          // We expect the list to be reopened (status 1), since it now has an open entry.
+        }
+
+        // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        [Fact]
+        public async Task AddTodoEntry_ToCompletedWorkspaceList_BroadcastsListUpdate()
+        {
+            // In this test we check that reopening a completed workspace-list (by adding an entry) broadcasts the list update.
+
+            // --- Arrange --- //
+            // * We seed a workspace and a completed list (status 2) inside it.
+            // * We create a request to add a new entry to that list.
+            SeedWorkspace("ws-1");
+            SeedList("tl-1", DefaultUserID, "ws-1", 2);
+            AddTodoEntryRequest request = new AddTodoEntryRequest { Name = "Task", TodoListID = "tl-1" };
+
+            // --- Act --- //
+            // * We add a new entry to the completed workspace-list.
+            await _controller.AddTodoEntry(request, CancellationToken.None);
+
+            // --- Assert --- //
+            SignalRMock.AssertBroadcast(_hubSpy, "TodoEntryCreated", Times.Once());  // We expect the entry-created broadcast.
+            SignalRMock.AssertBroadcast(_hubSpy, "TodoListUpdated", Times.Once());   // We expect the list-update broadcast, since the list got reopened.
+        }
+
+        // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        [Fact]
+        public async Task AddTodoEntry_ToOpenList_KeepsListOpenWithoutListUpdate()
+        {
+            // In this test we check that adding an entry to an already open workspace-list does not emit a list-update.
+
+            // --- Arrange --- //
+            // * We seed a workspace and an already open list (status 1) inside it.
+            SeedWorkspace("ws-1");
+            SeedList("tl-1", DefaultUserID, "ws-1", 1);
+            AddTodoEntryRequest request = new AddTodoEntryRequest { Name = "Task", TodoListID = "tl-1" };
+
+            // --- Act --- //
+            // * We add a new entry to the open workspace-list.
+            await _controller.AddTodoEntry(request, CancellationToken.None);
+
+            // --- Assert --- //
+            TodoList? list = ReloadList("tl-1");                                      // We reload the parent list to check its status.
+            Assert.Equal(1, list!.Status);                                          // We expect the list to stay open (status 1).
+
+            SignalRMock.AssertBroadcast(_hubSpy, "TodoEntryCreated", Times.Once());  // We expect the entry-created broadcast.
+            SignalRMock.AssertBroadcast(_hubSpy, "TodoListUpdated", Times.Never());  // We expect no list-update, since the status did not change.
+        }
+
+        // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 
