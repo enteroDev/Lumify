@@ -19,13 +19,18 @@ export const AuthService = {
 
         if (!res.ok) {
             let msg = "Login failed";
+            let code: string | undefined;
 
             try {
                 const j = await res.json();
                 msg = j?.message ?? j?.error ?? msg;
+                code = j?.error;
             } catch {}
 
-            throw new Error(msg);
+            // Surface a machine-readable code (e.g. "email_not_confirmed") so the UI can react.
+            const err = new Error(msg) as Error & { code?: string };
+            err.code = code;
+            throw err;
         }
 
         return await res.json();
@@ -78,6 +83,39 @@ export const AuthService = {
 
         if (!res.ok) {
             let msg = "Zurücksetzen fehlgeschlagen.";
+            try { const j = await res.json(); msg = j?.message ?? j?.error ?? msg; } catch {}
+            throw new Error(msg);
+        }
+        return true;
+    },
+
+
+    // --- Email verification --- //
+
+    // Confirms the account via the one-time token from the verification mail.
+    async verifyEmail(token: string) {
+        const res = await saveFetch(`${API_BASE}/account/verifyEmail`, {
+            method: "POST",
+            body: JSON.stringify({ token }),
+        }, { redirectOn401: false });
+
+        if (!res.ok) {
+            let msg = "Bestätigung fehlgeschlagen.";
+            try { const j = await res.json(); msg = j?.message ?? j?.error ?? msg; } catch {}
+            throw new Error(msg);
+        }
+        return true;
+    },
+
+    // Resends the verification mail (backend answers generically).
+    async resendVerification(identifier: string) {
+        const res = await saveFetch(`${API_BASE}/account/resendVerification`, {
+            method: "POST",
+            body: JSON.stringify({ identifier }),
+        }, { redirectOn401: false });
+
+        if (!res.ok) {
+            let msg = "Senden fehlgeschlagen.";
             try { const j = await res.json(); msg = j?.message ?? j?.error ?? msg; } catch {}
             throw new Error(msg);
         }

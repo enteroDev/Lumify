@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using lumify.api.Models.Context;
 
@@ -10,9 +11,11 @@ using lumify.api.Models.Context;
 namespace lumify.api.Migrations
 {
     [DbContext(typeof(LumifyDbContext))]
-    partial class LumifyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260625171336_AddEmailVerification")]
+    partial class AddEmailVerification
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

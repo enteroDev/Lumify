@@ -65,5 +65,47 @@ namespace lumify.api.Services
 
             _logger.LogInformation("Password reset mail sent to {Email}.", toEmail);
         }
+
+
+        public async Task SendVerificationEmailAsync(string toEmail, string? displayName, string verifyLink, CancellationToken ct)
+        {
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress(_settings.FromName, _settings.FromAddress));
+            message.To.Add(new MailboxAddress(string.IsNullOrWhiteSpace(displayName) ? toEmail : displayName, toEmail));
+            message.Subject = "Lumify – E-Mail bestätigen";
+
+            var greetingName = string.IsNullOrWhiteSpace(displayName) ? "" : $" {displayName}";
+
+            var bodyBuilder = new BodyBuilder
+            {
+                TextBody =
+                    $"Hallo{greetingName},\n\n" +
+                    "willkommen bei Lumify! Bitte bestätige deine E-Mail-Adresse, um dein Konto zu aktivieren:\n\n" +
+                    $"{verifyLink}\n\n" +
+                    "Der Link ist 24 Stunden gültig.\n" +
+                    "Wenn du dich nicht bei Lumify registriert hast, kannst du diese E-Mail einfach ignorieren.\n\n" +
+                    "Dein Lumify-Team",
+
+                HtmlBody =
+                    $"<p>Hallo{System.Net.WebUtility.HtmlEncode(greetingName)},</p>" +
+                    "<p>willkommen bei Lumify! Bitte bestätige deine E-Mail-Adresse, um dein Konto zu aktivieren:</p>" +
+                    $"<p><a href=\"{System.Net.WebUtility.HtmlEncode(verifyLink)}\">E-Mail bestätigen</a></p>" +
+                    "<p>Der Link ist <strong>24 Stunden</strong> gültig.</p>" +
+                    "<p>Wenn du dich nicht bei Lumify registriert hast, kannst du diese E-Mail einfach ignorieren.</p>" +
+                    "<p>Dein Lumify-Team</p>"
+            };
+
+            message.Body = bodyBuilder.ToMessageBody();
+
+            var secureOption = _settings.UseStartTls ? SecureSocketOptions.StartTls : SecureSocketOptions.SslOnConnect;
+
+            using var client = new SmtpClient();
+            await client.ConnectAsync(_settings.Host, _settings.Port, secureOption, ct);
+            await client.AuthenticateAsync(_settings.User, _settings.Password, ct);
+            await client.SendAsync(message, ct);
+            await client.DisconnectAsync(true, ct);
+
+            _logger.LogInformation("Verification mail sent to {Email}.", toEmail);
+        }
     }
 }

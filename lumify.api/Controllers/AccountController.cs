@@ -76,6 +76,11 @@ namespace lumify.api.Controllers
                 return Unauthorized("Invalid credentials.");
 
 
+            // 2b) Block login until the e-mail address has been confirmed.
+            if (!user.EmailConfirmed)
+                return StatusCode(403, new { error = "email_not_confirmed", message = "Bitte bestätige zuerst deine E-Mail-Adresse." });
+
+
             // 3) If 2FA is enabled, do NOT issue a session yet. Hand back a short-lived MFA
             // challenge token; the client must then call verifyTotpLogin with the 6-digit code.
             if (user.TotpEnabled)
@@ -280,7 +285,7 @@ namespace lumify.api.Controllers
         // ---------------- //
         [HttpPost]
         [ActionName("registerUser")]
-        public async Task<IActionResult> RegisterUser([FromBody] RegisterRequest dto)
+        public async Task<IActionResult> RegisterUser([FromBody] RegisterRequest dto, CancellationToken ct)
         {
             if (dto == null)
                 return BadRequest("No data provided.");
@@ -334,19 +339,17 @@ namespace lumify.api.Controllers
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
 
-                AppendAuthCookies(user);
-
-                return Ok(new
+                // No auto-login: the account must confirm its e-mail first. Send the verification mail.
+                try
                 {
-                    user = new
-                    {
-                        user.ID,
-                        user.Username,
-                        user.Email,
-                        Role = (int)Enum.Parse<Role>(user.Role),
-                        user.AvatarUrl
-                    }
-                });
+                    await SendNewVerificationMail(user, ct);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Failed to send verification mail for {User}.", dto.Username);
+                }
+
+                return Ok(new { verificationRequired = true, email = user.Email });
             }
             catch (Exception ex)
             {
@@ -469,6 +472,114 @@ namespace lumify.api.Controllers
             await _context.SaveChangesAsync(ct);
 
             return Ok(new { message = "Dein Passwort wurde erfolgreich geändert. Du kannst dich jetzt anmelden." });
+        }
+
+
+
+
+        // --------------------------- //
+        // --- EMAIL VERIFICATION  --- //
+        // --------------------------- //
+
+        // Confirms an account via the one-time token from the verification mail.
+        [HttpPost]
+        [ActionName("verifyEmail")]
+        public async Task<IActionResult> VerifyEmail([FromBody] VerifyEmailRequest dto, CancellationToken ct)
+        {
+            if (dto == null || string.IsNullOrWhiteSpace(dto.Token))
+                return BadRequest("Token is required.");
+
+            // Tokens are looked up by their hash - we never stored the raw value.
+            var tokenHash = _logic.HashResetToken(dto.Token);
+            var token = await _context.EmailVerificationTokens
+                .FirstOrDefaultAsync(t => t.TokenHash == tokenHash, ct);
+
+            if (token == null || token.UsedAt != null)
+                return BadRequest("Invalid or already used verification link.");
+
+            var expiresAt = DateTimeOffset.Parse(token.ExpiresAt, CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind);
+            if (expiresAt < DateTimeOffset.UtcNow)
+                return BadRequest("This verification link has expired.");
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.ID == token.UserID && u.DeletedAt == null, ct);
+            if (user == null)
+                return BadRequest("Invalid verification link.");
+
+            // Confirm the account and consume the token (single-use).
+            user.EmailConfirmed = true;
+            user.UpdatedAt = DateTime.UtcNow.ToString("o");
+            token.UsedAt = DateTime.UtcNow.ToString("o");
+            await _context.SaveChangesAsync(ct);
+
+            return Ok(new { message = "E-Mail erfolgreich bestätigt. Du kannst dich jetzt anmelden." });
+        }
+
+
+        // Resends a verification mail. Always answers generically (no user enumeration).
+        [HttpPost]
+        [ActionName("resendVerification")]
+        public async Task<IActionResult> ResendVerification([FromBody] ResendVerificationRequest dto, CancellationToken ct)
+        {
+            IActionResult generic = Ok(new
+            {
+                message = "Falls ein unbestätigtes Konto zu diesen Angaben existiert, wurde eine neue Bestätigungsmail verschickt."
+            });
+
+            if (dto == null || string.IsNullOrWhiteSpace(dto.Identifier))
+                return generic;
+
+            var identifier = dto.Identifier.Trim().ToLower();
+            var user = await _context.Users.FirstOrDefaultAsync(u =>
+                (u.Username.ToLower() == identifier || u.Email.ToLower() == identifier) &&
+                u.DeletedAt == null, ct);
+
+            // Only resend for an existing, still-unconfirmed account.
+            if (user == null || user.EmailConfirmed)
+                return generic;
+
+            try
+            {
+                await SendNewVerificationMail(user, ct);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to resend verification mail for user {UserID}.", user.ID);
+            }
+
+            return generic;
+        }
+
+
+        // Creates a fresh single-use verification token (invalidating older open ones) and mails the link.
+        private async Task SendNewVerificationMail(User user, CancellationToken ct)
+        {
+            var now = DateTime.UtcNow;
+            var nowIso = now.ToString("o");
+
+            // Invalidate any still-open verification tokens, so only the newest link works.
+            var openTokens = await _context.EmailVerificationTokens
+                .Where(t => t.UserID == user.ID && t.UsedAt == null)
+                .ToListAsync(ct);
+            foreach (var open in openTokens)
+                open.UsedAt = nowIso;
+
+            var (rawToken, tokenHash) = _logic.GenerateResetToken();
+            var verifyToken = new EmailVerificationToken
+            {
+                ID = Guid.NewGuid().ToString(),
+                UserID = user.ID,
+                TokenHash = tokenHash,
+                ExpiresAt = now.AddHours(24).ToString("o"),
+                UsedAt = null,
+                CreatedAt = nowIso
+            };
+            _context.EmailVerificationTokens.Add(verifyToken);
+            await _context.SaveChangesAsync(ct);
+
+            var baseUrl = (_app.FrontendBaseUrl ?? "").TrimEnd('/');
+            var verifyLink = $"{baseUrl}/Auth/verify?token={Uri.EscapeDataString(rawToken)}";
+
+            await _emailService.SendVerificationEmailAsync(user.Email, user.DisplayName, verifyLink, ct);
         }
 
 

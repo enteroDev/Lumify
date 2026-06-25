@@ -14,6 +14,7 @@ import Heading from "./components/Heading/Heading";
 import AuthCard from "./components/AuthCard/AuthCard";
 import MfaPanel from "./components/MfaPanel/MfaPanel";
 import ForgotPasswordPanel from "./components/ForgotPasswordPanel/ForgotPasswordPanel";
+import VerifyNoticePanel from "./components/VerifyNoticePanel/VerifyNoticePanel";
 
 // Provider
 import { useToast } from "@/components/Toast/ToastProvider"
@@ -50,6 +51,7 @@ export default function Auth() {
     const [mfaToken, setMfaToken] = useState<string | null>(null);
     const [mfaLoading, setMfaLoading] = useState(false);
     const [showForgot, setShowForgot] = useState(false);
+    const [verifyEmail, setVerifyEmail] = useState<string | null>(null);
 
 
 
@@ -77,9 +79,13 @@ export default function Auth() {
             router.push("/Dashboard");
             toast.success("Yuhu! Eingeloggt! Jetzt kanns losgehen.");
 
-        } catch {
-            toast.error("Ups... Da ging irgendetwas schief.");
-
+        } catch (err) {
+            // Account exists but the e-mail is not confirmed yet -> show the verify notice (with resend).
+            if ((err as { code?: string })?.code === "email_not_confirmed") {
+                setVerifyEmail(identifier);
+            } else {
+                toast.error("Ups... Da ging irgendetwas schief.");
+            }
         } finally {
             setLoading(false);
         }
@@ -126,6 +132,7 @@ export default function Auth() {
                         onLogin={login}
                         loading={loading}
                         onForgotPassword={() => setShowForgot(true)}
+                        onRegistered={(email) => setVerifyEmail(email)}
                     />
                 </div>
 
@@ -143,6 +150,11 @@ export default function Auth() {
             {/* Forgot-password overlay */}
             {showForgot && (
                 <ForgotPasswordPanel onClose={() => setShowForgot(false)} />
+            )}
+
+            {/* Verify-email notice overlay (after register or a blocked login) */}
+            {verifyEmail && (
+                <VerifyNoticePanel email={verifyEmail} onClose={() => setVerifyEmail(null)} />
             )}
         </div>
     );

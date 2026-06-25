@@ -26,6 +26,10 @@ public partial class User
     // Only true after the user confirmed setup with a valid code. Drives the login challenge.
     public bool TotpEnabled { get; set; }
 
+    // --- Email verification --- //
+    // False until the user confirms their email via the verification link. Login is blocked until true.
+    public bool EmailConfirmed { get; set; }
+
 
     public virtual ICollection<Friendship> FriendshipsAsUserLow { get; set; } = new List<Friendship>();
     public virtual ICollection<Friendship> FriendshipsAsUserHigh { get; set; } = new List<Friendship>();

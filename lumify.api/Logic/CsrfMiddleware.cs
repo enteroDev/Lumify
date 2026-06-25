@@ -23,6 +23,8 @@ namespace lumify.api.Logic
             "/account/logoutUser",
             "/account/requestPasswordReset",
             "/account/resetPassword",
+            "/account/verifyEmail",
+            "/account/resendVerification",
             "/account/verifyTotpLogin"
         };
 

@@ -7,7 +7,6 @@
 
 // React
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 // Styles and Icons
 import RegisterIcon from "../../../../../../src/svg/account_add.svg";
@@ -45,8 +44,7 @@ export const c = {
 } as const;
 
 export type RegisterPanelProps = {
-    onRegister: (model: []) => void | Promise<void>; // Muss noch checken ob das stimmt so.
-    loading: boolean;
+    onRegistered: (email: string) => void;
 }
 
 
@@ -106,9 +104,8 @@ const validateRegisterRequest = (password: string, passwordRepeat: string, toast
 // ----------------- //
 // --- Component --- //
 // ----------------- //
-export default function RegisterPanel() {
+export default function RegisterPanel({ onRegistered }: RegisterPanelProps) {
 
-    const router = useRouter();
     const toast = useToast();
 
     // -------------- //
@@ -145,7 +142,7 @@ export default function RegisterPanel() {
 
         // 3) API Call
         try {
-            const result = await AuthService.register({
+            await AuthService.register({
                 firstName,
                 lastName,
                 email,
@@ -154,9 +151,8 @@ export default function RegisterPanel() {
                 avatarBase64: null
             });
 
-            document.cookie = `session_token=${result.token}; Path=/; SameSite=Lax;`;
-            router.push("/Dashboard");
-            toast.success("Registrierung war erfolgreich. Willkommen in der App!");
+            // No auto-login: the account must confirm its e-mail first -> show the "check your inbox" notice.
+            onRegistered(email);
 
         } catch {
             toast.error("Registrierung fehlgeschlagen.");
