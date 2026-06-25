@@ -247,6 +247,7 @@ export default function RegisterPanel({ onRegistered }: RegisterPanelProps) {
                                 <input
                                     className={c.input}
                                     type="password"
+                                    placeholder="z. B. Sonne2026"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     required
@@ -264,6 +265,11 @@ export default function RegisterPanel({ onRegistered }: RegisterPanelProps) {
                                     required
                                 />
                             </div>
+                        </div>
+
+                        {/* Password rules hint (same style as the "forgot password" label) */}
+                        <div className={c.helpLabel}>
+                            Min. 8 Zeichen, Groß- und Kleinbuchstaben, Zahl.
                         </div>
                     </div>
 
