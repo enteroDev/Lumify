@@ -52,6 +52,39 @@ export const AuthService = {
     },
 
 
+    // --- Password reset (no active session needed) --- //
+
+    // Step 1: request a reset link. The backend always answers generically (no user enumeration).
+    async requestPasswordReset(identifier: string) {
+        const res = await saveFetch(`${API_BASE}/account/requestPasswordReset`, {
+            method: "POST",
+            body: JSON.stringify({ identifier }),
+        }, { redirectOn401: false });
+
+        if (!res.ok) {
+            let msg = "Anfrage fehlgeschlagen.";
+            try { const j = await res.json(); msg = j?.message ?? j?.error ?? msg; } catch {}
+            throw new Error(msg);
+        }
+        return true;
+    },
+
+    // Step 2: set a new password using the one-time token from the email link.
+    async resetPassword(token: string, newPassword: string) {
+        const res = await saveFetch(`${API_BASE}/account/resetPassword`, {
+            method: "POST",
+            body: JSON.stringify({ token, newPassword }),
+        }, { redirectOn401: false });
+
+        if (!res.ok) {
+            let msg = "Zurücksetzen fehlgeschlagen.";
+            try { const j = await res.json(); msg = j?.message ?? j?.error ?? msg; } catch {}
+            throw new Error(msg);
+        }
+        return true;
+    },
+
+
     async logout() {
         const res = await saveFetch(`${API_BASE}/account/logoutUser`, {
             method: "POST",

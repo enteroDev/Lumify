@@ -38,6 +38,14 @@ services:
       Cookies__Secure: "true"
       # Basis-URL des Frontends (fuer Links, z.B. Passwort-Reset-Mail).
       App__FrontendBaseUrl: "https://lumify-app.at"
+      # Brevo SMTP (transactional mail) - User/Password/From come from .env
+      Email__Host: "smtp-relay.brevo.com"
+      Email__Port: "587"
+      Email__User: ${EMAIL_USER}
+      Email__Password: ${EMAIL_PASSWORD}
+      Email__FromAddress: ${EMAIL_FROM}
+      Email__FromName: "Lumify"
+      Email__UseStartTls: "true"
     volumes:
       - api_data:/app/Data
 

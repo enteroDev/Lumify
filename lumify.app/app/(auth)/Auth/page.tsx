@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 import Heading from "./components/Heading/Heading";
 import AuthCard from "./components/AuthCard/AuthCard";
 import MfaPanel from "./components/MfaPanel/MfaPanel";
+import ForgotPasswordPanel from "./components/ForgotPasswordPanel/ForgotPasswordPanel";
 
 // Provider
 import { useToast } from "@/components/Toast/ToastProvider"
@@ -48,6 +49,7 @@ export default function Auth() {
     const [loading, setLoading] = useState(false);
     const [mfaToken, setMfaToken] = useState<string | null>(null);
     const [mfaLoading, setMfaLoading] = useState(false);
+    const [showForgot, setShowForgot] = useState(false);
 
 
 
@@ -123,6 +125,7 @@ export default function Auth() {
                     < AuthCard
                         onLogin={login}
                         loading={loading}
+                        onForgotPassword={() => setShowForgot(true)}
                     />
                 </div>
 
@@ -135,6 +138,11 @@ export default function Auth() {
                     onVerify={verifyMfa}
                     onCancel={cancelMfa}
                 />
+            )}
+
+            {/* Forgot-password overlay */}
+            {showForgot && (
+                <ForgotPasswordPanel onClose={() => setShowForgot(false)} />
             )}
         </div>
     );

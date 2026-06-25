@@ -29,6 +29,7 @@ type Mode = "login" | "register";
 export type AuthCardProps = {
     onLogin: (identifier: string, password: string) => void | Promise<void>;
     loading: boolean;
+    onForgotPassword: () => void;
 }
 
 
@@ -39,6 +40,7 @@ export type AuthCardProps = {
 export default function AuthCard({
     onLogin,
     loading,
+    onForgotPassword,
 }:AuthCardProps) {
 
     const [mode, setMode] = useState<Mode>("login");
@@ -67,6 +69,7 @@ export default function AuthCard({
                 ? <LoginPanel
                     onLogin={onLogin}
                     loading={loading}
+                    onForgotPassword={onForgotPassword}
                 />
                 : <RegisterPanel />}
         </div>

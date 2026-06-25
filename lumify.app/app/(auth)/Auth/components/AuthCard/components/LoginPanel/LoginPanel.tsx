@@ -47,6 +47,7 @@ export const c = {
 export type LoginPanelProps = {
     onLogin: (identifier: string, password: string) => void | Promise<void>;
     loading: boolean;
+    onForgotPassword: () => void;
 }
 
 
@@ -56,7 +57,8 @@ export type LoginPanelProps = {
 // ----------------- //
 export default function LoginPanel({
     onLogin,
-    loading
+    loading,
+    onForgotPassword,
 }:LoginPanelProps) {
 
 
@@ -141,7 +143,7 @@ export default function LoginPanel({
                         </div>
 
                         {/* Label/Link: ForgottPassword*/}
-                        <div className={c.helpLabel}>Passwort vergessen?</div>
+                        <div className={c.helpLabel} onClick={onForgotPassword}>Passwort vergessen?</div>
                     </div>
 
 
