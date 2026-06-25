@@ -34,4 +34,10 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.16.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <!-- Bundled into the assembly so the default avatar can be seeded into the
+         (volume-backed) Data/avatars folder at startup. -->
+    <EmbeddedResource Include="Data\avatars\default_avatar.png" />
+  </ItemGroup>
+
 </Project>
