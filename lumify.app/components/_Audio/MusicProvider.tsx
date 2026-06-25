@@ -40,11 +40,16 @@ export default function MusicProvider({
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const [isEnabled, setIsEnabled] = useState(false);
 
+
+    // --------------- //
+    // --- Effects --- //
+    // --------------- //
+
     // Create audio once
     useEffect(() => {
         const audio = new Audio("/sounds/lofi.mp3");
         audio.loop = true;
-        audio.volume = 0.1;
+        audio.volume = 0.06;
 
         audioRef.current = audio;
 
@@ -55,6 +60,10 @@ export default function MusicProvider({
         };
     }, []);
 
+
+    // --------------- //
+    // --- Handler --- //
+    // --------------- //
     const toggle = () => {
         const audio = audioRef.current;
         if (!audio) return;
@@ -69,6 +78,7 @@ export default function MusicProvider({
         }
     };
 
+
     const value = useMemo(
         () => ({
         isEnabled,
@@ -77,6 +87,10 @@ export default function MusicProvider({
         [isEnabled]
     );
 
+
+    // ----------- //
+    // --- JSX --- //
+    // ----------- //
     return (
         <MusicContext.Provider value={value}>
         {children}

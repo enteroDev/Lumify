@@ -90,10 +90,18 @@
     box-sizing: border-box;
 
     transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease,
-        background-color 0.2s ease,
-        filter 0.2s ease;
+        border-color 0.28s ease,
+        box-shadow 0.28s ease,
+        background-color 0.28s ease,
+        filter 0.28s ease;
+}
+/* Beach theme: a touch slower so the brighter glow eases in more gently. */
+[data-theme="beach"] .addCard {
+    transition:
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        background-color 0.4s ease,
+        filter 0.4s ease;
 }
 
 .addCard::before {
@@ -103,14 +111,17 @@
 
     background: radial-gradient(
         circle at center,
-        rgba(255, 255, 255, 0.18) 0%,
-        rgba(255, 255, 255, 0.08) 28%,
+        rgba(255, 255, 255, 0.10) 0%,
+        rgba(255, 255, 255, 0.05) 28%,
         rgba(255, 255, 255, 0.00) 60%
     );
 
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.28s ease;
     pointer-events: none;
+}
+[data-theme="beach"] .addCard::before {
+    transition: opacity 0.4s ease;
 }
 
 .addCard:hover {
@@ -118,15 +129,15 @@
     border-color: var(--color-highlight);
     background-color: rgba(220, 220, 220, 0.32);
     box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.06),
-        0 8px 22px rgba(0, 0, 0, 0.22),
-        0 0 18px rgba(255, 255, 255, 0.10);
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 6px 16px rgba(0, 0, 0, 0.20),
+        0 0 11px rgba(255, 255, 255, 0.06);
 }
 [data-theme="beach"] .addCard:hover {
     box-shadow:
         0 0 0 1px rgba(255, 255, 255, 0.04),
-        0 8px 22px rgba(0, 0, 0, 0.15),
-        0 0 18px rgba(255, 255, 255, 0.5);
+        0 6px 16px rgba(0, 0, 0, 0.13),
+        0 0 11px rgba(255, 255, 255, 0.28);
 }
 
 .addCard:hover::before {
@@ -142,15 +153,18 @@
     color: white;
 
     transition:
-        color 0.2s ease,
-        filter 0.2s ease;
+        color 0.28s ease,
+        filter 0.28s ease;
+}
+[data-theme="beach"] .addCardIcon {
+    transition: color 0.4s ease, filter 0.4s ease;
 }
 
 .addCard:hover .addCardIcon {
     color: var(--color-highlight);
     filter:
-        drop-shadow(0 0 8px rgba(255, 255, 255, 0.18))
-        drop-shadow(0 0 16px rgba(255, 255, 255, 0.10));
+        drop-shadow(0 0 6px rgba(255, 255, 255, 0.10))
+        drop-shadow(0 0 12px rgba(255, 255, 255, 0.06));
 }
 
 .addCardIcon svg {
