@@ -307,7 +307,7 @@ namespace lumify.api.Controllers
 
                 _logic.CreatePasswordHash(dto.Password, out var hash, out var salt);
 
-                var avatarUrl = "/Data/avatars/default_avatar.png";
+                var avatarUrl = "/src/default_avatar.png";
 
                 if (!string.IsNullOrWhiteSpace(dto.AvatarBase64))
                 {

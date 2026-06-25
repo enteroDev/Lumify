@@ -153,20 +153,6 @@ app.UseRouting();
 var avatarFolder = Path.Combine(Directory.GetCurrentDirectory(), "Data", "avatars");
 if (!Directory.Exists(avatarFolder)) Directory.CreateDirectory(avatarFolder);
 
-// Seed the bundled default avatar into the (possibly volume-backed) folder if it is missing,
-// so new users always have a default image - even on a fresh /app/Data volume.
-var defaultAvatarPath = Path.Combine(avatarFolder, "default_avatar.png");
-if (!File.Exists(defaultAvatarPath))
-{
-    var asm = System.Reflection.Assembly.GetExecutingAssembly();
-    using var resourceStream = asm.GetManifestResourceStream("lumify.api.Data.avatars.default_avatar.png");
-    if (resourceStream != null)
-    {
-        using var fileStream = File.Create(defaultAvatarPath);
-        resourceStream.CopyTo(fileStream);
-    }
-}
-
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(avatarFolder),

@@ -44,7 +44,7 @@ export default function MusicProvider({
     useEffect(() => {
         const audio = new Audio("/sounds/lofi.mp3");
         audio.loop = true;
-        audio.volume = 0.03;
+        audio.volume = 0.1;
 
         audioRef.current = audio;
 
