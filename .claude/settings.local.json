@@ -6,7 +6,11 @@
       "Bash(nslookup -type=A lumify-app.at 8.8.8.8)",
       "Bash(nslookup -type=A lumify-app.at)",
       "Bash(nslookup -type=A lumify-app.at.lumify-app.at cns1.cloudpit.de)",
-      "PowerShell($py = \\(Get-Command python -ErrorAction SilentlyContinue\\); if\\($py\\){ & python --version; & python -c \"import pptx; print\\('pptx', pptx.__version__\\)\" 2>&1 } else { \"no python\" })"
+      "PowerShell($py = \\(Get-Command python -ErrorAction SilentlyContinue\\); if\\($py\\){ & python --version; & python -c \"import pptx; print\\('pptx', pptx.__version__\\)\" 2>&1 } else { \"no python\" })",
+      "Bash(PYTHONIOENCODING=utf-8 python *)",
+      "Bash(python -c \"import docx; print\\('ok'\\)\")",
+      "Bash(python -c ' *)",
+      "Bash(grep -oE 'TOC \\\\\\\\h \\\\\\\\o [^<]{0,20}' ext/word/document.xml)"
     ]
   }
 }
