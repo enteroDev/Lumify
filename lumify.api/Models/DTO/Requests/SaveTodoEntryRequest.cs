@@ -1,3 +1,5 @@
+namespace lumify.api.Models.DTO.Requests;
+
 /// <summary>
 /// Request body for updating a todo entry
 /// (see <see cref="Controllers.TodoListsController.SaveTodoEntry"/>). Only non-<c>null</c> fields

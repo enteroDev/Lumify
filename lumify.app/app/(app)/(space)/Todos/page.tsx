@@ -98,8 +98,22 @@ export default function Todos() {
 
         onTodoListCreated: (todoList) => {
             setTodoLists(prev => {
-                const exists = prev.some(x => x.id === todoList.id);
-                if (exists) { return prev; }
+                const existingReal = prev.some(x => x.id === todoList.id);
+                if (existingReal) { return prev; }
+
+                // The creator already holds an optimistic draft of this list. If the
+                // "TodoListCreated" broadcast wins the race against the create-response,
+                // promote that draft in place (matched by name + scope) instead of
+                // appending a second copy. Mirrors onNoteCreated.
+                const matchingDraft = prev.find(x =>
+                    x.id.startsWith("draft_") &&
+                    x.name === todoList.name &&
+                    (x.workspaceID ?? null) === (todoList.workspaceID ?? null)
+                );
+
+                if (matchingDraft) {
+                    return prev.map(x => (x.id === matchingDraft.id ? todoList : x));
+                }
 
                 return [...prev, todoList];
             });
@@ -182,6 +196,13 @@ export default function Todos() {
 
         const draftTodoList = todoLists.find(x => x.id === todoListID);
         if (!draftTodoList) { return; }
+
+        // Reflect the typed name on the draft immediately, so a "TodoListCreated"
+        // broadcast arriving before the create-response can match this draft by name
+        // (see onTodoListCreated) and promote it instead of duplicating it.
+        setTodoLists(prev => prev.map(x =>
+            x.id === todoListID ? { ...x, name: trimmedName } : x
+        ));
 
         try {
             const createdTodoList = await TodoService.addTodoList({
