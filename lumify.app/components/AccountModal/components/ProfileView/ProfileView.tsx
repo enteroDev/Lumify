@@ -33,6 +33,7 @@ const c = {
     infoLine:           styles["infoLine"],
     infoLineLabel:      styles["infoLineLabel"],
     infoLineValue:      styles["infoLineValue"],
+    usernameHint:       styles["usernameHint"],
 
     inputWrap:          styles["inputWrap"],
     label:              styles["label"],
@@ -53,6 +54,7 @@ type ProfileViewProps = {
 
     email: string;
     displayName: string;
+    username: string;
     bio: string;
 
     onSaveProfile: (data: SaveUserProfileRequest) => void | Promise<void>;
@@ -70,6 +72,7 @@ export default function ProfileView({
     onChangeAvatar,
     email,
     displayName,
+    username,
     bio,
     onSaveProfile,
     isSavingProfile = false,
@@ -79,6 +82,26 @@ export default function ProfileView({
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [profileDisplayName, setProfileDisplayName] = useState(displayName);
     const [profileBio, setProfileBio] = useState(bio);
+
+
+
+    // ------------------- //
+    // --- UI-Helpers --- //
+    // ------------------- //
+    // Show the username as the main name; once a displayName exists, it leads and the username
+    // trails in smaller parentheses. Falls back to "[LEER]" when nothing is set.
+    const renderName = () => {
+        if (displayName) {
+            return (
+                <>
+                    {displayName}
+                    {username && <span className={c.usernameHint}>({username})</span>}
+                </>
+            );
+        }
+
+        return username || "[LEER]";
+    };
 
 
 
@@ -137,7 +160,7 @@ export default function ProfileView({
                     <div className={c.userInfos}>
                         <div className={c.infoLine}>
                             <div className={c.infoLineLabel}>Name: </div>
-                            <div className={c.infoLineValue}>{displayName || "[LEER]"}</div>
+                            <div className={c.infoLineValue}>{renderName()}</div>
                         </div>
 
                         <div className={c.infoLine}>

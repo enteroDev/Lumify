@@ -87,6 +87,7 @@ export default function AccountModal() {
             isChangingAvatar={isChangingAvatar}
             email={accountInfo?.email ?? ""}
             displayName={userProfile?.displayName ?? ""}
+            username={accountInfo?.username ?? ""}
             bio={userProfile?.bio ?? ""}
             onSaveProfile={saveUserProfile}
             isSavingProfile={isSavingProfile} />;
@@ -98,6 +99,7 @@ export default function AccountModal() {
         isChangingAvatar={isChangingAvatar}
         email={accountInfo?.email ?? ""}
         displayName={userProfile?.displayName ?? ""}
+        username={accountInfo?.username ?? ""}
         bio={userProfile?.bio ?? ""}
         onSaveProfile={saveUserProfile}
         isSavingProfile={isSavingProfile} />; // Backfall
@@ -301,6 +303,7 @@ export default function AccountModal() {
                         isChangingAvatar={isChangingAvatar}
                         email={accountInfo?.email ?? ""}
                         displayName={userProfile?.displayName ?? ""}
+                        username={accountInfo?.username ?? ""}
                         onDeleteAccount={deleteAccount}
                     />
                 </div>

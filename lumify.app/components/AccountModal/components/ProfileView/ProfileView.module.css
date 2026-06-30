@@ -187,6 +187,15 @@
     color: var(--color-creamWhite);
 }
 
+/* Username trailing the displayName: smaller and dimmed, reads as a side note. */
+.usernameHint {
+    margin-left: 4px;
+
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: color-mix(in srgb, var(--color-creamWhite) 60%, transparent);
+}
+
 
 
 

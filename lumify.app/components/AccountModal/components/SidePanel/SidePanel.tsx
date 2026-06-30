@@ -33,6 +33,7 @@ const c = {
     infoLine:           styles["infoLine"],
     infoLineLabel:      styles["infoLineLabel"],
     infoLineValue:      styles["infoLineValue"],
+    usernameHint:       styles["usernameHint"],
 
     navigationArea:     styles["navigationArea"],
     section:            styles["section"],
@@ -62,6 +63,7 @@ type SidePanelProps = {
 
     email: string | null;
     displayName: string | null;
+    username: string | null;
 
     onDeleteAccount: () => void;
 }
@@ -81,6 +83,7 @@ export default function SidePanel({
     onChangeAvatar,
     email,
     displayName,
+    username,
     onDeleteAccount,
 }:SidePanelProps) {
 
@@ -111,6 +114,21 @@ export default function SidePanel({
         setActiveTab("twofactor");
     }
 
+    // Show the username as the main name; once a displayName exists, it leads and the username
+    // trails in smaller parentheses. Falls back to "[LEER]" when nothing is set.
+    const renderName = () => {
+        if (displayName) {
+            return (
+                <>
+                    {displayName}
+                    {username && <span className={c.usernameHint}>({username})</span>}
+                </>
+            );
+        }
+
+        return username || "[LEER]";
+    };
+
 
     // ----------- //
     // --- JSX --- //
@@ -136,7 +154,7 @@ export default function SidePanel({
                 <div className={c.userInfos}>
                     <div className={c.infoLine}>
                         <div className={c.infoLineLabel}>Name: </div>
-                        <div className={c.infoLineValue}>{displayName || "[LEER]"}</div>
+                        <div className={c.infoLineValue}>{renderName()}</div>
                     </div>
 
                     <div className={c.infoLine}>
