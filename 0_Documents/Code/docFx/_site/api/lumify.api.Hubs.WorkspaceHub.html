@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class WorkspaceHub | Lumify – Code Documentation ">
       
-      
+      <meta name="description" content="SignalR hub for real-time workspace and membership updates. Unlike the other workspace hubs, clients join a group keyed by their own user ID (a user can belong to many workspaces), so the  can push events such as WorkspaceCreated, WorkspaceUpdated, WorkspaceDeleted, WorkspaceMemberAdded and WorkspaceMemberRemoved to every affected member. Requires an authenticated connection.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="lumify_api_Hubs_WorkspaceHub" data-uid="lumify.api.Hubs.WorkspaceHub" class="text-break">
-Class WorkspaceHub  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/WorkspaceHub.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class WorkspaceHub  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/WorkspaceHub.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,13 @@ Class WorkspaceHub  <a class="header-action link-secondary" title="View source" 
   <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>SignalR hub for real-time workspace and membership updates. Unlike the other workspace
+hubs, clients join a group keyed by their own <em>user ID</em> (a user can belong to many
+workspaces), so the <a class="xref" href="lumify.api.Controllers.WorkspaceController.html">WorkspaceController</a> can push events such as
+<code>WorkspaceCreated</code>, <code>WorkspaceUpdated</code>, <code>WorkspaceDeleted</code>,
+<code>WorkspaceMemberAdded</code> and <code>WorkspaceMemberRemoved</code> to every affected member.
+Requires an authenticated connection.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -133,10 +139,12 @@ public class WorkspaceHub : Hub</code></pre>
 
   <h3 id="lumify_api_Hubs_WorkspaceHub_JoinUser_System_String_" data-uid="lumify.api.Hubs.WorkspaceHub.JoinUser(System.String)">
   JoinUser(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/WorkspaceHub.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/WorkspaceHub.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Adds the caller's connection to its own user group so it receives workspace/membership
+events that concern this user. No-op if <code class="paramref">userID</code> is empty.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -146,7 +154,8 @@ public class WorkspaceHub : Hub</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>userID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The user (group) to join.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -169,10 +178,12 @@ public class WorkspaceHub : Hub</code></pre>
 
   <h3 id="lumify_api_Hubs_WorkspaceHub_LeaveUser_System_String_" data-uid="lumify.api.Hubs.WorkspaceHub.LeaveUser(System.String)">
   LeaveUser(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/WorkspaceHub.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/WorkspaceHub.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Removes the caller's connection from its user group. No-op if
+<code class="paramref">userID</code> is empty.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -182,7 +193,8 @@ public class WorkspaceHub : Hub</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>userID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The user (group) to leave.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ChatHub | Lumify – Code Documentation ">
       
-      
+      <meta name="description" content="SignalR hub for real-time chat and user presence. Tracks each user&#39;s active connections via the presence service, broadcasts presence changes to all clients, and handles joining rooms, leaving rooms and sending messages. Requires an authenticated connection.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="lumify_api_Hubs_ChatHub" data-uid="lumify.api.Hubs.ChatHub" class="text-break">
-Class ChatHub  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/ChatHub.cs/#L14"><i class="bi bi-code-slash"></i></a>
+Class ChatHub  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/ChatHub.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,10 @@ Class ChatHub  <a class="header-action link-secondary" title="View source" href=
   <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>SignalR hub for real-time chat and user presence. Tracks each user's active connections
+via the presence service, broadcasts presence changes to all clients, and handles joining
+rooms, leaving rooms and sending messages. Requires an authenticated connection.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -123,6 +126,11 @@ public class ChatHub : Hub</code></pre>
 
 
 
+  <h2 id="lumify_api_Hubs_ChatHub_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Presence is connection-counted: a user is online while at least one connection is open.
+Chat rooms are SignalR groups keyed by room ID; messages are persisted before being
+broadcast to the room.</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -133,10 +141,11 @@ public class ChatHub : Hub</code></pre>
 
   <h3 id="lumify_api_Hubs_ChatHub__ctor_lumify_api_Interfaces_IPresenceService_lumify_api_Models_Context_LumifyDbContext_" data-uid="lumify.api.Hubs.ChatHub.#ctor(lumify.api.Interfaces.IPresenceService,lumify.api.Models.Context.LumifyDbContext)">
   ChatHub(IPresenceService, LumifyDbContext)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/ChatHub.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/ChatHub.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates the hub with its injected presence service and database context.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -170,10 +179,12 @@ public class ChatHub : Hub</code></pre>
 
   <h3 id="lumify_api_Hubs_ChatHub_JoinRoom_System_String_" data-uid="lumify.api.Hubs.ChatHub.JoinRoom(System.String)">
   JoinRoom(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/ChatHub.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/ChatHub.cs/#L91"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Adds the caller's connection to a chat room (SignalR group) so it receives that
+room's messages. No-op if <code class="paramref">roomID</code> is empty.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -183,7 +194,8 @@ public class ChatHub : Hub</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>roomID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The room to join.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -206,10 +218,12 @@ public class ChatHub : Hub</code></pre>
 
   <h3 id="lumify_api_Hubs_ChatHub_LeaveRoom_System_String_" data-uid="lumify.api.Hubs.ChatHub.LeaveRoom(System.String)">
   LeaveRoom(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/ChatHub.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/ChatHub.cs/#L106"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Removes the caller's connection from a chat room (SignalR group). No-op if
+<code class="paramref">roomID</code> is empty.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -219,7 +233,8 @@ public class ChatHub : Hub</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>roomID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The room to leave.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -242,10 +257,11 @@ public class ChatHub : Hub</code></pre>
 
   <h3 id="lumify_api_Hubs_ChatHub_OnConnectedAsync" data-uid="lumify.api.Hubs.ChatHub.OnConnectedAsync">
   OnConnectedAsync()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/ChatHub.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/ChatHub.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Called when a new connection is established with the hub.</p>
+  <div class="markdown level1 summary"><p>Called when a client connects: registers the connection with the presence service and
+broadcasts a <code>PresenceChanged</code> event marking the user online.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -257,8 +273,7 @@ public class ChatHub : Hub</code></pre>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">Task</span></dt>
-    <dd><p>A <span class="xref">System.Threading.Tasks.Task</span> that represents the asynchronous connect.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -275,10 +290,12 @@ public class ChatHub : Hub</code></pre>
 
   <h3 id="lumify_api_Hubs_ChatHub_OnDisconnectedAsync_System_Exception_" data-uid="lumify.api.Hubs.ChatHub.OnDisconnectedAsync(System.Exception)">
   OnDisconnectedAsync(Exception?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/ChatHub.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/ChatHub.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Called when a connection with the hub is terminated.</p>
+  <div class="markdown level1 summary"><p>Called when a client disconnects: removes the connection from the presence service
+and broadcasts a <code>PresenceChanged</code> event with the user's recomputed status
+(offline once their last connection closes).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -289,14 +306,14 @@ public class ChatHub : Hub</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>exception</code> <span class="xref">Exception</span></dt>
-    <dd></dd>
+    <dd><p>The error that caused the disconnect, if any.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">Task</span></dt>
-    <dd><p>A <span class="xref">System.Threading.Tasks.Task</span> that represents the asynchronous disconnect.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -313,10 +330,13 @@ public class ChatHub : Hub</code></pre>
 
   <h3 id="lumify_api_Hubs_ChatHub_SendMessage_System_String_System_String_" data-uid="lumify.api.Hubs.ChatHub.SendMessage(System.String,System.String)">
   SendMessage(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/ChatHub.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/ChatHub.cs/#L126"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Persists a chat message from the current user and broadcasts it to everyone in the
+room as a <code>MessageReceived</code> event. Silently ignores empty room/content or an
+unauthenticated caller.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -326,9 +346,11 @@ public class ChatHub : Hub</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>roomID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The room to post to.</p>
+</dd>
     <dt><code>content</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The message text.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>

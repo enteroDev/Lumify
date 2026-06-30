@@ -21,10 +21,21 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: NoteHub
     path: ../../../lumify.api/Hubs/NoteHub.cs
-    startLine: 5
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
+  summary: >-
+    SignalR hub for real-time folder and note updates within a workspace. Clients join the
+
+    group of a workspace to receive its live events (e.g. <code>NoteCreated</code>,
+
+    <code>NoteUpdated</code>, <code>NoteDeleted</code>, <code>FolderCreated</code>, …) broadcast by the
+
+    <xref href="lumify.api.Controllers.NotesController" data-throw-if-not-resolved="false"></xref> and <xref href="lumify.api.Controllers.FoldersController" data-throw-if-not-resolved="false"></xref>.
+
+    Requires an authenticated connection.
+  example: []
   syntax:
     content: >-
       [Authorize]
@@ -59,15 +70,21 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: JoinWorkspace
     path: ../../../lumify.api/Hubs/NoteHub.cs
-    startLine: 8
+    startLine: 20
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
+  summary: >-
+    Adds the caller's connection to a workspace group so it receives that workspace's
+
+    note/folder events. No-op if <code class="paramref">workspaceID</code> is empty.
+  example: []
   syntax:
     content: public Task JoinWorkspace(string workspaceID)
     parameters:
     - id: workspaceID
       type: System.String
+      description: The workspace to join.
     return:
       type: System.Threading.Tasks.Task
     content.vb: Public Function JoinWorkspace(workspaceID As String) As Task
@@ -93,15 +110,21 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: LeaveWorkspace
     path: ../../../lumify.api/Hubs/NoteHub.cs
-    startLine: 15
+    startLine: 32
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
+  summary: >-
+    Removes the caller's connection from a workspace group. No-op if
+
+    <code class="paramref">workspaceID</code> is empty.
+  example: []
   syntax:
     content: public Task LeaveWorkspace(string workspaceID)
     parameters:
     - id: workspaceID
       type: System.String
+      description: The workspace to leave.
     return:
       type: System.Threading.Tasks.Task
     content.vb: Public Function LeaveWorkspace(workspaceID As String) As Task
@@ -110,6 +133,18 @@ items:
   fullName.vb: lumify.api.Hubs.NoteHub.LeaveWorkspace(String)
   name.vb: LeaveWorkspace(String)
 references:
+- uid: lumify.api.Controllers.NotesController
+  commentId: T:lumify.api.Controllers.NotesController
+  href: lumify.api.Controllers.NotesController.html
+  name: NotesController
+  nameWithType: NotesController
+  fullName: lumify.api.Controllers.NotesController
+- uid: lumify.api.Controllers.FoldersController
+  commentId: T:lumify.api.Controllers.FoldersController
+  href: lumify.api.Controllers.FoldersController.html
+  name: FoldersController
+  nameWithType: FoldersController
+  fullName: lumify.api.Controllers.FoldersController
 - uid: lumify.api.Hubs
   commentId: N:lumify.api.Hubs
   href: lumify.html

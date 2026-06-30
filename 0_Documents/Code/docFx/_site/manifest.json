@@ -172,7 +172,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Hubs.ChatHub",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Hubs.ChatHub.yml\" sourcestartlinenumber=\"1\">SignalR hub for real-time chat and user presence. Tracks each user's active connections\nvia the presence service, broadcasts presence changes to all clients, and handles joining\nrooms, leaving rooms and sending messages. Requires an authenticated connection.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -186,7 +186,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Hubs.EventHub",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Hubs.EventHub.yml\" sourcestartlinenumber=\"1\">SignalR hub for real-time calendar event updates within a workspace. Clients join the\ngroup of a workspace to receive its live events (<code>EventCreated</code>, <code>EventUpdated</code>,\n<code>EventDeleted</code>) broadcast by the <xref href=\"lumify.api.Controllers.EventsController\" data-throw-if-not-resolved=\"false\"></xref>. Requires\nan authenticated connection.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -200,7 +200,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Hubs.NoteHub",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Hubs.NoteHub.yml\" sourcestartlinenumber=\"1\">SignalR hub for real-time folder and note updates within a workspace. Clients join the\ngroup of a workspace to receive its live events (e.g. <code>NoteCreated</code>,\n<code>NoteUpdated</code>, <code>NoteDeleted</code>, <code>FolderCreated</code>, …) broadcast by the\n<xref href=\"lumify.api.Controllers.NotesController\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"lumify.api.Controllers.FoldersController\" data-throw-if-not-resolved=\"false\"></xref>.\nRequires an authenticated connection.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -214,7 +214,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Hubs.TodoHub",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Hubs.TodoHub.yml\" sourcestartlinenumber=\"1\">SignalR hub for real-time todo list/entry updates within a workspace. Clients join the\ngroup of a workspace to receive its live events (<code>TodoListCreated</code>,\n<code>TodoListUpdated</code>, <code>TodoEntryCreated</code>, <code>TodoEntryUpdated</code>, …) broadcast by\nthe <xref href=\"lumify.api.Controllers.TodoListsController\" data-throw-if-not-resolved=\"false\"></xref>. Requires an authenticated connection.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -228,7 +228,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Hubs.UserIdProvider",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Hubs.UserIdProvider.yml\" sourcestartlinenumber=\"1\">Maps the custom <code>UserID</code> claim to the SignalR user identifier, so that\n<code>Clients.User(userID)</code> targets all of a user's active hub connections.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -242,7 +242,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Hubs.WorkspaceHub",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Hubs.WorkspaceHub.yml\" sourcestartlinenumber=\"1\">SignalR hub for real-time workspace and membership updates. Unlike the other workspace\nhubs, clients join a group keyed by their own <em>user ID</em> (a user can belong to many\nworkspaces), so the <xref href=\"lumify.api.Controllers.WorkspaceController\" data-throw-if-not-resolved=\"false\"></xref> can push events such as\n<code>WorkspaceCreated</code>, <code>WorkspaceUpdated</code>, <code>WorkspaceDeleted</code>,\n<code>WorkspaceMemberAdded</code> and <code>WorkspaceMemberRemoved</code> to every affected member.\nRequires an authenticated connection.</p>\n"
     },
     {
       "type": "ManagedReference",

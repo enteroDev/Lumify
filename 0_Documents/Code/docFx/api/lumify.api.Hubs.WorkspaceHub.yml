@@ -21,10 +21,23 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: WorkspaceHub
     path: ../../../lumify.api/Hubs/WorkspaceHub.cs
-    startLine: 5
+    startLine: 13
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
+  summary: >-
+    SignalR hub for real-time workspace and membership updates. Unlike the other workspace
+
+    hubs, clients join a group keyed by their own <em>user ID</em> (a user can belong to many
+
+    workspaces), so the <xref href="lumify.api.Controllers.WorkspaceController" data-throw-if-not-resolved="false"></xref> can push events such as
+
+    <code>WorkspaceCreated</code>, <code>WorkspaceUpdated</code>, <code>WorkspaceDeleted</code>,
+
+    <code>WorkspaceMemberAdded</code> and <code>WorkspaceMemberRemoved</code> to every affected member.
+
+    Requires an authenticated connection.
+  example: []
   syntax:
     content: >-
       [Authorize]
@@ -59,15 +72,21 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: JoinUser
     path: ../../../lumify.api/Hubs/WorkspaceHub.cs
-    startLine: 8
+    startLine: 21
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
+  summary: >-
+    Adds the caller's connection to its own user group so it receives workspace/membership
+
+    events that concern this user. No-op if <code class="paramref">userID</code> is empty.
+  example: []
   syntax:
     content: public Task JoinUser(string userID)
     parameters:
     - id: userID
       type: System.String
+      description: The user (group) to join.
     return:
       type: System.Threading.Tasks.Task
     content.vb: Public Function JoinUser(userID As String) As Task
@@ -93,15 +112,21 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: LeaveUser
     path: ../../../lumify.api/Hubs/WorkspaceHub.cs
-    startLine: 15
+    startLine: 33
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
+  summary: >-
+    Removes the caller's connection from its user group. No-op if
+
+    <code class="paramref">userID</code> is empty.
+  example: []
   syntax:
     content: public Task LeaveUser(string userID)
     parameters:
     - id: userID
       type: System.String
+      description: The user (group) to leave.
     return:
       type: System.Threading.Tasks.Task
     content.vb: Public Function LeaveUser(userID As String) As Task
@@ -110,6 +135,12 @@ items:
   fullName.vb: lumify.api.Hubs.WorkspaceHub.LeaveUser(String)
   name.vb: LeaveUser(String)
 references:
+- uid: lumify.api.Controllers.WorkspaceController
+  commentId: T:lumify.api.Controllers.WorkspaceController
+  href: lumify.api.Controllers.WorkspaceController.html
+  name: WorkspaceController
+  nameWithType: WorkspaceController
+  fullName: lumify.api.Controllers.WorkspaceController
 - uid: lumify.api.Hubs
   commentId: N:lumify.api.Hubs
   href: lumify.html

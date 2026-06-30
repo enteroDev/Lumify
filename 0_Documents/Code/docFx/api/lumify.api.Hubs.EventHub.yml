@@ -21,10 +21,19 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: EventHub
     path: ../../../lumify.api/Hubs/EventHub.cs
-    startLine: 5
+    startLine: 11
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
+  summary: >-
+    SignalR hub for real-time calendar event updates within a workspace. Clients join the
+
+    group of a workspace to receive its live events (<code>EventCreated</code>, <code>EventUpdated</code>,
+
+    <code>EventDeleted</code>) broadcast by the <xref href="lumify.api.Controllers.EventsController" data-throw-if-not-resolved="false"></xref>. Requires
+
+    an authenticated connection.
+  example: []
   syntax:
     content: >-
       [Authorize]
@@ -59,15 +68,21 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: JoinWorkspace
     path: ../../../lumify.api/Hubs/EventHub.cs
-    startLine: 8
+    startLine: 19
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
+  summary: >-
+    Adds the caller's connection to a workspace group so it receives that workspace's
+
+    event updates. No-op if <code class="paramref">workspaceID</code> is empty.
+  example: []
   syntax:
     content: public Task JoinWorkspace(string workspaceID)
     parameters:
     - id: workspaceID
       type: System.String
+      description: The workspace to join.
     return:
       type: System.Threading.Tasks.Task
     content.vb: Public Function JoinWorkspace(workspaceID As String) As Task
@@ -93,15 +108,21 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: LeaveWorkspace
     path: ../../../lumify.api/Hubs/EventHub.cs
-    startLine: 18
+    startLine: 34
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
+  summary: >-
+    Removes the caller's connection from a workspace group. No-op if
+
+    <code class="paramref">workspaceID</code> is empty.
+  example: []
   syntax:
     content: public Task LeaveWorkspace(string workspaceID)
     parameters:
     - id: workspaceID
       type: System.String
+      description: The workspace to leave.
     return:
       type: System.Threading.Tasks.Task
     content.vb: Public Function LeaveWorkspace(workspaceID As String) As Task
@@ -110,6 +131,12 @@ items:
   fullName.vb: lumify.api.Hubs.EventHub.LeaveWorkspace(String)
   name.vb: LeaveWorkspace(String)
 references:
+- uid: lumify.api.Controllers.EventsController
+  commentId: T:lumify.api.Controllers.EventsController
+  href: lumify.api.Controllers.EventsController.html
+  name: EventsController
+  nameWithType: EventsController
+  fullName: lumify.api.Controllers.EventsController
 - uid: lumify.api.Hubs
   commentId: N:lumify.api.Hubs
   href: lumify.html

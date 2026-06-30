@@ -25,10 +25,23 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ChatHub
     path: ../../../lumify.api/Hubs/ChatHub.cs
-    startLine: 13
+    startLine: 23
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
+  summary: >-
+    SignalR hub for real-time chat and user presence. Tracks each user's active connections
+
+    via the presence service, broadcasts presence changes to all clients, and handles joining
+
+    rooms, leaving rooms and sending messages. Requires an authenticated connection.
+  remarks: >-
+    Presence is connection-counted: a user is online while at least one connection is open.
+
+    Chat rooms are SignalR groups keyed by room ID; messages are persisted before being
+
+    broadcast to the room.
+  example: []
   syntax:
     content: >-
       [Authorize]
@@ -63,10 +76,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: .ctor
     path: ../../../lumify.api/Hubs/ChatHub.cs
-    startLine: 19
+    startLine: 32
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
+  summary: Creates the hub with its injected presence service and database context.
+  example: []
   syntax:
     content: public ChatHub(IPresenceService presenceService, LumifyDbContext db)
     parameters:
@@ -97,17 +112,19 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: OnConnectedAsync
     path: ../../../lumify.api/Hubs/ChatHub.cs
-    startLine: 28
+    startLine: 45
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
-  summary: Called when a new connection is established with the hub.
+  summary: >-
+    Called when a client connects: registers the connection with the presence service and
+
+    broadcasts a <code>PresenceChanged</code> event marking the user online.
   example: []
   syntax:
     content: public override Task OnConnectedAsync()
     return:
       type: System.Threading.Tasks.Task
-      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that represents the asynchronous connect.
     content.vb: Public Overrides Function OnConnectedAsync() As Task
   overridden: Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync
   overload: lumify.api.Hubs.ChatHub.OnConnectedAsync*
@@ -129,20 +146,25 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: OnDisconnectedAsync
     path: ../../../lumify.api/Hubs/ChatHub.cs
-    startLine: 42
+    startLine: 65
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
-  summary: Called when a connection with the hub is terminated.
+  summary: >-
+    Called when a client disconnects: removes the connection from the presence service
+
+    and broadcasts a <code>PresenceChanged</code> event with the user's recomputed status
+
+    (offline once their last connection closes).
   example: []
   syntax:
     content: public override Task OnDisconnectedAsync(Exception? exception)
     parameters:
     - id: exception
       type: System.Exception
+      description: The error that caused the disconnect, if any.
     return:
       type: System.Threading.Tasks.Task
-      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that represents the asynchronous disconnect.
     content.vb: Public Overrides Function OnDisconnectedAsync(exception As Exception) As Task
   overridden: Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
   overload: lumify.api.Hubs.ChatHub.OnDisconnectedAsync*
@@ -167,15 +189,21 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: JoinRoom
     path: ../../../lumify.api/Hubs/ChatHub.cs
-    startLine: 62
+    startLine: 90
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
+  summary: >-
+    Adds the caller's connection to a chat room (SignalR group) so it receives that
+
+    room's messages. No-op if <code class="paramref">roomID</code> is empty.
+  example: []
   syntax:
     content: public Task JoinRoom(string roomID)
     parameters:
     - id: roomID
       type: System.String
+      description: The room to join.
     return:
       type: System.Threading.Tasks.Task
     content.vb: Public Function JoinRoom(roomID As String) As Task
@@ -201,15 +229,21 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: LeaveRoom
     path: ../../../lumify.api/Hubs/ChatHub.cs
-    startLine: 72
+    startLine: 105
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
+  summary: >-
+    Removes the caller's connection from a chat room (SignalR group). No-op if
+
+    <code class="paramref">roomID</code> is empty.
+  example: []
   syntax:
     content: public Task LeaveRoom(string roomID)
     parameters:
     - id: roomID
       type: System.String
+      description: The room to leave.
     return:
       type: System.Threading.Tasks.Task
     content.vb: Public Function LeaveRoom(roomID As String) As Task
@@ -235,17 +269,26 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: SendMessage
     path: ../../../lumify.api/Hubs/ChatHub.cs
-    startLine: 85
+    startLine: 125
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
+  summary: >-
+    Persists a chat message from the current user and broadcasts it to everyone in the
+
+    room as a <code>MessageReceived</code> event. Silently ignores empty room/content or an
+
+    unauthenticated caller.
+  example: []
   syntax:
     content: public Task SendMessage(string roomID, string content)
     parameters:
     - id: roomID
       type: System.String
+      description: The room to post to.
     - id: content
       type: System.String
+      description: The message text.
     return:
       type: System.Threading.Tasks.Task
     content.vb: Public Function SendMessage(roomID As String, content As String) As Task
@@ -428,13 +471,6 @@ references:
   - uid: lumify.api.Models.Context
     name: Context
     href: lumify.api.Models.Context.html
-- uid: System.Threading.Tasks.Task
-  commentId: T:System.Threading.Tasks.Task
-  parent: System.Threading.Tasks
-  isExternal: true
-  name: Task
-  nameWithType: Task
-  fullName: System.Threading.Tasks.Task
 - uid: Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync
   commentId: M:Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync
   parent: Microsoft.AspNetCore.SignalR.Hub
@@ -460,6 +496,13 @@ references:
   name: OnConnectedAsync
   nameWithType: ChatHub.OnConnectedAsync
   fullName: lumify.api.Hubs.ChatHub.OnConnectedAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
 - uid: System.Threading.Tasks
   commentId: N:System.Threading.Tasks
   isExternal: true

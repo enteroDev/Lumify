@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class UserIdProvider | Lumify – Code Documentation ">
       
-      
+      <meta name="description" content="Maps the custom UserID claim to the SignalR user identifier, so that Clients.User(userID) targets all of a user&#39;s active hub connections.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="lumify_api_Hubs_UserIdProvider" data-uid="lumify.api.Hubs.UserIdProvider" class="text-break">
-Class UserIdProvider  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/UserIdProvider.cs/#L10"><i class="bi bi-code-slash"></i></a>
+Class UserIdProvider  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/UserIdProvider.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,9 @@ Class UserIdProvider  <a class="header-action link-secondary" title="View source
   <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Maps the custom <code>UserID</code> claim to the SignalR user identifier, so that
+<code>Clients.User(userID)</code> targets all of a user's active hub connections.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -131,10 +133,10 @@ Class UserIdProvider  <a class="header-action link-secondary" title="View source
 
   <h3 id="lumify_api_Hubs_UserIdProvider_GetUserId_Microsoft_AspNetCore_SignalR_HubConnectionContext_" data-uid="lumify.api.Hubs.UserIdProvider.GetUserId(Microsoft.AspNetCore.SignalR.HubConnectionContext)">
   GetUserId(HubConnectionContext)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/UserIdProvider.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Hubs/UserIdProvider.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the user ID for the specified connection.</p>
+  <div class="markdown level1 summary"><p>Returns the user identifier for a connection — the value of its <code>UserID</code> claim.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -145,14 +147,14 @@ Class UserIdProvider  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>connection</code> <span class="xref">HubConnectionContext</span></dt>
-    <dd><p>The connection to get the user ID for.</p>
+    <dd><p>The hub connection to resolve the user for.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">string</span></dt>
-    <dd><p>The user ID for the specified connection.</p>
+    <dd><p>The user's ID, or <code>null</code> if the claim is absent.</p>
 </dd>
   </dl>
 

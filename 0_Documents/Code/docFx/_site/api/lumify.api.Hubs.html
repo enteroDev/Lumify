@@ -96,27 +96,51 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Hubs.ChatHub.html">ChatHub</a></dt>
-      <dd></dd>
+      <dd><p>SignalR hub for real-time chat and user presence. Tracks each user's active connections
+via the presence service, broadcasts presence changes to all clients, and handles joining
+rooms, leaving rooms and sending messages. Requires an authenticated connection.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Hubs.EventHub.html">EventHub</a></dt>
-      <dd></dd>
+      <dd><p>SignalR hub for real-time calendar event updates within a workspace. Clients join the
+group of a workspace to receive its live events (<code>EventCreated</code>, <code>EventUpdated</code>,
+<code>EventDeleted</code>) broadcast by the <a class="xref" href="lumify.api.Controllers.EventsController.html">EventsController</a>. Requires
+an authenticated connection.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Hubs.NoteHub.html">NoteHub</a></dt>
-      <dd></dd>
+      <dd><p>SignalR hub for real-time folder and note updates within a workspace. Clients join the
+group of a workspace to receive its live events (e.g. <code>NoteCreated</code>,
+<code>NoteUpdated</code>, <code>NoteDeleted</code>, <code>FolderCreated</code>, …) broadcast by the
+<a class="xref" href="lumify.api.Controllers.NotesController.html">NotesController</a> and <a class="xref" href="lumify.api.Controllers.FoldersController.html">FoldersController</a>.
+Requires an authenticated connection.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Hubs.TodoHub.html">TodoHub</a></dt>
-      <dd></dd>
+      <dd><p>SignalR hub for real-time todo list/entry updates within a workspace. Clients join the
+group of a workspace to receive its live events (<code>TodoListCreated</code>,
+<code>TodoListUpdated</code>, <code>TodoEntryCreated</code>, <code>TodoEntryUpdated</code>, …) broadcast by
+the <a class="xref" href="lumify.api.Controllers.TodoListsController.html">TodoListsController</a>. Requires an authenticated connection.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Hubs.UserIdProvider.html">UserIdProvider</a></dt>
-      <dd></dd>
+      <dd><p>Maps the custom <code>UserID</code> claim to the SignalR user identifier, so that
+<code>Clients.User(userID)</code> targets all of a user's active hub connections.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Hubs.WorkspaceHub.html">WorkspaceHub</a></dt>
-      <dd></dd>
+      <dd><p>SignalR hub for real-time workspace and membership updates. Unlike the other workspace
+hubs, clients join a group keyed by their own <em>user ID</em> (a user can belong to many
+workspaces), so the <a class="xref" href="lumify.api.Controllers.WorkspaceController.html">WorkspaceController</a> can push events such as
+<code>WorkspaceCreated</code>, <code>WorkspaceUpdated</code>, <code>WorkspaceDeleted</code>,
+<code>WorkspaceMemberAdded</code> and <code>WorkspaceMemberRemoved</code> to every affected member.
+Requires an authenticated connection.</p>
+</dd>
     </dl>
 
 

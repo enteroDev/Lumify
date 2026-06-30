@@ -20,10 +20,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UserIdProvider
     path: ../../../lumify.api/Hubs/UserIdProvider.cs
-    startLine: 9
+    startLine: 11
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
+  summary: >-
+    Maps the custom <code>UserID</code> claim to the SignalR user identifier, so that
+
+    <code>Clients.User(userID)</code> targets all of a user's active hub connections.
+  example: []
   syntax:
     content: public class UserIdProvider
     content.vb: Public Class UserIdProvider
@@ -47,21 +52,21 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: GetUserId
     path: ../../../lumify.api/Hubs/UserIdProvider.cs
-    startLine: 11
+    startLine: 18
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
-  summary: Gets the user ID for the specified connection.
+  summary: Returns the user identifier for a connection — the value of its <code>UserID</code> claim.
   example: []
   syntax:
     content: public string? GetUserId(HubConnectionContext connection)
     parameters:
     - id: connection
       type: Microsoft.AspNetCore.SignalR.HubConnectionContext
-      description: The connection to get the user ID for.
+      description: The hub connection to resolve the user for.
     return:
       type: System.String
-      description: The user ID for the specified connection.
+      description: The user's ID, or <code>null</code> if the claim is absent.
     content.vb: Public Function GetUserId(connection As HubConnectionContext) As String
   overload: lumify.api.Hubs.UserIdProvider.GetUserId*
 references:
