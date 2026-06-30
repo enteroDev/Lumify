@@ -12,9 +12,17 @@ import type { ChatMessageDTO } from "@/models/Chat";
 
 const API_BASE = CONFIG.API.API_BASE;
 
+/**
+ * Client for the chat endpoints. Real-time message delivery is handled by the chat hub
+ * (see `useChatHub`); this service only loads the persisted history.
+ */
 export const ChatService = {
 
-    // --- GET --- //
+    /**
+     * Loads the full message history of a room, oldest first.
+     * @param roomID The room to load.
+     * @returns The room's messages.
+     */
     async getMessagesOfRoom(roomID: string): Promise<ChatMessageDTO[]> {
         const response = await saveFetch(`${API_BASE}/chat/getMessagesOfRoom?roomID=${encodeURIComponent(roomID)}`, {
             method: "GET",

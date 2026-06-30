@@ -8,10 +8,23 @@ import { usePresence } from "@/hooks/usePresence";
 // --------------------- //
 // --- Types & Props --- //
 // --------------------- //
+/** Maps a user ID to its latest known {@link PresenceStatus}. */
 type PresenceMap = Record<string, PresenceStatus>;
 
-type PresenceContextValue = {
+/** The presence API exposed via {@link usePresenceContext}. */
+export type PresenceContextValue = {
+    /**
+     * Returns the live presence of a user, or `fallbackStatus` (default `Offline`) if none has been
+     * received yet.
+     * @param userID The user to look up.
+     * @param fallbackStatus Status to use when no live value is known.
+     */
     getPresenceStatus: (userID: string, fallbackStatus?: PresenceStatus) => PresenceStatus;
+    /**
+     * Subscribes to "a friendship of the current user changed" events.
+     * @param handler Called on each change.
+     * @returns An unsubscribe function.
+     */
     subscribeFriendshipChanged: (handler: () => void) => () => void;
 };
 
@@ -27,6 +40,13 @@ type PresenceProviderProps = {
 // ---------------- //
 // --- Provider --- //
 // ---------------- //
+/**
+ * Centralises live presence for the app. It opens a single presence connection (via
+ * {@link usePresence}) for `userID`, keeps an in-memory map of every user's latest status, and
+ * fans out friendship-changed events to subscribers — so many components share one hub connection.
+ * Consumers call {@link usePresenceContext}.
+ * @param props The current user ID (or `null` to stay idle) and React children.
+ */
 export default function PresenceProvider({ userID, children }: PresenceProviderProps) {
     const [presenceMap, setPresenceMap] = useState<PresenceMap>({});
 
@@ -82,6 +102,12 @@ export default function PresenceProvider({ userID, children }: PresenceProviderP
 // ------------ //
 // --- Hook --- //
 // ------------ //
+/**
+ * Accesses the presence {@link PresenceContextValue} (`getPresenceStatus`,
+ * `subscribeFriendshipChanged`).
+ * @returns The presence API.
+ * @throws Error if used outside a {@link PresenceProvider}.
+ */
 export function usePresenceContext() {
     const context = useContext(PresenceContext);
 

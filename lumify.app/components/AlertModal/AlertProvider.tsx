@@ -6,26 +6,38 @@
 
 // React
 import { createContext, useCallback, useContext, useMemo, useState } from "react";
-
 // Components
 import AlertModal, { type AlertModalStatus } from "./AlertModal";
+
 
 
 // ------------------- //
 // --- Types/Props --- //
 // ------------------- //
-type AlertOptions = {
+
+/** Configuration for a confirmation/alert dialog. */
+export type AlertOptions = {
+    /** Dialog heading. */
     title: string;
+    /** Body text. */
     message: string;
+    /** Visual style (e.g. info/warning/danger); defaults to `"info"`. */
     status?: AlertModalStatus;
+    /** Confirm button label (defaults to "Ja"). */
     confirmText?: string;
+    /** Cancel button label (defaults to "Nein"). */
     cancelText?: string;
+    /** Invoked when the user confirms; may be async (the dialog closes afterwards). */
     onConfirm?: () => void | Promise<void>;
+    /** Invoked when the user cancels. */
     onCancel?: () => void;
 };
 
-type AlertContextValue = {
+/** The alert API exposed via {@link useAlert}. */
+export type AlertContextValue = {
+    /** Opens an alert dialog with the given {@link AlertOptions}. */
     showAlert: (options: AlertOptions) => void;
+    /** Closes the current alert dialog without firing any callback. */
     closeAlert: () => void;
 };
 
@@ -43,7 +55,17 @@ const AlertContext = createContext<AlertContextValue | null>(null);
 // ----------------- //
 // --- Component --- //
 // ----------------- //
-export default function AlertProvider({ children }: AlertProviderProps) {
+/**
+ * Provides a single app-wide confirmation/alert dialog. Renders one `AlertModal` and exposes
+ * {@link AlertContextValue} via context so any component can open it imperatively. Wrap the app
+ * once; consumers call {@link useAlert}.
+ * @param props Standard React children.
+ */
+export default function AlertProvider({
+    children,
+}: AlertProviderProps) {
+
+
     const [alertState, setAlertState] = useState<AlertState | null>(null);
 
     // -------------- //
@@ -59,7 +81,6 @@ export default function AlertProvider({ children }: AlertProviderProps) {
             isOpen: true,
         });
     }, []);
-
 
 
     // --------------- //
@@ -81,20 +102,18 @@ export default function AlertProvider({ children }: AlertProviderProps) {
     }, [alertState]);
 
 
-
     // ------------ //
     // --- Memo --- //
-    // ------------ //   
+    // ------------ //
     const value = useMemo(() => ({
         showAlert,
         closeAlert,
     }), [showAlert, closeAlert]);
 
 
-
     // ----------- //
     // --- JSX --- //
-    // ----------- //  
+    // ----------- //
     return (
         <AlertContext.Provider value={value}>
             {children}
@@ -117,6 +136,11 @@ export default function AlertProvider({ children }: AlertProviderProps) {
 // ------------ //
 // --- Hook --- //
 // ------------ //
+/**
+ * Accesses the alert {@link AlertContextValue} (`showAlert`, `closeAlert`).
+ * @returns The alert API.
+ * @throws Error if used outside an {@link AlertProvider}.
+ */
 export function useAlert() {
     const context = useContext(AlertContext);
     if (!context) {

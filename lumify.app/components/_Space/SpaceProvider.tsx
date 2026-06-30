@@ -18,23 +18,24 @@ import React, {
 // --- Types/Props --- //
 // ------------------- //
 
-// Types of spaces
-// - Private space: Personal space for the user, not shared with others.
-// - Workspace: Shared space for a team or project, identified by workspaceID and name.
+/**
+ * The space the user is currently working in. Either their private personal space, or a shared
+ * workspace identified by its ID and name.
+ */
 export type Space =
     | { type: "private" }
     | { type: "workspace"; workspaceID: string; name: string };
 
 
-// Properties the space context provides
-// - currentSpace: The currently active space (private or workspace).
-// - setCurrentSpace: Function to switch spaces, updates both, state & localStorage.
-// - isPrivate: Boolean indicating if the current space is private (derived from currentSpace).
-// - workspaceID: ID of the workspace if in a workspace, null if in private space (derived from currentSpace).
-type SpaceContextProps = {
+/** The space API exposed via {@link useSpace}. */
+export type SpaceContextProps = {
+    /** The currently active space (private or a workspace). */
     currentSpace: Space;
+    /** Switches the active space (updates both state and `localStorage`). */
     setCurrentSpace: (next: Space) => void;
+    /** `true` while the private space is active (derived from {@link SpaceContextProps.currentSpace}). */
     isPrivate: boolean;
+    /** The active workspace ID, or `null` in the private space (derived). */
     workspaceID: string | null;
 };
 
@@ -87,6 +88,13 @@ function readInitialSpace(): Space {
 // ----------------- //
 // --- Component --- //
 // ----------------- //
+/**
+ * Tracks which {@link Space} the user is working in (private vs. a workspace) and persists the
+ * choice to `localStorage`. The active space drives whether other features query personal or
+ * workspace data. To keep server and client markup identical, the first render is always `private`.
+ * Wrap the app once; consumers call {@link useSpace}.
+ * @param props Standard React children.
+ */
 export default function SpaceProvider({ children }: { children: React.ReactNode }) {
 
     // IMPORTANT: deterministic initial render
@@ -123,6 +131,12 @@ export default function SpaceProvider({ children }: { children: React.ReactNode 
 // ------------ //
 // --- Hook --- //
 // ------------ //
+/**
+ * Accesses the space {@link SpaceContextProps} (`currentSpace`, `setCurrentSpace`, `isPrivate`,
+ * `workspaceID`).
+ * @returns The space API.
+ * @throws Error if used outside a {@link SpaceProvider}.
+ */
 export function useSpace(): SpaceContextProps {
     const ctx = useContext(SpaceContext);
     if (!ctx) { throw new Error("useSpace must be used within SpaceProvider"); }

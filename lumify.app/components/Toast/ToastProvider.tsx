@@ -17,14 +17,21 @@ import ToastViewport from "./ToastViewport";
 // --------------------- //
 // --- Types & Props --- //
 // --------------------- //
-type ToastCreateOptions = {
+
+/** Options when creating a toast. */
+export type ToastCreateOptions = {
+    /** Reuse an existing toast ID to update it in place instead of stacking a new one. */
     id?: string;
+    /** Optional bold title shown above the message. */
     title?: string;
+    /** Auto-dismiss delay in milliseconds (defaults to 3200). */
     durationMs?: number;
+    /** Optional action button (label + handler). */
     action?: ToastAction;
 };
 
-type ToastApi = {
+/** The toast API exposed via {@link useToast}. */
+export type ToastApi = {
     show: (variant: ToastVariant, message: string, options?: ToastCreateOptions) => string;
     success: (message: string, options?: ToastCreateOptions) => string;
     info: (message: string, options?: ToastCreateOptions) => string;
@@ -39,7 +46,6 @@ const ToastContext = createContext<ToastApi | null>(null);
 
 
 
-
 // -------------- //
 // --- Helper --- //
 // -------------- //
@@ -48,14 +54,35 @@ function createId(): string {
 }
 
 
-
 // ----------------- //
 // --- Component --- //
 // ----------------- //
-export default function ToastProvider({ children }: { children: React.ReactNode }) {
+/**
+ * Provides the toast notification system: holds the toast queue (max 3 visible), schedules
+ * auto-dismiss timers, renders the `ToastViewport`, and exposes the {@link ToastApi} via
+ * context. Wrap the app once; consumers call {@link useToast}.
+ * @param props Standard React children.
+ */
+export default function ToastProvider({
+    children,
+}: { children: React.ReactNode }) {
+
+
+    // -------------- //
+    // --- States --- //
+    // -------------- //
     const [items, setItems] = useState<ToastItem[]>([]);
+
+
+    // ------------ //
+    // --- Refs --- //
+    // ------------ //
     const timers = useRef<Map<string, number>>(new Map());
 
+
+    // ----------------- //
+    // --- Callbacks --- //
+    // ----------------- //
     const dismiss = useCallback((id: string) => {
         setItems(prev => prev.filter(x => x.id !== id));
 
@@ -116,6 +143,10 @@ export default function ToastProvider({ children }: { children: React.ReactNode 
         timers.current.clear();
     }, []);
 
+
+    // ------------ //
+    // --- Memo --- //
+    // ------------ //
     const api: ToastApi = useMemo(() => ({
         show,
         success: (message, options) => show("success", message, options),
@@ -125,7 +156,6 @@ export default function ToastProvider({ children }: { children: React.ReactNode 
         update,
         clear,
     }), [show, dismiss, update, clear]);
-
 
 
     // ----------- //
@@ -152,6 +182,11 @@ export default function ToastProvider({ children }: { children: React.ReactNode 
 // ------------ //
 // --- Hook --- //
 // ------------ //
+/**
+ * Accesses the toast {@link ToastApi} (show/success/info/error, dismiss, update, clear).
+ * @returns The toast API.
+ * @throws Error if used outside a {@link ToastProvider}.
+ */
 export function useToast(): ToastApi {
     const ctx = useContext(ToastContext);
     if (!ctx) { throw new Error("useToast must be used within ToastProvider"); }

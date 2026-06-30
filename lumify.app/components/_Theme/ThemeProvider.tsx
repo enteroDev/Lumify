@@ -17,13 +17,19 @@ import React, {
 // ------------------- //
 // --- Types/Props --- //
 // ------------------- //
-// The two available themes. The value is what we write into <html data-theme="...">,
-// and it is exactly the key that globals.css switches the color palette on.
+/**
+ * The two available colour themes. The value is written to `<html data-theme="...">` and is exactly
+ * the key `globals.css` switches the colour palette on.
+ */
 export type Theme = "chill" | "beach";
 
-type ThemeContextValue = {
+/** The theme API exposed via {@link useTheme}. */
+export type ThemeContextValue = {
+    /** The currently active theme. */
     theme: Theme;
+    /** Toggles between the two themes. */
     toggle: () => void;
+    /** Sets a specific theme. */
     setTheme: (theme: Theme) => void;
 };
 
@@ -37,6 +43,12 @@ const DEFAULT_THEME: Theme = "chill";
 // ----------------- //
 // --- Component --- //
 // ----------------- //
+/**
+ * Provides the active colour theme. Restores the last choice from `localStorage` on mount, applies
+ * the theme to `<html data-theme>` (re-colouring the whole document) and persists every change.
+ * Wrap the app once; consumers call {@link useTheme}.
+ * @param props Standard React children.
+ */
 export default function ThemeProvider({
     children,
     }: {
@@ -90,6 +102,11 @@ export default function ThemeProvider({
 // ------------ //
 // --- Hook --- //
 // ------------ //
+/**
+ * Accesses the theme {@link ThemeContextValue} (`theme`, `toggle`, `setTheme`).
+ * @returns The theme API.
+ * @throws Error if used outside a {@link ThemeProvider}.
+ */
 export function useTheme() {
     const ctx = useContext(ThemeContext);
     if (!ctx) {

@@ -6,19 +6,15 @@
 
 // React
 import { createContext, useCallback, useContext, useMemo, useState } from "react";
-
 // Components
 import WorkspaceModal from "@/app/(app)/Dashboard/components/Workspaces/components/WorkspaceModal/WorkspaceModal";
 import EventModal from "@/app/(app)/(space)/Events/components/EventModal/EventModal";
 import NoteModal from "@/app/(app)/(space)/Notes/components/NoteModal/NoteModal";
-
 // Models
 import type { WorkspaceVM } from "@/models/Space";
 import type { CalendarEventDTO, SaveEventDTO } from "@/models/Events";
 import type { AddEventFormData } from "@/components/_Forms/AddEventForm/AddEventForm";
 import type { Note, Note_TextBlock, Note_LinkItem } from "@/models/Notes";
-
-
 
 
 // ------------------- //
@@ -48,9 +44,6 @@ type NoteModalOptions = {
     linkItems: Note_LinkItem[];
 };
 
-
-
-
 type ModalState =
     | { type: null }
     | { type: "workspace"; options: WorkspaceModalOptions }
@@ -59,13 +52,17 @@ type ModalState =
 
 
 
-type ModalContextValue = {
+/** The modal API exposed via {@link useModal}. Only one modal is open at a time. */
+export type ModalContextValue = {
+    /** Opens the note editor modal for the given note and its blocks/links. */
     openNoteModal: (options: NoteModalOptions) => void;
+    /** Opens the workspace settings modal. */
     openWorkspaceModal: (options: WorkspaceModalOptions) => void;
+    /** Opens the event modal for the selected day, wired to the given event handlers. */
     openEventModal: (options: EventModalOptions) => void;
+    /** Closes whichever modal is currently open. */
     closeModal: () => void;
 };
-
 
 type ModalProviderProps = {
     children: React.ReactNode;
@@ -78,6 +75,14 @@ const ModalContext = createContext<ModalContextValue | null>(null);
 // ----------------- //
 // --- Component --- //
 // ----------------- //
+
+/**
+ * Central host for the app's large modals (note editor, workspace settings, event editor). Keeps a
+ * single discriminated-union state so only one modal renders at a time, and exposes imperative
+ * open/close methods via {@link ModalContextValue}. Wrap the app once; consumers call
+ * {@link useModal}.
+ * @param props Standard React children.
+ */
 export default function ModalProvider({ children }: ModalProviderProps) {
 
     // -------------- //
@@ -114,13 +119,13 @@ export default function ModalProvider({ children }: ModalProviderProps) {
         });
     }, []);
 
-
     const value = useMemo(() => ({
         openNoteModal,
         openWorkspaceModal,
         openEventModal,
         closeModal,
     }), [openNoteModal, openWorkspaceModal, openEventModal, closeModal]);
+
 
 
     // ----------- //
@@ -176,6 +181,7 @@ export default function ModalProvider({ children }: ModalProviderProps) {
                     addEvent={modalState.options.addEvent}
                 />
             )}
+            
         </ModalContext.Provider>
     );
 }
@@ -184,6 +190,11 @@ export default function ModalProvider({ children }: ModalProviderProps) {
 // ------------ //
 // --- Hook --- //
 // ------------ //
+/**
+ * Accesses the modal {@link ModalContextValue} (open note/workspace/event modal, close).
+ * @returns The modal API.
+ * @throws Error if used outside a {@link ModalProvider}.
+ */
 export function useModal() {
     const context = useContext(ModalContext);
     if (!context) {

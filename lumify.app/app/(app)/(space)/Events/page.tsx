@@ -25,10 +25,6 @@ import type { CalendarEventDTO, SaveEventDTO } from "@/models/Events";
 
 
 
-
-
-
-
 // ----------------- //
 // --- Component --- //
 // ----------------- //
@@ -39,7 +35,6 @@ export default function Events() {
     const { openEventModal } = useModal();
 
     const [events, setEvents] = useState<CalendarEventDTO[]>([]);
-
 
 
     // --------------- //
@@ -63,7 +58,6 @@ export default function Events() {
             addEvent,
         });
     }
-
 
 
     // ------------- //
@@ -143,7 +137,6 @@ export default function Events() {
             return null;
         }
     }
-
 
 
     // --------------- //

@@ -1,21 +1,29 @@
-// Typdefinitionen für die wiederverwendbare Dropdown-Komponente.
-// (Aus der Verwendung in Dropdown.tsx / DropdownContent / DropdownItem / SpaceSwitcher rekonstruiert.)
 
-// Optionales Verhalten/Konfiguration des Dropdowns.
+// Type definitions for the reusable Dropdown component.
+
+
+/** Optional behaviour/configuration of the dropdown. */
 export type DropdownConfig = {
+    /** Whether the dropdown is disabled. */
     disabled?: boolean;
 };
 
-// Normalisierter Eintrag, mit dem das Dropdown intern arbeitet.
+/** Normalized entry the dropdown works with internally. */
 export type DropdownEntry<TPayload = unknown> = {
+    /** The entry's value (used for selection). */
     value: string;
+    /** The label shown to the user. */
     text: string;
+    /** Optional caller-supplied payload carried with the entry. */
     payload?: TPayload;
+    /** Whether this entry is disabled. */
     disabled?: boolean;
 };
 
-// Eingangsformat, das der Aufrufer übergeben darf: entweder ein einfacher String
-// oder ein Objekt (text fällt auf value zurück; payload/disabled optional).
+/**
+ * Input format the caller may pass: either a plain string or an object
+ * (`text` falls back to `value`; `payload`/`disabled` are optional).
+ */
 export type DropdownEntryRaw<TPayload = unknown> =
     | string
     | {

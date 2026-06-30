@@ -44,6 +44,13 @@ type UseTodoHubProps = {
 // ------------ //
 // --- Hook --- //
 // ------------ //
+/**
+ * React hook that subscribes to live todo-list and todo-entry updates for a workspace via the todo
+ * hub. It connects and joins the workspace group (only for non-private spaces) and forwards each
+ * create/update/delete event to the matching callback. The connection is torn down on unmount or
+ * when the workspace changes.
+ * @param props Whether the space is private, the workspace ID, and the list/entry callbacks.
+ */
 export function useTodoHub({
     isPrivate,
     workspaceID,
@@ -57,6 +64,7 @@ export function useTodoHub({
     onTodoEntryDeleted,
 }: UseTodoHubProps) {
 
+
     // ------------ //
     // --- Refs --- //
     // ------------ //
@@ -69,9 +77,9 @@ export function useTodoHub({
     const onTodoEntryDeletedRef = useRef(onTodoEntryDeleted);
 
 
-    // ------------------ //
-    // --- UseEffects --- //
-    // ------------------ //
+    // --------------- //
+    // --- Effects --- //
+    // --------------- //
     useEffect(() => {
         onTodoListCreatedRef.current = onTodoListCreated;
     }, [onTodoListCreated]);

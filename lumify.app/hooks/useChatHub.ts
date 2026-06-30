@@ -33,7 +33,9 @@ type UseChatHubProps = {
     onMessageReceived?: (data: ChatMessageReceivedPayload) => void;
 };
 
-type UseChatHubResult = {
+/** The return value of {@link useChatHub}. */
+export type UseChatHubResult = {
+    /** Sends a trimmed message to the active room over the chat hub. */
     sendMessage: (content: string) => Promise<void>;
 };
 
@@ -42,6 +44,13 @@ type UseChatHubResult = {
 // ------------ //
 // --- Hook --- //
 // ------------ //
+/**
+ * React hook that manages a SignalR connection to the chat hub for a given user and room: it
+ * joins/leaves the room as `roomID` changes, invokes the `onMessageReceived` callback for incoming
+ * messages, and returns a `sendMessage` function. The connection is torn down on unmount.
+ * @param props The current user, the active room, and an optional incoming-message callback.
+ * @returns An object exposing {@link UseChatHubResult.sendMessage}.
+ */
 export function useChatHub({
     userID,
     roomID,

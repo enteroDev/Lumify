@@ -19,12 +19,17 @@ const API_BASE = CONFIG.API.API_BASE;
 // --------------- //
 // --- Service --- //
 // --------------- //
+/**
+ * Client for the friendship endpoints (send/accept/reject requests, remove friends, and list
+ * friends and pending requests). Live updates are delivered separately over the chat hub
+ * (see `usePresence`). Methods throw with the server's message on failure.
+ */
 export const FriendshipService = {
 
-    // ---------------------- //
-    // --- FriendRequests --- //
-    // ---------------------- //
-
+    /**
+     * Sends a friend request to another user.
+     * @param addresseeID The user to send the request to.
+     */
     async sendFriendRequest(addresseeID: string): Promise<void> {
         const res = await saveFetch(
             `${API_BASE}/friendship/sendFriendRequest?addresseeID=${encodeURIComponent(addresseeID)}`,
@@ -39,6 +44,10 @@ export const FriendshipService = {
         }
     },
 
+    /**
+     * Accepts a pending friend request addressed to the current user.
+     * @param friendshipID The pending friendship to accept.
+     */
     async acceptFriendRequest(friendshipID: string): Promise<void> {
         const res = await saveFetch(
             `${API_BASE}/friendship/acceptFriendRequest?friendshipID=${encodeURIComponent(friendshipID)}`,
@@ -53,6 +62,10 @@ export const FriendshipService = {
         }
     },
 
+    /**
+     * Rejects a pending friend request addressed to the current user.
+     * @param friendshipID The pending friendship to reject.
+     */
     async rejectFriendRequest(friendshipID: string): Promise<void> {
         const res = await saveFetch(
             `${API_BASE}/friendship/rejectFriendRequest?friendshipID=${encodeURIComponent(friendshipID)}`,
@@ -72,6 +85,10 @@ export const FriendshipService = {
     // -------------- //
     // --- DELETE --- //
     // -------------- //    
+    /**
+     * Removes an existing friend.
+     * @param friendID The friend to remove.
+     */
     async removeFriend(friendID: string): Promise<void> {
         const res = await saveFetch(
             `${API_BASE}/friendship/removeFriend?friendID=${encodeURIComponent(friendID)}`,
@@ -92,6 +109,10 @@ export const FriendshipService = {
     // --- GET --- //
     // ----------- //
 
+    /**
+     * Returns the current user's accepted friends, each with live presence status.
+     * @returns The list of friends.
+     */
     async getFriendsOfUser(): Promise<UserPreviewDTO[]> {
         const res = await saveFetch(`${API_BASE}/friendship/getFriendsOfUser`, {
             method: "GET",
@@ -105,6 +126,10 @@ export const FriendshipService = {
         return await res.json();
     },
 
+    /**
+     * Returns the pending friend requests addressed to the current user.
+     * @returns The list of incoming requests.
+     */
     async getIncomingFriendRequests(): Promise<FriendshipDTO[]> {
         const res = await saveFetch(`${API_BASE}/friendship/getIncomingFriendRequests`, {
             method: "GET",
@@ -118,6 +143,10 @@ export const FriendshipService = {
         return await res.json();
     },
 
+    /**
+     * Returns the pending friend requests sent by the current user.
+     * @returns The list of outgoing requests.
+     */
     async getOutgoingFriendRequests(): Promise<FriendshipDTO[]> {
         const res = await saveFetch(`${API_BASE}/friendship/getOutgoingFriendRequests`, {
             method: "GET",

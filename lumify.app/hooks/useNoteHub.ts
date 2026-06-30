@@ -59,6 +59,13 @@ type UseNoteHubProps = {
 // ------------ //
 // --- Hook --- //
 // ------------ //
+/**
+ * React hook that subscribes to live folder, note and note-module (text block / link item) updates
+ * for a workspace via the note hub. It connects and joins the workspace group (only for non-private
+ * spaces) and forwards each create/update/delete event to the matching callback. The connection is
+ * torn down on unmount or when the workspace changes.
+ * @param props Whether the space is private, the workspace ID, and the per-entity callbacks.
+ */
 export function useNoteHub({
     isPrivate,
     workspaceID,

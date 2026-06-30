@@ -7,6 +7,11 @@ const API_BASE = CONFIG.API.API_BASE;
 
 
 
+/**
+ * Reads the CSRF token from the `XSRF-TOKEN` cookie (URL-decoded). Returns an empty string on the
+ * server (no `document`) or when the cookie is absent.
+ * @returns The CSRF token, or an empty string.
+ */
 export function getCsrfFromCookie(): string {
     if (typeof document === "undefined") return "";
 
@@ -20,13 +25,25 @@ export function getCsrfFromCookie(): string {
 
 
 
+/** Options for {@link saveFetch}. */
 export type SaveFetchOptions = {
-    // The login/auth endpoints legitimately answer 401 for wrong credentials.
-    // In those cases the caller wants to handle the error (e.g. show a toast),
-    // not trigger the global "session expired" redirect to /Auth.
+    /**
+     * Whether a 401 response triggers the global "session expired" logout + redirect to `/Auth`.
+     * Defaults to `true`; set `false` on auth endpoints that legitimately answer 401 for wrong
+     * credentials, so the caller can handle the error itself (e.g. show a toast).
+     */
     redirectOn401?: boolean;
 };
 
+/**
+ * Wrapper around `fetch` that adds the credentials and CSRF handling every API call needs: sends
+ * cookies, defaults the JSON content type, attaches the `X-CSRF-Token` header on mutating requests,
+ * and (unless disabled) logs out and redirects to `/Auth` on a 401.
+ * @param input The request URL or `Request`.
+ * @param init Standard `fetch` init options.
+ * @param opts Extra behaviour, e.g. {@link SaveFetchOptions.redirectOn401}.
+ * @returns The raw `Response` (callers check `res.ok` themselves).
+ */
 export async function saveFetch(
     input: RequestInfo | URL,
     init: RequestInit = {},

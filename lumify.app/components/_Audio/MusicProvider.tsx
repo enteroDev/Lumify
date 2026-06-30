@@ -18,8 +18,11 @@ import React, {
 // ------------------- //
 // --- Types/Props --- //
 // ------------------- //
-type MusicContextValue = {
+/** The music API exposed via {@link useMusic}. */
+export type MusicContextValue = {
+    /** Whether the background music is currently playing. */
     isEnabled: boolean;
+    /** Toggles the background music on/off. */
     toggle: () => void;
 };
 
@@ -30,6 +33,12 @@ const MusicContext = createContext<MusicContextValue | null>(null);
 // ----------------- //
 // --- Component --- //
 // ----------------- //
+/**
+ * Provides app-wide ambient lo-fi background music. Creates one looping, low-volume audio element
+ * and exposes play/pause via {@link MusicContextValue}. Wrap the app once; consumers call
+ * {@link useMusic}.
+ * @param props Standard React children.
+ */
 export default function MusicProvider({
     children,
     }: {
@@ -103,6 +112,11 @@ export default function MusicProvider({
 // ------------ //
 // --- Hook --- //
 // ------------ //
+/**
+ * Accesses the music {@link MusicContextValue} (`isEnabled`, `toggle`).
+ * @returns The music API.
+ * @throws Error if used outside a {@link MusicProvider}.
+ */
 export function useMusic() {
     const ctx = useContext(MusicContext);
     if (!ctx) {

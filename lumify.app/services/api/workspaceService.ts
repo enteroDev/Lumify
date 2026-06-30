@@ -6,10 +6,18 @@ import { CONFIG } from "@/app/config/config";
 const API_BASE = CONFIG.API.API_BASE;
 
 
+/**
+ * Client for the workspace endpoints (create/rename/delete workspaces, add/remove members, and
+ * query workspaces and members). Methods throw on a non-OK response.
+ */
 export const WorkspaceService = {
 
 
-    // --- Add --- //
+    /**
+     * Creates a new workspace (the current user becomes its owner).
+     * @param data The workspace name.
+     * @returns The created workspace.
+     */
     async addWorkspace(data: {
         name: string;
     }) {
@@ -29,6 +37,11 @@ export const WorkspaceService = {
     },
 
 
+    /**
+     * Adds a user as a member to a workspace (owner only).
+     * @param data The target workspace and the user to add.
+     * @returns The new member payload.
+     */
     async addWorkspaceMember(data: {
         workspaceID: string;
         userID: string;
@@ -50,7 +63,11 @@ export const WorkspaceService = {
     },
 
 
-    // --- SAVE --- //
+    /**
+     * Renames a workspace (owner only).
+     * @param data The workspace ID and the new name.
+     * @returns The updated workspace.
+     */
     async saveWorkspace(data: { id: string; name: string }) {
 
         const res = await saveFetch(`${API_BASE}/workspace/saveWorkspace`, {
@@ -78,7 +95,11 @@ export const WorkspaceService = {
 
 
 
-    // --- DELETE --- //
+    /**
+     * Deletes a workspace (owner only).
+     * @param workspaceID The workspace to delete.
+     * @returns The server confirmation payload.
+     */
     async deleteWorkspace(workspaceID: string) {
 
         const res = await saveFetch(`${API_BASE}/workspace/deleteWorkspace?workspaceID=${encodeURIComponent(workspaceID)}`, {
@@ -92,6 +113,12 @@ export const WorkspaceService = {
         return await res.json();
     },
 
+    /**
+     * Removes a member from a workspace (owner only; the owner cannot be removed).
+     * @param workspaceID The workspace.
+     * @param userID The member to remove.
+     * @returns The server response text.
+     */
     async removeWorkspaceMember(workspaceID: string, userID: string) {
 
         const res = await saveFetch(
@@ -111,7 +138,11 @@ export const WorkspaceService = {
 
 
 
-    // --- GET --- //
+    /**
+     * Returns a single workspace by its ID.
+     * @param id The workspace ID.
+     * @returns The workspace.
+     */
     async getWorkspaceWithID(id: string) {
 
         const res = await fetch(`${API_BASE}/workspace/getWorkspaceWithID?id=${id}`);
@@ -123,6 +154,10 @@ export const WorkspaceService = {
         return await res.json();
     },
 
+    /**
+     * Returns all workspaces the current user owns or is a member of.
+     * @returns The list of workspaces.
+     */
     async getWorkspacesOfUser(): Promise<WorkspaceDTO[]> {
 
         const res = await saveFetch(`${API_BASE}/workspace/GetWorkspacesOfUser`, {
@@ -145,6 +180,11 @@ export const WorkspaceService = {
         return await res.json() as WorkspaceDTO[];
     },
 
+    /**
+     * Returns all members of a workspace with their profile and role.
+     * @param workspaceID The workspace.
+     * @returns The list of members.
+     */
     async getWorkspaceMembers(workspaceID: string): Promise<WorkspaceMembersDTO[]> {
 
         const res = await saveFetch(`${API_BASE}/workspace/getWorkspaceMembers?id=${encodeURIComponent(workspaceID)}`, {

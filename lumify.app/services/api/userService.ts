@@ -14,12 +14,18 @@ const API_BASE = CONFIG.API.API_BASE;
 
 
 
+/**
+ * Client for the user endpoints: profile/account/avatar management, lookups by ID, recent
+ * activity, related users and user search. Methods throw on a non-OK response.
+ */
 export const UserService = {
 
 
-    // ------------ //
-    // --- SAVE --- //
-    // ------------ //
+    /**
+     * Updates the current user's profile (display name, avatar URL, bio).
+     * @param data The profile fields to change.
+     * @returns The updated profile.
+     */
     async saveUserProfile(data: SaveUserProfileRequest) {
 
         const res = await saveFetch(`${API_BASE}/users/saveUserProfile`, {
@@ -37,6 +43,11 @@ export const UserService = {
         return await res.json();
     },
 
+    /**
+     * Updates the current user's account info (name, e-mail).
+     * @param data The account fields to change.
+     * @returns The updated account info.
+     */
     async saveAccountInfo(data: SaveAccountInfoRequest) {
 
         const res = await saveFetch(`${API_BASE}/users/saveAccountInfo`, {
@@ -54,6 +65,10 @@ export const UserService = {
         return await res.json();
     },
 
+    /**
+     * Soft-deletes the current user's account.
+     * @returns `true` on success.
+     */
     async deleteAccount() {
 
         const res = await saveFetch(`${API_BASE}/users/deleteAccount`, {
@@ -67,6 +82,11 @@ export const UserService = {
         return true;
     },
 
+    /**
+     * Uploads a new avatar image for the current user (multipart upload with CSRF header).
+     * @param file The image file to upload.
+     * @returns The stored avatar URL.
+     */
     async saveUserAvatar(file: File) {
         const formData = new FormData();
         formData.append("file", file);
@@ -96,7 +116,10 @@ export const UserService = {
     // --- GET --- //
     // ----------- //
 
-    // --- Get userInformation of current user --- //
+    /**
+     * Returns the current user's own profile.
+     * @returns The profile.
+     */
     async getUserProfile() {
 
         const res = await saveFetch(`${API_BASE}/users/getUserProfile`, {
@@ -110,6 +133,10 @@ export const UserService = {
         return await res.json();
     },
 
+    /**
+     * Returns the current user's own account info.
+     * @returns The account info.
+     */
     async getUserAccountInfo() {
 
         const res = await saveFetch(`${API_BASE}/users/getUserAccountInfo`, {
@@ -123,6 +150,10 @@ export const UserService = {
         return await res.json();
     },
 
+    /**
+     * Returns the current user's avatar URL.
+     * @returns The avatar URL.
+     */
     async getAvatarOfUser() {
 
         const res = await saveFetch(`${API_BASE}/users/getAvatarOfUser`, {
@@ -137,7 +168,11 @@ export const UserService = {
         return avatarUrl;
     },
 
-    // --- Get userInformation by providing userID --- //
+    /**
+     * Returns the public profile of a specific user.
+     * @param userID The user to look up.
+     * @returns The profile.
+     */
     async getUserProfileWithID(userID: string) {
 
         const res = await saveFetch(`${API_BASE}/users/getUserProfileWithID?userID=${encodeURIComponent(userID)}`, {
@@ -151,6 +186,11 @@ export const UserService = {
         return await res.json();
     },
 
+    /**
+     * Returns the account info of a specific user.
+     * @param userID The user to look up.
+     * @returns The account info.
+     */
     async getUserAccountInfoWithID(userID: string) {
 
         const res = await saveFetch(`${API_BASE}/users/getUserAccountInfoWithID?userID=${encodeURIComponent(userID)}`, {
@@ -164,6 +204,11 @@ export const UserService = {
         return await res.json();
     },
 
+    /**
+     * Returns a compact preview of a specific user, with live presence.
+     * @param userID The user to look up.
+     * @returns The user preview.
+     */
     async getUserPreviewWithID(userID: string) {
         const res = await saveFetch(`${API_BASE}/users/getUserPreviewWithID?userID=${encodeURIComponent(userID)}`, {
             method: "GET",
@@ -176,6 +221,10 @@ export const UserService = {
         return await res.json();
     },
 
+    /**
+     * Returns the users that share at least one workspace with the current user.
+     * @returns The list of related users.
+     */
     async getRelatedUsers() {
 
         const res = await saveFetch(`${API_BASE}/users/getRelatedUsers`, {
@@ -190,7 +239,10 @@ export const UserService = {
     },
 
 
-    // --- Get last modified data of user --- //
+    /**
+     * Returns the current user's 5 most recently modified todo entries.
+     * @returns Up to 5 todo entries, newest first.
+     */
     async getLast5ModifiedTodosOfUser(): Promise<TodoEntryDTO[]> {
 
         const res = await saveFetch(`${API_BASE}/users/get5LastModifiedTodosOfUser`, {
@@ -204,6 +256,10 @@ export const UserService = {
         return await res.json() as TodoEntryDTO[];
     },
 
+    /**
+     * Returns the current user's 5 most recently modified events.
+     * @returns Up to 5 events, newest first.
+     */
     async getLast5ModifiedEventsOfUser(): Promise<CalendarEventDTO[]> {
 
         const res = await saveFetch(`${API_BASE}/users/getLast5ModifiedEventsOfUser`, {
@@ -217,6 +273,10 @@ export const UserService = {
         return await res.json() as CalendarEventDTO[];
     },
 
+    /**
+     * Returns the current user's 5 most recently modified notes.
+     * @returns Up to 5 notes, newest first.
+     */
     async getLast5ModifiedNotesOfUser(): Promise<Note[]> {
 
         const res = await saveFetch(`${API_BASE}/users/getLast5ModifiedNotesOfUser`, {
@@ -234,6 +294,11 @@ export const UserService = {
 
 
 
+    /**
+     * Searches users by display name, username or e-mail (excludes the current user).
+     * @param query The search term.
+     * @returns The matching users, with live presence.
+     */
     async searchUsers(query: string) {
 
         const res = await saveFetch(
@@ -252,6 +317,13 @@ export const UserService = {
         return await res.json();
     },
 
+    /**
+     * Searches users who can still be added to a workspace (excludes the current user and
+     * existing members).
+     * @param workspaceID The workspace to find addable users for.
+     * @param query The search term.
+     * @returns The addable users.
+     */
     async searchAvailableUsersForWorkspace(workspaceID: string, query: string) {
 
         const res = await saveFetch(

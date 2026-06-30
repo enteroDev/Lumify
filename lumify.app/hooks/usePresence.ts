@@ -32,6 +32,15 @@ type PresenceChangedHandler = (
 // ------------ //
 // --- Hook --- //
 // ------------ //
+/**
+ * React hook that keeps a SignalR connection to the chat hub open to receive live presence and
+ * friendship updates for the current user. It invokes `onPresenceChanged` whenever a user's
+ * presence flips and the optional `onFriendshipChanged` when a friendship changes (both ride on the
+ * same chat-hub connection). The connection is torn down on unmount or when the user changes.
+ * @param userID The current user, or `null` to stay disconnected.
+ * @param onPresenceChanged Called with the affected user ID and their new {@link PresenceStatus}.
+ * @param onFriendshipChanged Optional; called when a friendship of the current user changes.
+ */
 export function usePresence(
     userID: string | null,
     onPresenceChanged: PresenceChangedHandler,

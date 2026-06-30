@@ -36,6 +36,13 @@ type UseEventHubProps = {
 // ------------ //
 // --- Hook --- //
 // ------------ //
+/**
+ * React hook that subscribes to live calendar-event updates for a workspace via the event hub.
+ * It connects and joins the workspace group (only for non-private spaces) and forwards
+ * created/updated/deleted events to the matching callbacks. The connection is torn down on unmount
+ * or when the workspace changes.
+ * @param props Whether the space is private, the workspace ID, and the event callbacks.
+ */
 export function useEventHub({
     isPrivate,
     workspaceID,
@@ -44,6 +51,7 @@ export function useEventHub({
     onEventUpdated,
     onEventDeleted,
 }: UseEventHubProps) {
+
 
     // ------------ //
     // --- Refs --- //

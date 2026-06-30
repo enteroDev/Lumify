@@ -8,9 +8,17 @@ import type { WorkspaceDTO } from "@/models/Space";
 
 const API_BASE = CONFIG.API.API_BASE;
 
+/**
+ * Client for the calendar event endpoints (create, update, delete and various queries).
+ * Methods throw on a non-OK response.
+ */
 export const EventService = {
 
-    // --- ADD --- //
+    /**
+     * Creates a new event, optionally inside a workspace.
+     * @param data Event fields (name, description, all-day, start/end time, optional workspace).
+     * @returns The created event.
+     */
     async addEvent(data: {
         name: string;
         description: string | null;
@@ -51,7 +59,11 @@ export const EventService = {
     },
 
 
-    // --- SAVE --- //
+    /**
+     * Updates an event (only provided fields are changed).
+     * @param data The event ID plus the fields to change.
+     * @returns The updated event.
+     */
     async saveEvent(data: SaveEventDTO): Promise<CalendarEventDTO> {
 
         const res = await saveFetch(`${API_BASE}/events/saveEvent`, {
@@ -85,7 +97,11 @@ export const EventService = {
     },
 
 
-    // --- DELETE --- //
+    /**
+     * Deletes an event.
+     * @param eventID The event to delete.
+     * @returns The server confirmation payload.
+     */
     async deleteEvent(eventID: string) {
 
         const res = await saveFetch(`${API_BASE}/events/deleteEvent?eventID=${encodeURIComponent(eventID)}`, {
@@ -100,7 +116,10 @@ export const EventService = {
     },
 
 
-    // --- GET --- //
+    /**
+     * Returns the number of the current user's personal events.
+     * @returns The event count.
+     */
     async getEventCountOfUser(): Promise<number> {
         const response = await saveFetch(`${API_BASE}/events/getEventCountOfUser`, {
             method: "GET",
@@ -113,6 +132,11 @@ export const EventService = {
         return await response.json();
     },
 
+    /**
+     * Returns the number of events in a workspace.
+     * @param workspaceID The workspace to count events for.
+     * @returns The event count.
+     */
     async getEventCountOfWorkspace(workspaceID: string): Promise<number> {
         const response = await saveFetch(`${API_BASE}/events/getEventCountOfWorkspace?workspaceID=${encodeURIComponent(workspaceID)}`, {
             method: "GET",
@@ -125,6 +149,10 @@ export const EventService = {
         return await response.json();
     },
 
+    /**
+     * Returns all of the current user's personal events.
+     * @returns The list of events.
+     */
     async getAllEventsOfUser(): Promise<CalendarEventDTO[]> {
         const res = await saveFetch(`${API_BASE}/events/getAllEventsOfUser`, {
             method: "GET",
@@ -137,6 +165,11 @@ export const EventService = {
         return await res.json();
     },
 
+    /**
+     * Returns all events of a workspace.
+     * @param workspaceID The workspace whose events are requested.
+     * @returns The list of events.
+     */
     async getAllEventsOfWorkspace(workspaceID: string): Promise<CalendarEventDTO[]> {
         const res = await saveFetch(`${API_BASE}/events/getAllEventsOfWorkspace?workspaceID=${encodeURIComponent(workspaceID)}`, {
             method: "GET",
@@ -149,9 +182,14 @@ export const EventService = {
         return await res.json();
     },
 
+    /**
+     * Returns the workspace an event belongs to.
+     * @param eventID The event whose workspace is requested.
+     * @returns The workspace.
+     */
     async getSpaceInfosOfEvent(eventID: string): Promise<WorkspaceDTO> {
         const res = await saveFetch(`${API_BASE}/events/getSpaceInfosOfEvent?eventID=${encodeURIComponent(eventID)}`, { 
-            method: "GET" 
+            method: "GET"
         });
 
         if (!res.ok) {

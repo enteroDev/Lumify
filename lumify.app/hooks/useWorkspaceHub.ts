@@ -49,6 +49,13 @@ type UseWorkspaceHubProps = {
 // ------------ //
 // --- Hook --- //
 // ------------ //
+/**
+ * React hook that subscribes to live workspace updates (create/update/delete and member
+ * add/remove) for the current user via the workspace hub. It connects and joins the user's group,
+ * then forwards each event to the matching callback. The connection is torn down on unmount or when
+ * the user changes.
+ * @param props The current user ID and the workspace/member callbacks.
+ */
 export function useWorkspaceHub({
     userID,
 
@@ -66,7 +73,6 @@ export function useWorkspaceHub({
     const onWorkspaceCreatedRef = useRef(onWorkspaceCreated);
     const onWorkspaceUpdatedRef = useRef(onWorkspaceUpdated);
     const onWorkspaceDeletedRef = useRef(onWorkspaceDeleted);
-
     const onWorkspaceMemberAddedRef = useRef(onWorkspaceMemberAdded);
     const onWorkspaceMemberRemovedRef = useRef(onWorkspaceMemberRemoved);
 

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "../../../lumify.app/services",
+    "../../../lumify.app/hooks",
+    "../../../lumify.app/models",
+    "../../../lumify.app/components/AccountModal/AccountModalProvider.tsx",
+    "../../../lumify.app/components/AlertModal/AlertProvider.tsx",
+    "../../../lumify.app/components/Modal/ModalProvider.tsx",
+    "../../../lumify.app/components/Toast/ToastProvider.tsx",
+    "../../../lumify.app/components/Tooltip/TooltipProvider.tsx",
+    "../../../lumify.app/components/_Audio/MusicProvider.tsx",
+    "../../../lumify.app/components/_Presence/PresenceProvider.tsx",
+    "../../../lumify.app/components/_Space/SpaceProvider.tsx",
+    "../../../lumify.app/components/_Theme/ThemeProvider.tsx"
+  ],
+  "entryPointStrategy": "expand",
+  "tsconfig": "../../../lumify.app/tsconfig.json",
+  "out": "_site",
+  "name": "Lumify – Frontend Reference",
+  "readme": "index.md",
+  "includeVersion": false,
+  "excludePrivate": true,
+  "excludeInternal": true,
+  "excludeExternals": true,
+  "skipErrorChecking": true,
+  "githubPages": false,
+  "hideGenerator": true,
+  "validation": {
+    "notExported": false,
+    "invalidLink": true,
+    "notDocumented": false
+  }
+}
