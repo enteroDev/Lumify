@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Hubs
+  commentId: N:lumify.api.Hubs
+  id: lumify.api.Hubs
+  children:
+  - lumify.api.Hubs.ChatHub
+  - lumify.api.Hubs.EventHub
+  - lumify.api.Hubs.NoteHub
+  - lumify.api.Hubs.TodoHub
+  - lumify.api.Hubs.UserIdProvider
+  - lumify.api.Hubs.WorkspaceHub
+  langs:
+  - csharp
+  - vb
+  name: lumify.api.Hubs
+  nameWithType: lumify.api.Hubs
+  fullName: lumify.api.Hubs
+  type: Namespace
+  assemblies:
+  - lumify.api
+references:
+- uid: lumify.api.Hubs.ChatHub
+  commentId: T:lumify.api.Hubs.ChatHub
+  href: lumify.api.Hubs.ChatHub.html
+  name: ChatHub
+  nameWithType: ChatHub
+  fullName: lumify.api.Hubs.ChatHub
+- uid: lumify.api.Hubs.EventHub
+  commentId: T:lumify.api.Hubs.EventHub
+  href: lumify.api.Hubs.EventHub.html
+  name: EventHub
+  nameWithType: EventHub
+  fullName: lumify.api.Hubs.EventHub
+- uid: lumify.api.Hubs.NoteHub
+  commentId: T:lumify.api.Hubs.NoteHub
+  href: lumify.api.Hubs.NoteHub.html
+  name: NoteHub
+  nameWithType: NoteHub
+  fullName: lumify.api.Hubs.NoteHub
+- uid: lumify.api.Hubs.TodoHub
+  commentId: T:lumify.api.Hubs.TodoHub
+  href: lumify.api.Hubs.TodoHub.html
+  name: TodoHub
+  nameWithType: TodoHub
+  fullName: lumify.api.Hubs.TodoHub
+- uid: lumify.api.Hubs.UserIdProvider
+  commentId: T:lumify.api.Hubs.UserIdProvider
+  href: lumify.api.Hubs.UserIdProvider.html
+  name: UserIdProvider
+  nameWithType: UserIdProvider
+  fullName: lumify.api.Hubs.UserIdProvider
+- uid: lumify.api.Hubs.WorkspaceHub
+  commentId: T:lumify.api.Hubs.WorkspaceHub
+  href: lumify.api.Hubs.WorkspaceHub.html
+  name: WorkspaceHub
+  nameWithType: WorkspaceHub
+  fullName: lumify.api.Hubs.WorkspaceHub

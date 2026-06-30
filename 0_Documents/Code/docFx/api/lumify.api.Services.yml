@@ -1,0 +1,68 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Services
+  commentId: N:lumify.api.Services
+  id: lumify.api.Services
+  children:
+  - lumify.api.Services.FriendshipService
+  - lumify.api.Services.PresenceService
+  - lumify.api.Services.SmtpEmailService
+  langs:
+  - csharp
+  - vb
+  name: lumify.api.Services
+  nameWithType: lumify.api.Services
+  fullName: lumify.api.Services
+  type: Namespace
+  assemblies:
+  - lumify.api
+references:
+- uid: lumify.api.Services.FriendshipService
+  commentId: T:lumify.api.Services.FriendshipService
+  parent: lumify.api.Services
+  href: lumify.api.Services.FriendshipService.html
+  name: FriendshipService
+  nameWithType: FriendshipService
+  fullName: lumify.api.Services.FriendshipService
+- uid: lumify.api.Services.PresenceService
+  commentId: T:lumify.api.Services.PresenceService
+  href: lumify.api.Services.PresenceService.html
+  name: PresenceService
+  nameWithType: PresenceService
+  fullName: lumify.api.Services.PresenceService
+- uid: lumify.api.Services.SmtpEmailService
+  commentId: T:lumify.api.Services.SmtpEmailService
+  href: lumify.api.Services.SmtpEmailService.html
+  name: SmtpEmailService
+  nameWithType: SmtpEmailService
+  fullName: lumify.api.Services.SmtpEmailService
+- uid: lumify.api.Services
+  commentId: N:lumify.api.Services
+  href: lumify.html
+  name: lumify.api.Services
+  nameWithType: lumify.api.Services
+  fullName: lumify.api.Services
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Services
+    name: Services
+    href: lumify.api.Services.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Services
+    name: Services
+    href: lumify.api.Services.html

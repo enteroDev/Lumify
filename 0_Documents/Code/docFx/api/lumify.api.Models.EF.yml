@@ -1,0 +1,172 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.EF
+  commentId: N:lumify.api.Models.EF
+  id: lumify.api.Models.EF
+  children:
+  - lumify.api.Models.EF.ChatMessage
+  - lumify.api.Models.EF.EmailVerificationToken
+  - lumify.api.Models.EF.Event
+  - lumify.api.Models.EF.Folder
+  - lumify.api.Models.EF.Friendship
+  - lumify.api.Models.EF.Note
+  - lumify.api.Models.EF.NoteAttachment
+  - lumify.api.Models.EF.Note_LinkItem
+  - lumify.api.Models.EF.Note_TextBlock
+  - lumify.api.Models.EF.PasswordResetToken
+  - lumify.api.Models.EF.Role
+  - lumify.api.Models.EF.TodoEntry
+  - lumify.api.Models.EF.TodoList
+  - lumify.api.Models.EF.User
+  - lumify.api.Models.EF.Workspace
+  - lumify.api.Models.EF.WorkspaceMember
+  langs:
+  - csharp
+  - vb
+  name: lumify.api.Models.EF
+  nameWithType: lumify.api.Models.EF
+  fullName: lumify.api.Models.EF
+  type: Namespace
+  assemblies:
+  - lumify.api
+references:
+- uid: lumify.api.Models.EF.ChatMessage
+  commentId: T:lumify.api.Models.EF.ChatMessage
+  href: lumify.api.Models.EF.ChatMessage.html
+  name: ChatMessage
+  nameWithType: ChatMessage
+  fullName: lumify.api.Models.EF.ChatMessage
+- uid: lumify.api.Models.EF.EmailVerificationToken
+  commentId: T:lumify.api.Models.EF.EmailVerificationToken
+  href: lumify.api.Models.EF.EmailVerificationToken.html
+  name: EmailVerificationToken
+  nameWithType: EmailVerificationToken
+  fullName: lumify.api.Models.EF.EmailVerificationToken
+- uid: lumify.api.Models.EF.Event
+  commentId: T:lumify.api.Models.EF.Event
+  href: lumify.api.Models.EF.Event.html
+  name: Event
+  nameWithType: Event
+  fullName: lumify.api.Models.EF.Event
+- uid: lumify.api.Models.EF.Folder
+  commentId: T:lumify.api.Models.EF.Folder
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.Folder.html
+  name: Folder
+  nameWithType: Folder
+  fullName: lumify.api.Models.EF.Folder
+- uid: lumify.api.Models.EF.Friendship
+  commentId: T:lumify.api.Models.EF.Friendship
+  href: lumify.api.Models.EF.Friendship.html
+  name: Friendship
+  nameWithType: Friendship
+  fullName: lumify.api.Models.EF.Friendship
+- uid: lumify.api.Models.EF.Note
+  commentId: T:lumify.api.Models.EF.Note
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.Note.html
+  name: Note
+  nameWithType: Note
+  fullName: lumify.api.Models.EF.Note
+- uid: lumify.api.Models.EF.NoteAttachment
+  commentId: T:lumify.api.Models.EF.NoteAttachment
+  href: lumify.api.Models.EF.NoteAttachment.html
+  name: NoteAttachment
+  nameWithType: NoteAttachment
+  fullName: lumify.api.Models.EF.NoteAttachment
+- uid: lumify.api.Models.EF.Note_LinkItem
+  commentId: T:lumify.api.Models.EF.Note_LinkItem
+  href: lumify.api.Models.EF.Note_LinkItem.html
+  name: Note_LinkItem
+  nameWithType: Note_LinkItem
+  fullName: lumify.api.Models.EF.Note_LinkItem
+- uid: lumify.api.Models.EF.Note_TextBlock
+  commentId: T:lumify.api.Models.EF.Note_TextBlock
+  href: lumify.api.Models.EF.Note_TextBlock.html
+  name: Note_TextBlock
+  nameWithType: Note_TextBlock
+  fullName: lumify.api.Models.EF.Note_TextBlock
+- uid: lumify.api.Models.EF.PasswordResetToken
+  commentId: T:lumify.api.Models.EF.PasswordResetToken
+  href: lumify.api.Models.EF.PasswordResetToken.html
+  name: PasswordResetToken
+  nameWithType: PasswordResetToken
+  fullName: lumify.api.Models.EF.PasswordResetToken
+- uid: lumify.api.Models.EF.TodoEntry
+  commentId: T:lumify.api.Models.EF.TodoEntry
+  href: lumify.api.Models.EF.TodoEntry.html
+  name: TodoEntry
+  nameWithType: TodoEntry
+  fullName: lumify.api.Models.EF.TodoEntry
+- uid: lumify.api.Models.EF.TodoList
+  commentId: T:lumify.api.Models.EF.TodoList
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.TodoList.html
+  name: TodoList
+  nameWithType: TodoList
+  fullName: lumify.api.Models.EF.TodoList
+- uid: lumify.api.Models.EF.User
+  commentId: T:lumify.api.Models.EF.User
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.User.html
+  name: User
+  nameWithType: User
+  fullName: lumify.api.Models.EF.User
+- uid: lumify.api.Models.EF.Role
+  commentId: T:lumify.api.Models.EF.Role
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.Role.html
+  name: Role
+  nameWithType: Role
+  fullName: lumify.api.Models.EF.Role
+- uid: lumify.api.Models.EF.Workspace
+  commentId: T:lumify.api.Models.EF.Workspace
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.Workspace.html
+  name: Workspace
+  nameWithType: Workspace
+  fullName: lumify.api.Models.EF.Workspace
+- uid: lumify.api.Models.EF.WorkspaceMember
+  commentId: T:lumify.api.Models.EF.WorkspaceMember
+  href: lumify.api.Models.EF.WorkspaceMember.html
+  name: WorkspaceMember
+  nameWithType: WorkspaceMember
+  fullName: lumify.api.Models.EF.WorkspaceMember
+- uid: lumify.api.Models.EF
+  commentId: N:lumify.api.Models.EF
+  href: lumify.html
+  name: lumify.api.Models.EF
+  nameWithType: lumify.api.Models.EF
+  fullName: lumify.api.Models.EF
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html

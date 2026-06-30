@@ -1,0 +1,1355 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Controllers.EventsController
+  commentId: T:lumify.api.Controllers.EventsController
+  id: EventsController
+  parent: lumify.api.Controllers
+  children:
+  - lumify.api.Controllers.EventsController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.EventsController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.EventHub})
+  - lumify.api.Controllers.EventsController.AddEvent(lumify.api.Models.DTO.Requests.AddEventRequest,System.Threading.CancellationToken)
+  - lumify.api.Controllers.EventsController.DeleteEvent(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.EventsController.GetAllEventsOfUser(System.Threading.CancellationToken)
+  - lumify.api.Controllers.EventsController.GetAllEventsOfWorkspace(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.EventsController.GetEventCountOfUser(System.Threading.CancellationToken)
+  - lumify.api.Controllers.EventsController.GetEventCountOfWorkspace(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.EventsController.GetSpaceInfosOfEvent(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.EventsController.SaveEvent(lumify.api.Models.DTO.Requests.SaveEventRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: EventsController
+  nameWithType: EventsController
+  fullName: lumify.api.Controllers.EventsController
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Controllers/EventsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: EventsController
+    path: ../../../lumify.api/Controllers/EventsController.cs
+    startLine: 26
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Manages calendar events, both personal (no workspace) and workspace-shared, including
+
+    creation, editing, deletion and various queries (counts, lists, linked workspace). All
+
+    endpoints require an authenticated user. Changes to workspace events are pushed live to
+
+    the workspace group over the <xref href="lumify.api.Hubs.EventHub" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    Permission rule throughout: a personal event may only be modified by its owner, while a
+
+    workspace event may be modified by any active member of that workspace (see <code>CanModify</code>).
+
+    For privacy, the creator is surfaced only as display name → username → ID, never the
+
+    real first/last name.
+  example: []
+  syntax:
+    content: >-
+      [ApiController]
+
+      [Route("events/[action]")]
+
+      [Authorize]
+
+      public class EventsController : ControllerBase
+    content.vb: >-
+      <ApiController>
+
+      <Route("events/[action]")>
+
+      <Authorize>
+
+      Public Class EventsController Inherits ControllerBase
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.Mvc.ControllerBase
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.ApiControllerAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ApiControllerAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.RouteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.RouteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: events/[action]
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+- uid: lumify.api.Controllers.EventsController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.EventsController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.EventHub})
+  commentId: M:lumify.api.Controllers.EventsController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.EventsController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.EventHub})
+  id: '#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.EventsController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.EventHub})'
+  parent: lumify.api.Controllers.EventsController
+  langs:
+  - csharp
+  - vb
+  name: EventsController(ILogger<EventsController>, LumifyDbContext, IHubContext<EventHub>)
+  nameWithType: EventsController.EventsController(ILogger<EventsController>, LumifyDbContext, IHubContext<EventHub>)
+  fullName: lumify.api.Controllers.EventsController.EventsController(Microsoft.Extensions.Logging.ILogger<lumify.api.Controllers.EventsController>, lumify.api.Models.Context.LumifyDbContext, Microsoft.AspNetCore.SignalR.IHubContext<lumify.api.Hubs.EventHub>)
+  type: Constructor
+  source:
+    remote:
+      path: lumify.api/Controllers/EventsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: .ctor
+    path: ../../../lumify.api/Controllers/EventsController.cs
+    startLine: 39
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Creates the controller with its injected logger, database context and the event hub
+
+    used for live notifications.
+  example: []
+  syntax:
+    content: public EventsController(ILogger<EventsController> logger, LumifyDbContext db, IHubContext<EventHub> eventHub)
+    parameters:
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.EventsController}
+    - id: db
+      type: lumify.api.Models.Context.LumifyDbContext
+    - id: eventHub
+      type: Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.EventHub}
+    content.vb: Public Sub New(logger As ILogger(Of EventsController), db As LumifyDbContext, eventHub As IHubContext(Of EventHub))
+  overload: lumify.api.Controllers.EventsController.#ctor*
+  nameWithType.vb: EventsController.New(ILogger(Of EventsController), LumifyDbContext, IHubContext(Of EventHub))
+  fullName.vb: lumify.api.Controllers.EventsController.New(Microsoft.Extensions.Logging.ILogger(Of lumify.api.Controllers.EventsController), lumify.api.Models.Context.LumifyDbContext, Microsoft.AspNetCore.SignalR.IHubContext(Of lumify.api.Hubs.EventHub))
+  name.vb: New(ILogger(Of EventsController), LumifyDbContext, IHubContext(Of EventHub))
+- uid: lumify.api.Controllers.EventsController.AddEvent(lumify.api.Models.DTO.Requests.AddEventRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.EventsController.AddEvent(lumify.api.Models.DTO.Requests.AddEventRequest,System.Threading.CancellationToken)
+  id: AddEvent(lumify.api.Models.DTO.Requests.AddEventRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.EventsController
+  langs:
+  - csharp
+  - vb
+  name: AddEvent(AddEventRequest, CancellationToken)
+  nameWithType: EventsController.AddEvent(AddEventRequest, CancellationToken)
+  fullName: lumify.api.Controllers.EventsController.AddEvent(lumify.api.Models.DTO.Requests.AddEventRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/EventsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AddEvent
+    path: ../../../lumify.api/Controllers/EventsController.cs
+    startLine: 63
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Creates a new calendar event, optionally inside a workspace.
+  remarks: >-
+    Start and end times must be valid dates and end must not be before start. If a
+
+    workspace is given, the user must be a member of it. On success in a workspace, an
+
+    <code>EventCreated</code> event is broadcast to the workspace group.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("addEvent")]
+
+      public Task<ActionResult<EventResponse>> AddEvent(AddEventRequest request, CancellationToken ct)
+    parameters:
+    - id: request
+      type: lumify.api.Models.DTO.Requests.AddEventRequest
+      description: Event data (name, start/end time required; optional description, all-day, workspace).
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.EventResponse}}
+      description: >-
+        200 with the created event; 400 on missing/invalid fields; 403 if the user
+            is not a member of the target workspace.
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("addEvent")>
+
+      Public Function AddEvent(request As AddEventRequest, ct As CancellationToken) As Task(Of ActionResult(Of EventResponse))
+  overload: lumify.api.Controllers.EventsController.AddEvent*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: addEvent
+- uid: lumify.api.Controllers.EventsController.DeleteEvent(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.EventsController.DeleteEvent(System.String,System.Threading.CancellationToken)
+  id: DeleteEvent(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.EventsController
+  langs:
+  - csharp
+  - vb
+  name: DeleteEvent(string, CancellationToken)
+  nameWithType: EventsController.DeleteEvent(string, CancellationToken)
+  fullName: lumify.api.Controllers.EventsController.DeleteEvent(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/EventsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DeleteEvent
+    path: ../../../lumify.api/Controllers/EventsController.cs
+    startLine: 200
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Soft-deletes a calendar event.
+  remarks: >-
+    The record is kept and marked with <code>DeletedAt</code>. On a workspace event,
+        an <code>EventDeleted</code> event is broadcast to the workspace group.
+  example: []
+  syntax:
+    content: >-
+      [HttpDelete]
+
+      [ActionName("deleteEvent")]
+
+      public Task<ActionResult> DeleteEvent(string eventID, CancellationToken ct)
+    parameters:
+    - id: eventID
+      type: System.String
+      description: The event to delete.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: >-
+        200 with <code>success = true</code> and the event ID; 400 if the ID is missing;
+            403 if the user may not delete it; 404 if the event does not exist.
+    content.vb: >-
+      <HttpDelete>
+
+      <ActionName("deleteEvent")>
+
+      Public Function DeleteEvent(eventID As String, ct As CancellationToken) As Task(Of ActionResult)
+  overload: lumify.api.Controllers.EventsController.DeleteEvent*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: deleteEvent
+  nameWithType.vb: EventsController.DeleteEvent(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.EventsController.DeleteEvent(String, System.Threading.CancellationToken)
+  name.vb: DeleteEvent(String, CancellationToken)
+- uid: lumify.api.Controllers.EventsController.SaveEvent(lumify.api.Models.DTO.Requests.SaveEventRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.EventsController.SaveEvent(lumify.api.Models.DTO.Requests.SaveEventRequest,System.Threading.CancellationToken)
+  id: SaveEvent(lumify.api.Models.DTO.Requests.SaveEventRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.EventsController
+  langs:
+  - csharp
+  - vb
+  name: SaveEvent(SaveEventRequest, CancellationToken)
+  nameWithType: EventsController.SaveEvent(SaveEventRequest, CancellationToken)
+  fullName: lumify.api.Controllers.EventsController.SaveEvent(lumify.api.Models.DTO.Requests.SaveEventRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/EventsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SaveEvent
+    path: ../../../lumify.api/Controllers/EventsController.cs
+    startLine: 266
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Updates an event's name, description, all-day flag and/or start/end times. Only the
+
+    provided fields are changed, and the database is only written if something changed.
+  remarks: >-
+    On a successful change in a workspace, an <code>EventUpdated</code> event is
+        broadcast to the workspace group.
+  example: []
+  syntax:
+    content: >-
+      [HttpPatch]
+
+      [ActionName("saveEvent")]
+
+      public Task<ActionResult<EventResponse>> SaveEvent(SaveEventRequest request, CancellationToken ct)
+    parameters:
+    - id: request
+      type: lumify.api.Models.DTO.Requests.SaveEventRequest
+      description: The event ID plus the fields to change.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.EventResponse}}
+      description: >-
+        200 with the updated event; 400 on invalid input; 403 if the user may not
+            modify it; 404 if the event does not exist.
+    content.vb: >-
+      <HttpPatch>
+
+      <ActionName("saveEvent")>
+
+      Public Function SaveEvent(request As SaveEventRequest, ct As CancellationToken) As Task(Of ActionResult(Of EventResponse))
+  overload: lumify.api.Controllers.EventsController.SaveEvent*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPatchAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPatchAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: saveEvent
+- uid: lumify.api.Controllers.EventsController.GetEventCountOfUser(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.EventsController.GetEventCountOfUser(System.Threading.CancellationToken)
+  id: GetEventCountOfUser(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.EventsController
+  langs:
+  - csharp
+  - vb
+  name: GetEventCountOfUser(CancellationToken)
+  nameWithType: EventsController.GetEventCountOfUser(CancellationToken)
+  fullName: lumify.api.Controllers.EventsController.GetEventCountOfUser(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/EventsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetEventCountOfUser
+    path: ../../../lumify.api/Controllers/EventsController.cs
+    startLine: 436
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns the number of personal events (no workspace) owned by the current user.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getEventCountOfUser")]
+
+      public Task<ActionResult<int>> GetEventCountOfUser(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Int32}}
+      description: 200 with the event count.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getEventCountOfUser")>
+
+      Public Function GetEventCountOfUser(ct As CancellationToken) As Task(Of ActionResult(Of Integer))
+  overload: lumify.api.Controllers.EventsController.GetEventCountOfUser*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getEventCountOfUser
+- uid: lumify.api.Controllers.EventsController.GetEventCountOfWorkspace(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.EventsController.GetEventCountOfWorkspace(System.String,System.Threading.CancellationToken)
+  id: GetEventCountOfWorkspace(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.EventsController
+  langs:
+  - csharp
+  - vb
+  name: GetEventCountOfWorkspace(string, CancellationToken)
+  nameWithType: EventsController.GetEventCountOfWorkspace(string, CancellationToken)
+  fullName: lumify.api.Controllers.EventsController.GetEventCountOfWorkspace(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/EventsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetEventCountOfWorkspace
+    path: ../../../lumify.api/Controllers/EventsController.cs
+    startLine: 462
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns the number of events in a workspace. The user must be a member.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getEventCountOfWorkspace")]
+
+      public Task<ActionResult<int>> GetEventCountOfWorkspace(string workspaceID, CancellationToken ct)
+    parameters:
+    - id: workspaceID
+      type: System.String
+      description: The workspace to count events for.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Int32}}
+      description: >-
+        200 with the event count; 400 if the ID is missing; 403 if the user is not
+            a member; 404 if the workspace does not exist.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getEventCountOfWorkspace")>
+
+      Public Function GetEventCountOfWorkspace(workspaceID As String, ct As CancellationToken) As Task(Of ActionResult(Of Integer))
+  overload: lumify.api.Controllers.EventsController.GetEventCountOfWorkspace*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getEventCountOfWorkspace
+  nameWithType.vb: EventsController.GetEventCountOfWorkspace(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.EventsController.GetEventCountOfWorkspace(String, System.Threading.CancellationToken)
+  name.vb: GetEventCountOfWorkspace(String, CancellationToken)
+- uid: lumify.api.Controllers.EventsController.GetAllEventsOfUser(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.EventsController.GetAllEventsOfUser(System.Threading.CancellationToken)
+  id: GetAllEventsOfUser(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.EventsController
+  langs:
+  - csharp
+  - vb
+  name: GetAllEventsOfUser(CancellationToken)
+  nameWithType: EventsController.GetAllEventsOfUser(CancellationToken)
+  fullName: lumify.api.Controllers.EventsController.GetAllEventsOfUser(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/EventsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetAllEventsOfUser
+    path: ../../../lumify.api/Controllers/EventsController.cs
+    startLine: 514
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns all personal events (no workspace) of the current user, ordered by start date.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getAllEventsOfUser")]
+
+      public Task<ActionResult<List<EventResponse>>> GetAllEventsOfUser(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.EventResponse}}}
+      description: 200 with the list of events.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getAllEventsOfUser")>
+
+      Public Function GetAllEventsOfUser(ct As CancellationToken) As Task(Of ActionResult(Of List(Of EventResponse)))
+  overload: lumify.api.Controllers.EventsController.GetAllEventsOfUser*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getAllEventsOfUser
+- uid: lumify.api.Controllers.EventsController.GetAllEventsOfWorkspace(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.EventsController.GetAllEventsOfWorkspace(System.String,System.Threading.CancellationToken)
+  id: GetAllEventsOfWorkspace(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.EventsController
+  langs:
+  - csharp
+  - vb
+  name: GetAllEventsOfWorkspace(string, CancellationToken)
+  nameWithType: EventsController.GetAllEventsOfWorkspace(string, CancellationToken)
+  fullName: lumify.api.Controllers.EventsController.GetAllEventsOfWorkspace(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/EventsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetAllEventsOfWorkspace
+    path: ../../../lumify.api/Controllers/EventsController.cs
+    startLine: 565
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns all events of a workspace, ordered by start date. The user must be a member.
+  remarks: >-
+    Events whose creator was soft-deleted are kept (content belongs to the
+        workspace) and surface the creator as "Gelöschter Benutzer".
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getAllEventsOfWorkspace")]
+
+      public Task<ActionResult<List<EventResponse>>> GetAllEventsOfWorkspace(string workspaceID, CancellationToken ct)
+    parameters:
+    - id: workspaceID
+      type: System.String
+      description: The workspace whose events are requested.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.EventResponse}}}
+      description: >-
+        200 with the list of events; 400 if the ID is missing; 403 if the user is
+            not a member; 404 if the workspace does not exist.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getAllEventsOfWorkspace")>
+
+      Public Function GetAllEventsOfWorkspace(workspaceID As String, ct As CancellationToken) As Task(Of ActionResult(Of List(Of EventResponse)))
+  overload: lumify.api.Controllers.EventsController.GetAllEventsOfWorkspace*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getAllEventsOfWorkspace
+  nameWithType.vb: EventsController.GetAllEventsOfWorkspace(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.EventsController.GetAllEventsOfWorkspace(String, System.Threading.CancellationToken)
+  name.vb: GetAllEventsOfWorkspace(String, CancellationToken)
+- uid: lumify.api.Controllers.EventsController.GetSpaceInfosOfEvent(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.EventsController.GetSpaceInfosOfEvent(System.String,System.Threading.CancellationToken)
+  id: GetSpaceInfosOfEvent(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.EventsController
+  langs:
+  - csharp
+  - vb
+  name: GetSpaceInfosOfEvent(string, CancellationToken)
+  nameWithType: EventsController.GetSpaceInfosOfEvent(string, CancellationToken)
+  fullName: lumify.api.Controllers.EventsController.GetSpaceInfosOfEvent(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/EventsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetSpaceInfosOfEvent
+    path: ../../../lumify.api/Controllers/EventsController.cs
+    startLine: 639
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns the workspace that the given event belongs to, if any.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getSpaceInfosOfEvent")]
+
+      public Task<ActionResult<WorkspaceResponse>> GetSpaceInfosOfEvent(string eventID, CancellationToken ct)
+    parameters:
+    - id: eventID
+      type: System.String
+      description: The event whose workspace is requested.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.WorkspaceResponse}}
+      description: >-
+        200 with the workspace; 400 if the ID is missing; 404 if the event has no
+            linked workspace or it was deleted.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getSpaceInfosOfEvent")>
+
+      Public Function GetSpaceInfosOfEvent(eventID As String, ct As CancellationToken) As Task(Of ActionResult(Of WorkspaceResponse))
+  overload: lumify.api.Controllers.EventsController.GetSpaceInfosOfEvent*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getSpaceInfosOfEvent
+  nameWithType.vb: EventsController.GetSpaceInfosOfEvent(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.EventsController.GetSpaceInfosOfEvent(String, System.Threading.CancellationToken)
+  name.vb: GetSpaceInfosOfEvent(String, CancellationToken)
+references:
+- uid: lumify.api.Hubs.EventHub
+  commentId: T:lumify.api.Hubs.EventHub
+  href: lumify.api.Hubs.EventHub.html
+  name: EventHub
+  nameWithType: EventHub
+  fullName: lumify.api.Hubs.EventHub
+- uid: lumify.api.Controllers
+  commentId: N:lumify.api.Controllers
+  href: lumify.html
+  name: lumify.api.Controllers
+  nameWithType: lumify.api.Controllers
+  fullName: lumify.api.Controllers
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Controllers
+    name: Controllers
+    href: lumify.api.Controllers.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Controllers
+    name: Controllers
+    href: lumify.api.Controllers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.Mvc.ControllerBase
+  commentId: T:Microsoft.AspNetCore.Mvc.ControllerBase
+  parent: Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: ControllerBase
+  nameWithType: ControllerBase
+  fullName: Microsoft.AspNetCore.Mvc.ControllerBase
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.Mvc
+  commentId: N:Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: Microsoft.AspNetCore.Mvc
+  nameWithType: Microsoft.AspNetCore.Mvc
+  fullName: Microsoft.AspNetCore.Mvc
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+- uid: lumify.api.Controllers.EventsController.#ctor*
+  commentId: Overload:lumify.api.Controllers.EventsController.#ctor
+  href: lumify.api.Controllers.EventsController.html#lumify_api_Controllers_EventsController__ctor_Microsoft_Extensions_Logging_ILogger_lumify_api_Controllers_EventsController__lumify_api_Models_Context_LumifyDbContext_Microsoft_AspNetCore_SignalR_IHubContext_lumify_api_Hubs_EventHub__
+  name: EventsController
+  nameWithType: EventsController.EventsController
+  fullName: lumify.api.Controllers.EventsController.EventsController
+  nameWithType.vb: EventsController.New
+  fullName.vb: lumify.api.Controllers.EventsController.New
+  name.vb: New
+- uid: Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.EventsController}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.EventsController}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: lumify.api.Controllers.EventsController.html
+  name: ILogger<EventsController>
+  nameWithType: ILogger<EventsController>
+  fullName: Microsoft.Extensions.Logging.ILogger<lumify.api.Controllers.EventsController>
+  nameWithType.vb: ILogger(Of EventsController)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of lumify.api.Controllers.EventsController)
+  name.vb: ILogger(Of EventsController)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Controllers.EventsController
+    name: EventsController
+    href: lumify.api.Controllers.EventsController.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Controllers.EventsController
+    name: EventsController
+    href: lumify.api.Controllers.EventsController.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext
+  commentId: T:lumify.api.Models.Context.LumifyDbContext
+  parent: lumify.api.Models.Context
+  href: lumify.api.Models.Context.LumifyDbContext.html
+  name: LumifyDbContext
+  nameWithType: LumifyDbContext
+  fullName: lumify.api.Models.Context.LumifyDbContext
+- uid: Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.EventHub}
+  commentId: T:Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.EventHub}
+  parent: Microsoft.AspNetCore.SignalR
+  definition: Microsoft.AspNetCore.SignalR.IHubContext`1
+  href: lumify.api.Hubs.EventHub.html
+  name: IHubContext<EventHub>
+  nameWithType: IHubContext<EventHub>
+  fullName: Microsoft.AspNetCore.SignalR.IHubContext<lumify.api.Hubs.EventHub>
+  nameWithType.vb: IHubContext(Of EventHub)
+  fullName.vb: Microsoft.AspNetCore.SignalR.IHubContext(Of lumify.api.Hubs.EventHub)
+  name.vb: IHubContext(Of EventHub)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Hubs.EventHub
+    name: EventHub
+    href: lumify.api.Hubs.EventHub.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Hubs.EventHub
+    name: EventHub
+    href: lumify.api.Hubs.EventHub.html
+  - name: )
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+- uid: lumify.api.Models.Context
+  commentId: N:lumify.api.Models.Context
+  href: lumify.html
+  name: lumify.api.Models.Context
+  nameWithType: lumify.api.Models.Context
+  fullName: lumify.api.Models.Context
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+- uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+  commentId: T:Microsoft.AspNetCore.SignalR.IHubContext`1
+  isExternal: true
+  name: IHubContext<THub>
+  nameWithType: IHubContext<THub>
+  fullName: Microsoft.AspNetCore.SignalR.IHubContext<THub>
+  nameWithType.vb: IHubContext(Of THub)
+  fullName.vb: Microsoft.AspNetCore.SignalR.IHubContext(Of THub)
+  name.vb: IHubContext(Of THub)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: <
+  - name: THub
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: THub
+  - name: )
+- uid: Microsoft.AspNetCore.SignalR
+  commentId: N:Microsoft.AspNetCore.SignalR
+  isExternal: true
+  name: Microsoft.AspNetCore.SignalR
+  nameWithType: Microsoft.AspNetCore.SignalR
+  fullName: Microsoft.AspNetCore.SignalR
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+- uid: lumify.api.Controllers.EventsController.AddEvent*
+  commentId: Overload:lumify.api.Controllers.EventsController.AddEvent
+  href: lumify.api.Controllers.EventsController.html#lumify_api_Controllers_EventsController_AddEvent_lumify_api_Models_DTO_Requests_AddEventRequest_System_Threading_CancellationToken_
+  name: AddEvent
+  nameWithType: EventsController.AddEvent
+  fullName: lumify.api.Controllers.EventsController.AddEvent
+- uid: lumify.api.Models.DTO.Requests.AddEventRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddEventRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.AddEventRequest.html
+  name: AddEventRequest
+  nameWithType: AddEventRequest
+  fullName: lumify.api.Models.DTO.Requests.AddEventRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.EventResponse}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.EventResponse}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.EventResponse.html
+  name: Task<ActionResult<EventResponse>>
+  nameWithType: Task<ActionResult<EventResponse>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<lumify.api.Models.DTO.Responses.EventResponse>>
+  nameWithType.vb: Task(Of ActionResult(Of EventResponse))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of lumify.api.Models.DTO.Responses.EventResponse))
+  name.vb: Task(Of ActionResult(Of EventResponse))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.EventResponse
+    name: EventResponse
+    href: lumify.api.Models.DTO.Responses.EventResponse.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.EventResponse
+    name: EventResponse
+    href: lumify.api.Models.DTO.Responses.EventResponse.html
+  - name: )
+  - name: )
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  href: lumify.html
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: lumify.api.Controllers.EventsController.DeleteEvent*
+  commentId: Overload:lumify.api.Controllers.EventsController.DeleteEvent
+  href: lumify.api.Controllers.EventsController.html#lumify_api_Controllers_EventsController_DeleteEvent_System_String_System_Threading_CancellationToken_
+  name: DeleteEvent
+  nameWithType: EventsController.DeleteEvent
+  fullName: lumify.api.Controllers.EventsController.DeleteEvent
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<ActionResult>
+  nameWithType: Task<ActionResult>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult>
+  nameWithType.vb: Task(Of ActionResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult)
+  name.vb: Task(Of ActionResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult
+    name: ActionResult
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult
+    name: ActionResult
+    isExternal: true
+  - name: )
+- uid: lumify.api.Controllers.EventsController.SaveEvent*
+  commentId: Overload:lumify.api.Controllers.EventsController.SaveEvent
+  href: lumify.api.Controllers.EventsController.html#lumify_api_Controllers_EventsController_SaveEvent_lumify_api_Models_DTO_Requests_SaveEventRequest_System_Threading_CancellationToken_
+  name: SaveEvent
+  nameWithType: EventsController.SaveEvent
+  fullName: lumify.api.Controllers.EventsController.SaveEvent
+- uid: lumify.api.Models.DTO.Requests.SaveEventRequest
+  commentId: T:lumify.api.Models.DTO.Requests.SaveEventRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.SaveEventRequest.html
+  name: SaveEventRequest
+  nameWithType: SaveEventRequest
+  fullName: lumify.api.Models.DTO.Requests.SaveEventRequest
+- uid: lumify.api.Controllers.EventsController.GetEventCountOfUser*
+  commentId: Overload:lumify.api.Controllers.EventsController.GetEventCountOfUser
+  href: lumify.api.Controllers.EventsController.html#lumify_api_Controllers_EventsController_GetEventCountOfUser_System_Threading_CancellationToken_
+  name: GetEventCountOfUser
+  nameWithType: EventsController.GetEventCountOfUser
+  fullName: lumify.api.Controllers.EventsController.GetEventCountOfUser
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Int32}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Int32}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<ActionResult<int>>
+  nameWithType: Task<ActionResult<int>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<int>>
+  nameWithType.vb: Task(Of ActionResult(Of Integer))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of Integer))
+  name.vb: Task(Of ActionResult(Of Integer))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+  - name: )
+  - name: )
+- uid: lumify.api.Controllers.EventsController.GetEventCountOfWorkspace*
+  commentId: Overload:lumify.api.Controllers.EventsController.GetEventCountOfWorkspace
+  href: lumify.api.Controllers.EventsController.html#lumify_api_Controllers_EventsController_GetEventCountOfWorkspace_System_String_System_Threading_CancellationToken_
+  name: GetEventCountOfWorkspace
+  nameWithType: EventsController.GetEventCountOfWorkspace
+  fullName: lumify.api.Controllers.EventsController.GetEventCountOfWorkspace
+- uid: lumify.api.Controllers.EventsController.GetAllEventsOfUser*
+  commentId: Overload:lumify.api.Controllers.EventsController.GetAllEventsOfUser
+  href: lumify.api.Controllers.EventsController.html#lumify_api_Controllers_EventsController_GetAllEventsOfUser_System_Threading_CancellationToken_
+  name: GetAllEventsOfUser
+  nameWithType: EventsController.GetAllEventsOfUser
+  fullName: lumify.api.Controllers.EventsController.GetAllEventsOfUser
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.EventResponse}}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.EventResponse}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.EventResponse.html
+  name: Task<ActionResult<List<EventResponse>>>
+  nameWithType: Task<ActionResult<List<EventResponse>>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.List<lumify.api.Models.DTO.Responses.EventResponse>>>
+  nameWithType.vb: Task(Of ActionResult(Of List(Of EventResponse)))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of System.Collections.Generic.List(Of lumify.api.Models.DTO.Responses.EventResponse)))
+  name.vb: Task(Of ActionResult(Of List(Of EventResponse)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.EventResponse
+    name: EventResponse
+    href: lumify.api.Models.DTO.Responses.EventResponse.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.EventResponse
+    name: EventResponse
+    href: lumify.api.Models.DTO.Responses.EventResponse.html
+  - name: )
+  - name: )
+  - name: )
+- uid: lumify.api.Controllers.EventsController.GetAllEventsOfWorkspace*
+  commentId: Overload:lumify.api.Controllers.EventsController.GetAllEventsOfWorkspace
+  href: lumify.api.Controllers.EventsController.html#lumify_api_Controllers_EventsController_GetAllEventsOfWorkspace_System_String_System_Threading_CancellationToken_
+  name: GetAllEventsOfWorkspace
+  nameWithType: EventsController.GetAllEventsOfWorkspace
+  fullName: lumify.api.Controllers.EventsController.GetAllEventsOfWorkspace
+- uid: lumify.api.Controllers.EventsController.GetSpaceInfosOfEvent*
+  commentId: Overload:lumify.api.Controllers.EventsController.GetSpaceInfosOfEvent
+  href: lumify.api.Controllers.EventsController.html#lumify_api_Controllers_EventsController_GetSpaceInfosOfEvent_System_String_System_Threading_CancellationToken_
+  name: GetSpaceInfosOfEvent
+  nameWithType: EventsController.GetSpaceInfosOfEvent
+  fullName: lumify.api.Controllers.EventsController.GetSpaceInfosOfEvent
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.WorkspaceResponse}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.WorkspaceResponse}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.WorkspaceResponse.html
+  name: Task<ActionResult<WorkspaceResponse>>
+  nameWithType: Task<ActionResult<WorkspaceResponse>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<lumify.api.Models.DTO.Responses.WorkspaceResponse>>
+  nameWithType.vb: Task(Of ActionResult(Of WorkspaceResponse))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of lumify.api.Models.DTO.Responses.WorkspaceResponse))
+  name.vb: Task(Of ActionResult(Of WorkspaceResponse))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.WorkspaceResponse
+    name: WorkspaceResponse
+    href: lumify.api.Models.DTO.Responses.WorkspaceResponse.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.WorkspaceResponse
+    name: WorkspaceResponse
+    href: lumify.api.Models.DTO.Responses.WorkspaceResponse.html
+  - name: )
+  - name: )

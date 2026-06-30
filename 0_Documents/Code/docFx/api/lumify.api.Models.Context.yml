@@ -1,0 +1,62 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.Context
+  commentId: N:lumify.api.Models.Context
+  id: lumify.api.Models.Context
+  children:
+  - lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: lumify.api.Models.Context
+  nameWithType: lumify.api.Models.Context
+  fullName: lumify.api.Models.Context
+  type: Namespace
+  assemblies:
+  - lumify.api
+references:
+- uid: lumify.api.Models.Context.LumifyDbContext
+  commentId: T:lumify.api.Models.Context.LumifyDbContext
+  parent: lumify.api.Models.Context
+  href: lumify.api.Models.Context.LumifyDbContext.html
+  name: LumifyDbContext
+  nameWithType: LumifyDbContext
+  fullName: lumify.api.Models.Context.LumifyDbContext
+- uid: lumify.api.Models.Context
+  commentId: N:lumify.api.Models.Context
+  href: lumify.html
+  name: lumify.api.Models.Context
+  nameWithType: lumify.api.Models.Context
+  fullName: lumify.api.Models.Context
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html

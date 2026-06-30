@@ -1,0 +1,365 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.DTO.Responses.LinkItemResponse
+  commentId: T:lumify.api.Models.DTO.Responses.LinkItemResponse
+  id: LinkItemResponse
+  parent: lumify.api.Models.DTO.Responses
+  children:
+  - lumify.api.Models.DTO.Responses.LinkItemResponse.CreatedAt
+  - lumify.api.Models.DTO.Responses.LinkItemResponse.ID
+  - lumify.api.Models.DTO.Responses.LinkItemResponse.Label
+  - lumify.api.Models.DTO.Responses.LinkItemResponse.NoteID
+  - lumify.api.Models.DTO.Responses.LinkItemResponse.NotePos
+  - lumify.api.Models.DTO.Responses.LinkItemResponse.UpdatedAt
+  - lumify.api.Models.DTO.Responses.LinkItemResponse.Url
+  langs:
+  - csharp
+  - vb
+  name: LinkItemResponse
+  nameWithType: LinkItemResponse
+  fullName: lumify.api.Models.DTO.Responses.LinkItemResponse
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/LinkItemResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: LinkItemResponse
+    path: ../../../lumify.api/Models/DTO/Responses/LinkItemResponse.cs
+    startLine: 2
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public class LinkItemResponse
+    content.vb: Public Class LinkItemResponse
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.DTO.Responses.LinkItemResponse.ID
+  commentId: P:lumify.api.Models.DTO.Responses.LinkItemResponse.ID
+  id: ID
+  parent: lumify.api.Models.DTO.Responses.LinkItemResponse
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: LinkItemResponse.ID
+  fullName: lumify.api.Models.DTO.Responses.LinkItemResponse.ID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/LinkItemResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ID
+    path: ../../../lumify.api/Models/DTO/Responses/LinkItemResponse.cs
+    startLine: 4
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string ID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ID As String
+  overload: lumify.api.Models.DTO.Responses.LinkItemResponse.ID*
+- uid: lumify.api.Models.DTO.Responses.LinkItemResponse.NoteID
+  commentId: P:lumify.api.Models.DTO.Responses.LinkItemResponse.NoteID
+  id: NoteID
+  parent: lumify.api.Models.DTO.Responses.LinkItemResponse
+  langs:
+  - csharp
+  - vb
+  name: NoteID
+  nameWithType: LinkItemResponse.NoteID
+  fullName: lumify.api.Models.DTO.Responses.LinkItemResponse.NoteID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/LinkItemResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: NoteID
+    path: ../../../lumify.api/Models/DTO/Responses/LinkItemResponse.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string NoteID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property NoteID As String
+  overload: lumify.api.Models.DTO.Responses.LinkItemResponse.NoteID*
+- uid: lumify.api.Models.DTO.Responses.LinkItemResponse.Label
+  commentId: P:lumify.api.Models.DTO.Responses.LinkItemResponse.Label
+  id: Label
+  parent: lumify.api.Models.DTO.Responses.LinkItemResponse
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: LinkItemResponse.Label
+  fullName: lumify.api.Models.DTO.Responses.LinkItemResponse.Label
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/LinkItemResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Label
+    path: ../../../lumify.api/Models/DTO/Responses/LinkItemResponse.cs
+    startLine: 6
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string? Label { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Label As String
+  overload: lumify.api.Models.DTO.Responses.LinkItemResponse.Label*
+- uid: lumify.api.Models.DTO.Responses.LinkItemResponse.Url
+  commentId: P:lumify.api.Models.DTO.Responses.LinkItemResponse.Url
+  id: Url
+  parent: lumify.api.Models.DTO.Responses.LinkItemResponse
+  langs:
+  - csharp
+  - vb
+  name: Url
+  nameWithType: LinkItemResponse.Url
+  fullName: lumify.api.Models.DTO.Responses.LinkItemResponse.Url
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/LinkItemResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Url
+    path: ../../../lumify.api/Models/DTO/Responses/LinkItemResponse.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string Url { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Url As String
+  overload: lumify.api.Models.DTO.Responses.LinkItemResponse.Url*
+- uid: lumify.api.Models.DTO.Responses.LinkItemResponse.NotePos
+  commentId: P:lumify.api.Models.DTO.Responses.LinkItemResponse.NotePos
+  id: NotePos
+  parent: lumify.api.Models.DTO.Responses.LinkItemResponse
+  langs:
+  - csharp
+  - vb
+  name: NotePos
+  nameWithType: LinkItemResponse.NotePos
+  fullName: lumify.api.Models.DTO.Responses.LinkItemResponse.NotePos
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/LinkItemResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: NotePos
+    path: ../../../lumify.api/Models/DTO/Responses/LinkItemResponse.cs
+    startLine: 8
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public int NotePos { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property NotePos As Integer
+  overload: lumify.api.Models.DTO.Responses.LinkItemResponse.NotePos*
+- uid: lumify.api.Models.DTO.Responses.LinkItemResponse.CreatedAt
+  commentId: P:lumify.api.Models.DTO.Responses.LinkItemResponse.CreatedAt
+  id: CreatedAt
+  parent: lumify.api.Models.DTO.Responses.LinkItemResponse
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: LinkItemResponse.CreatedAt
+  fullName: lumify.api.Models.DTO.Responses.LinkItemResponse.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/LinkItemResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: CreatedAt
+    path: ../../../lumify.api/Models/DTO/Responses/LinkItemResponse.cs
+    startLine: 9
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreatedAt As String
+  overload: lumify.api.Models.DTO.Responses.LinkItemResponse.CreatedAt*
+- uid: lumify.api.Models.DTO.Responses.LinkItemResponse.UpdatedAt
+  commentId: P:lumify.api.Models.DTO.Responses.LinkItemResponse.UpdatedAt
+  id: UpdatedAt
+  parent: lumify.api.Models.DTO.Responses.LinkItemResponse
+  langs:
+  - csharp
+  - vb
+  name: UpdatedAt
+  nameWithType: LinkItemResponse.UpdatedAt
+  fullName: lumify.api.Models.DTO.Responses.LinkItemResponse.UpdatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/LinkItemResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UpdatedAt
+    path: ../../../lumify.api/Models/DTO/Responses/LinkItemResponse.cs
+    startLine: 10
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string UpdatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UpdatedAt As String
+  overload: lumify.api.Models.DTO.Responses.LinkItemResponse.UpdatedAt*
+references:
+- uid: lumify.api.Models.DTO.Responses
+  commentId: N:lumify.api.Models.DTO.Responses
+  href: lumify.html
+  name: lumify.api.Models.DTO.Responses
+  nameWithType: lumify.api.Models.DTO.Responses
+  fullName: lumify.api.Models.DTO.Responses
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Responses
+    name: Responses
+    href: lumify.api.Models.DTO.Responses.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Responses
+    name: Responses
+    href: lumify.api.Models.DTO.Responses.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.DTO.Responses.LinkItemResponse.ID*
+  commentId: Overload:lumify.api.Models.DTO.Responses.LinkItemResponse.ID
+  href: lumify.api.Models.DTO.Responses.LinkItemResponse.html#lumify_api_Models_DTO_Responses_LinkItemResponse_ID
+  name: ID
+  nameWithType: LinkItemResponse.ID
+  fullName: lumify.api.Models.DTO.Responses.LinkItemResponse.ID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.DTO.Responses.LinkItemResponse.NoteID*
+  commentId: Overload:lumify.api.Models.DTO.Responses.LinkItemResponse.NoteID
+  href: lumify.api.Models.DTO.Responses.LinkItemResponse.html#lumify_api_Models_DTO_Responses_LinkItemResponse_NoteID
+  name: NoteID
+  nameWithType: LinkItemResponse.NoteID
+  fullName: lumify.api.Models.DTO.Responses.LinkItemResponse.NoteID
+- uid: lumify.api.Models.DTO.Responses.LinkItemResponse.Label*
+  commentId: Overload:lumify.api.Models.DTO.Responses.LinkItemResponse.Label
+  href: lumify.api.Models.DTO.Responses.LinkItemResponse.html#lumify_api_Models_DTO_Responses_LinkItemResponse_Label
+  name: Label
+  nameWithType: LinkItemResponse.Label
+  fullName: lumify.api.Models.DTO.Responses.LinkItemResponse.Label
+- uid: lumify.api.Models.DTO.Responses.LinkItemResponse.Url*
+  commentId: Overload:lumify.api.Models.DTO.Responses.LinkItemResponse.Url
+  href: lumify.api.Models.DTO.Responses.LinkItemResponse.html#lumify_api_Models_DTO_Responses_LinkItemResponse_Url
+  name: Url
+  nameWithType: LinkItemResponse.Url
+  fullName: lumify.api.Models.DTO.Responses.LinkItemResponse.Url
+- uid: lumify.api.Models.DTO.Responses.LinkItemResponse.NotePos*
+  commentId: Overload:lumify.api.Models.DTO.Responses.LinkItemResponse.NotePos
+  href: lumify.api.Models.DTO.Responses.LinkItemResponse.html#lumify_api_Models_DTO_Responses_LinkItemResponse_NotePos
+  name: NotePos
+  nameWithType: LinkItemResponse.NotePos
+  fullName: lumify.api.Models.DTO.Responses.LinkItemResponse.NotePos
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: lumify.api.Models.DTO.Responses.LinkItemResponse.CreatedAt*
+  commentId: Overload:lumify.api.Models.DTO.Responses.LinkItemResponse.CreatedAt
+  href: lumify.api.Models.DTO.Responses.LinkItemResponse.html#lumify_api_Models_DTO_Responses_LinkItemResponse_CreatedAt
+  name: CreatedAt
+  nameWithType: LinkItemResponse.CreatedAt
+  fullName: lumify.api.Models.DTO.Responses.LinkItemResponse.CreatedAt
+- uid: lumify.api.Models.DTO.Responses.LinkItemResponse.UpdatedAt*
+  commentId: Overload:lumify.api.Models.DTO.Responses.LinkItemResponse.UpdatedAt
+  href: lumify.api.Models.DTO.Responses.LinkItemResponse.html#lumify_api_Models_DTO_Responses_LinkItemResponse_UpdatedAt
+  name: UpdatedAt
+  nameWithType: LinkItemResponse.UpdatedAt
+  fullName: lumify.api.Models.DTO.Responses.LinkItemResponse.UpdatedAt

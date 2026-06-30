@@ -1,0 +1,545 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse
+  commentId: T:lumify.api.Models.DTO.Responses.FriendshipResponse
+  id: FriendshipResponse
+  parent: lumify.api.Models.DTO.Responses
+  children:
+  - lumify.api.Models.DTO.Responses.FriendshipResponse.AddresseeID
+  - lumify.api.Models.DTO.Responses.FriendshipResponse.CreatedAt
+  - lumify.api.Models.DTO.Responses.FriendshipResponse.FriendAvatarUrl
+  - lumify.api.Models.DTO.Responses.FriendshipResponse.FriendDisplayName
+  - lumify.api.Models.DTO.Responses.FriendshipResponse.FriendUserID
+  - lumify.api.Models.DTO.Responses.FriendshipResponse.FriendUsername
+  - lumify.api.Models.DTO.Responses.FriendshipResponse.ID
+  - lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterAvatarUrl
+  - lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterDisplayName
+  - lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterID
+  - lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterUsername
+  - lumify.api.Models.DTO.Responses.FriendshipResponse.Status
+  langs:
+  - csharp
+  - vb
+  name: FriendshipResponse
+  nameWithType: FriendshipResponse
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: FriendshipResponse
+    path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+    startLine: 2
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public class FriendshipResponse
+    content.vb: Public Class FriendshipResponse
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.ID
+  commentId: P:lumify.api.Models.DTO.Responses.FriendshipResponse.ID
+  id: ID
+  parent: lumify.api.Models.DTO.Responses.FriendshipResponse
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: FriendshipResponse.ID
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.ID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ID
+    path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+    startLine: 4
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string ID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ID As String
+  overload: lumify.api.Models.DTO.Responses.FriendshipResponse.ID*
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterID
+  commentId: P:lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterID
+  id: RequesterID
+  parent: lumify.api.Models.DTO.Responses.FriendshipResponse
+  langs:
+  - csharp
+  - vb
+  name: RequesterID
+  nameWithType: FriendshipResponse.RequesterID
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: RequesterID
+    path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string RequesterID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RequesterID As String
+  overload: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterID*
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.AddresseeID
+  commentId: P:lumify.api.Models.DTO.Responses.FriendshipResponse.AddresseeID
+  id: AddresseeID
+  parent: lumify.api.Models.DTO.Responses.FriendshipResponse
+  langs:
+  - csharp
+  - vb
+  name: AddresseeID
+  nameWithType: FriendshipResponse.AddresseeID
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.AddresseeID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AddresseeID
+    path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+    startLine: 6
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string AddresseeID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AddresseeID As String
+  overload: lumify.api.Models.DTO.Responses.FriendshipResponse.AddresseeID*
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.Status
+  commentId: P:lumify.api.Models.DTO.Responses.FriendshipResponse.Status
+  id: Status
+  parent: lumify.api.Models.DTO.Responses.FriendshipResponse
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: FriendshipResponse.Status
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.Status
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Status
+    path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+    startLine: 8
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public int Status { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Status As Integer
+  overload: lumify.api.Models.DTO.Responses.FriendshipResponse.Status*
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.CreatedAt
+  commentId: P:lumify.api.Models.DTO.Responses.FriendshipResponse.CreatedAt
+  id: CreatedAt
+  parent: lumify.api.Models.DTO.Responses.FriendshipResponse
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: FriendshipResponse.CreatedAt
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: CreatedAt
+    path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+    startLine: 9
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreatedAt As String
+  overload: lumify.api.Models.DTO.Responses.FriendshipResponse.CreatedAt*
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterUsername
+  commentId: P:lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterUsername
+  id: RequesterUsername
+  parent: lumify.api.Models.DTO.Responses.FriendshipResponse
+  langs:
+  - csharp
+  - vb
+  name: RequesterUsername
+  nameWithType: FriendshipResponse.RequesterUsername
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterUsername
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: RequesterUsername
+    path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+    startLine: 11
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string? RequesterUsername { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RequesterUsername As String
+  overload: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterUsername*
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterDisplayName
+  commentId: P:lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterDisplayName
+  id: RequesterDisplayName
+  parent: lumify.api.Models.DTO.Responses.FriendshipResponse
+  langs:
+  - csharp
+  - vb
+  name: RequesterDisplayName
+  nameWithType: FriendshipResponse.RequesterDisplayName
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterDisplayName
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: RequesterDisplayName
+    path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+    startLine: 12
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string? RequesterDisplayName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RequesterDisplayName As String
+  overload: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterDisplayName*
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterAvatarUrl
+  commentId: P:lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterAvatarUrl
+  id: RequesterAvatarUrl
+  parent: lumify.api.Models.DTO.Responses.FriendshipResponse
+  langs:
+  - csharp
+  - vb
+  name: RequesterAvatarUrl
+  nameWithType: FriendshipResponse.RequesterAvatarUrl
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterAvatarUrl
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: RequesterAvatarUrl
+    path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+    startLine: 13
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string? RequesterAvatarUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RequesterAvatarUrl As String
+  overload: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterAvatarUrl*
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendUserID
+  commentId: P:lumify.api.Models.DTO.Responses.FriendshipResponse.FriendUserID
+  id: FriendUserID
+  parent: lumify.api.Models.DTO.Responses.FriendshipResponse
+  langs:
+  - csharp
+  - vb
+  name: FriendUserID
+  nameWithType: FriendshipResponse.FriendUserID
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendUserID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: FriendUserID
+    path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+    startLine: 15
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string? FriendUserID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FriendUserID As String
+  overload: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendUserID*
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendUsername
+  commentId: P:lumify.api.Models.DTO.Responses.FriendshipResponse.FriendUsername
+  id: FriendUsername
+  parent: lumify.api.Models.DTO.Responses.FriendshipResponse
+  langs:
+  - csharp
+  - vb
+  name: FriendUsername
+  nameWithType: FriendshipResponse.FriendUsername
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendUsername
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: FriendUsername
+    path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+    startLine: 16
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string? FriendUsername { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FriendUsername As String
+  overload: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendUsername*
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendDisplayName
+  commentId: P:lumify.api.Models.DTO.Responses.FriendshipResponse.FriendDisplayName
+  id: FriendDisplayName
+  parent: lumify.api.Models.DTO.Responses.FriendshipResponse
+  langs:
+  - csharp
+  - vb
+  name: FriendDisplayName
+  nameWithType: FriendshipResponse.FriendDisplayName
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendDisplayName
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: FriendDisplayName
+    path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+    startLine: 17
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string? FriendDisplayName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FriendDisplayName As String
+  overload: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendDisplayName*
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendAvatarUrl
+  commentId: P:lumify.api.Models.DTO.Responses.FriendshipResponse.FriendAvatarUrl
+  id: FriendAvatarUrl
+  parent: lumify.api.Models.DTO.Responses.FriendshipResponse
+  langs:
+  - csharp
+  - vb
+  name: FriendAvatarUrl
+  nameWithType: FriendshipResponse.FriendAvatarUrl
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendAvatarUrl
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: FriendAvatarUrl
+    path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
+    startLine: 18
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string? FriendAvatarUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FriendAvatarUrl As String
+  overload: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendAvatarUrl*
+references:
+- uid: lumify.api.Models.DTO.Responses
+  commentId: N:lumify.api.Models.DTO.Responses
+  href: lumify.html
+  name: lumify.api.Models.DTO.Responses
+  nameWithType: lumify.api.Models.DTO.Responses
+  fullName: lumify.api.Models.DTO.Responses
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Responses
+    name: Responses
+    href: lumify.api.Models.DTO.Responses.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Responses
+    name: Responses
+    href: lumify.api.Models.DTO.Responses.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.ID*
+  commentId: Overload:lumify.api.Models.DTO.Responses.FriendshipResponse.ID
+  href: lumify.api.Models.DTO.Responses.FriendshipResponse.html#lumify_api_Models_DTO_Responses_FriendshipResponse_ID
+  name: ID
+  nameWithType: FriendshipResponse.ID
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.ID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterID*
+  commentId: Overload:lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterID
+  href: lumify.api.Models.DTO.Responses.FriendshipResponse.html#lumify_api_Models_DTO_Responses_FriendshipResponse_RequesterID
+  name: RequesterID
+  nameWithType: FriendshipResponse.RequesterID
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterID
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.AddresseeID*
+  commentId: Overload:lumify.api.Models.DTO.Responses.FriendshipResponse.AddresseeID
+  href: lumify.api.Models.DTO.Responses.FriendshipResponse.html#lumify_api_Models_DTO_Responses_FriendshipResponse_AddresseeID
+  name: AddresseeID
+  nameWithType: FriendshipResponse.AddresseeID
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.AddresseeID
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.Status*
+  commentId: Overload:lumify.api.Models.DTO.Responses.FriendshipResponse.Status
+  href: lumify.api.Models.DTO.Responses.FriendshipResponse.html#lumify_api_Models_DTO_Responses_FriendshipResponse_Status
+  name: Status
+  nameWithType: FriendshipResponse.Status
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.Status
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.CreatedAt*
+  commentId: Overload:lumify.api.Models.DTO.Responses.FriendshipResponse.CreatedAt
+  href: lumify.api.Models.DTO.Responses.FriendshipResponse.html#lumify_api_Models_DTO_Responses_FriendshipResponse_CreatedAt
+  name: CreatedAt
+  nameWithType: FriendshipResponse.CreatedAt
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.CreatedAt
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterUsername*
+  commentId: Overload:lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterUsername
+  href: lumify.api.Models.DTO.Responses.FriendshipResponse.html#lumify_api_Models_DTO_Responses_FriendshipResponse_RequesterUsername
+  name: RequesterUsername
+  nameWithType: FriendshipResponse.RequesterUsername
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterUsername
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterDisplayName*
+  commentId: Overload:lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterDisplayName
+  href: lumify.api.Models.DTO.Responses.FriendshipResponse.html#lumify_api_Models_DTO_Responses_FriendshipResponse_RequesterDisplayName
+  name: RequesterDisplayName
+  nameWithType: FriendshipResponse.RequesterDisplayName
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterDisplayName
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterAvatarUrl*
+  commentId: Overload:lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterAvatarUrl
+  href: lumify.api.Models.DTO.Responses.FriendshipResponse.html#lumify_api_Models_DTO_Responses_FriendshipResponse_RequesterAvatarUrl
+  name: RequesterAvatarUrl
+  nameWithType: FriendshipResponse.RequesterAvatarUrl
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.RequesterAvatarUrl
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendUserID*
+  commentId: Overload:lumify.api.Models.DTO.Responses.FriendshipResponse.FriendUserID
+  href: lumify.api.Models.DTO.Responses.FriendshipResponse.html#lumify_api_Models_DTO_Responses_FriendshipResponse_FriendUserID
+  name: FriendUserID
+  nameWithType: FriendshipResponse.FriendUserID
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendUserID
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendUsername*
+  commentId: Overload:lumify.api.Models.DTO.Responses.FriendshipResponse.FriendUsername
+  href: lumify.api.Models.DTO.Responses.FriendshipResponse.html#lumify_api_Models_DTO_Responses_FriendshipResponse_FriendUsername
+  name: FriendUsername
+  nameWithType: FriendshipResponse.FriendUsername
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendUsername
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendDisplayName*
+  commentId: Overload:lumify.api.Models.DTO.Responses.FriendshipResponse.FriendDisplayName
+  href: lumify.api.Models.DTO.Responses.FriendshipResponse.html#lumify_api_Models_DTO_Responses_FriendshipResponse_FriendDisplayName
+  name: FriendDisplayName
+  nameWithType: FriendshipResponse.FriendDisplayName
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendDisplayName
+- uid: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendAvatarUrl*
+  commentId: Overload:lumify.api.Models.DTO.Responses.FriendshipResponse.FriendAvatarUrl
+  href: lumify.api.Models.DTO.Responses.FriendshipResponse.html#lumify_api_Models_DTO_Responses_FriendshipResponse_FriendAvatarUrl
+  name: FriendAvatarUrl
+  nameWithType: FriendshipResponse.FriendAvatarUrl
+  fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendAvatarUrl

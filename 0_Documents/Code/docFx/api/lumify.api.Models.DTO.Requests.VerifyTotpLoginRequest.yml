@@ -1,0 +1,175 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest
+  commentId: T:lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest
+  id: VerifyTotpLoginRequest
+  parent: lumify.api.Models.DTO.Requests
+  children:
+  - lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.Code
+  - lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.MfaToken
+  langs:
+  - csharp
+  - vb
+  name: VerifyTotpLoginRequest
+  nameWithType: VerifyTotpLoginRequest
+  fullName: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/MfaRequests.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: VerifyTotpLoginRequest
+    path: ../../../lumify.api/Models/DTO/Requests/MfaRequests.cs
+    startLine: 3
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public class VerifyTotpLoginRequest
+    content.vb: Public Class VerifyTotpLoginRequest
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.MfaToken
+  commentId: P:lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.MfaToken
+  id: MfaToken
+  parent: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest
+  langs:
+  - csharp
+  - vb
+  name: MfaToken
+  nameWithType: VerifyTotpLoginRequest.MfaToken
+  fullName: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.MfaToken
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/MfaRequests.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: MfaToken
+    path: ../../../lumify.api/Models/DTO/Requests/MfaRequests.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string MfaToken { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property MfaToken As String
+  overload: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.MfaToken*
+- uid: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.Code
+  commentId: P:lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.Code
+  id: Code
+  parent: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest
+  langs:
+  - csharp
+  - vb
+  name: Code
+  nameWithType: VerifyTotpLoginRequest.Code
+  fullName: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.Code
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/MfaRequests.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Code
+    path: ../../../lumify.api/Models/DTO/Requests/MfaRequests.cs
+    startLine: 6
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string Code { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Code As String
+  overload: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.Code*
+references:
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  href: lumify.html
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.MfaToken*
+  commentId: Overload:lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.MfaToken
+  href: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.html#lumify_api_Models_DTO_Requests_VerifyTotpLoginRequest_MfaToken
+  name: MfaToken
+  nameWithType: VerifyTotpLoginRequest.MfaToken
+  fullName: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.MfaToken
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.Code*
+  commentId: Overload:lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.Code
+  href: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.html#lumify_api_Models_DTO_Requests_VerifyTotpLoginRequest_Code
+  name: Code
+  nameWithType: VerifyTotpLoginRequest.Code
+  fullName: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.Code

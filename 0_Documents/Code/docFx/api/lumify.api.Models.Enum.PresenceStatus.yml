@@ -1,0 +1,182 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.Enum.PresenceStatus
+  commentId: T:lumify.api.Models.Enum.PresenceStatus
+  id: PresenceStatus
+  parent: lumify.api.Models.Enum
+  children:
+  - lumify.api.Models.Enum.PresenceStatus.Away
+  - lumify.api.Models.Enum.PresenceStatus.DoNotDisturb
+  - lumify.api.Models.Enum.PresenceStatus.Offline
+  - lumify.api.Models.Enum.PresenceStatus.Online
+  langs:
+  - csharp
+  - vb
+  name: PresenceStatus
+  nameWithType: PresenceStatus
+  fullName: lumify.api.Models.Enum.PresenceStatus
+  type: Enum
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Enum/PresenceStatus.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: PresenceStatus
+    path: ../../../lumify.api/Models/DTO/Enum/PresenceStatus.cs
+    startLine: 2
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Enum
+  syntax:
+    content: public enum PresenceStatus
+    content.vb: Public Enum PresenceStatus
+- uid: lumify.api.Models.Enum.PresenceStatus.Offline
+  commentId: F:lumify.api.Models.Enum.PresenceStatus.Offline
+  id: Offline
+  parent: lumify.api.Models.Enum.PresenceStatus
+  langs:
+  - csharp
+  - vb
+  name: Offline
+  nameWithType: PresenceStatus.Offline
+  fullName: lumify.api.Models.Enum.PresenceStatus.Offline
+  type: Field
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Enum/PresenceStatus.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Offline
+    path: ../../../lumify.api/Models/DTO/Enum/PresenceStatus.cs
+    startLine: 4
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Enum
+  syntax:
+    content: Offline = 0
+    return:
+      type: lumify.api.Models.Enum.PresenceStatus
+- uid: lumify.api.Models.Enum.PresenceStatus.Online
+  commentId: F:lumify.api.Models.Enum.PresenceStatus.Online
+  id: Online
+  parent: lumify.api.Models.Enum.PresenceStatus
+  langs:
+  - csharp
+  - vb
+  name: Online
+  nameWithType: PresenceStatus.Online
+  fullName: lumify.api.Models.Enum.PresenceStatus.Online
+  type: Field
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Enum/PresenceStatus.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Online
+    path: ../../../lumify.api/Models/DTO/Enum/PresenceStatus.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Enum
+  syntax:
+    content: Online = 1
+    return:
+      type: lumify.api.Models.Enum.PresenceStatus
+- uid: lumify.api.Models.Enum.PresenceStatus.Away
+  commentId: F:lumify.api.Models.Enum.PresenceStatus.Away
+  id: Away
+  parent: lumify.api.Models.Enum.PresenceStatus
+  langs:
+  - csharp
+  - vb
+  name: Away
+  nameWithType: PresenceStatus.Away
+  fullName: lumify.api.Models.Enum.PresenceStatus.Away
+  type: Field
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Enum/PresenceStatus.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Away
+    path: ../../../lumify.api/Models/DTO/Enum/PresenceStatus.cs
+    startLine: 6
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Enum
+  syntax:
+    content: Away = 2
+    return:
+      type: lumify.api.Models.Enum.PresenceStatus
+- uid: lumify.api.Models.Enum.PresenceStatus.DoNotDisturb
+  commentId: F:lumify.api.Models.Enum.PresenceStatus.DoNotDisturb
+  id: DoNotDisturb
+  parent: lumify.api.Models.Enum.PresenceStatus
+  langs:
+  - csharp
+  - vb
+  name: DoNotDisturb
+  nameWithType: PresenceStatus.DoNotDisturb
+  fullName: lumify.api.Models.Enum.PresenceStatus.DoNotDisturb
+  type: Field
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Enum/PresenceStatus.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DoNotDisturb
+    path: ../../../lumify.api/Models/DTO/Enum/PresenceStatus.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Enum
+  syntax:
+    content: DoNotDisturb = 3
+    return:
+      type: lumify.api.Models.Enum.PresenceStatus
+references:
+- uid: lumify.api.Models.Enum
+  commentId: N:lumify.api.Models.Enum
+  href: lumify.html
+  name: lumify.api.Models.Enum
+  nameWithType: lumify.api.Models.Enum
+  fullName: lumify.api.Models.Enum
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Enum
+    name: Enum
+    href: lumify.api.Models.Enum.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Enum
+    name: Enum
+    href: lumify.api.Models.Enum.html
+- uid: lumify.api.Models.Enum.PresenceStatus
+  commentId: T:lumify.api.Models.Enum.PresenceStatus
+  parent: lumify.api.Models.Enum
+  href: lumify.api.Models.Enum.PresenceStatus.html
+  name: PresenceStatus
+  nameWithType: PresenceStatus
+  fullName: lumify.api.Models.Enum.PresenceStatus

@@ -1,0 +1,1894 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Controllers.TodoListsController
+  commentId: T:lumify.api.Controllers.TodoListsController
+  id: TodoListsController
+  parent: lumify.api.Controllers
+  children:
+  - lumify.api.Controllers.TodoListsController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.TodoListsController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.TodoHub})
+  - lumify.api.Controllers.TodoListsController.AddTodoEntry(lumify.api.Models.DTO.Requests.AddTodoEntryRequest,System.Threading.CancellationToken)
+  - lumify.api.Controllers.TodoListsController.AddTodoList(lumify.api.Models.DTO.Requests.AddTodoListRequest,System.Threading.CancellationToken)
+  - lumify.api.Controllers.TodoListsController.DeleteTodoEntry(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.TodoListsController.DeleteTodoList(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfUser(System.Threading.CancellationToken)
+  - lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfWorkspace(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.TodoListsController.GetAllTodoListsOfUser(System.Threading.CancellationToken)
+  - lumify.api.Controllers.TodoListsController.GetAllTodoListsOfWorkspace(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.TodoListsController.GetSpaceInfosOfTodoEntry(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.TodoListsController.GetTodoListCountOfUser(System.Threading.CancellationToken)
+  - lumify.api.Controllers.TodoListsController.GetTodoListCountOfWorkspace(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.TodoListsController.GetTodoListWithID(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.TodoListsController.SaveTodoEntry(SaveTodoEntryRequest,System.Threading.CancellationToken)
+  - lumify.api.Controllers.TodoListsController.SaveTodoList(lumify.api.Models.DTO.Requests.SaveTodoListRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: TodoListsController
+  nameWithType: TodoListsController
+  fullName: lumify.api.Controllers.TodoListsController
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Controllers/TodoListsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: TodoListsController
+    path: ../../../lumify.api/Controllers/TodoListsController.cs
+    startLine: 24
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Manages todo lists and their entries, both personal (no workspace) and workspace-shared,
+
+    including creation, editing, deletion and various queries. All endpoints require an
+
+    authenticated user. Changes to workspace items are pushed live to the workspace group
+
+    over the <xref href="lumify.api.Hubs.TodoHub" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    Status values are integers: 1 = pending/open, 2 = done. A list's status is kept in sync
+
+    with its entries: checking the last open entry marks the list done, while adding or
+
+    unchecking an entry reopens it. Permission rule throughout: a personal item may only be
+
+    modified by its owner, a workspace item by any active member (see <code>CanModify</code>).
+  example: []
+  syntax:
+    content: >-
+      [ApiController]
+
+      [Route("todos/[action]")]
+
+      [Authorize]
+
+      public class TodoListsController : ControllerBase
+    content.vb: >-
+      <ApiController>
+
+      <Route("todos/[action]")>
+
+      <Authorize>
+
+      Public Class TodoListsController Inherits ControllerBase
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.Mvc.ControllerBase
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.ApiControllerAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ApiControllerAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.RouteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.RouteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: todos/[action]
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+- uid: lumify.api.Controllers.TodoListsController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.TodoListsController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.TodoHub})
+  commentId: M:lumify.api.Controllers.TodoListsController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.TodoListsController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.TodoHub})
+  id: '#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.TodoListsController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.TodoHub})'
+  parent: lumify.api.Controllers.TodoListsController
+  langs:
+  - csharp
+  - vb
+  name: TodoListsController(ILogger<TodoListsController>, LumifyDbContext, IHubContext<TodoHub>)
+  nameWithType: TodoListsController.TodoListsController(ILogger<TodoListsController>, LumifyDbContext, IHubContext<TodoHub>)
+  fullName: lumify.api.Controllers.TodoListsController.TodoListsController(Microsoft.Extensions.Logging.ILogger<lumify.api.Controllers.TodoListsController>, lumify.api.Models.Context.LumifyDbContext, Microsoft.AspNetCore.SignalR.IHubContext<lumify.api.Hubs.TodoHub>)
+  type: Constructor
+  source:
+    remote:
+      path: lumify.api/Controllers/TodoListsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: .ctor
+    path: ../../../lumify.api/Controllers/TodoListsController.cs
+    startLine: 37
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Creates the controller with its injected logger, database context and the todo hub
+
+    used for live notifications.
+  example: []
+  syntax:
+    content: public TodoListsController(ILogger<TodoListsController> logger, LumifyDbContext db, IHubContext<TodoHub> todoHub)
+    parameters:
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.TodoListsController}
+    - id: db
+      type: lumify.api.Models.Context.LumifyDbContext
+    - id: todoHub
+      type: Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.TodoHub}
+    content.vb: Public Sub New(logger As ILogger(Of TodoListsController), db As LumifyDbContext, todoHub As IHubContext(Of TodoHub))
+  overload: lumify.api.Controllers.TodoListsController.#ctor*
+  nameWithType.vb: TodoListsController.New(ILogger(Of TodoListsController), LumifyDbContext, IHubContext(Of TodoHub))
+  fullName.vb: lumify.api.Controllers.TodoListsController.New(Microsoft.Extensions.Logging.ILogger(Of lumify.api.Controllers.TodoListsController), lumify.api.Models.Context.LumifyDbContext, Microsoft.AspNetCore.SignalR.IHubContext(Of lumify.api.Hubs.TodoHub))
+  name.vb: New(ILogger(Of TodoListsController), LumifyDbContext, IHubContext(Of TodoHub))
+- uid: lumify.api.Controllers.TodoListsController.AddTodoList(lumify.api.Models.DTO.Requests.AddTodoListRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.TodoListsController.AddTodoList(lumify.api.Models.DTO.Requests.AddTodoListRequest,System.Threading.CancellationToken)
+  id: AddTodoList(lumify.api.Models.DTO.Requests.AddTodoListRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.TodoListsController
+  langs:
+  - csharp
+  - vb
+  name: AddTodoList(AddTodoListRequest, CancellationToken)
+  nameWithType: TodoListsController.AddTodoList(AddTodoListRequest, CancellationToken)
+  fullName: lumify.api.Controllers.TodoListsController.AddTodoList(lumify.api.Models.DTO.Requests.AddTodoListRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/TodoListsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AddTodoList
+    path: ../../../lumify.api/Controllers/TodoListsController.cs
+    startLine: 57
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Creates a new todo list (status 1 = pending), optionally inside a workspace.
+  remarks: >-
+    On success in a workspace, a <code>TodoListCreated</code> event is broadcast to
+        the workspace group.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("addTodoList")]
+
+      public Task<ActionResult<TodoListResponse>> AddTodoList(AddTodoListRequest request, CancellationToken ct)
+    parameters:
+    - id: request
+      type: lumify.api.Models.DTO.Requests.AddTodoListRequest
+      description: List data (name required; optional workspace).
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.TodoListResponse}}
+      description: >-
+        200 with the created list; 400 if the name is missing or the workspace does
+            not exist.
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("addTodoList")>
+
+      Public Function AddTodoList(request As AddTodoListRequest, ct As CancellationToken) As Task(Of ActionResult(Of TodoListResponse))
+  overload: lumify.api.Controllers.TodoListsController.AddTodoList*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: addTodoList
+- uid: lumify.api.Controllers.TodoListsController.AddTodoEntry(lumify.api.Models.DTO.Requests.AddTodoEntryRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.TodoListsController.AddTodoEntry(lumify.api.Models.DTO.Requests.AddTodoEntryRequest,System.Threading.CancellationToken)
+  id: AddTodoEntry(lumify.api.Models.DTO.Requests.AddTodoEntryRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.TodoListsController
+  langs:
+  - csharp
+  - vb
+  name: AddTodoEntry(AddTodoEntryRequest, CancellationToken)
+  nameWithType: TodoListsController.AddTodoEntry(AddTodoEntryRequest, CancellationToken)
+  fullName: lumify.api.Controllers.TodoListsController.AddTodoEntry(lumify.api.Models.DTO.Requests.AddTodoEntryRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/TodoListsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AddTodoEntry
+    path: ../../../lumify.api/Controllers/TodoListsController.cs
+    startLine: 138
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Adds a new entry (status 1 = pending) to a todo list.
+  remarks: >-
+    If the parent list was already marked done (status 2), it is reopened. On success in
+
+    a workspace, a <code>TodoEntryCreated</code> event (and a <code>TodoListUpdated</code> event if
+
+    the list reopened) is broadcast to the workspace group.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("addTodoEntry")]
+
+      public Task<ActionResult<TodoEntryResponse>> AddTodoEntry(AddTodoEntryRequest request, CancellationToken ct)
+    parameters:
+    - id: request
+      type: lumify.api.Models.DTO.Requests.AddTodoEntryRequest
+      description: Entry data (name and parent list ID required; optional description).
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.TodoEntryResponse}}
+      description: >-
+        200 with the created entry; 400 if the name or list ID is missing or the
+            list does not exist.
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("addTodoEntry")>
+
+      Public Function AddTodoEntry(request As AddTodoEntryRequest, ct As CancellationToken) As Task(Of ActionResult(Of TodoEntryResponse))
+  overload: lumify.api.Controllers.TodoListsController.AddTodoEntry*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: addTodoEntry
+- uid: lumify.api.Controllers.TodoListsController.SaveTodoList(lumify.api.Models.DTO.Requests.SaveTodoListRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.TodoListsController.SaveTodoList(lumify.api.Models.DTO.Requests.SaveTodoListRequest,System.Threading.CancellationToken)
+  id: SaveTodoList(lumify.api.Models.DTO.Requests.SaveTodoListRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.TodoListsController
+  langs:
+  - csharp
+  - vb
+  name: SaveTodoList(SaveTodoListRequest, CancellationToken)
+  nameWithType: TodoListsController.SaveTodoList(SaveTodoListRequest, CancellationToken)
+  fullName: lumify.api.Controllers.TodoListsController.SaveTodoList(lumify.api.Models.DTO.Requests.SaveTodoListRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/TodoListsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SaveTodoList
+    path: ../../../lumify.api/Controllers/TodoListsController.cs
+    startLine: 253
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Updates a todo list's name, status (1 or 2) and/or archived flag. Only provided
+
+    fields are changed, and the database is only written if something changed.
+  remarks: >-
+    On a successful change in a workspace, a <code>TodoListUpdated</code> event is
+        broadcast to the workspace group.
+  example: []
+  syntax:
+    content: >-
+      [HttpPatch]
+
+      [ActionName("saveTodoList")]
+
+      public Task<ActionResult<TodoListResponse>> SaveTodoList(SaveTodoListRequest request, CancellationToken ct)
+    parameters:
+    - id: request
+      type: lumify.api.Models.DTO.Requests.SaveTodoListRequest
+      description: The list ID plus the fields to change.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.TodoListResponse}}
+      description: >-
+        200 with the updated list; 400 on invalid input (e.g. status not 1/2);
+            403 if the user may not modify it; 404 if the list does not exist.
+    content.vb: >-
+      <HttpPatch>
+
+      <ActionName("saveTodoList")>
+
+      Public Function SaveTodoList(request As SaveTodoListRequest, ct As CancellationToken) As Task(Of ActionResult(Of TodoListResponse))
+  overload: lumify.api.Controllers.TodoListsController.SaveTodoList*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPatchAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPatchAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: saveTodoList
+- uid: lumify.api.Controllers.TodoListsController.SaveTodoEntry(SaveTodoEntryRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.TodoListsController.SaveTodoEntry(SaveTodoEntryRequest,System.Threading.CancellationToken)
+  id: SaveTodoEntry(SaveTodoEntryRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.TodoListsController
+  langs:
+  - csharp
+  - vb
+  name: SaveTodoEntry(SaveTodoEntryRequest, CancellationToken)
+  nameWithType: TodoListsController.SaveTodoEntry(SaveTodoEntryRequest, CancellationToken)
+  fullName: lumify.api.Controllers.TodoListsController.SaveTodoEntry(SaveTodoEntryRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/TodoListsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SaveTodoEntry
+    path: ../../../lumify.api/Controllers/TodoListsController.cs
+    startLine: 386
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Updates a todo entry's name, description and/or status (1 or 2). Only provided fields
+
+    are changed, and the database is only written if something changed.
+  remarks: >-
+    Toggling the status keeps the parent list in sync: checking the last open entry marks
+
+    the list done, unchecking an entry reopens it. The response's <code>WasLastUnchecked</code>
+
+    flag signals the former. Relevant <code>TodoEntryUpdated</code>/<code>TodoListUpdated</code> events
+
+    are broadcast to the workspace group.
+  example: []
+  syntax:
+    content: >-
+      [HttpPatch]
+
+      [ActionName("saveTodoEntry")]
+
+      public Task<ActionResult<TodoEntryResponse>> SaveTodoEntry(SaveTodoEntryRequest request, CancellationToken ct)
+    parameters:
+    - id: request
+      type: SaveTodoEntryRequest
+      description: The entry ID plus the fields to change.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.TodoEntryResponse}}
+      description: >-
+        200 with the updated entry; 400 on invalid input (e.g. status not 1/2);
+            403 if the user may not modify it; 404 if the entry or its parent list does not exist.
+    content.vb: >-
+      <HttpPatch>
+
+      <ActionName("saveTodoEntry")>
+
+      Public Function SaveTodoEntry(request As SaveTodoEntryRequest, ct As CancellationToken) As Task(Of ActionResult(Of TodoEntryResponse))
+  overload: lumify.api.Controllers.TodoListsController.SaveTodoEntry*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPatchAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPatchAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: saveTodoEntry
+- uid: lumify.api.Controllers.TodoListsController.DeleteTodoList(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.TodoListsController.DeleteTodoList(System.String,System.Threading.CancellationToken)
+  id: DeleteTodoList(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.TodoListsController
+  langs:
+  - csharp
+  - vb
+  name: DeleteTodoList(string, CancellationToken)
+  nameWithType: TodoListsController.DeleteTodoList(string, CancellationToken)
+  fullName: lumify.api.Controllers.TodoListsController.DeleteTodoList(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/TodoListsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DeleteTodoList
+    path: ../../../lumify.api/Controllers/TodoListsController.cs
+    startLine: 575
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Soft-deletes a todo list.
+  remarks: >-
+    The record is kept and marked with <code>DeletedAt</code>. On a workspace list, a
+        <code>TodoListDeleted</code> event is broadcast to the workspace group.
+  example: []
+  syntax:
+    content: >-
+      [HttpDelete]
+
+      [ActionName("deleteTodoList")]
+
+      public Task<ActionResult> DeleteTodoList(string todoListID, CancellationToken ct)
+    parameters:
+    - id: todoListID
+      type: System.String
+      description: The list to delete.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: >-
+        200 with <code>success = true</code> and the list ID; 400 if the ID is missing;
+            403 if the user may not delete it; 404 if the list does not exist.
+    content.vb: >-
+      <HttpDelete>
+
+      <ActionName("deleteTodoList")>
+
+      Public Function DeleteTodoList(todoListID As String, ct As CancellationToken) As Task(Of ActionResult)
+  overload: lumify.api.Controllers.TodoListsController.DeleteTodoList*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: deleteTodoList
+  nameWithType.vb: TodoListsController.DeleteTodoList(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.TodoListsController.DeleteTodoList(String, System.Threading.CancellationToken)
+  name.vb: DeleteTodoList(String, CancellationToken)
+- uid: lumify.api.Controllers.TodoListsController.DeleteTodoEntry(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.TodoListsController.DeleteTodoEntry(System.String,System.Threading.CancellationToken)
+  id: DeleteTodoEntry(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.TodoListsController
+  langs:
+  - csharp
+  - vb
+  name: DeleteTodoEntry(string, CancellationToken)
+  nameWithType: TodoListsController.DeleteTodoEntry(string, CancellationToken)
+  fullName: lumify.api.Controllers.TodoListsController.DeleteTodoEntry(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/TodoListsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DeleteTodoEntry
+    path: ../../../lumify.api/Controllers/TodoListsController.cs
+    startLine: 635
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Soft-deletes a todo entry.
+  remarks: >-
+    The record is kept and marked with <code>DeletedAt</code>. On a workspace entry, a
+        <code>TodoEntryDeleted</code> event is broadcast to the workspace group.
+  example: []
+  syntax:
+    content: >-
+      [HttpDelete]
+
+      [ActionName("deleteTodoEntry")]
+
+      public Task<ActionResult> DeleteTodoEntry(string todoEntryID, CancellationToken ct)
+    parameters:
+    - id: todoEntryID
+      type: System.String
+      description: The entry to delete.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: >-
+        200 with <code>success = true</code> and the entry ID; 400 if the ID is missing;
+            403 if the user may not delete it; 404 if the entry or its parent list does not exist.
+    content.vb: >-
+      <HttpDelete>
+
+      <ActionName("deleteTodoEntry")>
+
+      Public Function DeleteTodoEntry(todoEntryID As String, ct As CancellationToken) As Task(Of ActionResult)
+  overload: lumify.api.Controllers.TodoListsController.DeleteTodoEntry*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: deleteTodoEntry
+  nameWithType.vb: TodoListsController.DeleteTodoEntry(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.TodoListsController.DeleteTodoEntry(String, System.Threading.CancellationToken)
+  name.vb: DeleteTodoEntry(String, CancellationToken)
+- uid: lumify.api.Controllers.TodoListsController.GetAllTodoListsOfUser(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.TodoListsController.GetAllTodoListsOfUser(System.Threading.CancellationToken)
+  id: GetAllTodoListsOfUser(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.TodoListsController
+  langs:
+  - csharp
+  - vb
+  name: GetAllTodoListsOfUser(CancellationToken)
+  nameWithType: TodoListsController.GetAllTodoListsOfUser(CancellationToken)
+  fullName: lumify.api.Controllers.TodoListsController.GetAllTodoListsOfUser(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/TodoListsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetAllTodoListsOfUser
+    path: ../../../lumify.api/Controllers/TodoListsController.cs
+    startLine: 706
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns all personal todo lists (no workspace) of the current user, oldest first.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getAllTodoListsOfUser")]
+
+      public Task<ActionResult<List<TodoListResponse>>> GetAllTodoListsOfUser(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.TodoListResponse}}}
+      description: 200 with the list of todo lists.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getAllTodoListsOfUser")>
+
+      Public Function GetAllTodoListsOfUser(ct As CancellationToken) As Task(Of ActionResult(Of List(Of TodoListResponse)))
+  overload: lumify.api.Controllers.TodoListsController.GetAllTodoListsOfUser*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getAllTodoListsOfUser
+- uid: lumify.api.Controllers.TodoListsController.GetAllTodoListsOfWorkspace(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.TodoListsController.GetAllTodoListsOfWorkspace(System.String,System.Threading.CancellationToken)
+  id: GetAllTodoListsOfWorkspace(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.TodoListsController
+  langs:
+  - csharp
+  - vb
+  name: GetAllTodoListsOfWorkspace(string, CancellationToken)
+  nameWithType: TodoListsController.GetAllTodoListsOfWorkspace(string, CancellationToken)
+  fullName: lumify.api.Controllers.TodoListsController.GetAllTodoListsOfWorkspace(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/TodoListsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetAllTodoListsOfWorkspace
+    path: ../../../lumify.api/Controllers/TodoListsController.cs
+    startLine: 745
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns all todo lists of a workspace, oldest first.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getAllTodoListsOfWorkspace")]
+
+      public Task<ActionResult<List<TodoListResponse>>> GetAllTodoListsOfWorkspace(string workspaceID, CancellationToken ct)
+    parameters:
+    - id: workspaceID
+      type: System.String
+      description: The workspace whose lists are requested.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.TodoListResponse}}}
+      description: 200 with the list of todo lists; 400 if the ID is missing.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getAllTodoListsOfWorkspace")>
+
+      Public Function GetAllTodoListsOfWorkspace(workspaceID As String, ct As CancellationToken) As Task(Of ActionResult(Of List(Of TodoListResponse)))
+  overload: lumify.api.Controllers.TodoListsController.GetAllTodoListsOfWorkspace*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getAllTodoListsOfWorkspace
+  nameWithType.vb: TodoListsController.GetAllTodoListsOfWorkspace(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.TodoListsController.GetAllTodoListsOfWorkspace(String, System.Threading.CancellationToken)
+  name.vb: GetAllTodoListsOfWorkspace(String, CancellationToken)
+- uid: lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfUser(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfUser(System.Threading.CancellationToken)
+  id: GetAllTodoEntriesOfUser(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.TodoListsController
+  langs:
+  - csharp
+  - vb
+  name: GetAllTodoEntriesOfUser(CancellationToken)
+  nameWithType: TodoListsController.GetAllTodoEntriesOfUser(CancellationToken)
+  fullName: lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfUser(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/TodoListsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetAllTodoEntriesOfUser
+    path: ../../../lumify.api/Controllers/TodoListsController.cs
+    startLine: 786
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Returns all entries of the current user's personal todo lists (no workspace),
+
+    oldest first.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getAllTodoEntriesOfUser")]
+
+      public Task<ActionResult<List<TodoEntryResponse>>> GetAllTodoEntriesOfUser(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.TodoEntryResponse}}}
+      description: 200 with the list of entries.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getAllTodoEntriesOfUser")>
+
+      Public Function GetAllTodoEntriesOfUser(ct As CancellationToken) As Task(Of ActionResult(Of List(Of TodoEntryResponse)))
+  overload: lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfUser*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getAllTodoEntriesOfUser
+- uid: lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfWorkspace(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfWorkspace(System.String,System.Threading.CancellationToken)
+  id: GetAllTodoEntriesOfWorkspace(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.TodoListsController
+  langs:
+  - csharp
+  - vb
+  name: GetAllTodoEntriesOfWorkspace(string, CancellationToken)
+  nameWithType: TodoListsController.GetAllTodoEntriesOfWorkspace(string, CancellationToken)
+  fullName: lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfWorkspace(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/TodoListsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetAllTodoEntriesOfWorkspace
+    path: ../../../lumify.api/Controllers/TodoListsController.cs
+    startLine: 827
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns all entries of all todo lists in a workspace, oldest first.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getAllTodoEntriesOfWorkspace")]
+
+      public Task<ActionResult<List<TodoEntryResponse>>> GetAllTodoEntriesOfWorkspace(string workspaceID, CancellationToken ct)
+    parameters:
+    - id: workspaceID
+      type: System.String
+      description: The workspace whose entries are requested.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.TodoEntryResponse}}}
+      description: 200 with the list of entries; 400 if the ID is missing.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getAllTodoEntriesOfWorkspace")>
+
+      Public Function GetAllTodoEntriesOfWorkspace(workspaceID As String, ct As CancellationToken) As Task(Of ActionResult(Of List(Of TodoEntryResponse)))
+  overload: lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfWorkspace*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getAllTodoEntriesOfWorkspace
+  nameWithType.vb: TodoListsController.GetAllTodoEntriesOfWorkspace(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfWorkspace(String, System.Threading.CancellationToken)
+  name.vb: GetAllTodoEntriesOfWorkspace(String, CancellationToken)
+- uid: lumify.api.Controllers.TodoListsController.GetTodoListWithID(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.TodoListsController.GetTodoListWithID(System.String,System.Threading.CancellationToken)
+  id: GetTodoListWithID(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.TodoListsController
+  langs:
+  - csharp
+  - vb
+  name: GetTodoListWithID(string, CancellationToken)
+  nameWithType: TodoListsController.GetTodoListWithID(string, CancellationToken)
+  fullName: lumify.api.Controllers.TodoListsController.GetTodoListWithID(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/TodoListsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetTodoListWithID
+    path: ../../../lumify.api/Controllers/TodoListsController.cs
+    startLine: 870
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns a single todo list by its ID.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getTodoListWithID")]
+
+      public Task<ActionResult<TodoListResponse>> GetTodoListWithID(string todoListID, CancellationToken ct)
+    parameters:
+    - id: todoListID
+      type: System.String
+      description: The list to look up.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.TodoListResponse}}
+      description: 200 with the list; 400 if the ID is missing; 404 if it does not exist.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getTodoListWithID")>
+
+      Public Function GetTodoListWithID(todoListID As String, ct As CancellationToken) As Task(Of ActionResult(Of TodoListResponse))
+  overload: lumify.api.Controllers.TodoListsController.GetTodoListWithID*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getTodoListWithID
+  nameWithType.vb: TodoListsController.GetTodoListWithID(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.TodoListsController.GetTodoListWithID(String, System.Threading.CancellationToken)
+  name.vb: GetTodoListWithID(String, CancellationToken)
+- uid: lumify.api.Controllers.TodoListsController.GetTodoListCountOfUser(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.TodoListsController.GetTodoListCountOfUser(System.Threading.CancellationToken)
+  id: GetTodoListCountOfUser(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.TodoListsController
+  langs:
+  - csharp
+  - vb
+  name: GetTodoListCountOfUser(CancellationToken)
+  nameWithType: TodoListsController.GetTodoListCountOfUser(CancellationToken)
+  fullName: lumify.api.Controllers.TodoListsController.GetTodoListCountOfUser(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/TodoListsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetTodoListCountOfUser
+    path: ../../../lumify.api/Controllers/TodoListsController.cs
+    startLine: 915
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Returns the number of personal todo lists (no workspace) owned by the current user.
+
+    Used on the feature cards of the SpaceHub.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getTodoListCountOfUser")]
+
+      public Task<ActionResult<int>> GetTodoListCountOfUser(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Int32}}
+      description: 200 with the list count.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getTodoListCountOfUser")>
+
+      Public Function GetTodoListCountOfUser(ct As CancellationToken) As Task(Of ActionResult(Of Integer))
+  overload: lumify.api.Controllers.TodoListsController.GetTodoListCountOfUser*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getTodoListCountOfUser
+- uid: lumify.api.Controllers.TodoListsController.GetTodoListCountOfWorkspace(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.TodoListsController.GetTodoListCountOfWorkspace(System.String,System.Threading.CancellationToken)
+  id: GetTodoListCountOfWorkspace(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.TodoListsController
+  langs:
+  - csharp
+  - vb
+  name: GetTodoListCountOfWorkspace(string, CancellationToken)
+  nameWithType: TodoListsController.GetTodoListCountOfWorkspace(string, CancellationToken)
+  fullName: lumify.api.Controllers.TodoListsController.GetTodoListCountOfWorkspace(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/TodoListsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetTodoListCountOfWorkspace
+    path: ../../../lumify.api/Controllers/TodoListsController.cs
+    startLine: 942
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Returns the number of todo lists in a workspace. The user must be a member. Used on
+
+    the feature cards of the SpaceHub.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getTodoListCountOfWorkspace")]
+
+      public Task<ActionResult<int>> GetTodoListCountOfWorkspace(string workspaceID, CancellationToken ct)
+    parameters:
+    - id: workspaceID
+      type: System.String
+      description: The workspace to count lists for.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Int32}}
+      description: >-
+        200 with the list count; 400 if the ID is missing; 403 if the user is not a
+            member; 404 if the workspace does not exist.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getTodoListCountOfWorkspace")>
+
+      Public Function GetTodoListCountOfWorkspace(workspaceID As String, ct As CancellationToken) As Task(Of ActionResult(Of Integer))
+  overload: lumify.api.Controllers.TodoListsController.GetTodoListCountOfWorkspace*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getTodoListCountOfWorkspace
+  nameWithType.vb: TodoListsController.GetTodoListCountOfWorkspace(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.TodoListsController.GetTodoListCountOfWorkspace(String, System.Threading.CancellationToken)
+  name.vb: GetTodoListCountOfWorkspace(String, CancellationToken)
+- uid: lumify.api.Controllers.TodoListsController.GetSpaceInfosOfTodoEntry(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.TodoListsController.GetSpaceInfosOfTodoEntry(System.String,System.Threading.CancellationToken)
+  id: GetSpaceInfosOfTodoEntry(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.TodoListsController
+  langs:
+  - csharp
+  - vb
+  name: GetSpaceInfosOfTodoEntry(string, CancellationToken)
+  nameWithType: TodoListsController.GetSpaceInfosOfTodoEntry(string, CancellationToken)
+  fullName: lumify.api.Controllers.TodoListsController.GetSpaceInfosOfTodoEntry(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/TodoListsController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetSpaceInfosOfTodoEntry
+    path: ../../../lumify.api/Controllers/TodoListsController.cs
+    startLine: 997
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Returns the workspace that the given todo entry belongs to, if any. Used by the
+
+    frontend's recents module to show where a recent item comes from.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getSpaceInfosOfTodoEntry")]
+
+      public Task<ActionResult<WorkspaceResponse>> GetSpaceInfosOfTodoEntry(string todoEntryID, CancellationToken ct)
+    parameters:
+    - id: todoEntryID
+      type: System.String
+      description: The entry whose workspace is requested.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.WorkspaceResponse}}
+      description: >-
+        200 with the workspace; 400 if the ID is missing; 404 if the entry has no
+            linked workspace or it was deleted.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getSpaceInfosOfTodoEntry")>
+
+      Public Function GetSpaceInfosOfTodoEntry(todoEntryID As String, ct As CancellationToken) As Task(Of ActionResult(Of WorkspaceResponse))
+  overload: lumify.api.Controllers.TodoListsController.GetSpaceInfosOfTodoEntry*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getSpaceInfosOfTodoEntry
+  nameWithType.vb: TodoListsController.GetSpaceInfosOfTodoEntry(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.TodoListsController.GetSpaceInfosOfTodoEntry(String, System.Threading.CancellationToken)
+  name.vb: GetSpaceInfosOfTodoEntry(String, CancellationToken)
+references:
+- uid: lumify.api.Hubs.TodoHub
+  commentId: T:lumify.api.Hubs.TodoHub
+  href: lumify.api.Hubs.TodoHub.html
+  name: TodoHub
+  nameWithType: TodoHub
+  fullName: lumify.api.Hubs.TodoHub
+- uid: lumify.api.Controllers
+  commentId: N:lumify.api.Controllers
+  href: lumify.html
+  name: lumify.api.Controllers
+  nameWithType: lumify.api.Controllers
+  fullName: lumify.api.Controllers
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Controllers
+    name: Controllers
+    href: lumify.api.Controllers.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Controllers
+    name: Controllers
+    href: lumify.api.Controllers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.Mvc.ControllerBase
+  commentId: T:Microsoft.AspNetCore.Mvc.ControllerBase
+  parent: Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: ControllerBase
+  nameWithType: ControllerBase
+  fullName: Microsoft.AspNetCore.Mvc.ControllerBase
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.Mvc
+  commentId: N:Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: Microsoft.AspNetCore.Mvc
+  nameWithType: Microsoft.AspNetCore.Mvc
+  fullName: Microsoft.AspNetCore.Mvc
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+- uid: lumify.api.Controllers.TodoListsController.#ctor*
+  commentId: Overload:lumify.api.Controllers.TodoListsController.#ctor
+  href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController__ctor_Microsoft_Extensions_Logging_ILogger_lumify_api_Controllers_TodoListsController__lumify_api_Models_Context_LumifyDbContext_Microsoft_AspNetCore_SignalR_IHubContext_lumify_api_Hubs_TodoHub__
+  name: TodoListsController
+  nameWithType: TodoListsController.TodoListsController
+  fullName: lumify.api.Controllers.TodoListsController.TodoListsController
+  nameWithType.vb: TodoListsController.New
+  fullName.vb: lumify.api.Controllers.TodoListsController.New
+  name.vb: New
+- uid: Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.TodoListsController}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.TodoListsController}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: lumify.api.Controllers.TodoListsController.html
+  name: ILogger<TodoListsController>
+  nameWithType: ILogger<TodoListsController>
+  fullName: Microsoft.Extensions.Logging.ILogger<lumify.api.Controllers.TodoListsController>
+  nameWithType.vb: ILogger(Of TodoListsController)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of lumify.api.Controllers.TodoListsController)
+  name.vb: ILogger(Of TodoListsController)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Controllers.TodoListsController
+    name: TodoListsController
+    href: lumify.api.Controllers.TodoListsController.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Controllers.TodoListsController
+    name: TodoListsController
+    href: lumify.api.Controllers.TodoListsController.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext
+  commentId: T:lumify.api.Models.Context.LumifyDbContext
+  parent: lumify.api.Models.Context
+  href: lumify.api.Models.Context.LumifyDbContext.html
+  name: LumifyDbContext
+  nameWithType: LumifyDbContext
+  fullName: lumify.api.Models.Context.LumifyDbContext
+- uid: Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.TodoHub}
+  commentId: T:Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.TodoHub}
+  parent: Microsoft.AspNetCore.SignalR
+  definition: Microsoft.AspNetCore.SignalR.IHubContext`1
+  href: lumify.api.Hubs.TodoHub.html
+  name: IHubContext<TodoHub>
+  nameWithType: IHubContext<TodoHub>
+  fullName: Microsoft.AspNetCore.SignalR.IHubContext<lumify.api.Hubs.TodoHub>
+  nameWithType.vb: IHubContext(Of TodoHub)
+  fullName.vb: Microsoft.AspNetCore.SignalR.IHubContext(Of lumify.api.Hubs.TodoHub)
+  name.vb: IHubContext(Of TodoHub)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Hubs.TodoHub
+    name: TodoHub
+    href: lumify.api.Hubs.TodoHub.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Hubs.TodoHub
+    name: TodoHub
+    href: lumify.api.Hubs.TodoHub.html
+  - name: )
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+- uid: lumify.api.Models.Context
+  commentId: N:lumify.api.Models.Context
+  href: lumify.html
+  name: lumify.api.Models.Context
+  nameWithType: lumify.api.Models.Context
+  fullName: lumify.api.Models.Context
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+- uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+  commentId: T:Microsoft.AspNetCore.SignalR.IHubContext`1
+  isExternal: true
+  name: IHubContext<THub>
+  nameWithType: IHubContext<THub>
+  fullName: Microsoft.AspNetCore.SignalR.IHubContext<THub>
+  nameWithType.vb: IHubContext(Of THub)
+  fullName.vb: Microsoft.AspNetCore.SignalR.IHubContext(Of THub)
+  name.vb: IHubContext(Of THub)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: <
+  - name: THub
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: THub
+  - name: )
+- uid: Microsoft.AspNetCore.SignalR
+  commentId: N:Microsoft.AspNetCore.SignalR
+  isExternal: true
+  name: Microsoft.AspNetCore.SignalR
+  nameWithType: Microsoft.AspNetCore.SignalR
+  fullName: Microsoft.AspNetCore.SignalR
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+- uid: lumify.api.Controllers.TodoListsController.AddTodoList*
+  commentId: Overload:lumify.api.Controllers.TodoListsController.AddTodoList
+  href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_AddTodoList_lumify_api_Models_DTO_Requests_AddTodoListRequest_System_Threading_CancellationToken_
+  name: AddTodoList
+  nameWithType: TodoListsController.AddTodoList
+  fullName: lumify.api.Controllers.TodoListsController.AddTodoList
+- uid: lumify.api.Models.DTO.Requests.AddTodoListRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddTodoListRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.AddTodoListRequest.html
+  name: AddTodoListRequest
+  nameWithType: AddTodoListRequest
+  fullName: lumify.api.Models.DTO.Requests.AddTodoListRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.TodoListResponse}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.TodoListResponse}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.TodoListResponse.html
+  name: Task<ActionResult<TodoListResponse>>
+  nameWithType: Task<ActionResult<TodoListResponse>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<lumify.api.Models.DTO.Responses.TodoListResponse>>
+  nameWithType.vb: Task(Of ActionResult(Of TodoListResponse))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of lumify.api.Models.DTO.Responses.TodoListResponse))
+  name.vb: Task(Of ActionResult(Of TodoListResponse))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.TodoListResponse
+    name: TodoListResponse
+    href: lumify.api.Models.DTO.Responses.TodoListResponse.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.TodoListResponse
+    name: TodoListResponse
+    href: lumify.api.Models.DTO.Responses.TodoListResponse.html
+  - name: )
+  - name: )
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  href: lumify.html
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: lumify.api.Controllers.TodoListsController.AddTodoEntry*
+  commentId: Overload:lumify.api.Controllers.TodoListsController.AddTodoEntry
+  href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_AddTodoEntry_lumify_api_Models_DTO_Requests_AddTodoEntryRequest_System_Threading_CancellationToken_
+  name: AddTodoEntry
+  nameWithType: TodoListsController.AddTodoEntry
+  fullName: lumify.api.Controllers.TodoListsController.AddTodoEntry
+- uid: lumify.api.Models.DTO.Requests.AddTodoEntryRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddTodoEntryRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.AddTodoEntryRequest.html
+  name: AddTodoEntryRequest
+  nameWithType: AddTodoEntryRequest
+  fullName: lumify.api.Models.DTO.Requests.AddTodoEntryRequest
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.TodoEntryResponse}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.TodoEntryResponse}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.TodoEntryResponse.html
+  name: Task<ActionResult<TodoEntryResponse>>
+  nameWithType: Task<ActionResult<TodoEntryResponse>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<lumify.api.Models.DTO.Responses.TodoEntryResponse>>
+  nameWithType.vb: Task(Of ActionResult(Of TodoEntryResponse))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of lumify.api.Models.DTO.Responses.TodoEntryResponse))
+  name.vb: Task(Of ActionResult(Of TodoEntryResponse))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.TodoEntryResponse
+    name: TodoEntryResponse
+    href: lumify.api.Models.DTO.Responses.TodoEntryResponse.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.TodoEntryResponse
+    name: TodoEntryResponse
+    href: lumify.api.Models.DTO.Responses.TodoEntryResponse.html
+  - name: )
+  - name: )
+- uid: lumify.api.Controllers.TodoListsController.SaveTodoList*
+  commentId: Overload:lumify.api.Controllers.TodoListsController.SaveTodoList
+  href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_SaveTodoList_lumify_api_Models_DTO_Requests_SaveTodoListRequest_System_Threading_CancellationToken_
+  name: SaveTodoList
+  nameWithType: TodoListsController.SaveTodoList
+  fullName: lumify.api.Controllers.TodoListsController.SaveTodoList
+- uid: lumify.api.Models.DTO.Requests.SaveTodoListRequest
+  commentId: T:lumify.api.Models.DTO.Requests.SaveTodoListRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.SaveTodoListRequest.html
+  name: SaveTodoListRequest
+  nameWithType: SaveTodoListRequest
+  fullName: lumify.api.Models.DTO.Requests.SaveTodoListRequest
+- uid: lumify.api.Controllers.TodoListsController.SaveTodoEntry*
+  commentId: Overload:lumify.api.Controllers.TodoListsController.SaveTodoEntry
+  href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_SaveTodoEntry_SaveTodoEntryRequest_System_Threading_CancellationToken_
+  name: SaveTodoEntry
+  nameWithType: TodoListsController.SaveTodoEntry
+  fullName: lumify.api.Controllers.TodoListsController.SaveTodoEntry
+- uid: SaveTodoEntryRequest
+  commentId: T:SaveTodoEntryRequest
+  href: SaveTodoEntryRequest.html
+  name: SaveTodoEntryRequest
+  nameWithType: SaveTodoEntryRequest
+  fullName: SaveTodoEntryRequest
+- uid: lumify.api.Controllers.TodoListsController.DeleteTodoList*
+  commentId: Overload:lumify.api.Controllers.TodoListsController.DeleteTodoList
+  href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_DeleteTodoList_System_String_System_Threading_CancellationToken_
+  name: DeleteTodoList
+  nameWithType: TodoListsController.DeleteTodoList
+  fullName: lumify.api.Controllers.TodoListsController.DeleteTodoList
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<ActionResult>
+  nameWithType: Task<ActionResult>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult>
+  nameWithType.vb: Task(Of ActionResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult)
+  name.vb: Task(Of ActionResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult
+    name: ActionResult
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult
+    name: ActionResult
+    isExternal: true
+  - name: )
+- uid: lumify.api.Controllers.TodoListsController.DeleteTodoEntry*
+  commentId: Overload:lumify.api.Controllers.TodoListsController.DeleteTodoEntry
+  href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_DeleteTodoEntry_System_String_System_Threading_CancellationToken_
+  name: DeleteTodoEntry
+  nameWithType: TodoListsController.DeleteTodoEntry
+  fullName: lumify.api.Controllers.TodoListsController.DeleteTodoEntry
+- uid: lumify.api.Controllers.TodoListsController.GetAllTodoListsOfUser*
+  commentId: Overload:lumify.api.Controllers.TodoListsController.GetAllTodoListsOfUser
+  href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_GetAllTodoListsOfUser_System_Threading_CancellationToken_
+  name: GetAllTodoListsOfUser
+  nameWithType: TodoListsController.GetAllTodoListsOfUser
+  fullName: lumify.api.Controllers.TodoListsController.GetAllTodoListsOfUser
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.TodoListResponse}}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.TodoListResponse}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.TodoListResponse.html
+  name: Task<ActionResult<List<TodoListResponse>>>
+  nameWithType: Task<ActionResult<List<TodoListResponse>>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.List<lumify.api.Models.DTO.Responses.TodoListResponse>>>
+  nameWithType.vb: Task(Of ActionResult(Of List(Of TodoListResponse)))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of System.Collections.Generic.List(Of lumify.api.Models.DTO.Responses.TodoListResponse)))
+  name.vb: Task(Of ActionResult(Of List(Of TodoListResponse)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.TodoListResponse
+    name: TodoListResponse
+    href: lumify.api.Models.DTO.Responses.TodoListResponse.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.TodoListResponse
+    name: TodoListResponse
+    href: lumify.api.Models.DTO.Responses.TodoListResponse.html
+  - name: )
+  - name: )
+  - name: )
+- uid: lumify.api.Controllers.TodoListsController.GetAllTodoListsOfWorkspace*
+  commentId: Overload:lumify.api.Controllers.TodoListsController.GetAllTodoListsOfWorkspace
+  href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_GetAllTodoListsOfWorkspace_System_String_System_Threading_CancellationToken_
+  name: GetAllTodoListsOfWorkspace
+  nameWithType: TodoListsController.GetAllTodoListsOfWorkspace
+  fullName: lumify.api.Controllers.TodoListsController.GetAllTodoListsOfWorkspace
+- uid: lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfUser*
+  commentId: Overload:lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfUser
+  href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_GetAllTodoEntriesOfUser_System_Threading_CancellationToken_
+  name: GetAllTodoEntriesOfUser
+  nameWithType: TodoListsController.GetAllTodoEntriesOfUser
+  fullName: lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfUser
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.TodoEntryResponse}}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.TodoEntryResponse}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.TodoEntryResponse.html
+  name: Task<ActionResult<List<TodoEntryResponse>>>
+  nameWithType: Task<ActionResult<List<TodoEntryResponse>>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.List<lumify.api.Models.DTO.Responses.TodoEntryResponse>>>
+  nameWithType.vb: Task(Of ActionResult(Of List(Of TodoEntryResponse)))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of System.Collections.Generic.List(Of lumify.api.Models.DTO.Responses.TodoEntryResponse)))
+  name.vb: Task(Of ActionResult(Of List(Of TodoEntryResponse)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.TodoEntryResponse
+    name: TodoEntryResponse
+    href: lumify.api.Models.DTO.Responses.TodoEntryResponse.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.TodoEntryResponse
+    name: TodoEntryResponse
+    href: lumify.api.Models.DTO.Responses.TodoEntryResponse.html
+  - name: )
+  - name: )
+  - name: )
+- uid: lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfWorkspace*
+  commentId: Overload:lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfWorkspace
+  href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_GetAllTodoEntriesOfWorkspace_System_String_System_Threading_CancellationToken_
+  name: GetAllTodoEntriesOfWorkspace
+  nameWithType: TodoListsController.GetAllTodoEntriesOfWorkspace
+  fullName: lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfWorkspace
+- uid: lumify.api.Controllers.TodoListsController.GetTodoListWithID*
+  commentId: Overload:lumify.api.Controllers.TodoListsController.GetTodoListWithID
+  href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_GetTodoListWithID_System_String_System_Threading_CancellationToken_
+  name: GetTodoListWithID
+  nameWithType: TodoListsController.GetTodoListWithID
+  fullName: lumify.api.Controllers.TodoListsController.GetTodoListWithID
+- uid: lumify.api.Controllers.TodoListsController.GetTodoListCountOfUser*
+  commentId: Overload:lumify.api.Controllers.TodoListsController.GetTodoListCountOfUser
+  href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_GetTodoListCountOfUser_System_Threading_CancellationToken_
+  name: GetTodoListCountOfUser
+  nameWithType: TodoListsController.GetTodoListCountOfUser
+  fullName: lumify.api.Controllers.TodoListsController.GetTodoListCountOfUser
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Int32}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Int32}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<ActionResult<int>>
+  nameWithType: Task<ActionResult<int>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<int>>
+  nameWithType.vb: Task(Of ActionResult(Of Integer))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of Integer))
+  name.vb: Task(Of ActionResult(Of Integer))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+  - name: )
+  - name: )
+- uid: lumify.api.Controllers.TodoListsController.GetTodoListCountOfWorkspace*
+  commentId: Overload:lumify.api.Controllers.TodoListsController.GetTodoListCountOfWorkspace
+  href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_GetTodoListCountOfWorkspace_System_String_System_Threading_CancellationToken_
+  name: GetTodoListCountOfWorkspace
+  nameWithType: TodoListsController.GetTodoListCountOfWorkspace
+  fullName: lumify.api.Controllers.TodoListsController.GetTodoListCountOfWorkspace
+- uid: lumify.api.Controllers.TodoListsController.GetSpaceInfosOfTodoEntry*
+  commentId: Overload:lumify.api.Controllers.TodoListsController.GetSpaceInfosOfTodoEntry
+  href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_GetSpaceInfosOfTodoEntry_System_String_System_Threading_CancellationToken_
+  name: GetSpaceInfosOfTodoEntry
+  nameWithType: TodoListsController.GetSpaceInfosOfTodoEntry
+  fullName: lumify.api.Controllers.TodoListsController.GetSpaceInfosOfTodoEntry
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.WorkspaceResponse}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.WorkspaceResponse}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.WorkspaceResponse.html
+  name: Task<ActionResult<WorkspaceResponse>>
+  nameWithType: Task<ActionResult<WorkspaceResponse>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<lumify.api.Models.DTO.Responses.WorkspaceResponse>>
+  nameWithType.vb: Task(Of ActionResult(Of WorkspaceResponse))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of lumify.api.Models.DTO.Responses.WorkspaceResponse))
+  name.vb: Task(Of ActionResult(Of WorkspaceResponse))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.WorkspaceResponse
+    name: WorkspaceResponse
+    href: lumify.api.Models.DTO.Responses.WorkspaceResponse.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.WorkspaceResponse
+    name: WorkspaceResponse
+    href: lumify.api.Models.DTO.Responses.WorkspaceResponse.html
+  - name: )
+  - name: )

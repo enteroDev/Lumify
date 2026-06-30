@@ -1,0 +1,515 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.EF.NoteAttachment
+  commentId: T:lumify.api.Models.EF.NoteAttachment
+  id: NoteAttachment
+  parent: lumify.api.Models.EF
+  children:
+  - lumify.api.Models.EF.NoteAttachment.ContentType
+  - lumify.api.Models.EF.NoteAttachment.CreatedAt
+  - lumify.api.Models.EF.NoteAttachment.DeletedAt
+  - lumify.api.Models.EF.NoteAttachment.FileSize
+  - lumify.api.Models.EF.NoteAttachment.ID
+  - lumify.api.Models.EF.NoteAttachment.Note
+  - lumify.api.Models.EF.NoteAttachment.NoteID
+  - lumify.api.Models.EF.NoteAttachment.OriginalFileName
+  - lumify.api.Models.EF.NoteAttachment.Owner
+  - lumify.api.Models.EF.NoteAttachment.OwnerID
+  - lumify.api.Models.EF.NoteAttachment.StoredFileName
+  langs:
+  - csharp
+  - vb
+  name: NoteAttachment
+  nameWithType: NoteAttachment
+  fullName: lumify.api.Models.EF.NoteAttachment
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/EF/NoteAttachment.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: NoteAttachment
+    path: ../../../lumify.api/Models/EF/NoteAttachment.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public class NoteAttachment
+    content.vb: Public Class NoteAttachment
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.EF.NoteAttachment.ID
+  commentId: P:lumify.api.Models.EF.NoteAttachment.ID
+  id: ID
+  parent: lumify.api.Models.EF.NoteAttachment
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: NoteAttachment.ID
+  fullName: lumify.api.Models.EF.NoteAttachment.ID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/NoteAttachment.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ID
+    path: ../../../lumify.api/Models/EF/NoteAttachment.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string ID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ID As String
+  overload: lumify.api.Models.EF.NoteAttachment.ID*
+- uid: lumify.api.Models.EF.NoteAttachment.NoteID
+  commentId: P:lumify.api.Models.EF.NoteAttachment.NoteID
+  id: NoteID
+  parent: lumify.api.Models.EF.NoteAttachment
+  langs:
+  - csharp
+  - vb
+  name: NoteID
+  nameWithType: NoteAttachment.NoteID
+  fullName: lumify.api.Models.EF.NoteAttachment.NoteID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/NoteAttachment.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: NoteID
+    path: ../../../lumify.api/Models/EF/NoteAttachment.cs
+    startLine: 8
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string NoteID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property NoteID As String
+  overload: lumify.api.Models.EF.NoteAttachment.NoteID*
+- uid: lumify.api.Models.EF.NoteAttachment.OwnerID
+  commentId: P:lumify.api.Models.EF.NoteAttachment.OwnerID
+  id: OwnerID
+  parent: lumify.api.Models.EF.NoteAttachment
+  langs:
+  - csharp
+  - vb
+  name: OwnerID
+  nameWithType: NoteAttachment.OwnerID
+  fullName: lumify.api.Models.EF.NoteAttachment.OwnerID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/NoteAttachment.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: OwnerID
+    path: ../../../lumify.api/Models/EF/NoteAttachment.cs
+    startLine: 9
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string OwnerID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OwnerID As String
+  overload: lumify.api.Models.EF.NoteAttachment.OwnerID*
+- uid: lumify.api.Models.EF.NoteAttachment.OriginalFileName
+  commentId: P:lumify.api.Models.EF.NoteAttachment.OriginalFileName
+  id: OriginalFileName
+  parent: lumify.api.Models.EF.NoteAttachment
+  langs:
+  - csharp
+  - vb
+  name: OriginalFileName
+  nameWithType: NoteAttachment.OriginalFileName
+  fullName: lumify.api.Models.EF.NoteAttachment.OriginalFileName
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/NoteAttachment.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: OriginalFileName
+    path: ../../../lumify.api/Models/EF/NoteAttachment.cs
+    startLine: 11
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string OriginalFileName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OriginalFileName As String
+  overload: lumify.api.Models.EF.NoteAttachment.OriginalFileName*
+- uid: lumify.api.Models.EF.NoteAttachment.StoredFileName
+  commentId: P:lumify.api.Models.EF.NoteAttachment.StoredFileName
+  id: StoredFileName
+  parent: lumify.api.Models.EF.NoteAttachment
+  langs:
+  - csharp
+  - vb
+  name: StoredFileName
+  nameWithType: NoteAttachment.StoredFileName
+  fullName: lumify.api.Models.EF.NoteAttachment.StoredFileName
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/NoteAttachment.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: StoredFileName
+    path: ../../../lumify.api/Models/EF/NoteAttachment.cs
+    startLine: 12
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string StoredFileName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property StoredFileName As String
+  overload: lumify.api.Models.EF.NoteAttachment.StoredFileName*
+- uid: lumify.api.Models.EF.NoteAttachment.ContentType
+  commentId: P:lumify.api.Models.EF.NoteAttachment.ContentType
+  id: ContentType
+  parent: lumify.api.Models.EF.NoteAttachment
+  langs:
+  - csharp
+  - vb
+  name: ContentType
+  nameWithType: NoteAttachment.ContentType
+  fullName: lumify.api.Models.EF.NoteAttachment.ContentType
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/NoteAttachment.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ContentType
+    path: ../../../lumify.api/Models/EF/NoteAttachment.cs
+    startLine: 13
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string ContentType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ContentType As String
+  overload: lumify.api.Models.EF.NoteAttachment.ContentType*
+- uid: lumify.api.Models.EF.NoteAttachment.FileSize
+  commentId: P:lumify.api.Models.EF.NoteAttachment.FileSize
+  id: FileSize
+  parent: lumify.api.Models.EF.NoteAttachment
+  langs:
+  - csharp
+  - vb
+  name: FileSize
+  nameWithType: NoteAttachment.FileSize
+  fullName: lumify.api.Models.EF.NoteAttachment.FileSize
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/NoteAttachment.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: FileSize
+    path: ../../../lumify.api/Models/EF/NoteAttachment.cs
+    startLine: 14
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public int FileSize { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property FileSize As Integer
+  overload: lumify.api.Models.EF.NoteAttachment.FileSize*
+- uid: lumify.api.Models.EF.NoteAttachment.CreatedAt
+  commentId: P:lumify.api.Models.EF.NoteAttachment.CreatedAt
+  id: CreatedAt
+  parent: lumify.api.Models.EF.NoteAttachment
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: NoteAttachment.CreatedAt
+  fullName: lumify.api.Models.EF.NoteAttachment.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/NoteAttachment.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: CreatedAt
+    path: ../../../lumify.api/Models/EF/NoteAttachment.cs
+    startLine: 16
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreatedAt As String
+  overload: lumify.api.Models.EF.NoteAttachment.CreatedAt*
+- uid: lumify.api.Models.EF.NoteAttachment.DeletedAt
+  commentId: P:lumify.api.Models.EF.NoteAttachment.DeletedAt
+  id: DeletedAt
+  parent: lumify.api.Models.EF.NoteAttachment
+  langs:
+  - csharp
+  - vb
+  name: DeletedAt
+  nameWithType: NoteAttachment.DeletedAt
+  fullName: lumify.api.Models.EF.NoteAttachment.DeletedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/NoteAttachment.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DeletedAt
+    path: ../../../lumify.api/Models/EF/NoteAttachment.cs
+    startLine: 17
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? DeletedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DeletedAt As String
+  overload: lumify.api.Models.EF.NoteAttachment.DeletedAt*
+- uid: lumify.api.Models.EF.NoteAttachment.Note
+  commentId: P:lumify.api.Models.EF.NoteAttachment.Note
+  id: Note
+  parent: lumify.api.Models.EF.NoteAttachment
+  langs:
+  - csharp
+  - vb
+  name: Note
+  nameWithType: NoteAttachment.Note
+  fullName: lumify.api.Models.EF.NoteAttachment.Note
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/NoteAttachment.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Note
+    path: ../../../lumify.api/Models/EF/NoteAttachment.cs
+    startLine: 20
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual Note Note { get; set; }
+    parameters: []
+    return:
+      type: lumify.api.Models.EF.Note
+    content.vb: Public Overridable Property Note As Note
+  overload: lumify.api.Models.EF.NoteAttachment.Note*
+- uid: lumify.api.Models.EF.NoteAttachment.Owner
+  commentId: P:lumify.api.Models.EF.NoteAttachment.Owner
+  id: Owner
+  parent: lumify.api.Models.EF.NoteAttachment
+  langs:
+  - csharp
+  - vb
+  name: Owner
+  nameWithType: NoteAttachment.Owner
+  fullName: lumify.api.Models.EF.NoteAttachment.Owner
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/NoteAttachment.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Owner
+    path: ../../../lumify.api/Models/EF/NoteAttachment.cs
+    startLine: 21
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual User Owner { get; set; }
+    parameters: []
+    return:
+      type: lumify.api.Models.EF.User
+    content.vb: Public Overridable Property Owner As User
+  overload: lumify.api.Models.EF.NoteAttachment.Owner*
+references:
+- uid: lumify.api.Models.EF
+  commentId: N:lumify.api.Models.EF
+  href: lumify.html
+  name: lumify.api.Models.EF
+  nameWithType: lumify.api.Models.EF
+  fullName: lumify.api.Models.EF
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.EF.NoteAttachment.ID*
+  commentId: Overload:lumify.api.Models.EF.NoteAttachment.ID
+  href: lumify.api.Models.EF.NoteAttachment.html#lumify_api_Models_EF_NoteAttachment_ID
+  name: ID
+  nameWithType: NoteAttachment.ID
+  fullName: lumify.api.Models.EF.NoteAttachment.ID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.EF.NoteAttachment.NoteID*
+  commentId: Overload:lumify.api.Models.EF.NoteAttachment.NoteID
+  href: lumify.api.Models.EF.NoteAttachment.html#lumify_api_Models_EF_NoteAttachment_NoteID
+  name: NoteID
+  nameWithType: NoteAttachment.NoteID
+  fullName: lumify.api.Models.EF.NoteAttachment.NoteID
+- uid: lumify.api.Models.EF.NoteAttachment.OwnerID*
+  commentId: Overload:lumify.api.Models.EF.NoteAttachment.OwnerID
+  href: lumify.api.Models.EF.NoteAttachment.html#lumify_api_Models_EF_NoteAttachment_OwnerID
+  name: OwnerID
+  nameWithType: NoteAttachment.OwnerID
+  fullName: lumify.api.Models.EF.NoteAttachment.OwnerID
+- uid: lumify.api.Models.EF.NoteAttachment.OriginalFileName*
+  commentId: Overload:lumify.api.Models.EF.NoteAttachment.OriginalFileName
+  href: lumify.api.Models.EF.NoteAttachment.html#lumify_api_Models_EF_NoteAttachment_OriginalFileName
+  name: OriginalFileName
+  nameWithType: NoteAttachment.OriginalFileName
+  fullName: lumify.api.Models.EF.NoteAttachment.OriginalFileName
+- uid: lumify.api.Models.EF.NoteAttachment.StoredFileName*
+  commentId: Overload:lumify.api.Models.EF.NoteAttachment.StoredFileName
+  href: lumify.api.Models.EF.NoteAttachment.html#lumify_api_Models_EF_NoteAttachment_StoredFileName
+  name: StoredFileName
+  nameWithType: NoteAttachment.StoredFileName
+  fullName: lumify.api.Models.EF.NoteAttachment.StoredFileName
+- uid: lumify.api.Models.EF.NoteAttachment.ContentType*
+  commentId: Overload:lumify.api.Models.EF.NoteAttachment.ContentType
+  href: lumify.api.Models.EF.NoteAttachment.html#lumify_api_Models_EF_NoteAttachment_ContentType
+  name: ContentType
+  nameWithType: NoteAttachment.ContentType
+  fullName: lumify.api.Models.EF.NoteAttachment.ContentType
+- uid: lumify.api.Models.EF.NoteAttachment.FileSize*
+  commentId: Overload:lumify.api.Models.EF.NoteAttachment.FileSize
+  href: lumify.api.Models.EF.NoteAttachment.html#lumify_api_Models_EF_NoteAttachment_FileSize
+  name: FileSize
+  nameWithType: NoteAttachment.FileSize
+  fullName: lumify.api.Models.EF.NoteAttachment.FileSize
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: lumify.api.Models.EF.NoteAttachment.CreatedAt*
+  commentId: Overload:lumify.api.Models.EF.NoteAttachment.CreatedAt
+  href: lumify.api.Models.EF.NoteAttachment.html#lumify_api_Models_EF_NoteAttachment_CreatedAt
+  name: CreatedAt
+  nameWithType: NoteAttachment.CreatedAt
+  fullName: lumify.api.Models.EF.NoteAttachment.CreatedAt
+- uid: lumify.api.Models.EF.NoteAttachment.DeletedAt*
+  commentId: Overload:lumify.api.Models.EF.NoteAttachment.DeletedAt
+  href: lumify.api.Models.EF.NoteAttachment.html#lumify_api_Models_EF_NoteAttachment_DeletedAt
+  name: DeletedAt
+  nameWithType: NoteAttachment.DeletedAt
+  fullName: lumify.api.Models.EF.NoteAttachment.DeletedAt
+- uid: lumify.api.Models.EF.NoteAttachment.Note*
+  commentId: Overload:lumify.api.Models.EF.NoteAttachment.Note
+  href: lumify.api.Models.EF.NoteAttachment.html#lumify_api_Models_EF_NoteAttachment_Note
+  name: Note
+  nameWithType: NoteAttachment.Note
+  fullName: lumify.api.Models.EF.NoteAttachment.Note
+- uid: lumify.api.Models.EF.Note
+  commentId: T:lumify.api.Models.EF.Note
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.Note.html
+  name: Note
+  nameWithType: Note
+  fullName: lumify.api.Models.EF.Note
+- uid: lumify.api.Models.EF.NoteAttachment.Owner*
+  commentId: Overload:lumify.api.Models.EF.NoteAttachment.Owner
+  href: lumify.api.Models.EF.NoteAttachment.html#lumify_api_Models_EF_NoteAttachment_Owner
+  name: Owner
+  nameWithType: NoteAttachment.Owner
+  fullName: lumify.api.Models.EF.NoteAttachment.Owner
+- uid: lumify.api.Models.EF.User
+  commentId: T:lumify.api.Models.EF.User
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.User.html
+  name: User
+  nameWithType: User
+  fullName: lumify.api.Models.EF.User

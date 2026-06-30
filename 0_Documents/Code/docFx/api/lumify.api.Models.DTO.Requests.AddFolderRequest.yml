@@ -1,0 +1,247 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.DTO.Requests.AddFolderRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddFolderRequest
+  id: AddFolderRequest
+  parent: lumify.api.Models.DTO.Requests
+  children:
+  - lumify.api.Models.DTO.Requests.AddFolderRequest.Description
+  - lumify.api.Models.DTO.Requests.AddFolderRequest.Name
+  - lumify.api.Models.DTO.Requests.AddFolderRequest.ParentFolderID
+  - lumify.api.Models.DTO.Requests.AddFolderRequest.WorkspaceID
+  langs:
+  - csharp
+  - vb
+  name: AddFolderRequest
+  nameWithType: AddFolderRequest
+  fullName: lumify.api.Models.DTO.Requests.AddFolderRequest
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddFolderRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AddFolderRequest
+    path: ../../../lumify.api/Models/DTO/Requests/AddFolderRequest.cs
+    startLine: 2
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public sealed class AddFolderRequest
+    content.vb: Public NotInheritable Class AddFolderRequest
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.DTO.Requests.AddFolderRequest.ParentFolderID
+  commentId: P:lumify.api.Models.DTO.Requests.AddFolderRequest.ParentFolderID
+  id: ParentFolderID
+  parent: lumify.api.Models.DTO.Requests.AddFolderRequest
+  langs:
+  - csharp
+  - vb
+  name: ParentFolderID
+  nameWithType: AddFolderRequest.ParentFolderID
+  fullName: lumify.api.Models.DTO.Requests.AddFolderRequest.ParentFolderID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddFolderRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ParentFolderID
+    path: ../../../lumify.api/Models/DTO/Requests/AddFolderRequest.cs
+    startLine: 4
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string? ParentFolderID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ParentFolderID As String
+  overload: lumify.api.Models.DTO.Requests.AddFolderRequest.ParentFolderID*
+- uid: lumify.api.Models.DTO.Requests.AddFolderRequest.Name
+  commentId: P:lumify.api.Models.DTO.Requests.AddFolderRequest.Name
+  id: Name
+  parent: lumify.api.Models.DTO.Requests.AddFolderRequest
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: AddFolderRequest.Name
+  fullName: lumify.api.Models.DTO.Requests.AddFolderRequest.Name
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddFolderRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Name
+    path: ../../../lumify.api/Models/DTO/Requests/AddFolderRequest.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: lumify.api.Models.DTO.Requests.AddFolderRequest.Name*
+- uid: lumify.api.Models.DTO.Requests.AddFolderRequest.Description
+  commentId: P:lumify.api.Models.DTO.Requests.AddFolderRequest.Description
+  id: Description
+  parent: lumify.api.Models.DTO.Requests.AddFolderRequest
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: AddFolderRequest.Description
+  fullName: lumify.api.Models.DTO.Requests.AddFolderRequest.Description
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddFolderRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Description
+    path: ../../../lumify.api/Models/DTO/Requests/AddFolderRequest.cs
+    startLine: 6
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string? Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: lumify.api.Models.DTO.Requests.AddFolderRequest.Description*
+- uid: lumify.api.Models.DTO.Requests.AddFolderRequest.WorkspaceID
+  commentId: P:lumify.api.Models.DTO.Requests.AddFolderRequest.WorkspaceID
+  id: WorkspaceID
+  parent: lumify.api.Models.DTO.Requests.AddFolderRequest
+  langs:
+  - csharp
+  - vb
+  name: WorkspaceID
+  nameWithType: AddFolderRequest.WorkspaceID
+  fullName: lumify.api.Models.DTO.Requests.AddFolderRequest.WorkspaceID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddFolderRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: WorkspaceID
+    path: ../../../lumify.api/Models/DTO/Requests/AddFolderRequest.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string? WorkspaceID { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property WorkspaceID As String
+  overload: lumify.api.Models.DTO.Requests.AddFolderRequest.WorkspaceID*
+references:
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  href: lumify.html
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.DTO.Requests.AddFolderRequest.ParentFolderID*
+  commentId: Overload:lumify.api.Models.DTO.Requests.AddFolderRequest.ParentFolderID
+  href: lumify.api.Models.DTO.Requests.AddFolderRequest.html#lumify_api_Models_DTO_Requests_AddFolderRequest_ParentFolderID
+  name: ParentFolderID
+  nameWithType: AddFolderRequest.ParentFolderID
+  fullName: lumify.api.Models.DTO.Requests.AddFolderRequest.ParentFolderID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.DTO.Requests.AddFolderRequest.Name*
+  commentId: Overload:lumify.api.Models.DTO.Requests.AddFolderRequest.Name
+  href: lumify.api.Models.DTO.Requests.AddFolderRequest.html#lumify_api_Models_DTO_Requests_AddFolderRequest_Name
+  name: Name
+  nameWithType: AddFolderRequest.Name
+  fullName: lumify.api.Models.DTO.Requests.AddFolderRequest.Name
+- uid: lumify.api.Models.DTO.Requests.AddFolderRequest.Description*
+  commentId: Overload:lumify.api.Models.DTO.Requests.AddFolderRequest.Description
+  href: lumify.api.Models.DTO.Requests.AddFolderRequest.html#lumify_api_Models_DTO_Requests_AddFolderRequest_Description
+  name: Description
+  nameWithType: AddFolderRequest.Description
+  fullName: lumify.api.Models.DTO.Requests.AddFolderRequest.Description
+- uid: lumify.api.Models.DTO.Requests.AddFolderRequest.WorkspaceID*
+  commentId: Overload:lumify.api.Models.DTO.Requests.AddFolderRequest.WorkspaceID
+  href: lumify.api.Models.DTO.Requests.AddFolderRequest.html#lumify_api_Models_DTO_Requests_AddFolderRequest_WorkspaceID
+  name: WorkspaceID
+  nameWithType: AddFolderRequest.WorkspaceID
+  fullName: lumify.api.Models.DTO.Requests.AddFolderRequest.WorkspaceID

@@ -1,0 +1,744 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.EF.Workspace
+  commentId: T:lumify.api.Models.EF.Workspace
+  id: Workspace
+  parent: lumify.api.Models.EF
+  children:
+  - lumify.api.Models.EF.Workspace.CreatedAt
+  - lumify.api.Models.EF.Workspace.DeletedAt
+  - lumify.api.Models.EF.Workspace.Events
+  - lumify.api.Models.EF.Workspace.Folders
+  - lumify.api.Models.EF.Workspace.ID
+  - lumify.api.Models.EF.Workspace.Name
+  - lumify.api.Models.EF.Workspace.Notes
+  - lumify.api.Models.EF.Workspace.Owner
+  - lumify.api.Models.EF.Workspace.OwnerID
+  - lumify.api.Models.EF.Workspace.TodoLists
+  - lumify.api.Models.EF.Workspace.UpdatedAt
+  - lumify.api.Models.EF.Workspace.WorkspaceMembers
+  langs:
+  - csharp
+  - vb
+  name: Workspace
+  nameWithType: Workspace
+  fullName: lumify.api.Models.EF.Workspace
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/EF/Workspace.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Workspace
+    path: ../../../lumify.api/Models/EF/Workspace.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public class Workspace
+    content.vb: Public Class Workspace
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.EF.Workspace.ID
+  commentId: P:lumify.api.Models.EF.Workspace.ID
+  id: ID
+  parent: lumify.api.Models.EF.Workspace
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: Workspace.ID
+  fullName: lumify.api.Models.EF.Workspace.ID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Workspace.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ID
+    path: ../../../lumify.api/Models/EF/Workspace.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string ID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ID As String
+  overload: lumify.api.Models.EF.Workspace.ID*
+- uid: lumify.api.Models.EF.Workspace.OwnerID
+  commentId: P:lumify.api.Models.EF.Workspace.OwnerID
+  id: OwnerID
+  parent: lumify.api.Models.EF.Workspace
+  langs:
+  - csharp
+  - vb
+  name: OwnerID
+  nameWithType: Workspace.OwnerID
+  fullName: lumify.api.Models.EF.Workspace.OwnerID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Workspace.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: OwnerID
+    path: ../../../lumify.api/Models/EF/Workspace.cs
+    startLine: 8
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string OwnerID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OwnerID As String
+  overload: lumify.api.Models.EF.Workspace.OwnerID*
+- uid: lumify.api.Models.EF.Workspace.Name
+  commentId: P:lumify.api.Models.EF.Workspace.Name
+  id: Name
+  parent: lumify.api.Models.EF.Workspace
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Workspace.Name
+  fullName: lumify.api.Models.EF.Workspace.Name
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Workspace.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Name
+    path: ../../../lumify.api/Models/EF/Workspace.cs
+    startLine: 10
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: lumify.api.Models.EF.Workspace.Name*
+- uid: lumify.api.Models.EF.Workspace.CreatedAt
+  commentId: P:lumify.api.Models.EF.Workspace.CreatedAt
+  id: CreatedAt
+  parent: lumify.api.Models.EF.Workspace
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: Workspace.CreatedAt
+  fullName: lumify.api.Models.EF.Workspace.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Workspace.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: CreatedAt
+    path: ../../../lumify.api/Models/EF/Workspace.cs
+    startLine: 12
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreatedAt As String
+  overload: lumify.api.Models.EF.Workspace.CreatedAt*
+- uid: lumify.api.Models.EF.Workspace.UpdatedAt
+  commentId: P:lumify.api.Models.EF.Workspace.UpdatedAt
+  id: UpdatedAt
+  parent: lumify.api.Models.EF.Workspace
+  langs:
+  - csharp
+  - vb
+  name: UpdatedAt
+  nameWithType: Workspace.UpdatedAt
+  fullName: lumify.api.Models.EF.Workspace.UpdatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Workspace.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UpdatedAt
+    path: ../../../lumify.api/Models/EF/Workspace.cs
+    startLine: 13
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string UpdatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UpdatedAt As String
+  overload: lumify.api.Models.EF.Workspace.UpdatedAt*
+- uid: lumify.api.Models.EF.Workspace.DeletedAt
+  commentId: P:lumify.api.Models.EF.Workspace.DeletedAt
+  id: DeletedAt
+  parent: lumify.api.Models.EF.Workspace
+  langs:
+  - csharp
+  - vb
+  name: DeletedAt
+  nameWithType: Workspace.DeletedAt
+  fullName: lumify.api.Models.EF.Workspace.DeletedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Workspace.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DeletedAt
+    path: ../../../lumify.api/Models/EF/Workspace.cs
+    startLine: 14
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? DeletedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DeletedAt As String
+  overload: lumify.api.Models.EF.Workspace.DeletedAt*
+- uid: lumify.api.Models.EF.Workspace.Owner
+  commentId: P:lumify.api.Models.EF.Workspace.Owner
+  id: Owner
+  parent: lumify.api.Models.EF.Workspace
+  langs:
+  - csharp
+  - vb
+  name: Owner
+  nameWithType: Workspace.Owner
+  fullName: lumify.api.Models.EF.Workspace.Owner
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Workspace.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Owner
+    path: ../../../lumify.api/Models/EF/Workspace.cs
+    startLine: 17
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual User Owner { get; set; }
+    parameters: []
+    return:
+      type: lumify.api.Models.EF.User
+    content.vb: Public Overridable Property Owner As User
+  overload: lumify.api.Models.EF.Workspace.Owner*
+- uid: lumify.api.Models.EF.Workspace.Events
+  commentId: P:lumify.api.Models.EF.Workspace.Events
+  id: Events
+  parent: lumify.api.Models.EF.Workspace
+  langs:
+  - csharp
+  - vb
+  name: Events
+  nameWithType: Workspace.Events
+  fullName: lumify.api.Models.EF.Workspace.Events
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Workspace.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Events
+    path: ../../../lumify.api/Models/EF/Workspace.cs
+    startLine: 19
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual ICollection<Event> Events { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{lumify.api.Models.EF.Event}
+    content.vb: Public Overridable Property Events As ICollection(Of [Event])
+  overload: lumify.api.Models.EF.Workspace.Events*
+- uid: lumify.api.Models.EF.Workspace.Folders
+  commentId: P:lumify.api.Models.EF.Workspace.Folders
+  id: Folders
+  parent: lumify.api.Models.EF.Workspace
+  langs:
+  - csharp
+  - vb
+  name: Folders
+  nameWithType: Workspace.Folders
+  fullName: lumify.api.Models.EF.Workspace.Folders
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Workspace.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Folders
+    path: ../../../lumify.api/Models/EF/Workspace.cs
+    startLine: 20
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual ICollection<Folder> Folders { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{lumify.api.Models.EF.Folder}
+    content.vb: Public Overridable Property Folders As ICollection(Of Folder)
+  overload: lumify.api.Models.EF.Workspace.Folders*
+- uid: lumify.api.Models.EF.Workspace.Notes
+  commentId: P:lumify.api.Models.EF.Workspace.Notes
+  id: Notes
+  parent: lumify.api.Models.EF.Workspace
+  langs:
+  - csharp
+  - vb
+  name: Notes
+  nameWithType: Workspace.Notes
+  fullName: lumify.api.Models.EF.Workspace.Notes
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Workspace.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Notes
+    path: ../../../lumify.api/Models/EF/Workspace.cs
+    startLine: 21
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual ICollection<Note> Notes { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{lumify.api.Models.EF.Note}
+    content.vb: Public Overridable Property Notes As ICollection(Of Note)
+  overload: lumify.api.Models.EF.Workspace.Notes*
+- uid: lumify.api.Models.EF.Workspace.TodoLists
+  commentId: P:lumify.api.Models.EF.Workspace.TodoLists
+  id: TodoLists
+  parent: lumify.api.Models.EF.Workspace
+  langs:
+  - csharp
+  - vb
+  name: TodoLists
+  nameWithType: Workspace.TodoLists
+  fullName: lumify.api.Models.EF.Workspace.TodoLists
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Workspace.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: TodoLists
+    path: ../../../lumify.api/Models/EF/Workspace.cs
+    startLine: 22
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual ICollection<TodoList> TodoLists { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{lumify.api.Models.EF.TodoList}
+    content.vb: Public Overridable Property TodoLists As ICollection(Of TodoList)
+  overload: lumify.api.Models.EF.Workspace.TodoLists*
+- uid: lumify.api.Models.EF.Workspace.WorkspaceMembers
+  commentId: P:lumify.api.Models.EF.Workspace.WorkspaceMembers
+  id: WorkspaceMembers
+  parent: lumify.api.Models.EF.Workspace
+  langs:
+  - csharp
+  - vb
+  name: WorkspaceMembers
+  nameWithType: Workspace.WorkspaceMembers
+  fullName: lumify.api.Models.EF.Workspace.WorkspaceMembers
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Workspace.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: WorkspaceMembers
+    path: ../../../lumify.api/Models/EF/Workspace.cs
+    startLine: 23
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual ICollection<WorkspaceMember> WorkspaceMembers { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{lumify.api.Models.EF.WorkspaceMember}
+    content.vb: Public Overridable Property WorkspaceMembers As ICollection(Of WorkspaceMember)
+  overload: lumify.api.Models.EF.Workspace.WorkspaceMembers*
+references:
+- uid: lumify.api.Models.EF
+  commentId: N:lumify.api.Models.EF
+  href: lumify.html
+  name: lumify.api.Models.EF
+  nameWithType: lumify.api.Models.EF
+  fullName: lumify.api.Models.EF
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.EF.Workspace.ID*
+  commentId: Overload:lumify.api.Models.EF.Workspace.ID
+  href: lumify.api.Models.EF.Workspace.html#lumify_api_Models_EF_Workspace_ID
+  name: ID
+  nameWithType: Workspace.ID
+  fullName: lumify.api.Models.EF.Workspace.ID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.EF.Workspace.OwnerID*
+  commentId: Overload:lumify.api.Models.EF.Workspace.OwnerID
+  href: lumify.api.Models.EF.Workspace.html#lumify_api_Models_EF_Workspace_OwnerID
+  name: OwnerID
+  nameWithType: Workspace.OwnerID
+  fullName: lumify.api.Models.EF.Workspace.OwnerID
+- uid: lumify.api.Models.EF.Workspace.Name*
+  commentId: Overload:lumify.api.Models.EF.Workspace.Name
+  href: lumify.api.Models.EF.Workspace.html#lumify_api_Models_EF_Workspace_Name
+  name: Name
+  nameWithType: Workspace.Name
+  fullName: lumify.api.Models.EF.Workspace.Name
+- uid: lumify.api.Models.EF.Workspace.CreatedAt*
+  commentId: Overload:lumify.api.Models.EF.Workspace.CreatedAt
+  href: lumify.api.Models.EF.Workspace.html#lumify_api_Models_EF_Workspace_CreatedAt
+  name: CreatedAt
+  nameWithType: Workspace.CreatedAt
+  fullName: lumify.api.Models.EF.Workspace.CreatedAt
+- uid: lumify.api.Models.EF.Workspace.UpdatedAt*
+  commentId: Overload:lumify.api.Models.EF.Workspace.UpdatedAt
+  href: lumify.api.Models.EF.Workspace.html#lumify_api_Models_EF_Workspace_UpdatedAt
+  name: UpdatedAt
+  nameWithType: Workspace.UpdatedAt
+  fullName: lumify.api.Models.EF.Workspace.UpdatedAt
+- uid: lumify.api.Models.EF.Workspace.DeletedAt*
+  commentId: Overload:lumify.api.Models.EF.Workspace.DeletedAt
+  href: lumify.api.Models.EF.Workspace.html#lumify_api_Models_EF_Workspace_DeletedAt
+  name: DeletedAt
+  nameWithType: Workspace.DeletedAt
+  fullName: lumify.api.Models.EF.Workspace.DeletedAt
+- uid: lumify.api.Models.EF.Workspace.Owner*
+  commentId: Overload:lumify.api.Models.EF.Workspace.Owner
+  href: lumify.api.Models.EF.Workspace.html#lumify_api_Models_EF_Workspace_Owner
+  name: Owner
+  nameWithType: Workspace.Owner
+  fullName: lumify.api.Models.EF.Workspace.Owner
+- uid: lumify.api.Models.EF.User
+  commentId: T:lumify.api.Models.EF.User
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.User.html
+  name: User
+  nameWithType: User
+  fullName: lumify.api.Models.EF.User
+- uid: lumify.api.Models.EF.Workspace.Events*
+  commentId: Overload:lumify.api.Models.EF.Workspace.Events
+  href: lumify.api.Models.EF.Workspace.html#lumify_api_Models_EF_Workspace_Events
+  name: Events
+  nameWithType: Workspace.Events
+  fullName: lumify.api.Models.EF.Workspace.Events
+- uid: System.Collections.Generic.ICollection{lumify.api.Models.EF.Event}
+  commentId: T:System.Collections.Generic.ICollection{lumify.api.Models.EF.Event}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: lumify.api.Models.EF.Event.html
+  name: ICollection<Event>
+  nameWithType: ICollection<Event>
+  fullName: System.Collections.Generic.ICollection<lumify.api.Models.EF.Event>
+  nameWithType.vb: ICollection(Of Event)
+  fullName.vb: System.Collections.Generic.ICollection(Of lumify.api.Models.EF.Event)
+  name.vb: ICollection(Of Event)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.Event
+    name: Event
+    href: lumify.api.Models.EF.Event.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.Event
+    name: Event
+    href: lumify.api.Models.EF.Event.html
+  - name: )
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+- uid: lumify.api.Models.EF.Workspace.Folders*
+  commentId: Overload:lumify.api.Models.EF.Workspace.Folders
+  href: lumify.api.Models.EF.Workspace.html#lumify_api_Models_EF_Workspace_Folders
+  name: Folders
+  nameWithType: Workspace.Folders
+  fullName: lumify.api.Models.EF.Workspace.Folders
+- uid: System.Collections.Generic.ICollection{lumify.api.Models.EF.Folder}
+  commentId: T:System.Collections.Generic.ICollection{lumify.api.Models.EF.Folder}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: lumify.api.Models.EF.Folder.html
+  name: ICollection<Folder>
+  nameWithType: ICollection<Folder>
+  fullName: System.Collections.Generic.ICollection<lumify.api.Models.EF.Folder>
+  nameWithType.vb: ICollection(Of Folder)
+  fullName.vb: System.Collections.Generic.ICollection(Of lumify.api.Models.EF.Folder)
+  name.vb: ICollection(Of Folder)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.Folder
+    name: Folder
+    href: lumify.api.Models.EF.Folder.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.Folder
+    name: Folder
+    href: lumify.api.Models.EF.Folder.html
+  - name: )
+- uid: lumify.api.Models.EF.Workspace.Notes*
+  commentId: Overload:lumify.api.Models.EF.Workspace.Notes
+  href: lumify.api.Models.EF.Workspace.html#lumify_api_Models_EF_Workspace_Notes
+  name: Notes
+  nameWithType: Workspace.Notes
+  fullName: lumify.api.Models.EF.Workspace.Notes
+- uid: System.Collections.Generic.ICollection{lumify.api.Models.EF.Note}
+  commentId: T:System.Collections.Generic.ICollection{lumify.api.Models.EF.Note}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: lumify.api.Models.EF.Note.html
+  name: ICollection<Note>
+  nameWithType: ICollection<Note>
+  fullName: System.Collections.Generic.ICollection<lumify.api.Models.EF.Note>
+  nameWithType.vb: ICollection(Of Note)
+  fullName.vb: System.Collections.Generic.ICollection(Of lumify.api.Models.EF.Note)
+  name.vb: ICollection(Of Note)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.Note
+    name: Note
+    href: lumify.api.Models.EF.Note.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.Note
+    name: Note
+    href: lumify.api.Models.EF.Note.html
+  - name: )
+- uid: lumify.api.Models.EF.Workspace.TodoLists*
+  commentId: Overload:lumify.api.Models.EF.Workspace.TodoLists
+  href: lumify.api.Models.EF.Workspace.html#lumify_api_Models_EF_Workspace_TodoLists
+  name: TodoLists
+  nameWithType: Workspace.TodoLists
+  fullName: lumify.api.Models.EF.Workspace.TodoLists
+- uid: System.Collections.Generic.ICollection{lumify.api.Models.EF.TodoList}
+  commentId: T:System.Collections.Generic.ICollection{lumify.api.Models.EF.TodoList}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: lumify.api.Models.EF.TodoList.html
+  name: ICollection<TodoList>
+  nameWithType: ICollection<TodoList>
+  fullName: System.Collections.Generic.ICollection<lumify.api.Models.EF.TodoList>
+  nameWithType.vb: ICollection(Of TodoList)
+  fullName.vb: System.Collections.Generic.ICollection(Of lumify.api.Models.EF.TodoList)
+  name.vb: ICollection(Of TodoList)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.TodoList
+    name: TodoList
+    href: lumify.api.Models.EF.TodoList.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.TodoList
+    name: TodoList
+    href: lumify.api.Models.EF.TodoList.html
+  - name: )
+- uid: lumify.api.Models.EF.Workspace.WorkspaceMembers*
+  commentId: Overload:lumify.api.Models.EF.Workspace.WorkspaceMembers
+  href: lumify.api.Models.EF.Workspace.html#lumify_api_Models_EF_Workspace_WorkspaceMembers
+  name: WorkspaceMembers
+  nameWithType: Workspace.WorkspaceMembers
+  fullName: lumify.api.Models.EF.Workspace.WorkspaceMembers
+- uid: System.Collections.Generic.ICollection{lumify.api.Models.EF.WorkspaceMember}
+  commentId: T:System.Collections.Generic.ICollection{lumify.api.Models.EF.WorkspaceMember}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: lumify.api.Models.EF.WorkspaceMember.html
+  name: ICollection<WorkspaceMember>
+  nameWithType: ICollection<WorkspaceMember>
+  fullName: System.Collections.Generic.ICollection<lumify.api.Models.EF.WorkspaceMember>
+  nameWithType.vb: ICollection(Of WorkspaceMember)
+  fullName.vb: System.Collections.Generic.ICollection(Of lumify.api.Models.EF.WorkspaceMember)
+  name.vb: ICollection(Of WorkspaceMember)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.WorkspaceMember
+    name: WorkspaceMember
+    href: lumify.api.Models.EF.WorkspaceMember.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.WorkspaceMember
+    name: WorkspaceMember
+    href: lumify.api.Models.EF.WorkspaceMember.html
+  - name: )

@@ -1,0 +1,519 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Logic.InternalLogic
+  commentId: T:lumify.api.Logic.InternalLogic
+  id: InternalLogic
+  parent: lumify.api.Logic
+  children:
+  - lumify.api.Logic.InternalLogic.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Logic.InternalLogic},lumify.api.Models.Context.LumifyDbContext,Microsoft.Extensions.Options.IOptions{lumify.api.Models.Settings.JwtSettings})
+  - lumify.api.Logic.InternalLogic.GetExtensionFromDataUrl(System.String)
+  - lumify.api.Logic.InternalLogic.SaveAvatarAsync(System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: InternalLogic
+  nameWithType: InternalLogic
+  fullName: lumify.api.Logic.InternalLogic
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Logic/InternalLogic.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: InternalLogic
+    path: ../../../lumify.api/Logic/InternalLogic.cs
+    startLine: 17
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Logic
+  syntax:
+    content: public class InternalLogic
+    content.vb: Public Class InternalLogic
+  inheritance:
+  - System.Object
+- uid: lumify.api.Logic.InternalLogic.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Logic.InternalLogic},lumify.api.Models.Context.LumifyDbContext,Microsoft.Extensions.Options.IOptions{lumify.api.Models.Settings.JwtSettings})
+  commentId: M:lumify.api.Logic.InternalLogic.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Logic.InternalLogic},lumify.api.Models.Context.LumifyDbContext,Microsoft.Extensions.Options.IOptions{lumify.api.Models.Settings.JwtSettings})
+  id: '#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Logic.InternalLogic},lumify.api.Models.Context.LumifyDbContext,Microsoft.Extensions.Options.IOptions{lumify.api.Models.Settings.JwtSettings})'
+  parent: lumify.api.Logic.InternalLogic
+  langs:
+  - csharp
+  - vb
+  name: InternalLogic(ILogger<InternalLogic>, LumifyDbContext, IOptions<JwtSettings>)
+  nameWithType: InternalLogic.InternalLogic(ILogger<InternalLogic>, LumifyDbContext, IOptions<JwtSettings>)
+  fullName: lumify.api.Logic.InternalLogic.InternalLogic(Microsoft.Extensions.Logging.ILogger<lumify.api.Logic.InternalLogic>, lumify.api.Models.Context.LumifyDbContext, Microsoft.Extensions.Options.IOptions<lumify.api.Models.Settings.JwtSettings>)
+  type: Constructor
+  source:
+    remote:
+      path: lumify.api/Logic/InternalLogic.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: .ctor
+    path: ../../../lumify.api/Logic/InternalLogic.cs
+    startLine: 23
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Logic
+  syntax:
+    content: public InternalLogic(ILogger<InternalLogic> logger, LumifyDbContext context, IOptions<JwtSettings> jwt)
+    parameters:
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{lumify.api.Logic.InternalLogic}
+    - id: context
+      type: lumify.api.Models.Context.LumifyDbContext
+    - id: jwt
+      type: Microsoft.Extensions.Options.IOptions{lumify.api.Models.Settings.JwtSettings}
+    content.vb: Public Sub New(logger As ILogger(Of InternalLogic), context As LumifyDbContext, jwt As IOptions(Of JwtSettings))
+  overload: lumify.api.Logic.InternalLogic.#ctor*
+  nameWithType.vb: InternalLogic.New(ILogger(Of InternalLogic), LumifyDbContext, IOptions(Of JwtSettings))
+  fullName.vb: lumify.api.Logic.InternalLogic.New(Microsoft.Extensions.Logging.ILogger(Of lumify.api.Logic.InternalLogic), lumify.api.Models.Context.LumifyDbContext, Microsoft.Extensions.Options.IOptions(Of lumify.api.Models.Settings.JwtSettings))
+  name.vb: New(ILogger(Of InternalLogic), LumifyDbContext, IOptions(Of JwtSettings))
+- uid: lumify.api.Logic.InternalLogic.GetExtensionFromDataUrl(System.String)
+  commentId: M:lumify.api.Logic.InternalLogic.GetExtensionFromDataUrl(System.String)
+  id: GetExtensionFromDataUrl(System.String)
+  parent: lumify.api.Logic.InternalLogic
+  langs:
+  - csharp
+  - vb
+  name: GetExtensionFromDataUrl(string)
+  nameWithType: InternalLogic.GetExtensionFromDataUrl(string)
+  fullName: lumify.api.Logic.InternalLogic.GetExtensionFromDataUrl(string)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Logic/InternalLogic.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetExtensionFromDataUrl
+    path: ../../../lumify.api/Logic/InternalLogic.cs
+    startLine: 96
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Logic
+  syntax:
+    content: public string GetExtensionFromDataUrl(string dataUrl)
+    parameters:
+    - id: dataUrl
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Function GetExtensionFromDataUrl(dataUrl As String) As String
+  overload: lumify.api.Logic.InternalLogic.GetExtensionFromDataUrl*
+  nameWithType.vb: InternalLogic.GetExtensionFromDataUrl(String)
+  fullName.vb: lumify.api.Logic.InternalLogic.GetExtensionFromDataUrl(String)
+  name.vb: GetExtensionFromDataUrl(String)
+- uid: lumify.api.Logic.InternalLogic.SaveAvatarAsync(System.String,System.String)
+  commentId: M:lumify.api.Logic.InternalLogic.SaveAvatarAsync(System.String,System.String)
+  id: SaveAvatarAsync(System.String,System.String)
+  parent: lumify.api.Logic.InternalLogic
+  langs:
+  - csharp
+  - vb
+  name: SaveAvatarAsync(string, string)
+  nameWithType: InternalLogic.SaveAvatarAsync(string, string)
+  fullName: lumify.api.Logic.InternalLogic.SaveAvatarAsync(string, string)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Logic/InternalLogic.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SaveAvatarAsync
+    path: ../../../lumify.api/Logic/InternalLogic.cs
+    startLine: 286
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Logic
+  syntax:
+    content: public Task<string> SaveAvatarAsync(string username, string dataUrl)
+    parameters:
+    - id: username
+      type: System.String
+    - id: dataUrl
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+    content.vb: Public Function SaveAvatarAsync(username As String, dataUrl As String) As Task(Of String)
+  overload: lumify.api.Logic.InternalLogic.SaveAvatarAsync*
+  nameWithType.vb: InternalLogic.SaveAvatarAsync(String, String)
+  fullName.vb: lumify.api.Logic.InternalLogic.SaveAvatarAsync(String, String)
+  name.vb: SaveAvatarAsync(String, String)
+references:
+- uid: lumify.api.Logic
+  commentId: N:lumify.api.Logic
+  href: lumify.html
+  name: lumify.api.Logic
+  nameWithType: lumify.api.Logic
+  fullName: lumify.api.Logic
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Logic
+    name: Logic
+    href: lumify.api.Logic.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Logic
+    name: Logic
+    href: lumify.api.Logic.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Logic.InternalLogic.#ctor*
+  commentId: Overload:lumify.api.Logic.InternalLogic.#ctor
+  href: lumify.api.Logic.InternalLogic.html#lumify_api_Logic_InternalLogic__ctor_Microsoft_Extensions_Logging_ILogger_lumify_api_Logic_InternalLogic__lumify_api_Models_Context_LumifyDbContext_Microsoft_Extensions_Options_IOptions_lumify_api_Models_Settings_JwtSettings__
+  name: InternalLogic
+  nameWithType: InternalLogic.InternalLogic
+  fullName: lumify.api.Logic.InternalLogic.InternalLogic
+  nameWithType.vb: InternalLogic.New
+  fullName.vb: lumify.api.Logic.InternalLogic.New
+  name.vb: New
+- uid: Microsoft.Extensions.Logging.ILogger{lumify.api.Logic.InternalLogic}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{lumify.api.Logic.InternalLogic}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: lumify.api.Logic.InternalLogic.html
+  name: ILogger<InternalLogic>
+  nameWithType: ILogger<InternalLogic>
+  fullName: Microsoft.Extensions.Logging.ILogger<lumify.api.Logic.InternalLogic>
+  nameWithType.vb: ILogger(Of InternalLogic)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of lumify.api.Logic.InternalLogic)
+  name.vb: ILogger(Of InternalLogic)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Logic.InternalLogic
+    name: InternalLogic
+    href: lumify.api.Logic.InternalLogic.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Logic.InternalLogic
+    name: InternalLogic
+    href: lumify.api.Logic.InternalLogic.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext
+  commentId: T:lumify.api.Models.Context.LumifyDbContext
+  parent: lumify.api.Models.Context
+  href: lumify.api.Models.Context.LumifyDbContext.html
+  name: LumifyDbContext
+  nameWithType: LumifyDbContext
+  fullName: lumify.api.Models.Context.LumifyDbContext
+- uid: Microsoft.Extensions.Options.IOptions{lumify.api.Models.Settings.JwtSettings}
+  commentId: T:Microsoft.Extensions.Options.IOptions{lumify.api.Models.Settings.JwtSettings}
+  parent: Microsoft.Extensions.Options
+  definition: Microsoft.Extensions.Options.IOptions`1
+  href: lumify.api.Models.Settings.JwtSettings.html
+  name: IOptions<JwtSettings>
+  nameWithType: IOptions<JwtSettings>
+  fullName: Microsoft.Extensions.Options.IOptions<lumify.api.Models.Settings.JwtSettings>
+  nameWithType.vb: IOptions(Of JwtSettings)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of lumify.api.Models.Settings.JwtSettings)
+  name.vb: IOptions(Of JwtSettings)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.Settings.JwtSettings
+    name: JwtSettings
+    href: lumify.api.Models.Settings.JwtSettings.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.Settings.JwtSettings
+    name: JwtSettings
+    href: lumify.api.Models.Settings.JwtSettings.html
+  - name: )
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+- uid: lumify.api.Models.Context
+  commentId: N:lumify.api.Models.Context
+  href: lumify.html
+  name: lumify.api.Models.Context
+  nameWithType: lumify.api.Models.Context
+  fullName: lumify.api.Models.Context
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+- uid: Microsoft.Extensions.Options.IOptions`1
+  commentId: T:Microsoft.Extensions.Options.IOptions`1
+  isExternal: true
+  name: IOptions<TOptions>
+  nameWithType: IOptions<TOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<TOptions>
+  nameWithType.vb: IOptions(Of TOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of TOptions)
+  name.vb: IOptions(Of TOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: <
+  - name: TOptions
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TOptions
+  - name: )
+- uid: Microsoft.Extensions.Options
+  commentId: N:Microsoft.Extensions.Options
+  isExternal: true
+  name: Microsoft.Extensions.Options
+  nameWithType: Microsoft.Extensions.Options
+  fullName: Microsoft.Extensions.Options
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+- uid: lumify.api.Logic.InternalLogic.GetExtensionFromDataUrl*
+  commentId: Overload:lumify.api.Logic.InternalLogic.GetExtensionFromDataUrl
+  href: lumify.api.Logic.InternalLogic.html#lumify_api_Logic_InternalLogic_GetExtensionFromDataUrl_System_String_
+  name: GetExtensionFromDataUrl
+  nameWithType: InternalLogic.GetExtensionFromDataUrl
+  fullName: lumify.api.Logic.InternalLogic.GetExtensionFromDataUrl
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Logic.InternalLogic.SaveAvatarAsync*
+  commentId: Overload:lumify.api.Logic.InternalLogic.SaveAvatarAsync
+  href: lumify.api.Logic.InternalLogic.html#lumify_api_Logic_InternalLogic_SaveAvatarAsync_System_String_System_String_
+  name: SaveAvatarAsync
+  nameWithType: InternalLogic.SaveAvatarAsync
+  fullName: lumify.api.Logic.InternalLogic.SaveAvatarAsync
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true

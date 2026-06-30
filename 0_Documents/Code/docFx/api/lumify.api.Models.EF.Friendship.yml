@@ -1,0 +1,688 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.EF.Friendship
+  commentId: T:lumify.api.Models.EF.Friendship
+  id: Friendship
+  parent: lumify.api.Models.EF
+  children:
+  - lumify.api.Models.EF.Friendship.AcceptedAt
+  - lumify.api.Models.EF.Friendship.Addressee
+  - lumify.api.Models.EF.Friendship.AddresseeID
+  - lumify.api.Models.EF.Friendship.BlockedAt
+  - lumify.api.Models.EF.Friendship.CreatedAt
+  - lumify.api.Models.EF.Friendship.DeletedAt
+  - lumify.api.Models.EF.Friendship.ID
+  - lumify.api.Models.EF.Friendship.RejectedAt
+  - lumify.api.Models.EF.Friendship.Requester
+  - lumify.api.Models.EF.Friendship.RequesterID
+  - lumify.api.Models.EF.Friendship.Status
+  - lumify.api.Models.EF.Friendship.UpdatedAt
+  - lumify.api.Models.EF.Friendship.UserHigh
+  - lumify.api.Models.EF.Friendship.UserHighID
+  - lumify.api.Models.EF.Friendship.UserLow
+  - lumify.api.Models.EF.Friendship.UserLowID
+  langs:
+  - csharp
+  - vb
+  name: Friendship
+  nameWithType: Friendship
+  fullName: lumify.api.Models.EF.Friendship
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/EF/Friendship.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Friendship
+    path: ../../../lumify.api/Models/EF/Friendship.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public class Friendship
+    content.vb: Public Class Friendship
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.EF.Friendship.ID
+  commentId: P:lumify.api.Models.EF.Friendship.ID
+  id: ID
+  parent: lumify.api.Models.EF.Friendship
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: Friendship.ID
+  fullName: lumify.api.Models.EF.Friendship.ID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Friendship.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ID
+    path: ../../../lumify.api/Models/EF/Friendship.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string ID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ID As String
+  overload: lumify.api.Models.EF.Friendship.ID*
+- uid: lumify.api.Models.EF.Friendship.UserLowID
+  commentId: P:lumify.api.Models.EF.Friendship.UserLowID
+  id: UserLowID
+  parent: lumify.api.Models.EF.Friendship
+  langs:
+  - csharp
+  - vb
+  name: UserLowID
+  nameWithType: Friendship.UserLowID
+  fullName: lumify.api.Models.EF.Friendship.UserLowID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Friendship.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UserLowID
+    path: ../../../lumify.api/Models/EF/Friendship.cs
+    startLine: 9
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string UserLowID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UserLowID As String
+  overload: lumify.api.Models.EF.Friendship.UserLowID*
+- uid: lumify.api.Models.EF.Friendship.UserHighID
+  commentId: P:lumify.api.Models.EF.Friendship.UserHighID
+  id: UserHighID
+  parent: lumify.api.Models.EF.Friendship
+  langs:
+  - csharp
+  - vb
+  name: UserHighID
+  nameWithType: Friendship.UserHighID
+  fullName: lumify.api.Models.EF.Friendship.UserHighID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Friendship.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UserHighID
+    path: ../../../lumify.api/Models/EF/Friendship.cs
+    startLine: 10
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string UserHighID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UserHighID As String
+  overload: lumify.api.Models.EF.Friendship.UserHighID*
+- uid: lumify.api.Models.EF.Friendship.RequesterID
+  commentId: P:lumify.api.Models.EF.Friendship.RequesterID
+  id: RequesterID
+  parent: lumify.api.Models.EF.Friendship
+  langs:
+  - csharp
+  - vb
+  name: RequesterID
+  nameWithType: Friendship.RequesterID
+  fullName: lumify.api.Models.EF.Friendship.RequesterID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Friendship.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: RequesterID
+    path: ../../../lumify.api/Models/EF/Friendship.cs
+    startLine: 11
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string RequesterID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RequesterID As String
+  overload: lumify.api.Models.EF.Friendship.RequesterID*
+- uid: lumify.api.Models.EF.Friendship.AddresseeID
+  commentId: P:lumify.api.Models.EF.Friendship.AddresseeID
+  id: AddresseeID
+  parent: lumify.api.Models.EF.Friendship
+  langs:
+  - csharp
+  - vb
+  name: AddresseeID
+  nameWithType: Friendship.AddresseeID
+  fullName: lumify.api.Models.EF.Friendship.AddresseeID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Friendship.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AddresseeID
+    path: ../../../lumify.api/Models/EF/Friendship.cs
+    startLine: 12
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string AddresseeID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AddresseeID As String
+  overload: lumify.api.Models.EF.Friendship.AddresseeID*
+- uid: lumify.api.Models.EF.Friendship.Status
+  commentId: P:lumify.api.Models.EF.Friendship.Status
+  id: Status
+  parent: lumify.api.Models.EF.Friendship
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: Friendship.Status
+  fullName: lumify.api.Models.EF.Friendship.Status
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Friendship.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Status
+    path: ../../../lumify.api/Models/EF/Friendship.cs
+    startLine: 14
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public int Status { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Status As Integer
+  overload: lumify.api.Models.EF.Friendship.Status*
+- uid: lumify.api.Models.EF.Friendship.CreatedAt
+  commentId: P:lumify.api.Models.EF.Friendship.CreatedAt
+  id: CreatedAt
+  parent: lumify.api.Models.EF.Friendship
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: Friendship.CreatedAt
+  fullName: lumify.api.Models.EF.Friendship.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Friendship.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: CreatedAt
+    path: ../../../lumify.api/Models/EF/Friendship.cs
+    startLine: 16
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreatedAt As String
+  overload: lumify.api.Models.EF.Friendship.CreatedAt*
+- uid: lumify.api.Models.EF.Friendship.UpdatedAt
+  commentId: P:lumify.api.Models.EF.Friendship.UpdatedAt
+  id: UpdatedAt
+  parent: lumify.api.Models.EF.Friendship
+  langs:
+  - csharp
+  - vb
+  name: UpdatedAt
+  nameWithType: Friendship.UpdatedAt
+  fullName: lumify.api.Models.EF.Friendship.UpdatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Friendship.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UpdatedAt
+    path: ../../../lumify.api/Models/EF/Friendship.cs
+    startLine: 17
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string UpdatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UpdatedAt As String
+  overload: lumify.api.Models.EF.Friendship.UpdatedAt*
+- uid: lumify.api.Models.EF.Friendship.AcceptedAt
+  commentId: P:lumify.api.Models.EF.Friendship.AcceptedAt
+  id: AcceptedAt
+  parent: lumify.api.Models.EF.Friendship
+  langs:
+  - csharp
+  - vb
+  name: AcceptedAt
+  nameWithType: Friendship.AcceptedAt
+  fullName: lumify.api.Models.EF.Friendship.AcceptedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Friendship.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AcceptedAt
+    path: ../../../lumify.api/Models/EF/Friendship.cs
+    startLine: 18
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? AcceptedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AcceptedAt As String
+  overload: lumify.api.Models.EF.Friendship.AcceptedAt*
+- uid: lumify.api.Models.EF.Friendship.RejectedAt
+  commentId: P:lumify.api.Models.EF.Friendship.RejectedAt
+  id: RejectedAt
+  parent: lumify.api.Models.EF.Friendship
+  langs:
+  - csharp
+  - vb
+  name: RejectedAt
+  nameWithType: Friendship.RejectedAt
+  fullName: lumify.api.Models.EF.Friendship.RejectedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Friendship.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: RejectedAt
+    path: ../../../lumify.api/Models/EF/Friendship.cs
+    startLine: 19
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? RejectedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RejectedAt As String
+  overload: lumify.api.Models.EF.Friendship.RejectedAt*
+- uid: lumify.api.Models.EF.Friendship.BlockedAt
+  commentId: P:lumify.api.Models.EF.Friendship.BlockedAt
+  id: BlockedAt
+  parent: lumify.api.Models.EF.Friendship
+  langs:
+  - csharp
+  - vb
+  name: BlockedAt
+  nameWithType: Friendship.BlockedAt
+  fullName: lumify.api.Models.EF.Friendship.BlockedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Friendship.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: BlockedAt
+    path: ../../../lumify.api/Models/EF/Friendship.cs
+    startLine: 20
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? BlockedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property BlockedAt As String
+  overload: lumify.api.Models.EF.Friendship.BlockedAt*
+- uid: lumify.api.Models.EF.Friendship.DeletedAt
+  commentId: P:lumify.api.Models.EF.Friendship.DeletedAt
+  id: DeletedAt
+  parent: lumify.api.Models.EF.Friendship
+  langs:
+  - csharp
+  - vb
+  name: DeletedAt
+  nameWithType: Friendship.DeletedAt
+  fullName: lumify.api.Models.EF.Friendship.DeletedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Friendship.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DeletedAt
+    path: ../../../lumify.api/Models/EF/Friendship.cs
+    startLine: 21
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? DeletedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DeletedAt As String
+  overload: lumify.api.Models.EF.Friendship.DeletedAt*
+- uid: lumify.api.Models.EF.Friendship.UserLow
+  commentId: P:lumify.api.Models.EF.Friendship.UserLow
+  id: UserLow
+  parent: lumify.api.Models.EF.Friendship
+  langs:
+  - csharp
+  - vb
+  name: UserLow
+  nameWithType: Friendship.UserLow
+  fullName: lumify.api.Models.EF.Friendship.UserLow
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Friendship.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UserLow
+    path: ../../../lumify.api/Models/EF/Friendship.cs
+    startLine: 25
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual User UserLow { get; set; }
+    parameters: []
+    return:
+      type: lumify.api.Models.EF.User
+    content.vb: Public Overridable Property UserLow As User
+  overload: lumify.api.Models.EF.Friendship.UserLow*
+- uid: lumify.api.Models.EF.Friendship.UserHigh
+  commentId: P:lumify.api.Models.EF.Friendship.UserHigh
+  id: UserHigh
+  parent: lumify.api.Models.EF.Friendship
+  langs:
+  - csharp
+  - vb
+  name: UserHigh
+  nameWithType: Friendship.UserHigh
+  fullName: lumify.api.Models.EF.Friendship.UserHigh
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Friendship.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UserHigh
+    path: ../../../lumify.api/Models/EF/Friendship.cs
+    startLine: 26
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual User UserHigh { get; set; }
+    parameters: []
+    return:
+      type: lumify.api.Models.EF.User
+    content.vb: Public Overridable Property UserHigh As User
+  overload: lumify.api.Models.EF.Friendship.UserHigh*
+- uid: lumify.api.Models.EF.Friendship.Requester
+  commentId: P:lumify.api.Models.EF.Friendship.Requester
+  id: Requester
+  parent: lumify.api.Models.EF.Friendship
+  langs:
+  - csharp
+  - vb
+  name: Requester
+  nameWithType: Friendship.Requester
+  fullName: lumify.api.Models.EF.Friendship.Requester
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Friendship.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Requester
+    path: ../../../lumify.api/Models/EF/Friendship.cs
+    startLine: 27
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual User Requester { get; set; }
+    parameters: []
+    return:
+      type: lumify.api.Models.EF.User
+    content.vb: Public Overridable Property Requester As User
+  overload: lumify.api.Models.EF.Friendship.Requester*
+- uid: lumify.api.Models.EF.Friendship.Addressee
+  commentId: P:lumify.api.Models.EF.Friendship.Addressee
+  id: Addressee
+  parent: lumify.api.Models.EF.Friendship
+  langs:
+  - csharp
+  - vb
+  name: Addressee
+  nameWithType: Friendship.Addressee
+  fullName: lumify.api.Models.EF.Friendship.Addressee
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Friendship.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Addressee
+    path: ../../../lumify.api/Models/EF/Friendship.cs
+    startLine: 28
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual User Addressee { get; set; }
+    parameters: []
+    return:
+      type: lumify.api.Models.EF.User
+    content.vb: Public Overridable Property Addressee As User
+  overload: lumify.api.Models.EF.Friendship.Addressee*
+references:
+- uid: lumify.api.Models.EF
+  commentId: N:lumify.api.Models.EF
+  href: lumify.html
+  name: lumify.api.Models.EF
+  nameWithType: lumify.api.Models.EF
+  fullName: lumify.api.Models.EF
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.EF.Friendship.ID*
+  commentId: Overload:lumify.api.Models.EF.Friendship.ID
+  href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_ID
+  name: ID
+  nameWithType: Friendship.ID
+  fullName: lumify.api.Models.EF.Friendship.ID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.EF.Friendship.UserLowID*
+  commentId: Overload:lumify.api.Models.EF.Friendship.UserLowID
+  href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_UserLowID
+  name: UserLowID
+  nameWithType: Friendship.UserLowID
+  fullName: lumify.api.Models.EF.Friendship.UserLowID
+- uid: lumify.api.Models.EF.Friendship.UserHighID*
+  commentId: Overload:lumify.api.Models.EF.Friendship.UserHighID
+  href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_UserHighID
+  name: UserHighID
+  nameWithType: Friendship.UserHighID
+  fullName: lumify.api.Models.EF.Friendship.UserHighID
+- uid: lumify.api.Models.EF.Friendship.RequesterID*
+  commentId: Overload:lumify.api.Models.EF.Friendship.RequesterID
+  href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_RequesterID
+  name: RequesterID
+  nameWithType: Friendship.RequesterID
+  fullName: lumify.api.Models.EF.Friendship.RequesterID
+- uid: lumify.api.Models.EF.Friendship.AddresseeID*
+  commentId: Overload:lumify.api.Models.EF.Friendship.AddresseeID
+  href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_AddresseeID
+  name: AddresseeID
+  nameWithType: Friendship.AddresseeID
+  fullName: lumify.api.Models.EF.Friendship.AddresseeID
+- uid: lumify.api.Models.EF.Friendship.Status*
+  commentId: Overload:lumify.api.Models.EF.Friendship.Status
+  href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_Status
+  name: Status
+  nameWithType: Friendship.Status
+  fullName: lumify.api.Models.EF.Friendship.Status
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: lumify.api.Models.EF.Friendship.CreatedAt*
+  commentId: Overload:lumify.api.Models.EF.Friendship.CreatedAt
+  href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_CreatedAt
+  name: CreatedAt
+  nameWithType: Friendship.CreatedAt
+  fullName: lumify.api.Models.EF.Friendship.CreatedAt
+- uid: lumify.api.Models.EF.Friendship.UpdatedAt*
+  commentId: Overload:lumify.api.Models.EF.Friendship.UpdatedAt
+  href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_UpdatedAt
+  name: UpdatedAt
+  nameWithType: Friendship.UpdatedAt
+  fullName: lumify.api.Models.EF.Friendship.UpdatedAt
+- uid: lumify.api.Models.EF.Friendship.AcceptedAt*
+  commentId: Overload:lumify.api.Models.EF.Friendship.AcceptedAt
+  href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_AcceptedAt
+  name: AcceptedAt
+  nameWithType: Friendship.AcceptedAt
+  fullName: lumify.api.Models.EF.Friendship.AcceptedAt
+- uid: lumify.api.Models.EF.Friendship.RejectedAt*
+  commentId: Overload:lumify.api.Models.EF.Friendship.RejectedAt
+  href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_RejectedAt
+  name: RejectedAt
+  nameWithType: Friendship.RejectedAt
+  fullName: lumify.api.Models.EF.Friendship.RejectedAt
+- uid: lumify.api.Models.EF.Friendship.BlockedAt*
+  commentId: Overload:lumify.api.Models.EF.Friendship.BlockedAt
+  href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_BlockedAt
+  name: BlockedAt
+  nameWithType: Friendship.BlockedAt
+  fullName: lumify.api.Models.EF.Friendship.BlockedAt
+- uid: lumify.api.Models.EF.Friendship.DeletedAt*
+  commentId: Overload:lumify.api.Models.EF.Friendship.DeletedAt
+  href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_DeletedAt
+  name: DeletedAt
+  nameWithType: Friendship.DeletedAt
+  fullName: lumify.api.Models.EF.Friendship.DeletedAt
+- uid: lumify.api.Models.EF.Friendship.UserLow*
+  commentId: Overload:lumify.api.Models.EF.Friendship.UserLow
+  href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_UserLow
+  name: UserLow
+  nameWithType: Friendship.UserLow
+  fullName: lumify.api.Models.EF.Friendship.UserLow
+- uid: lumify.api.Models.EF.User
+  commentId: T:lumify.api.Models.EF.User
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.User.html
+  name: User
+  nameWithType: User
+  fullName: lumify.api.Models.EF.User
+- uid: lumify.api.Models.EF.Friendship.UserHigh*
+  commentId: Overload:lumify.api.Models.EF.Friendship.UserHigh
+  href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_UserHigh
+  name: UserHigh
+  nameWithType: Friendship.UserHigh
+  fullName: lumify.api.Models.EF.Friendship.UserHigh
+- uid: lumify.api.Models.EF.Friendship.Requester*
+  commentId: Overload:lumify.api.Models.EF.Friendship.Requester
+  href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_Requester
+  name: Requester
+  nameWithType: Friendship.Requester
+  fullName: lumify.api.Models.EF.Friendship.Requester
+- uid: lumify.api.Models.EF.Friendship.Addressee*
+  commentId: Overload:lumify.api.Models.EF.Friendship.Addressee
+  href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_Addressee
+  name: Addressee
+  nameWithType: Friendship.Addressee
+  fullName: lumify.api.Models.EF.Friendship.Addressee

@@ -11,6 +11,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace lumify.api.Controllers
 {
+    /// <summary>
+    /// Read access to chat history. All endpoints require an authenticated user.
+    /// Real-time delivery of new messages is handled by <see cref="Hubs.ChatHub"/>;
+    /// this controller only serves the persisted message history.
+    /// </summary>
     [ApiController]
     [Route("chat/[action]")]
     [Authorize]
@@ -19,6 +24,9 @@ namespace lumify.api.Controllers
         private readonly ILogger<ChatController> _logger;
         private readonly LumifyDbContext _db;
 
+        /// <summary>
+        /// Creates the controller with its injected logger and database context.
+        /// </summary>
         public ChatController(ILogger<ChatController> logger, LumifyDbContext db)
         {
             _logger = logger;
@@ -30,6 +38,17 @@ namespace lumify.api.Controllers
         // ----------- //
         // --- GET --- //
         // ----------- //
+        /// <summary>
+        /// Returns the full message history of a chat room, oldest first.
+        /// </summary>
+        /// <remarks>
+        /// Soft-deleted messages and messages from soft-deleted users are excluded. The
+        /// sender name is resolved to the user's display name (falling back to username,
+        /// full name, or ID).
+        /// </remarks>
+        /// <param name="roomID">The room whose messages are requested.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the list of messages; 400 if <paramref name="roomID"/> is missing.</returns>
         [HttpGet]
         [ActionName("getMessagesOfRoom")]
         public async Task<ActionResult<List<ChatMessageResponse>>> GetMessagesOfRoom(string roomID, CancellationToken ct)
@@ -70,6 +89,11 @@ namespace lumify.api.Controllers
 
 
         // --- Helper --- //
+        /// <summary>
+        /// Reads the current user's ID from the <c>UserID</c> claim of the authenticated request.
+        /// </summary>
+        /// <returns>The current user's ID.</returns>
+        /// <exception cref="UnauthorizedAccessException">Thrown when no user is logged in.</exception>
         private string GetCurrentUserID()
         {
             var userID = User.FindFirst("UserID")?.Value;

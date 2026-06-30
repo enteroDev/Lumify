@@ -1,0 +1,1073 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Controllers.FoldersController
+  commentId: T:lumify.api.Controllers.FoldersController
+  id: FoldersController
+  parent: lumify.api.Controllers
+  children:
+  - lumify.api.Controllers.FoldersController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.FoldersController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.NoteHub})
+  - lumify.api.Controllers.FoldersController.AddFolder(lumify.api.Models.DTO.Requests.AddFolderRequest,System.Threading.CancellationToken)
+  - lumify.api.Controllers.FoldersController.DeleteFolder(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.FoldersController.GetAllFoldersOfUser(System.Threading.CancellationToken)
+  - lumify.api.Controllers.FoldersController.GetAllFoldersOfWorkspace(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.FoldersController.SaveFolder(lumify.api.Models.DTO.Requests.SaveFolderRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: FoldersController
+  nameWithType: FoldersController
+  fullName: lumify.api.Controllers.FoldersController
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Controllers/FoldersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: FoldersController
+    path: ../../../lumify.api/Controllers/FoldersController.cs
+    startLine: 24
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Manages note folders, both personal (no workspace) and workspace-shared, including
+
+    creation, editing, moving and recursive deletion. All endpoints require an
+
+    authenticated user. Changes to workspace folders are pushed live to the workspace
+
+    group over the <xref href="lumify.api.Hubs.NoteHub" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    Permission rule throughout: a personal folder may only be modified by its owner, while
+
+    a workspace folder may be modified by any active member of that workspace
+
+    (see <code>CanModify</code>).
+  example: []
+  syntax:
+    content: >-
+      [ApiController]
+
+      [Route("folders/[action]")]
+
+      [Authorize]
+
+      public class FoldersController : ControllerBase
+    content.vb: >-
+      <ApiController>
+
+      <Route("folders/[action]")>
+
+      <Authorize>
+
+      Public Class FoldersController Inherits ControllerBase
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.Mvc.ControllerBase
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.ApiControllerAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ApiControllerAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.RouteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.RouteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: folders/[action]
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+- uid: lumify.api.Controllers.FoldersController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.FoldersController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.NoteHub})
+  commentId: M:lumify.api.Controllers.FoldersController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.FoldersController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.NoteHub})
+  id: '#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.FoldersController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.NoteHub})'
+  parent: lumify.api.Controllers.FoldersController
+  langs:
+  - csharp
+  - vb
+  name: FoldersController(ILogger<FoldersController>, LumifyDbContext, IHubContext<NoteHub>)
+  nameWithType: FoldersController.FoldersController(ILogger<FoldersController>, LumifyDbContext, IHubContext<NoteHub>)
+  fullName: lumify.api.Controllers.FoldersController.FoldersController(Microsoft.Extensions.Logging.ILogger<lumify.api.Controllers.FoldersController>, lumify.api.Models.Context.LumifyDbContext, Microsoft.AspNetCore.SignalR.IHubContext<lumify.api.Hubs.NoteHub>)
+  type: Constructor
+  source:
+    remote:
+      path: lumify.api/Controllers/FoldersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: .ctor
+    path: ../../../lumify.api/Controllers/FoldersController.cs
+    startLine: 38
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Creates the controller with its injected logger, database context and the note hub
+
+    used for live notifications.
+  example: []
+  syntax:
+    content: public FoldersController(ILogger<FoldersController> logger, LumifyDbContext db, IHubContext<NoteHub> noteHub)
+    parameters:
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.FoldersController}
+    - id: db
+      type: lumify.api.Models.Context.LumifyDbContext
+    - id: noteHub
+      type: Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.NoteHub}
+    content.vb: Public Sub New(logger As ILogger(Of FoldersController), db As LumifyDbContext, noteHub As IHubContext(Of NoteHub))
+  overload: lumify.api.Controllers.FoldersController.#ctor*
+  nameWithType.vb: FoldersController.New(ILogger(Of FoldersController), LumifyDbContext, IHubContext(Of NoteHub))
+  fullName.vb: lumify.api.Controllers.FoldersController.New(Microsoft.Extensions.Logging.ILogger(Of lumify.api.Controllers.FoldersController), lumify.api.Models.Context.LumifyDbContext, Microsoft.AspNetCore.SignalR.IHubContext(Of lumify.api.Hubs.NoteHub))
+  name.vb: New(ILogger(Of FoldersController), LumifyDbContext, IHubContext(Of NoteHub))
+- uid: lumify.api.Controllers.FoldersController.AddFolder(lumify.api.Models.DTO.Requests.AddFolderRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.FoldersController.AddFolder(lumify.api.Models.DTO.Requests.AddFolderRequest,System.Threading.CancellationToken)
+  id: AddFolder(lumify.api.Models.DTO.Requests.AddFolderRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.FoldersController
+  langs:
+  - csharp
+  - vb
+  name: AddFolder(AddFolderRequest, CancellationToken)
+  nameWithType: FoldersController.AddFolder(AddFolderRequest, CancellationToken)
+  fullName: lumify.api.Controllers.FoldersController.AddFolder(lumify.api.Models.DTO.Requests.AddFolderRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/FoldersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AddFolder
+    path: ../../../lumify.api/Controllers/FoldersController.cs
+    startLine: 61
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Creates a new folder, optionally inside a workspace and/or a parent folder.
+  remarks: >-
+    If a workspace is given, the user must be a member of it; if a parent folder is
+
+    given, it must live in the same space. On success in a workspace, a
+
+    <code>FolderCreated</code> event is broadcast to the workspace group.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("addFolder")]
+
+      public Task<ActionResult<FolderResponse>> AddFolder(AddFolderRequest request, CancellationToken ct)
+    parameters:
+    - id: request
+      type: lumify.api.Models.DTO.Requests.AddFolderRequest
+      description: Folder data (name required; optional description, workspace, parent).
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.FolderResponse}}
+      description: >-
+        200 with the created folder; 400 on missing name or invalid workspace/parent;
+            403 if the user is not a member of the target workspace or owner of the parent.
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("addFolder")>
+
+      Public Function AddFolder(request As AddFolderRequest, ct As CancellationToken) As Task(Of ActionResult(Of FolderResponse))
+  overload: lumify.api.Controllers.FoldersController.AddFolder*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: addFolder
+- uid: lumify.api.Controllers.FoldersController.SaveFolder(lumify.api.Models.DTO.Requests.SaveFolderRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.FoldersController.SaveFolder(lumify.api.Models.DTO.Requests.SaveFolderRequest,System.Threading.CancellationToken)
+  id: SaveFolder(lumify.api.Models.DTO.Requests.SaveFolderRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.FoldersController
+  langs:
+  - csharp
+  - vb
+  name: SaveFolder(SaveFolderRequest, CancellationToken)
+  nameWithType: FoldersController.SaveFolder(SaveFolderRequest, CancellationToken)
+  fullName: lumify.api.Controllers.FoldersController.SaveFolder(lumify.api.Models.DTO.Requests.SaveFolderRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/FoldersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SaveFolder
+    path: ../../../lumify.api/Controllers/FoldersController.cs
+    startLine: 183
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Updates a folder's name, description and/or parent (move). Only the provided fields
+
+    are changed; the database is only written if something actually changed.
+  remarks: >-
+    Move rules: a folder cannot be moved into itself; a personal folder may only move
+
+    into another personal folder of the same owner; a workspace folder may only move
+
+    within the same workspace. On a successful change in a workspace, a
+
+    <code>FolderUpdated</code> event is broadcast to the workspace group.
+  example: []
+  syntax:
+    content: >-
+      [HttpPatch]
+
+      [ActionName("saveFolder")]
+
+      public Task<ActionResult<FolderResponse>> SaveFolder(SaveFolderRequest request, CancellationToken ct)
+    parameters:
+    - id: request
+      type: lumify.api.Models.DTO.Requests.SaveFolderRequest
+      description: The folder ID plus the fields to change.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.FolderResponse}}
+      description: >-
+        200 with the updated folder; 400 on invalid input or move target; 403 if
+            the user may not modify it; 404 if the folder does not exist.
+    content.vb: >-
+      <HttpPatch>
+
+      <ActionName("saveFolder")>
+
+      Public Function SaveFolder(request As SaveFolderRequest, ct As CancellationToken) As Task(Of ActionResult(Of FolderResponse))
+  overload: lumify.api.Controllers.FoldersController.SaveFolder*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPatchAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPatchAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: saveFolder
+- uid: lumify.api.Controllers.FoldersController.DeleteFolder(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.FoldersController.DeleteFolder(System.String,System.Threading.CancellationToken)
+  id: DeleteFolder(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.FoldersController
+  langs:
+  - csharp
+  - vb
+  name: DeleteFolder(string, CancellationToken)
+  nameWithType: FoldersController.DeleteFolder(string, CancellationToken)
+  fullName: lumify.api.Controllers.FoldersController.DeleteFolder(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/FoldersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DeleteFolder
+    path: ../../../lumify.api/Controllers/FoldersController.cs
+    startLine: 362
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Soft-deletes a folder together with all of its descendant sub-folders and their
+
+    notes (recursive, breadth-first).
+  remarks: >-
+    Nothing is physically removed — all affected rows get a <code>DeletedAt</code> timestamp.
+
+    On a workspace folder, a <code>FolderDeleted</code> event is broadcast to the workspace group.
+  example: []
+  syntax:
+    content: >-
+      [HttpDelete]
+
+      [ActionName("deleteFolder")]
+
+      public Task<ActionResult> DeleteFolder(string folderID, CancellationToken ct)
+    parameters:
+    - id: folderID
+      type: System.String
+      description: The root folder to delete.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: >-
+        200 with <code>success = true</code> and the folder ID; 400 if the ID is missing;
+            403 if the user may not delete it; 404 if the folder does not exist.
+    content.vb: >-
+      <HttpDelete>
+
+      <ActionName("deleteFolder")>
+
+      Public Function DeleteFolder(folderID As String, ct As CancellationToken) As Task(Of ActionResult)
+  overload: lumify.api.Controllers.FoldersController.DeleteFolder*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: deleteFolder
+  nameWithType.vb: FoldersController.DeleteFolder(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.FoldersController.DeleteFolder(String, System.Threading.CancellationToken)
+  name.vb: DeleteFolder(String, CancellationToken)
+- uid: lumify.api.Controllers.FoldersController.GetAllFoldersOfUser(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.FoldersController.GetAllFoldersOfUser(System.Threading.CancellationToken)
+  id: GetAllFoldersOfUser(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.FoldersController
+  langs:
+  - csharp
+  - vb
+  name: GetAllFoldersOfUser(CancellationToken)
+  nameWithType: FoldersController.GetAllFoldersOfUser(CancellationToken)
+  fullName: lumify.api.Controllers.FoldersController.GetAllFoldersOfUser(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/FoldersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetAllFoldersOfUser
+    path: ../../../lumify.api/Controllers/FoldersController.cs
+    startLine: 473
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns all personal folders of the current user (no workspace), oldest first.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getAllFoldersOfUser")]
+
+      public Task<ActionResult<List<FolderResponse>>> GetAllFoldersOfUser(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.FolderResponse}}}
+      description: 200 with the list of personal folders.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getAllFoldersOfUser")>
+
+      Public Function GetAllFoldersOfUser(ct As CancellationToken) As Task(Of ActionResult(Of List(Of FolderResponse)))
+  overload: lumify.api.Controllers.FoldersController.GetAllFoldersOfUser*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getAllFoldersOfUser
+- uid: lumify.api.Controllers.FoldersController.GetAllFoldersOfWorkspace(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.FoldersController.GetAllFoldersOfWorkspace(System.String,System.Threading.CancellationToken)
+  id: GetAllFoldersOfWorkspace(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.FoldersController
+  langs:
+  - csharp
+  - vb
+  name: GetAllFoldersOfWorkspace(string, CancellationToken)
+  nameWithType: FoldersController.GetAllFoldersOfWorkspace(string, CancellationToken)
+  fullName: lumify.api.Controllers.FoldersController.GetAllFoldersOfWorkspace(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/FoldersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetAllFoldersOfWorkspace
+    path: ../../../lumify.api/Controllers/FoldersController.cs
+    startLine: 507
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns all folders of the given workspace, oldest first.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getAllFoldersOfWorkspace")]
+
+      public Task<ActionResult<List<FolderResponse>>> GetAllFoldersOfWorkspace(string workspaceID, CancellationToken ct)
+    parameters:
+    - id: workspaceID
+      type: System.String
+      description: The workspace whose folders are requested.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.FolderResponse}}}
+      description: 200 with the list of workspace folders.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getAllFoldersOfWorkspace")>
+
+      Public Function GetAllFoldersOfWorkspace(workspaceID As String, ct As CancellationToken) As Task(Of ActionResult(Of List(Of FolderResponse)))
+  overload: lumify.api.Controllers.FoldersController.GetAllFoldersOfWorkspace*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getAllFoldersOfWorkspace
+  nameWithType.vb: FoldersController.GetAllFoldersOfWorkspace(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.FoldersController.GetAllFoldersOfWorkspace(String, System.Threading.CancellationToken)
+  name.vb: GetAllFoldersOfWorkspace(String, CancellationToken)
+references:
+- uid: lumify.api.Hubs.NoteHub
+  commentId: T:lumify.api.Hubs.NoteHub
+  href: lumify.api.Hubs.NoteHub.html
+  name: NoteHub
+  nameWithType: NoteHub
+  fullName: lumify.api.Hubs.NoteHub
+- uid: lumify.api.Controllers
+  commentId: N:lumify.api.Controllers
+  href: lumify.html
+  name: lumify.api.Controllers
+  nameWithType: lumify.api.Controllers
+  fullName: lumify.api.Controllers
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Controllers
+    name: Controllers
+    href: lumify.api.Controllers.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Controllers
+    name: Controllers
+    href: lumify.api.Controllers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.Mvc.ControllerBase
+  commentId: T:Microsoft.AspNetCore.Mvc.ControllerBase
+  parent: Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: ControllerBase
+  nameWithType: ControllerBase
+  fullName: Microsoft.AspNetCore.Mvc.ControllerBase
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.Mvc
+  commentId: N:Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: Microsoft.AspNetCore.Mvc
+  nameWithType: Microsoft.AspNetCore.Mvc
+  fullName: Microsoft.AspNetCore.Mvc
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+- uid: lumify.api.Controllers.FoldersController.#ctor*
+  commentId: Overload:lumify.api.Controllers.FoldersController.#ctor
+  href: lumify.api.Controllers.FoldersController.html#lumify_api_Controllers_FoldersController__ctor_Microsoft_Extensions_Logging_ILogger_lumify_api_Controllers_FoldersController__lumify_api_Models_Context_LumifyDbContext_Microsoft_AspNetCore_SignalR_IHubContext_lumify_api_Hubs_NoteHub__
+  name: FoldersController
+  nameWithType: FoldersController.FoldersController
+  fullName: lumify.api.Controllers.FoldersController.FoldersController
+  nameWithType.vb: FoldersController.New
+  fullName.vb: lumify.api.Controllers.FoldersController.New
+  name.vb: New
+- uid: Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.FoldersController}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.FoldersController}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: lumify.api.Controllers.FoldersController.html
+  name: ILogger<FoldersController>
+  nameWithType: ILogger<FoldersController>
+  fullName: Microsoft.Extensions.Logging.ILogger<lumify.api.Controllers.FoldersController>
+  nameWithType.vb: ILogger(Of FoldersController)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of lumify.api.Controllers.FoldersController)
+  name.vb: ILogger(Of FoldersController)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Controllers.FoldersController
+    name: FoldersController
+    href: lumify.api.Controllers.FoldersController.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Controllers.FoldersController
+    name: FoldersController
+    href: lumify.api.Controllers.FoldersController.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext
+  commentId: T:lumify.api.Models.Context.LumifyDbContext
+  parent: lumify.api.Models.Context
+  href: lumify.api.Models.Context.LumifyDbContext.html
+  name: LumifyDbContext
+  nameWithType: LumifyDbContext
+  fullName: lumify.api.Models.Context.LumifyDbContext
+- uid: Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.NoteHub}
+  commentId: T:Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.NoteHub}
+  parent: Microsoft.AspNetCore.SignalR
+  definition: Microsoft.AspNetCore.SignalR.IHubContext`1
+  href: lumify.api.Hubs.NoteHub.html
+  name: IHubContext<NoteHub>
+  nameWithType: IHubContext<NoteHub>
+  fullName: Microsoft.AspNetCore.SignalR.IHubContext<lumify.api.Hubs.NoteHub>
+  nameWithType.vb: IHubContext(Of NoteHub)
+  fullName.vb: Microsoft.AspNetCore.SignalR.IHubContext(Of lumify.api.Hubs.NoteHub)
+  name.vb: IHubContext(Of NoteHub)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Hubs.NoteHub
+    name: NoteHub
+    href: lumify.api.Hubs.NoteHub.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Hubs.NoteHub
+    name: NoteHub
+    href: lumify.api.Hubs.NoteHub.html
+  - name: )
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+- uid: lumify.api.Models.Context
+  commentId: N:lumify.api.Models.Context
+  href: lumify.html
+  name: lumify.api.Models.Context
+  nameWithType: lumify.api.Models.Context
+  fullName: lumify.api.Models.Context
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+- uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+  commentId: T:Microsoft.AspNetCore.SignalR.IHubContext`1
+  isExternal: true
+  name: IHubContext<THub>
+  nameWithType: IHubContext<THub>
+  fullName: Microsoft.AspNetCore.SignalR.IHubContext<THub>
+  nameWithType.vb: IHubContext(Of THub)
+  fullName.vb: Microsoft.AspNetCore.SignalR.IHubContext(Of THub)
+  name.vb: IHubContext(Of THub)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: <
+  - name: THub
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: THub
+  - name: )
+- uid: Microsoft.AspNetCore.SignalR
+  commentId: N:Microsoft.AspNetCore.SignalR
+  isExternal: true
+  name: Microsoft.AspNetCore.SignalR
+  nameWithType: Microsoft.AspNetCore.SignalR
+  fullName: Microsoft.AspNetCore.SignalR
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+- uid: lumify.api.Controllers.FoldersController.AddFolder*
+  commentId: Overload:lumify.api.Controllers.FoldersController.AddFolder
+  href: lumify.api.Controllers.FoldersController.html#lumify_api_Controllers_FoldersController_AddFolder_lumify_api_Models_DTO_Requests_AddFolderRequest_System_Threading_CancellationToken_
+  name: AddFolder
+  nameWithType: FoldersController.AddFolder
+  fullName: lumify.api.Controllers.FoldersController.AddFolder
+- uid: lumify.api.Models.DTO.Requests.AddFolderRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddFolderRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.AddFolderRequest.html
+  name: AddFolderRequest
+  nameWithType: AddFolderRequest
+  fullName: lumify.api.Models.DTO.Requests.AddFolderRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.FolderResponse}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.FolderResponse}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.FolderResponse.html
+  name: Task<ActionResult<FolderResponse>>
+  nameWithType: Task<ActionResult<FolderResponse>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<lumify.api.Models.DTO.Responses.FolderResponse>>
+  nameWithType.vb: Task(Of ActionResult(Of FolderResponse))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of lumify.api.Models.DTO.Responses.FolderResponse))
+  name.vb: Task(Of ActionResult(Of FolderResponse))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.FolderResponse
+    name: FolderResponse
+    href: lumify.api.Models.DTO.Responses.FolderResponse.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.FolderResponse
+    name: FolderResponse
+    href: lumify.api.Models.DTO.Responses.FolderResponse.html
+  - name: )
+  - name: )
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  href: lumify.html
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: lumify.api.Controllers.FoldersController.SaveFolder*
+  commentId: Overload:lumify.api.Controllers.FoldersController.SaveFolder
+  href: lumify.api.Controllers.FoldersController.html#lumify_api_Controllers_FoldersController_SaveFolder_lumify_api_Models_DTO_Requests_SaveFolderRequest_System_Threading_CancellationToken_
+  name: SaveFolder
+  nameWithType: FoldersController.SaveFolder
+  fullName: lumify.api.Controllers.FoldersController.SaveFolder
+- uid: lumify.api.Models.DTO.Requests.SaveFolderRequest
+  commentId: T:lumify.api.Models.DTO.Requests.SaveFolderRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.SaveFolderRequest.html
+  name: SaveFolderRequest
+  nameWithType: SaveFolderRequest
+  fullName: lumify.api.Models.DTO.Requests.SaveFolderRequest
+- uid: lumify.api.Controllers.FoldersController.DeleteFolder*
+  commentId: Overload:lumify.api.Controllers.FoldersController.DeleteFolder
+  href: lumify.api.Controllers.FoldersController.html#lumify_api_Controllers_FoldersController_DeleteFolder_System_String_System_Threading_CancellationToken_
+  name: DeleteFolder
+  nameWithType: FoldersController.DeleteFolder
+  fullName: lumify.api.Controllers.FoldersController.DeleteFolder
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<ActionResult>
+  nameWithType: Task<ActionResult>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult>
+  nameWithType.vb: Task(Of ActionResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult)
+  name.vb: Task(Of ActionResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult
+    name: ActionResult
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult
+    name: ActionResult
+    isExternal: true
+  - name: )
+- uid: lumify.api.Controllers.FoldersController.GetAllFoldersOfUser*
+  commentId: Overload:lumify.api.Controllers.FoldersController.GetAllFoldersOfUser
+  href: lumify.api.Controllers.FoldersController.html#lumify_api_Controllers_FoldersController_GetAllFoldersOfUser_System_Threading_CancellationToken_
+  name: GetAllFoldersOfUser
+  nameWithType: FoldersController.GetAllFoldersOfUser
+  fullName: lumify.api.Controllers.FoldersController.GetAllFoldersOfUser
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.FolderResponse}}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.FolderResponse}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.FolderResponse.html
+  name: Task<ActionResult<List<FolderResponse>>>
+  nameWithType: Task<ActionResult<List<FolderResponse>>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.List<lumify.api.Models.DTO.Responses.FolderResponse>>>
+  nameWithType.vb: Task(Of ActionResult(Of List(Of FolderResponse)))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of System.Collections.Generic.List(Of lumify.api.Models.DTO.Responses.FolderResponse)))
+  name.vb: Task(Of ActionResult(Of List(Of FolderResponse)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.FolderResponse
+    name: FolderResponse
+    href: lumify.api.Models.DTO.Responses.FolderResponse.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.FolderResponse
+    name: FolderResponse
+    href: lumify.api.Models.DTO.Responses.FolderResponse.html
+  - name: )
+  - name: )
+  - name: )
+- uid: lumify.api.Controllers.FoldersController.GetAllFoldersOfWorkspace*
+  commentId: Overload:lumify.api.Controllers.FoldersController.GetAllFoldersOfWorkspace
+  href: lumify.api.Controllers.FoldersController.html#lumify_api_Controllers_FoldersController_GetAllFoldersOfWorkspace_System_String_System_Threading_CancellationToken_
+  name: GetAllFoldersOfWorkspace
+  nameWithType: FoldersController.GetAllFoldersOfWorkspace
+  fullName: lumify.api.Controllers.FoldersController.GetAllFoldersOfWorkspace

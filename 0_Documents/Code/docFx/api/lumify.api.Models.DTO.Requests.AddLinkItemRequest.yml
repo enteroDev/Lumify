@@ -1,0 +1,257 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.DTO.Requests.AddLinkItemRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddLinkItemRequest
+  id: AddLinkItemRequest
+  parent: lumify.api.Models.DTO.Requests
+  children:
+  - lumify.api.Models.DTO.Requests.AddLinkItemRequest.Label
+  - lumify.api.Models.DTO.Requests.AddLinkItemRequest.NoteID
+  - lumify.api.Models.DTO.Requests.AddLinkItemRequest.NotePos
+  - lumify.api.Models.DTO.Requests.AddLinkItemRequest.Url
+  langs:
+  - csharp
+  - vb
+  name: AddLinkItemRequest
+  nameWithType: AddLinkItemRequest
+  fullName: lumify.api.Models.DTO.Requests.AddLinkItemRequest
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddLinkItemRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AddLinkItemRequest
+    path: ../../../lumify.api/Models/DTO/Requests/AddLinkItemRequest.cs
+    startLine: 2
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public sealed class AddLinkItemRequest
+    content.vb: Public NotInheritable Class AddLinkItemRequest
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.DTO.Requests.AddLinkItemRequest.NoteID
+  commentId: P:lumify.api.Models.DTO.Requests.AddLinkItemRequest.NoteID
+  id: NoteID
+  parent: lumify.api.Models.DTO.Requests.AddLinkItemRequest
+  langs:
+  - csharp
+  - vb
+  name: NoteID
+  nameWithType: AddLinkItemRequest.NoteID
+  fullName: lumify.api.Models.DTO.Requests.AddLinkItemRequest.NoteID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddLinkItemRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: NoteID
+    path: ../../../lumify.api/Models/DTO/Requests/AddLinkItemRequest.cs
+    startLine: 4
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string NoteID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property NoteID As String
+  overload: lumify.api.Models.DTO.Requests.AddLinkItemRequest.NoteID*
+- uid: lumify.api.Models.DTO.Requests.AddLinkItemRequest.NotePos
+  commentId: P:lumify.api.Models.DTO.Requests.AddLinkItemRequest.NotePos
+  id: NotePos
+  parent: lumify.api.Models.DTO.Requests.AddLinkItemRequest
+  langs:
+  - csharp
+  - vb
+  name: NotePos
+  nameWithType: AddLinkItemRequest.NotePos
+  fullName: lumify.api.Models.DTO.Requests.AddLinkItemRequest.NotePos
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddLinkItemRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: NotePos
+    path: ../../../lumify.api/Models/DTO/Requests/AddLinkItemRequest.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public int NotePos { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property NotePos As Integer
+  overload: lumify.api.Models.DTO.Requests.AddLinkItemRequest.NotePos*
+- uid: lumify.api.Models.DTO.Requests.AddLinkItemRequest.Label
+  commentId: P:lumify.api.Models.DTO.Requests.AddLinkItemRequest.Label
+  id: Label
+  parent: lumify.api.Models.DTO.Requests.AddLinkItemRequest
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: AddLinkItemRequest.Label
+  fullName: lumify.api.Models.DTO.Requests.AddLinkItemRequest.Label
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddLinkItemRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Label
+    path: ../../../lumify.api/Models/DTO/Requests/AddLinkItemRequest.cs
+    startLine: 6
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string? Label { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Label As String
+  overload: lumify.api.Models.DTO.Requests.AddLinkItemRequest.Label*
+- uid: lumify.api.Models.DTO.Requests.AddLinkItemRequest.Url
+  commentId: P:lumify.api.Models.DTO.Requests.AddLinkItemRequest.Url
+  id: Url
+  parent: lumify.api.Models.DTO.Requests.AddLinkItemRequest
+  langs:
+  - csharp
+  - vb
+  name: Url
+  nameWithType: AddLinkItemRequest.Url
+  fullName: lumify.api.Models.DTO.Requests.AddLinkItemRequest.Url
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddLinkItemRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Url
+    path: ../../../lumify.api/Models/DTO/Requests/AddLinkItemRequest.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string? Url { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Url As String
+  overload: lumify.api.Models.DTO.Requests.AddLinkItemRequest.Url*
+references:
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  href: lumify.html
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.DTO.Requests.AddLinkItemRequest.NoteID*
+  commentId: Overload:lumify.api.Models.DTO.Requests.AddLinkItemRequest.NoteID
+  href: lumify.api.Models.DTO.Requests.AddLinkItemRequest.html#lumify_api_Models_DTO_Requests_AddLinkItemRequest_NoteID
+  name: NoteID
+  nameWithType: AddLinkItemRequest.NoteID
+  fullName: lumify.api.Models.DTO.Requests.AddLinkItemRequest.NoteID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.DTO.Requests.AddLinkItemRequest.NotePos*
+  commentId: Overload:lumify.api.Models.DTO.Requests.AddLinkItemRequest.NotePos
+  href: lumify.api.Models.DTO.Requests.AddLinkItemRequest.html#lumify_api_Models_DTO_Requests_AddLinkItemRequest_NotePos
+  name: NotePos
+  nameWithType: AddLinkItemRequest.NotePos
+  fullName: lumify.api.Models.DTO.Requests.AddLinkItemRequest.NotePos
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: lumify.api.Models.DTO.Requests.AddLinkItemRequest.Label*
+  commentId: Overload:lumify.api.Models.DTO.Requests.AddLinkItemRequest.Label
+  href: lumify.api.Models.DTO.Requests.AddLinkItemRequest.html#lumify_api_Models_DTO_Requests_AddLinkItemRequest_Label
+  name: Label
+  nameWithType: AddLinkItemRequest.Label
+  fullName: lumify.api.Models.DTO.Requests.AddLinkItemRequest.Label
+- uid: lumify.api.Models.DTO.Requests.AddLinkItemRequest.Url*
+  commentId: Overload:lumify.api.Models.DTO.Requests.AddLinkItemRequest.Url
+  href: lumify.api.Models.DTO.Requests.AddLinkItemRequest.html#lumify_api_Models_DTO_Requests_AddLinkItemRequest_Url
+  name: Url
+  nameWithType: AddLinkItemRequest.Url
+  fullName: lumify.api.Models.DTO.Requests.AddLinkItemRequest.Url

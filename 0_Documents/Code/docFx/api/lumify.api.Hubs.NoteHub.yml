@@ -1,0 +1,254 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Hubs.NoteHub
+  commentId: T:lumify.api.Hubs.NoteHub
+  id: NoteHub
+  parent: lumify.api.Hubs
+  children:
+  - lumify.api.Hubs.NoteHub.JoinWorkspace(System.String)
+  - lumify.api.Hubs.NoteHub.LeaveWorkspace(System.String)
+  langs:
+  - csharp
+  - vb
+  name: NoteHub
+  nameWithType: NoteHub
+  fullName: lumify.api.Hubs.NoteHub
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Hubs/NoteHub.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: NoteHub
+    path: ../../../lumify.api/Hubs/NoteHub.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Hubs
+  syntax:
+    content: >-
+      [Authorize]
+
+      public class NoteHub : Hub
+    content.vb: >-
+      <Authorize>
+
+      Public Class NoteHub Inherits Hub
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.SignalR.Hub
+  attributes:
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+- uid: lumify.api.Hubs.NoteHub.JoinWorkspace(System.String)
+  commentId: M:lumify.api.Hubs.NoteHub.JoinWorkspace(System.String)
+  id: JoinWorkspace(System.String)
+  parent: lumify.api.Hubs.NoteHub
+  langs:
+  - csharp
+  - vb
+  name: JoinWorkspace(string)
+  nameWithType: NoteHub.JoinWorkspace(string)
+  fullName: lumify.api.Hubs.NoteHub.JoinWorkspace(string)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Hubs/NoteHub.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: JoinWorkspace
+    path: ../../../lumify.api/Hubs/NoteHub.cs
+    startLine: 8
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Hubs
+  syntax:
+    content: public Task JoinWorkspace(string workspaceID)
+    parameters:
+    - id: workspaceID
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function JoinWorkspace(workspaceID As String) As Task
+  overload: lumify.api.Hubs.NoteHub.JoinWorkspace*
+  nameWithType.vb: NoteHub.JoinWorkspace(String)
+  fullName.vb: lumify.api.Hubs.NoteHub.JoinWorkspace(String)
+  name.vb: JoinWorkspace(String)
+- uid: lumify.api.Hubs.NoteHub.LeaveWorkspace(System.String)
+  commentId: M:lumify.api.Hubs.NoteHub.LeaveWorkspace(System.String)
+  id: LeaveWorkspace(System.String)
+  parent: lumify.api.Hubs.NoteHub
+  langs:
+  - csharp
+  - vb
+  name: LeaveWorkspace(string)
+  nameWithType: NoteHub.LeaveWorkspace(string)
+  fullName: lumify.api.Hubs.NoteHub.LeaveWorkspace(string)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Hubs/NoteHub.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: LeaveWorkspace
+    path: ../../../lumify.api/Hubs/NoteHub.cs
+    startLine: 15
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Hubs
+  syntax:
+    content: public Task LeaveWorkspace(string workspaceID)
+    parameters:
+    - id: workspaceID
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function LeaveWorkspace(workspaceID As String) As Task
+  overload: lumify.api.Hubs.NoteHub.LeaveWorkspace*
+  nameWithType.vb: NoteHub.LeaveWorkspace(String)
+  fullName.vb: lumify.api.Hubs.NoteHub.LeaveWorkspace(String)
+  name.vb: LeaveWorkspace(String)
+references:
+- uid: lumify.api.Hubs
+  commentId: N:lumify.api.Hubs
+  href: lumify.html
+  name: lumify.api.Hubs
+  nameWithType: lumify.api.Hubs
+  fullName: lumify.api.Hubs
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Hubs
+    name: Hubs
+    href: lumify.api.Hubs.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Hubs
+    name: Hubs
+    href: lumify.api.Hubs.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.SignalR.Hub
+  commentId: T:Microsoft.AspNetCore.SignalR.Hub
+  parent: Microsoft.AspNetCore.SignalR
+  isExternal: true
+  name: Hub
+  nameWithType: Hub
+  fullName: Microsoft.AspNetCore.SignalR.Hub
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.SignalR
+  commentId: N:Microsoft.AspNetCore.SignalR
+  isExternal: true
+  name: Microsoft.AspNetCore.SignalR
+  nameWithType: Microsoft.AspNetCore.SignalR
+  fullName: Microsoft.AspNetCore.SignalR
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+- uid: lumify.api.Hubs.NoteHub.JoinWorkspace*
+  commentId: Overload:lumify.api.Hubs.NoteHub.JoinWorkspace
+  href: lumify.api.Hubs.NoteHub.html#lumify_api_Hubs_NoteHub_JoinWorkspace_System_String_
+  name: JoinWorkspace
+  nameWithType: NoteHub.JoinWorkspace
+  fullName: lumify.api.Hubs.NoteHub.JoinWorkspace
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: lumify.api.Hubs.NoteHub.LeaveWorkspace*
+  commentId: Overload:lumify.api.Hubs.NoteHub.LeaveWorkspace
+  href: lumify.api.Hubs.NoteHub.html#lumify_api_Hubs_NoteHub_LeaveWorkspace_System_String_
+  name: LeaveWorkspace
+  nameWithType: NoteHub.LeaveWorkspace
+  fullName: lumify.api.Hubs.NoteHub.LeaveWorkspace

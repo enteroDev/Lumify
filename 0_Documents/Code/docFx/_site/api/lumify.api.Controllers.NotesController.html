@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class NotesController | Lumify – Code Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class NotesController | Lumify – Code Documentation ">
+      
+      <meta name="description" content="Manages notes and their content modules — text blocks and link items — both personal (no workspace) and workspace-shared. Covers creating, editing, moving, ordering and deleting notes and modules, plus various queries. All endpoints require an authenticated user. Changes to workspace notes are pushed live to the workspace group over the .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/enteroDev/Lumify/new/main/apiSpec/new?filename=lumify_api_Controllers_NotesController.md&amp;value=---%0Auid%3A%20lumify.api.Controllers.NotesController%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Lumify">
+            Lumify
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="lumify.api.Controllers.NotesController">
+
+
+
+  <h1 id="lumify_api_Controllers_NotesController" data-uid="lumify.api.Controllers.NotesController" class="text-break">
+Class NotesController  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/NotesController.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="lumify.html">lumify</a>.<a class="xref" href="lumify.api.html">api</a>.<a class="xref" href="lumify.api.Controllers.html">Controllers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Manages notes and their content modules — text blocks and link items — both personal
+(no workspace) and workspace-shared. Covers creating, editing, moving, ordering and
+deleting notes and modules, plus various queries. All endpoints require an authenticated
+user. Changes to workspace notes are pushed live to the workspace group over the
+<a class="xref" href="lumify.api.Hubs.NoteHub.html">NoteHub</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiController]
+[Route(&quot;notes/[action]&quot;)]
+[Authorize]
+public class NotesController : ControllerBase</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ControllerBase</span></div>
+      <div><span class="xref">NotesController</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="lumify_api_Controllers_NotesController_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A note is a container; its body is an ordered list of modules positioned via
+<code>NotePos</code>. Deleting a note cascades a soft-delete to all of its modules and
+attachments. Permission rule throughout: a personal note may only be modified by its
+owner, a workspace note by any active member (see <code>CanModify</code>).</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="lumify_api_Controllers_NotesController__ctor_" data-uid="lumify.api.Controllers.NotesController.#ctor*"></a>
+
+  <h3 id="lumify_api_Controllers_NotesController__ctor_Microsoft_Extensions_Logging_ILogger_lumify_api_Controllers_NotesController__lumify_api_Models_Context_LumifyDbContext_Microsoft_AspNetCore_SignalR_IHubContext_lumify_api_Hubs_NoteHub__" data-uid="lumify.api.Controllers.NotesController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.NotesController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.NoteHub})">
+  NotesController(ILogger&lt;NotesController&gt;, LumifyDbContext, IHubContext&lt;NoteHub&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/NotesController.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates the controller with its injected logger, database context and the note hub
+used for live notifications.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NotesController(ILogger&lt;NotesController&gt; logger, LumifyDbContext db, IHubContext&lt;NoteHub&gt; noteHub)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>logger</code> <span class="xref">ILogger</span>&lt;<a class="xref" href="lumify.api.Controllers.NotesController.html">NotesController</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>db</code> <a class="xref" href="lumify.api.Models.Context.LumifyDbContext.html">LumifyDbContext</a></dt>
+    <dd></dd>
+    <dt><code>noteHub</code> <span class="xref">IHubContext</span>&lt;<a class="xref" href="lumify.api.Hubs.NoteHub.html">NoteHub</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="lumify_api_Controllers_NotesController_AddLinkItem_" data-uid="lumify.api.Controllers.NotesController.AddLinkItem*"></a>
+
+  <h3 id="lumify_api_Controllers_NotesController_AddLinkItem_lumify_api_Models_DTO_Requests_AddLinkItemRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.NotesController.AddLinkItem(lumify.api.Models.DTO.Requests.AddLinkItemRequest,System.Threading.CancellationToken)">
+  AddLinkItem(AddLinkItemRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/NotesController.cs/#L269"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Appends a link item module (labelled URL) to a note, placed at the end (next free
+<code>NotePos</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[ActionName(&quot;addLinkItem&quot;)]
+public Task&lt;ActionResult&lt;LinkItemResponse&gt;&gt; AddLinkItem(AddLinkItemRequest request, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="lumify.api.Models.DTO.Requests.AddLinkItemRequest.html">AddLinkItemRequest</a></dt>
+    <dd><p>Link item data including the parent note ID, URL and optional label.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.LinkItemResponse.html">LinkItemResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the created link item; 400 if the note ID or URL is missing; 403 if
+the user may not modify the note; 404 if the note does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_NotesController_AddLinkItem_lumify_api_Models_DTO_Requests_AddLinkItemRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>On success in a workspace, a <code>LinkItemCreated</code> event is broadcast to
+the workspace group.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_NotesController_AddNote_" data-uid="lumify.api.Controllers.NotesController.AddNote*"></a>
+
+  <h3 id="lumify_api_Controllers_NotesController_AddNote_lumify_api_Models_DTO_Requests_AddNoteRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.NotesController.AddNote(lumify.api.Models.DTO.Requests.AddNoteRequest,System.Threading.CancellationToken)">
+  AddNote(AddNoteRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/NotesController.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new (empty) note, optionally inside a workspace and/or a folder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[ActionName(&quot;addNote&quot;)]
+public Task&lt;ActionResult&lt;NoteResponse&gt;&gt; AddNote(AddNoteRequest request, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="lumify.api.Models.DTO.Requests.AddNoteRequest.html">AddNoteRequest</a></dt>
+    <dd><p>Note data (name required; optional workspace and folder).</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.NoteResponse.html">NoteResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the created note; 400 on missing name or invalid workspace/folder;
+403 if the user is not a member of the target workspace or owner of the folder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_NotesController_AddNote_lumify_api_Models_DTO_Requests_AddNoteRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If a workspace is given, the user must be a member; if a folder is given, it must
+live in the same space. On success in a workspace, a <code>NoteCreated</code> event is
+broadcast to the workspace group.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_NotesController_AddTextBlock_" data-uid="lumify.api.Controllers.NotesController.AddTextBlock*"></a>
+
+  <h3 id="lumify_api_Controllers_NotesController_AddTextBlock_lumify_api_Models_DTO_Requests_AddTextBlockRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.NotesController.AddTextBlock(lumify.api.Models.DTO.Requests.AddTextBlockRequest,System.Threading.CancellationToken)">
+  AddTextBlock(AddTextBlockRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/NotesController.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Appends a text block module (text, heading, code, …) to a note, placed at the end
+(next free <code>NotePos</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[ActionName(&quot;addTextBlock&quot;)]
+public Task&lt;ActionResult&lt;TextblockResponse&gt;&gt; AddTextBlock(AddTextBlockRequest request, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="lumify.api.Models.DTO.Requests.AddTextBlockRequest.html">AddTextBlockRequest</a></dt>
+    <dd><p>Text block data including the parent note ID, type and content.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.TextblockResponse.html">TextblockResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the created text block; 400 if the note ID is missing; 403 if the
+user may not modify the note; 404 if the note does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_NotesController_AddTextBlock_lumify_api_Models_DTO_Requests_AddTextBlockRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>On success in a workspace, a <code>TextBlockCreated</code> event is broadcast to
+the workspace group.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_NotesController_DeleteLinkItem_" data-uid="lumify.api.Controllers.NotesController.DeleteLinkItem*"></a>
+
+  <h3 id="lumify_api_Controllers_NotesController_DeleteLinkItem_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.NotesController.DeleteLinkItem(System.String,System.Threading.CancellationToken)">
+  DeleteLinkItem(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/NotesController.cs/#L877"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Soft-deletes a single link item from its note.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpDelete]
+[ActionName(&quot;deleteLinkItem&quot;)]
+public Task&lt;ActionResult&gt; DeleteLinkItem(string linkItemID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>linkItemID</code> <span class="xref">string</span></dt>
+    <dd><p>The link item to delete.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&gt;</dt>
+    <dd><p>200 with <code>success = true</code> and the link item ID; 400 if the ID is
+missing; 403 if the user may not modify the note; 404 if the link item or its parent
+note does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_NotesController_DeleteLinkItem_System_String_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>On a workspace note, a <code>LinkItemDeleted</code> event is broadcast to the
+workspace group; the parent note's timestamp is bumped.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_NotesController_DeleteNote_" data-uid="lumify.api.Controllers.NotesController.DeleteNote*"></a>
+
+  <h3 id="lumify_api_Controllers_NotesController_DeleteNote_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.NotesController.DeleteNote(System.String,System.Threading.CancellationToken)">
+  DeleteNote(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/NotesController.cs/#L708"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Soft-deletes a note together with all of its modules (text blocks, link items) and
+attachments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpDelete]
+[ActionName(&quot;deleteNote&quot;)]
+public Task&lt;ActionResult&gt; DeleteNote(string noteID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>noteID</code> <span class="xref">string</span></dt>
+    <dd><p>The note to delete.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&gt;</dt>
+    <dd><p>200 with <code>success = true</code> and the note ID; 400 if the ID is missing;
+403 if the user may not delete it; 404 if the note does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_NotesController_DeleteNote_System_String_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Everything is kept and marked with <code>DeletedAt</code>. On a workspace note, a
+<code>NoteDeleted</code> event is broadcast to the workspace group.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_NotesController_DeleteTextBlock_" data-uid="lumify.api.Controllers.NotesController.DeleteTextBlock*"></a>
+
+  <h3 id="lumify_api_Controllers_NotesController_DeleteTextBlock_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.NotesController.DeleteTextBlock(System.String,System.Threading.CancellationToken)">
+  DeleteTextBlock(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/NotesController.cs/#L801"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Soft-deletes a single text block from its note.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpDelete]
+[ActionName(&quot;deleteTextBlock&quot;)]
+public Task&lt;ActionResult&gt; DeleteTextBlock(string textblockID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>textblockID</code> <span class="xref">string</span></dt>
+    <dd><p>The text block to delete.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&gt;</dt>
+    <dd><p>200 with <code>success = true</code> and the text block ID; 400 if the ID is
+missing; 403 if the user may not modify the note; 404 if the block or its parent note
+does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_NotesController_DeleteTextBlock_System_String_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>On a workspace note, a <code>TextBlockDeleted</code> event is broadcast to the
+workspace group; the parent note's timestamp is bumped.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_NotesController_GetAllNotesOfUser_" data-uid="lumify.api.Controllers.NotesController.GetAllNotesOfUser*"></a>
+
+  <h3 id="lumify_api_Controllers_NotesController_GetAllNotesOfUser_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.NotesController.GetAllNotesOfUser(System.Threading.CancellationToken)">
+  GetAllNotesOfUser(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/NotesController.cs/#L955"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns all personal notes (no workspace) of the current user, oldest first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getAllNotesOfUser&quot;)]
+public Task&lt;ActionResult&lt;List&lt;NoteResponse&gt;&gt;&gt; GetAllNotesOfUser(CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.NoteResponse.html">NoteResponse</a>&gt;&gt;&gt;</dt>
+    <dd><p>200 with the list of notes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_NotesController_GetAllNotesOfWorkspace_" data-uid="lumify.api.Controllers.NotesController.GetAllNotesOfWorkspace*"></a>
+
+  <h3 id="lumify_api_Controllers_NotesController_GetAllNotesOfWorkspace_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.NotesController.GetAllNotesOfWorkspace(System.String,System.Threading.CancellationToken)">
+  GetAllNotesOfWorkspace(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/NotesController.cs/#L998"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns all notes of a workspace, oldest first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getAllNotesOfWorkspace&quot;)]
+public Task&lt;ActionResult&lt;List&lt;NoteResponse&gt;&gt;&gt; GetAllNotesOfWorkspace(string workspaceID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>workspaceID</code> <span class="xref">string</span></dt>
+    <dd><p>The workspace whose notes are requested.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.NoteResponse.html">NoteResponse</a>&gt;&gt;&gt;</dt>
+    <dd><p>200 with the list of notes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_NotesController_GetAllNotesOfWorkspace_System_String_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Notes whose creator was soft-deleted are kept (content belongs to the
+workspace) and surface the creator as &quot;Gelöschter Benutzer&quot;.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_NotesController_GetLinkItemsOfNote_" data-uid="lumify.api.Controllers.NotesController.GetLinkItemsOfNote*"></a>
+
+  <h3 id="lumify_api_Controllers_NotesController_GetLinkItemsOfNote_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.NotesController.GetLinkItemsOfNote(System.String,System.Threading.CancellationToken)">
+  GetLinkItemsOfNote(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/NotesController.cs/#L1215"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns all link items of a note, in display order (<code>NotePos</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getLinkItemsOfNote&quot;)]
+public Task&lt;ActionResult&lt;List&lt;LinkItemResponse&gt;&gt;&gt; GetLinkItemsOfNote(string noteID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>noteID</code> <span class="xref">string</span></dt>
+    <dd><p>The note whose link items are requested.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.LinkItemResponse.html">LinkItemResponse</a>&gt;&gt;&gt;</dt>
+    <dd><p>200 with the ordered link items; 400 if the ID is missing; 404 if the note
+does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_NotesController_GetNoteCountOfUser_" data-uid="lumify.api.Controllers.NotesController.GetNoteCountOfUser*"></a>
+
+  <h3 id="lumify_api_Controllers_NotesController_GetNoteCountOfUser_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.NotesController.GetNoteCountOfUser(System.Threading.CancellationToken)">
+  GetNoteCountOfUser(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/NotesController.cs/#L1085"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the number of personal notes (no workspace) owned by the current user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getNoteCountOfUser&quot;)]
+public Task&lt;ActionResult&lt;int&gt;&gt; GetNoteCountOfUser(CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">int</span>&gt;&gt;</dt>
+    <dd><p>200 with the note count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_NotesController_GetNoteCountOfWorkspace_" data-uid="lumify.api.Controllers.NotesController.GetNoteCountOfWorkspace*"></a>
+
+  <h3 id="lumify_api_Controllers_NotesController_GetNoteCountOfWorkspace_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.NotesController.GetNoteCountOfWorkspace(System.String,System.Threading.CancellationToken)">
+  GetNoteCountOfWorkspace(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/NotesController.cs/#L1111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the number of notes in a workspace. The user must be a member.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getNoteCountOfWorkspace&quot;)]
+public Task&lt;ActionResult&lt;int&gt;&gt; GetNoteCountOfWorkspace(string workspaceID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>workspaceID</code> <span class="xref">string</span></dt>
+    <dd><p>The workspace to count notes for.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">int</span>&gt;&gt;</dt>
+    <dd><p>200 with the note count; 400 if the ID is missing; 403 if the user is not a
+member; 404 if the workspace does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_NotesController_GetNoteWithID_" data-uid="lumify.api.Controllers.NotesController.GetNoteWithID*"></a>
+
+  <h3 id="lumify_api_Controllers_NotesController_GetNoteWithID_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.NotesController.GetNoteWithID(System.String,System.Threading.CancellationToken)">
+  GetNoteWithID(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/NotesController.cs/#L1038"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a single note by its ID (metadata only; modules are fetched separately).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getNoteWithID&quot;)]
+public Task&lt;ActionResult&lt;NoteResponse&gt;&gt; GetNoteWithID(string noteID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>noteID</code> <span class="xref">string</span></dt>
+    <dd><p>The note to look up.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.NoteResponse.html">NoteResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the note; 400 if the ID is missing; 404 if it does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_NotesController_GetTextBlocksOfNote_" data-uid="lumify.api.Controllers.NotesController.GetTextBlocksOfNote*"></a>
+
+  <h3 id="lumify_api_Controllers_NotesController_GetTextBlocksOfNote_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.NotesController.GetTextBlocksOfNote(System.String,System.Threading.CancellationToken)">
+  GetTextBlocksOfNote(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/NotesController.cs/#L1167"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns all text blocks of a note, in display order (<code>NotePos</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getTextBlocksOfNote&quot;)]
+public Task&lt;ActionResult&lt;List&lt;TextblockResponse&gt;&gt;&gt; GetTextBlocksOfNote(string noteID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>noteID</code> <span class="xref">string</span></dt>
+    <dd><p>The note whose text blocks are requested.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.TextblockResponse.html">TextblockResponse</a>&gt;&gt;&gt;</dt>
+    <dd><p>200 with the ordered text blocks; 400 if the ID is missing; 404 if the note
+does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_NotesController_SaveNote_" data-uid="lumify.api.Controllers.NotesController.SaveNote*"></a>
+
+  <h3 id="lumify_api_Controllers_NotesController_SaveNote_lumify_api_Models_DTO_Requests_SaveNoteRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.NotesController.SaveNote(lumify.api.Models.DTO.Requests.SaveNoteRequest,System.Threading.CancellationToken)">
+  SaveNote(SaveNoteRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/NotesController.cs/#L371"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates a note's name and/or its folder (move). Only provided fields are changed, and
+the database is only written if something changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPatch]
+[ActionName(&quot;saveNote&quot;)]
+public Task&lt;ActionResult&lt;NoteResponse&gt;&gt; SaveNote(SaveNoteRequest request, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="lumify.api.Models.DTO.Requests.SaveNoteRequest.html">SaveNoteRequest</a></dt>
+    <dd><p>The note ID plus the fields to change.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.NoteResponse.html">NoteResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the updated note; 400 on invalid input or move target; 403 if the
+user may not modify it; 404 if the note does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_NotesController_SaveNote_lumify_api_Models_DTO_Requests_SaveNoteRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Move rules: a personal note may only move into another personal folder of the same
+owner; a workspace note may only move within the same workspace; an empty folder ID
+moves the note to the root. On a successful change in a workspace, a <code>NoteUpdated</code>
+event is broadcast to the workspace group.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_NotesController_SaveTextBlock_" data-uid="lumify.api.Controllers.NotesController.SaveTextBlock*"></a>
+
+  <h3 id="lumify_api_Controllers_NotesController_SaveTextBlock_lumify_api_Models_DTO_Requests_SaveTextblockRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.NotesController.SaveTextBlock(lumify.api.Models.DTO.Requests.SaveTextblockRequest,System.Threading.CancellationToken)">
+  SaveTextBlock(SaveTextblockRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/NotesController.cs/#L527"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates a text block's type, name, content, code language, collapsed state and/or
+position. Only provided fields are changed, and the database is only written if
+something changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPatch]
+[ActionName(&quot;saveTextBlock&quot;)]
+public Task&lt;ActionResult&lt;TextblockResponse&gt;&gt; SaveTextBlock(SaveTextblockRequest request, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="lumify.api.Models.DTO.Requests.SaveTextblockRequest.html">SaveTextblockRequest</a></dt>
+    <dd><p>The text block ID plus the fields to change.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.TextblockResponse.html">TextblockResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the updated text block; 400 on invalid input (e.g. negative
+position); 403 if the user may not modify the note; 404 if the block or its parent
+note does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_NotesController_SaveTextBlock_lumify_api_Models_DTO_Requests_SaveTextblockRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Changing <code>NotePos</code> reorders the block within the note. On a successful
+change in a workspace, a <code>TextBlockUpdated</code> event is broadcast to the workspace
+group; the parent note's timestamp is bumped too.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_NotesController_getSpaceInfosOfNote_" data-uid="lumify.api.Controllers.NotesController.getSpaceInfosOfNote*"></a>
+
+  <h3 id="lumify_api_Controllers_NotesController_getSpaceInfosOfNote_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.NotesController.getSpaceInfosOfNote(System.String,System.Threading.CancellationToken)">
+  getSpaceInfosOfNote(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/NotesController.cs/#L1260"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the workspace that the given note belongs to, if any.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getSpaceInfosOfNote&quot;)]
+public Task&lt;ActionResult&lt;WorkspaceResponse&gt;&gt; getSpaceInfosOfNote(string noteID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>noteID</code> <span class="xref">string</span></dt>
+    <dd><p>The note whose workspace is requested.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.WorkspaceResponse.html">WorkspaceResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the workspace; 400 if the ID is missing; 404 if the note has no
+linked workspace or it was deleted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

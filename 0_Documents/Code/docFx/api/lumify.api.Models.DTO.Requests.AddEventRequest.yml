@@ -1,0 +1,329 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.DTO.Requests.AddEventRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddEventRequest
+  id: AddEventRequest
+  parent: lumify.api.Models.DTO.Requests
+  children:
+  - lumify.api.Models.DTO.Requests.AddEventRequest.Description
+  - lumify.api.Models.DTO.Requests.AddEventRequest.EndTime
+  - lumify.api.Models.DTO.Requests.AddEventRequest.IsAllDay
+  - lumify.api.Models.DTO.Requests.AddEventRequest.Name
+  - lumify.api.Models.DTO.Requests.AddEventRequest.StartTime
+  - lumify.api.Models.DTO.Requests.AddEventRequest.WorkspaceID
+  langs:
+  - csharp
+  - vb
+  name: AddEventRequest
+  nameWithType: AddEventRequest
+  fullName: lumify.api.Models.DTO.Requests.AddEventRequest
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddEventRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AddEventRequest
+    path: ../../../lumify.api/Models/DTO/Requests/AddEventRequest.cs
+    startLine: 2
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public class AddEventRequest
+    content.vb: Public Class AddEventRequest
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.DTO.Requests.AddEventRequest.WorkspaceID
+  commentId: P:lumify.api.Models.DTO.Requests.AddEventRequest.WorkspaceID
+  id: WorkspaceID
+  parent: lumify.api.Models.DTO.Requests.AddEventRequest
+  langs:
+  - csharp
+  - vb
+  name: WorkspaceID
+  nameWithType: AddEventRequest.WorkspaceID
+  fullName: lumify.api.Models.DTO.Requests.AddEventRequest.WorkspaceID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddEventRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: WorkspaceID
+    path: ../../../lumify.api/Models/DTO/Requests/AddEventRequest.cs
+    startLine: 4
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string? WorkspaceID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property WorkspaceID As String
+  overload: lumify.api.Models.DTO.Requests.AddEventRequest.WorkspaceID*
+- uid: lumify.api.Models.DTO.Requests.AddEventRequest.Name
+  commentId: P:lumify.api.Models.DTO.Requests.AddEventRequest.Name
+  id: Name
+  parent: lumify.api.Models.DTO.Requests.AddEventRequest
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: AddEventRequest.Name
+  fullName: lumify.api.Models.DTO.Requests.AddEventRequest.Name
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddEventRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Name
+    path: ../../../lumify.api/Models/DTO/Requests/AddEventRequest.cs
+    startLine: 6
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: lumify.api.Models.DTO.Requests.AddEventRequest.Name*
+- uid: lumify.api.Models.DTO.Requests.AddEventRequest.Description
+  commentId: P:lumify.api.Models.DTO.Requests.AddEventRequest.Description
+  id: Description
+  parent: lumify.api.Models.DTO.Requests.AddEventRequest
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: AddEventRequest.Description
+  fullName: lumify.api.Models.DTO.Requests.AddEventRequest.Description
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddEventRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Description
+    path: ../../../lumify.api/Models/DTO/Requests/AddEventRequest.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string? Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: lumify.api.Models.DTO.Requests.AddEventRequest.Description*
+- uid: lumify.api.Models.DTO.Requests.AddEventRequest.IsAllDay
+  commentId: P:lumify.api.Models.DTO.Requests.AddEventRequest.IsAllDay
+  id: IsAllDay
+  parent: lumify.api.Models.DTO.Requests.AddEventRequest
+  langs:
+  - csharp
+  - vb
+  name: IsAllDay
+  nameWithType: AddEventRequest.IsAllDay
+  fullName: lumify.api.Models.DTO.Requests.AddEventRequest.IsAllDay
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddEventRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: IsAllDay
+    path: ../../../lumify.api/Models/DTO/Requests/AddEventRequest.cs
+    startLine: 9
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public bool IsAllDay { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsAllDay As Boolean
+  overload: lumify.api.Models.DTO.Requests.AddEventRequest.IsAllDay*
+- uid: lumify.api.Models.DTO.Requests.AddEventRequest.StartTime
+  commentId: P:lumify.api.Models.DTO.Requests.AddEventRequest.StartTime
+  id: StartTime
+  parent: lumify.api.Models.DTO.Requests.AddEventRequest
+  langs:
+  - csharp
+  - vb
+  name: StartTime
+  nameWithType: AddEventRequest.StartTime
+  fullName: lumify.api.Models.DTO.Requests.AddEventRequest.StartTime
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddEventRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: StartTime
+    path: ../../../lumify.api/Models/DTO/Requests/AddEventRequest.cs
+    startLine: 11
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string StartTime { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property StartTime As String
+  overload: lumify.api.Models.DTO.Requests.AddEventRequest.StartTime*
+- uid: lumify.api.Models.DTO.Requests.AddEventRequest.EndTime
+  commentId: P:lumify.api.Models.DTO.Requests.AddEventRequest.EndTime
+  id: EndTime
+  parent: lumify.api.Models.DTO.Requests.AddEventRequest
+  langs:
+  - csharp
+  - vb
+  name: EndTime
+  nameWithType: AddEventRequest.EndTime
+  fullName: lumify.api.Models.DTO.Requests.AddEventRequest.EndTime
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddEventRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: EndTime
+    path: ../../../lumify.api/Models/DTO/Requests/AddEventRequest.cs
+    startLine: 12
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string EndTime { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property EndTime As String
+  overload: lumify.api.Models.DTO.Requests.AddEventRequest.EndTime*
+references:
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  href: lumify.html
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.DTO.Requests.AddEventRequest.WorkspaceID*
+  commentId: Overload:lumify.api.Models.DTO.Requests.AddEventRequest.WorkspaceID
+  href: lumify.api.Models.DTO.Requests.AddEventRequest.html#lumify_api_Models_DTO_Requests_AddEventRequest_WorkspaceID
+  name: WorkspaceID
+  nameWithType: AddEventRequest.WorkspaceID
+  fullName: lumify.api.Models.DTO.Requests.AddEventRequest.WorkspaceID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.DTO.Requests.AddEventRequest.Name*
+  commentId: Overload:lumify.api.Models.DTO.Requests.AddEventRequest.Name
+  href: lumify.api.Models.DTO.Requests.AddEventRequest.html#lumify_api_Models_DTO_Requests_AddEventRequest_Name
+  name: Name
+  nameWithType: AddEventRequest.Name
+  fullName: lumify.api.Models.DTO.Requests.AddEventRequest.Name
+- uid: lumify.api.Models.DTO.Requests.AddEventRequest.Description*
+  commentId: Overload:lumify.api.Models.DTO.Requests.AddEventRequest.Description
+  href: lumify.api.Models.DTO.Requests.AddEventRequest.html#lumify_api_Models_DTO_Requests_AddEventRequest_Description
+  name: Description
+  nameWithType: AddEventRequest.Description
+  fullName: lumify.api.Models.DTO.Requests.AddEventRequest.Description
+- uid: lumify.api.Models.DTO.Requests.AddEventRequest.IsAllDay*
+  commentId: Overload:lumify.api.Models.DTO.Requests.AddEventRequest.IsAllDay
+  href: lumify.api.Models.DTO.Requests.AddEventRequest.html#lumify_api_Models_DTO_Requests_AddEventRequest_IsAllDay
+  name: IsAllDay
+  nameWithType: AddEventRequest.IsAllDay
+  fullName: lumify.api.Models.DTO.Requests.AddEventRequest.IsAllDay
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: lumify.api.Models.DTO.Requests.AddEventRequest.StartTime*
+  commentId: Overload:lumify.api.Models.DTO.Requests.AddEventRequest.StartTime
+  href: lumify.api.Models.DTO.Requests.AddEventRequest.html#lumify_api_Models_DTO_Requests_AddEventRequest_StartTime
+  name: StartTime
+  nameWithType: AddEventRequest.StartTime
+  fullName: lumify.api.Models.DTO.Requests.AddEventRequest.StartTime
+- uid: lumify.api.Models.DTO.Requests.AddEventRequest.EndTime*
+  commentId: Overload:lumify.api.Models.DTO.Requests.AddEventRequest.EndTime
+  href: lumify.api.Models.DTO.Requests.AddEventRequest.html#lumify_api_Models_DTO_Requests_AddEventRequest_EndTime
+  name: EndTime
+  nameWithType: AddEventRequest.EndTime
+  fullName: lumify.api.Models.DTO.Requests.AddEventRequest.EndTime

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class WorkspaceController | Lumify – Code Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class WorkspaceController | Lumify – Code Documentation ">
+      
+      <meta name="description" content="Manages workspaces (shared spaces) and their memberships: creating, renaming and deleting workspaces, adding and removing members, and querying workspaces and members. All endpoints require an authenticated user. Changes are pushed live to every affected member over the .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/enteroDev/Lumify/new/main/apiSpec/new?filename=lumify_api_Controllers_WorkspaceController.md&amp;value=---%0Auid%3A%20lumify.api.Controllers.WorkspaceController%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Lumify">
+            Lumify
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="lumify.api.Controllers.WorkspaceController">
+
+
+
+  <h1 id="lumify_api_Controllers_WorkspaceController" data-uid="lumify.api.Controllers.WorkspaceController" class="text-break">
+Class WorkspaceController  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/WorkspaceController.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="lumify.html">lumify</a>.<a class="xref" href="lumify.api.html">api</a>.<a class="xref" href="lumify.api.Controllers.html">Controllers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Manages workspaces (shared spaces) and their memberships: creating, renaming and
+deleting workspaces, adding and removing members, and querying workspaces and members.
+All endpoints require an authenticated user. Changes are pushed live to every affected
+member over the <a class="xref" href="lumify.api.Hubs.WorkspaceHub.html">WorkspaceHub</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiController]
+[Route(&quot;workspace/[action]&quot;)]
+[Authorize]
+public class WorkspaceController : ControllerBase</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ControllerBase</span></div>
+      <div><span class="xref">WorkspaceController</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="lumify_api_Controllers_WorkspaceController_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Member roles are stored as integers: 1 = Owner, 2 = Admin, 3 = User. Only the owner
+(role 1) may add/remove members, rename or delete the workspace.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="lumify_api_Controllers_WorkspaceController__ctor_" data-uid="lumify.api.Controllers.WorkspaceController.#ctor*"></a>
+
+  <h3 id="lumify_api_Controllers_WorkspaceController__ctor_Microsoft_Extensions_Logging_ILogger_lumify_api_Controllers_WorkspaceController__lumify_api_Models_Context_LumifyDbContext_Microsoft_AspNetCore_SignalR_IHubContext_lumify_api_Hubs_WorkspaceHub__" data-uid="lumify.api.Controllers.WorkspaceController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.WorkspaceController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.WorkspaceHub})">
+  WorkspaceController(ILogger&lt;WorkspaceController&gt;, LumifyDbContext, IHubContext&lt;WorkspaceHub&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/WorkspaceController.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates the controller with its injected logger, database context and the workspace
+hub used for live notifications.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WorkspaceController(ILogger&lt;WorkspaceController&gt; logger, LumifyDbContext db, IHubContext&lt;WorkspaceHub&gt; workspaceHub)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>logger</code> <span class="xref">ILogger</span>&lt;<a class="xref" href="lumify.api.Controllers.WorkspaceController.html">WorkspaceController</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>db</code> <a class="xref" href="lumify.api.Models.Context.LumifyDbContext.html">LumifyDbContext</a></dt>
+    <dd></dd>
+    <dt><code>workspaceHub</code> <span class="xref">IHubContext</span>&lt;<a class="xref" href="lumify.api.Hubs.WorkspaceHub.html">WorkspaceHub</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="lumify_api_Controllers_WorkspaceController_AddWorkspace_" data-uid="lumify.api.Controllers.WorkspaceController.AddWorkspace*"></a>
+
+  <h3 id="lumify_api_Controllers_WorkspaceController_AddWorkspace_lumify_api_Models_DTO_Requests_AddWorkspaceRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.WorkspaceController.AddWorkspace(lumify.api.Models.DTO.Requests.AddWorkspaceRequest,System.Threading.CancellationToken)">
+  AddWorkspace(AddWorkspaceRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/WorkspaceController.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new workspace and adds the current user as its owner (role 1).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[ActionName(&quot;addWorkspace&quot;)]
+public Task&lt;ActionResult&lt;WorkspaceResponse&gt;&gt; AddWorkspace(AddWorkspaceRequest request, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="lumify.api.Models.DTO.Requests.AddWorkspaceRequest.html">AddWorkspaceRequest</a></dt>
+    <dd><p>Workspace data (name required).</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.WorkspaceResponse.html">WorkspaceResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the created workspace; 400 if the name is missing; 401 if no user
+is logged in.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_WorkspaceController_AddWorkspace_lumify_api_Models_DTO_Requests_AddWorkspaceRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Broadcasts a <code>WorkspaceCreated</code> event to the owner's group.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_WorkspaceController_AddWorkspaceMember_" data-uid="lumify.api.Controllers.WorkspaceController.AddWorkspaceMember*"></a>
+
+  <h3 id="lumify_api_Controllers_WorkspaceController_AddWorkspaceMember_lumify_api_Models_DTO_Requests_AddWorkspaceMemberRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.WorkspaceController.AddWorkspaceMember(lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest,System.Threading.CancellationToken)">
+  AddWorkspaceMember(AddWorkspaceMemberRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/WorkspaceController.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds another user as a member (role 3 = User) to a workspace. Only the owner may
+add members.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[ActionName(&quot;addWorkspaceMember&quot;)]
+public Task&lt;ActionResult&gt; AddWorkspaceMember(AddWorkspaceMemberRequest request, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest.html">AddWorkspaceMemberRequest</a></dt>
+    <dd><p>The target workspace and the user to add.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&gt;</dt>
+    <dd><p>200 with the new member; 400 on missing IDs or if already a member; 401 if
+no user is logged in; 403 if the caller is not the owner; 404 if workspace or user
+does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_WorkspaceController_AddWorkspaceMember_lumify_api_Models_DTO_Requests_AddWorkspaceMemberRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Broadcasts a <code>WorkspaceMemberAdded</code> event to all current members.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_WorkspaceController_DeleteWorkspace_" data-uid="lumify.api.Controllers.WorkspaceController.DeleteWorkspace*"></a>
+
+  <h3 id="lumify_api_Controllers_WorkspaceController_DeleteWorkspace_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.WorkspaceController.DeleteWorkspace(System.String,System.Threading.CancellationToken)">
+  DeleteWorkspace(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/WorkspaceController.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Soft-deletes a workspace. Only the owner may delete it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpDelete]
+[ActionName(&quot;deleteWorkspace&quot;)]
+public Task&lt;ActionResult&gt; DeleteWorkspace(string workspaceID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>workspaceID</code> <span class="xref">string</span></dt>
+    <dd><p>The workspace to delete.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&gt;</dt>
+    <dd><p>200 with <code>success = true</code> and the workspace ID; 400 if the ID is
+missing; 403 if the caller is not the owner; 404 if the workspace does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_WorkspaceController_DeleteWorkspace_System_String_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The audience is captured before deletion so a <code>WorkspaceDeleted</code> event
+can still be broadcast to all former members.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_WorkspaceController_GetWorkspaceMembers_" data-uid="lumify.api.Controllers.WorkspaceController.GetWorkspaceMembers*"></a>
+
+  <h3 id="lumify_api_Controllers_WorkspaceController_GetWorkspaceMembers_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.WorkspaceController.GetWorkspaceMembers(System.String,System.Threading.CancellationToken)">
+  GetWorkspaceMembers(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/WorkspaceController.cs/#L562"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns all members of a workspace, each with their user profile and role.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getWorkspaceMembers&quot;)]
+public Task&lt;IActionResult&gt; GetWorkspaceMembers(string id, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <span class="xref">string</span></dt>
+    <dd><p>The workspace ID.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with the list of members; 400 if the ID is missing; 404 if the
+workspace does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_WorkspaceController_GetWorkspaceWithID_" data-uid="lumify.api.Controllers.WorkspaceController.GetWorkspaceWithID*"></a>
+
+  <h3 id="lumify_api_Controllers_WorkspaceController_GetWorkspaceWithID_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.WorkspaceController.GetWorkspaceWithID(System.String,System.Threading.CancellationToken)">
+  GetWorkspaceWithID(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/WorkspaceController.cs/#L483"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a single workspace by its ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getWorkspaceWithID&quot;)]
+public Task&lt;IActionResult&gt; GetWorkspaceWithID(string id, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <span class="xref">string</span></dt>
+    <dd><p>The workspace ID.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with the workspace; 400 if the ID is missing; 404 if it does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_WorkspaceController_GetWorkspacesOfUser_" data-uid="lumify.api.Controllers.WorkspaceController.GetWorkspacesOfUser*"></a>
+
+  <h3 id="lumify_api_Controllers_WorkspaceController_GetWorkspacesOfUser_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.WorkspaceController.GetWorkspacesOfUser(System.Threading.CancellationToken)">
+  GetWorkspacesOfUser(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/WorkspaceController.cs/#L518"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns all workspaces the current user owns or is a member of, ordered by name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;GetWorkspacesOfUser&quot;)]
+public Task&lt;ActionResult&lt;List&lt;WorkspaceResponse&gt;&gt;&gt; GetWorkspacesOfUser(CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.WorkspaceResponse.html">WorkspaceResponse</a>&gt;&gt;&gt;</dt>
+    <dd><p>200 with the list of workspaces; 400 if the user ID cannot be resolved.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_WorkspaceController_RemoveWorkspaceMember_" data-uid="lumify.api.Controllers.WorkspaceController.RemoveWorkspaceMember*"></a>
+
+  <h3 id="lumify_api_Controllers_WorkspaceController_RemoveWorkspaceMember_System_String_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.WorkspaceController.RemoveWorkspaceMember(System.String,System.String,System.Threading.CancellationToken)">
+  RemoveWorkspaceMember(string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/WorkspaceController.cs/#L305"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a member from a workspace (soft-delete of the membership). Only the owner
+may remove members, and the owner cannot be removed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpDelete]
+[ActionName(&quot;removeWorkspaceMember&quot;)]
+public Task&lt;ActionResult&gt; RemoveWorkspaceMember(string workspaceID, string userID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>workspaceID</code> <span class="xref">string</span></dt>
+    <dd><p>The workspace to remove the member from.</p>
+</dd>
+    <dt><code>userID</code> <span class="xref">string</span></dt>
+    <dd><p>The member to remove.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&gt;</dt>
+    <dd><p>200 on success; 400 on missing IDs or attempting to remove the owner; 403 if
+the caller is not the owner; 404 if the workspace or membership does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_WorkspaceController_RemoveWorkspaceMember_System_String_System_String_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Broadcasts a <code>WorkspaceMemberRemoved</code> event to all current members.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_WorkspaceController_SaveWorkspace_" data-uid="lumify.api.Controllers.WorkspaceController.SaveWorkspace*"></a>
+
+  <h3 id="lumify_api_Controllers_WorkspaceController_SaveWorkspace_lumify_api_Models_DTO_Requests_SaveWorkspaceRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.WorkspaceController.SaveWorkspace(lumify.api.Models.DTO.Requests.SaveWorkspaceRequest,System.Threading.CancellationToken)">
+  SaveWorkspace(SaveWorkspaceRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/WorkspaceController.cs/#L394"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renames a workspace. Only the owner may rename it, and the database is only written
+if the name actually changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPatch]
+[ActionName(&quot;saveWorkspace&quot;)]
+public Task&lt;ActionResult&lt;WorkspaceResponse&gt;&gt; SaveWorkspace(SaveWorkspaceRequest request, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="lumify.api.Models.DTO.Requests.SaveWorkspaceRequest.html">SaveWorkspaceRequest</a></dt>
+    <dd><p>The workspace ID and the new name.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.WorkspaceResponse.html">WorkspaceResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the updated workspace; 400 if the ID is missing or the name is
+empty; 403 if the caller is not the owner; 404 if the workspace does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_WorkspaceController_SaveWorkspace_lumify_api_Models_DTO_Requests_SaveWorkspaceRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>On a successful change, a <code>WorkspaceUpdated</code> event is broadcast to all
+members.</p>
+</div>
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

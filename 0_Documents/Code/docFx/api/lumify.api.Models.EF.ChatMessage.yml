@@ -1,0 +1,390 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.EF.ChatMessage
+  commentId: T:lumify.api.Models.EF.ChatMessage
+  id: ChatMessage
+  parent: lumify.api.Models.EF
+  children:
+  - lumify.api.Models.EF.ChatMessage.Content
+  - lumify.api.Models.EF.ChatMessage.CreatedAt
+  - lumify.api.Models.EF.ChatMessage.DeletedAt
+  - lumify.api.Models.EF.ChatMessage.ID
+  - lumify.api.Models.EF.ChatMessage.RoomID
+  - lumify.api.Models.EF.ChatMessage.Sender
+  - lumify.api.Models.EF.ChatMessage.SenderID
+  - lumify.api.Models.EF.ChatMessage.UpdatedAt
+  langs:
+  - csharp
+  - vb
+  name: ChatMessage
+  nameWithType: ChatMessage
+  fullName: lumify.api.Models.EF.ChatMessage
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/EF/ChatMessage.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ChatMessage
+    path: ../../../lumify.api/Models/EF/ChatMessage.cs
+    startLine: 4
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public class ChatMessage
+    content.vb: Public Class ChatMessage
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.EF.ChatMessage.ID
+  commentId: P:lumify.api.Models.EF.ChatMessage.ID
+  id: ID
+  parent: lumify.api.Models.EF.ChatMessage
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: ChatMessage.ID
+  fullName: lumify.api.Models.EF.ChatMessage.ID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/ChatMessage.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ID
+    path: ../../../lumify.api/Models/EF/ChatMessage.cs
+    startLine: 6
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string ID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ID As String
+  overload: lumify.api.Models.EF.ChatMessage.ID*
+- uid: lumify.api.Models.EF.ChatMessage.RoomID
+  commentId: P:lumify.api.Models.EF.ChatMessage.RoomID
+  id: RoomID
+  parent: lumify.api.Models.EF.ChatMessage
+  langs:
+  - csharp
+  - vb
+  name: RoomID
+  nameWithType: ChatMessage.RoomID
+  fullName: lumify.api.Models.EF.ChatMessage.RoomID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/ChatMessage.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: RoomID
+    path: ../../../lumify.api/Models/EF/ChatMessage.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string RoomID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RoomID As String
+  overload: lumify.api.Models.EF.ChatMessage.RoomID*
+- uid: lumify.api.Models.EF.ChatMessage.SenderID
+  commentId: P:lumify.api.Models.EF.ChatMessage.SenderID
+  id: SenderID
+  parent: lumify.api.Models.EF.ChatMessage
+  langs:
+  - csharp
+  - vb
+  name: SenderID
+  nameWithType: ChatMessage.SenderID
+  fullName: lumify.api.Models.EF.ChatMessage.SenderID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/ChatMessage.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SenderID
+    path: ../../../lumify.api/Models/EF/ChatMessage.cs
+    startLine: 8
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string SenderID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SenderID As String
+  overload: lumify.api.Models.EF.ChatMessage.SenderID*
+- uid: lumify.api.Models.EF.ChatMessage.Content
+  commentId: P:lumify.api.Models.EF.ChatMessage.Content
+  id: Content
+  parent: lumify.api.Models.EF.ChatMessage
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: ChatMessage.Content
+  fullName: lumify.api.Models.EF.ChatMessage.Content
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/ChatMessage.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Content
+    path: ../../../lumify.api/Models/EF/ChatMessage.cs
+    startLine: 10
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string Content { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Content As String
+  overload: lumify.api.Models.EF.ChatMessage.Content*
+- uid: lumify.api.Models.EF.ChatMessage.CreatedAt
+  commentId: P:lumify.api.Models.EF.ChatMessage.CreatedAt
+  id: CreatedAt
+  parent: lumify.api.Models.EF.ChatMessage
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: ChatMessage.CreatedAt
+  fullName: lumify.api.Models.EF.ChatMessage.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/ChatMessage.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: CreatedAt
+    path: ../../../lumify.api/Models/EF/ChatMessage.cs
+    startLine: 12
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreatedAt As String
+  overload: lumify.api.Models.EF.ChatMessage.CreatedAt*
+- uid: lumify.api.Models.EF.ChatMessage.UpdatedAt
+  commentId: P:lumify.api.Models.EF.ChatMessage.UpdatedAt
+  id: UpdatedAt
+  parent: lumify.api.Models.EF.ChatMessage
+  langs:
+  - csharp
+  - vb
+  name: UpdatedAt
+  nameWithType: ChatMessage.UpdatedAt
+  fullName: lumify.api.Models.EF.ChatMessage.UpdatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/ChatMessage.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UpdatedAt
+    path: ../../../lumify.api/Models/EF/ChatMessage.cs
+    startLine: 13
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string UpdatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UpdatedAt As String
+  overload: lumify.api.Models.EF.ChatMessage.UpdatedAt*
+- uid: lumify.api.Models.EF.ChatMessage.DeletedAt
+  commentId: P:lumify.api.Models.EF.ChatMessage.DeletedAt
+  id: DeletedAt
+  parent: lumify.api.Models.EF.ChatMessage
+  langs:
+  - csharp
+  - vb
+  name: DeletedAt
+  nameWithType: ChatMessage.DeletedAt
+  fullName: lumify.api.Models.EF.ChatMessage.DeletedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/ChatMessage.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DeletedAt
+    path: ../../../lumify.api/Models/EF/ChatMessage.cs
+    startLine: 14
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? DeletedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DeletedAt As String
+  overload: lumify.api.Models.EF.ChatMessage.DeletedAt*
+- uid: lumify.api.Models.EF.ChatMessage.Sender
+  commentId: P:lumify.api.Models.EF.ChatMessage.Sender
+  id: Sender
+  parent: lumify.api.Models.EF.ChatMessage
+  langs:
+  - csharp
+  - vb
+  name: Sender
+  nameWithType: ChatMessage.Sender
+  fullName: lumify.api.Models.EF.ChatMessage.Sender
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/ChatMessage.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Sender
+    path: ../../../lumify.api/Models/EF/ChatMessage.cs
+    startLine: 17
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual User Sender { get; set; }
+    parameters: []
+    return:
+      type: lumify.api.Models.EF.User
+    content.vb: Public Overridable Property Sender As User
+  overload: lumify.api.Models.EF.ChatMessage.Sender*
+references:
+- uid: lumify.api.Models.EF
+  commentId: N:lumify.api.Models.EF
+  href: lumify.html
+  name: lumify.api.Models.EF
+  nameWithType: lumify.api.Models.EF
+  fullName: lumify.api.Models.EF
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.EF.ChatMessage.ID*
+  commentId: Overload:lumify.api.Models.EF.ChatMessage.ID
+  href: lumify.api.Models.EF.ChatMessage.html#lumify_api_Models_EF_ChatMessage_ID
+  name: ID
+  nameWithType: ChatMessage.ID
+  fullName: lumify.api.Models.EF.ChatMessage.ID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.EF.ChatMessage.RoomID*
+  commentId: Overload:lumify.api.Models.EF.ChatMessage.RoomID
+  href: lumify.api.Models.EF.ChatMessage.html#lumify_api_Models_EF_ChatMessage_RoomID
+  name: RoomID
+  nameWithType: ChatMessage.RoomID
+  fullName: lumify.api.Models.EF.ChatMessage.RoomID
+- uid: lumify.api.Models.EF.ChatMessage.SenderID*
+  commentId: Overload:lumify.api.Models.EF.ChatMessage.SenderID
+  href: lumify.api.Models.EF.ChatMessage.html#lumify_api_Models_EF_ChatMessage_SenderID
+  name: SenderID
+  nameWithType: ChatMessage.SenderID
+  fullName: lumify.api.Models.EF.ChatMessage.SenderID
+- uid: lumify.api.Models.EF.ChatMessage.Content*
+  commentId: Overload:lumify.api.Models.EF.ChatMessage.Content
+  href: lumify.api.Models.EF.ChatMessage.html#lumify_api_Models_EF_ChatMessage_Content
+  name: Content
+  nameWithType: ChatMessage.Content
+  fullName: lumify.api.Models.EF.ChatMessage.Content
+- uid: lumify.api.Models.EF.ChatMessage.CreatedAt*
+  commentId: Overload:lumify.api.Models.EF.ChatMessage.CreatedAt
+  href: lumify.api.Models.EF.ChatMessage.html#lumify_api_Models_EF_ChatMessage_CreatedAt
+  name: CreatedAt
+  nameWithType: ChatMessage.CreatedAt
+  fullName: lumify.api.Models.EF.ChatMessage.CreatedAt
+- uid: lumify.api.Models.EF.ChatMessage.UpdatedAt*
+  commentId: Overload:lumify.api.Models.EF.ChatMessage.UpdatedAt
+  href: lumify.api.Models.EF.ChatMessage.html#lumify_api_Models_EF_ChatMessage_UpdatedAt
+  name: UpdatedAt
+  nameWithType: ChatMessage.UpdatedAt
+  fullName: lumify.api.Models.EF.ChatMessage.UpdatedAt
+- uid: lumify.api.Models.EF.ChatMessage.DeletedAt*
+  commentId: Overload:lumify.api.Models.EF.ChatMessage.DeletedAt
+  href: lumify.api.Models.EF.ChatMessage.html#lumify_api_Models_EF_ChatMessage_DeletedAt
+  name: DeletedAt
+  nameWithType: ChatMessage.DeletedAt
+  fullName: lumify.api.Models.EF.ChatMessage.DeletedAt
+- uid: lumify.api.Models.EF.ChatMessage.Sender*
+  commentId: Overload:lumify.api.Models.EF.ChatMessage.Sender
+  href: lumify.api.Models.EF.ChatMessage.html#lumify_api_Models_EF_ChatMessage_Sender
+  name: Sender
+  nameWithType: ChatMessage.Sender
+  fullName: lumify.api.Models.EF.ChatMessage.Sender
+- uid: lumify.api.Models.EF.User
+  commentId: T:lumify.api.Models.EF.User
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.User.html
+  name: User
+  nameWithType: User
+  fullName: lumify.api.Models.EF.User

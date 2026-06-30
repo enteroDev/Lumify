@@ -10,6 +10,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace lumify.api.Controllers
 {
+    /// <summary>
+    /// Manages workspaces (shared spaces) and their memberships: creating, renaming and
+    /// deleting workspaces, adding and removing members, and querying workspaces and members.
+    /// All endpoints require an authenticated user. Changes are pushed live to every affected
+    /// member over the <see cref="Hubs.WorkspaceHub"/>.
+    /// </summary>
+    /// <remarks>
+    /// Member roles are stored as integers: 1 = Owner, 2 = Admin, 3 = User. Only the owner
+    /// (role 1) may add/remove members, rename or delete the workspace.
+    /// </remarks>
     [ApiController]
     [Route("workspace/[action]")]
     [Authorize]
@@ -19,6 +29,10 @@ namespace lumify.api.Controllers
         private readonly LumifyDbContext _db;
         private readonly IHubContext<WorkspaceHub> _workspaceHub;
 
+        /// <summary>
+        /// Creates the controller with its injected logger, database context and the workspace
+        /// hub used for live notifications.
+        /// </summary>
         public WorkspaceController(ILogger<WorkspaceController> logger, LumifyDbContext db, IHubContext<WorkspaceHub> workspaceHub)
         {
             _logger = logger;
@@ -31,6 +45,14 @@ namespace lumify.api.Controllers
         // ----------- //
         // --- ADD --- //
         // ----------- //
+        /// <summary>
+        /// Creates a new workspace and adds the current user as its owner (role 1).
+        /// </summary>
+        /// <remarks>Broadcasts a <c>WorkspaceCreated</c> event to the owner's group.</remarks>
+        /// <param name="request">Workspace data (name required).</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the created workspace; 400 if the name is missing; 401 if no user
+        /// is logged in.</returns>
         [HttpPost]
         [ActionName("addWorkspace")]
         public async Task<ActionResult<WorkspaceResponse>> AddWorkspace([FromBody] AddWorkspaceRequest request, CancellationToken ct)
@@ -91,6 +113,16 @@ namespace lumify.api.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Adds another user as a member (role 3 = User) to a workspace. Only the owner may
+        /// add members.
+        /// </summary>
+        /// <remarks>Broadcasts a <c>WorkspaceMemberAdded</c> event to all current members.</remarks>
+        /// <param name="request">The target workspace and the user to add.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the new member; 400 on missing IDs or if already a member; 401 if
+        /// no user is logged in; 403 if the caller is not the owner; 404 if workspace or user
+        /// does not exist.</returns>
         [HttpPost]
         [ActionName("addWorkspaceMember")]
         public async Task<ActionResult> AddWorkspaceMember([FromBody] AddWorkspaceMemberRequest request, CancellationToken ct)
@@ -201,6 +233,15 @@ namespace lumify.api.Controllers
         // -------------- //
         // --- DELETE --- //
         // -------------- //
+        /// <summary>
+        /// Soft-deletes a workspace. Only the owner may delete it.
+        /// </summary>
+        /// <remarks>The audience is captured before deletion so a <c>WorkspaceDeleted</c> event
+        /// can still be broadcast to all former members.</remarks>
+        /// <param name="workspaceID">The workspace to delete.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with <c>success = true</c> and the workspace ID; 400 if the ID is
+        /// missing; 403 if the caller is not the owner; 404 if the workspace does not exist.</returns>
         [HttpDelete]
         [ActionName("deleteWorkspace")]
         public async Task<ActionResult> DeleteWorkspace(string workspaceID, CancellationToken ct)
@@ -251,6 +292,16 @@ namespace lumify.api.Controllers
             });
         }
 
+        /// <summary>
+        /// Removes a member from a workspace (soft-delete of the membership). Only the owner
+        /// may remove members, and the owner cannot be removed.
+        /// </summary>
+        /// <remarks>Broadcasts a <c>WorkspaceMemberRemoved</c> event to all current members.</remarks>
+        /// <param name="workspaceID">The workspace to remove the member from.</param>
+        /// <param name="userID">The member to remove.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 on success; 400 on missing IDs or attempting to remove the owner; 403 if
+        /// the caller is not the owner; 404 if the workspace or membership does not exist.</returns>
         [HttpDelete]
         [ActionName("removeWorkspaceMember")]
         public async Task<ActionResult> RemoveWorkspaceMember([FromQuery] string workspaceID, [FromQuery] string userID, CancellationToken ct)
@@ -330,6 +381,16 @@ namespace lumify.api.Controllers
         // ------------ //
         // --- SAVE --- //
         // ------------ //
+        /// <summary>
+        /// Renames a workspace. Only the owner may rename it, and the database is only written
+        /// if the name actually changed.
+        /// </summary>
+        /// <remarks>On a successful change, a <c>WorkspaceUpdated</c> event is broadcast to all
+        /// members.</remarks>
+        /// <param name="request">The workspace ID and the new name.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the updated workspace; 400 if the ID is missing or the name is
+        /// empty; 403 if the caller is not the owner; 404 if the workspace does not exist.</returns>
         [HttpPatch]
         [ActionName("saveWorkspace")]
         public async Task<ActionResult<WorkspaceResponse>> SaveWorkspace([FromBody] SaveWorkspaceRequest request, CancellationToken ct)
@@ -413,6 +474,12 @@ namespace lumify.api.Controllers
         // ----------- //
         // --- GET --- //
         // ----------- //
+        /// <summary>
+        /// Returns a single workspace by its ID.
+        /// </summary>
+        /// <param name="id">The workspace ID.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the workspace; 400 if the ID is missing; 404 if it does not exist.</returns>
         [HttpGet]
         [ActionName("getWorkspaceWithID")]
         public async Task<IActionResult> GetWorkspaceWithID([FromQuery] string id, CancellationToken ct)
@@ -443,6 +510,11 @@ namespace lumify.api.Controllers
         }
 
 
+        /// <summary>
+        /// Returns all workspaces the current user owns or is a member of, ordered by name.
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the list of workspaces; 400 if the user ID cannot be resolved.</returns>
         [HttpGet]
         [ActionName("GetWorkspacesOfUser")]
         public async Task<ActionResult<List<WorkspaceResponse>>> GetWorkspacesOfUser(CancellationToken ct)
@@ -480,6 +552,13 @@ namespace lumify.api.Controllers
         }
 
 
+        /// <summary>
+        /// Returns all members of a workspace, each with their user profile and role.
+        /// </summary>
+        /// <param name="id">The workspace ID.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the list of members; 400 if the ID is missing; 404 if the
+        /// workspace does not exist.</returns>
         [HttpGet]
         [ActionName("getWorkspaceMembers")]
         public async Task<IActionResult> GetWorkspaceMembers([FromQuery] string id, CancellationToken ct)
@@ -517,6 +596,11 @@ namespace lumify.api.Controllers
 
 
         // --- Helper --- //
+        /// <summary>
+        /// Reads the current user's ID from the <c>UserID</c> claim of the authenticated request.
+        /// </summary>
+        /// <returns>The current user's ID.</returns>
+        /// <exception cref="UnauthorizedAccessException">Thrown when no user is logged in.</exception>
         private string GetCurrentUserID()
         {
             var userID = User.FindFirst("UserID")?.Value;
@@ -528,7 +612,13 @@ namespace lumify.api.Controllers
             return userID;
         }
 
-        // Get all current workspace audience users for live updates
+        /// <summary>
+        /// Returns the distinct user IDs of all active members of a workspace — the audience
+        /// for live SignalR updates about that workspace.
+        /// </summary>
+        /// <param name="workspaceID">The workspace whose members are collected.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>The list of member user IDs.</returns>
         private async Task<List<string>> GetWorkspaceAudienceUserIDs(string workspaceID, CancellationToken ct)
         {
             return await _db.WorkspaceMembers

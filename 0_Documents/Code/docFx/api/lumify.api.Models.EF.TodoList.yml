@@ -1,0 +1,637 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.EF.TodoList
+  commentId: T:lumify.api.Models.EF.TodoList
+  id: TodoList
+  parent: lumify.api.Models.EF
+  children:
+  - lumify.api.Models.EF.TodoList.CreatedAt
+  - lumify.api.Models.EF.TodoList.DeletedAt
+  - lumify.api.Models.EF.TodoList.ID
+  - lumify.api.Models.EF.TodoList.IsArchived
+  - lumify.api.Models.EF.TodoList.Name
+  - lumify.api.Models.EF.TodoList.Owner
+  - lumify.api.Models.EF.TodoList.OwnerID
+  - lumify.api.Models.EF.TodoList.Status
+  - lumify.api.Models.EF.TodoList.TodoEntries
+  - lumify.api.Models.EF.TodoList.UpdatedAt
+  - lumify.api.Models.EF.TodoList.Workspace
+  - lumify.api.Models.EF.TodoList.WorkspaceID
+  langs:
+  - csharp
+  - vb
+  name: TodoList
+  nameWithType: TodoList
+  fullName: lumify.api.Models.EF.TodoList
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/EF/TodoList.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: TodoList
+    path: ../../../lumify.api/Models/EF/TodoList.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public class TodoList
+    content.vb: Public Class TodoList
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.EF.TodoList.ID
+  commentId: P:lumify.api.Models.EF.TodoList.ID
+  id: ID
+  parent: lumify.api.Models.EF.TodoList
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: TodoList.ID
+  fullName: lumify.api.Models.EF.TodoList.ID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/TodoList.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ID
+    path: ../../../lumify.api/Models/EF/TodoList.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string ID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ID As String
+  overload: lumify.api.Models.EF.TodoList.ID*
+- uid: lumify.api.Models.EF.TodoList.OwnerID
+  commentId: P:lumify.api.Models.EF.TodoList.OwnerID
+  id: OwnerID
+  parent: lumify.api.Models.EF.TodoList
+  langs:
+  - csharp
+  - vb
+  name: OwnerID
+  nameWithType: TodoList.OwnerID
+  fullName: lumify.api.Models.EF.TodoList.OwnerID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/TodoList.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: OwnerID
+    path: ../../../lumify.api/Models/EF/TodoList.cs
+    startLine: 8
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string OwnerID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OwnerID As String
+  overload: lumify.api.Models.EF.TodoList.OwnerID*
+- uid: lumify.api.Models.EF.TodoList.WorkspaceID
+  commentId: P:lumify.api.Models.EF.TodoList.WorkspaceID
+  id: WorkspaceID
+  parent: lumify.api.Models.EF.TodoList
+  langs:
+  - csharp
+  - vb
+  name: WorkspaceID
+  nameWithType: TodoList.WorkspaceID
+  fullName: lumify.api.Models.EF.TodoList.WorkspaceID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/TodoList.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: WorkspaceID
+    path: ../../../lumify.api/Models/EF/TodoList.cs
+    startLine: 9
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? WorkspaceID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property WorkspaceID As String
+  overload: lumify.api.Models.EF.TodoList.WorkspaceID*
+- uid: lumify.api.Models.EF.TodoList.Name
+  commentId: P:lumify.api.Models.EF.TodoList.Name
+  id: Name
+  parent: lumify.api.Models.EF.TodoList
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: TodoList.Name
+  fullName: lumify.api.Models.EF.TodoList.Name
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/TodoList.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Name
+    path: ../../../lumify.api/Models/EF/TodoList.cs
+    startLine: 11
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: lumify.api.Models.EF.TodoList.Name*
+- uid: lumify.api.Models.EF.TodoList.Status
+  commentId: P:lumify.api.Models.EF.TodoList.Status
+  id: Status
+  parent: lumify.api.Models.EF.TodoList
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: TodoList.Status
+  fullName: lumify.api.Models.EF.TodoList.Status
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/TodoList.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Status
+    path: ../../../lumify.api/Models/EF/TodoList.cs
+    startLine: 13
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public int Status { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Status As Integer
+  overload: lumify.api.Models.EF.TodoList.Status*
+- uid: lumify.api.Models.EF.TodoList.IsArchived
+  commentId: P:lumify.api.Models.EF.TodoList.IsArchived
+  id: IsArchived
+  parent: lumify.api.Models.EF.TodoList
+  langs:
+  - csharp
+  - vb
+  name: IsArchived
+  nameWithType: TodoList.IsArchived
+  fullName: lumify.api.Models.EF.TodoList.IsArchived
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/TodoList.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: IsArchived
+    path: ../../../lumify.api/Models/EF/TodoList.cs
+    startLine: 14
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public int IsArchived { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property IsArchived As Integer
+  overload: lumify.api.Models.EF.TodoList.IsArchived*
+- uid: lumify.api.Models.EF.TodoList.CreatedAt
+  commentId: P:lumify.api.Models.EF.TodoList.CreatedAt
+  id: CreatedAt
+  parent: lumify.api.Models.EF.TodoList
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: TodoList.CreatedAt
+  fullName: lumify.api.Models.EF.TodoList.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/TodoList.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: CreatedAt
+    path: ../../../lumify.api/Models/EF/TodoList.cs
+    startLine: 16
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreatedAt As String
+  overload: lumify.api.Models.EF.TodoList.CreatedAt*
+- uid: lumify.api.Models.EF.TodoList.UpdatedAt
+  commentId: P:lumify.api.Models.EF.TodoList.UpdatedAt
+  id: UpdatedAt
+  parent: lumify.api.Models.EF.TodoList
+  langs:
+  - csharp
+  - vb
+  name: UpdatedAt
+  nameWithType: TodoList.UpdatedAt
+  fullName: lumify.api.Models.EF.TodoList.UpdatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/TodoList.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UpdatedAt
+    path: ../../../lumify.api/Models/EF/TodoList.cs
+    startLine: 17
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string UpdatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UpdatedAt As String
+  overload: lumify.api.Models.EF.TodoList.UpdatedAt*
+- uid: lumify.api.Models.EF.TodoList.DeletedAt
+  commentId: P:lumify.api.Models.EF.TodoList.DeletedAt
+  id: DeletedAt
+  parent: lumify.api.Models.EF.TodoList
+  langs:
+  - csharp
+  - vb
+  name: DeletedAt
+  nameWithType: TodoList.DeletedAt
+  fullName: lumify.api.Models.EF.TodoList.DeletedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/TodoList.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DeletedAt
+    path: ../../../lumify.api/Models/EF/TodoList.cs
+    startLine: 18
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? DeletedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DeletedAt As String
+  overload: lumify.api.Models.EF.TodoList.DeletedAt*
+- uid: lumify.api.Models.EF.TodoList.Owner
+  commentId: P:lumify.api.Models.EF.TodoList.Owner
+  id: Owner
+  parent: lumify.api.Models.EF.TodoList
+  langs:
+  - csharp
+  - vb
+  name: Owner
+  nameWithType: TodoList.Owner
+  fullName: lumify.api.Models.EF.TodoList.Owner
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/TodoList.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Owner
+    path: ../../../lumify.api/Models/EF/TodoList.cs
+    startLine: 21
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual User Owner { get; set; }
+    parameters: []
+    return:
+      type: lumify.api.Models.EF.User
+    content.vb: Public Overridable Property Owner As User
+  overload: lumify.api.Models.EF.TodoList.Owner*
+- uid: lumify.api.Models.EF.TodoList.Workspace
+  commentId: P:lumify.api.Models.EF.TodoList.Workspace
+  id: Workspace
+  parent: lumify.api.Models.EF.TodoList
+  langs:
+  - csharp
+  - vb
+  name: Workspace
+  nameWithType: TodoList.Workspace
+  fullName: lumify.api.Models.EF.TodoList.Workspace
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/TodoList.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Workspace
+    path: ../../../lumify.api/Models/EF/TodoList.cs
+    startLine: 22
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual Workspace? Workspace { get; set; }
+    parameters: []
+    return:
+      type: lumify.api.Models.EF.Workspace
+    content.vb: Public Overridable Property Workspace As Workspace
+  overload: lumify.api.Models.EF.TodoList.Workspace*
+- uid: lumify.api.Models.EF.TodoList.TodoEntries
+  commentId: P:lumify.api.Models.EF.TodoList.TodoEntries
+  id: TodoEntries
+  parent: lumify.api.Models.EF.TodoList
+  langs:
+  - csharp
+  - vb
+  name: TodoEntries
+  nameWithType: TodoList.TodoEntries
+  fullName: lumify.api.Models.EF.TodoList.TodoEntries
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/TodoList.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: TodoEntries
+    path: ../../../lumify.api/Models/EF/TodoList.cs
+    startLine: 24
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual ICollection<TodoEntry> TodoEntries { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.ICollection{lumify.api.Models.EF.TodoEntry}
+    content.vb: Public Overridable Property TodoEntries As ICollection(Of TodoEntry)
+  overload: lumify.api.Models.EF.TodoList.TodoEntries*
+references:
+- uid: lumify.api.Models.EF
+  commentId: N:lumify.api.Models.EF
+  href: lumify.html
+  name: lumify.api.Models.EF
+  nameWithType: lumify.api.Models.EF
+  fullName: lumify.api.Models.EF
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.EF.TodoList.ID*
+  commentId: Overload:lumify.api.Models.EF.TodoList.ID
+  href: lumify.api.Models.EF.TodoList.html#lumify_api_Models_EF_TodoList_ID
+  name: ID
+  nameWithType: TodoList.ID
+  fullName: lumify.api.Models.EF.TodoList.ID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.EF.TodoList.OwnerID*
+  commentId: Overload:lumify.api.Models.EF.TodoList.OwnerID
+  href: lumify.api.Models.EF.TodoList.html#lumify_api_Models_EF_TodoList_OwnerID
+  name: OwnerID
+  nameWithType: TodoList.OwnerID
+  fullName: lumify.api.Models.EF.TodoList.OwnerID
+- uid: lumify.api.Models.EF.TodoList.WorkspaceID*
+  commentId: Overload:lumify.api.Models.EF.TodoList.WorkspaceID
+  href: lumify.api.Models.EF.TodoList.html#lumify_api_Models_EF_TodoList_WorkspaceID
+  name: WorkspaceID
+  nameWithType: TodoList.WorkspaceID
+  fullName: lumify.api.Models.EF.TodoList.WorkspaceID
+- uid: lumify.api.Models.EF.TodoList.Name*
+  commentId: Overload:lumify.api.Models.EF.TodoList.Name
+  href: lumify.api.Models.EF.TodoList.html#lumify_api_Models_EF_TodoList_Name
+  name: Name
+  nameWithType: TodoList.Name
+  fullName: lumify.api.Models.EF.TodoList.Name
+- uid: lumify.api.Models.EF.TodoList.Status*
+  commentId: Overload:lumify.api.Models.EF.TodoList.Status
+  href: lumify.api.Models.EF.TodoList.html#lumify_api_Models_EF_TodoList_Status
+  name: Status
+  nameWithType: TodoList.Status
+  fullName: lumify.api.Models.EF.TodoList.Status
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: lumify.api.Models.EF.TodoList.IsArchived*
+  commentId: Overload:lumify.api.Models.EF.TodoList.IsArchived
+  href: lumify.api.Models.EF.TodoList.html#lumify_api_Models_EF_TodoList_IsArchived
+  name: IsArchived
+  nameWithType: TodoList.IsArchived
+  fullName: lumify.api.Models.EF.TodoList.IsArchived
+- uid: lumify.api.Models.EF.TodoList.CreatedAt*
+  commentId: Overload:lumify.api.Models.EF.TodoList.CreatedAt
+  href: lumify.api.Models.EF.TodoList.html#lumify_api_Models_EF_TodoList_CreatedAt
+  name: CreatedAt
+  nameWithType: TodoList.CreatedAt
+  fullName: lumify.api.Models.EF.TodoList.CreatedAt
+- uid: lumify.api.Models.EF.TodoList.UpdatedAt*
+  commentId: Overload:lumify.api.Models.EF.TodoList.UpdatedAt
+  href: lumify.api.Models.EF.TodoList.html#lumify_api_Models_EF_TodoList_UpdatedAt
+  name: UpdatedAt
+  nameWithType: TodoList.UpdatedAt
+  fullName: lumify.api.Models.EF.TodoList.UpdatedAt
+- uid: lumify.api.Models.EF.TodoList.DeletedAt*
+  commentId: Overload:lumify.api.Models.EF.TodoList.DeletedAt
+  href: lumify.api.Models.EF.TodoList.html#lumify_api_Models_EF_TodoList_DeletedAt
+  name: DeletedAt
+  nameWithType: TodoList.DeletedAt
+  fullName: lumify.api.Models.EF.TodoList.DeletedAt
+- uid: lumify.api.Models.EF.TodoList.Owner*
+  commentId: Overload:lumify.api.Models.EF.TodoList.Owner
+  href: lumify.api.Models.EF.TodoList.html#lumify_api_Models_EF_TodoList_Owner
+  name: Owner
+  nameWithType: TodoList.Owner
+  fullName: lumify.api.Models.EF.TodoList.Owner
+- uid: lumify.api.Models.EF.User
+  commentId: T:lumify.api.Models.EF.User
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.User.html
+  name: User
+  nameWithType: User
+  fullName: lumify.api.Models.EF.User
+- uid: lumify.api.Models.EF.TodoList.Workspace*
+  commentId: Overload:lumify.api.Models.EF.TodoList.Workspace
+  href: lumify.api.Models.EF.TodoList.html#lumify_api_Models_EF_TodoList_Workspace
+  name: Workspace
+  nameWithType: TodoList.Workspace
+  fullName: lumify.api.Models.EF.TodoList.Workspace
+- uid: lumify.api.Models.EF.Workspace
+  commentId: T:lumify.api.Models.EF.Workspace
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.Workspace.html
+  name: Workspace
+  nameWithType: Workspace
+  fullName: lumify.api.Models.EF.Workspace
+- uid: lumify.api.Models.EF.TodoList.TodoEntries*
+  commentId: Overload:lumify.api.Models.EF.TodoList.TodoEntries
+  href: lumify.api.Models.EF.TodoList.html#lumify_api_Models_EF_TodoList_TodoEntries
+  name: TodoEntries
+  nameWithType: TodoList.TodoEntries
+  fullName: lumify.api.Models.EF.TodoList.TodoEntries
+- uid: System.Collections.Generic.ICollection{lumify.api.Models.EF.TodoEntry}
+  commentId: T:System.Collections.Generic.ICollection{lumify.api.Models.EF.TodoEntry}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: lumify.api.Models.EF.TodoEntry.html
+  name: ICollection<TodoEntry>
+  nameWithType: ICollection<TodoEntry>
+  fullName: System.Collections.Generic.ICollection<lumify.api.Models.EF.TodoEntry>
+  nameWithType.vb: ICollection(Of TodoEntry)
+  fullName.vb: System.Collections.Generic.ICollection(Of lumify.api.Models.EF.TodoEntry)
+  name.vb: ICollection(Of TodoEntry)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.TodoEntry
+    name: TodoEntry
+    href: lumify.api.Models.EF.TodoEntry.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.TodoEntry
+    name: TodoEntry
+    href: lumify.api.Models.EF.TodoEntry.html
+  - name: )
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true

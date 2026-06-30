@@ -1,0 +1,238 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Logic.CsrfMiddleware
+  commentId: T:lumify.api.Logic.CsrfMiddleware
+  id: CsrfMiddleware
+  parent: lumify.api.Logic
+  children:
+  - lumify.api.Logic.CsrfMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)
+  - lumify.api.Logic.CsrfMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)
+  langs:
+  - csharp
+  - vb
+  name: CsrfMiddleware
+  nameWithType: CsrfMiddleware
+  fullName: lumify.api.Logic.CsrfMiddleware
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Logic/CsrfMiddleware.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: CsrfMiddleware
+    path: ../../../lumify.api/Logic/CsrfMiddleware.cs
+    startLine: 10
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Logic
+  syntax:
+    content: public class CsrfMiddleware
+    content.vb: Public Class CsrfMiddleware
+  inheritance:
+  - System.Object
+- uid: lumify.api.Logic.CsrfMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)
+  commentId: M:lumify.api.Logic.CsrfMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)
+  id: '#ctor(Microsoft.AspNetCore.Http.RequestDelegate)'
+  parent: lumify.api.Logic.CsrfMiddleware
+  langs:
+  - csharp
+  - vb
+  name: CsrfMiddleware(RequestDelegate)
+  nameWithType: CsrfMiddleware.CsrfMiddleware(RequestDelegate)
+  fullName: lumify.api.Logic.CsrfMiddleware.CsrfMiddleware(Microsoft.AspNetCore.Http.RequestDelegate)
+  type: Constructor
+  source:
+    remote:
+      path: lumify.api/Logic/CsrfMiddleware.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: .ctor
+    path: ../../../lumify.api/Logic/CsrfMiddleware.cs
+    startLine: 31
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Logic
+  syntax:
+    content: public CsrfMiddleware(RequestDelegate next)
+    parameters:
+    - id: next
+      type: Microsoft.AspNetCore.Http.RequestDelegate
+    content.vb: Public Sub New([next] As RequestDelegate)
+  overload: lumify.api.Logic.CsrfMiddleware.#ctor*
+  nameWithType.vb: CsrfMiddleware.New(RequestDelegate)
+  fullName.vb: lumify.api.Logic.CsrfMiddleware.New(Microsoft.AspNetCore.Http.RequestDelegate)
+  name.vb: New(RequestDelegate)
+- uid: lumify.api.Logic.CsrfMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)
+  commentId: M:lumify.api.Logic.CsrfMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)
+  id: Invoke(Microsoft.AspNetCore.Http.HttpContext)
+  parent: lumify.api.Logic.CsrfMiddleware
+  langs:
+  - csharp
+  - vb
+  name: Invoke(HttpContext)
+  nameWithType: CsrfMiddleware.Invoke(HttpContext)
+  fullName: lumify.api.Logic.CsrfMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Logic/CsrfMiddleware.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Invoke
+    path: ../../../lumify.api/Logic/CsrfMiddleware.cs
+    startLine: 34
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Logic
+  syntax:
+    content: public Task Invoke(HttpContext context)
+    parameters:
+    - id: context
+      type: Microsoft.AspNetCore.Http.HttpContext
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function Invoke(context As HttpContext) As Task
+  overload: lumify.api.Logic.CsrfMiddleware.Invoke*
+references:
+- uid: lumify.api.Logic
+  commentId: N:lumify.api.Logic
+  href: lumify.html
+  name: lumify.api.Logic
+  nameWithType: lumify.api.Logic
+  fullName: lumify.api.Logic
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Logic
+    name: Logic
+    href: lumify.api.Logic.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Logic
+    name: Logic
+    href: lumify.api.Logic.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Logic.CsrfMiddleware.#ctor*
+  commentId: Overload:lumify.api.Logic.CsrfMiddleware.#ctor
+  href: lumify.api.Logic.CsrfMiddleware.html#lumify_api_Logic_CsrfMiddleware__ctor_Microsoft_AspNetCore_Http_RequestDelegate_
+  name: CsrfMiddleware
+  nameWithType: CsrfMiddleware.CsrfMiddleware
+  fullName: lumify.api.Logic.CsrfMiddleware.CsrfMiddleware
+  nameWithType.vb: CsrfMiddleware.New
+  fullName.vb: lumify.api.Logic.CsrfMiddleware.New
+  name.vb: New
+- uid: Microsoft.AspNetCore.Http.RequestDelegate
+  commentId: T:Microsoft.AspNetCore.Http.RequestDelegate
+  parent: Microsoft.AspNetCore.Http
+  isExternal: true
+  name: RequestDelegate
+  nameWithType: RequestDelegate
+  fullName: Microsoft.AspNetCore.Http.RequestDelegate
+- uid: Microsoft.AspNetCore.Http
+  commentId: N:Microsoft.AspNetCore.Http
+  isExternal: true
+  name: Microsoft.AspNetCore.Http
+  nameWithType: Microsoft.AspNetCore.Http
+  fullName: Microsoft.AspNetCore.Http
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Http
+    name: Http
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Http
+    name: Http
+    isExternal: true
+- uid: lumify.api.Logic.CsrfMiddleware.Invoke*
+  commentId: Overload:lumify.api.Logic.CsrfMiddleware.Invoke
+  href: lumify.api.Logic.CsrfMiddleware.html#lumify_api_Logic_CsrfMiddleware_Invoke_Microsoft_AspNetCore_Http_HttpContext_
+  name: Invoke
+  nameWithType: CsrfMiddleware.Invoke
+  fullName: lumify.api.Logic.CsrfMiddleware.Invoke
+- uid: Microsoft.AspNetCore.Http.HttpContext
+  commentId: T:Microsoft.AspNetCore.Http.HttpContext
+  parent: Microsoft.AspNetCore.Http
+  isExternal: true
+  name: HttpContext
+  nameWithType: HttpContext
+  fullName: Microsoft.AspNetCore.Http.HttpContext
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true

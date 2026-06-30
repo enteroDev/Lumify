@@ -1,0 +1,237 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Interfaces.IEmailService
+  commentId: T:lumify.api.Interfaces.IEmailService
+  id: IEmailService
+  parent: lumify.api.Interfaces
+  children:
+  - lumify.api.Interfaces.IEmailService.SendPasswordResetEmailAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  - lumify.api.Interfaces.IEmailService.SendVerificationEmailAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IEmailService
+  nameWithType: IEmailService
+  fullName: lumify.api.Interfaces.IEmailService
+  type: Interface
+  source:
+    remote:
+      path: lumify.api/Interfaces/IEmailService.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: IEmailService
+    path: ../../../lumify.api/Interfaces/IEmailService.cs
+    startLine: 2
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Interfaces
+  syntax:
+    content: public interface IEmailService
+    content.vb: Public Interface IEmailService
+  derivedClasses:
+  - lumify.api.Services.SmtpEmailService
+- uid: lumify.api.Interfaces.IEmailService.SendPasswordResetEmailAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Interfaces.IEmailService.SendPasswordResetEmailAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: SendPasswordResetEmailAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Interfaces.IEmailService
+  langs:
+  - csharp
+  - vb
+  name: SendPasswordResetEmailAsync(string, string?, string, CancellationToken)
+  nameWithType: IEmailService.SendPasswordResetEmailAsync(string, string?, string, CancellationToken)
+  fullName: lumify.api.Interfaces.IEmailService.SendPasswordResetEmailAsync(string, string?, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Interfaces/IEmailService.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SendPasswordResetEmailAsync
+    path: ../../../lumify.api/Interfaces/IEmailService.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Interfaces
+  syntax:
+    content: Task SendPasswordResetEmailAsync(string toEmail, string? displayName, string resetLink, CancellationToken ct)
+    parameters:
+    - id: toEmail
+      type: System.String
+    - id: displayName
+      type: System.String
+    - id: resetLink
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function SendPasswordResetEmailAsync(toEmail As String, displayName As String, resetLink As String, ct As CancellationToken) As Task
+  overload: lumify.api.Interfaces.IEmailService.SendPasswordResetEmailAsync*
+  nameWithType.vb: IEmailService.SendPasswordResetEmailAsync(String, String, String, CancellationToken)
+  fullName.vb: lumify.api.Interfaces.IEmailService.SendPasswordResetEmailAsync(String, String, String, System.Threading.CancellationToken)
+  name.vb: SendPasswordResetEmailAsync(String, String, String, CancellationToken)
+- uid: lumify.api.Interfaces.IEmailService.SendVerificationEmailAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Interfaces.IEmailService.SendVerificationEmailAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: SendVerificationEmailAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Interfaces.IEmailService
+  langs:
+  - csharp
+  - vb
+  name: SendVerificationEmailAsync(string, string?, string, CancellationToken)
+  nameWithType: IEmailService.SendVerificationEmailAsync(string, string?, string, CancellationToken)
+  fullName: lumify.api.Interfaces.IEmailService.SendVerificationEmailAsync(string, string?, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Interfaces/IEmailService.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SendVerificationEmailAsync
+    path: ../../../lumify.api/Interfaces/IEmailService.cs
+    startLine: 8
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Interfaces
+  syntax:
+    content: Task SendVerificationEmailAsync(string toEmail, string? displayName, string verifyLink, CancellationToken ct)
+    parameters:
+    - id: toEmail
+      type: System.String
+    - id: displayName
+      type: System.String
+    - id: verifyLink
+      type: System.String
+    - id: ct
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function SendVerificationEmailAsync(toEmail As String, displayName As String, verifyLink As String, ct As CancellationToken) As Task
+  overload: lumify.api.Interfaces.IEmailService.SendVerificationEmailAsync*
+  nameWithType.vb: IEmailService.SendVerificationEmailAsync(String, String, String, CancellationToken)
+  fullName.vb: lumify.api.Interfaces.IEmailService.SendVerificationEmailAsync(String, String, String, System.Threading.CancellationToken)
+  name.vb: SendVerificationEmailAsync(String, String, String, CancellationToken)
+references:
+- uid: lumify.api.Interfaces
+  commentId: N:lumify.api.Interfaces
+  href: lumify.html
+  name: lumify.api.Interfaces
+  nameWithType: lumify.api.Interfaces
+  fullName: lumify.api.Interfaces
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Interfaces
+    name: Interfaces
+    href: lumify.api.Interfaces.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Interfaces
+    name: Interfaces
+    href: lumify.api.Interfaces.html
+- uid: lumify.api.Interfaces.IEmailService.SendPasswordResetEmailAsync*
+  commentId: Overload:lumify.api.Interfaces.IEmailService.SendPasswordResetEmailAsync
+  href: lumify.api.Interfaces.IEmailService.html#lumify_api_Interfaces_IEmailService_SendPasswordResetEmailAsync_System_String_System_String_System_String_System_Threading_CancellationToken_
+  name: SendPasswordResetEmailAsync
+  nameWithType: IEmailService.SendPasswordResetEmailAsync
+  fullName: lumify.api.Interfaces.IEmailService.SendPasswordResetEmailAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: lumify.api.Interfaces.IEmailService.SendVerificationEmailAsync*
+  commentId: Overload:lumify.api.Interfaces.IEmailService.SendVerificationEmailAsync
+  href: lumify.api.Interfaces.IEmailService.html#lumify_api_Interfaces_IEmailService_SendVerificationEmailAsync_System_String_System_String_System_String_System_Threading_CancellationToken_
+  name: SendVerificationEmailAsync
+  nameWithType: IEmailService.SendVerificationEmailAsync
+  fullName: lumify.api.Interfaces.IEmailService.SendVerificationEmailAsync

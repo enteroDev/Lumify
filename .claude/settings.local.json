@@ -10,7 +10,12 @@
       "Bash(PYTHONIOENCODING=utf-8 python *)",
       "Bash(python -c \"import docx; print\\('ok'\\)\")",
       "Bash(python -c ' *)",
-      "Bash(grep -oE 'TOC \\\\\\\\h \\\\\\\\o [^<]{0,20}' ext/word/document.xml)"
+      "Bash(grep -oE 'TOC \\\\\\\\h \\\\\\\\o [^<]{0,20}' ext/word/document.xml)",
+      "Bash(mkdir -p \"0_Documents/Code\")",
+      "Bash(mv docs/CodeDocu/docfx \"0_Documents/Code/docFx\")",
+      "Bash(rm -rf docs)",
+      "Bash(cmd.exe /c \"rmdir /s /q docs\")",
+      "Bash(grep -iE \"^docs$\")"
     ]
   }
 }

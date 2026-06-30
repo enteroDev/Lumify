@@ -1,0 +1,1389 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.Context.LumifyDbContext
+  commentId: T:lumify.api.Models.Context.LumifyDbContext
+  id: LumifyDbContext
+  parent: lumify.api.Models.Context
+  children:
+  - lumify.api.Models.Context.LumifyDbContext.#ctor
+  - lumify.api.Models.Context.LumifyDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{lumify.api.Models.Context.LumifyDbContext})
+  - lumify.api.Models.Context.LumifyDbContext.ChatMessages
+  - lumify.api.Models.Context.LumifyDbContext.EmailVerificationTokens
+  - lumify.api.Models.Context.LumifyDbContext.Events
+  - lumify.api.Models.Context.LumifyDbContext.Folders
+  - lumify.api.Models.Context.LumifyDbContext.Friendships
+  - lumify.api.Models.Context.LumifyDbContext.NoteAttachments
+  - lumify.api.Models.Context.LumifyDbContext.Note_LinkItems
+  - lumify.api.Models.Context.LumifyDbContext.Note_TextBlocks
+  - lumify.api.Models.Context.LumifyDbContext.Notes
+  - lumify.api.Models.Context.LumifyDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
+  - lumify.api.Models.Context.LumifyDbContext.PasswordResetTokens
+  - lumify.api.Models.Context.LumifyDbContext.TodoEntries
+  - lumify.api.Models.Context.LumifyDbContext.TodoLists
+  - lumify.api.Models.Context.LumifyDbContext.Users
+  - lumify.api.Models.Context.LumifyDbContext.WorkspaceMembers
+  - lumify.api.Models.Context.LumifyDbContext.Workspaces
+  langs:
+  - csharp
+  - vb
+  name: LumifyDbContext
+  nameWithType: LumifyDbContext
+  fullName: lumify.api.Models.Context.LumifyDbContext
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: LumifyDbContext
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 8
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  syntax:
+    content: 'public class LumifyDbContext : DbContext'
+    content.vb: Public Class LumifyDbContext Inherits DbContext
+  inheritance:
+  - System.Object
+  - Microsoft.EntityFrameworkCore.DbContext
+- uid: lumify.api.Models.Context.LumifyDbContext.#ctor
+  commentId: M:lumify.api.Models.Context.LumifyDbContext.#ctor
+  id: '#ctor'
+  parent: lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: LumifyDbContext()
+  nameWithType: LumifyDbContext.LumifyDbContext()
+  fullName: lumify.api.Models.Context.LumifyDbContext.LumifyDbContext()
+  type: Constructor
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: .ctor
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 10
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  syntax:
+    content: public LumifyDbContext()
+    content.vb: Public Sub New()
+  overload: lumify.api.Models.Context.LumifyDbContext.#ctor*
+  nameWithType.vb: LumifyDbContext.New()
+  fullName.vb: lumify.api.Models.Context.LumifyDbContext.New()
+  name.vb: New()
+- uid: lumify.api.Models.Context.LumifyDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{lumify.api.Models.Context.LumifyDbContext})
+  commentId: M:lumify.api.Models.Context.LumifyDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{lumify.api.Models.Context.LumifyDbContext})
+  id: '#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{lumify.api.Models.Context.LumifyDbContext})'
+  parent: lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: LumifyDbContext(DbContextOptions<LumifyDbContext>)
+  nameWithType: LumifyDbContext.LumifyDbContext(DbContextOptions<LumifyDbContext>)
+  fullName: lumify.api.Models.Context.LumifyDbContext.LumifyDbContext(Microsoft.EntityFrameworkCore.DbContextOptions<lumify.api.Models.Context.LumifyDbContext>)
+  type: Constructor
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: .ctor
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 14
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  syntax:
+    content: public LumifyDbContext(DbContextOptions<LumifyDbContext> options)
+    parameters:
+    - id: options
+      type: Microsoft.EntityFrameworkCore.DbContextOptions{lumify.api.Models.Context.LumifyDbContext}
+    content.vb: Public Sub New(options As DbContextOptions(Of LumifyDbContext))
+  overload: lumify.api.Models.Context.LumifyDbContext.#ctor*
+  nameWithType.vb: LumifyDbContext.New(DbContextOptions(Of LumifyDbContext))
+  fullName.vb: lumify.api.Models.Context.LumifyDbContext.New(Microsoft.EntityFrameworkCore.DbContextOptions(Of lumify.api.Models.Context.LumifyDbContext))
+  name.vb: New(DbContextOptions(Of LumifyDbContext))
+- uid: lumify.api.Models.Context.LumifyDbContext.Events
+  commentId: P:lumify.api.Models.Context.LumifyDbContext.Events
+  id: Events
+  parent: lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: Events
+  nameWithType: LumifyDbContext.Events
+  fullName: lumify.api.Models.Context.LumifyDbContext.Events
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Events
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 19
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  syntax:
+    content: public virtual DbSet<Event> Events { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Event}
+    content.vb: Public Overridable Property Events As DbSet(Of [Event])
+  overload: lumify.api.Models.Context.LumifyDbContext.Events*
+- uid: lumify.api.Models.Context.LumifyDbContext.TodoLists
+  commentId: P:lumify.api.Models.Context.LumifyDbContext.TodoLists
+  id: TodoLists
+  parent: lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: TodoLists
+  nameWithType: LumifyDbContext.TodoLists
+  fullName: lumify.api.Models.Context.LumifyDbContext.TodoLists
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: TodoLists
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 21
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  syntax:
+    content: public virtual DbSet<TodoList> TodoLists { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.TodoList}
+    content.vb: Public Overridable Property TodoLists As DbSet(Of TodoList)
+  overload: lumify.api.Models.Context.LumifyDbContext.TodoLists*
+- uid: lumify.api.Models.Context.LumifyDbContext.TodoEntries
+  commentId: P:lumify.api.Models.Context.LumifyDbContext.TodoEntries
+  id: TodoEntries
+  parent: lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: TodoEntries
+  nameWithType: LumifyDbContext.TodoEntries
+  fullName: lumify.api.Models.Context.LumifyDbContext.TodoEntries
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: TodoEntries
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 22
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  syntax:
+    content: public virtual DbSet<TodoEntry> TodoEntries { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.TodoEntry}
+    content.vb: Public Overridable Property TodoEntries As DbSet(Of TodoEntry)
+  overload: lumify.api.Models.Context.LumifyDbContext.TodoEntries*
+- uid: lumify.api.Models.Context.LumifyDbContext.Folders
+  commentId: P:lumify.api.Models.Context.LumifyDbContext.Folders
+  id: Folders
+  parent: lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: Folders
+  nameWithType: LumifyDbContext.Folders
+  fullName: lumify.api.Models.Context.LumifyDbContext.Folders
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Folders
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 24
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  syntax:
+    content: public virtual DbSet<Folder> Folders { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Folder}
+    content.vb: Public Overridable Property Folders As DbSet(Of Folder)
+  overload: lumify.api.Models.Context.LumifyDbContext.Folders*
+- uid: lumify.api.Models.Context.LumifyDbContext.Notes
+  commentId: P:lumify.api.Models.Context.LumifyDbContext.Notes
+  id: Notes
+  parent: lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: Notes
+  nameWithType: LumifyDbContext.Notes
+  fullName: lumify.api.Models.Context.LumifyDbContext.Notes
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Notes
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 25
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  syntax:
+    content: public virtual DbSet<Note> Notes { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Note}
+    content.vb: Public Overridable Property Notes As DbSet(Of Note)
+  overload: lumify.api.Models.Context.LumifyDbContext.Notes*
+- uid: lumify.api.Models.Context.LumifyDbContext.Note_LinkItems
+  commentId: P:lumify.api.Models.Context.LumifyDbContext.Note_LinkItems
+  id: Note_LinkItems
+  parent: lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: Note_LinkItems
+  nameWithType: LumifyDbContext.Note_LinkItems
+  fullName: lumify.api.Models.Context.LumifyDbContext.Note_LinkItems
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Note_LinkItems
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 26
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  syntax:
+    content: public virtual DbSet<Note_LinkItem> Note_LinkItems { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Note_LinkItem}
+    content.vb: Public Overridable Property Note_LinkItems As DbSet(Of Note_LinkItem)
+  overload: lumify.api.Models.Context.LumifyDbContext.Note_LinkItems*
+- uid: lumify.api.Models.Context.LumifyDbContext.Note_TextBlocks
+  commentId: P:lumify.api.Models.Context.LumifyDbContext.Note_TextBlocks
+  id: Note_TextBlocks
+  parent: lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: Note_TextBlocks
+  nameWithType: LumifyDbContext.Note_TextBlocks
+  fullName: lumify.api.Models.Context.LumifyDbContext.Note_TextBlocks
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Note_TextBlocks
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 27
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  syntax:
+    content: public virtual DbSet<Note_TextBlock> Note_TextBlocks { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Note_TextBlock}
+    content.vb: Public Overridable Property Note_TextBlocks As DbSet(Of Note_TextBlock)
+  overload: lumify.api.Models.Context.LumifyDbContext.Note_TextBlocks*
+- uid: lumify.api.Models.Context.LumifyDbContext.NoteAttachments
+  commentId: P:lumify.api.Models.Context.LumifyDbContext.NoteAttachments
+  id: NoteAttachments
+  parent: lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: NoteAttachments
+  nameWithType: LumifyDbContext.NoteAttachments
+  fullName: lumify.api.Models.Context.LumifyDbContext.NoteAttachments
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: NoteAttachments
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 28
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  syntax:
+    content: public virtual DbSet<NoteAttachment> NoteAttachments { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.NoteAttachment}
+    content.vb: Public Overridable Property NoteAttachments As DbSet(Of NoteAttachment)
+  overload: lumify.api.Models.Context.LumifyDbContext.NoteAttachments*
+- uid: lumify.api.Models.Context.LumifyDbContext.Users
+  commentId: P:lumify.api.Models.Context.LumifyDbContext.Users
+  id: Users
+  parent: lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: Users
+  nameWithType: LumifyDbContext.Users
+  fullName: lumify.api.Models.Context.LumifyDbContext.Users
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Users
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 30
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  syntax:
+    content: public virtual DbSet<User> Users { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.User}
+    content.vb: Public Overridable Property Users As DbSet(Of User)
+  overload: lumify.api.Models.Context.LumifyDbContext.Users*
+- uid: lumify.api.Models.Context.LumifyDbContext.PasswordResetTokens
+  commentId: P:lumify.api.Models.Context.LumifyDbContext.PasswordResetTokens
+  id: PasswordResetTokens
+  parent: lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: PasswordResetTokens
+  nameWithType: LumifyDbContext.PasswordResetTokens
+  fullName: lumify.api.Models.Context.LumifyDbContext.PasswordResetTokens
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: PasswordResetTokens
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 31
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  syntax:
+    content: public virtual DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.PasswordResetToken}
+    content.vb: Public Overridable Property PasswordResetTokens As DbSet(Of PasswordResetToken)
+  overload: lumify.api.Models.Context.LumifyDbContext.PasswordResetTokens*
+- uid: lumify.api.Models.Context.LumifyDbContext.EmailVerificationTokens
+  commentId: P:lumify.api.Models.Context.LumifyDbContext.EmailVerificationTokens
+  id: EmailVerificationTokens
+  parent: lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: EmailVerificationTokens
+  nameWithType: LumifyDbContext.EmailVerificationTokens
+  fullName: lumify.api.Models.Context.LumifyDbContext.EmailVerificationTokens
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: EmailVerificationTokens
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 32
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  syntax:
+    content: public virtual DbSet<EmailVerificationToken> EmailVerificationTokens { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.EmailVerificationToken}
+    content.vb: Public Overridable Property EmailVerificationTokens As DbSet(Of EmailVerificationToken)
+  overload: lumify.api.Models.Context.LumifyDbContext.EmailVerificationTokens*
+- uid: lumify.api.Models.Context.LumifyDbContext.Friendships
+  commentId: P:lumify.api.Models.Context.LumifyDbContext.Friendships
+  id: Friendships
+  parent: lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: Friendships
+  nameWithType: LumifyDbContext.Friendships
+  fullName: lumify.api.Models.Context.LumifyDbContext.Friendships
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Friendships
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 33
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  syntax:
+    content: public virtual DbSet<Friendship> Friendships { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Friendship}
+    content.vb: Public Overridable Property Friendships As DbSet(Of Friendship)
+  overload: lumify.api.Models.Context.LumifyDbContext.Friendships*
+- uid: lumify.api.Models.Context.LumifyDbContext.Workspaces
+  commentId: P:lumify.api.Models.Context.LumifyDbContext.Workspaces
+  id: Workspaces
+  parent: lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: Workspaces
+  nameWithType: LumifyDbContext.Workspaces
+  fullName: lumify.api.Models.Context.LumifyDbContext.Workspaces
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Workspaces
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 35
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  syntax:
+    content: public virtual DbSet<Workspace> Workspaces { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Workspace}
+    content.vb: Public Overridable Property Workspaces As DbSet(Of Workspace)
+  overload: lumify.api.Models.Context.LumifyDbContext.Workspaces*
+- uid: lumify.api.Models.Context.LumifyDbContext.WorkspaceMembers
+  commentId: P:lumify.api.Models.Context.LumifyDbContext.WorkspaceMembers
+  id: WorkspaceMembers
+  parent: lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: WorkspaceMembers
+  nameWithType: LumifyDbContext.WorkspaceMembers
+  fullName: lumify.api.Models.Context.LumifyDbContext.WorkspaceMembers
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: WorkspaceMembers
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 36
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  syntax:
+    content: public virtual DbSet<WorkspaceMember> WorkspaceMembers { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.WorkspaceMember}
+    content.vb: Public Overridable Property WorkspaceMembers As DbSet(Of WorkspaceMember)
+  overload: lumify.api.Models.Context.LumifyDbContext.WorkspaceMembers*
+- uid: lumify.api.Models.Context.LumifyDbContext.ChatMessages
+  commentId: P:lumify.api.Models.Context.LumifyDbContext.ChatMessages
+  id: ChatMessages
+  parent: lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: ChatMessages
+  nameWithType: LumifyDbContext.ChatMessages
+  fullName: lumify.api.Models.Context.LumifyDbContext.ChatMessages
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ChatMessages
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 38
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  syntax:
+    content: public virtual DbSet<ChatMessage> ChatMessages { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.ChatMessage}
+    content.vb: Public Overridable Property ChatMessages As DbSet(Of ChatMessage)
+  overload: lumify.api.Models.Context.LumifyDbContext.ChatMessages*
+- uid: lumify.api.Models.Context.LumifyDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
+  commentId: M:lumify.api.Models.Context.LumifyDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
+  id: OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
+  parent: lumify.api.Models.Context.LumifyDbContext
+  langs:
+  - csharp
+  - vb
+  name: OnModelCreating(ModelBuilder)
+  nameWithType: LumifyDbContext.OnModelCreating(ModelBuilder)
+  fullName: lumify.api.Models.Context.LumifyDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Models/Context/LumifyDbContext.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: OnModelCreating
+    path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
+    startLine: 41
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Context
+  summary: >-
+    Override this method to further configure the model that was discovered by convention from the entity types
+
+    exposed in <xref href="Microsoft.EntityFrameworkCore.DbSet%601" data-throw-if-not-resolved="false"></xref> properties on your derived context. The resulting model may be cached
+
+    and re-used for subsequent instances of your derived context.
+  remarks: >-
+    <p>
+        If a model is explicitly set on the options for this context (via <xref href="Microsoft.EntityFrameworkCore.DbContextOptionsBuilder.UseModel(Microsoft.EntityFrameworkCore.Metadata.IModel)" data-throw-if-not-resolved="false"></xref>)
+        then this method will not be run. However, it will still run when creating a compiled model.
+    </p>
+
+    <p>
+        See <a href="https://aka.ms/efcore-docs-modeling">Modeling entity types and relationships</a> for more information and
+        examples.
+    </p>
+  example: []
+  syntax:
+    content: protected override void OnModelCreating(ModelBuilder modelBuilder)
+    parameters:
+    - id: modelBuilder
+      type: Microsoft.EntityFrameworkCore.ModelBuilder
+      description: >-
+        The builder being used to construct the model for this context. Databases (and other extensions) typically
+
+        define extension methods on this object that allow you to configure aspects of the model that are specific
+
+        to a given database.
+    content.vb: Protected Overrides Sub OnModelCreating(modelBuilder As ModelBuilder)
+  overridden: Microsoft.EntityFrameworkCore.DbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
+  overload: lumify.api.Models.Context.LumifyDbContext.OnModelCreating*
+references:
+- uid: lumify.api.Models.Context
+  commentId: N:lumify.api.Models.Context
+  href: lumify.html
+  name: lumify.api.Models.Context
+  nameWithType: lumify.api.Models.Context
+  fullName: lumify.api.Models.Context
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.EntityFrameworkCore.DbContext
+  commentId: T:Microsoft.EntityFrameworkCore.DbContext
+  parent: Microsoft.EntityFrameworkCore
+  isExternal: true
+  name: DbContext
+  nameWithType: DbContext
+  fullName: Microsoft.EntityFrameworkCore.DbContext
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.EntityFrameworkCore
+  commentId: N:Microsoft.EntityFrameworkCore
+  isExternal: true
+  name: Microsoft.EntityFrameworkCore
+  nameWithType: Microsoft.EntityFrameworkCore
+  fullName: Microsoft.EntityFrameworkCore
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.EntityFrameworkCore
+    name: EntityFrameworkCore
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.EntityFrameworkCore
+    name: EntityFrameworkCore
+    isExternal: true
+- uid: lumify.api.Models.Context.LumifyDbContext.#ctor*
+  commentId: Overload:lumify.api.Models.Context.LumifyDbContext.#ctor
+  href: lumify.api.Models.Context.LumifyDbContext.html#lumify_api_Models_Context_LumifyDbContext__ctor
+  name: LumifyDbContext
+  nameWithType: LumifyDbContext.LumifyDbContext
+  fullName: lumify.api.Models.Context.LumifyDbContext.LumifyDbContext
+  nameWithType.vb: LumifyDbContext.New
+  fullName.vb: lumify.api.Models.Context.LumifyDbContext.New
+  name.vb: New
+- uid: Microsoft.EntityFrameworkCore.DbContextOptions{lumify.api.Models.Context.LumifyDbContext}
+  commentId: T:Microsoft.EntityFrameworkCore.DbContextOptions{lumify.api.Models.Context.LumifyDbContext}
+  parent: Microsoft.EntityFrameworkCore
+  definition: Microsoft.EntityFrameworkCore.DbContextOptions`1
+  href: lumify.api.Models.Context.LumifyDbContext.html
+  name: DbContextOptions<LumifyDbContext>
+  nameWithType: DbContextOptions<LumifyDbContext>
+  fullName: Microsoft.EntityFrameworkCore.DbContextOptions<lumify.api.Models.Context.LumifyDbContext>
+  nameWithType.vb: DbContextOptions(Of LumifyDbContext)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbContextOptions(Of lumify.api.Models.Context.LumifyDbContext)
+  name.vb: DbContextOptions(Of LumifyDbContext)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbContextOptions`1
+    name: DbContextOptions
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.Context.LumifyDbContext
+    name: LumifyDbContext
+    href: lumify.api.Models.Context.LumifyDbContext.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbContextOptions`1
+    name: DbContextOptions
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.Context.LumifyDbContext
+    name: LumifyDbContext
+    href: lumify.api.Models.Context.LumifyDbContext.html
+  - name: )
+- uid: Microsoft.EntityFrameworkCore.DbContextOptions`1
+  commentId: T:Microsoft.EntityFrameworkCore.DbContextOptions`1
+  isExternal: true
+  name: DbContextOptions<TContext>
+  nameWithType: DbContextOptions<TContext>
+  fullName: Microsoft.EntityFrameworkCore.DbContextOptions<TContext>
+  nameWithType.vb: DbContextOptions(Of TContext)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbContextOptions(Of TContext)
+  name.vb: DbContextOptions(Of TContext)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbContextOptions`1
+    name: DbContextOptions
+    isExternal: true
+  - name: <
+  - name: TContext
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbContextOptions`1
+    name: DbContextOptions
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TContext
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext.Events*
+  commentId: Overload:lumify.api.Models.Context.LumifyDbContext.Events
+  href: lumify.api.Models.Context.LumifyDbContext.html#lumify_api_Models_Context_LumifyDbContext_Events
+  name: Events
+  nameWithType: LumifyDbContext.Events
+  fullName: lumify.api.Models.Context.LumifyDbContext.Events
+- uid: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Event}
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Event}
+  parent: Microsoft.EntityFrameworkCore
+  definition: Microsoft.EntityFrameworkCore.DbSet`1
+  href: lumify.api.Models.EF.Event.html
+  name: DbSet<Event>
+  nameWithType: DbSet<Event>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<lumify.api.Models.EF.Event>
+  nameWithType.vb: DbSet(Of Event)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of lumify.api.Models.EF.Event)
+  name.vb: DbSet(Of Event)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.Event
+    name: Event
+    href: lumify.api.Models.EF.Event.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.Event
+    name: Event
+    href: lumify.api.Models.EF.Event.html
+  - name: )
+- uid: Microsoft.EntityFrameworkCore.DbSet`1
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet`1
+  isExternal: true
+  name: DbSet<TEntity>
+  nameWithType: DbSet<TEntity>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<TEntity>
+  nameWithType.vb: DbSet(Of TEntity)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of TEntity)
+  name.vb: DbSet(Of TEntity)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: <
+  - name: TEntity
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext.TodoLists*
+  commentId: Overload:lumify.api.Models.Context.LumifyDbContext.TodoLists
+  href: lumify.api.Models.Context.LumifyDbContext.html#lumify_api_Models_Context_LumifyDbContext_TodoLists
+  name: TodoLists
+  nameWithType: LumifyDbContext.TodoLists
+  fullName: lumify.api.Models.Context.LumifyDbContext.TodoLists
+- uid: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.TodoList}
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.TodoList}
+  parent: Microsoft.EntityFrameworkCore
+  definition: Microsoft.EntityFrameworkCore.DbSet`1
+  href: lumify.api.Models.EF.TodoList.html
+  name: DbSet<TodoList>
+  nameWithType: DbSet<TodoList>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<lumify.api.Models.EF.TodoList>
+  nameWithType.vb: DbSet(Of TodoList)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of lumify.api.Models.EF.TodoList)
+  name.vb: DbSet(Of TodoList)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.TodoList
+    name: TodoList
+    href: lumify.api.Models.EF.TodoList.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.TodoList
+    name: TodoList
+    href: lumify.api.Models.EF.TodoList.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext.TodoEntries*
+  commentId: Overload:lumify.api.Models.Context.LumifyDbContext.TodoEntries
+  href: lumify.api.Models.Context.LumifyDbContext.html#lumify_api_Models_Context_LumifyDbContext_TodoEntries
+  name: TodoEntries
+  nameWithType: LumifyDbContext.TodoEntries
+  fullName: lumify.api.Models.Context.LumifyDbContext.TodoEntries
+- uid: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.TodoEntry}
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.TodoEntry}
+  parent: Microsoft.EntityFrameworkCore
+  definition: Microsoft.EntityFrameworkCore.DbSet`1
+  href: lumify.api.Models.EF.TodoEntry.html
+  name: DbSet<TodoEntry>
+  nameWithType: DbSet<TodoEntry>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<lumify.api.Models.EF.TodoEntry>
+  nameWithType.vb: DbSet(Of TodoEntry)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of lumify.api.Models.EF.TodoEntry)
+  name.vb: DbSet(Of TodoEntry)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.TodoEntry
+    name: TodoEntry
+    href: lumify.api.Models.EF.TodoEntry.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.TodoEntry
+    name: TodoEntry
+    href: lumify.api.Models.EF.TodoEntry.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext.Folders*
+  commentId: Overload:lumify.api.Models.Context.LumifyDbContext.Folders
+  href: lumify.api.Models.Context.LumifyDbContext.html#lumify_api_Models_Context_LumifyDbContext_Folders
+  name: Folders
+  nameWithType: LumifyDbContext.Folders
+  fullName: lumify.api.Models.Context.LumifyDbContext.Folders
+- uid: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Folder}
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Folder}
+  parent: Microsoft.EntityFrameworkCore
+  definition: Microsoft.EntityFrameworkCore.DbSet`1
+  href: lumify.api.Models.EF.Folder.html
+  name: DbSet<Folder>
+  nameWithType: DbSet<Folder>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<lumify.api.Models.EF.Folder>
+  nameWithType.vb: DbSet(Of Folder)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of lumify.api.Models.EF.Folder)
+  name.vb: DbSet(Of Folder)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.Folder
+    name: Folder
+    href: lumify.api.Models.EF.Folder.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.Folder
+    name: Folder
+    href: lumify.api.Models.EF.Folder.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext.Notes*
+  commentId: Overload:lumify.api.Models.Context.LumifyDbContext.Notes
+  href: lumify.api.Models.Context.LumifyDbContext.html#lumify_api_Models_Context_LumifyDbContext_Notes
+  name: Notes
+  nameWithType: LumifyDbContext.Notes
+  fullName: lumify.api.Models.Context.LumifyDbContext.Notes
+- uid: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Note}
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Note}
+  parent: Microsoft.EntityFrameworkCore
+  definition: Microsoft.EntityFrameworkCore.DbSet`1
+  href: lumify.api.Models.EF.Note.html
+  name: DbSet<Note>
+  nameWithType: DbSet<Note>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<lumify.api.Models.EF.Note>
+  nameWithType.vb: DbSet(Of Note)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of lumify.api.Models.EF.Note)
+  name.vb: DbSet(Of Note)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.Note
+    name: Note
+    href: lumify.api.Models.EF.Note.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.Note
+    name: Note
+    href: lumify.api.Models.EF.Note.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext.Note_LinkItems*
+  commentId: Overload:lumify.api.Models.Context.LumifyDbContext.Note_LinkItems
+  href: lumify.api.Models.Context.LumifyDbContext.html#lumify_api_Models_Context_LumifyDbContext_Note_LinkItems
+  name: Note_LinkItems
+  nameWithType: LumifyDbContext.Note_LinkItems
+  fullName: lumify.api.Models.Context.LumifyDbContext.Note_LinkItems
+- uid: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Note_LinkItem}
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Note_LinkItem}
+  parent: Microsoft.EntityFrameworkCore
+  definition: Microsoft.EntityFrameworkCore.DbSet`1
+  href: lumify.api.Models.EF.Note_LinkItem.html
+  name: DbSet<Note_LinkItem>
+  nameWithType: DbSet<Note_LinkItem>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<lumify.api.Models.EF.Note_LinkItem>
+  nameWithType.vb: DbSet(Of Note_LinkItem)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of lumify.api.Models.EF.Note_LinkItem)
+  name.vb: DbSet(Of Note_LinkItem)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.Note_LinkItem
+    name: Note_LinkItem
+    href: lumify.api.Models.EF.Note_LinkItem.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.Note_LinkItem
+    name: Note_LinkItem
+    href: lumify.api.Models.EF.Note_LinkItem.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext.Note_TextBlocks*
+  commentId: Overload:lumify.api.Models.Context.LumifyDbContext.Note_TextBlocks
+  href: lumify.api.Models.Context.LumifyDbContext.html#lumify_api_Models_Context_LumifyDbContext_Note_TextBlocks
+  name: Note_TextBlocks
+  nameWithType: LumifyDbContext.Note_TextBlocks
+  fullName: lumify.api.Models.Context.LumifyDbContext.Note_TextBlocks
+- uid: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Note_TextBlock}
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Note_TextBlock}
+  parent: Microsoft.EntityFrameworkCore
+  definition: Microsoft.EntityFrameworkCore.DbSet`1
+  href: lumify.api.Models.EF.Note_TextBlock.html
+  name: DbSet<Note_TextBlock>
+  nameWithType: DbSet<Note_TextBlock>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<lumify.api.Models.EF.Note_TextBlock>
+  nameWithType.vb: DbSet(Of Note_TextBlock)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of lumify.api.Models.EF.Note_TextBlock)
+  name.vb: DbSet(Of Note_TextBlock)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.Note_TextBlock
+    name: Note_TextBlock
+    href: lumify.api.Models.EF.Note_TextBlock.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.Note_TextBlock
+    name: Note_TextBlock
+    href: lumify.api.Models.EF.Note_TextBlock.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext.NoteAttachments*
+  commentId: Overload:lumify.api.Models.Context.LumifyDbContext.NoteAttachments
+  href: lumify.api.Models.Context.LumifyDbContext.html#lumify_api_Models_Context_LumifyDbContext_NoteAttachments
+  name: NoteAttachments
+  nameWithType: LumifyDbContext.NoteAttachments
+  fullName: lumify.api.Models.Context.LumifyDbContext.NoteAttachments
+- uid: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.NoteAttachment}
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.NoteAttachment}
+  parent: Microsoft.EntityFrameworkCore
+  definition: Microsoft.EntityFrameworkCore.DbSet`1
+  href: lumify.api.Models.EF.NoteAttachment.html
+  name: DbSet<NoteAttachment>
+  nameWithType: DbSet<NoteAttachment>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<lumify.api.Models.EF.NoteAttachment>
+  nameWithType.vb: DbSet(Of NoteAttachment)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of lumify.api.Models.EF.NoteAttachment)
+  name.vb: DbSet(Of NoteAttachment)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.NoteAttachment
+    name: NoteAttachment
+    href: lumify.api.Models.EF.NoteAttachment.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.NoteAttachment
+    name: NoteAttachment
+    href: lumify.api.Models.EF.NoteAttachment.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext.Users*
+  commentId: Overload:lumify.api.Models.Context.LumifyDbContext.Users
+  href: lumify.api.Models.Context.LumifyDbContext.html#lumify_api_Models_Context_LumifyDbContext_Users
+  name: Users
+  nameWithType: LumifyDbContext.Users
+  fullName: lumify.api.Models.Context.LumifyDbContext.Users
+- uid: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.User}
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.User}
+  parent: Microsoft.EntityFrameworkCore
+  definition: Microsoft.EntityFrameworkCore.DbSet`1
+  href: lumify.api.Models.EF.User.html
+  name: DbSet<User>
+  nameWithType: DbSet<User>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<lumify.api.Models.EF.User>
+  nameWithType.vb: DbSet(Of User)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of lumify.api.Models.EF.User)
+  name.vb: DbSet(Of User)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.User
+    name: User
+    href: lumify.api.Models.EF.User.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.User
+    name: User
+    href: lumify.api.Models.EF.User.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext.PasswordResetTokens*
+  commentId: Overload:lumify.api.Models.Context.LumifyDbContext.PasswordResetTokens
+  href: lumify.api.Models.Context.LumifyDbContext.html#lumify_api_Models_Context_LumifyDbContext_PasswordResetTokens
+  name: PasswordResetTokens
+  nameWithType: LumifyDbContext.PasswordResetTokens
+  fullName: lumify.api.Models.Context.LumifyDbContext.PasswordResetTokens
+- uid: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.PasswordResetToken}
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.PasswordResetToken}
+  parent: Microsoft.EntityFrameworkCore
+  definition: Microsoft.EntityFrameworkCore.DbSet`1
+  href: lumify.api.Models.EF.PasswordResetToken.html
+  name: DbSet<PasswordResetToken>
+  nameWithType: DbSet<PasswordResetToken>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<lumify.api.Models.EF.PasswordResetToken>
+  nameWithType.vb: DbSet(Of PasswordResetToken)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of lumify.api.Models.EF.PasswordResetToken)
+  name.vb: DbSet(Of PasswordResetToken)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.PasswordResetToken
+    name: PasswordResetToken
+    href: lumify.api.Models.EF.PasswordResetToken.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.PasswordResetToken
+    name: PasswordResetToken
+    href: lumify.api.Models.EF.PasswordResetToken.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext.EmailVerificationTokens*
+  commentId: Overload:lumify.api.Models.Context.LumifyDbContext.EmailVerificationTokens
+  href: lumify.api.Models.Context.LumifyDbContext.html#lumify_api_Models_Context_LumifyDbContext_EmailVerificationTokens
+  name: EmailVerificationTokens
+  nameWithType: LumifyDbContext.EmailVerificationTokens
+  fullName: lumify.api.Models.Context.LumifyDbContext.EmailVerificationTokens
+- uid: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.EmailVerificationToken}
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.EmailVerificationToken}
+  parent: Microsoft.EntityFrameworkCore
+  definition: Microsoft.EntityFrameworkCore.DbSet`1
+  href: lumify.api.Models.EF.EmailVerificationToken.html
+  name: DbSet<EmailVerificationToken>
+  nameWithType: DbSet<EmailVerificationToken>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<lumify.api.Models.EF.EmailVerificationToken>
+  nameWithType.vb: DbSet(Of EmailVerificationToken)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of lumify.api.Models.EF.EmailVerificationToken)
+  name.vb: DbSet(Of EmailVerificationToken)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.EmailVerificationToken
+    name: EmailVerificationToken
+    href: lumify.api.Models.EF.EmailVerificationToken.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.EmailVerificationToken
+    name: EmailVerificationToken
+    href: lumify.api.Models.EF.EmailVerificationToken.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext.Friendships*
+  commentId: Overload:lumify.api.Models.Context.LumifyDbContext.Friendships
+  href: lumify.api.Models.Context.LumifyDbContext.html#lumify_api_Models_Context_LumifyDbContext_Friendships
+  name: Friendships
+  nameWithType: LumifyDbContext.Friendships
+  fullName: lumify.api.Models.Context.LumifyDbContext.Friendships
+- uid: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Friendship}
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Friendship}
+  parent: Microsoft.EntityFrameworkCore
+  definition: Microsoft.EntityFrameworkCore.DbSet`1
+  href: lumify.api.Models.EF.Friendship.html
+  name: DbSet<Friendship>
+  nameWithType: DbSet<Friendship>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<lumify.api.Models.EF.Friendship>
+  nameWithType.vb: DbSet(Of Friendship)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of lumify.api.Models.EF.Friendship)
+  name.vb: DbSet(Of Friendship)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.Friendship
+    name: Friendship
+    href: lumify.api.Models.EF.Friendship.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.Friendship
+    name: Friendship
+    href: lumify.api.Models.EF.Friendship.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext.Workspaces*
+  commentId: Overload:lumify.api.Models.Context.LumifyDbContext.Workspaces
+  href: lumify.api.Models.Context.LumifyDbContext.html#lumify_api_Models_Context_LumifyDbContext_Workspaces
+  name: Workspaces
+  nameWithType: LumifyDbContext.Workspaces
+  fullName: lumify.api.Models.Context.LumifyDbContext.Workspaces
+- uid: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Workspace}
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.Workspace}
+  parent: Microsoft.EntityFrameworkCore
+  definition: Microsoft.EntityFrameworkCore.DbSet`1
+  href: lumify.api.Models.EF.Workspace.html
+  name: DbSet<Workspace>
+  nameWithType: DbSet<Workspace>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<lumify.api.Models.EF.Workspace>
+  nameWithType.vb: DbSet(Of Workspace)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of lumify.api.Models.EF.Workspace)
+  name.vb: DbSet(Of Workspace)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.Workspace
+    name: Workspace
+    href: lumify.api.Models.EF.Workspace.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.Workspace
+    name: Workspace
+    href: lumify.api.Models.EF.Workspace.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext.WorkspaceMembers*
+  commentId: Overload:lumify.api.Models.Context.LumifyDbContext.WorkspaceMembers
+  href: lumify.api.Models.Context.LumifyDbContext.html#lumify_api_Models_Context_LumifyDbContext_WorkspaceMembers
+  name: WorkspaceMembers
+  nameWithType: LumifyDbContext.WorkspaceMembers
+  fullName: lumify.api.Models.Context.LumifyDbContext.WorkspaceMembers
+- uid: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.WorkspaceMember}
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.WorkspaceMember}
+  parent: Microsoft.EntityFrameworkCore
+  definition: Microsoft.EntityFrameworkCore.DbSet`1
+  href: lumify.api.Models.EF.WorkspaceMember.html
+  name: DbSet<WorkspaceMember>
+  nameWithType: DbSet<WorkspaceMember>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<lumify.api.Models.EF.WorkspaceMember>
+  nameWithType.vb: DbSet(Of WorkspaceMember)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of lumify.api.Models.EF.WorkspaceMember)
+  name.vb: DbSet(Of WorkspaceMember)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.WorkspaceMember
+    name: WorkspaceMember
+    href: lumify.api.Models.EF.WorkspaceMember.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.WorkspaceMember
+    name: WorkspaceMember
+    href: lumify.api.Models.EF.WorkspaceMember.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext.ChatMessages*
+  commentId: Overload:lumify.api.Models.Context.LumifyDbContext.ChatMessages
+  href: lumify.api.Models.Context.LumifyDbContext.html#lumify_api_Models_Context_LumifyDbContext_ChatMessages
+  name: ChatMessages
+  nameWithType: LumifyDbContext.ChatMessages
+  fullName: lumify.api.Models.Context.LumifyDbContext.ChatMessages
+- uid: Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.ChatMessage}
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet{lumify.api.Models.EF.ChatMessage}
+  parent: Microsoft.EntityFrameworkCore
+  definition: Microsoft.EntityFrameworkCore.DbSet`1
+  href: lumify.api.Models.EF.ChatMessage.html
+  name: DbSet<ChatMessage>
+  nameWithType: DbSet<ChatMessage>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<lumify.api.Models.EF.ChatMessage>
+  nameWithType.vb: DbSet(Of ChatMessage)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of lumify.api.Models.EF.ChatMessage)
+  name.vb: DbSet(Of ChatMessage)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.EF.ChatMessage
+    name: ChatMessage
+    href: lumify.api.Models.EF.ChatMessage.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.EF.ChatMessage
+    name: ChatMessage
+    href: lumify.api.Models.EF.ChatMessage.html
+  - name: )
+- uid: Microsoft.EntityFrameworkCore.DbContextOptionsBuilder.UseModel(Microsoft.EntityFrameworkCore.Metadata.IModel)
+  commentId: M:Microsoft.EntityFrameworkCore.DbContextOptionsBuilder.UseModel(Microsoft.EntityFrameworkCore.Metadata.IModel)
+  isExternal: true
+  name: UseModel(IModel)
+  nameWithType: DbContextOptionsBuilder.UseModel(IModel)
+  fullName: Microsoft.EntityFrameworkCore.DbContextOptionsBuilder.UseModel(Microsoft.EntityFrameworkCore.Metadata.IModel)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbContextOptionsBuilder.UseModel(Microsoft.EntityFrameworkCore.Metadata.IModel)
+    name: UseModel
+    isExternal: true
+  - name: (
+  - uid: Microsoft.EntityFrameworkCore.Metadata.IModel
+    name: IModel
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbContextOptionsBuilder.UseModel(Microsoft.EntityFrameworkCore.Metadata.IModel)
+    name: UseModel
+    isExternal: true
+  - name: (
+  - uid: Microsoft.EntityFrameworkCore.Metadata.IModel
+    name: IModel
+    isExternal: true
+  - name: )
+- uid: Microsoft.EntityFrameworkCore.DbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
+  commentId: M:Microsoft.EntityFrameworkCore.DbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
+  parent: Microsoft.EntityFrameworkCore.DbContext
+  isExternal: true
+  name: OnModelCreating(ModelBuilder)
+  nameWithType: DbContext.OnModelCreating(ModelBuilder)
+  fullName: Microsoft.EntityFrameworkCore.DbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
+    name: OnModelCreating
+    isExternal: true
+  - name: (
+  - uid: Microsoft.EntityFrameworkCore.ModelBuilder
+    name: ModelBuilder
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
+    name: OnModelCreating
+    isExternal: true
+  - name: (
+  - uid: Microsoft.EntityFrameworkCore.ModelBuilder
+    name: ModelBuilder
+    isExternal: true
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext.OnModelCreating*
+  commentId: Overload:lumify.api.Models.Context.LumifyDbContext.OnModelCreating
+  href: lumify.api.Models.Context.LumifyDbContext.html#lumify_api_Models_Context_LumifyDbContext_OnModelCreating_Microsoft_EntityFrameworkCore_ModelBuilder_
+  name: OnModelCreating
+  nameWithType: LumifyDbContext.OnModelCreating
+  fullName: lumify.api.Models.Context.LumifyDbContext.OnModelCreating
+- uid: Microsoft.EntityFrameworkCore.ModelBuilder
+  commentId: T:Microsoft.EntityFrameworkCore.ModelBuilder
+  parent: Microsoft.EntityFrameworkCore
+  isExternal: true
+  name: ModelBuilder
+  nameWithType: ModelBuilder
+  fullName: Microsoft.EntityFrameworkCore.ModelBuilder

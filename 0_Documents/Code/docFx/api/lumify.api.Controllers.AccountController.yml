@@ -1,0 +1,1766 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Controllers.AccountController
+  commentId: T:lumify.api.Controllers.AccountController
+  id: AccountController
+  parent: lumify.api.Controllers
+  children:
+  - lumify.api.Controllers.AccountController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.AccountController},Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,lumify.api.Models.Context.LumifyDbContext,lumify.api.Logic.InternalLogic,lumify.api.Interfaces.IEmailService,Microsoft.Extensions.Options.IOptions{lumify.api.Models.Settings.AppSettings})
+  - lumify.api.Controllers.AccountController.ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  - lumify.api.Controllers.AccountController.DisableTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  - lumify.api.Controllers.AccountController.LoginUser(lumify.api.Models.DTO.Requests.LoginRequest)
+  - lumify.api.Controllers.AccountController.LogoutUser
+  - lumify.api.Controllers.AccountController.MfaStatus
+  - lumify.api.Controllers.AccountController.RegisterUser(lumify.api.Models.DTO.Requests.RegisterRequest,System.Threading.CancellationToken)
+  - lumify.api.Controllers.AccountController.RequestPasswordReset(lumify.api.Models.DTO.Requests.RequestPasswordResetRequest,System.Threading.CancellationToken)
+  - lumify.api.Controllers.AccountController.ResendVerification(lumify.api.Models.DTO.Requests.ResendVerificationRequest,System.Threading.CancellationToken)
+  - lumify.api.Controllers.AccountController.ResetPassword(lumify.api.Models.DTO.Requests.ResetPasswordRequest,System.Threading.CancellationToken)
+  - lumify.api.Controllers.AccountController.SetupTotp
+  - lumify.api.Controllers.AccountController.VerifyEmail(lumify.api.Models.DTO.Requests.VerifyEmailRequest,System.Threading.CancellationToken)
+  - lumify.api.Controllers.AccountController.VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)
+  - lumify.api.Controllers.AccountController.WhoAmI
+  langs:
+  - csharp
+  - vb
+  name: AccountController
+  nameWithType: AccountController
+  fullName: lumify.api.Controllers.AccountController
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Controllers/AccountController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AccountController
+    path: ../../../lumify.api/Controllers/AccountController.cs
+    startLine: 24
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Endpoints for user accounts: login/logout, registration, two-factor
+
+    authentication (TOTP), password reset and e-mail verification. Sessions are
+
+    issued via an HttpOnly JWT cookie plus a CSRF double-submit cookie.
+  example: []
+  syntax:
+    content: >-
+      [ApiController]
+
+      [Route("account/[action]")]
+
+      public class AccountController : ControllerBase
+    content.vb: >-
+      <ApiController>
+
+      <Route("account/[action]")>
+
+      Public Class AccountController Inherits ControllerBase
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.Mvc.ControllerBase
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.ApiControllerAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ApiControllerAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.RouteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.RouteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: account/[action]
+- uid: lumify.api.Controllers.AccountController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.AccountController},Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,lumify.api.Models.Context.LumifyDbContext,lumify.api.Logic.InternalLogic,lumify.api.Interfaces.IEmailService,Microsoft.Extensions.Options.IOptions{lumify.api.Models.Settings.AppSettings})
+  commentId: M:lumify.api.Controllers.AccountController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.AccountController},Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,lumify.api.Models.Context.LumifyDbContext,lumify.api.Logic.InternalLogic,lumify.api.Interfaces.IEmailService,Microsoft.Extensions.Options.IOptions{lumify.api.Models.Settings.AppSettings})
+  id: '#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.AccountController},Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,lumify.api.Models.Context.LumifyDbContext,lumify.api.Logic.InternalLogic,lumify.api.Interfaces.IEmailService,Microsoft.Extensions.Options.IOptions{lumify.api.Models.Settings.AppSettings})'
+  parent: lumify.api.Controllers.AccountController
+  langs:
+  - csharp
+  - vb
+  name: AccountController(ILogger<AccountController>, IConfiguration, IWebHostEnvironment, LumifyDbContext, InternalLogic, IEmailService, IOptions<AppSettings>)
+  nameWithType: AccountController.AccountController(ILogger<AccountController>, IConfiguration, IWebHostEnvironment, LumifyDbContext, InternalLogic, IEmailService, IOptions<AppSettings>)
+  fullName: lumify.api.Controllers.AccountController.AccountController(Microsoft.Extensions.Logging.ILogger<lumify.api.Controllers.AccountController>, Microsoft.Extensions.Configuration.IConfiguration, Microsoft.AspNetCore.Hosting.IWebHostEnvironment, lumify.api.Models.Context.LumifyDbContext, lumify.api.Logic.InternalLogic, lumify.api.Interfaces.IEmailService, Microsoft.Extensions.Options.IOptions<lumify.api.Models.Settings.AppSettings>)
+  type: Constructor
+  source:
+    remote:
+      path: lumify.api/Controllers/AccountController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: .ctor
+    path: ../../../lumify.api/Controllers/AccountController.cs
+    startLine: 43
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Creates the controller with its injected dependencies (logging, configuration,
+
+    hosting environment, database context, internal logic helpers, e-mail service
+
+    and application settings).
+  example: []
+  syntax:
+    content: public AccountController(ILogger<AccountController> logger, IConfiguration config, IWebHostEnvironment env, LumifyDbContext context, InternalLogic logic, IEmailService emailService, IOptions<AppSettings> appSettings)
+    parameters:
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.AccountController}
+    - id: config
+      type: Microsoft.Extensions.Configuration.IConfiguration
+    - id: env
+      type: Microsoft.AspNetCore.Hosting.IWebHostEnvironment
+    - id: context
+      type: lumify.api.Models.Context.LumifyDbContext
+    - id: logic
+      type: lumify.api.Logic.InternalLogic
+    - id: emailService
+      type: lumify.api.Interfaces.IEmailService
+    - id: appSettings
+      type: Microsoft.Extensions.Options.IOptions{lumify.api.Models.Settings.AppSettings}
+    content.vb: Public Sub New(logger As ILogger(Of AccountController), config As IConfiguration, env As IWebHostEnvironment, context As LumifyDbContext, logic As InternalLogic, emailService As IEmailService, appSettings As IOptions(Of AppSettings))
+  overload: lumify.api.Controllers.AccountController.#ctor*
+  nameWithType.vb: AccountController.New(ILogger(Of AccountController), IConfiguration, IWebHostEnvironment, LumifyDbContext, InternalLogic, IEmailService, IOptions(Of AppSettings))
+  fullName.vb: lumify.api.Controllers.AccountController.New(Microsoft.Extensions.Logging.ILogger(Of lumify.api.Controllers.AccountController), Microsoft.Extensions.Configuration.IConfiguration, Microsoft.AspNetCore.Hosting.IWebHostEnvironment, lumify.api.Models.Context.LumifyDbContext, lumify.api.Logic.InternalLogic, lumify.api.Interfaces.IEmailService, Microsoft.Extensions.Options.IOptions(Of lumify.api.Models.Settings.AppSettings))
+  name.vb: New(ILogger(Of AccountController), IConfiguration, IWebHostEnvironment, LumifyDbContext, InternalLogic, IEmailService, IOptions(Of AppSettings))
+- uid: lumify.api.Controllers.AccountController.LoginUser(lumify.api.Models.DTO.Requests.LoginRequest)
+  commentId: M:lumify.api.Controllers.AccountController.LoginUser(lumify.api.Models.DTO.Requests.LoginRequest)
+  id: LoginUser(lumify.api.Models.DTO.Requests.LoginRequest)
+  parent: lumify.api.Controllers.AccountController
+  langs:
+  - csharp
+  - vb
+  name: LoginUser(LoginRequest)
+  nameWithType: AccountController.LoginUser(LoginRequest)
+  fullName: lumify.api.Controllers.AccountController.LoginUser(lumify.api.Models.DTO.Requests.LoginRequest)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/AccountController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: LoginUser
+    path: ../../../lumify.api/Controllers/AccountController.cs
+    startLine: 81
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Authenticates a user by username or e-mail and password.
+  remarks: >-
+    If 2FA is enabled, no session is issued yet — a short-lived MFA challenge token
+
+    is returned instead and the client must call <xref href="lumify.api.Controllers.AccountController.VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)" data-throw-if-not-resolved="false"></xref> with
+
+    the 6-digit code. Soft-deleted and unconfirmed accounts cannot log in.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("loginUser")]
+
+      public Task<IActionResult> LoginUser(LoginRequest dto)
+    parameters:
+    - id: dto
+      type: lumify.api.Models.DTO.Requests.LoginRequest
+      description: 'Credentials: <code>Identifier</code> (username or e-mail) and password.'
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: >-
+        200 with user data (session in cookie) on success without 2FA; 200 with
+
+        <code>mfaRequired = true</code> and an MFA token when 2FA is enabled; 401 for invalid
+
+        credentials; 403 when the e-mail address is not yet confirmed.
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("loginUser")>
+
+      Public Function LoginUser(dto As LoginRequest) As Task(Of IActionResult)
+  overload: lumify.api.Controllers.AccountController.LoginUser*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: loginUser
+- uid: lumify.api.Controllers.AccountController.VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)
+  commentId: M:lumify.api.Controllers.AccountController.VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)
+  id: VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)
+  parent: lumify.api.Controllers.AccountController
+  langs:
+  - csharp
+  - vb
+  name: VerifyTotpLogin(VerifyTotpLoginRequest)
+  nameWithType: AccountController.VerifyTotpLogin(VerifyTotpLoginRequest)
+  fullName: lumify.api.Controllers.AccountController.VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/AccountController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: VerifyTotpLogin
+    path: ../../../lumify.api/Controllers/AccountController.cs
+    startLine: 146
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Login step 2: verifies the 6-digit TOTP code for a 2FA-enabled account and then
+
+    issues the real session.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("verifyTotpLogin")]
+
+      public Task<IActionResult> VerifyTotpLogin(VerifyTotpLoginRequest dto)
+    parameters:
+    - id: dto
+      type: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest
+      description: The MFA challenge token from step 1 and the 6-digit code.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: >-
+        200 with user data and the session cookie on success; 400 if token or
+            code are missing; 401 if the MFA session or the code is invalid or expired.
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("verifyTotpLogin")>
+
+      Public Function VerifyTotpLogin(dto As VerifyTotpLoginRequest) As Task(Of IActionResult)
+  overload: lumify.api.Controllers.AccountController.VerifyTotpLogin*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: verifyTotpLogin
+- uid: lumify.api.Controllers.AccountController.MfaStatus
+  commentId: M:lumify.api.Controllers.AccountController.MfaStatus
+  id: MfaStatus
+  parent: lumify.api.Controllers.AccountController
+  langs:
+  - csharp
+  - vb
+  name: MfaStatus()
+  nameWithType: AccountController.MfaStatus()
+  fullName: lumify.api.Controllers.AccountController.MfaStatus()
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/AccountController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: MfaStatus
+    path: ../../../lumify.api/Controllers/AccountController.cs
+    startLine: 184
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns whether 2FA is currently active for the logged-in user.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [Authorize]
+
+      [ActionName("mfaStatus")]
+
+      public Task<IActionResult> MfaStatus()
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: 200 with <code>enabled</code> (bool); 404 if the user no longer exists.
+    content.vb: >-
+      <HttpGet>
+
+      <Authorize>
+
+      <ActionName("mfaStatus")>
+
+      Public Function MfaStatus() As Task(Of IActionResult)
+  overload: lumify.api.Controllers.AccountController.MfaStatus*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: mfaStatus
+- uid: lumify.api.Controllers.AccountController.SetupTotp
+  commentId: M:lumify.api.Controllers.AccountController.SetupTotp
+  id: SetupTotp
+  parent: lumify.api.Controllers.AccountController
+  langs:
+  - csharp
+  - vb
+  name: SetupTotp()
+  nameWithType: AccountController.SetupTotp()
+  fullName: lumify.api.Controllers.AccountController.SetupTotp()
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/AccountController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SetupTotp
+    path: ../../../lumify.api/Controllers/AccountController.cs
+    startLine: 204
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Starts 2FA setup: generates a fresh TOTP secret and a QR code. 2FA is not active
+
+    until confirmed via <xref href="lumify.api.Controllers.AccountController.ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [Authorize]
+
+      [ActionName("setupTotp")]
+
+      public Task<IActionResult> SetupTotp()
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: >-
+        200 with <code>secret</code> (for manual entry) and <code>qrCodeDataUri</code> (for
+            scanning); 400 if 2FA is already enabled; 404 if the user no longer exists.
+    content.vb: >-
+      <HttpPost>
+
+      <Authorize>
+
+      <ActionName("setupTotp")>
+
+      Public Function SetupTotp() As Task(Of IActionResult)
+  overload: lumify.api.Controllers.AccountController.SetupTotp*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: setupTotp
+- uid: lumify.api.Controllers.AccountController.ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  commentId: M:lumify.api.Controllers.AccountController.ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  id: ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  parent: lumify.api.Controllers.AccountController
+  langs:
+  - csharp
+  - vb
+  name: ConfirmTotp(TotpCodeRequest)
+  nameWithType: AccountController.ConfirmTotp(TotpCodeRequest)
+  fullName: lumify.api.Controllers.AccountController.ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/AccountController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ConfirmTotp
+    path: ../../../lumify.api/Controllers/AccountController.cs
+    startLine: 241
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: 'Confirms 2FA setup: a valid TOTP code flips two-factor authentication on.'
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [Authorize]
+
+      [ActionName("confirmTotp")]
+
+      public Task<IActionResult> ConfirmTotp(TotpCodeRequest dto)
+    parameters:
+    - id: dto
+      type: lumify.api.Models.DTO.Requests.TotpCodeRequest
+      description: The 6-digit code from the authenticator app.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: >-
+        200 with <code>enabled = true</code> on success; 400 if the code is missing,
+            setup was not started, or the code is invalid; 404 if the user no longer exists.
+    content.vb: >-
+      <HttpPost>
+
+      <Authorize>
+
+      <ActionName("confirmTotp")>
+
+      Public Function ConfirmTotp(dto As TotpCodeRequest) As Task(Of IActionResult)
+  overload: lumify.api.Controllers.AccountController.ConfirmTotp*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: confirmTotp
+- uid: lumify.api.Controllers.AccountController.DisableTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  commentId: M:lumify.api.Controllers.AccountController.DisableTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  id: DisableTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  parent: lumify.api.Controllers.AccountController
+  langs:
+  - csharp
+  - vb
+  name: DisableTotp(TotpCodeRequest)
+  nameWithType: AccountController.DisableTotp(TotpCodeRequest)
+  fullName: lumify.api.Controllers.AccountController.DisableTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/AccountController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DisableTotp
+    path: ../../../lumify.api/Controllers/AccountController.cs
+    startLine: 275
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Disables 2FA. Requires a valid current TOTP code so a hijacked session cannot
+
+    silently turn it off.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [Authorize]
+
+      [ActionName("disableTotp")]
+
+      public Task<IActionResult> DisableTotp(TotpCodeRequest dto)
+    parameters:
+    - id: dto
+      type: lumify.api.Models.DTO.Requests.TotpCodeRequest
+      description: The 6-digit code from the authenticator app.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: >-
+        200 with <code>enabled = false</code> on success; 400 if the code is missing,
+            2FA is not enabled, or the code is invalid; 404 if the user no longer exists.
+    content.vb: >-
+      <HttpPost>
+
+      <Authorize>
+
+      <ActionName("disableTotp")>
+
+      Public Function DisableTotp(dto As TotpCodeRequest) As Task(Of IActionResult)
+  overload: lumify.api.Controllers.AccountController.DisableTotp*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: disableTotp
+- uid: lumify.api.Controllers.AccountController.LogoutUser
+  commentId: M:lumify.api.Controllers.AccountController.LogoutUser
+  id: LogoutUser
+  parent: lumify.api.Controllers.AccountController
+  langs:
+  - csharp
+  - vb
+  name: LogoutUser()
+  nameWithType: AccountController.LogoutUser()
+  fullName: lumify.api.Controllers.AccountController.LogoutUser()
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/AccountController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: LogoutUser
+    path: ../../../lumify.api/Controllers/AccountController.cs
+    startLine: 312
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Logs the user out by expiring the session and CSRF cookies immediately.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("logoutUser")]
+
+      public IActionResult LogoutUser()
+    return:
+      type: Microsoft.AspNetCore.Mvc.IActionResult
+      description: 200 once the cookies have been cleared.
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("logoutUser")>
+
+      Public Function LogoutUser() As IActionResult
+  overload: lumify.api.Controllers.AccountController.LogoutUser*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: logoutUser
+- uid: lumify.api.Controllers.AccountController.RegisterUser(lumify.api.Models.DTO.Requests.RegisterRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.AccountController.RegisterUser(lumify.api.Models.DTO.Requests.RegisterRequest,System.Threading.CancellationToken)
+  id: RegisterUser(lumify.api.Models.DTO.Requests.RegisterRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.AccountController
+  langs:
+  - csharp
+  - vb
+  name: RegisterUser(RegisterRequest, CancellationToken)
+  nameWithType: AccountController.RegisterUser(RegisterRequest, CancellationToken)
+  fullName: lumify.api.Controllers.AccountController.RegisterUser(lumify.api.Models.DTO.Requests.RegisterRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/AccountController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: RegisterUser
+    path: ../../../lumify.api/Controllers/AccountController.cs
+    startLine: 349
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Registers a new user account and sends an e-mail verification link. No automatic
+
+    login — the account must confirm its e-mail before it can sign in.
+  remarks: >-
+    An optional base64 avatar is stored; failure to save it is logged but does not
+
+    abort registration (a default avatar is used instead).
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("registerUser")]
+
+      public Task<IActionResult> RegisterUser(RegisterRequest dto, CancellationToken ct)
+    parameters:
+    - id: dto
+      type: lumify.api.Models.DTO.Requests.RegisterRequest
+      description: Registration data (e-mail, username, password, optional name/avatar).
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: >-
+        200 with <code>verificationRequired = true</code> on success; 400 if required
+            fields are missing; 409 if the username or e-mail already exists; 500 on error.
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("registerUser")>
+
+      Public Function RegisterUser(dto As RegisterRequest, ct As CancellationToken) As Task(Of IActionResult)
+  overload: lumify.api.Controllers.AccountController.RegisterUser*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: registerUser
+- uid: lumify.api.Controllers.AccountController.RequestPasswordReset(lumify.api.Models.DTO.Requests.RequestPasswordResetRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.AccountController.RequestPasswordReset(lumify.api.Models.DTO.Requests.RequestPasswordResetRequest,System.Threading.CancellationToken)
+  id: RequestPasswordReset(lumify.api.Models.DTO.Requests.RequestPasswordResetRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.AccountController
+  langs:
+  - csharp
+  - vb
+  name: RequestPasswordReset(RequestPasswordResetRequest, CancellationToken)
+  nameWithType: AccountController.RequestPasswordReset(RequestPasswordResetRequest, CancellationToken)
+  fullName: lumify.api.Controllers.AccountController.RequestPasswordReset(lumify.api.Models.DTO.Requests.RequestPasswordResetRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/AccountController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: RequestPasswordReset
+    path: ../../../lumify.api/Controllers/AccountController.cs
+    startLine: 445
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: 'Password reset step 1: requests a reset link for the given username or e-mail.'
+  remarks: >-
+    Always returns the same generic message regardless of whether the account exists,
+
+    so the endpoint cannot be used to enumerate registered users. Any previously open
+
+    reset tokens for the user are invalidated; only the hash of the new token is stored.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("requestPasswordReset")]
+
+      public Task<IActionResult> RequestPasswordReset(RequestPasswordResetRequest dto, CancellationToken ct)
+    parameters:
+    - id: dto
+      type: lumify.api.Models.DTO.Requests.RequestPasswordResetRequest
+      description: The identifier (username or e-mail).
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: 200 with a generic message in all cases.
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("requestPasswordReset")>
+
+      Public Function RequestPasswordReset(dto As RequestPasswordResetRequest, ct As CancellationToken) As Task(Of IActionResult)
+  overload: lumify.api.Controllers.AccountController.RequestPasswordReset*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: requestPasswordReset
+- uid: lumify.api.Controllers.AccountController.ResetPassword(lumify.api.Models.DTO.Requests.ResetPasswordRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.AccountController.ResetPassword(lumify.api.Models.DTO.Requests.ResetPasswordRequest,System.Threading.CancellationToken)
+  id: ResetPassword(lumify.api.Models.DTO.Requests.ResetPasswordRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.AccountController
+  langs:
+  - csharp
+  - vb
+  name: ResetPassword(ResetPasswordRequest, CancellationToken)
+  nameWithType: AccountController.ResetPassword(ResetPasswordRequest, CancellationToken)
+  fullName: lumify.api.Controllers.AccountController.ResetPassword(lumify.api.Models.DTO.Requests.ResetPasswordRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/AccountController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ResetPassword
+    path: ../../../lumify.api/Controllers/AccountController.cs
+    startLine: 522
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Password reset step 2: sets a new password using the single-use token from the
+
+    reset link.
+  remarks: >-
+    The token is looked up by its hash (the raw value is never stored) and consumed on
+
+    success, so each reset link works only once and only before it expires.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("resetPassword")]
+
+      public Task<IActionResult> ResetPassword(ResetPasswordRequest dto, CancellationToken ct)
+    parameters:
+    - id: dto
+      type: lumify.api.Models.DTO.Requests.ResetPasswordRequest
+      description: The reset token and the new password (minimum 8 characters).
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: >-
+        200 with a success message; 400 if input is missing, the password is too
+            short, or the token is invalid, already used, or expired.
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("resetPassword")>
+
+      Public Function ResetPassword(dto As ResetPasswordRequest, ct As CancellationToken) As Task(Of IActionResult)
+  overload: lumify.api.Controllers.AccountController.ResetPassword*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: resetPassword
+- uid: lumify.api.Controllers.AccountController.VerifyEmail(lumify.api.Models.DTO.Requests.VerifyEmailRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.AccountController.VerifyEmail(lumify.api.Models.DTO.Requests.VerifyEmailRequest,System.Threading.CancellationToken)
+  id: VerifyEmail(lumify.api.Models.DTO.Requests.VerifyEmailRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.AccountController
+  langs:
+  - csharp
+  - vb
+  name: VerifyEmail(VerifyEmailRequest, CancellationToken)
+  nameWithType: AccountController.VerifyEmail(VerifyEmailRequest, CancellationToken)
+  fullName: lumify.api.Controllers.AccountController.VerifyEmail(lumify.api.Models.DTO.Requests.VerifyEmailRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/AccountController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: VerifyEmail
+    path: ../../../lumify.api/Controllers/AccountController.cs
+    startLine: 581
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Confirms an account via the single-use token from the verification mail.
+  remarks: >-
+    The token is looked up by its hash and consumed on success, so the verification
+
+    link works only once and only before it expires.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("verifyEmail")]
+
+      public Task<IActionResult> VerifyEmail(VerifyEmailRequest dto, CancellationToken ct)
+    parameters:
+    - id: dto
+      type: lumify.api.Models.DTO.Requests.VerifyEmailRequest
+      description: The verification token.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: >-
+        200 with a success message; 400 if the token is missing, invalid, already
+            used, or expired.
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("verifyEmail")>
+
+      Public Function VerifyEmail(dto As VerifyEmailRequest, ct As CancellationToken) As Task(Of IActionResult)
+  overload: lumify.api.Controllers.AccountController.VerifyEmail*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: verifyEmail
+- uid: lumify.api.Controllers.AccountController.ResendVerification(lumify.api.Models.DTO.Requests.ResendVerificationRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.AccountController.ResendVerification(lumify.api.Models.DTO.Requests.ResendVerificationRequest,System.Threading.CancellationToken)
+  id: ResendVerification(lumify.api.Models.DTO.Requests.ResendVerificationRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.AccountController
+  langs:
+  - csharp
+  - vb
+  name: ResendVerification(ResendVerificationRequest, CancellationToken)
+  nameWithType: AccountController.ResendVerification(ResendVerificationRequest, CancellationToken)
+  fullName: lumify.api.Controllers.AccountController.ResendVerification(lumify.api.Models.DTO.Requests.ResendVerificationRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/AccountController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ResendVerification
+    path: ../../../lumify.api/Controllers/AccountController.cs
+    startLine: 624
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Resends a verification mail for an existing, still-unconfirmed account.
+  remarks: >-
+    Always answers with the same generic message (no user enumeration); a mail is only
+
+    actually sent for an account that exists and is not yet confirmed.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("resendVerification")]
+
+      public Task<IActionResult> ResendVerification(ResendVerificationRequest dto, CancellationToken ct)
+    parameters:
+    - id: dto
+      type: lumify.api.Models.DTO.Requests.ResendVerificationRequest
+      description: The identifier (username or e-mail).
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: 200 with a generic message in all cases.
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("resendVerification")>
+
+      Public Function ResendVerification(dto As ResendVerificationRequest, ct As CancellationToken) As Task(Of IActionResult)
+  overload: lumify.api.Controllers.AccountController.ResendVerification*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: resendVerification
+- uid: lumify.api.Controllers.AccountController.WhoAmI
+  commentId: M:lumify.api.Controllers.AccountController.WhoAmI
+  id: WhoAmI
+  parent: lumify.api.Controllers.AccountController
+  langs:
+  - csharp
+  - vb
+  name: WhoAmI()
+  nameWithType: AccountController.WhoAmI()
+  fullName: lumify.api.Controllers.AccountController.WhoAmI()
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/AccountController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: WhoAmI
+    path: ../../../lumify.api/Controllers/AccountController.cs
+    startLine: 706
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Diagnostic endpoint that returns the current authentication state and the claims
+
+    of the logged-in user.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [Authorize]
+
+      [ActionName("whoami")]
+
+      public IActionResult WhoAmI()
+    return:
+      type: Microsoft.AspNetCore.Mvc.IActionResult
+      description: 200 with <code>Authenticated</code> (bool) and the list of <code>Claims</code>.
+    content.vb: >-
+      <HttpGet>
+
+      <Authorize>
+
+      <ActionName("whoami")>
+
+      Public Function WhoAmI() As IActionResult
+  overload: lumify.api.Controllers.AccountController.WhoAmI*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: whoami
+references:
+- uid: lumify.api.Controllers
+  commentId: N:lumify.api.Controllers
+  href: lumify.html
+  name: lumify.api.Controllers
+  nameWithType: lumify.api.Controllers
+  fullName: lumify.api.Controllers
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Controllers
+    name: Controllers
+    href: lumify.api.Controllers.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Controllers
+    name: Controllers
+    href: lumify.api.Controllers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.Mvc.ControllerBase
+  commentId: T:Microsoft.AspNetCore.Mvc.ControllerBase
+  parent: Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: ControllerBase
+  nameWithType: ControllerBase
+  fullName: Microsoft.AspNetCore.Mvc.ControllerBase
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.Mvc
+  commentId: N:Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: Microsoft.AspNetCore.Mvc
+  nameWithType: Microsoft.AspNetCore.Mvc
+  fullName: Microsoft.AspNetCore.Mvc
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+- uid: lumify.api.Controllers.AccountController.#ctor*
+  commentId: Overload:lumify.api.Controllers.AccountController.#ctor
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController__ctor_Microsoft_Extensions_Logging_ILogger_lumify_api_Controllers_AccountController__Microsoft_Extensions_Configuration_IConfiguration_Microsoft_AspNetCore_Hosting_IWebHostEnvironment_lumify_api_Models_Context_LumifyDbContext_lumify_api_Logic_InternalLogic_lumify_api_Interfaces_IEmailService_Microsoft_Extensions_Options_IOptions_lumify_api_Models_Settings_AppSettings__
+  name: AccountController
+  nameWithType: AccountController.AccountController
+  fullName: lumify.api.Controllers.AccountController.AccountController
+  nameWithType.vb: AccountController.New
+  fullName.vb: lumify.api.Controllers.AccountController.New
+  name.vb: New
+- uid: Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.AccountController}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.AccountController}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: lumify.api.Controllers.AccountController.html
+  name: ILogger<AccountController>
+  nameWithType: ILogger<AccountController>
+  fullName: Microsoft.Extensions.Logging.ILogger<lumify.api.Controllers.AccountController>
+  nameWithType.vb: ILogger(Of AccountController)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of lumify.api.Controllers.AccountController)
+  name.vb: ILogger(Of AccountController)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Controllers.AccountController
+    name: AccountController
+    href: lumify.api.Controllers.AccountController.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Controllers.AccountController
+    name: AccountController
+    href: lumify.api.Controllers.AccountController.html
+  - name: )
+- uid: Microsoft.Extensions.Configuration.IConfiguration
+  commentId: T:Microsoft.Extensions.Configuration.IConfiguration
+  parent: Microsoft.Extensions.Configuration
+  isExternal: true
+  name: IConfiguration
+  nameWithType: IConfiguration
+  fullName: Microsoft.Extensions.Configuration.IConfiguration
+- uid: Microsoft.AspNetCore.Hosting.IWebHostEnvironment
+  commentId: T:Microsoft.AspNetCore.Hosting.IWebHostEnvironment
+  parent: Microsoft.AspNetCore.Hosting
+  isExternal: true
+  name: IWebHostEnvironment
+  nameWithType: IWebHostEnvironment
+  fullName: Microsoft.AspNetCore.Hosting.IWebHostEnvironment
+- uid: lumify.api.Models.Context.LumifyDbContext
+  commentId: T:lumify.api.Models.Context.LumifyDbContext
+  parent: lumify.api.Models.Context
+  href: lumify.api.Models.Context.LumifyDbContext.html
+  name: LumifyDbContext
+  nameWithType: LumifyDbContext
+  fullName: lumify.api.Models.Context.LumifyDbContext
+- uid: lumify.api.Logic.InternalLogic
+  commentId: T:lumify.api.Logic.InternalLogic
+  parent: lumify.api.Logic
+  href: lumify.api.Logic.InternalLogic.html
+  name: InternalLogic
+  nameWithType: InternalLogic
+  fullName: lumify.api.Logic.InternalLogic
+- uid: lumify.api.Interfaces.IEmailService
+  commentId: T:lumify.api.Interfaces.IEmailService
+  parent: lumify.api.Interfaces
+  href: lumify.api.Interfaces.IEmailService.html
+  name: IEmailService
+  nameWithType: IEmailService
+  fullName: lumify.api.Interfaces.IEmailService
+- uid: Microsoft.Extensions.Options.IOptions{lumify.api.Models.Settings.AppSettings}
+  commentId: T:Microsoft.Extensions.Options.IOptions{lumify.api.Models.Settings.AppSettings}
+  parent: Microsoft.Extensions.Options
+  definition: Microsoft.Extensions.Options.IOptions`1
+  href: lumify.api.Models.Settings.AppSettings.html
+  name: IOptions<AppSettings>
+  nameWithType: IOptions<AppSettings>
+  fullName: Microsoft.Extensions.Options.IOptions<lumify.api.Models.Settings.AppSettings>
+  nameWithType.vb: IOptions(Of AppSettings)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of lumify.api.Models.Settings.AppSettings)
+  name.vb: IOptions(Of AppSettings)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.Settings.AppSettings
+    name: AppSettings
+    href: lumify.api.Models.Settings.AppSettings.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.Settings.AppSettings
+    name: AppSettings
+    href: lumify.api.Models.Settings.AppSettings.html
+  - name: )
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+- uid: Microsoft.Extensions.Configuration
+  commentId: N:Microsoft.Extensions.Configuration
+  isExternal: true
+  name: Microsoft.Extensions.Configuration
+  nameWithType: Microsoft.Extensions.Configuration
+  fullName: Microsoft.Extensions.Configuration
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Configuration
+    name: Configuration
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Configuration
+    name: Configuration
+    isExternal: true
+- uid: Microsoft.AspNetCore.Hosting
+  commentId: N:Microsoft.AspNetCore.Hosting
+  isExternal: true
+  name: Microsoft.AspNetCore.Hosting
+  nameWithType: Microsoft.AspNetCore.Hosting
+  fullName: Microsoft.AspNetCore.Hosting
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Hosting
+    name: Hosting
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Hosting
+    name: Hosting
+    isExternal: true
+- uid: lumify.api.Models.Context
+  commentId: N:lumify.api.Models.Context
+  href: lumify.html
+  name: lumify.api.Models.Context
+  nameWithType: lumify.api.Models.Context
+  fullName: lumify.api.Models.Context
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+- uid: lumify.api.Logic
+  commentId: N:lumify.api.Logic
+  href: lumify.html
+  name: lumify.api.Logic
+  nameWithType: lumify.api.Logic
+  fullName: lumify.api.Logic
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Logic
+    name: Logic
+    href: lumify.api.Logic.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Logic
+    name: Logic
+    href: lumify.api.Logic.html
+- uid: lumify.api.Interfaces
+  commentId: N:lumify.api.Interfaces
+  href: lumify.html
+  name: lumify.api.Interfaces
+  nameWithType: lumify.api.Interfaces
+  fullName: lumify.api.Interfaces
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Interfaces
+    name: Interfaces
+    href: lumify.api.Interfaces.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Interfaces
+    name: Interfaces
+    href: lumify.api.Interfaces.html
+- uid: Microsoft.Extensions.Options.IOptions`1
+  commentId: T:Microsoft.Extensions.Options.IOptions`1
+  isExternal: true
+  name: IOptions<TOptions>
+  nameWithType: IOptions<TOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<TOptions>
+  nameWithType.vb: IOptions(Of TOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of TOptions)
+  name.vb: IOptions(Of TOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: <
+  - name: TOptions
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TOptions
+  - name: )
+- uid: Microsoft.Extensions.Options
+  commentId: N:Microsoft.Extensions.Options
+  isExternal: true
+  name: Microsoft.Extensions.Options
+  nameWithType: Microsoft.Extensions.Options
+  fullName: Microsoft.Extensions.Options
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+- uid: lumify.api.Controllers.AccountController.VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)
+  commentId: M:lumify.api.Controllers.AccountController.VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_VerifyTotpLogin_lumify_api_Models_DTO_Requests_VerifyTotpLoginRequest_
+  name: VerifyTotpLogin(VerifyTotpLoginRequest)
+  nameWithType: AccountController.VerifyTotpLogin(VerifyTotpLoginRequest)
+  fullName: lumify.api.Controllers.AccountController.VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)
+  spec.csharp:
+  - uid: lumify.api.Controllers.AccountController.VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)
+    name: VerifyTotpLogin
+    href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_VerifyTotpLogin_lumify_api_Models_DTO_Requests_VerifyTotpLoginRequest_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest
+    name: VerifyTotpLoginRequest
+    href: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.html
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.AccountController.VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)
+    name: VerifyTotpLogin
+    href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_VerifyTotpLogin_lumify_api_Models_DTO_Requests_VerifyTotpLoginRequest_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest
+    name: VerifyTotpLoginRequest
+    href: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.html
+  - name: )
+- uid: lumify.api.Controllers.AccountController.LoginUser*
+  commentId: Overload:lumify.api.Controllers.AccountController.LoginUser
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_LoginUser_lumify_api_Models_DTO_Requests_LoginRequest_
+  name: LoginUser
+  nameWithType: AccountController.LoginUser
+  fullName: lumify.api.Controllers.AccountController.LoginUser
+- uid: lumify.api.Models.DTO.Requests.LoginRequest
+  commentId: T:lumify.api.Models.DTO.Requests.LoginRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.LoginRequest.html
+  name: LoginRequest
+  nameWithType: LoginRequest
+  fullName: lumify.api.Models.DTO.Requests.LoginRequest
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IActionResult>
+  nameWithType: Task<IActionResult>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult>
+  nameWithType.vb: Task(Of IActionResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.IActionResult)
+  name.vb: Task(Of IActionResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.IActionResult
+    name: IActionResult
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.IActionResult
+    name: IActionResult
+    isExternal: true
+  - name: )
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  href: lumify.html
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: lumify.api.Controllers.AccountController.VerifyTotpLogin*
+  commentId: Overload:lumify.api.Controllers.AccountController.VerifyTotpLogin
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_VerifyTotpLogin_lumify_api_Models_DTO_Requests_VerifyTotpLoginRequest_
+  name: VerifyTotpLogin
+  nameWithType: AccountController.VerifyTotpLogin
+  fullName: lumify.api.Controllers.AccountController.VerifyTotpLogin
+- uid: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest
+  commentId: T:lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.html
+  name: VerifyTotpLoginRequest
+  nameWithType: VerifyTotpLoginRequest
+  fullName: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest
+- uid: lumify.api.Controllers.AccountController.MfaStatus*
+  commentId: Overload:lumify.api.Controllers.AccountController.MfaStatus
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_MfaStatus
+  name: MfaStatus
+  nameWithType: AccountController.MfaStatus
+  fullName: lumify.api.Controllers.AccountController.MfaStatus
+- uid: lumify.api.Controllers.AccountController.ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  commentId: M:lumify.api.Controllers.AccountController.ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_ConfirmTotp_lumify_api_Models_DTO_Requests_TotpCodeRequest_
+  name: ConfirmTotp(TotpCodeRequest)
+  nameWithType: AccountController.ConfirmTotp(TotpCodeRequest)
+  fullName: lumify.api.Controllers.AccountController.ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  spec.csharp:
+  - uid: lumify.api.Controllers.AccountController.ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+    name: ConfirmTotp
+    href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_ConfirmTotp_lumify_api_Models_DTO_Requests_TotpCodeRequest_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.TotpCodeRequest
+    name: TotpCodeRequest
+    href: lumify.api.Models.DTO.Requests.TotpCodeRequest.html
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.AccountController.ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+    name: ConfirmTotp
+    href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_ConfirmTotp_lumify_api_Models_DTO_Requests_TotpCodeRequest_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.TotpCodeRequest
+    name: TotpCodeRequest
+    href: lumify.api.Models.DTO.Requests.TotpCodeRequest.html
+  - name: )
+- uid: lumify.api.Controllers.AccountController.SetupTotp*
+  commentId: Overload:lumify.api.Controllers.AccountController.SetupTotp
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_SetupTotp
+  name: SetupTotp
+  nameWithType: AccountController.SetupTotp
+  fullName: lumify.api.Controllers.AccountController.SetupTotp
+- uid: lumify.api.Controllers.AccountController.ConfirmTotp*
+  commentId: Overload:lumify.api.Controllers.AccountController.ConfirmTotp
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_ConfirmTotp_lumify_api_Models_DTO_Requests_TotpCodeRequest_
+  name: ConfirmTotp
+  nameWithType: AccountController.ConfirmTotp
+  fullName: lumify.api.Controllers.AccountController.ConfirmTotp
+- uid: lumify.api.Models.DTO.Requests.TotpCodeRequest
+  commentId: T:lumify.api.Models.DTO.Requests.TotpCodeRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.TotpCodeRequest.html
+  name: TotpCodeRequest
+  nameWithType: TotpCodeRequest
+  fullName: lumify.api.Models.DTO.Requests.TotpCodeRequest
+- uid: lumify.api.Controllers.AccountController.DisableTotp*
+  commentId: Overload:lumify.api.Controllers.AccountController.DisableTotp
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_DisableTotp_lumify_api_Models_DTO_Requests_TotpCodeRequest_
+  name: DisableTotp
+  nameWithType: AccountController.DisableTotp
+  fullName: lumify.api.Controllers.AccountController.DisableTotp
+- uid: lumify.api.Controllers.AccountController.LogoutUser*
+  commentId: Overload:lumify.api.Controllers.AccountController.LogoutUser
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_LogoutUser
+  name: LogoutUser
+  nameWithType: AccountController.LogoutUser
+  fullName: lumify.api.Controllers.AccountController.LogoutUser
+- uid: Microsoft.AspNetCore.Mvc.IActionResult
+  commentId: T:Microsoft.AspNetCore.Mvc.IActionResult
+  parent: Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: IActionResult
+  nameWithType: IActionResult
+  fullName: Microsoft.AspNetCore.Mvc.IActionResult
+- uid: lumify.api.Controllers.AccountController.RegisterUser*
+  commentId: Overload:lumify.api.Controllers.AccountController.RegisterUser
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_RegisterUser_lumify_api_Models_DTO_Requests_RegisterRequest_System_Threading_CancellationToken_
+  name: RegisterUser
+  nameWithType: AccountController.RegisterUser
+  fullName: lumify.api.Controllers.AccountController.RegisterUser
+- uid: lumify.api.Models.DTO.Requests.RegisterRequest
+  commentId: T:lumify.api.Models.DTO.Requests.RegisterRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.RegisterRequest.html
+  name: RegisterRequest
+  nameWithType: RegisterRequest
+  fullName: lumify.api.Models.DTO.Requests.RegisterRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: lumify.api.Controllers.AccountController.RequestPasswordReset*
+  commentId: Overload:lumify.api.Controllers.AccountController.RequestPasswordReset
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_RequestPasswordReset_lumify_api_Models_DTO_Requests_RequestPasswordResetRequest_System_Threading_CancellationToken_
+  name: RequestPasswordReset
+  nameWithType: AccountController.RequestPasswordReset
+  fullName: lumify.api.Controllers.AccountController.RequestPasswordReset
+- uid: lumify.api.Models.DTO.Requests.RequestPasswordResetRequest
+  commentId: T:lumify.api.Models.DTO.Requests.RequestPasswordResetRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.RequestPasswordResetRequest.html
+  name: RequestPasswordResetRequest
+  nameWithType: RequestPasswordResetRequest
+  fullName: lumify.api.Models.DTO.Requests.RequestPasswordResetRequest
+- uid: lumify.api.Controllers.AccountController.ResetPassword*
+  commentId: Overload:lumify.api.Controllers.AccountController.ResetPassword
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_ResetPassword_lumify_api_Models_DTO_Requests_ResetPasswordRequest_System_Threading_CancellationToken_
+  name: ResetPassword
+  nameWithType: AccountController.ResetPassword
+  fullName: lumify.api.Controllers.AccountController.ResetPassword
+- uid: lumify.api.Models.DTO.Requests.ResetPasswordRequest
+  commentId: T:lumify.api.Models.DTO.Requests.ResetPasswordRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.ResetPasswordRequest.html
+  name: ResetPasswordRequest
+  nameWithType: ResetPasswordRequest
+  fullName: lumify.api.Models.DTO.Requests.ResetPasswordRequest
+- uid: lumify.api.Controllers.AccountController.VerifyEmail*
+  commentId: Overload:lumify.api.Controllers.AccountController.VerifyEmail
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_VerifyEmail_lumify_api_Models_DTO_Requests_VerifyEmailRequest_System_Threading_CancellationToken_
+  name: VerifyEmail
+  nameWithType: AccountController.VerifyEmail
+  fullName: lumify.api.Controllers.AccountController.VerifyEmail
+- uid: lumify.api.Models.DTO.Requests.VerifyEmailRequest
+  commentId: T:lumify.api.Models.DTO.Requests.VerifyEmailRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.VerifyEmailRequest.html
+  name: VerifyEmailRequest
+  nameWithType: VerifyEmailRequest
+  fullName: lumify.api.Models.DTO.Requests.VerifyEmailRequest
+- uid: lumify.api.Controllers.AccountController.ResendVerification*
+  commentId: Overload:lumify.api.Controllers.AccountController.ResendVerification
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_ResendVerification_lumify_api_Models_DTO_Requests_ResendVerificationRequest_System_Threading_CancellationToken_
+  name: ResendVerification
+  nameWithType: AccountController.ResendVerification
+  fullName: lumify.api.Controllers.AccountController.ResendVerification
+- uid: lumify.api.Models.DTO.Requests.ResendVerificationRequest
+  commentId: T:lumify.api.Models.DTO.Requests.ResendVerificationRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.ResendVerificationRequest.html
+  name: ResendVerificationRequest
+  nameWithType: ResendVerificationRequest
+  fullName: lumify.api.Models.DTO.Requests.ResendVerificationRequest
+- uid: lumify.api.Controllers.AccountController.WhoAmI*
+  commentId: Overload:lumify.api.Controllers.AccountController.WhoAmI
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_WhoAmI
+  name: WhoAmI
+  nameWithType: AccountController.WhoAmI
+  fullName: lumify.api.Controllers.AccountController.WhoAmI

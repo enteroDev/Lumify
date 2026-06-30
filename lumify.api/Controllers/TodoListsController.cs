@@ -10,6 +10,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace lumify.api.Controllers
 {
+    /// <summary>
+    /// Manages todo lists and their entries, both personal (no workspace) and workspace-shared,
+    /// including creation, editing, deletion and various queries. All endpoints require an
+    /// authenticated user. Changes to workspace items are pushed live to the workspace group
+    /// over the <see cref="Hubs.TodoHub"/>.
+    /// </summary>
+    /// <remarks>
+    /// Status values are integers: 1 = pending/open, 2 = done. A list's status is kept in sync
+    /// with its entries: checking the last open entry marks the list done, while adding or
+    /// unchecking an entry reopens it. Permission rule throughout: a personal item may only be
+    /// modified by its owner, a workspace item by any active member (see <c>CanModify</c>).
+    /// </remarks>
     [ApiController]
     [Route("todos/[action]")]
     [Authorize]
@@ -19,6 +31,10 @@ namespace lumify.api.Controllers
         private readonly LumifyDbContext _db;
         private readonly IHubContext<TodoHub> _todoHub;
 
+        /// <summary>
+        /// Creates the controller with its injected logger, database context and the todo hub
+        /// used for live notifications.
+        /// </summary>
         public TodoListsController(ILogger<TodoListsController> logger, LumifyDbContext db, IHubContext<TodoHub> todoHub)
         {
             _logger = logger;
@@ -30,6 +46,15 @@ namespace lumify.api.Controllers
         // ----------- //
         // --- ADD --- //
         // ----------- //
+        /// <summary>
+        /// Creates a new todo list (status 1 = pending), optionally inside a workspace.
+        /// </summary>
+        /// <remarks>On success in a workspace, a <c>TodoListCreated</c> event is broadcast to
+        /// the workspace group.</remarks>
+        /// <param name="request">List data (name required; optional workspace).</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the created list; 400 if the name is missing or the workspace does
+        /// not exist.</returns>
         [HttpPost]
         [ActionName("addTodoList")]
         public async Task<ActionResult<TodoListResponse>> AddTodoList([FromBody] AddTodoListRequest request, CancellationToken ct)
@@ -99,6 +124,18 @@ namespace lumify.api.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Adds a new entry (status 1 = pending) to a todo list.
+        /// </summary>
+        /// <remarks>
+        /// If the parent list was already marked done (status 2), it is reopened. On success in
+        /// a workspace, a <c>TodoEntryCreated</c> event (and a <c>TodoListUpdated</c> event if
+        /// the list reopened) is broadcast to the workspace group.
+        /// </remarks>
+        /// <param name="request">Entry data (name and parent list ID required; optional description).</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the created entry; 400 if the name or list ID is missing or the
+        /// list does not exist.</returns>
         [HttpPost]
         [ActionName("addTodoEntry")]
         public async Task<ActionResult<TodoEntryResponse>> AddTodoEntry([FromBody] AddTodoEntryRequest request, CancellationToken ct)
@@ -204,6 +241,16 @@ namespace lumify.api.Controllers
         // ------------ //
         // --- SAVE --- //
         // ------------ //
+        /// <summary>
+        /// Updates a todo list's name, status (1 or 2) and/or archived flag. Only provided
+        /// fields are changed, and the database is only written if something changed.
+        /// </summary>
+        /// <remarks>On a successful change in a workspace, a <c>TodoListUpdated</c> event is
+        /// broadcast to the workspace group.</remarks>
+        /// <param name="request">The list ID plus the fields to change.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the updated list; 400 on invalid input (e.g. status not 1/2);
+        /// 403 if the user may not modify it; 404 if the list does not exist.</returns>
         [HttpPatch]
         [ActionName("saveTodoList")]
         public async Task<ActionResult<TodoListResponse>> SaveTodoList([FromBody] SaveTodoListRequest request, CancellationToken ct)
@@ -323,6 +370,20 @@ namespace lumify.api.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Updates a todo entry's name, description and/or status (1 or 2). Only provided fields
+        /// are changed, and the database is only written if something changed.
+        /// </summary>
+        /// <remarks>
+        /// Toggling the status keeps the parent list in sync: checking the last open entry marks
+        /// the list done, unchecking an entry reopens it. The response's <c>WasLastUnchecked</c>
+        /// flag signals the former. Relevant <c>TodoEntryUpdated</c>/<c>TodoListUpdated</c> events
+        /// are broadcast to the workspace group.
+        /// </remarks>
+        /// <param name="request">The entry ID plus the fields to change.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the updated entry; 400 on invalid input (e.g. status not 1/2);
+        /// 403 if the user may not modify it; 404 if the entry or its parent list does not exist.</returns>
         [HttpPatch]
         [ActionName("saveTodoEntry")]
         public async Task<ActionResult<TodoEntryResponse>> SaveTodoEntry([FromBody] SaveTodoEntryRequest request, CancellationToken ct)
@@ -503,6 +564,15 @@ namespace lumify.api.Controllers
         // -------------- //
         // --- DELETE --- //
         // -------------- //
+        /// <summary>
+        /// Soft-deletes a todo list.
+        /// </summary>
+        /// <remarks>The record is kept and marked with <c>DeletedAt</c>. On a workspace list, a
+        /// <c>TodoListDeleted</c> event is broadcast to the workspace group.</remarks>
+        /// <param name="todoListID">The list to delete.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with <c>success = true</c> and the list ID; 400 if the ID is missing;
+        /// 403 if the user may not delete it; 404 if the list does not exist.</returns>
         [HttpDelete]
         [ActionName("deleteTodoList")]
         public async Task<ActionResult> DeleteTodoList(string todoListID, CancellationToken ct)
@@ -554,6 +624,15 @@ namespace lumify.api.Controllers
             });
         }
 
+        /// <summary>
+        /// Soft-deletes a todo entry.
+        /// </summary>
+        /// <remarks>The record is kept and marked with <c>DeletedAt</c>. On a workspace entry, a
+        /// <c>TodoEntryDeleted</c> event is broadcast to the workspace group.</remarks>
+        /// <param name="todoEntryID">The entry to delete.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with <c>success = true</c> and the entry ID; 400 if the ID is missing;
+        /// 403 if the user may not delete it; 404 if the entry or its parent list does not exist.</returns>
         [HttpDelete]
         [ActionName("deleteTodoEntry")]
         public async Task<ActionResult> DeleteTodoEntry(string todoEntryID, CancellationToken ct)
@@ -620,6 +699,11 @@ namespace lumify.api.Controllers
         // ----------- //
         // --- GET --- //
         // ----------- //
+        /// <summary>
+        /// Returns all personal todo lists (no workspace) of the current user, oldest first.
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the list of todo lists.</returns>
         [HttpGet]
         [ActionName("getAllTodoListsOfUser")]
         public async Task<ActionResult<List<TodoListResponse>>> GetAllTodoListsOfUser(CancellationToken ct)
@@ -653,6 +737,12 @@ namespace lumify.api.Controllers
             return Ok(todoLists);
         }
 
+        /// <summary>
+        /// Returns all todo lists of a workspace, oldest first.
+        /// </summary>
+        /// <param name="workspaceID">The workspace whose lists are requested.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the list of todo lists; 400 if the ID is missing.</returns>
         [HttpGet]
         [ActionName("getAllTodoListsOfWorkspace")]
         public async Task<ActionResult<List<TodoListResponse>>> GetAllTodoListsOfWorkspace(string workspaceID, CancellationToken ct)
@@ -688,6 +778,12 @@ namespace lumify.api.Controllers
         }
 
 
+        /// <summary>
+        /// Returns all entries of the current user's personal todo lists (no workspace),
+        /// oldest first.
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the list of entries.</returns>
         [HttpGet]
         [ActionName("getAllTodoEntriesOfUser")]
         public async Task<ActionResult<List<TodoEntryResponse>>> GetAllTodoEntriesOfUser(CancellationToken ct)
@@ -723,6 +819,12 @@ namespace lumify.api.Controllers
             return Ok(todoEntries);
         }
 
+        /// <summary>
+        /// Returns all entries of all todo lists in a workspace, oldest first.
+        /// </summary>
+        /// <param name="workspaceID">The workspace whose entries are requested.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the list of entries; 400 if the ID is missing.</returns>
         [HttpGet]
         [ActionName("getAllTodoEntriesOfWorkspace")]
         public async Task<ActionResult<List<TodoEntryResponse>>> GetAllTodoEntriesOfWorkspace(string workspaceID, CancellationToken ct)
@@ -760,6 +862,12 @@ namespace lumify.api.Controllers
         }
 
 
+        /// <summary>
+        /// Returns a single todo list by its ID.
+        /// </summary>
+        /// <param name="todoListID">The list to look up.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the list; 400 if the ID is missing; 404 if it does not exist.</returns>
         [HttpGet]
         [ActionName("getTodoListWithID")]
         public async Task<ActionResult<TodoListResponse>> GetTodoListWithID(string todoListID, CancellationToken ct)
@@ -799,7 +907,12 @@ namespace lumify.api.Controllers
         }
 
 
-        // Get count of users todo-lists -> Will be shown on the Feature Cards of the proformer SpaceHub.
+        /// <summary>
+        /// Returns the number of personal todo lists (no workspace) owned by the current user.
+        /// Used on the feature cards of the SpaceHub.
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the list count.</returns>
         [HttpGet]
         [ActionName("getTodoListCountOfUser")]
         public async Task<ActionResult<int>> GetTodoListCountOfUser(CancellationToken ct)
@@ -819,7 +932,14 @@ namespace lumify.api.Controllers
             return Ok(todoListCount);
         }
 
-        // Get count of workspace todo-list -> Will be shown on the Feature Cards of the proformer SpaceHub.
+        /// <summary>
+        /// Returns the number of todo lists in a workspace. The user must be a member. Used on
+        /// the feature cards of the SpaceHub.
+        /// </summary>
+        /// <param name="workspaceID">The workspace to count lists for.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the list count; 400 if the ID is missing; 403 if the user is not a
+        /// member; 404 if the workspace does not exist.</returns>
         [HttpGet]
         [ActionName("getTodoListCountOfWorkspace")]
         public async Task<ActionResult<int>> GetTodoListCountOfWorkspace(string workspaceID, CancellationToken ct)
@@ -867,7 +987,14 @@ namespace lumify.api.Controllers
             return Ok(todoListCount);
         }
 
-        // Will be needed to display corresponding workspace infos to a specific TodoEntry. -> Info will be shown in recents-module of Frontend. (User can be in multiple workspaces. He prob. wants to know where this recent comes from )
+        /// <summary>
+        /// Returns the workspace that the given todo entry belongs to, if any. Used by the
+        /// frontend's recents module to show where a recent item comes from.
+        /// </summary>
+        /// <param name="todoEntryID">The entry whose workspace is requested.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the workspace; 400 if the ID is missing; 404 if the entry has no
+        /// linked workspace or it was deleted.</returns>
         [HttpGet]
         [ActionName("getSpaceInfosOfTodoEntry")]
         public async Task<ActionResult<WorkspaceResponse>> GetSpaceInfosOfTodoEntry(string todoEntryID, CancellationToken ct)
@@ -910,6 +1037,11 @@ namespace lumify.api.Controllers
 
 
         // --- Helper --- //
+        /// <summary>
+        /// Reads the current user's ID from the <c>UserID</c> claim of the authenticated request.
+        /// </summary>
+        /// <returns>The current user's ID.</returns>
+        /// <exception cref="UnauthorizedAccessException">Thrown when no user is logged in.</exception>
         private string GetCurrentUserID()
         {
             var userID = User.FindFirst("UserID")?.Value;
@@ -922,9 +1054,16 @@ namespace lumify.api.Controllers
             return userID;
         }
 
-        // Decides whether the current user may modify/delete an item.
-        //  - Personal item (workspaceID == null): only its owner may.
-        //  - Workspace item: any active member of that workspace may (creator != owner).
+        /// <summary>
+        /// Decides whether the current user may modify or delete an item. A personal item
+        /// (no workspace) may only be changed by its owner; a workspace item may be changed by
+        /// any active member of that workspace.
+        /// </summary>
+        /// <param name="workspaceID">The item's workspace, or <c>null</c> for a personal item.</param>
+        /// <param name="ownerID">The item's owner.</param>
+        /// <param name="userID">The current user.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns><c>true</c> if the user is allowed to modify the item.</returns>
         private async Task<bool> CanModify(string? workspaceID, string ownerID, string userID, CancellationToken ct)
         {
             if (string.IsNullOrWhiteSpace(workspaceID))
@@ -936,6 +1075,15 @@ namespace lumify.api.Controllers
                 x => x.WorkspaceID == workspaceID && x.UserID == userID && x.DeletedAt == null, ct);
         }
 
+        /// <summary>
+        /// Checks whether the given entry was the last still-open entry of its list — i.e. after
+        /// setting it to done (status 2) no other open entries remain.
+        /// </summary>
+        /// <param name="todoListID">The parent list to inspect.</param>
+        /// <param name="todoEntryID">The entry being changed (excluded from the check).</param>
+        /// <param name="newStatus">The entry's new status; only status 2 (done) can trigger this.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns><c>true</c> if this was the last open entry and the list can be marked done.</returns>
         private async Task<bool> CheckIfLastUnchecked(string todoListID, string todoEntryID, int newStatus, CancellationToken ct)
         {
             // Only relevant if entry is now done

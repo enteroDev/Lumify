@@ -1,0 +1,312 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.DTO.Requests.SaveTodoListRequest
+  commentId: T:lumify.api.Models.DTO.Requests.SaveTodoListRequest
+  id: SaveTodoListRequest
+  parent: lumify.api.Models.DTO.Requests
+  children:
+  - lumify.api.Models.DTO.Requests.SaveTodoListRequest.ID
+  - lumify.api.Models.DTO.Requests.SaveTodoListRequest.IsArchived
+  - lumify.api.Models.DTO.Requests.SaveTodoListRequest.Name
+  - lumify.api.Models.DTO.Requests.SaveTodoListRequest.Status
+  langs:
+  - csharp
+  - vb
+  name: SaveTodoListRequest
+  nameWithType: SaveTodoListRequest
+  fullName: lumify.api.Models.DTO.Requests.SaveTodoListRequest
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/SaveTodoListRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SaveTodoListRequest
+    path: ../../../lumify.api/Models/DTO/Requests/SaveTodoListRequest.cs
+    startLine: 2
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public sealed class SaveTodoListRequest
+    content.vb: Public NotInheritable Class SaveTodoListRequest
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.DTO.Requests.SaveTodoListRequest.ID
+  commentId: P:lumify.api.Models.DTO.Requests.SaveTodoListRequest.ID
+  id: ID
+  parent: lumify.api.Models.DTO.Requests.SaveTodoListRequest
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: SaveTodoListRequest.ID
+  fullName: lumify.api.Models.DTO.Requests.SaveTodoListRequest.ID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/SaveTodoListRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ID
+    path: ../../../lumify.api/Models/DTO/Requests/SaveTodoListRequest.cs
+    startLine: 4
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string ID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ID As String
+  overload: lumify.api.Models.DTO.Requests.SaveTodoListRequest.ID*
+- uid: lumify.api.Models.DTO.Requests.SaveTodoListRequest.Name
+  commentId: P:lumify.api.Models.DTO.Requests.SaveTodoListRequest.Name
+  id: Name
+  parent: lumify.api.Models.DTO.Requests.SaveTodoListRequest
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: SaveTodoListRequest.Name
+  fullName: lumify.api.Models.DTO.Requests.SaveTodoListRequest.Name
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/SaveTodoListRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Name
+    path: ../../../lumify.api/Models/DTO/Requests/SaveTodoListRequest.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string? Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: lumify.api.Models.DTO.Requests.SaveTodoListRequest.Name*
+- uid: lumify.api.Models.DTO.Requests.SaveTodoListRequest.Status
+  commentId: P:lumify.api.Models.DTO.Requests.SaveTodoListRequest.Status
+  id: Status
+  parent: lumify.api.Models.DTO.Requests.SaveTodoListRequest
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: SaveTodoListRequest.Status
+  fullName: lumify.api.Models.DTO.Requests.SaveTodoListRequest.Status
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/SaveTodoListRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Status
+    path: ../../../lumify.api/Models/DTO/Requests/SaveTodoListRequest.cs
+    startLine: 6
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public int? Status { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property Status As Integer?
+  overload: lumify.api.Models.DTO.Requests.SaveTodoListRequest.Status*
+- uid: lumify.api.Models.DTO.Requests.SaveTodoListRequest.IsArchived
+  commentId: P:lumify.api.Models.DTO.Requests.SaveTodoListRequest.IsArchived
+  id: IsArchived
+  parent: lumify.api.Models.DTO.Requests.SaveTodoListRequest
+  langs:
+  - csharp
+  - vb
+  name: IsArchived
+  nameWithType: SaveTodoListRequest.IsArchived
+  fullName: lumify.api.Models.DTO.Requests.SaveTodoListRequest.IsArchived
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/SaveTodoListRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: IsArchived
+    path: ../../../lumify.api/Models/DTO/Requests/SaveTodoListRequest.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public bool? IsArchived { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property IsArchived As Boolean?
+  overload: lumify.api.Models.DTO.Requests.SaveTodoListRequest.IsArchived*
+references:
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  href: lumify.html
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.DTO.Requests.SaveTodoListRequest.ID*
+  commentId: Overload:lumify.api.Models.DTO.Requests.SaveTodoListRequest.ID
+  href: lumify.api.Models.DTO.Requests.SaveTodoListRequest.html#lumify_api_Models_DTO_Requests_SaveTodoListRequest_ID
+  name: ID
+  nameWithType: SaveTodoListRequest.ID
+  fullName: lumify.api.Models.DTO.Requests.SaveTodoListRequest.ID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.DTO.Requests.SaveTodoListRequest.Name*
+  commentId: Overload:lumify.api.Models.DTO.Requests.SaveTodoListRequest.Name
+  href: lumify.api.Models.DTO.Requests.SaveTodoListRequest.html#lumify_api_Models_DTO_Requests_SaveTodoListRequest_Name
+  name: Name
+  nameWithType: SaveTodoListRequest.Name
+  fullName: lumify.api.Models.DTO.Requests.SaveTodoListRequest.Name
+- uid: lumify.api.Models.DTO.Requests.SaveTodoListRequest.Status*
+  commentId: Overload:lumify.api.Models.DTO.Requests.SaveTodoListRequest.Status
+  href: lumify.api.Models.DTO.Requests.SaveTodoListRequest.html#lumify_api_Models_DTO_Requests_SaveTodoListRequest_Status
+  name: Status
+  nameWithType: SaveTodoListRequest.Status
+  fullName: lumify.api.Models.DTO.Requests.SaveTodoListRequest.Status
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: lumify.api.Models.DTO.Requests.SaveTodoListRequest.IsArchived*
+  commentId: Overload:lumify.api.Models.DTO.Requests.SaveTodoListRequest.IsArchived
+  href: lumify.api.Models.DTO.Requests.SaveTodoListRequest.html#lumify_api_Models_DTO_Requests_SaveTodoListRequest_IsArchived
+  name: IsArchived
+  nameWithType: SaveTodoListRequest.IsArchived
+  fullName: lumify.api.Models.DTO.Requests.SaveTodoListRequest.IsArchived
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  nameWithType.vb: Boolean?
+  fullName.vb: Boolean?
+  name.vb: Boolean?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+  - name: '?'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+  - name: '?'

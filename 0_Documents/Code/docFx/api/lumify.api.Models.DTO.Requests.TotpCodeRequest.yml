@@ -1,0 +1,139 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.DTO.Requests.TotpCodeRequest
+  commentId: T:lumify.api.Models.DTO.Requests.TotpCodeRequest
+  id: TotpCodeRequest
+  parent: lumify.api.Models.DTO.Requests
+  children:
+  - lumify.api.Models.DTO.Requests.TotpCodeRequest.Code
+  langs:
+  - csharp
+  - vb
+  name: TotpCodeRequest
+  nameWithType: TotpCodeRequest
+  fullName: lumify.api.Models.DTO.Requests.TotpCodeRequest
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/MfaRequests.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: TotpCodeRequest
+    path: ../../../lumify.api/Models/DTO/Requests/MfaRequests.cs
+    startLine: 10
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public class TotpCodeRequest
+    content.vb: Public Class TotpCodeRequest
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.DTO.Requests.TotpCodeRequest.Code
+  commentId: P:lumify.api.Models.DTO.Requests.TotpCodeRequest.Code
+  id: Code
+  parent: lumify.api.Models.DTO.Requests.TotpCodeRequest
+  langs:
+  - csharp
+  - vb
+  name: Code
+  nameWithType: TotpCodeRequest.Code
+  fullName: lumify.api.Models.DTO.Requests.TotpCodeRequest.Code
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/MfaRequests.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Code
+    path: ../../../lumify.api/Models/DTO/Requests/MfaRequests.cs
+    startLine: 12
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string Code { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Code As String
+  overload: lumify.api.Models.DTO.Requests.TotpCodeRequest.Code*
+references:
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  href: lumify.html
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.DTO.Requests.TotpCodeRequest.Code*
+  commentId: Overload:lumify.api.Models.DTO.Requests.TotpCodeRequest.Code
+  href: lumify.api.Models.DTO.Requests.TotpCodeRequest.html#lumify_api_Models_DTO_Requests_TotpCodeRequest_Code
+  name: Code
+  nameWithType: TotpCodeRequest.Code
+  fullName: lumify.api.Models.DTO.Requests.TotpCodeRequest.Code
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

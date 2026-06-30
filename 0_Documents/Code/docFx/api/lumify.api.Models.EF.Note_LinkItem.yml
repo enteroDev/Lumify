@@ -1,0 +1,436 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.EF.Note_LinkItem
+  commentId: T:lumify.api.Models.EF.Note_LinkItem
+  id: Note_LinkItem
+  parent: lumify.api.Models.EF
+  children:
+  - lumify.api.Models.EF.Note_LinkItem.CreatedAt
+  - lumify.api.Models.EF.Note_LinkItem.DeletedAt
+  - lumify.api.Models.EF.Note_LinkItem.ID
+  - lumify.api.Models.EF.Note_LinkItem.Label
+  - lumify.api.Models.EF.Note_LinkItem.Note
+  - lumify.api.Models.EF.Note_LinkItem.NoteID
+  - lumify.api.Models.EF.Note_LinkItem.NotePos
+  - lumify.api.Models.EF.Note_LinkItem.UpdatedAt
+  - lumify.api.Models.EF.Note_LinkItem.Url
+  langs:
+  - csharp
+  - vb
+  name: Note_LinkItem
+  nameWithType: Note_LinkItem
+  fullName: lumify.api.Models.EF.Note_LinkItem
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_LinkItem.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Note_LinkItem
+    path: ../../../lumify.api/Models/EF/Note_LinkItem.cs
+    startLine: 4
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public class Note_LinkItem
+    content.vb: Public Class Note_LinkItem
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.EF.Note_LinkItem.ID
+  commentId: P:lumify.api.Models.EF.Note_LinkItem.ID
+  id: ID
+  parent: lumify.api.Models.EF.Note_LinkItem
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: Note_LinkItem.ID
+  fullName: lumify.api.Models.EF.Note_LinkItem.ID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_LinkItem.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ID
+    path: ../../../lumify.api/Models/EF/Note_LinkItem.cs
+    startLine: 6
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string ID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ID As String
+  overload: lumify.api.Models.EF.Note_LinkItem.ID*
+- uid: lumify.api.Models.EF.Note_LinkItem.NoteID
+  commentId: P:lumify.api.Models.EF.Note_LinkItem.NoteID
+  id: NoteID
+  parent: lumify.api.Models.EF.Note_LinkItem
+  langs:
+  - csharp
+  - vb
+  name: NoteID
+  nameWithType: Note_LinkItem.NoteID
+  fullName: lumify.api.Models.EF.Note_LinkItem.NoteID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_LinkItem.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: NoteID
+    path: ../../../lumify.api/Models/EF/Note_LinkItem.cs
+    startLine: 8
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string NoteID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property NoteID As String
+  overload: lumify.api.Models.EF.Note_LinkItem.NoteID*
+- uid: lumify.api.Models.EF.Note_LinkItem.Label
+  commentId: P:lumify.api.Models.EF.Note_LinkItem.Label
+  id: Label
+  parent: lumify.api.Models.EF.Note_LinkItem
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: Note_LinkItem.Label
+  fullName: lumify.api.Models.EF.Note_LinkItem.Label
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_LinkItem.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Label
+    path: ../../../lumify.api/Models/EF/Note_LinkItem.cs
+    startLine: 10
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? Label { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Label As String
+  overload: lumify.api.Models.EF.Note_LinkItem.Label*
+- uid: lumify.api.Models.EF.Note_LinkItem.Url
+  commentId: P:lumify.api.Models.EF.Note_LinkItem.Url
+  id: Url
+  parent: lumify.api.Models.EF.Note_LinkItem
+  langs:
+  - csharp
+  - vb
+  name: Url
+  nameWithType: Note_LinkItem.Url
+  fullName: lumify.api.Models.EF.Note_LinkItem.Url
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_LinkItem.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Url
+    path: ../../../lumify.api/Models/EF/Note_LinkItem.cs
+    startLine: 12
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string Url { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Url As String
+  overload: lumify.api.Models.EF.Note_LinkItem.Url*
+- uid: lumify.api.Models.EF.Note_LinkItem.CreatedAt
+  commentId: P:lumify.api.Models.EF.Note_LinkItem.CreatedAt
+  id: CreatedAt
+  parent: lumify.api.Models.EF.Note_LinkItem
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: Note_LinkItem.CreatedAt
+  fullName: lumify.api.Models.EF.Note_LinkItem.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_LinkItem.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: CreatedAt
+    path: ../../../lumify.api/Models/EF/Note_LinkItem.cs
+    startLine: 14
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreatedAt As String
+  overload: lumify.api.Models.EF.Note_LinkItem.CreatedAt*
+- uid: lumify.api.Models.EF.Note_LinkItem.UpdatedAt
+  commentId: P:lumify.api.Models.EF.Note_LinkItem.UpdatedAt
+  id: UpdatedAt
+  parent: lumify.api.Models.EF.Note_LinkItem
+  langs:
+  - csharp
+  - vb
+  name: UpdatedAt
+  nameWithType: Note_LinkItem.UpdatedAt
+  fullName: lumify.api.Models.EF.Note_LinkItem.UpdatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_LinkItem.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UpdatedAt
+    path: ../../../lumify.api/Models/EF/Note_LinkItem.cs
+    startLine: 16
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string UpdatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UpdatedAt As String
+  overload: lumify.api.Models.EF.Note_LinkItem.UpdatedAt*
+- uid: lumify.api.Models.EF.Note_LinkItem.DeletedAt
+  commentId: P:lumify.api.Models.EF.Note_LinkItem.DeletedAt
+  id: DeletedAt
+  parent: lumify.api.Models.EF.Note_LinkItem
+  langs:
+  - csharp
+  - vb
+  name: DeletedAt
+  nameWithType: Note_LinkItem.DeletedAt
+  fullName: lumify.api.Models.EF.Note_LinkItem.DeletedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_LinkItem.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DeletedAt
+    path: ../../../lumify.api/Models/EF/Note_LinkItem.cs
+    startLine: 18
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? DeletedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DeletedAt As String
+  overload: lumify.api.Models.EF.Note_LinkItem.DeletedAt*
+- uid: lumify.api.Models.EF.Note_LinkItem.NotePos
+  commentId: P:lumify.api.Models.EF.Note_LinkItem.NotePos
+  id: NotePos
+  parent: lumify.api.Models.EF.Note_LinkItem
+  langs:
+  - csharp
+  - vb
+  name: NotePos
+  nameWithType: Note_LinkItem.NotePos
+  fullName: lumify.api.Models.EF.Note_LinkItem.NotePos
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_LinkItem.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: NotePos
+    path: ../../../lumify.api/Models/EF/Note_LinkItem.cs
+    startLine: 20
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public int NotePos { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property NotePos As Integer
+  overload: lumify.api.Models.EF.Note_LinkItem.NotePos*
+- uid: lumify.api.Models.EF.Note_LinkItem.Note
+  commentId: P:lumify.api.Models.EF.Note_LinkItem.Note
+  id: Note
+  parent: lumify.api.Models.EF.Note_LinkItem
+  langs:
+  - csharp
+  - vb
+  name: Note
+  nameWithType: Note_LinkItem.Note
+  fullName: lumify.api.Models.EF.Note_LinkItem.Note
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_LinkItem.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Note
+    path: ../../../lumify.api/Models/EF/Note_LinkItem.cs
+    startLine: 24
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual Note Note { get; set; }
+    parameters: []
+    return:
+      type: lumify.api.Models.EF.Note
+    content.vb: Public Overridable Property Note As Note
+  overload: lumify.api.Models.EF.Note_LinkItem.Note*
+references:
+- uid: lumify.api.Models.EF
+  commentId: N:lumify.api.Models.EF
+  href: lumify.html
+  name: lumify.api.Models.EF
+  nameWithType: lumify.api.Models.EF
+  fullName: lumify.api.Models.EF
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.EF.Note_LinkItem.ID*
+  commentId: Overload:lumify.api.Models.EF.Note_LinkItem.ID
+  href: lumify.api.Models.EF.Note_LinkItem.html#lumify_api_Models_EF_Note_LinkItem_ID
+  name: ID
+  nameWithType: Note_LinkItem.ID
+  fullName: lumify.api.Models.EF.Note_LinkItem.ID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.EF.Note_LinkItem.NoteID*
+  commentId: Overload:lumify.api.Models.EF.Note_LinkItem.NoteID
+  href: lumify.api.Models.EF.Note_LinkItem.html#lumify_api_Models_EF_Note_LinkItem_NoteID
+  name: NoteID
+  nameWithType: Note_LinkItem.NoteID
+  fullName: lumify.api.Models.EF.Note_LinkItem.NoteID
+- uid: lumify.api.Models.EF.Note_LinkItem.Label*
+  commentId: Overload:lumify.api.Models.EF.Note_LinkItem.Label
+  href: lumify.api.Models.EF.Note_LinkItem.html#lumify_api_Models_EF_Note_LinkItem_Label
+  name: Label
+  nameWithType: Note_LinkItem.Label
+  fullName: lumify.api.Models.EF.Note_LinkItem.Label
+- uid: lumify.api.Models.EF.Note_LinkItem.Url*
+  commentId: Overload:lumify.api.Models.EF.Note_LinkItem.Url
+  href: lumify.api.Models.EF.Note_LinkItem.html#lumify_api_Models_EF_Note_LinkItem_Url
+  name: Url
+  nameWithType: Note_LinkItem.Url
+  fullName: lumify.api.Models.EF.Note_LinkItem.Url
+- uid: lumify.api.Models.EF.Note_LinkItem.CreatedAt*
+  commentId: Overload:lumify.api.Models.EF.Note_LinkItem.CreatedAt
+  href: lumify.api.Models.EF.Note_LinkItem.html#lumify_api_Models_EF_Note_LinkItem_CreatedAt
+  name: CreatedAt
+  nameWithType: Note_LinkItem.CreatedAt
+  fullName: lumify.api.Models.EF.Note_LinkItem.CreatedAt
+- uid: lumify.api.Models.EF.Note_LinkItem.UpdatedAt*
+  commentId: Overload:lumify.api.Models.EF.Note_LinkItem.UpdatedAt
+  href: lumify.api.Models.EF.Note_LinkItem.html#lumify_api_Models_EF_Note_LinkItem_UpdatedAt
+  name: UpdatedAt
+  nameWithType: Note_LinkItem.UpdatedAt
+  fullName: lumify.api.Models.EF.Note_LinkItem.UpdatedAt
+- uid: lumify.api.Models.EF.Note_LinkItem.DeletedAt*
+  commentId: Overload:lumify.api.Models.EF.Note_LinkItem.DeletedAt
+  href: lumify.api.Models.EF.Note_LinkItem.html#lumify_api_Models_EF_Note_LinkItem_DeletedAt
+  name: DeletedAt
+  nameWithType: Note_LinkItem.DeletedAt
+  fullName: lumify.api.Models.EF.Note_LinkItem.DeletedAt
+- uid: lumify.api.Models.EF.Note_LinkItem.NotePos*
+  commentId: Overload:lumify.api.Models.EF.Note_LinkItem.NotePos
+  href: lumify.api.Models.EF.Note_LinkItem.html#lumify_api_Models_EF_Note_LinkItem_NotePos
+  name: NotePos
+  nameWithType: Note_LinkItem.NotePos
+  fullName: lumify.api.Models.EF.Note_LinkItem.NotePos
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: lumify.api.Models.EF.Note_LinkItem.Note*
+  commentId: Overload:lumify.api.Models.EF.Note_LinkItem.Note
+  href: lumify.api.Models.EF.Note_LinkItem.html#lumify_api_Models_EF_Note_LinkItem_Note
+  name: Note
+  nameWithType: Note_LinkItem.Note
+  fullName: lumify.api.Models.EF.Note_LinkItem.Note
+- uid: lumify.api.Models.EF.Note
+  commentId: T:lumify.api.Models.EF.Note
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.Note.html
+  name: Note
+  nameWithType: Note
+  fullName: lumify.api.Models.EF.Note

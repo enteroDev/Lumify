@@ -1,0 +1,1192 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Controllers.FriendshipController
+  commentId: T:lumify.api.Controllers.FriendshipController
+  id: FriendshipController
+  parent: lumify.api.Controllers
+  children:
+  - lumify.api.Controllers.FriendshipController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.FriendshipController},lumify.api.Models.Context.LumifyDbContext,lumify.api.Services.FriendshipService,lumify.api.Interfaces.IPresenceService,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.ChatHub})
+  - lumify.api.Controllers.FriendshipController.AcceptFriendRequest(System.String)
+  - lumify.api.Controllers.FriendshipController.GetFriendsOfUser(System.Threading.CancellationToken)
+  - lumify.api.Controllers.FriendshipController.GetIncomingFriendRequests(System.Threading.CancellationToken)
+  - lumify.api.Controllers.FriendshipController.GetOutgoingFriendRequests(System.Threading.CancellationToken)
+  - lumify.api.Controllers.FriendshipController.RejectFriendRequest(System.String)
+  - lumify.api.Controllers.FriendshipController.RemoveFriend(System.String)
+  - lumify.api.Controllers.FriendshipController.SendFriendRequest(System.String)
+  langs:
+  - csharp
+  - vb
+  name: FriendshipController
+  nameWithType: FriendshipController
+  fullName: lumify.api.Controllers.FriendshipController
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Controllers/FriendshipController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: FriendshipController
+    path: ../../../lumify.api/Controllers/FriendshipController.cs
+    startLine: 20
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Manages friendships: sending, accepting and rejecting friend requests, removing
+
+    friends, and listing incoming/outgoing requests and current friends. All endpoints
+
+    require an authenticated user. Changes are pushed live to the affected user over the
+
+    <xref href="lumify.api.Hubs.ChatHub" data-throw-if-not-resolved="false"></xref> so clients update without a reload.
+  example: []
+  syntax:
+    content: >-
+      [ApiController]
+
+      [Route("friendship/[action]")]
+
+      [Authorize]
+
+      public class FriendshipController : ControllerBase
+    content.vb: >-
+      <ApiController>
+
+      <Route("friendship/[action]")>
+
+      <Authorize>
+
+      Public Class FriendshipController Inherits ControllerBase
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.Mvc.ControllerBase
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.ApiControllerAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ApiControllerAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.RouteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.RouteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: friendship/[action]
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+- uid: lumify.api.Controllers.FriendshipController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.FriendshipController},lumify.api.Models.Context.LumifyDbContext,lumify.api.Services.FriendshipService,lumify.api.Interfaces.IPresenceService,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.ChatHub})
+  commentId: M:lumify.api.Controllers.FriendshipController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.FriendshipController},lumify.api.Models.Context.LumifyDbContext,lumify.api.Services.FriendshipService,lumify.api.Interfaces.IPresenceService,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.ChatHub})
+  id: '#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.FriendshipController},lumify.api.Models.Context.LumifyDbContext,lumify.api.Services.FriendshipService,lumify.api.Interfaces.IPresenceService,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.ChatHub})'
+  parent: lumify.api.Controllers.FriendshipController
+  langs:
+  - csharp
+  - vb
+  name: FriendshipController(ILogger<FriendshipController>, LumifyDbContext, FriendshipService, IPresenceService, IHubContext<ChatHub>)
+  nameWithType: FriendshipController.FriendshipController(ILogger<FriendshipController>, LumifyDbContext, FriendshipService, IPresenceService, IHubContext<ChatHub>)
+  fullName: lumify.api.Controllers.FriendshipController.FriendshipController(Microsoft.Extensions.Logging.ILogger<lumify.api.Controllers.FriendshipController>, lumify.api.Models.Context.LumifyDbContext, lumify.api.Services.FriendshipService, lumify.api.Interfaces.IPresenceService, Microsoft.AspNetCore.SignalR.IHubContext<lumify.api.Hubs.ChatHub>)
+  type: Constructor
+  source:
+    remote:
+      path: lumify.api/Controllers/FriendshipController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: .ctor
+    path: ../../../lumify.api/Controllers/FriendshipController.cs
+    startLine: 36
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Creates the controller with its injected dependencies (logging, database context,
+
+    friendship service, presence service and the chat hub used for live notifications).
+  example: []
+  syntax:
+    content: public FriendshipController(ILogger<FriendshipController> logger, LumifyDbContext db, FriendshipService friendshipService, IPresenceService presenceService, IHubContext<ChatHub> chatHub)
+    parameters:
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.FriendshipController}
+    - id: db
+      type: lumify.api.Models.Context.LumifyDbContext
+    - id: friendshipService
+      type: lumify.api.Services.FriendshipService
+    - id: presenceService
+      type: lumify.api.Interfaces.IPresenceService
+    - id: chatHub
+      type: Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.ChatHub}
+    content.vb: Public Sub New(logger As ILogger(Of FriendshipController), db As LumifyDbContext, friendshipService As FriendshipService, presenceService As IPresenceService, chatHub As IHubContext(Of ChatHub))
+  overload: lumify.api.Controllers.FriendshipController.#ctor*
+  nameWithType.vb: FriendshipController.New(ILogger(Of FriendshipController), LumifyDbContext, FriendshipService, IPresenceService, IHubContext(Of ChatHub))
+  fullName.vb: lumify.api.Controllers.FriendshipController.New(Microsoft.Extensions.Logging.ILogger(Of lumify.api.Controllers.FriendshipController), lumify.api.Models.Context.LumifyDbContext, lumify.api.Services.FriendshipService, lumify.api.Interfaces.IPresenceService, Microsoft.AspNetCore.SignalR.IHubContext(Of lumify.api.Hubs.ChatHub))
+  name.vb: New(ILogger(Of FriendshipController), LumifyDbContext, FriendshipService, IPresenceService, IHubContext(Of ChatHub))
+- uid: lumify.api.Controllers.FriendshipController.SendFriendRequest(System.String)
+  commentId: M:lumify.api.Controllers.FriendshipController.SendFriendRequest(System.String)
+  id: SendFriendRequest(System.String)
+  parent: lumify.api.Controllers.FriendshipController
+  langs:
+  - csharp
+  - vb
+  name: SendFriendRequest(string)
+  nameWithType: FriendshipController.SendFriendRequest(string)
+  fullName: lumify.api.Controllers.FriendshipController.SendFriendRequest(string)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/FriendshipController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SendFriendRequest
+    path: ../../../lumify.api/Controllers/FriendshipController.cs
+    startLine: 56
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Sends a friend request from the current user to another user.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("sendFriendRequest")]
+
+      public Task<ActionResult> SendFriendRequest(string addresseeID)
+    parameters:
+    - id: addresseeID
+      type: System.String
+      description: The user who should receive the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: >-
+        200 with <code>Success = true</code>; 400 if the ID is missing or the request
+            is rejected by the friendship service (e.g. already friends or pending).
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("sendFriendRequest")>
+
+      Public Function SendFriendRequest(addresseeID As String) As Task(Of ActionResult)
+  overload: lumify.api.Controllers.FriendshipController.SendFriendRequest*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: sendFriendRequest
+  nameWithType.vb: FriendshipController.SendFriendRequest(String)
+  fullName.vb: lumify.api.Controllers.FriendshipController.SendFriendRequest(String)
+  name.vb: SendFriendRequest(String)
+- uid: lumify.api.Controllers.FriendshipController.AcceptFriendRequest(System.String)
+  commentId: M:lumify.api.Controllers.FriendshipController.AcceptFriendRequest(System.String)
+  id: AcceptFriendRequest(System.String)
+  parent: lumify.api.Controllers.FriendshipController
+  langs:
+  - csharp
+  - vb
+  name: AcceptFriendRequest(string)
+  nameWithType: FriendshipController.AcceptFriendRequest(string)
+  fullName: lumify.api.Controllers.FriendshipController.AcceptFriendRequest(string)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/FriendshipController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AcceptFriendRequest
+    path: ../../../lumify.api/Controllers/FriendshipController.cs
+    startLine: 94
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Accepts a pending friend request addressed to the current user.
+  example: []
+  syntax:
+    content: >-
+      [HttpPatch]
+
+      [ActionName("acceptFriendRequest")]
+
+      public Task<ActionResult> AcceptFriendRequest(string friendshipID)
+    parameters:
+    - id: friendshipID
+      type: System.String
+      description: The pending friendship to accept.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: >-
+        200 with <code>Success = true</code>; 400 if the ID is missing or the request
+            cannot be accepted (e.g. not addressed to the current user).
+    content.vb: >-
+      <HttpPatch>
+
+      <ActionName("acceptFriendRequest")>
+
+      Public Function AcceptFriendRequest(friendshipID As String) As Task(Of ActionResult)
+  overload: lumify.api.Controllers.FriendshipController.AcceptFriendRequest*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPatchAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPatchAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: acceptFriendRequest
+  nameWithType.vb: FriendshipController.AcceptFriendRequest(String)
+  fullName.vb: lumify.api.Controllers.FriendshipController.AcceptFriendRequest(String)
+  name.vb: AcceptFriendRequest(String)
+- uid: lumify.api.Controllers.FriendshipController.RejectFriendRequest(System.String)
+  commentId: M:lumify.api.Controllers.FriendshipController.RejectFriendRequest(System.String)
+  id: RejectFriendRequest(System.String)
+  parent: lumify.api.Controllers.FriendshipController
+  langs:
+  - csharp
+  - vb
+  name: RejectFriendRequest(string)
+  nameWithType: FriendshipController.RejectFriendRequest(string)
+  fullName: lumify.api.Controllers.FriendshipController.RejectFriendRequest(string)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/FriendshipController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: RejectFriendRequest
+    path: ../../../lumify.api/Controllers/FriendshipController.cs
+    startLine: 132
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Rejects a pending friend request addressed to the current user.
+  example: []
+  syntax:
+    content: >-
+      [HttpPatch]
+
+      [ActionName("rejectFriendRequest")]
+
+      public Task<ActionResult> RejectFriendRequest(string friendshipID)
+    parameters:
+    - id: friendshipID
+      type: System.String
+      description: The pending friendship to reject.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: >-
+        200 with <code>Success = true</code>; 400 if the ID is missing or the request
+            cannot be rejected.
+    content.vb: >-
+      <HttpPatch>
+
+      <ActionName("rejectFriendRequest")>
+
+      Public Function RejectFriendRequest(friendshipID As String) As Task(Of ActionResult)
+  overload: lumify.api.Controllers.FriendshipController.RejectFriendRequest*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPatchAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPatchAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: rejectFriendRequest
+  nameWithType.vb: FriendshipController.RejectFriendRequest(String)
+  fullName.vb: lumify.api.Controllers.FriendshipController.RejectFriendRequest(String)
+  name.vb: RejectFriendRequest(String)
+- uid: lumify.api.Controllers.FriendshipController.RemoveFriend(System.String)
+  commentId: M:lumify.api.Controllers.FriendshipController.RemoveFriend(System.String)
+  id: RemoveFriend(System.String)
+  parent: lumify.api.Controllers.FriendshipController
+  langs:
+  - csharp
+  - vb
+  name: RemoveFriend(string)
+  nameWithType: FriendshipController.RemoveFriend(string)
+  fullName: lumify.api.Controllers.FriendshipController.RemoveFriend(string)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/FriendshipController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: RemoveFriend
+    path: ../../../lumify.api/Controllers/FriendshipController.cs
+    startLine: 165
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Removes an existing friendship between the current user and another user.
+  example: []
+  syntax:
+    content: >-
+      [HttpPatch]
+
+      [ActionName("removeFriend")]
+
+      public Task<ActionResult> RemoveFriend(string friendID)
+    parameters:
+    - id: friendID
+      type: System.String
+      description: The friend to remove.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: >-
+        200 with <code>Success = true</code>; 400 if the ID is missing or the friendship
+            cannot be removed.
+    content.vb: >-
+      <HttpPatch>
+
+      <ActionName("removeFriend")>
+
+      Public Function RemoveFriend(friendID As String) As Task(Of ActionResult)
+  overload: lumify.api.Controllers.FriendshipController.RemoveFriend*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPatchAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPatchAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: removeFriend
+  nameWithType.vb: FriendshipController.RemoveFriend(String)
+  fullName.vb: lumify.api.Controllers.FriendshipController.RemoveFriend(String)
+  name.vb: RemoveFriend(String)
+- uid: lumify.api.Controllers.FriendshipController.GetIncomingFriendRequests(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.FriendshipController.GetIncomingFriendRequests(System.Threading.CancellationToken)
+  id: GetIncomingFriendRequests(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.FriendshipController
+  langs:
+  - csharp
+  - vb
+  name: GetIncomingFriendRequests(CancellationToken)
+  nameWithType: FriendshipController.GetIncomingFriendRequests(CancellationToken)
+  fullName: lumify.api.Controllers.FriendshipController.GetIncomingFriendRequests(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/FriendshipController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetIncomingFriendRequests
+    path: ../../../lumify.api/Controllers/FriendshipController.cs
+    startLine: 203
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Returns the pending friend requests addressed to the current user, newest first,
+
+    including the requester's username, display name and avatar.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getIncomingFriendRequests")]
+
+      public Task<ActionResult<List<FriendshipResponse>>> GetIncomingFriendRequests(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.FriendshipResponse}}}
+      description: 200 with the list of incoming requests; 401 if no user is logged in.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getIncomingFriendRequests")>
+
+      Public Function GetIncomingFriendRequests(ct As CancellationToken) As Task(Of ActionResult(Of List(Of FriendshipResponse)))
+  overload: lumify.api.Controllers.FriendshipController.GetIncomingFriendRequests*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getIncomingFriendRequests
+- uid: lumify.api.Controllers.FriendshipController.GetOutgoingFriendRequests(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.FriendshipController.GetOutgoingFriendRequests(System.Threading.CancellationToken)
+  id: GetOutgoingFriendRequests(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.FriendshipController
+  langs:
+  - csharp
+  - vb
+  name: GetOutgoingFriendRequests(CancellationToken)
+  nameWithType: FriendshipController.GetOutgoingFriendRequests(CancellationToken)
+  fullName: lumify.api.Controllers.FriendshipController.GetOutgoingFriendRequests(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/FriendshipController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetOutgoingFriendRequests
+    path: ../../../lumify.api/Controllers/FriendshipController.cs
+    startLine: 242
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Returns the pending friend requests sent by the current user, newest first,
+
+    including the addressee's username, display name and avatar.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getOutgoingFriendRequests")]
+
+      public Task<ActionResult<List<FriendshipResponse>>> GetOutgoingFriendRequests(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.FriendshipResponse}}}
+      description: 200 with the list of outgoing requests; 401 if no user is logged in.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getOutgoingFriendRequests")>
+
+      Public Function GetOutgoingFriendRequests(ct As CancellationToken) As Task(Of ActionResult(Of List(Of FriendshipResponse)))
+  overload: lumify.api.Controllers.FriendshipController.GetOutgoingFriendRequests*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getOutgoingFriendRequests
+- uid: lumify.api.Controllers.FriendshipController.GetFriendsOfUser(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.FriendshipController.GetFriendsOfUser(System.Threading.CancellationToken)
+  id: GetFriendsOfUser(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.FriendshipController
+  langs:
+  - csharp
+  - vb
+  name: GetFriendsOfUser(CancellationToken)
+  nameWithType: FriendshipController.GetFriendsOfUser(CancellationToken)
+  fullName: lumify.api.Controllers.FriendshipController.GetFriendsOfUser(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/FriendshipController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetFriendsOfUser
+    path: ../../../lumify.api/Controllers/FriendshipController.cs
+    startLine: 282
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Returns the current user's accepted friends, each enriched with its live presence
+
+    status (online/away/offline) from the presence service.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getFriendsOfUser")]
+
+      public Task<ActionResult<List<UserPreviewResponse>>> GetFriendsOfUser(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.UserPreviewResponse}}}
+      description: 200 with the list of friends; 401 if no user is logged in.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getFriendsOfUser")>
+
+      Public Function GetFriendsOfUser(ct As CancellationToken) As Task(Of ActionResult(Of List(Of UserPreviewResponse)))
+  overload: lumify.api.Controllers.FriendshipController.GetFriendsOfUser*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getFriendsOfUser
+references:
+- uid: lumify.api.Hubs.ChatHub
+  commentId: T:lumify.api.Hubs.ChatHub
+  href: lumify.api.Hubs.ChatHub.html
+  name: ChatHub
+  nameWithType: ChatHub
+  fullName: lumify.api.Hubs.ChatHub
+- uid: lumify.api.Controllers
+  commentId: N:lumify.api.Controllers
+  href: lumify.html
+  name: lumify.api.Controllers
+  nameWithType: lumify.api.Controllers
+  fullName: lumify.api.Controllers
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Controllers
+    name: Controllers
+    href: lumify.api.Controllers.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Controllers
+    name: Controllers
+    href: lumify.api.Controllers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.Mvc.ControllerBase
+  commentId: T:Microsoft.AspNetCore.Mvc.ControllerBase
+  parent: Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: ControllerBase
+  nameWithType: ControllerBase
+  fullName: Microsoft.AspNetCore.Mvc.ControllerBase
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.Mvc
+  commentId: N:Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: Microsoft.AspNetCore.Mvc
+  nameWithType: Microsoft.AspNetCore.Mvc
+  fullName: Microsoft.AspNetCore.Mvc
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+- uid: lumify.api.Controllers.FriendshipController.#ctor*
+  commentId: Overload:lumify.api.Controllers.FriendshipController.#ctor
+  href: lumify.api.Controllers.FriendshipController.html#lumify_api_Controllers_FriendshipController__ctor_Microsoft_Extensions_Logging_ILogger_lumify_api_Controllers_FriendshipController__lumify_api_Models_Context_LumifyDbContext_lumify_api_Services_FriendshipService_lumify_api_Interfaces_IPresenceService_Microsoft_AspNetCore_SignalR_IHubContext_lumify_api_Hubs_ChatHub__
+  name: FriendshipController
+  nameWithType: FriendshipController.FriendshipController
+  fullName: lumify.api.Controllers.FriendshipController.FriendshipController
+  nameWithType.vb: FriendshipController.New
+  fullName.vb: lumify.api.Controllers.FriendshipController.New
+  name.vb: New
+- uid: Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.FriendshipController}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.FriendshipController}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: lumify.api.Controllers.FriendshipController.html
+  name: ILogger<FriendshipController>
+  nameWithType: ILogger<FriendshipController>
+  fullName: Microsoft.Extensions.Logging.ILogger<lumify.api.Controllers.FriendshipController>
+  nameWithType.vb: ILogger(Of FriendshipController)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of lumify.api.Controllers.FriendshipController)
+  name.vb: ILogger(Of FriendshipController)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Controllers.FriendshipController
+    name: FriendshipController
+    href: lumify.api.Controllers.FriendshipController.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Controllers.FriendshipController
+    name: FriendshipController
+    href: lumify.api.Controllers.FriendshipController.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext
+  commentId: T:lumify.api.Models.Context.LumifyDbContext
+  parent: lumify.api.Models.Context
+  href: lumify.api.Models.Context.LumifyDbContext.html
+  name: LumifyDbContext
+  nameWithType: LumifyDbContext
+  fullName: lumify.api.Models.Context.LumifyDbContext
+- uid: lumify.api.Services.FriendshipService
+  commentId: T:lumify.api.Services.FriendshipService
+  parent: lumify.api.Services
+  href: lumify.api.Services.FriendshipService.html
+  name: FriendshipService
+  nameWithType: FriendshipService
+  fullName: lumify.api.Services.FriendshipService
+- uid: lumify.api.Interfaces.IPresenceService
+  commentId: T:lumify.api.Interfaces.IPresenceService
+  parent: lumify.api.Interfaces
+  href: lumify.api.Interfaces.IPresenceService.html
+  name: IPresenceService
+  nameWithType: IPresenceService
+  fullName: lumify.api.Interfaces.IPresenceService
+- uid: Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.ChatHub}
+  commentId: T:Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.ChatHub}
+  parent: Microsoft.AspNetCore.SignalR
+  definition: Microsoft.AspNetCore.SignalR.IHubContext`1
+  href: lumify.api.Hubs.ChatHub.html
+  name: IHubContext<ChatHub>
+  nameWithType: IHubContext<ChatHub>
+  fullName: Microsoft.AspNetCore.SignalR.IHubContext<lumify.api.Hubs.ChatHub>
+  nameWithType.vb: IHubContext(Of ChatHub)
+  fullName.vb: Microsoft.AspNetCore.SignalR.IHubContext(Of lumify.api.Hubs.ChatHub)
+  name.vb: IHubContext(Of ChatHub)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Hubs.ChatHub
+    name: ChatHub
+    href: lumify.api.Hubs.ChatHub.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Hubs.ChatHub
+    name: ChatHub
+    href: lumify.api.Hubs.ChatHub.html
+  - name: )
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+- uid: lumify.api.Models.Context
+  commentId: N:lumify.api.Models.Context
+  href: lumify.html
+  name: lumify.api.Models.Context
+  nameWithType: lumify.api.Models.Context
+  fullName: lumify.api.Models.Context
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+- uid: lumify.api.Services
+  commentId: N:lumify.api.Services
+  href: lumify.html
+  name: lumify.api.Services
+  nameWithType: lumify.api.Services
+  fullName: lumify.api.Services
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Services
+    name: Services
+    href: lumify.api.Services.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Services
+    name: Services
+    href: lumify.api.Services.html
+- uid: lumify.api.Interfaces
+  commentId: N:lumify.api.Interfaces
+  href: lumify.html
+  name: lumify.api.Interfaces
+  nameWithType: lumify.api.Interfaces
+  fullName: lumify.api.Interfaces
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Interfaces
+    name: Interfaces
+    href: lumify.api.Interfaces.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Interfaces
+    name: Interfaces
+    href: lumify.api.Interfaces.html
+- uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+  commentId: T:Microsoft.AspNetCore.SignalR.IHubContext`1
+  isExternal: true
+  name: IHubContext<THub>
+  nameWithType: IHubContext<THub>
+  fullName: Microsoft.AspNetCore.SignalR.IHubContext<THub>
+  nameWithType.vb: IHubContext(Of THub)
+  fullName.vb: Microsoft.AspNetCore.SignalR.IHubContext(Of THub)
+  name.vb: IHubContext(Of THub)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: <
+  - name: THub
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: THub
+  - name: )
+- uid: Microsoft.AspNetCore.SignalR
+  commentId: N:Microsoft.AspNetCore.SignalR
+  isExternal: true
+  name: Microsoft.AspNetCore.SignalR
+  nameWithType: Microsoft.AspNetCore.SignalR
+  fullName: Microsoft.AspNetCore.SignalR
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+- uid: lumify.api.Controllers.FriendshipController.SendFriendRequest*
+  commentId: Overload:lumify.api.Controllers.FriendshipController.SendFriendRequest
+  href: lumify.api.Controllers.FriendshipController.html#lumify_api_Controllers_FriendshipController_SendFriendRequest_System_String_
+  name: SendFriendRequest
+  nameWithType: FriendshipController.SendFriendRequest
+  fullName: lumify.api.Controllers.FriendshipController.SendFriendRequest
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<ActionResult>
+  nameWithType: Task<ActionResult>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult>
+  nameWithType.vb: Task(Of ActionResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult)
+  name.vb: Task(Of ActionResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult
+    name: ActionResult
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult
+    name: ActionResult
+    isExternal: true
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: lumify.api.Controllers.FriendshipController.AcceptFriendRequest*
+  commentId: Overload:lumify.api.Controllers.FriendshipController.AcceptFriendRequest
+  href: lumify.api.Controllers.FriendshipController.html#lumify_api_Controllers_FriendshipController_AcceptFriendRequest_System_String_
+  name: AcceptFriendRequest
+  nameWithType: FriendshipController.AcceptFriendRequest
+  fullName: lumify.api.Controllers.FriendshipController.AcceptFriendRequest
+- uid: lumify.api.Controllers.FriendshipController.RejectFriendRequest*
+  commentId: Overload:lumify.api.Controllers.FriendshipController.RejectFriendRequest
+  href: lumify.api.Controllers.FriendshipController.html#lumify_api_Controllers_FriendshipController_RejectFriendRequest_System_String_
+  name: RejectFriendRequest
+  nameWithType: FriendshipController.RejectFriendRequest
+  fullName: lumify.api.Controllers.FriendshipController.RejectFriendRequest
+- uid: lumify.api.Controllers.FriendshipController.RemoveFriend*
+  commentId: Overload:lumify.api.Controllers.FriendshipController.RemoveFriend
+  href: lumify.api.Controllers.FriendshipController.html#lumify_api_Controllers_FriendshipController_RemoveFriend_System_String_
+  name: RemoveFriend
+  nameWithType: FriendshipController.RemoveFriend
+  fullName: lumify.api.Controllers.FriendshipController.RemoveFriend
+- uid: lumify.api.Controllers.FriendshipController.GetIncomingFriendRequests*
+  commentId: Overload:lumify.api.Controllers.FriendshipController.GetIncomingFriendRequests
+  href: lumify.api.Controllers.FriendshipController.html#lumify_api_Controllers_FriendshipController_GetIncomingFriendRequests_System_Threading_CancellationToken_
+  name: GetIncomingFriendRequests
+  nameWithType: FriendshipController.GetIncomingFriendRequests
+  fullName: lumify.api.Controllers.FriendshipController.GetIncomingFriendRequests
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.FriendshipResponse}}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.FriendshipResponse}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.FriendshipResponse.html
+  name: Task<ActionResult<List<FriendshipResponse>>>
+  nameWithType: Task<ActionResult<List<FriendshipResponse>>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.List<lumify.api.Models.DTO.Responses.FriendshipResponse>>>
+  nameWithType.vb: Task(Of ActionResult(Of List(Of FriendshipResponse)))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of System.Collections.Generic.List(Of lumify.api.Models.DTO.Responses.FriendshipResponse)))
+  name.vb: Task(Of ActionResult(Of List(Of FriendshipResponse)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.FriendshipResponse
+    name: FriendshipResponse
+    href: lumify.api.Models.DTO.Responses.FriendshipResponse.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.FriendshipResponse
+    name: FriendshipResponse
+    href: lumify.api.Models.DTO.Responses.FriendshipResponse.html
+  - name: )
+  - name: )
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: lumify.api.Controllers.FriendshipController.GetOutgoingFriendRequests*
+  commentId: Overload:lumify.api.Controllers.FriendshipController.GetOutgoingFriendRequests
+  href: lumify.api.Controllers.FriendshipController.html#lumify_api_Controllers_FriendshipController_GetOutgoingFriendRequests_System_Threading_CancellationToken_
+  name: GetOutgoingFriendRequests
+  nameWithType: FriendshipController.GetOutgoingFriendRequests
+  fullName: lumify.api.Controllers.FriendshipController.GetOutgoingFriendRequests
+- uid: lumify.api.Controllers.FriendshipController.GetFriendsOfUser*
+  commentId: Overload:lumify.api.Controllers.FriendshipController.GetFriendsOfUser
+  href: lumify.api.Controllers.FriendshipController.html#lumify_api_Controllers_FriendshipController_GetFriendsOfUser_System_Threading_CancellationToken_
+  name: GetFriendsOfUser
+  nameWithType: FriendshipController.GetFriendsOfUser
+  fullName: lumify.api.Controllers.FriendshipController.GetFriendsOfUser
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.UserPreviewResponse}}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.UserPreviewResponse}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.UserPreviewResponse.html
+  name: Task<ActionResult<List<UserPreviewResponse>>>
+  nameWithType: Task<ActionResult<List<UserPreviewResponse>>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.List<lumify.api.Models.DTO.Responses.UserPreviewResponse>>>
+  nameWithType.vb: Task(Of ActionResult(Of List(Of UserPreviewResponse)))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of System.Collections.Generic.List(Of lumify.api.Models.DTO.Responses.UserPreviewResponse)))
+  name.vb: Task(Of ActionResult(Of List(Of UserPreviewResponse)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.UserPreviewResponse
+    name: UserPreviewResponse
+    href: lumify.api.Models.DTO.Responses.UserPreviewResponse.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.UserPreviewResponse
+    name: UserPreviewResponse
+    href: lumify.api.Models.DTO.Responses.UserPreviewResponse.html
+  - name: )
+  - name: )
+  - name: )

@@ -1,0 +1,558 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Hubs.ChatHub
+  commentId: T:lumify.api.Hubs.ChatHub
+  id: ChatHub
+  parent: lumify.api.Hubs
+  children:
+  - lumify.api.Hubs.ChatHub.#ctor(lumify.api.Interfaces.IPresenceService,lumify.api.Models.Context.LumifyDbContext)
+  - lumify.api.Hubs.ChatHub.JoinRoom(System.String)
+  - lumify.api.Hubs.ChatHub.LeaveRoom(System.String)
+  - lumify.api.Hubs.ChatHub.OnConnectedAsync
+  - lumify.api.Hubs.ChatHub.OnDisconnectedAsync(System.Exception)
+  - lumify.api.Hubs.ChatHub.SendMessage(System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: ChatHub
+  nameWithType: ChatHub
+  fullName: lumify.api.Hubs.ChatHub
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Hubs/ChatHub.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ChatHub
+    path: ../../../lumify.api/Hubs/ChatHub.cs
+    startLine: 13
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Hubs
+  syntax:
+    content: >-
+      [Authorize]
+
+      public class ChatHub : Hub
+    content.vb: >-
+      <Authorize>
+
+      Public Class ChatHub Inherits Hub
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.SignalR.Hub
+  attributes:
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+- uid: lumify.api.Hubs.ChatHub.#ctor(lumify.api.Interfaces.IPresenceService,lumify.api.Models.Context.LumifyDbContext)
+  commentId: M:lumify.api.Hubs.ChatHub.#ctor(lumify.api.Interfaces.IPresenceService,lumify.api.Models.Context.LumifyDbContext)
+  id: '#ctor(lumify.api.Interfaces.IPresenceService,lumify.api.Models.Context.LumifyDbContext)'
+  parent: lumify.api.Hubs.ChatHub
+  langs:
+  - csharp
+  - vb
+  name: ChatHub(IPresenceService, LumifyDbContext)
+  nameWithType: ChatHub.ChatHub(IPresenceService, LumifyDbContext)
+  fullName: lumify.api.Hubs.ChatHub.ChatHub(lumify.api.Interfaces.IPresenceService, lumify.api.Models.Context.LumifyDbContext)
+  type: Constructor
+  source:
+    remote:
+      path: lumify.api/Hubs/ChatHub.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: .ctor
+    path: ../../../lumify.api/Hubs/ChatHub.cs
+    startLine: 19
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Hubs
+  syntax:
+    content: public ChatHub(IPresenceService presenceService, LumifyDbContext db)
+    parameters:
+    - id: presenceService
+      type: lumify.api.Interfaces.IPresenceService
+    - id: db
+      type: lumify.api.Models.Context.LumifyDbContext
+    content.vb: Public Sub New(presenceService As IPresenceService, db As LumifyDbContext)
+  overload: lumify.api.Hubs.ChatHub.#ctor*
+  nameWithType.vb: ChatHub.New(IPresenceService, LumifyDbContext)
+  fullName.vb: lumify.api.Hubs.ChatHub.New(lumify.api.Interfaces.IPresenceService, lumify.api.Models.Context.LumifyDbContext)
+  name.vb: New(IPresenceService, LumifyDbContext)
+- uid: lumify.api.Hubs.ChatHub.OnConnectedAsync
+  commentId: M:lumify.api.Hubs.ChatHub.OnConnectedAsync
+  id: OnConnectedAsync
+  parent: lumify.api.Hubs.ChatHub
+  langs:
+  - csharp
+  - vb
+  name: OnConnectedAsync()
+  nameWithType: ChatHub.OnConnectedAsync()
+  fullName: lumify.api.Hubs.ChatHub.OnConnectedAsync()
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Hubs/ChatHub.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: OnConnectedAsync
+    path: ../../../lumify.api/Hubs/ChatHub.cs
+    startLine: 28
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Hubs
+  summary: Called when a new connection is established with the hub.
+  example: []
+  syntax:
+    content: public override Task OnConnectedAsync()
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that represents the asynchronous connect.
+    content.vb: Public Overrides Function OnConnectedAsync() As Task
+  overridden: Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync
+  overload: lumify.api.Hubs.ChatHub.OnConnectedAsync*
+- uid: lumify.api.Hubs.ChatHub.OnDisconnectedAsync(System.Exception)
+  commentId: M:lumify.api.Hubs.ChatHub.OnDisconnectedAsync(System.Exception)
+  id: OnDisconnectedAsync(System.Exception)
+  parent: lumify.api.Hubs.ChatHub
+  langs:
+  - csharp
+  - vb
+  name: OnDisconnectedAsync(Exception?)
+  nameWithType: ChatHub.OnDisconnectedAsync(Exception?)
+  fullName: lumify.api.Hubs.ChatHub.OnDisconnectedAsync(System.Exception?)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Hubs/ChatHub.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: OnDisconnectedAsync
+    path: ../../../lumify.api/Hubs/ChatHub.cs
+    startLine: 42
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Hubs
+  summary: Called when a connection with the hub is terminated.
+  example: []
+  syntax:
+    content: public override Task OnDisconnectedAsync(Exception? exception)
+    parameters:
+    - id: exception
+      type: System.Exception
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that represents the asynchronous disconnect.
+    content.vb: Public Overrides Function OnDisconnectedAsync(exception As Exception) As Task
+  overridden: Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
+  overload: lumify.api.Hubs.ChatHub.OnDisconnectedAsync*
+  nameWithType.vb: ChatHub.OnDisconnectedAsync(Exception)
+  fullName.vb: lumify.api.Hubs.ChatHub.OnDisconnectedAsync(System.Exception)
+  name.vb: OnDisconnectedAsync(Exception)
+- uid: lumify.api.Hubs.ChatHub.JoinRoom(System.String)
+  commentId: M:lumify.api.Hubs.ChatHub.JoinRoom(System.String)
+  id: JoinRoom(System.String)
+  parent: lumify.api.Hubs.ChatHub
+  langs:
+  - csharp
+  - vb
+  name: JoinRoom(string)
+  nameWithType: ChatHub.JoinRoom(string)
+  fullName: lumify.api.Hubs.ChatHub.JoinRoom(string)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Hubs/ChatHub.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: JoinRoom
+    path: ../../../lumify.api/Hubs/ChatHub.cs
+    startLine: 62
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Hubs
+  syntax:
+    content: public Task JoinRoom(string roomID)
+    parameters:
+    - id: roomID
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function JoinRoom(roomID As String) As Task
+  overload: lumify.api.Hubs.ChatHub.JoinRoom*
+  nameWithType.vb: ChatHub.JoinRoom(String)
+  fullName.vb: lumify.api.Hubs.ChatHub.JoinRoom(String)
+  name.vb: JoinRoom(String)
+- uid: lumify.api.Hubs.ChatHub.LeaveRoom(System.String)
+  commentId: M:lumify.api.Hubs.ChatHub.LeaveRoom(System.String)
+  id: LeaveRoom(System.String)
+  parent: lumify.api.Hubs.ChatHub
+  langs:
+  - csharp
+  - vb
+  name: LeaveRoom(string)
+  nameWithType: ChatHub.LeaveRoom(string)
+  fullName: lumify.api.Hubs.ChatHub.LeaveRoom(string)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Hubs/ChatHub.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: LeaveRoom
+    path: ../../../lumify.api/Hubs/ChatHub.cs
+    startLine: 72
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Hubs
+  syntax:
+    content: public Task LeaveRoom(string roomID)
+    parameters:
+    - id: roomID
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function LeaveRoom(roomID As String) As Task
+  overload: lumify.api.Hubs.ChatHub.LeaveRoom*
+  nameWithType.vb: ChatHub.LeaveRoom(String)
+  fullName.vb: lumify.api.Hubs.ChatHub.LeaveRoom(String)
+  name.vb: LeaveRoom(String)
+- uid: lumify.api.Hubs.ChatHub.SendMessage(System.String,System.String)
+  commentId: M:lumify.api.Hubs.ChatHub.SendMessage(System.String,System.String)
+  id: SendMessage(System.String,System.String)
+  parent: lumify.api.Hubs.ChatHub
+  langs:
+  - csharp
+  - vb
+  name: SendMessage(string, string)
+  nameWithType: ChatHub.SendMessage(string, string)
+  fullName: lumify.api.Hubs.ChatHub.SendMessage(string, string)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Hubs/ChatHub.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SendMessage
+    path: ../../../lumify.api/Hubs/ChatHub.cs
+    startLine: 85
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Hubs
+  syntax:
+    content: public Task SendMessage(string roomID, string content)
+    parameters:
+    - id: roomID
+      type: System.String
+    - id: content
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function SendMessage(roomID As String, content As String) As Task
+  overload: lumify.api.Hubs.ChatHub.SendMessage*
+  nameWithType.vb: ChatHub.SendMessage(String, String)
+  fullName.vb: lumify.api.Hubs.ChatHub.SendMessage(String, String)
+  name.vb: SendMessage(String, String)
+references:
+- uid: lumify.api.Hubs
+  commentId: N:lumify.api.Hubs
+  href: lumify.html
+  name: lumify.api.Hubs
+  nameWithType: lumify.api.Hubs
+  fullName: lumify.api.Hubs
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Hubs
+    name: Hubs
+    href: lumify.api.Hubs.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Hubs
+    name: Hubs
+    href: lumify.api.Hubs.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.SignalR.Hub
+  commentId: T:Microsoft.AspNetCore.SignalR.Hub
+  parent: Microsoft.AspNetCore.SignalR
+  isExternal: true
+  name: Hub
+  nameWithType: Hub
+  fullName: Microsoft.AspNetCore.SignalR.Hub
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.SignalR
+  commentId: N:Microsoft.AspNetCore.SignalR
+  isExternal: true
+  name: Microsoft.AspNetCore.SignalR
+  nameWithType: Microsoft.AspNetCore.SignalR
+  fullName: Microsoft.AspNetCore.SignalR
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+- uid: lumify.api.Hubs.ChatHub.#ctor*
+  commentId: Overload:lumify.api.Hubs.ChatHub.#ctor
+  href: lumify.api.Hubs.ChatHub.html#lumify_api_Hubs_ChatHub__ctor_lumify_api_Interfaces_IPresenceService_lumify_api_Models_Context_LumifyDbContext_
+  name: ChatHub
+  nameWithType: ChatHub.ChatHub
+  fullName: lumify.api.Hubs.ChatHub.ChatHub
+  nameWithType.vb: ChatHub.New
+  fullName.vb: lumify.api.Hubs.ChatHub.New
+  name.vb: New
+- uid: lumify.api.Interfaces.IPresenceService
+  commentId: T:lumify.api.Interfaces.IPresenceService
+  parent: lumify.api.Interfaces
+  href: lumify.api.Interfaces.IPresenceService.html
+  name: IPresenceService
+  nameWithType: IPresenceService
+  fullName: lumify.api.Interfaces.IPresenceService
+- uid: lumify.api.Models.Context.LumifyDbContext
+  commentId: T:lumify.api.Models.Context.LumifyDbContext
+  parent: lumify.api.Models.Context
+  href: lumify.api.Models.Context.LumifyDbContext.html
+  name: LumifyDbContext
+  nameWithType: LumifyDbContext
+  fullName: lumify.api.Models.Context.LumifyDbContext
+- uid: lumify.api.Interfaces
+  commentId: N:lumify.api.Interfaces
+  href: lumify.html
+  name: lumify.api.Interfaces
+  nameWithType: lumify.api.Interfaces
+  fullName: lumify.api.Interfaces
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Interfaces
+    name: Interfaces
+    href: lumify.api.Interfaces.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Interfaces
+    name: Interfaces
+    href: lumify.api.Interfaces.html
+- uid: lumify.api.Models.Context
+  commentId: N:lumify.api.Models.Context
+  href: lumify.html
+  name: lumify.api.Models.Context
+  nameWithType: lumify.api.Models.Context
+  fullName: lumify.api.Models.Context
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync
+  commentId: M:Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync
+  parent: Microsoft.AspNetCore.SignalR.Hub
+  isExternal: true
+  name: OnConnectedAsync()
+  nameWithType: Hub.OnConnectedAsync()
+  fullName: Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync
+    name: OnConnectedAsync
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync
+    name: OnConnectedAsync
+    isExternal: true
+  - name: (
+  - name: )
+- uid: lumify.api.Hubs.ChatHub.OnConnectedAsync*
+  commentId: Overload:lumify.api.Hubs.ChatHub.OnConnectedAsync
+  href: lumify.api.Hubs.ChatHub.html#lumify_api_Hubs_ChatHub_OnConnectedAsync
+  name: OnConnectedAsync
+  nameWithType: ChatHub.OnConnectedAsync
+  fullName: lumify.api.Hubs.ChatHub.OnConnectedAsync
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
+  commentId: M:Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
+  parent: Microsoft.AspNetCore.SignalR.Hub
+  isExternal: true
+  name: OnDisconnectedAsync(Exception)
+  nameWithType: Hub.OnDisconnectedAsync(Exception)
+  fullName: Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
+    name: OnDisconnectedAsync
+    isExternal: true
+  - name: (
+  - uid: System.Exception
+    name: Exception
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
+    name: OnDisconnectedAsync
+    isExternal: true
+  - name: (
+  - uid: System.Exception
+    name: Exception
+    isExternal: true
+  - name: )
+- uid: lumify.api.Hubs.ChatHub.OnDisconnectedAsync*
+  commentId: Overload:lumify.api.Hubs.ChatHub.OnDisconnectedAsync
+  href: lumify.api.Hubs.ChatHub.html#lumify_api_Hubs_ChatHub_OnDisconnectedAsync_System_Exception_
+  name: OnDisconnectedAsync
+  nameWithType: ChatHub.OnDisconnectedAsync
+  fullName: lumify.api.Hubs.ChatHub.OnDisconnectedAsync
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: lumify.api.Hubs.ChatHub.JoinRoom*
+  commentId: Overload:lumify.api.Hubs.ChatHub.JoinRoom
+  href: lumify.api.Hubs.ChatHub.html#lumify_api_Hubs_ChatHub_JoinRoom_System_String_
+  name: JoinRoom
+  nameWithType: ChatHub.JoinRoom
+  fullName: lumify.api.Hubs.ChatHub.JoinRoom
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Hubs.ChatHub.LeaveRoom*
+  commentId: Overload:lumify.api.Hubs.ChatHub.LeaveRoom
+  href: lumify.api.Hubs.ChatHub.html#lumify_api_Hubs_ChatHub_LeaveRoom_System_String_
+  name: LeaveRoom
+  nameWithType: ChatHub.LeaveRoom
+  fullName: lumify.api.Hubs.ChatHub.LeaveRoom
+- uid: lumify.api.Hubs.ChatHub.SendMessage*
+  commentId: Overload:lumify.api.Hubs.ChatHub.SendMessage
+  href: lumify.api.Hubs.ChatHub.html#lumify_api_Hubs_ChatHub_SendMessage_System_String_System_String_
+  name: SendMessage
+  nameWithType: ChatHub.SendMessage
+  fullName: lumify.api.Hubs.ChatHub.SendMessage

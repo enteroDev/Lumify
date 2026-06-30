@@ -1,0 +1,62 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Interfaces
+  commentId: N:lumify.api.Interfaces
+  id: lumify.api.Interfaces
+  children:
+  - lumify.api.Interfaces.IEmailService
+  - lumify.api.Interfaces.IPresenceService
+  langs:
+  - csharp
+  - vb
+  name: lumify.api.Interfaces
+  nameWithType: lumify.api.Interfaces
+  fullName: lumify.api.Interfaces
+  type: Namespace
+  assemblies:
+  - lumify.api
+references:
+- uid: lumify.api.Interfaces.IEmailService
+  commentId: T:lumify.api.Interfaces.IEmailService
+  parent: lumify.api.Interfaces
+  href: lumify.api.Interfaces.IEmailService.html
+  name: IEmailService
+  nameWithType: IEmailService
+  fullName: lumify.api.Interfaces.IEmailService
+- uid: lumify.api.Interfaces.IPresenceService
+  commentId: T:lumify.api.Interfaces.IPresenceService
+  parent: lumify.api.Interfaces
+  href: lumify.api.Interfaces.IPresenceService.html
+  name: IPresenceService
+  nameWithType: IPresenceService
+  fullName: lumify.api.Interfaces.IPresenceService
+- uid: lumify.api.Interfaces
+  commentId: N:lumify.api.Interfaces
+  href: lumify.html
+  name: lumify.api.Interfaces
+  nameWithType: lumify.api.Interfaces
+  fullName: lumify.api.Interfaces
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Interfaces
+    name: Interfaces
+    href: lumify.api.Interfaces.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Interfaces
+    name: Interfaces
+    href: lumify.api.Interfaces.html

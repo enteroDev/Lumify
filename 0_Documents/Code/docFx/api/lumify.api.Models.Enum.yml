@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.Enum
+  commentId: N:lumify.api.Models.Enum
+  id: lumify.api.Models.Enum
+  children:
+  - lumify.api.Models.Enum.FriendshipStatus
+  - lumify.api.Models.Enum.PresenceStatus
+  langs:
+  - csharp
+  - vb
+  name: lumify.api.Models.Enum
+  nameWithType: lumify.api.Models.Enum
+  fullName: lumify.api.Models.Enum
+  type: Namespace
+  assemblies:
+  - lumify.api
+references:
+- uid: lumify.api.Models.Enum.FriendshipStatus
+  commentId: T:lumify.api.Models.Enum.FriendshipStatus
+  parent: lumify.api.Models.Enum
+  href: lumify.api.Models.Enum.FriendshipStatus.html
+  name: FriendshipStatus
+  nameWithType: FriendshipStatus
+  fullName: lumify.api.Models.Enum.FriendshipStatus
+- uid: lumify.api.Models.Enum.PresenceStatus
+  commentId: T:lumify.api.Models.Enum.PresenceStatus
+  parent: lumify.api.Models.Enum
+  href: lumify.api.Models.Enum.PresenceStatus.html
+  name: PresenceStatus
+  nameWithType: PresenceStatus
+  fullName: lumify.api.Models.Enum.PresenceStatus
+- uid: lumify.api.Models.Enum
+  commentId: N:lumify.api.Models.Enum
+  href: lumify.html
+  name: lumify.api.Models.Enum
+  nameWithType: lumify.api.Models.Enum
+  fullName: lumify.api.Models.Enum
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Enum
+    name: Enum
+    href: lumify.api.Models.Enum.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Enum
+    name: Enum
+    href: lumify.api.Models.Enum.html

@@ -1,0 +1,254 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  id: lumify.api.Models.DTO.Requests
+  children:
+  - lumify.api.Models.DTO.Requests.AddEventRequest
+  - lumify.api.Models.DTO.Requests.AddFolderRequest
+  - lumify.api.Models.DTO.Requests.AddLinkItemRequest
+  - lumify.api.Models.DTO.Requests.AddNoteRequest
+  - lumify.api.Models.DTO.Requests.AddTextBlockRequest
+  - lumify.api.Models.DTO.Requests.AddTodoEntryRequest
+  - lumify.api.Models.DTO.Requests.AddTodoListRequest
+  - lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest
+  - lumify.api.Models.DTO.Requests.AddWorkspaceRequest
+  - lumify.api.Models.DTO.Requests.LoginRequest
+  - lumify.api.Models.DTO.Requests.RegisterRequest
+  - lumify.api.Models.DTO.Requests.RequestPasswordResetRequest
+  - lumify.api.Models.DTO.Requests.ResendVerificationRequest
+  - lumify.api.Models.DTO.Requests.ResetPasswordRequest
+  - lumify.api.Models.DTO.Requests.SaveEventRequest
+  - lumify.api.Models.DTO.Requests.SaveFolderRequest
+  - lumify.api.Models.DTO.Requests.SaveNoteRequest
+  - lumify.api.Models.DTO.Requests.SaveTextblockRequest
+  - lumify.api.Models.DTO.Requests.SaveTodoListRequest
+  - lumify.api.Models.DTO.Requests.SaveUserProfileRequest
+  - lumify.api.Models.DTO.Requests.SaveWorkspaceRequest
+  - lumify.api.Models.DTO.Requests.TotpCodeRequest
+  - lumify.api.Models.DTO.Requests.VerifyEmailRequest
+  - lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest
+  langs:
+  - csharp
+  - vb
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  type: Namespace
+  assemblies:
+  - lumify.api
+references:
+- uid: lumify.api.Models.DTO.Requests.AddEventRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddEventRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.AddEventRequest.html
+  name: AddEventRequest
+  nameWithType: AddEventRequest
+  fullName: lumify.api.Models.DTO.Requests.AddEventRequest
+- uid: lumify.api.Models.DTO.Requests.AddFolderRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddFolderRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.AddFolderRequest.html
+  name: AddFolderRequest
+  nameWithType: AddFolderRequest
+  fullName: lumify.api.Models.DTO.Requests.AddFolderRequest
+- uid: lumify.api.Models.DTO.Requests.AddLinkItemRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddLinkItemRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.AddLinkItemRequest.html
+  name: AddLinkItemRequest
+  nameWithType: AddLinkItemRequest
+  fullName: lumify.api.Models.DTO.Requests.AddLinkItemRequest
+- uid: lumify.api.Models.DTO.Requests.AddNoteRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddNoteRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.AddNoteRequest.html
+  name: AddNoteRequest
+  nameWithType: AddNoteRequest
+  fullName: lumify.api.Models.DTO.Requests.AddNoteRequest
+- uid: lumify.api.Models.DTO.Requests.AddTextBlockRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddTextBlockRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.AddTextBlockRequest.html
+  name: AddTextBlockRequest
+  nameWithType: AddTextBlockRequest
+  fullName: lumify.api.Models.DTO.Requests.AddTextBlockRequest
+- uid: lumify.api.Models.DTO.Requests.AddTodoEntryRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddTodoEntryRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.AddTodoEntryRequest.html
+  name: AddTodoEntryRequest
+  nameWithType: AddTodoEntryRequest
+  fullName: lumify.api.Models.DTO.Requests.AddTodoEntryRequest
+- uid: lumify.api.Models.DTO.Requests.AddTodoListRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddTodoListRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.AddTodoListRequest.html
+  name: AddTodoListRequest
+  nameWithType: AddTodoListRequest
+  fullName: lumify.api.Models.DTO.Requests.AddTodoListRequest
+- uid: lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest.html
+  name: AddWorkspaceMemberRequest
+  nameWithType: AddWorkspaceMemberRequest
+  fullName: lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest
+- uid: lumify.api.Models.DTO.Requests.AddWorkspaceRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddWorkspaceRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.AddWorkspaceRequest.html
+  name: AddWorkspaceRequest
+  nameWithType: AddWorkspaceRequest
+  fullName: lumify.api.Models.DTO.Requests.AddWorkspaceRequest
+- uid: lumify.api.Models.DTO.Requests.LoginRequest
+  commentId: T:lumify.api.Models.DTO.Requests.LoginRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.LoginRequest.html
+  name: LoginRequest
+  nameWithType: LoginRequest
+  fullName: lumify.api.Models.DTO.Requests.LoginRequest
+- uid: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest
+  commentId: T:lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.html
+  name: VerifyTotpLoginRequest
+  nameWithType: VerifyTotpLoginRequest
+  fullName: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest
+- uid: lumify.api.Models.DTO.Requests.TotpCodeRequest
+  commentId: T:lumify.api.Models.DTO.Requests.TotpCodeRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.TotpCodeRequest.html
+  name: TotpCodeRequest
+  nameWithType: TotpCodeRequest
+  fullName: lumify.api.Models.DTO.Requests.TotpCodeRequest
+- uid: lumify.api.Models.DTO.Requests.RegisterRequest
+  commentId: T:lumify.api.Models.DTO.Requests.RegisterRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.RegisterRequest.html
+  name: RegisterRequest
+  nameWithType: RegisterRequest
+  fullName: lumify.api.Models.DTO.Requests.RegisterRequest
+- uid: lumify.api.Models.DTO.Requests.RequestPasswordResetRequest
+  commentId: T:lumify.api.Models.DTO.Requests.RequestPasswordResetRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.RequestPasswordResetRequest.html
+  name: RequestPasswordResetRequest
+  nameWithType: RequestPasswordResetRequest
+  fullName: lumify.api.Models.DTO.Requests.RequestPasswordResetRequest
+- uid: lumify.api.Models.DTO.Requests.ResendVerificationRequest
+  commentId: T:lumify.api.Models.DTO.Requests.ResendVerificationRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.ResendVerificationRequest.html
+  name: ResendVerificationRequest
+  nameWithType: ResendVerificationRequest
+  fullName: lumify.api.Models.DTO.Requests.ResendVerificationRequest
+- uid: lumify.api.Models.DTO.Requests.ResetPasswordRequest
+  commentId: T:lumify.api.Models.DTO.Requests.ResetPasswordRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.ResetPasswordRequest.html
+  name: ResetPasswordRequest
+  nameWithType: ResetPasswordRequest
+  fullName: lumify.api.Models.DTO.Requests.ResetPasswordRequest
+- uid: lumify.api.Models.DTO.Requests.SaveEventRequest
+  commentId: T:lumify.api.Models.DTO.Requests.SaveEventRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.SaveEventRequest.html
+  name: SaveEventRequest
+  nameWithType: SaveEventRequest
+  fullName: lumify.api.Models.DTO.Requests.SaveEventRequest
+- uid: lumify.api.Models.DTO.Requests.SaveFolderRequest
+  commentId: T:lumify.api.Models.DTO.Requests.SaveFolderRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.SaveFolderRequest.html
+  name: SaveFolderRequest
+  nameWithType: SaveFolderRequest
+  fullName: lumify.api.Models.DTO.Requests.SaveFolderRequest
+- uid: lumify.api.Models.DTO.Requests.SaveNoteRequest
+  commentId: T:lumify.api.Models.DTO.Requests.SaveNoteRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.SaveNoteRequest.html
+  name: SaveNoteRequest
+  nameWithType: SaveNoteRequest
+  fullName: lumify.api.Models.DTO.Requests.SaveNoteRequest
+- uid: lumify.api.Models.DTO.Requests.SaveTextblockRequest
+  commentId: T:lumify.api.Models.DTO.Requests.SaveTextblockRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.SaveTextblockRequest.html
+  name: SaveTextblockRequest
+  nameWithType: SaveTextblockRequest
+  fullName: lumify.api.Models.DTO.Requests.SaveTextblockRequest
+- uid: lumify.api.Models.DTO.Requests.SaveTodoListRequest
+  commentId: T:lumify.api.Models.DTO.Requests.SaveTodoListRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.SaveTodoListRequest.html
+  name: SaveTodoListRequest
+  nameWithType: SaveTodoListRequest
+  fullName: lumify.api.Models.DTO.Requests.SaveTodoListRequest
+- uid: lumify.api.Models.DTO.Requests.SaveUserProfileRequest
+  commentId: T:lumify.api.Models.DTO.Requests.SaveUserProfileRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.SaveUserProfileRequest.html
+  name: SaveUserProfileRequest
+  nameWithType: SaveUserProfileRequest
+  fullName: lumify.api.Models.DTO.Requests.SaveUserProfileRequest
+- uid: lumify.api.Models.DTO.Requests.SaveWorkspaceRequest
+  commentId: T:lumify.api.Models.DTO.Requests.SaveWorkspaceRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.SaveWorkspaceRequest.html
+  name: SaveWorkspaceRequest
+  nameWithType: SaveWorkspaceRequest
+  fullName: lumify.api.Models.DTO.Requests.SaveWorkspaceRequest
+- uid: lumify.api.Models.DTO.Requests.VerifyEmailRequest
+  commentId: T:lumify.api.Models.DTO.Requests.VerifyEmailRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.VerifyEmailRequest.html
+  name: VerifyEmailRequest
+  nameWithType: VerifyEmailRequest
+  fullName: lumify.api.Models.DTO.Requests.VerifyEmailRequest
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  href: lumify.html
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html

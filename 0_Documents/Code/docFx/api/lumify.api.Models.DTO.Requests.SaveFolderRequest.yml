@@ -1,0 +1,247 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.DTO.Requests.SaveFolderRequest
+  commentId: T:lumify.api.Models.DTO.Requests.SaveFolderRequest
+  id: SaveFolderRequest
+  parent: lumify.api.Models.DTO.Requests
+  children:
+  - lumify.api.Models.DTO.Requests.SaveFolderRequest.Description
+  - lumify.api.Models.DTO.Requests.SaveFolderRequest.ID
+  - lumify.api.Models.DTO.Requests.SaveFolderRequest.Name
+  - lumify.api.Models.DTO.Requests.SaveFolderRequest.ParentFolderID
+  langs:
+  - csharp
+  - vb
+  name: SaveFolderRequest
+  nameWithType: SaveFolderRequest
+  fullName: lumify.api.Models.DTO.Requests.SaveFolderRequest
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/SaveFolderRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SaveFolderRequest
+    path: ../../../lumify.api/Models/DTO/Requests/SaveFolderRequest.cs
+    startLine: 2
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public sealed class SaveFolderRequest
+    content.vb: Public NotInheritable Class SaveFolderRequest
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.DTO.Requests.SaveFolderRequest.ID
+  commentId: P:lumify.api.Models.DTO.Requests.SaveFolderRequest.ID
+  id: ID
+  parent: lumify.api.Models.DTO.Requests.SaveFolderRequest
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: SaveFolderRequest.ID
+  fullName: lumify.api.Models.DTO.Requests.SaveFolderRequest.ID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/SaveFolderRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ID
+    path: ../../../lumify.api/Models/DTO/Requests/SaveFolderRequest.cs
+    startLine: 4
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string ID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ID As String
+  overload: lumify.api.Models.DTO.Requests.SaveFolderRequest.ID*
+- uid: lumify.api.Models.DTO.Requests.SaveFolderRequest.Name
+  commentId: P:lumify.api.Models.DTO.Requests.SaveFolderRequest.Name
+  id: Name
+  parent: lumify.api.Models.DTO.Requests.SaveFolderRequest
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: SaveFolderRequest.Name
+  fullName: lumify.api.Models.DTO.Requests.SaveFolderRequest.Name
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/SaveFolderRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Name
+    path: ../../../lumify.api/Models/DTO/Requests/SaveFolderRequest.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string? Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: lumify.api.Models.DTO.Requests.SaveFolderRequest.Name*
+- uid: lumify.api.Models.DTO.Requests.SaveFolderRequest.Description
+  commentId: P:lumify.api.Models.DTO.Requests.SaveFolderRequest.Description
+  id: Description
+  parent: lumify.api.Models.DTO.Requests.SaveFolderRequest
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: SaveFolderRequest.Description
+  fullName: lumify.api.Models.DTO.Requests.SaveFolderRequest.Description
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/SaveFolderRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Description
+    path: ../../../lumify.api/Models/DTO/Requests/SaveFolderRequest.cs
+    startLine: 6
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string? Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: lumify.api.Models.DTO.Requests.SaveFolderRequest.Description*
+- uid: lumify.api.Models.DTO.Requests.SaveFolderRequest.ParentFolderID
+  commentId: P:lumify.api.Models.DTO.Requests.SaveFolderRequest.ParentFolderID
+  id: ParentFolderID
+  parent: lumify.api.Models.DTO.Requests.SaveFolderRequest
+  langs:
+  - csharp
+  - vb
+  name: ParentFolderID
+  nameWithType: SaveFolderRequest.ParentFolderID
+  fullName: lumify.api.Models.DTO.Requests.SaveFolderRequest.ParentFolderID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/SaveFolderRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ParentFolderID
+    path: ../../../lumify.api/Models/DTO/Requests/SaveFolderRequest.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string? ParentFolderID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ParentFolderID As String
+  overload: lumify.api.Models.DTO.Requests.SaveFolderRequest.ParentFolderID*
+references:
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  href: lumify.html
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.DTO.Requests.SaveFolderRequest.ID*
+  commentId: Overload:lumify.api.Models.DTO.Requests.SaveFolderRequest.ID
+  href: lumify.api.Models.DTO.Requests.SaveFolderRequest.html#lumify_api_Models_DTO_Requests_SaveFolderRequest_ID
+  name: ID
+  nameWithType: SaveFolderRequest.ID
+  fullName: lumify.api.Models.DTO.Requests.SaveFolderRequest.ID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.DTO.Requests.SaveFolderRequest.Name*
+  commentId: Overload:lumify.api.Models.DTO.Requests.SaveFolderRequest.Name
+  href: lumify.api.Models.DTO.Requests.SaveFolderRequest.html#lumify_api_Models_DTO_Requests_SaveFolderRequest_Name
+  name: Name
+  nameWithType: SaveFolderRequest.Name
+  fullName: lumify.api.Models.DTO.Requests.SaveFolderRequest.Name
+- uid: lumify.api.Models.DTO.Requests.SaveFolderRequest.Description*
+  commentId: Overload:lumify.api.Models.DTO.Requests.SaveFolderRequest.Description
+  href: lumify.api.Models.DTO.Requests.SaveFolderRequest.html#lumify_api_Models_DTO_Requests_SaveFolderRequest_Description
+  name: Description
+  nameWithType: SaveFolderRequest.Description
+  fullName: lumify.api.Models.DTO.Requests.SaveFolderRequest.Description
+- uid: lumify.api.Models.DTO.Requests.SaveFolderRequest.ParentFolderID*
+  commentId: Overload:lumify.api.Models.DTO.Requests.SaveFolderRequest.ParentFolderID
+  href: lumify.api.Models.DTO.Requests.SaveFolderRequest.html#lumify_api_Models_DTO_Requests_SaveFolderRequest_ParentFolderID
+  name: ParentFolderID
+  nameWithType: SaveFolderRequest.ParentFolderID
+  fullName: lumify.api.Models.DTO.Requests.SaveFolderRequest.ParentFolderID

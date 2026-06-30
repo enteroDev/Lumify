@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class FoldersController | Lumify – Code Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FoldersController | Lumify – Code Documentation ">
+      
+      <meta name="description" content="Manages note folders, both personal (no workspace) and workspace-shared, including creation, editing, moving and recursive deletion. All endpoints require an authenticated user. Changes to workspace folders are pushed live to the workspace group over the .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/enteroDev/Lumify/new/main/apiSpec/new?filename=lumify_api_Controllers_FoldersController.md&amp;value=---%0Auid%3A%20lumify.api.Controllers.FoldersController%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Lumify">
+            Lumify
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="lumify.api.Controllers.FoldersController">
+
+
+
+  <h1 id="lumify_api_Controllers_FoldersController" data-uid="lumify.api.Controllers.FoldersController" class="text-break">
+Class FoldersController  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/FoldersController.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="lumify.html">lumify</a>.<a class="xref" href="lumify.api.html">api</a>.<a class="xref" href="lumify.api.Controllers.html">Controllers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Manages note folders, both personal (no workspace) and workspace-shared, including
+creation, editing, moving and recursive deletion. All endpoints require an
+authenticated user. Changes to workspace folders are pushed live to the workspace
+group over the <a class="xref" href="lumify.api.Hubs.NoteHub.html">NoteHub</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiController]
+[Route(&quot;folders/[action]&quot;)]
+[Authorize]
+public class FoldersController : ControllerBase</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ControllerBase</span></div>
+      <div><span class="xref">FoldersController</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="lumify_api_Controllers_FoldersController_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Permission rule throughout: a personal folder may only be modified by its owner, while
+a workspace folder may be modified by any active member of that workspace
+(see <code>CanModify</code>).</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="lumify_api_Controllers_FoldersController__ctor_" data-uid="lumify.api.Controllers.FoldersController.#ctor*"></a>
+
+  <h3 id="lumify_api_Controllers_FoldersController__ctor_Microsoft_Extensions_Logging_ILogger_lumify_api_Controllers_FoldersController__lumify_api_Models_Context_LumifyDbContext_Microsoft_AspNetCore_SignalR_IHubContext_lumify_api_Hubs_NoteHub__" data-uid="lumify.api.Controllers.FoldersController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.FoldersController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.NoteHub})">
+  FoldersController(ILogger&lt;FoldersController&gt;, LumifyDbContext, IHubContext&lt;NoteHub&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/FoldersController.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates the controller with its injected logger, database context and the note hub
+used for live notifications.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FoldersController(ILogger&lt;FoldersController&gt; logger, LumifyDbContext db, IHubContext&lt;NoteHub&gt; noteHub)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>logger</code> <span class="xref">ILogger</span>&lt;<a class="xref" href="lumify.api.Controllers.FoldersController.html">FoldersController</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>db</code> <a class="xref" href="lumify.api.Models.Context.LumifyDbContext.html">LumifyDbContext</a></dt>
+    <dd></dd>
+    <dt><code>noteHub</code> <span class="xref">IHubContext</span>&lt;<a class="xref" href="lumify.api.Hubs.NoteHub.html">NoteHub</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="lumify_api_Controllers_FoldersController_AddFolder_" data-uid="lumify.api.Controllers.FoldersController.AddFolder*"></a>
+
+  <h3 id="lumify_api_Controllers_FoldersController_AddFolder_lumify_api_Models_DTO_Requests_AddFolderRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.FoldersController.AddFolder(lumify.api.Models.DTO.Requests.AddFolderRequest,System.Threading.CancellationToken)">
+  AddFolder(AddFolderRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/FoldersController.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new folder, optionally inside a workspace and/or a parent folder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[ActionName(&quot;addFolder&quot;)]
+public Task&lt;ActionResult&lt;FolderResponse&gt;&gt; AddFolder(AddFolderRequest request, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="lumify.api.Models.DTO.Requests.AddFolderRequest.html">AddFolderRequest</a></dt>
+    <dd><p>Folder data (name required; optional description, workspace, parent).</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.FolderResponse.html">FolderResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the created folder; 400 on missing name or invalid workspace/parent;
+403 if the user is not a member of the target workspace or owner of the parent.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_FoldersController_AddFolder_lumify_api_Models_DTO_Requests_AddFolderRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If a workspace is given, the user must be a member of it; if a parent folder is
+given, it must live in the same space. On success in a workspace, a
+<code>FolderCreated</code> event is broadcast to the workspace group.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_FoldersController_DeleteFolder_" data-uid="lumify.api.Controllers.FoldersController.DeleteFolder*"></a>
+
+  <h3 id="lumify_api_Controllers_FoldersController_DeleteFolder_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.FoldersController.DeleteFolder(System.String,System.Threading.CancellationToken)">
+  DeleteFolder(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/FoldersController.cs/#L363"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Soft-deletes a folder together with all of its descendant sub-folders and their
+notes (recursive, breadth-first).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpDelete]
+[ActionName(&quot;deleteFolder&quot;)]
+public Task&lt;ActionResult&gt; DeleteFolder(string folderID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>folderID</code> <span class="xref">string</span></dt>
+    <dd><p>The root folder to delete.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&gt;</dt>
+    <dd><p>200 with <code>success = true</code> and the folder ID; 400 if the ID is missing;
+403 if the user may not delete it; 404 if the folder does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_FoldersController_DeleteFolder_System_String_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Nothing is physically removed — all affected rows get a <code>DeletedAt</code> timestamp.
+On a workspace folder, a <code>FolderDeleted</code> event is broadcast to the workspace group.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_FoldersController_GetAllFoldersOfUser_" data-uid="lumify.api.Controllers.FoldersController.GetAllFoldersOfUser*"></a>
+
+  <h3 id="lumify_api_Controllers_FoldersController_GetAllFoldersOfUser_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.FoldersController.GetAllFoldersOfUser(System.Threading.CancellationToken)">
+  GetAllFoldersOfUser(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/FoldersController.cs/#L474"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns all personal folders of the current user (no workspace), oldest first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getAllFoldersOfUser&quot;)]
+public Task&lt;ActionResult&lt;List&lt;FolderResponse&gt;&gt;&gt; GetAllFoldersOfUser(CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.FolderResponse.html">FolderResponse</a>&gt;&gt;&gt;</dt>
+    <dd><p>200 with the list of personal folders.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_FoldersController_GetAllFoldersOfWorkspace_" data-uid="lumify.api.Controllers.FoldersController.GetAllFoldersOfWorkspace*"></a>
+
+  <h3 id="lumify_api_Controllers_FoldersController_GetAllFoldersOfWorkspace_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.FoldersController.GetAllFoldersOfWorkspace(System.String,System.Threading.CancellationToken)">
+  GetAllFoldersOfWorkspace(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/FoldersController.cs/#L508"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns all folders of the given workspace, oldest first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getAllFoldersOfWorkspace&quot;)]
+public Task&lt;ActionResult&lt;List&lt;FolderResponse&gt;&gt;&gt; GetAllFoldersOfWorkspace(string workspaceID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>workspaceID</code> <span class="xref">string</span></dt>
+    <dd><p>The workspace whose folders are requested.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.FolderResponse.html">FolderResponse</a>&gt;&gt;&gt;</dt>
+    <dd><p>200 with the list of workspace folders.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_FoldersController_SaveFolder_" data-uid="lumify.api.Controllers.FoldersController.SaveFolder*"></a>
+
+  <h3 id="lumify_api_Controllers_FoldersController_SaveFolder_lumify_api_Models_DTO_Requests_SaveFolderRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.FoldersController.SaveFolder(lumify.api.Models.DTO.Requests.SaveFolderRequest,System.Threading.CancellationToken)">
+  SaveFolder(SaveFolderRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/FoldersController.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates a folder's name, description and/or parent (move). Only the provided fields
+are changed; the database is only written if something actually changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPatch]
+[ActionName(&quot;saveFolder&quot;)]
+public Task&lt;ActionResult&lt;FolderResponse&gt;&gt; SaveFolder(SaveFolderRequest request, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="lumify.api.Models.DTO.Requests.SaveFolderRequest.html">SaveFolderRequest</a></dt>
+    <dd><p>The folder ID plus the fields to change.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.FolderResponse.html">FolderResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the updated folder; 400 on invalid input or move target; 403 if
+the user may not modify it; 404 if the folder does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_FoldersController_SaveFolder_lumify_api_Models_DTO_Requests_SaveFolderRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Move rules: a folder cannot be moved into itself; a personal folder may only move
+into another personal folder of the same owner; a workspace folder may only move
+within the same workspace. On a successful change in a workspace, a
+<code>FolderUpdated</code> event is broadcast to the workspace group.</p>
+</div>
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

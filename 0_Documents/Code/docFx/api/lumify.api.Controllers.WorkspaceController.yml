@@ -1,0 +1,1330 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Controllers.WorkspaceController
+  commentId: T:lumify.api.Controllers.WorkspaceController
+  id: WorkspaceController
+  parent: lumify.api.Controllers
+  children:
+  - lumify.api.Controllers.WorkspaceController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.WorkspaceController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.WorkspaceHub})
+  - lumify.api.Controllers.WorkspaceController.AddWorkspace(lumify.api.Models.DTO.Requests.AddWorkspaceRequest,System.Threading.CancellationToken)
+  - lumify.api.Controllers.WorkspaceController.AddWorkspaceMember(lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest,System.Threading.CancellationToken)
+  - lumify.api.Controllers.WorkspaceController.DeleteWorkspace(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.WorkspaceController.GetWorkspaceMembers(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.WorkspaceController.GetWorkspaceWithID(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.WorkspaceController.GetWorkspacesOfUser(System.Threading.CancellationToken)
+  - lumify.api.Controllers.WorkspaceController.RemoveWorkspaceMember(System.String,System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.WorkspaceController.SaveWorkspace(lumify.api.Models.DTO.Requests.SaveWorkspaceRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: WorkspaceController
+  nameWithType: WorkspaceController
+  fullName: lumify.api.Controllers.WorkspaceController
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Controllers/WorkspaceController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: WorkspaceController
+    path: ../../../lumify.api/Controllers/WorkspaceController.cs
+    startLine: 22
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Manages workspaces (shared spaces) and their memberships: creating, renaming and
+
+    deleting workspaces, adding and removing members, and querying workspaces and members.
+
+    All endpoints require an authenticated user. Changes are pushed live to every affected
+
+    member over the <xref href="lumify.api.Hubs.WorkspaceHub" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    Member roles are stored as integers: 1 = Owner, 2 = Admin, 3 = User. Only the owner
+
+    (role 1) may add/remove members, rename or delete the workspace.
+  example: []
+  syntax:
+    content: >-
+      [ApiController]
+
+      [Route("workspace/[action]")]
+
+      [Authorize]
+
+      public class WorkspaceController : ControllerBase
+    content.vb: >-
+      <ApiController>
+
+      <Route("workspace/[action]")>
+
+      <Authorize>
+
+      Public Class WorkspaceController Inherits ControllerBase
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.Mvc.ControllerBase
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.ApiControllerAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ApiControllerAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.RouteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.RouteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: workspace/[action]
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+- uid: lumify.api.Controllers.WorkspaceController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.WorkspaceController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.WorkspaceHub})
+  commentId: M:lumify.api.Controllers.WorkspaceController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.WorkspaceController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.WorkspaceHub})
+  id: '#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.WorkspaceController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.WorkspaceHub})'
+  parent: lumify.api.Controllers.WorkspaceController
+  langs:
+  - csharp
+  - vb
+  name: WorkspaceController(ILogger<WorkspaceController>, LumifyDbContext, IHubContext<WorkspaceHub>)
+  nameWithType: WorkspaceController.WorkspaceController(ILogger<WorkspaceController>, LumifyDbContext, IHubContext<WorkspaceHub>)
+  fullName: lumify.api.Controllers.WorkspaceController.WorkspaceController(Microsoft.Extensions.Logging.ILogger<lumify.api.Controllers.WorkspaceController>, lumify.api.Models.Context.LumifyDbContext, Microsoft.AspNetCore.SignalR.IHubContext<lumify.api.Hubs.WorkspaceHub>)
+  type: Constructor
+  source:
+    remote:
+      path: lumify.api/Controllers/WorkspaceController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: .ctor
+    path: ../../../lumify.api/Controllers/WorkspaceController.cs
+    startLine: 35
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Creates the controller with its injected logger, database context and the workspace
+
+    hub used for live notifications.
+  example: []
+  syntax:
+    content: public WorkspaceController(ILogger<WorkspaceController> logger, LumifyDbContext db, IHubContext<WorkspaceHub> workspaceHub)
+    parameters:
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.WorkspaceController}
+    - id: db
+      type: lumify.api.Models.Context.LumifyDbContext
+    - id: workspaceHub
+      type: Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.WorkspaceHub}
+    content.vb: Public Sub New(logger As ILogger(Of WorkspaceController), db As LumifyDbContext, workspaceHub As IHubContext(Of WorkspaceHub))
+  overload: lumify.api.Controllers.WorkspaceController.#ctor*
+  nameWithType.vb: WorkspaceController.New(ILogger(Of WorkspaceController), LumifyDbContext, IHubContext(Of WorkspaceHub))
+  fullName.vb: lumify.api.Controllers.WorkspaceController.New(Microsoft.Extensions.Logging.ILogger(Of lumify.api.Controllers.WorkspaceController), lumify.api.Models.Context.LumifyDbContext, Microsoft.AspNetCore.SignalR.IHubContext(Of lumify.api.Hubs.WorkspaceHub))
+  name.vb: New(ILogger(Of WorkspaceController), LumifyDbContext, IHubContext(Of WorkspaceHub))
+- uid: lumify.api.Controllers.WorkspaceController.AddWorkspace(lumify.api.Models.DTO.Requests.AddWorkspaceRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.WorkspaceController.AddWorkspace(lumify.api.Models.DTO.Requests.AddWorkspaceRequest,System.Threading.CancellationToken)
+  id: AddWorkspace(lumify.api.Models.DTO.Requests.AddWorkspaceRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.WorkspaceController
+  langs:
+  - csharp
+  - vb
+  name: AddWorkspace(AddWorkspaceRequest, CancellationToken)
+  nameWithType: WorkspaceController.AddWorkspace(AddWorkspaceRequest, CancellationToken)
+  fullName: lumify.api.Controllers.WorkspaceController.AddWorkspace(lumify.api.Models.DTO.Requests.AddWorkspaceRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/WorkspaceController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AddWorkspace
+    path: ../../../lumify.api/Controllers/WorkspaceController.cs
+    startLine: 55
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Creates a new workspace and adds the current user as its owner (role 1).
+  remarks: Broadcasts a <code>WorkspaceCreated</code> event to the owner's group.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("addWorkspace")]
+
+      public Task<ActionResult<WorkspaceResponse>> AddWorkspace(AddWorkspaceRequest request, CancellationToken ct)
+    parameters:
+    - id: request
+      type: lumify.api.Models.DTO.Requests.AddWorkspaceRequest
+      description: Workspace data (name required).
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.WorkspaceResponse}}
+      description: >-
+        200 with the created workspace; 400 if the name is missing; 401 if no user
+            is logged in.
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("addWorkspace")>
+
+      Public Function AddWorkspace(request As AddWorkspaceRequest, ct As CancellationToken) As Task(Of ActionResult(Of WorkspaceResponse))
+  overload: lumify.api.Controllers.WorkspaceController.AddWorkspace*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: addWorkspace
+- uid: lumify.api.Controllers.WorkspaceController.AddWorkspaceMember(lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.WorkspaceController.AddWorkspaceMember(lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest,System.Threading.CancellationToken)
+  id: AddWorkspaceMember(lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.WorkspaceController
+  langs:
+  - csharp
+  - vb
+  name: AddWorkspaceMember(AddWorkspaceMemberRequest, CancellationToken)
+  nameWithType: WorkspaceController.AddWorkspaceMember(AddWorkspaceMemberRequest, CancellationToken)
+  fullName: lumify.api.Controllers.WorkspaceController.AddWorkspaceMember(lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/WorkspaceController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AddWorkspaceMember
+    path: ../../../lumify.api/Controllers/WorkspaceController.cs
+    startLine: 125
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Adds another user as a member (role 3 = User) to a workspace. Only the owner may
+
+    add members.
+  remarks: Broadcasts a <code>WorkspaceMemberAdded</code> event to all current members.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("addWorkspaceMember")]
+
+      public Task<ActionResult> AddWorkspaceMember(AddWorkspaceMemberRequest request, CancellationToken ct)
+    parameters:
+    - id: request
+      type: lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest
+      description: The target workspace and the user to add.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: >-
+        200 with the new member; 400 on missing IDs or if already a member; 401 if
+            no user is logged in; 403 if the caller is not the owner; 404 if workspace or user
+            does not exist.
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("addWorkspaceMember")>
+
+      Public Function AddWorkspaceMember(request As AddWorkspaceMemberRequest, ct As CancellationToken) As Task(Of ActionResult)
+  overload: lumify.api.Controllers.WorkspaceController.AddWorkspaceMember*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: addWorkspaceMember
+- uid: lumify.api.Controllers.WorkspaceController.DeleteWorkspace(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.WorkspaceController.DeleteWorkspace(System.String,System.Threading.CancellationToken)
+  id: DeleteWorkspace(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.WorkspaceController
+  langs:
+  - csharp
+  - vb
+  name: DeleteWorkspace(string, CancellationToken)
+  nameWithType: WorkspaceController.DeleteWorkspace(string, CancellationToken)
+  fullName: lumify.api.Controllers.WorkspaceController.DeleteWorkspace(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/WorkspaceController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DeleteWorkspace
+    path: ../../../lumify.api/Controllers/WorkspaceController.cs
+    startLine: 244
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Soft-deletes a workspace. Only the owner may delete it.
+  remarks: >-
+    The audience is captured before deletion so a <code>WorkspaceDeleted</code> event
+        can still be broadcast to all former members.
+  example: []
+  syntax:
+    content: >-
+      [HttpDelete]
+
+      [ActionName("deleteWorkspace")]
+
+      public Task<ActionResult> DeleteWorkspace(string workspaceID, CancellationToken ct)
+    parameters:
+    - id: workspaceID
+      type: System.String
+      description: The workspace to delete.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: >-
+        200 with <code>success = true</code> and the workspace ID; 400 if the ID is
+            missing; 403 if the caller is not the owner; 404 if the workspace does not exist.
+    content.vb: >-
+      <HttpDelete>
+
+      <ActionName("deleteWorkspace")>
+
+      Public Function DeleteWorkspace(workspaceID As String, ct As CancellationToken) As Task(Of ActionResult)
+  overload: lumify.api.Controllers.WorkspaceController.DeleteWorkspace*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: deleteWorkspace
+  nameWithType.vb: WorkspaceController.DeleteWorkspace(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.WorkspaceController.DeleteWorkspace(String, System.Threading.CancellationToken)
+  name.vb: DeleteWorkspace(String, CancellationToken)
+- uid: lumify.api.Controllers.WorkspaceController.RemoveWorkspaceMember(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.WorkspaceController.RemoveWorkspaceMember(System.String,System.String,System.Threading.CancellationToken)
+  id: RemoveWorkspaceMember(System.String,System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.WorkspaceController
+  langs:
+  - csharp
+  - vb
+  name: RemoveWorkspaceMember(string, string, CancellationToken)
+  nameWithType: WorkspaceController.RemoveWorkspaceMember(string, string, CancellationToken)
+  fullName: lumify.api.Controllers.WorkspaceController.RemoveWorkspaceMember(string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/WorkspaceController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: RemoveWorkspaceMember
+    path: ../../../lumify.api/Controllers/WorkspaceController.cs
+    startLine: 304
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Removes a member from a workspace (soft-delete of the membership). Only the owner
+
+    may remove members, and the owner cannot be removed.
+  remarks: Broadcasts a <code>WorkspaceMemberRemoved</code> event to all current members.
+  example: []
+  syntax:
+    content: >-
+      [HttpDelete]
+
+      [ActionName("removeWorkspaceMember")]
+
+      public Task<ActionResult> RemoveWorkspaceMember(string workspaceID, string userID, CancellationToken ct)
+    parameters:
+    - id: workspaceID
+      type: System.String
+      description: The workspace to remove the member from.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromQueryAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromQueryAttribute.#ctor
+        arguments: []
+    - id: userID
+      type: System.String
+      description: The member to remove.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromQueryAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromQueryAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: >-
+        200 on success; 400 on missing IDs or attempting to remove the owner; 403 if
+            the caller is not the owner; 404 if the workspace or membership does not exist.
+    content.vb: >-
+      <HttpDelete>
+
+      <ActionName("removeWorkspaceMember")>
+
+      Public Function RemoveWorkspaceMember(workspaceID As String, userID As String, ct As CancellationToken) As Task(Of ActionResult)
+  overload: lumify.api.Controllers.WorkspaceController.RemoveWorkspaceMember*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: removeWorkspaceMember
+  nameWithType.vb: WorkspaceController.RemoveWorkspaceMember(String, String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.WorkspaceController.RemoveWorkspaceMember(String, String, System.Threading.CancellationToken)
+  name.vb: RemoveWorkspaceMember(String, String, CancellationToken)
+- uid: lumify.api.Controllers.WorkspaceController.SaveWorkspace(lumify.api.Models.DTO.Requests.SaveWorkspaceRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.WorkspaceController.SaveWorkspace(lumify.api.Models.DTO.Requests.SaveWorkspaceRequest,System.Threading.CancellationToken)
+  id: SaveWorkspace(lumify.api.Models.DTO.Requests.SaveWorkspaceRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.WorkspaceController
+  langs:
+  - csharp
+  - vb
+  name: SaveWorkspace(SaveWorkspaceRequest, CancellationToken)
+  nameWithType: WorkspaceController.SaveWorkspace(SaveWorkspaceRequest, CancellationToken)
+  fullName: lumify.api.Controllers.WorkspaceController.SaveWorkspace(lumify.api.Models.DTO.Requests.SaveWorkspaceRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/WorkspaceController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SaveWorkspace
+    path: ../../../lumify.api/Controllers/WorkspaceController.cs
+    startLine: 393
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Renames a workspace. Only the owner may rename it, and the database is only written
+
+    if the name actually changed.
+  remarks: >-
+    On a successful change, a <code>WorkspaceUpdated</code> event is broadcast to all
+        members.
+  example: []
+  syntax:
+    content: >-
+      [HttpPatch]
+
+      [ActionName("saveWorkspace")]
+
+      public Task<ActionResult<WorkspaceResponse>> SaveWorkspace(SaveWorkspaceRequest request, CancellationToken ct)
+    parameters:
+    - id: request
+      type: lumify.api.Models.DTO.Requests.SaveWorkspaceRequest
+      description: The workspace ID and the new name.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.WorkspaceResponse}}
+      description: >-
+        200 with the updated workspace; 400 if the ID is missing or the name is
+            empty; 403 if the caller is not the owner; 404 if the workspace does not exist.
+    content.vb: >-
+      <HttpPatch>
+
+      <ActionName("saveWorkspace")>
+
+      Public Function SaveWorkspace(request As SaveWorkspaceRequest, ct As CancellationToken) As Task(Of ActionResult(Of WorkspaceResponse))
+  overload: lumify.api.Controllers.WorkspaceController.SaveWorkspace*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPatchAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPatchAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: saveWorkspace
+- uid: lumify.api.Controllers.WorkspaceController.GetWorkspaceWithID(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.WorkspaceController.GetWorkspaceWithID(System.String,System.Threading.CancellationToken)
+  id: GetWorkspaceWithID(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.WorkspaceController
+  langs:
+  - csharp
+  - vb
+  name: GetWorkspaceWithID(string, CancellationToken)
+  nameWithType: WorkspaceController.GetWorkspaceWithID(string, CancellationToken)
+  fullName: lumify.api.Controllers.WorkspaceController.GetWorkspaceWithID(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/WorkspaceController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetWorkspaceWithID
+    path: ../../../lumify.api/Controllers/WorkspaceController.cs
+    startLine: 482
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns a single workspace by its ID.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getWorkspaceWithID")]
+
+      public Task<IActionResult> GetWorkspaceWithID(string id, CancellationToken ct)
+    parameters:
+    - id: id
+      type: System.String
+      description: The workspace ID.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromQueryAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromQueryAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: 200 with the workspace; 400 if the ID is missing; 404 if it does not exist.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getWorkspaceWithID")>
+
+      Public Function GetWorkspaceWithID(id As String, ct As CancellationToken) As Task(Of IActionResult)
+  overload: lumify.api.Controllers.WorkspaceController.GetWorkspaceWithID*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getWorkspaceWithID
+  nameWithType.vb: WorkspaceController.GetWorkspaceWithID(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.WorkspaceController.GetWorkspaceWithID(String, System.Threading.CancellationToken)
+  name.vb: GetWorkspaceWithID(String, CancellationToken)
+- uid: lumify.api.Controllers.WorkspaceController.GetWorkspacesOfUser(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.WorkspaceController.GetWorkspacesOfUser(System.Threading.CancellationToken)
+  id: GetWorkspacesOfUser(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.WorkspaceController
+  langs:
+  - csharp
+  - vb
+  name: GetWorkspacesOfUser(CancellationToken)
+  nameWithType: WorkspaceController.GetWorkspacesOfUser(CancellationToken)
+  fullName: lumify.api.Controllers.WorkspaceController.GetWorkspacesOfUser(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/WorkspaceController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetWorkspacesOfUser
+    path: ../../../lumify.api/Controllers/WorkspaceController.cs
+    startLine: 517
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns all workspaces the current user owns or is a member of, ordered by name.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("GetWorkspacesOfUser")]
+
+      public Task<ActionResult<List<WorkspaceResponse>>> GetWorkspacesOfUser(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.WorkspaceResponse}}}
+      description: 200 with the list of workspaces; 400 if the user ID cannot be resolved.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("GetWorkspacesOfUser")>
+
+      Public Function GetWorkspacesOfUser(ct As CancellationToken) As Task(Of ActionResult(Of List(Of WorkspaceResponse)))
+  overload: lumify.api.Controllers.WorkspaceController.GetWorkspacesOfUser*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: GetWorkspacesOfUser
+- uid: lumify.api.Controllers.WorkspaceController.GetWorkspaceMembers(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.WorkspaceController.GetWorkspaceMembers(System.String,System.Threading.CancellationToken)
+  id: GetWorkspaceMembers(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.WorkspaceController
+  langs:
+  - csharp
+  - vb
+  name: GetWorkspaceMembers(string, CancellationToken)
+  nameWithType: WorkspaceController.GetWorkspaceMembers(string, CancellationToken)
+  fullName: lumify.api.Controllers.WorkspaceController.GetWorkspaceMembers(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/WorkspaceController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetWorkspaceMembers
+    path: ../../../lumify.api/Controllers/WorkspaceController.cs
+    startLine: 561
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns all members of a workspace, each with their user profile and role.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getWorkspaceMembers")]
+
+      public Task<IActionResult> GetWorkspaceMembers(string id, CancellationToken ct)
+    parameters:
+    - id: id
+      type: System.String
+      description: The workspace ID.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromQueryAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromQueryAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: >-
+        200 with the list of members; 400 if the ID is missing; 404 if the
+            workspace does not exist.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getWorkspaceMembers")>
+
+      Public Function GetWorkspaceMembers(id As String, ct As CancellationToken) As Task(Of IActionResult)
+  overload: lumify.api.Controllers.WorkspaceController.GetWorkspaceMembers*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getWorkspaceMembers
+  nameWithType.vb: WorkspaceController.GetWorkspaceMembers(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.WorkspaceController.GetWorkspaceMembers(String, System.Threading.CancellationToken)
+  name.vb: GetWorkspaceMembers(String, CancellationToken)
+references:
+- uid: lumify.api.Hubs.WorkspaceHub
+  commentId: T:lumify.api.Hubs.WorkspaceHub
+  href: lumify.api.Hubs.WorkspaceHub.html
+  name: WorkspaceHub
+  nameWithType: WorkspaceHub
+  fullName: lumify.api.Hubs.WorkspaceHub
+- uid: lumify.api.Controllers
+  commentId: N:lumify.api.Controllers
+  href: lumify.html
+  name: lumify.api.Controllers
+  nameWithType: lumify.api.Controllers
+  fullName: lumify.api.Controllers
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Controllers
+    name: Controllers
+    href: lumify.api.Controllers.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Controllers
+    name: Controllers
+    href: lumify.api.Controllers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.Mvc.ControllerBase
+  commentId: T:Microsoft.AspNetCore.Mvc.ControllerBase
+  parent: Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: ControllerBase
+  nameWithType: ControllerBase
+  fullName: Microsoft.AspNetCore.Mvc.ControllerBase
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.Mvc
+  commentId: N:Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: Microsoft.AspNetCore.Mvc
+  nameWithType: Microsoft.AspNetCore.Mvc
+  fullName: Microsoft.AspNetCore.Mvc
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+- uid: lumify.api.Controllers.WorkspaceController.#ctor*
+  commentId: Overload:lumify.api.Controllers.WorkspaceController.#ctor
+  href: lumify.api.Controllers.WorkspaceController.html#lumify_api_Controllers_WorkspaceController__ctor_Microsoft_Extensions_Logging_ILogger_lumify_api_Controllers_WorkspaceController__lumify_api_Models_Context_LumifyDbContext_Microsoft_AspNetCore_SignalR_IHubContext_lumify_api_Hubs_WorkspaceHub__
+  name: WorkspaceController
+  nameWithType: WorkspaceController.WorkspaceController
+  fullName: lumify.api.Controllers.WorkspaceController.WorkspaceController
+  nameWithType.vb: WorkspaceController.New
+  fullName.vb: lumify.api.Controllers.WorkspaceController.New
+  name.vb: New
+- uid: Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.WorkspaceController}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.WorkspaceController}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: lumify.api.Controllers.WorkspaceController.html
+  name: ILogger<WorkspaceController>
+  nameWithType: ILogger<WorkspaceController>
+  fullName: Microsoft.Extensions.Logging.ILogger<lumify.api.Controllers.WorkspaceController>
+  nameWithType.vb: ILogger(Of WorkspaceController)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of lumify.api.Controllers.WorkspaceController)
+  name.vb: ILogger(Of WorkspaceController)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Controllers.WorkspaceController
+    name: WorkspaceController
+    href: lumify.api.Controllers.WorkspaceController.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Controllers.WorkspaceController
+    name: WorkspaceController
+    href: lumify.api.Controllers.WorkspaceController.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext
+  commentId: T:lumify.api.Models.Context.LumifyDbContext
+  parent: lumify.api.Models.Context
+  href: lumify.api.Models.Context.LumifyDbContext.html
+  name: LumifyDbContext
+  nameWithType: LumifyDbContext
+  fullName: lumify.api.Models.Context.LumifyDbContext
+- uid: Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.WorkspaceHub}
+  commentId: T:Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.WorkspaceHub}
+  parent: Microsoft.AspNetCore.SignalR
+  definition: Microsoft.AspNetCore.SignalR.IHubContext`1
+  href: lumify.api.Hubs.WorkspaceHub.html
+  name: IHubContext<WorkspaceHub>
+  nameWithType: IHubContext<WorkspaceHub>
+  fullName: Microsoft.AspNetCore.SignalR.IHubContext<lumify.api.Hubs.WorkspaceHub>
+  nameWithType.vb: IHubContext(Of WorkspaceHub)
+  fullName.vb: Microsoft.AspNetCore.SignalR.IHubContext(Of lumify.api.Hubs.WorkspaceHub)
+  name.vb: IHubContext(Of WorkspaceHub)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Hubs.WorkspaceHub
+    name: WorkspaceHub
+    href: lumify.api.Hubs.WorkspaceHub.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Hubs.WorkspaceHub
+    name: WorkspaceHub
+    href: lumify.api.Hubs.WorkspaceHub.html
+  - name: )
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+- uid: lumify.api.Models.Context
+  commentId: N:lumify.api.Models.Context
+  href: lumify.html
+  name: lumify.api.Models.Context
+  nameWithType: lumify.api.Models.Context
+  fullName: lumify.api.Models.Context
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+- uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+  commentId: T:Microsoft.AspNetCore.SignalR.IHubContext`1
+  isExternal: true
+  name: IHubContext<THub>
+  nameWithType: IHubContext<THub>
+  fullName: Microsoft.AspNetCore.SignalR.IHubContext<THub>
+  nameWithType.vb: IHubContext(Of THub)
+  fullName.vb: Microsoft.AspNetCore.SignalR.IHubContext(Of THub)
+  name.vb: IHubContext(Of THub)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: <
+  - name: THub
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: THub
+  - name: )
+- uid: Microsoft.AspNetCore.SignalR
+  commentId: N:Microsoft.AspNetCore.SignalR
+  isExternal: true
+  name: Microsoft.AspNetCore.SignalR
+  nameWithType: Microsoft.AspNetCore.SignalR
+  fullName: Microsoft.AspNetCore.SignalR
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+- uid: lumify.api.Controllers.WorkspaceController.AddWorkspace*
+  commentId: Overload:lumify.api.Controllers.WorkspaceController.AddWorkspace
+  href: lumify.api.Controllers.WorkspaceController.html#lumify_api_Controllers_WorkspaceController_AddWorkspace_lumify_api_Models_DTO_Requests_AddWorkspaceRequest_System_Threading_CancellationToken_
+  name: AddWorkspace
+  nameWithType: WorkspaceController.AddWorkspace
+  fullName: lumify.api.Controllers.WorkspaceController.AddWorkspace
+- uid: lumify.api.Models.DTO.Requests.AddWorkspaceRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddWorkspaceRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.AddWorkspaceRequest.html
+  name: AddWorkspaceRequest
+  nameWithType: AddWorkspaceRequest
+  fullName: lumify.api.Models.DTO.Requests.AddWorkspaceRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.WorkspaceResponse}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.WorkspaceResponse}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.WorkspaceResponse.html
+  name: Task<ActionResult<WorkspaceResponse>>
+  nameWithType: Task<ActionResult<WorkspaceResponse>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<lumify.api.Models.DTO.Responses.WorkspaceResponse>>
+  nameWithType.vb: Task(Of ActionResult(Of WorkspaceResponse))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of lumify.api.Models.DTO.Responses.WorkspaceResponse))
+  name.vb: Task(Of ActionResult(Of WorkspaceResponse))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.WorkspaceResponse
+    name: WorkspaceResponse
+    href: lumify.api.Models.DTO.Responses.WorkspaceResponse.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.WorkspaceResponse
+    name: WorkspaceResponse
+    href: lumify.api.Models.DTO.Responses.WorkspaceResponse.html
+  - name: )
+  - name: )
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  href: lumify.html
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: lumify.api.Controllers.WorkspaceController.AddWorkspaceMember*
+  commentId: Overload:lumify.api.Controllers.WorkspaceController.AddWorkspaceMember
+  href: lumify.api.Controllers.WorkspaceController.html#lumify_api_Controllers_WorkspaceController_AddWorkspaceMember_lumify_api_Models_DTO_Requests_AddWorkspaceMemberRequest_System_Threading_CancellationToken_
+  name: AddWorkspaceMember
+  nameWithType: WorkspaceController.AddWorkspaceMember
+  fullName: lumify.api.Controllers.WorkspaceController.AddWorkspaceMember
+- uid: lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest.html
+  name: AddWorkspaceMemberRequest
+  nameWithType: AddWorkspaceMemberRequest
+  fullName: lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<ActionResult>
+  nameWithType: Task<ActionResult>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult>
+  nameWithType.vb: Task(Of ActionResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult)
+  name.vb: Task(Of ActionResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult
+    name: ActionResult
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult
+    name: ActionResult
+    isExternal: true
+  - name: )
+- uid: lumify.api.Controllers.WorkspaceController.DeleteWorkspace*
+  commentId: Overload:lumify.api.Controllers.WorkspaceController.DeleteWorkspace
+  href: lumify.api.Controllers.WorkspaceController.html#lumify_api_Controllers_WorkspaceController_DeleteWorkspace_System_String_System_Threading_CancellationToken_
+  name: DeleteWorkspace
+  nameWithType: WorkspaceController.DeleteWorkspace
+  fullName: lumify.api.Controllers.WorkspaceController.DeleteWorkspace
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Controllers.WorkspaceController.RemoveWorkspaceMember*
+  commentId: Overload:lumify.api.Controllers.WorkspaceController.RemoveWorkspaceMember
+  href: lumify.api.Controllers.WorkspaceController.html#lumify_api_Controllers_WorkspaceController_RemoveWorkspaceMember_System_String_System_String_System_Threading_CancellationToken_
+  name: RemoveWorkspaceMember
+  nameWithType: WorkspaceController.RemoveWorkspaceMember
+  fullName: lumify.api.Controllers.WorkspaceController.RemoveWorkspaceMember
+- uid: lumify.api.Controllers.WorkspaceController.SaveWorkspace*
+  commentId: Overload:lumify.api.Controllers.WorkspaceController.SaveWorkspace
+  href: lumify.api.Controllers.WorkspaceController.html#lumify_api_Controllers_WorkspaceController_SaveWorkspace_lumify_api_Models_DTO_Requests_SaveWorkspaceRequest_System_Threading_CancellationToken_
+  name: SaveWorkspace
+  nameWithType: WorkspaceController.SaveWorkspace
+  fullName: lumify.api.Controllers.WorkspaceController.SaveWorkspace
+- uid: lumify.api.Models.DTO.Requests.SaveWorkspaceRequest
+  commentId: T:lumify.api.Models.DTO.Requests.SaveWorkspaceRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.SaveWorkspaceRequest.html
+  name: SaveWorkspaceRequest
+  nameWithType: SaveWorkspaceRequest
+  fullName: lumify.api.Models.DTO.Requests.SaveWorkspaceRequest
+- uid: lumify.api.Controllers.WorkspaceController.GetWorkspaceWithID*
+  commentId: Overload:lumify.api.Controllers.WorkspaceController.GetWorkspaceWithID
+  href: lumify.api.Controllers.WorkspaceController.html#lumify_api_Controllers_WorkspaceController_GetWorkspaceWithID_System_String_System_Threading_CancellationToken_
+  name: GetWorkspaceWithID
+  nameWithType: WorkspaceController.GetWorkspaceWithID
+  fullName: lumify.api.Controllers.WorkspaceController.GetWorkspaceWithID
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IActionResult>
+  nameWithType: Task<IActionResult>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult>
+  nameWithType.vb: Task(Of IActionResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.IActionResult)
+  name.vb: Task(Of IActionResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.IActionResult
+    name: IActionResult
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.IActionResult
+    name: IActionResult
+    isExternal: true
+  - name: )
+- uid: lumify.api.Controllers.WorkspaceController.GetWorkspacesOfUser*
+  commentId: Overload:lumify.api.Controllers.WorkspaceController.GetWorkspacesOfUser
+  href: lumify.api.Controllers.WorkspaceController.html#lumify_api_Controllers_WorkspaceController_GetWorkspacesOfUser_System_Threading_CancellationToken_
+  name: GetWorkspacesOfUser
+  nameWithType: WorkspaceController.GetWorkspacesOfUser
+  fullName: lumify.api.Controllers.WorkspaceController.GetWorkspacesOfUser
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.WorkspaceResponse}}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.WorkspaceResponse}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.WorkspaceResponse.html
+  name: Task<ActionResult<List<WorkspaceResponse>>>
+  nameWithType: Task<ActionResult<List<WorkspaceResponse>>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.List<lumify.api.Models.DTO.Responses.WorkspaceResponse>>>
+  nameWithType.vb: Task(Of ActionResult(Of List(Of WorkspaceResponse)))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of System.Collections.Generic.List(Of lumify.api.Models.DTO.Responses.WorkspaceResponse)))
+  name.vb: Task(Of ActionResult(Of List(Of WorkspaceResponse)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.WorkspaceResponse
+    name: WorkspaceResponse
+    href: lumify.api.Models.DTO.Responses.WorkspaceResponse.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.WorkspaceResponse
+    name: WorkspaceResponse
+    href: lumify.api.Models.DTO.Responses.WorkspaceResponse.html
+  - name: )
+  - name: )
+  - name: )
+- uid: lumify.api.Controllers.WorkspaceController.GetWorkspaceMembers*
+  commentId: Overload:lumify.api.Controllers.WorkspaceController.GetWorkspaceMembers
+  href: lumify.api.Controllers.WorkspaceController.html#lumify_api_Controllers_WorkspaceController_GetWorkspaceMembers_System_String_System_Threading_CancellationToken_
+  name: GetWorkspaceMembers
+  nameWithType: WorkspaceController.GetWorkspaceMembers
+  fullName: lumify.api.Controllers.WorkspaceController.GetWorkspaceMembers

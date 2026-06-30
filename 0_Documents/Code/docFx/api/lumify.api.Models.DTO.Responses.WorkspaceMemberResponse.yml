@@ -1,0 +1,329 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse
+  commentId: T:lumify.api.Models.DTO.Responses.WorkspaceMemberResponse
+  id: WorkspaceMemberResponse
+  parent: lumify.api.Models.DTO.Responses
+  children:
+  - lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.AvatarUrl
+  - lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.DisplayName
+  - lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Email
+  - lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Role
+  - lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.UserID
+  - lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Username
+  langs:
+  - csharp
+  - vb
+  name: WorkspaceMemberResponse
+  nameWithType: WorkspaceMemberResponse
+  fullName: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/WorkspaceMemberResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: WorkspaceMemberResponse
+    path: ../../../lumify.api/Models/DTO/Responses/WorkspaceMemberResponse.cs
+    startLine: 4
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public class WorkspaceMemberResponse
+    content.vb: Public Class WorkspaceMemberResponse
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.UserID
+  commentId: P:lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.UserID
+  id: UserID
+  parent: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse
+  langs:
+  - csharp
+  - vb
+  name: UserID
+  nameWithType: WorkspaceMemberResponse.UserID
+  fullName: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.UserID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/WorkspaceMemberResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UserID
+    path: ../../../lumify.api/Models/DTO/Responses/WorkspaceMemberResponse.cs
+    startLine: 6
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string UserID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UserID As String
+  overload: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.UserID*
+- uid: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.AvatarUrl
+  commentId: P:lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.AvatarUrl
+  id: AvatarUrl
+  parent: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse
+  langs:
+  - csharp
+  - vb
+  name: AvatarUrl
+  nameWithType: WorkspaceMemberResponse.AvatarUrl
+  fullName: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.AvatarUrl
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/WorkspaceMemberResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AvatarUrl
+    path: ../../../lumify.api/Models/DTO/Responses/WorkspaceMemberResponse.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string? AvatarUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AvatarUrl As String
+  overload: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.AvatarUrl*
+- uid: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.DisplayName
+  commentId: P:lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.DisplayName
+  id: DisplayName
+  parent: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse
+  langs:
+  - csharp
+  - vb
+  name: DisplayName
+  nameWithType: WorkspaceMemberResponse.DisplayName
+  fullName: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.DisplayName
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/WorkspaceMemberResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DisplayName
+    path: ../../../lumify.api/Models/DTO/Responses/WorkspaceMemberResponse.cs
+    startLine: 8
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string DisplayName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DisplayName As String
+  overload: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.DisplayName*
+- uid: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Username
+  commentId: P:lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Username
+  id: Username
+  parent: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse
+  langs:
+  - csharp
+  - vb
+  name: Username
+  nameWithType: WorkspaceMemberResponse.Username
+  fullName: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Username
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/WorkspaceMemberResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Username
+    path: ../../../lumify.api/Models/DTO/Responses/WorkspaceMemberResponse.cs
+    startLine: 9
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string Username { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Username As String
+  overload: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Username*
+- uid: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Email
+  commentId: P:lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Email
+  id: Email
+  parent: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse
+  langs:
+  - csharp
+  - vb
+  name: Email
+  nameWithType: WorkspaceMemberResponse.Email
+  fullName: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Email
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/WorkspaceMemberResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Email
+    path: ../../../lumify.api/Models/DTO/Responses/WorkspaceMemberResponse.cs
+    startLine: 10
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string Email { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Email As String
+  overload: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Email*
+- uid: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Role
+  commentId: P:lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Role
+  id: Role
+  parent: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse
+  langs:
+  - csharp
+  - vb
+  name: Role
+  nameWithType: WorkspaceMemberResponse.Role
+  fullName: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Role
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/WorkspaceMemberResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Role
+    path: ../../../lumify.api/Models/DTO/Responses/WorkspaceMemberResponse.cs
+    startLine: 11
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public int Role { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Role As Integer
+  overload: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Role*
+references:
+- uid: lumify.api.Models.DTO.Responses
+  commentId: N:lumify.api.Models.DTO.Responses
+  href: lumify.html
+  name: lumify.api.Models.DTO.Responses
+  nameWithType: lumify.api.Models.DTO.Responses
+  fullName: lumify.api.Models.DTO.Responses
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Responses
+    name: Responses
+    href: lumify.api.Models.DTO.Responses.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Responses
+    name: Responses
+    href: lumify.api.Models.DTO.Responses.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.UserID*
+  commentId: Overload:lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.UserID
+  href: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.html#lumify_api_Models_DTO_Responses_WorkspaceMemberResponse_UserID
+  name: UserID
+  nameWithType: WorkspaceMemberResponse.UserID
+  fullName: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.UserID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.AvatarUrl*
+  commentId: Overload:lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.AvatarUrl
+  href: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.html#lumify_api_Models_DTO_Responses_WorkspaceMemberResponse_AvatarUrl
+  name: AvatarUrl
+  nameWithType: WorkspaceMemberResponse.AvatarUrl
+  fullName: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.AvatarUrl
+- uid: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.DisplayName*
+  commentId: Overload:lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.DisplayName
+  href: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.html#lumify_api_Models_DTO_Responses_WorkspaceMemberResponse_DisplayName
+  name: DisplayName
+  nameWithType: WorkspaceMemberResponse.DisplayName
+  fullName: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.DisplayName
+- uid: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Username*
+  commentId: Overload:lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Username
+  href: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.html#lumify_api_Models_DTO_Responses_WorkspaceMemberResponse_Username
+  name: Username
+  nameWithType: WorkspaceMemberResponse.Username
+  fullName: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Username
+- uid: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Email*
+  commentId: Overload:lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Email
+  href: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.html#lumify_api_Models_DTO_Responses_WorkspaceMemberResponse_Email
+  name: Email
+  nameWithType: WorkspaceMemberResponse.Email
+  fullName: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Email
+- uid: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Role*
+  commentId: Overload:lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Role
+  href: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.html#lumify_api_Models_DTO_Responses_WorkspaceMemberResponse_Role
+  name: Role
+  nameWithType: WorkspaceMemberResponse.Role
+  fullName: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.Role
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

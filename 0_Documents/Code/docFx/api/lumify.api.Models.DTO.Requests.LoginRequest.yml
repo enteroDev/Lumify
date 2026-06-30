@@ -1,0 +1,175 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.DTO.Requests.LoginRequest
+  commentId: T:lumify.api.Models.DTO.Requests.LoginRequest
+  id: LoginRequest
+  parent: lumify.api.Models.DTO.Requests
+  children:
+  - lumify.api.Models.DTO.Requests.LoginRequest.Identifier
+  - lumify.api.Models.DTO.Requests.LoginRequest.Password
+  langs:
+  - csharp
+  - vb
+  name: LoginRequest
+  nameWithType: LoginRequest
+  fullName: lumify.api.Models.DTO.Requests.LoginRequest
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/LoginRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: LoginRequest
+    path: ../../../lumify.api/Models/DTO/Requests/LoginRequest.cs
+    startLine: 2
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public sealed class LoginRequest
+    content.vb: Public NotInheritable Class LoginRequest
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.DTO.Requests.LoginRequest.Identifier
+  commentId: P:lumify.api.Models.DTO.Requests.LoginRequest.Identifier
+  id: Identifier
+  parent: lumify.api.Models.DTO.Requests.LoginRequest
+  langs:
+  - csharp
+  - vb
+  name: Identifier
+  nameWithType: LoginRequest.Identifier
+  fullName: lumify.api.Models.DTO.Requests.LoginRequest.Identifier
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/LoginRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Identifier
+    path: ../../../lumify.api/Models/DTO/Requests/LoginRequest.cs
+    startLine: 4
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public required string Identifier { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Identifier As String
+  overload: lumify.api.Models.DTO.Requests.LoginRequest.Identifier*
+- uid: lumify.api.Models.DTO.Requests.LoginRequest.Password
+  commentId: P:lumify.api.Models.DTO.Requests.LoginRequest.Password
+  id: Password
+  parent: lumify.api.Models.DTO.Requests.LoginRequest
+  langs:
+  - csharp
+  - vb
+  name: Password
+  nameWithType: LoginRequest.Password
+  fullName: lumify.api.Models.DTO.Requests.LoginRequest.Password
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/LoginRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Password
+    path: ../../../lumify.api/Models/DTO/Requests/LoginRequest.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public required string Password { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Password As String
+  overload: lumify.api.Models.DTO.Requests.LoginRequest.Password*
+references:
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  href: lumify.html
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.DTO.Requests.LoginRequest.Identifier*
+  commentId: Overload:lumify.api.Models.DTO.Requests.LoginRequest.Identifier
+  href: lumify.api.Models.DTO.Requests.LoginRequest.html#lumify_api_Models_DTO_Requests_LoginRequest_Identifier
+  name: Identifier
+  nameWithType: LoginRequest.Identifier
+  fullName: lumify.api.Models.DTO.Requests.LoginRequest.Identifier
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.DTO.Requests.LoginRequest.Password*
+  commentId: Overload:lumify.api.Models.DTO.Requests.LoginRequest.Password
+  href: lumify.api.Models.DTO.Requests.LoginRequest.html#lumify_api_Models_DTO_Requests_LoginRequest_Password
+  name: Password
+  nameWithType: LoginRequest.Password
+  fullName: lumify.api.Models.DTO.Requests.LoginRequest.Password

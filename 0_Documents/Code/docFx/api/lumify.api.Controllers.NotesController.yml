@@ -1,0 +1,2163 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Controllers.NotesController
+  commentId: T:lumify.api.Controllers.NotesController
+  id: NotesController
+  parent: lumify.api.Controllers
+  children:
+  - lumify.api.Controllers.NotesController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.NotesController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.NoteHub})
+  - lumify.api.Controllers.NotesController.AddLinkItem(lumify.api.Models.DTO.Requests.AddLinkItemRequest,System.Threading.CancellationToken)
+  - lumify.api.Controllers.NotesController.AddNote(lumify.api.Models.DTO.Requests.AddNoteRequest,System.Threading.CancellationToken)
+  - lumify.api.Controllers.NotesController.AddTextBlock(lumify.api.Models.DTO.Requests.AddTextBlockRequest,System.Threading.CancellationToken)
+  - lumify.api.Controllers.NotesController.DeleteLinkItem(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.NotesController.DeleteNote(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.NotesController.DeleteTextBlock(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.NotesController.GetAllNotesOfUser(System.Threading.CancellationToken)
+  - lumify.api.Controllers.NotesController.GetAllNotesOfWorkspace(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.NotesController.GetLinkItemsOfNote(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.NotesController.GetNoteCountOfUser(System.Threading.CancellationToken)
+  - lumify.api.Controllers.NotesController.GetNoteCountOfWorkspace(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.NotesController.GetNoteWithID(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.NotesController.GetTextBlocksOfNote(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.NotesController.SaveNote(lumify.api.Models.DTO.Requests.SaveNoteRequest,System.Threading.CancellationToken)
+  - lumify.api.Controllers.NotesController.SaveTextBlock(lumify.api.Models.DTO.Requests.SaveTextblockRequest,System.Threading.CancellationToken)
+  - lumify.api.Controllers.NotesController.getSpaceInfosOfNote(System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: NotesController
+  nameWithType: NotesController
+  fullName: lumify.api.Controllers.NotesController
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Controllers/NotesController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: NotesController
+    path: ../../../lumify.api/Controllers/NotesController.cs
+    startLine: 25
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Manages notes and their content modules — text blocks and link items — both personal
+
+    (no workspace) and workspace-shared. Covers creating, editing, moving, ordering and
+
+    deleting notes and modules, plus various queries. All endpoints require an authenticated
+
+    user. Changes to workspace notes are pushed live to the workspace group over the
+
+    <xref href="lumify.api.Hubs.NoteHub" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    A note is a container; its body is an ordered list of modules positioned via
+
+    <code>NotePos</code>. Deleting a note cascades a soft-delete to all of its modules and
+
+    attachments. Permission rule throughout: a personal note may only be modified by its
+
+    owner, a workspace note by any active member (see <code>CanModify</code>).
+  example: []
+  syntax:
+    content: >-
+      [ApiController]
+
+      [Route("notes/[action]")]
+
+      [Authorize]
+
+      public class NotesController : ControllerBase
+    content.vb: >-
+      <ApiController>
+
+      <Route("notes/[action]")>
+
+      <Authorize>
+
+      Public Class NotesController Inherits ControllerBase
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.Mvc.ControllerBase
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.ApiControllerAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ApiControllerAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.RouteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.RouteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: notes/[action]
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+- uid: lumify.api.Controllers.NotesController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.NotesController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.NoteHub})
+  commentId: M:lumify.api.Controllers.NotesController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.NotesController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.NoteHub})
+  id: '#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.NotesController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.NoteHub})'
+  parent: lumify.api.Controllers.NotesController
+  langs:
+  - csharp
+  - vb
+  name: NotesController(ILogger<NotesController>, LumifyDbContext, IHubContext<NoteHub>)
+  nameWithType: NotesController.NotesController(ILogger<NotesController>, LumifyDbContext, IHubContext<NoteHub>)
+  fullName: lumify.api.Controllers.NotesController.NotesController(Microsoft.Extensions.Logging.ILogger<lumify.api.Controllers.NotesController>, lumify.api.Models.Context.LumifyDbContext, Microsoft.AspNetCore.SignalR.IHubContext<lumify.api.Hubs.NoteHub>)
+  type: Constructor
+  source:
+    remote:
+      path: lumify.api/Controllers/NotesController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: .ctor
+    path: ../../../lumify.api/Controllers/NotesController.cs
+    startLine: 38
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Creates the controller with its injected logger, database context and the note hub
+
+    used for live notifications.
+  example: []
+  syntax:
+    content: public NotesController(ILogger<NotesController> logger, LumifyDbContext db, IHubContext<NoteHub> noteHub)
+    parameters:
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.NotesController}
+    - id: db
+      type: lumify.api.Models.Context.LumifyDbContext
+    - id: noteHub
+      type: Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.NoteHub}
+    content.vb: Public Sub New(logger As ILogger(Of NotesController), db As LumifyDbContext, noteHub As IHubContext(Of NoteHub))
+  overload: lumify.api.Controllers.NotesController.#ctor*
+  nameWithType.vb: NotesController.New(ILogger(Of NotesController), LumifyDbContext, IHubContext(Of NoteHub))
+  fullName.vb: lumify.api.Controllers.NotesController.New(Microsoft.Extensions.Logging.ILogger(Of lumify.api.Controllers.NotesController), lumify.api.Models.Context.LumifyDbContext, Microsoft.AspNetCore.SignalR.IHubContext(Of lumify.api.Hubs.NoteHub))
+  name.vb: New(ILogger(Of NotesController), LumifyDbContext, IHubContext(Of NoteHub))
+- uid: lumify.api.Controllers.NotesController.AddNote(lumify.api.Models.DTO.Requests.AddNoteRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.AddNote(lumify.api.Models.DTO.Requests.AddNoteRequest,System.Threading.CancellationToken)
+  id: AddNote(lumify.api.Models.DTO.Requests.AddNoteRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.NotesController
+  langs:
+  - csharp
+  - vb
+  name: AddNote(AddNoteRequest, CancellationToken)
+  nameWithType: NotesController.AddNote(AddNoteRequest, CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.AddNote(lumify.api.Models.DTO.Requests.AddNoteRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/NotesController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AddNote
+    path: ../../../lumify.api/Controllers/NotesController.cs
+    startLine: 63
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Creates a new (empty) note, optionally inside a workspace and/or a folder.
+  remarks: >-
+    If a workspace is given, the user must be a member; if a folder is given, it must
+
+    live in the same space. On success in a workspace, a <code>NoteCreated</code> event is
+
+    broadcast to the workspace group.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("addNote")]
+
+      public Task<ActionResult<NoteResponse>> AddNote(AddNoteRequest request, CancellationToken ct)
+    parameters:
+    - id: request
+      type: lumify.api.Models.DTO.Requests.AddNoteRequest
+      description: Note data (name required; optional workspace and folder).
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.NoteResponse}}
+      description: >-
+        200 with the created note; 400 on missing name or invalid workspace/folder;
+            403 if the user is not a member of the target workspace or owner of the folder.
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("addNote")>
+
+      Public Function AddNote(request As AddNoteRequest, ct As CancellationToken) As Task(Of ActionResult(Of NoteResponse))
+  overload: lumify.api.Controllers.NotesController.AddNote*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: addNote
+- uid: lumify.api.Controllers.NotesController.AddTextBlock(lumify.api.Models.DTO.Requests.AddTextBlockRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.AddTextBlock(lumify.api.Models.DTO.Requests.AddTextBlockRequest,System.Threading.CancellationToken)
+  id: AddTextBlock(lumify.api.Models.DTO.Requests.AddTextBlockRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.NotesController
+  langs:
+  - csharp
+  - vb
+  name: AddTextBlock(AddTextBlockRequest, CancellationToken)
+  nameWithType: NotesController.AddTextBlock(AddTextBlockRequest, CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.AddTextBlock(lumify.api.Models.DTO.Requests.AddTextBlockRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/NotesController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AddTextBlock
+    path: ../../../lumify.api/Controllers/NotesController.cs
+    startLine: 176
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Appends a text block module (text, heading, code, …) to a note, placed at the end
+
+    (next free <code>NotePos</code>).
+  remarks: >-
+    On success in a workspace, a <code>TextBlockCreated</code> event is broadcast to
+        the workspace group.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("addTextBlock")]
+
+      public Task<ActionResult<TextblockResponse>> AddTextBlock(AddTextBlockRequest request, CancellationToken ct)
+    parameters:
+    - id: request
+      type: lumify.api.Models.DTO.Requests.AddTextBlockRequest
+      description: Text block data including the parent note ID, type and content.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.TextblockResponse}}
+      description: >-
+        200 with the created text block; 400 if the note ID is missing; 403 if the
+            user may not modify the note; 404 if the note does not exist.
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("addTextBlock")>
+
+      Public Function AddTextBlock(request As AddTextBlockRequest, ct As CancellationToken) As Task(Of ActionResult(Of TextblockResponse))
+  overload: lumify.api.Controllers.NotesController.AddTextBlock*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: addTextBlock
+- uid: lumify.api.Controllers.NotesController.AddLinkItem(lumify.api.Models.DTO.Requests.AddLinkItemRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.AddLinkItem(lumify.api.Models.DTO.Requests.AddLinkItemRequest,System.Threading.CancellationToken)
+  id: AddLinkItem(lumify.api.Models.DTO.Requests.AddLinkItemRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.NotesController
+  langs:
+  - csharp
+  - vb
+  name: AddLinkItem(AddLinkItemRequest, CancellationToken)
+  nameWithType: NotesController.AddLinkItem(AddLinkItemRequest, CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.AddLinkItem(lumify.api.Models.DTO.Requests.AddLinkItemRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/NotesController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AddLinkItem
+    path: ../../../lumify.api/Controllers/NotesController.cs
+    startLine: 268
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Appends a link item module (labelled URL) to a note, placed at the end (next free
+
+    <code>NotePos</code>).
+  remarks: >-
+    On success in a workspace, a <code>LinkItemCreated</code> event is broadcast to
+        the workspace group.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("addLinkItem")]
+
+      public Task<ActionResult<LinkItemResponse>> AddLinkItem(AddLinkItemRequest request, CancellationToken ct)
+    parameters:
+    - id: request
+      type: lumify.api.Models.DTO.Requests.AddLinkItemRequest
+      description: Link item data including the parent note ID, URL and optional label.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.LinkItemResponse}}
+      description: >-
+        200 with the created link item; 400 if the note ID or URL is missing; 403 if
+            the user may not modify the note; 404 if the note does not exist.
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("addLinkItem")>
+
+      Public Function AddLinkItem(request As AddLinkItemRequest, ct As CancellationToken) As Task(Of ActionResult(Of LinkItemResponse))
+  overload: lumify.api.Controllers.NotesController.AddLinkItem*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: addLinkItem
+- uid: lumify.api.Controllers.NotesController.SaveNote(lumify.api.Models.DTO.Requests.SaveNoteRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.SaveNote(lumify.api.Models.DTO.Requests.SaveNoteRequest,System.Threading.CancellationToken)
+  id: SaveNote(lumify.api.Models.DTO.Requests.SaveNoteRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.NotesController
+  langs:
+  - csharp
+  - vb
+  name: SaveNote(SaveNoteRequest, CancellationToken)
+  nameWithType: NotesController.SaveNote(SaveNoteRequest, CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.SaveNote(lumify.api.Models.DTO.Requests.SaveNoteRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/NotesController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SaveNote
+    path: ../../../lumify.api/Controllers/NotesController.cs
+    startLine: 370
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Updates a note's name and/or its folder (move). Only provided fields are changed, and
+
+    the database is only written if something changed.
+  remarks: >-
+    Move rules: a personal note may only move into another personal folder of the same
+
+    owner; a workspace note may only move within the same workspace; an empty folder ID
+
+    moves the note to the root. On a successful change in a workspace, a <code>NoteUpdated</code>
+
+    event is broadcast to the workspace group.
+  example: []
+  syntax:
+    content: >-
+      [HttpPatch]
+
+      [ActionName("saveNote")]
+
+      public Task<ActionResult<NoteResponse>> SaveNote(SaveNoteRequest request, CancellationToken ct)
+    parameters:
+    - id: request
+      type: lumify.api.Models.DTO.Requests.SaveNoteRequest
+      description: The note ID plus the fields to change.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.NoteResponse}}
+      description: >-
+        200 with the updated note; 400 on invalid input or move target; 403 if the
+            user may not modify it; 404 if the note does not exist.
+    content.vb: >-
+      <HttpPatch>
+
+      <ActionName("saveNote")>
+
+      Public Function SaveNote(request As SaveNoteRequest, ct As CancellationToken) As Task(Of ActionResult(Of NoteResponse))
+  overload: lumify.api.Controllers.NotesController.SaveNote*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPatchAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPatchAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: saveNote
+- uid: lumify.api.Controllers.NotesController.SaveTextBlock(lumify.api.Models.DTO.Requests.SaveTextblockRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.SaveTextBlock(lumify.api.Models.DTO.Requests.SaveTextblockRequest,System.Threading.CancellationToken)
+  id: SaveTextBlock(lumify.api.Models.DTO.Requests.SaveTextblockRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.NotesController
+  langs:
+  - csharp
+  - vb
+  name: SaveTextBlock(SaveTextblockRequest, CancellationToken)
+  nameWithType: NotesController.SaveTextBlock(SaveTextblockRequest, CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.SaveTextBlock(lumify.api.Models.DTO.Requests.SaveTextblockRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/NotesController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SaveTextBlock
+    path: ../../../lumify.api/Controllers/NotesController.cs
+    startLine: 526
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Updates a text block's type, name, content, code language, collapsed state and/or
+
+    position. Only provided fields are changed, and the database is only written if
+
+    something changed.
+  remarks: >-
+    Changing <code>NotePos</code> reorders the block within the note. On a successful
+        change in a workspace, a <code>TextBlockUpdated</code> event is broadcast to the workspace
+        group; the parent note's timestamp is bumped too.
+  example: []
+  syntax:
+    content: >-
+      [HttpPatch]
+
+      [ActionName("saveTextBlock")]
+
+      public Task<ActionResult<TextblockResponse>> SaveTextBlock(SaveTextblockRequest request, CancellationToken ct)
+    parameters:
+    - id: request
+      type: lumify.api.Models.DTO.Requests.SaveTextblockRequest
+      description: The text block ID plus the fields to change.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.TextblockResponse}}
+      description: >-
+        200 with the updated text block; 400 on invalid input (e.g. negative
+            position); 403 if the user may not modify the note; 404 if the block or its parent
+            note does not exist.
+    content.vb: >-
+      <HttpPatch>
+
+      <ActionName("saveTextBlock")>
+
+      Public Function SaveTextBlock(request As SaveTextblockRequest, ct As CancellationToken) As Task(Of ActionResult(Of TextblockResponse))
+  overload: lumify.api.Controllers.NotesController.SaveTextBlock*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPatchAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPatchAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: saveTextBlock
+- uid: lumify.api.Controllers.NotesController.DeleteNote(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.DeleteNote(System.String,System.Threading.CancellationToken)
+  id: DeleteNote(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.NotesController
+  langs:
+  - csharp
+  - vb
+  name: DeleteNote(string, CancellationToken)
+  nameWithType: NotesController.DeleteNote(string, CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.DeleteNote(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/NotesController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DeleteNote
+    path: ../../../lumify.api/Controllers/NotesController.cs
+    startLine: 707
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Soft-deletes a note together with all of its modules (text blocks, link items) and
+
+    attachments.
+  remarks: >-
+    Everything is kept and marked with <code>DeletedAt</code>. On a workspace note, a
+        <code>NoteDeleted</code> event is broadcast to the workspace group.
+  example: []
+  syntax:
+    content: >-
+      [HttpDelete]
+
+      [ActionName("deleteNote")]
+
+      public Task<ActionResult> DeleteNote(string noteID, CancellationToken ct)
+    parameters:
+    - id: noteID
+      type: System.String
+      description: The note to delete.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: >-
+        200 with <code>success = true</code> and the note ID; 400 if the ID is missing;
+            403 if the user may not delete it; 404 if the note does not exist.
+    content.vb: >-
+      <HttpDelete>
+
+      <ActionName("deleteNote")>
+
+      Public Function DeleteNote(noteID As String, ct As CancellationToken) As Task(Of ActionResult)
+  overload: lumify.api.Controllers.NotesController.DeleteNote*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: deleteNote
+  nameWithType.vb: NotesController.DeleteNote(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.NotesController.DeleteNote(String, System.Threading.CancellationToken)
+  name.vb: DeleteNote(String, CancellationToken)
+- uid: lumify.api.Controllers.NotesController.DeleteTextBlock(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.DeleteTextBlock(System.String,System.Threading.CancellationToken)
+  id: DeleteTextBlock(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.NotesController
+  langs:
+  - csharp
+  - vb
+  name: DeleteTextBlock(string, CancellationToken)
+  nameWithType: NotesController.DeleteTextBlock(string, CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.DeleteTextBlock(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/NotesController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DeleteTextBlock
+    path: ../../../lumify.api/Controllers/NotesController.cs
+    startLine: 800
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Soft-deletes a single text block from its note.
+  remarks: >-
+    On a workspace note, a <code>TextBlockDeleted</code> event is broadcast to the
+        workspace group; the parent note's timestamp is bumped.
+  example: []
+  syntax:
+    content: >-
+      [HttpDelete]
+
+      [ActionName("deleteTextBlock")]
+
+      public Task<ActionResult> DeleteTextBlock(string textblockID, CancellationToken ct)
+    parameters:
+    - id: textblockID
+      type: System.String
+      description: The text block to delete.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: >-
+        200 with <code>success = true</code> and the text block ID; 400 if the ID is
+            missing; 403 if the user may not modify the note; 404 if the block or its parent note
+            does not exist.
+    content.vb: >-
+      <HttpDelete>
+
+      <ActionName("deleteTextBlock")>
+
+      Public Function DeleteTextBlock(textblockID As String, ct As CancellationToken) As Task(Of ActionResult)
+  overload: lumify.api.Controllers.NotesController.DeleteTextBlock*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: deleteTextBlock
+  nameWithType.vb: NotesController.DeleteTextBlock(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.NotesController.DeleteTextBlock(String, System.Threading.CancellationToken)
+  name.vb: DeleteTextBlock(String, CancellationToken)
+- uid: lumify.api.Controllers.NotesController.DeleteLinkItem(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.DeleteLinkItem(System.String,System.Threading.CancellationToken)
+  id: DeleteLinkItem(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.NotesController
+  langs:
+  - csharp
+  - vb
+  name: DeleteLinkItem(string, CancellationToken)
+  nameWithType: NotesController.DeleteLinkItem(string, CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.DeleteLinkItem(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/NotesController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DeleteLinkItem
+    path: ../../../lumify.api/Controllers/NotesController.cs
+    startLine: 876
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Soft-deletes a single link item from its note.
+  remarks: >-
+    On a workspace note, a <code>LinkItemDeleted</code> event is broadcast to the
+        workspace group; the parent note's timestamp is bumped.
+  example: []
+  syntax:
+    content: >-
+      [HttpDelete]
+
+      [ActionName("deleteLinkItem")]
+
+      public Task<ActionResult> DeleteLinkItem(string linkItemID, CancellationToken ct)
+    parameters:
+    - id: linkItemID
+      type: System.String
+      description: The link item to delete.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+      description: >-
+        200 with <code>success = true</code> and the link item ID; 400 if the ID is
+            missing; 403 if the user may not modify the note; 404 if the link item or its parent
+            note does not exist.
+    content.vb: >-
+      <HttpDelete>
+
+      <ActionName("deleteLinkItem")>
+
+      Public Function DeleteLinkItem(linkItemID As String, ct As CancellationToken) As Task(Of ActionResult)
+  overload: lumify.api.Controllers.NotesController.DeleteLinkItem*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: deleteLinkItem
+  nameWithType.vb: NotesController.DeleteLinkItem(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.NotesController.DeleteLinkItem(String, System.Threading.CancellationToken)
+  name.vb: DeleteLinkItem(String, CancellationToken)
+- uid: lumify.api.Controllers.NotesController.GetAllNotesOfUser(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.GetAllNotesOfUser(System.Threading.CancellationToken)
+  id: GetAllNotesOfUser(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.NotesController
+  langs:
+  - csharp
+  - vb
+  name: GetAllNotesOfUser(CancellationToken)
+  nameWithType: NotesController.GetAllNotesOfUser(CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.GetAllNotesOfUser(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/NotesController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetAllNotesOfUser
+    path: ../../../lumify.api/Controllers/NotesController.cs
+    startLine: 954
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns all personal notes (no workspace) of the current user, oldest first.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getAllNotesOfUser")]
+
+      public Task<ActionResult<List<NoteResponse>>> GetAllNotesOfUser(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.NoteResponse}}}
+      description: 200 with the list of notes.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getAllNotesOfUser")>
+
+      Public Function GetAllNotesOfUser(ct As CancellationToken) As Task(Of ActionResult(Of List(Of NoteResponse)))
+  overload: lumify.api.Controllers.NotesController.GetAllNotesOfUser*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getAllNotesOfUser
+- uid: lumify.api.Controllers.NotesController.GetAllNotesOfWorkspace(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.GetAllNotesOfWorkspace(System.String,System.Threading.CancellationToken)
+  id: GetAllNotesOfWorkspace(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.NotesController
+  langs:
+  - csharp
+  - vb
+  name: GetAllNotesOfWorkspace(string, CancellationToken)
+  nameWithType: NotesController.GetAllNotesOfWorkspace(string, CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.GetAllNotesOfWorkspace(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/NotesController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetAllNotesOfWorkspace
+    path: ../../../lumify.api/Controllers/NotesController.cs
+    startLine: 997
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns all notes of a workspace, oldest first.
+  remarks: >-
+    Notes whose creator was soft-deleted are kept (content belongs to the
+        workspace) and surface the creator as "Gelöschter Benutzer".
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getAllNotesOfWorkspace")]
+
+      public Task<ActionResult<List<NoteResponse>>> GetAllNotesOfWorkspace(string workspaceID, CancellationToken ct)
+    parameters:
+    - id: workspaceID
+      type: System.String
+      description: The workspace whose notes are requested.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.NoteResponse}}}
+      description: 200 with the list of notes.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getAllNotesOfWorkspace")>
+
+      Public Function GetAllNotesOfWorkspace(workspaceID As String, ct As CancellationToken) As Task(Of ActionResult(Of List(Of NoteResponse)))
+  overload: lumify.api.Controllers.NotesController.GetAllNotesOfWorkspace*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getAllNotesOfWorkspace
+  nameWithType.vb: NotesController.GetAllNotesOfWorkspace(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.NotesController.GetAllNotesOfWorkspace(String, System.Threading.CancellationToken)
+  name.vb: GetAllNotesOfWorkspace(String, CancellationToken)
+- uid: lumify.api.Controllers.NotesController.GetNoteWithID(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.GetNoteWithID(System.String,System.Threading.CancellationToken)
+  id: GetNoteWithID(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.NotesController
+  langs:
+  - csharp
+  - vb
+  name: GetNoteWithID(string, CancellationToken)
+  nameWithType: NotesController.GetNoteWithID(string, CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.GetNoteWithID(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/NotesController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetNoteWithID
+    path: ../../../lumify.api/Controllers/NotesController.cs
+    startLine: 1037
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns a single note by its ID (metadata only; modules are fetched separately).
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getNoteWithID")]
+
+      public Task<ActionResult<NoteResponse>> GetNoteWithID(string noteID, CancellationToken ct)
+    parameters:
+    - id: noteID
+      type: System.String
+      description: The note to look up.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.NoteResponse}}
+      description: 200 with the note; 400 if the ID is missing; 404 if it does not exist.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getNoteWithID")>
+
+      Public Function GetNoteWithID(noteID As String, ct As CancellationToken) As Task(Of ActionResult(Of NoteResponse))
+  overload: lumify.api.Controllers.NotesController.GetNoteWithID*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getNoteWithID
+  nameWithType.vb: NotesController.GetNoteWithID(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.NotesController.GetNoteWithID(String, System.Threading.CancellationToken)
+  name.vb: GetNoteWithID(String, CancellationToken)
+- uid: lumify.api.Controllers.NotesController.GetNoteCountOfUser(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.GetNoteCountOfUser(System.Threading.CancellationToken)
+  id: GetNoteCountOfUser(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.NotesController
+  langs:
+  - csharp
+  - vb
+  name: GetNoteCountOfUser(CancellationToken)
+  nameWithType: NotesController.GetNoteCountOfUser(CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.GetNoteCountOfUser(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/NotesController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetNoteCountOfUser
+    path: ../../../lumify.api/Controllers/NotesController.cs
+    startLine: 1084
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns the number of personal notes (no workspace) owned by the current user.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getNoteCountOfUser")]
+
+      public Task<ActionResult<int>> GetNoteCountOfUser(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Int32}}
+      description: 200 with the note count.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getNoteCountOfUser")>
+
+      Public Function GetNoteCountOfUser(ct As CancellationToken) As Task(Of ActionResult(Of Integer))
+  overload: lumify.api.Controllers.NotesController.GetNoteCountOfUser*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getNoteCountOfUser
+- uid: lumify.api.Controllers.NotesController.GetNoteCountOfWorkspace(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.GetNoteCountOfWorkspace(System.String,System.Threading.CancellationToken)
+  id: GetNoteCountOfWorkspace(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.NotesController
+  langs:
+  - csharp
+  - vb
+  name: GetNoteCountOfWorkspace(string, CancellationToken)
+  nameWithType: NotesController.GetNoteCountOfWorkspace(string, CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.GetNoteCountOfWorkspace(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/NotesController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetNoteCountOfWorkspace
+    path: ../../../lumify.api/Controllers/NotesController.cs
+    startLine: 1110
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns the number of notes in a workspace. The user must be a member.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getNoteCountOfWorkspace")]
+
+      public Task<ActionResult<int>> GetNoteCountOfWorkspace(string workspaceID, CancellationToken ct)
+    parameters:
+    - id: workspaceID
+      type: System.String
+      description: The workspace to count notes for.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Int32}}
+      description: >-
+        200 with the note count; 400 if the ID is missing; 403 if the user is not a
+            member; 404 if the workspace does not exist.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getNoteCountOfWorkspace")>
+
+      Public Function GetNoteCountOfWorkspace(workspaceID As String, ct As CancellationToken) As Task(Of ActionResult(Of Integer))
+  overload: lumify.api.Controllers.NotesController.GetNoteCountOfWorkspace*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getNoteCountOfWorkspace
+  nameWithType.vb: NotesController.GetNoteCountOfWorkspace(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.NotesController.GetNoteCountOfWorkspace(String, System.Threading.CancellationToken)
+  name.vb: GetNoteCountOfWorkspace(String, CancellationToken)
+- uid: lumify.api.Controllers.NotesController.GetTextBlocksOfNote(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.GetTextBlocksOfNote(System.String,System.Threading.CancellationToken)
+  id: GetTextBlocksOfNote(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.NotesController
+  langs:
+  - csharp
+  - vb
+  name: GetTextBlocksOfNote(string, CancellationToken)
+  nameWithType: NotesController.GetTextBlocksOfNote(string, CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.GetTextBlocksOfNote(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/NotesController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetTextBlocksOfNote
+    path: ../../../lumify.api/Controllers/NotesController.cs
+    startLine: 1166
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns all text blocks of a note, in display order (<code>NotePos</code>).
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getTextBlocksOfNote")]
+
+      public Task<ActionResult<List<TextblockResponse>>> GetTextBlocksOfNote(string noteID, CancellationToken ct)
+    parameters:
+    - id: noteID
+      type: System.String
+      description: The note whose text blocks are requested.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.TextblockResponse}}}
+      description: >-
+        200 with the ordered text blocks; 400 if the ID is missing; 404 if the note
+            does not exist.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getTextBlocksOfNote")>
+
+      Public Function GetTextBlocksOfNote(noteID As String, ct As CancellationToken) As Task(Of ActionResult(Of List(Of TextblockResponse)))
+  overload: lumify.api.Controllers.NotesController.GetTextBlocksOfNote*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getTextBlocksOfNote
+  nameWithType.vb: NotesController.GetTextBlocksOfNote(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.NotesController.GetTextBlocksOfNote(String, System.Threading.CancellationToken)
+  name.vb: GetTextBlocksOfNote(String, CancellationToken)
+- uid: lumify.api.Controllers.NotesController.GetLinkItemsOfNote(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.GetLinkItemsOfNote(System.String,System.Threading.CancellationToken)
+  id: GetLinkItemsOfNote(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.NotesController
+  langs:
+  - csharp
+  - vb
+  name: GetLinkItemsOfNote(string, CancellationToken)
+  nameWithType: NotesController.GetLinkItemsOfNote(string, CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.GetLinkItemsOfNote(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/NotesController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetLinkItemsOfNote
+    path: ../../../lumify.api/Controllers/NotesController.cs
+    startLine: 1214
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns all link items of a note, in display order (<code>NotePos</code>).
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getLinkItemsOfNote")]
+
+      public Task<ActionResult<List<LinkItemResponse>>> GetLinkItemsOfNote(string noteID, CancellationToken ct)
+    parameters:
+    - id: noteID
+      type: System.String
+      description: The note whose link items are requested.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.LinkItemResponse}}}
+      description: >-
+        200 with the ordered link items; 400 if the ID is missing; 404 if the note
+            does not exist.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getLinkItemsOfNote")>
+
+      Public Function GetLinkItemsOfNote(noteID As String, ct As CancellationToken) As Task(Of ActionResult(Of List(Of LinkItemResponse)))
+  overload: lumify.api.Controllers.NotesController.GetLinkItemsOfNote*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getLinkItemsOfNote
+  nameWithType.vb: NotesController.GetLinkItemsOfNote(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.NotesController.GetLinkItemsOfNote(String, System.Threading.CancellationToken)
+  name.vb: GetLinkItemsOfNote(String, CancellationToken)
+- uid: lumify.api.Controllers.NotesController.getSpaceInfosOfNote(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.getSpaceInfosOfNote(System.String,System.Threading.CancellationToken)
+  id: getSpaceInfosOfNote(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.NotesController
+  langs:
+  - csharp
+  - vb
+  name: getSpaceInfosOfNote(string, CancellationToken)
+  nameWithType: NotesController.getSpaceInfosOfNote(string, CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.getSpaceInfosOfNote(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/NotesController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: getSpaceInfosOfNote
+    path: ../../../lumify.api/Controllers/NotesController.cs
+    startLine: 1259
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns the workspace that the given note belongs to, if any.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getSpaceInfosOfNote")]
+
+      public Task<ActionResult<WorkspaceResponse>> getSpaceInfosOfNote(string noteID, CancellationToken ct)
+    parameters:
+    - id: noteID
+      type: System.String
+      description: The note whose workspace is requested.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.WorkspaceResponse}}
+      description: >-
+        200 with the workspace; 400 if the ID is missing; 404 if the note has no
+            linked workspace or it was deleted.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getSpaceInfosOfNote")>
+
+      Public Function getSpaceInfosOfNote(noteID As String, ct As CancellationToken) As Task(Of ActionResult(Of WorkspaceResponse))
+  overload: lumify.api.Controllers.NotesController.getSpaceInfosOfNote*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getSpaceInfosOfNote
+  nameWithType.vb: NotesController.getSpaceInfosOfNote(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.NotesController.getSpaceInfosOfNote(String, System.Threading.CancellationToken)
+  name.vb: getSpaceInfosOfNote(String, CancellationToken)
+references:
+- uid: lumify.api.Hubs.NoteHub
+  commentId: T:lumify.api.Hubs.NoteHub
+  href: lumify.api.Hubs.NoteHub.html
+  name: NoteHub
+  nameWithType: NoteHub
+  fullName: lumify.api.Hubs.NoteHub
+- uid: lumify.api.Controllers
+  commentId: N:lumify.api.Controllers
+  href: lumify.html
+  name: lumify.api.Controllers
+  nameWithType: lumify.api.Controllers
+  fullName: lumify.api.Controllers
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Controllers
+    name: Controllers
+    href: lumify.api.Controllers.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Controllers
+    name: Controllers
+    href: lumify.api.Controllers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.Mvc.ControllerBase
+  commentId: T:Microsoft.AspNetCore.Mvc.ControllerBase
+  parent: Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: ControllerBase
+  nameWithType: ControllerBase
+  fullName: Microsoft.AspNetCore.Mvc.ControllerBase
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.Mvc
+  commentId: N:Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: Microsoft.AspNetCore.Mvc
+  nameWithType: Microsoft.AspNetCore.Mvc
+  fullName: Microsoft.AspNetCore.Mvc
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+- uid: lumify.api.Controllers.NotesController.#ctor*
+  commentId: Overload:lumify.api.Controllers.NotesController.#ctor
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController__ctor_Microsoft_Extensions_Logging_ILogger_lumify_api_Controllers_NotesController__lumify_api_Models_Context_LumifyDbContext_Microsoft_AspNetCore_SignalR_IHubContext_lumify_api_Hubs_NoteHub__
+  name: NotesController
+  nameWithType: NotesController.NotesController
+  fullName: lumify.api.Controllers.NotesController.NotesController
+  nameWithType.vb: NotesController.New
+  fullName.vb: lumify.api.Controllers.NotesController.New
+  name.vb: New
+- uid: Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.NotesController}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.NotesController}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: lumify.api.Controllers.NotesController.html
+  name: ILogger<NotesController>
+  nameWithType: ILogger<NotesController>
+  fullName: Microsoft.Extensions.Logging.ILogger<lumify.api.Controllers.NotesController>
+  nameWithType.vb: ILogger(Of NotesController)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of lumify.api.Controllers.NotesController)
+  name.vb: ILogger(Of NotesController)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Controllers.NotesController
+    name: NotesController
+    href: lumify.api.Controllers.NotesController.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Controllers.NotesController
+    name: NotesController
+    href: lumify.api.Controllers.NotesController.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext
+  commentId: T:lumify.api.Models.Context.LumifyDbContext
+  parent: lumify.api.Models.Context
+  href: lumify.api.Models.Context.LumifyDbContext.html
+  name: LumifyDbContext
+  nameWithType: LumifyDbContext
+  fullName: lumify.api.Models.Context.LumifyDbContext
+- uid: Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.NoteHub}
+  commentId: T:Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.NoteHub}
+  parent: Microsoft.AspNetCore.SignalR
+  definition: Microsoft.AspNetCore.SignalR.IHubContext`1
+  href: lumify.api.Hubs.NoteHub.html
+  name: IHubContext<NoteHub>
+  nameWithType: IHubContext<NoteHub>
+  fullName: Microsoft.AspNetCore.SignalR.IHubContext<lumify.api.Hubs.NoteHub>
+  nameWithType.vb: IHubContext(Of NoteHub)
+  fullName.vb: Microsoft.AspNetCore.SignalR.IHubContext(Of lumify.api.Hubs.NoteHub)
+  name.vb: IHubContext(Of NoteHub)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Hubs.NoteHub
+    name: NoteHub
+    href: lumify.api.Hubs.NoteHub.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Hubs.NoteHub
+    name: NoteHub
+    href: lumify.api.Hubs.NoteHub.html
+  - name: )
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+- uid: lumify.api.Models.Context
+  commentId: N:lumify.api.Models.Context
+  href: lumify.html
+  name: lumify.api.Models.Context
+  nameWithType: lumify.api.Models.Context
+  fullName: lumify.api.Models.Context
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+- uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+  commentId: T:Microsoft.AspNetCore.SignalR.IHubContext`1
+  isExternal: true
+  name: IHubContext<THub>
+  nameWithType: IHubContext<THub>
+  fullName: Microsoft.AspNetCore.SignalR.IHubContext<THub>
+  nameWithType.vb: IHubContext(Of THub)
+  fullName.vb: Microsoft.AspNetCore.SignalR.IHubContext(Of THub)
+  name.vb: IHubContext(Of THub)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: <
+  - name: THub
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.IHubContext`1
+    name: IHubContext
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: THub
+  - name: )
+- uid: Microsoft.AspNetCore.SignalR
+  commentId: N:Microsoft.AspNetCore.SignalR
+  isExternal: true
+  name: Microsoft.AspNetCore.SignalR
+  nameWithType: Microsoft.AspNetCore.SignalR
+  fullName: Microsoft.AspNetCore.SignalR
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+- uid: lumify.api.Controllers.NotesController.AddNote*
+  commentId: Overload:lumify.api.Controllers.NotesController.AddNote
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_AddNote_lumify_api_Models_DTO_Requests_AddNoteRequest_System_Threading_CancellationToken_
+  name: AddNote
+  nameWithType: NotesController.AddNote
+  fullName: lumify.api.Controllers.NotesController.AddNote
+- uid: lumify.api.Models.DTO.Requests.AddNoteRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddNoteRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.AddNoteRequest.html
+  name: AddNoteRequest
+  nameWithType: AddNoteRequest
+  fullName: lumify.api.Models.DTO.Requests.AddNoteRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.NoteResponse}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.NoteResponse}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.NoteResponse.html
+  name: Task<ActionResult<NoteResponse>>
+  nameWithType: Task<ActionResult<NoteResponse>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<lumify.api.Models.DTO.Responses.NoteResponse>>
+  nameWithType.vb: Task(Of ActionResult(Of NoteResponse))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of lumify.api.Models.DTO.Responses.NoteResponse))
+  name.vb: Task(Of ActionResult(Of NoteResponse))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.NoteResponse
+    name: NoteResponse
+    href: lumify.api.Models.DTO.Responses.NoteResponse.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.NoteResponse
+    name: NoteResponse
+    href: lumify.api.Models.DTO.Responses.NoteResponse.html
+  - name: )
+  - name: )
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  href: lumify.html
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: lumify.api.Controllers.NotesController.AddTextBlock*
+  commentId: Overload:lumify.api.Controllers.NotesController.AddTextBlock
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_AddTextBlock_lumify_api_Models_DTO_Requests_AddTextBlockRequest_System_Threading_CancellationToken_
+  name: AddTextBlock
+  nameWithType: NotesController.AddTextBlock
+  fullName: lumify.api.Controllers.NotesController.AddTextBlock
+- uid: lumify.api.Models.DTO.Requests.AddTextBlockRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddTextBlockRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.AddTextBlockRequest.html
+  name: AddTextBlockRequest
+  nameWithType: AddTextBlockRequest
+  fullName: lumify.api.Models.DTO.Requests.AddTextBlockRequest
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.TextblockResponse}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.TextblockResponse}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.TextblockResponse.html
+  name: Task<ActionResult<TextblockResponse>>
+  nameWithType: Task<ActionResult<TextblockResponse>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<lumify.api.Models.DTO.Responses.TextblockResponse>>
+  nameWithType.vb: Task(Of ActionResult(Of TextblockResponse))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of lumify.api.Models.DTO.Responses.TextblockResponse))
+  name.vb: Task(Of ActionResult(Of TextblockResponse))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.TextblockResponse
+    name: TextblockResponse
+    href: lumify.api.Models.DTO.Responses.TextblockResponse.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.TextblockResponse
+    name: TextblockResponse
+    href: lumify.api.Models.DTO.Responses.TextblockResponse.html
+  - name: )
+  - name: )
+- uid: lumify.api.Controllers.NotesController.AddLinkItem*
+  commentId: Overload:lumify.api.Controllers.NotesController.AddLinkItem
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_AddLinkItem_lumify_api_Models_DTO_Requests_AddLinkItemRequest_System_Threading_CancellationToken_
+  name: AddLinkItem
+  nameWithType: NotesController.AddLinkItem
+  fullName: lumify.api.Controllers.NotesController.AddLinkItem
+- uid: lumify.api.Models.DTO.Requests.AddLinkItemRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddLinkItemRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.AddLinkItemRequest.html
+  name: AddLinkItemRequest
+  nameWithType: AddLinkItemRequest
+  fullName: lumify.api.Models.DTO.Requests.AddLinkItemRequest
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.LinkItemResponse}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.LinkItemResponse}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.LinkItemResponse.html
+  name: Task<ActionResult<LinkItemResponse>>
+  nameWithType: Task<ActionResult<LinkItemResponse>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<lumify.api.Models.DTO.Responses.LinkItemResponse>>
+  nameWithType.vb: Task(Of ActionResult(Of LinkItemResponse))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of lumify.api.Models.DTO.Responses.LinkItemResponse))
+  name.vb: Task(Of ActionResult(Of LinkItemResponse))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.LinkItemResponse
+    name: LinkItemResponse
+    href: lumify.api.Models.DTO.Responses.LinkItemResponse.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.LinkItemResponse
+    name: LinkItemResponse
+    href: lumify.api.Models.DTO.Responses.LinkItemResponse.html
+  - name: )
+  - name: )
+- uid: lumify.api.Controllers.NotesController.SaveNote*
+  commentId: Overload:lumify.api.Controllers.NotesController.SaveNote
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_SaveNote_lumify_api_Models_DTO_Requests_SaveNoteRequest_System_Threading_CancellationToken_
+  name: SaveNote
+  nameWithType: NotesController.SaveNote
+  fullName: lumify.api.Controllers.NotesController.SaveNote
+- uid: lumify.api.Models.DTO.Requests.SaveNoteRequest
+  commentId: T:lumify.api.Models.DTO.Requests.SaveNoteRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.SaveNoteRequest.html
+  name: SaveNoteRequest
+  nameWithType: SaveNoteRequest
+  fullName: lumify.api.Models.DTO.Requests.SaveNoteRequest
+- uid: lumify.api.Controllers.NotesController.SaveTextBlock*
+  commentId: Overload:lumify.api.Controllers.NotesController.SaveTextBlock
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_SaveTextBlock_lumify_api_Models_DTO_Requests_SaveTextblockRequest_System_Threading_CancellationToken_
+  name: SaveTextBlock
+  nameWithType: NotesController.SaveTextBlock
+  fullName: lumify.api.Controllers.NotesController.SaveTextBlock
+- uid: lumify.api.Models.DTO.Requests.SaveTextblockRequest
+  commentId: T:lumify.api.Models.DTO.Requests.SaveTextblockRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.SaveTextblockRequest.html
+  name: SaveTextblockRequest
+  nameWithType: SaveTextblockRequest
+  fullName: lumify.api.Models.DTO.Requests.SaveTextblockRequest
+- uid: lumify.api.Controllers.NotesController.DeleteNote*
+  commentId: Overload:lumify.api.Controllers.NotesController.DeleteNote
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_DeleteNote_System_String_System_Threading_CancellationToken_
+  name: DeleteNote
+  nameWithType: NotesController.DeleteNote
+  fullName: lumify.api.Controllers.NotesController.DeleteNote
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<ActionResult>
+  nameWithType: Task<ActionResult>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult>
+  nameWithType.vb: Task(Of ActionResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult)
+  name.vb: Task(Of ActionResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult
+    name: ActionResult
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult
+    name: ActionResult
+    isExternal: true
+  - name: )
+- uid: lumify.api.Controllers.NotesController.DeleteTextBlock*
+  commentId: Overload:lumify.api.Controllers.NotesController.DeleteTextBlock
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_DeleteTextBlock_System_String_System_Threading_CancellationToken_
+  name: DeleteTextBlock
+  nameWithType: NotesController.DeleteTextBlock
+  fullName: lumify.api.Controllers.NotesController.DeleteTextBlock
+- uid: lumify.api.Controllers.NotesController.DeleteLinkItem*
+  commentId: Overload:lumify.api.Controllers.NotesController.DeleteLinkItem
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_DeleteLinkItem_System_String_System_Threading_CancellationToken_
+  name: DeleteLinkItem
+  nameWithType: NotesController.DeleteLinkItem
+  fullName: lumify.api.Controllers.NotesController.DeleteLinkItem
+- uid: lumify.api.Controllers.NotesController.GetAllNotesOfUser*
+  commentId: Overload:lumify.api.Controllers.NotesController.GetAllNotesOfUser
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_GetAllNotesOfUser_System_Threading_CancellationToken_
+  name: GetAllNotesOfUser
+  nameWithType: NotesController.GetAllNotesOfUser
+  fullName: lumify.api.Controllers.NotesController.GetAllNotesOfUser
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.NoteResponse}}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.NoteResponse}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.NoteResponse.html
+  name: Task<ActionResult<List<NoteResponse>>>
+  nameWithType: Task<ActionResult<List<NoteResponse>>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.List<lumify.api.Models.DTO.Responses.NoteResponse>>>
+  nameWithType.vb: Task(Of ActionResult(Of List(Of NoteResponse)))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of System.Collections.Generic.List(Of lumify.api.Models.DTO.Responses.NoteResponse)))
+  name.vb: Task(Of ActionResult(Of List(Of NoteResponse)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.NoteResponse
+    name: NoteResponse
+    href: lumify.api.Models.DTO.Responses.NoteResponse.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.NoteResponse
+    name: NoteResponse
+    href: lumify.api.Models.DTO.Responses.NoteResponse.html
+  - name: )
+  - name: )
+  - name: )
+- uid: lumify.api.Controllers.NotesController.GetAllNotesOfWorkspace*
+  commentId: Overload:lumify.api.Controllers.NotesController.GetAllNotesOfWorkspace
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_GetAllNotesOfWorkspace_System_String_System_Threading_CancellationToken_
+  name: GetAllNotesOfWorkspace
+  nameWithType: NotesController.GetAllNotesOfWorkspace
+  fullName: lumify.api.Controllers.NotesController.GetAllNotesOfWorkspace
+- uid: lumify.api.Controllers.NotesController.GetNoteWithID*
+  commentId: Overload:lumify.api.Controllers.NotesController.GetNoteWithID
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_GetNoteWithID_System_String_System_Threading_CancellationToken_
+  name: GetNoteWithID
+  nameWithType: NotesController.GetNoteWithID
+  fullName: lumify.api.Controllers.NotesController.GetNoteWithID
+- uid: lumify.api.Controllers.NotesController.GetNoteCountOfUser*
+  commentId: Overload:lumify.api.Controllers.NotesController.GetNoteCountOfUser
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_GetNoteCountOfUser_System_Threading_CancellationToken_
+  name: GetNoteCountOfUser
+  nameWithType: NotesController.GetNoteCountOfUser
+  fullName: lumify.api.Controllers.NotesController.GetNoteCountOfUser
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Int32}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Int32}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<ActionResult<int>>
+  nameWithType: Task<ActionResult<int>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<int>>
+  nameWithType.vb: Task(Of ActionResult(Of Integer))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of Integer))
+  name.vb: Task(Of ActionResult(Of Integer))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+  - name: )
+  - name: )
+- uid: lumify.api.Controllers.NotesController.GetNoteCountOfWorkspace*
+  commentId: Overload:lumify.api.Controllers.NotesController.GetNoteCountOfWorkspace
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_GetNoteCountOfWorkspace_System_String_System_Threading_CancellationToken_
+  name: GetNoteCountOfWorkspace
+  nameWithType: NotesController.GetNoteCountOfWorkspace
+  fullName: lumify.api.Controllers.NotesController.GetNoteCountOfWorkspace
+- uid: lumify.api.Controllers.NotesController.GetTextBlocksOfNote*
+  commentId: Overload:lumify.api.Controllers.NotesController.GetTextBlocksOfNote
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_GetTextBlocksOfNote_System_String_System_Threading_CancellationToken_
+  name: GetTextBlocksOfNote
+  nameWithType: NotesController.GetTextBlocksOfNote
+  fullName: lumify.api.Controllers.NotesController.GetTextBlocksOfNote
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.TextblockResponse}}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.TextblockResponse}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.TextblockResponse.html
+  name: Task<ActionResult<List<TextblockResponse>>>
+  nameWithType: Task<ActionResult<List<TextblockResponse>>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.List<lumify.api.Models.DTO.Responses.TextblockResponse>>>
+  nameWithType.vb: Task(Of ActionResult(Of List(Of TextblockResponse)))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of System.Collections.Generic.List(Of lumify.api.Models.DTO.Responses.TextblockResponse)))
+  name.vb: Task(Of ActionResult(Of List(Of TextblockResponse)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.TextblockResponse
+    name: TextblockResponse
+    href: lumify.api.Models.DTO.Responses.TextblockResponse.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.TextblockResponse
+    name: TextblockResponse
+    href: lumify.api.Models.DTO.Responses.TextblockResponse.html
+  - name: )
+  - name: )
+  - name: )
+- uid: lumify.api.Controllers.NotesController.GetLinkItemsOfNote*
+  commentId: Overload:lumify.api.Controllers.NotesController.GetLinkItemsOfNote
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_GetLinkItemsOfNote_System_String_System_Threading_CancellationToken_
+  name: GetLinkItemsOfNote
+  nameWithType: NotesController.GetLinkItemsOfNote
+  fullName: lumify.api.Controllers.NotesController.GetLinkItemsOfNote
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.LinkItemResponse}}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.LinkItemResponse}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.LinkItemResponse.html
+  name: Task<ActionResult<List<LinkItemResponse>>>
+  nameWithType: Task<ActionResult<List<LinkItemResponse>>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.List<lumify.api.Models.DTO.Responses.LinkItemResponse>>>
+  nameWithType.vb: Task(Of ActionResult(Of List(Of LinkItemResponse)))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of System.Collections.Generic.List(Of lumify.api.Models.DTO.Responses.LinkItemResponse)))
+  name.vb: Task(Of ActionResult(Of List(Of LinkItemResponse)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.LinkItemResponse
+    name: LinkItemResponse
+    href: lumify.api.Models.DTO.Responses.LinkItemResponse.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.LinkItemResponse
+    name: LinkItemResponse
+    href: lumify.api.Models.DTO.Responses.LinkItemResponse.html
+  - name: )
+  - name: )
+  - name: )
+- uid: lumify.api.Controllers.NotesController.getSpaceInfosOfNote*
+  commentId: Overload:lumify.api.Controllers.NotesController.getSpaceInfosOfNote
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_getSpaceInfosOfNote_System_String_System_Threading_CancellationToken_
+  name: getSpaceInfosOfNote
+  nameWithType: NotesController.getSpaceInfosOfNote
+  fullName: lumify.api.Controllers.NotesController.getSpaceInfosOfNote
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.WorkspaceResponse}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.WorkspaceResponse}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.WorkspaceResponse.html
+  name: Task<ActionResult<WorkspaceResponse>>
+  nameWithType: Task<ActionResult<WorkspaceResponse>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<lumify.api.Models.DTO.Responses.WorkspaceResponse>>
+  nameWithType.vb: Task(Of ActionResult(Of WorkspaceResponse))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of lumify.api.Models.DTO.Responses.WorkspaceResponse))
+  name.vb: Task(Of ActionResult(Of WorkspaceResponse))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.WorkspaceResponse
+    name: WorkspaceResponse
+    href: lumify.api.Models.DTO.Responses.WorkspaceResponse.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.WorkspaceResponse
+    name: WorkspaceResponse
+    href: lumify.api.Models.DTO.Responses.WorkspaceResponse.html
+  - name: )
+  - name: )

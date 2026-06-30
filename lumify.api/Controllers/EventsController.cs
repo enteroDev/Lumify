@@ -12,6 +12,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace lumify.api.Controllers
 {
+    /// <summary>
+    /// Manages calendar events, both personal (no workspace) and workspace-shared, including
+    /// creation, editing, deletion and various queries (counts, lists, linked workspace). All
+    /// endpoints require an authenticated user. Changes to workspace events are pushed live to
+    /// the workspace group over the <see cref="Hubs.EventHub"/>.
+    /// </summary>
+    /// <remarks>
+    /// Permission rule throughout: a personal event may only be modified by its owner, while a
+    /// workspace event may be modified by any active member of that workspace (see <c>CanModify</c>).
+    /// For privacy, the creator is surfaced only as display name → username → ID, never the
+    /// real first/last name.
+    /// </remarks>
     [ApiController]
     [Route("events/[action]")]
     [Authorize]
@@ -21,6 +33,10 @@ namespace lumify.api.Controllers
         private readonly LumifyDbContext _db;
         private readonly IHubContext<EventHub> _eventHub;
 
+        /// <summary>
+        /// Creates the controller with its injected logger, database context and the event hub
+        /// used for live notifications.
+        /// </summary>
         public EventsController(ILogger<EventsController> logger, LumifyDbContext db, IHubContext<EventHub> eventHub)
         {
             _logger = logger;
@@ -33,6 +49,18 @@ namespace lumify.api.Controllers
         // ----------- //
         // --- ADD --- //
         // ----------- //
+        /// <summary>
+        /// Creates a new calendar event, optionally inside a workspace.
+        /// </summary>
+        /// <remarks>
+        /// Start and end times must be valid dates and end must not be before start. If a
+        /// workspace is given, the user must be a member of it. On success in a workspace, an
+        /// <c>EventCreated</c> event is broadcast to the workspace group.
+        /// </remarks>
+        /// <param name="request">Event data (name, start/end time required; optional description, all-day, workspace).</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the created event; 400 on missing/invalid fields; 403 if the user
+        /// is not a member of the target workspace.</returns>
         [HttpPost]
         [ActionName("addEvent")]
         public async Task<ActionResult<EventResponse>> AddEvent([FromBody] AddEventRequest request, CancellationToken ct)
@@ -161,6 +189,15 @@ namespace lumify.api.Controllers
         // -------------- //
         // --- DELETE --- //
         // -------------- //
+        /// <summary>
+        /// Soft-deletes a calendar event.
+        /// </summary>
+        /// <remarks>The record is kept and marked with <c>DeletedAt</c>. On a workspace event,
+        /// an <c>EventDeleted</c> event is broadcast to the workspace group.</remarks>
+        /// <param name="eventID">The event to delete.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with <c>success = true</c> and the event ID; 400 if the ID is missing;
+        /// 403 if the user may not delete it; 404 if the event does not exist.</returns>
         [HttpDelete]
         [ActionName("deleteEvent")]
         public async Task<ActionResult> DeleteEvent(string eventID, CancellationToken ct)
@@ -217,6 +254,16 @@ namespace lumify.api.Controllers
         // ------------ //
         // --- SAVE --- //
         // ------------ //
+        /// <summary>
+        /// Updates an event's name, description, all-day flag and/or start/end times. Only the
+        /// provided fields are changed, and the database is only written if something changed.
+        /// </summary>
+        /// <remarks>On a successful change in a workspace, an <c>EventUpdated</c> event is
+        /// broadcast to the workspace group.</remarks>
+        /// <param name="request">The event ID plus the fields to change.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the updated event; 400 on invalid input; 403 if the user may not
+        /// modify it; 404 if the event does not exist.</returns>
         [HttpPatch]
         [ActionName("saveEvent")]
         public async Task<ActionResult<EventResponse>> SaveEvent([FromBody] SaveEventRequest request, CancellationToken ct)
@@ -382,6 +429,11 @@ namespace lumify.api.Controllers
         // ----------- //
         // --- GET --- //
         // ----------- //
+        /// <summary>
+        /// Returns the number of personal events (no workspace) owned by the current user.
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the event count.</returns>
         [HttpGet]
         [ActionName("getEventCountOfUser")]
         public async Task<ActionResult<int>> GetEventCountOfUser(CancellationToken ct)
@@ -401,6 +453,13 @@ namespace lumify.api.Controllers
             return Ok(eventCount);
         }
 
+        /// <summary>
+        /// Returns the number of events in a workspace. The user must be a member.
+        /// </summary>
+        /// <param name="workspaceID">The workspace to count events for.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the event count; 400 if the ID is missing; 403 if the user is not
+        /// a member; 404 if the workspace does not exist.</returns>
         [HttpGet]
         [ActionName("getEventCountOfWorkspace")]
         public async Task<ActionResult<int>> GetEventCountOfWorkspace(string workspaceID, CancellationToken ct)
@@ -448,6 +507,11 @@ namespace lumify.api.Controllers
             return Ok(eventCount);
         }
 
+        /// <summary>
+        /// Returns all personal events (no workspace) of the current user, ordered by start date.
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the list of events.</returns>
         [HttpGet]
         [ActionName("getAllEventsOfUser")]
         public async Task<ActionResult<List<EventResponse>>> GetAllEventsOfUser(CancellationToken ct)
@@ -490,6 +554,15 @@ namespace lumify.api.Controllers
             return Ok(events);
         }
 
+        /// <summary>
+        /// Returns all events of a workspace, ordered by start date. The user must be a member.
+        /// </summary>
+        /// <remarks>Events whose creator was soft-deleted are kept (content belongs to the
+        /// workspace) and surface the creator as "Gelöschter Benutzer".</remarks>
+        /// <param name="workspaceID">The workspace whose events are requested.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the list of events; 400 if the ID is missing; 403 if the user is
+        /// not a member; 404 if the workspace does not exist.</returns>
         [HttpGet]
         [ActionName("getAllEventsOfWorkspace")]
         public async Task<ActionResult<List<EventResponse>>> GetAllEventsOfWorkspace(string workspaceID, CancellationToken ct)
@@ -557,6 +630,13 @@ namespace lumify.api.Controllers
             return Ok(events);
         }
 
+        /// <summary>
+        /// Returns the workspace that the given event belongs to, if any.
+        /// </summary>
+        /// <param name="eventID">The event whose workspace is requested.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the workspace; 400 if the ID is missing; 404 if the event has no
+        /// linked workspace or it was deleted.</returns>
         [HttpGet]
         [ActionName("getSpaceInfosOfEvent")]
         public async Task<ActionResult<WorkspaceResponse>> GetSpaceInfosOfEvent(string eventID, CancellationToken ct)
@@ -598,6 +678,11 @@ namespace lumify.api.Controllers
 
 
         // --- Helper --- //
+        /// <summary>
+        /// Reads the current user's ID from the <c>UserID</c> claim of the authenticated request.
+        /// </summary>
+        /// <returns>The current user's ID.</returns>
+        /// <exception cref="UnauthorizedAccessException">Thrown when no user is logged in.</exception>
         private string GetCurrentUserID()
         {
             var userID = User.FindFirst("UserID")?.Value;
@@ -609,9 +694,16 @@ namespace lumify.api.Controllers
             return userID;
         }
 
-        // Decides whether the current user may modify/delete an item.
-        //  - Personal item (workspaceID == null): only its owner may.
-        //  - Workspace item: any active member of that workspace may (creator != owner).
+        /// <summary>
+        /// Decides whether the current user may modify or delete an item. A personal item
+        /// (no workspace) may only be changed by its owner; a workspace item may be changed by
+        /// any active member of that workspace.
+        /// </summary>
+        /// <param name="workspaceID">The item's workspace, or <c>null</c> for a personal item.</param>
+        /// <param name="ownerID">The item's owner.</param>
+        /// <param name="userID">The current user.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns><c>true</c> if the user is allowed to modify the item.</returns>
         private async Task<bool> CanModify(string? workspaceID, string ownerID, string userID, CancellationToken ct)
         {
             if (string.IsNullOrWhiteSpace(workspaceID))

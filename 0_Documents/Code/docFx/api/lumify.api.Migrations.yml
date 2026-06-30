@@ -1,0 +1,44 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Migrations
+  commentId: N:lumify.api.Migrations
+  id: lumify.api.Migrations
+  children:
+  - lumify.api.Migrations.AddEmailVerification
+  - lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers
+  - lumify.api.Migrations.AddTotp
+  - lumify.api.Migrations.InitialCreate
+  langs:
+  - csharp
+  - vb
+  name: lumify.api.Migrations
+  nameWithType: lumify.api.Migrations
+  fullName: lumify.api.Migrations
+  type: Namespace
+  assemblies:
+  - lumify.api
+references:
+- uid: lumify.api.Migrations.InitialCreate
+  commentId: T:lumify.api.Migrations.InitialCreate
+  href: lumify.api.Migrations.InitialCreate.html
+  name: InitialCreate
+  nameWithType: InitialCreate
+  fullName: lumify.api.Migrations.InitialCreate
+- uid: lumify.api.Migrations.AddTotp
+  commentId: T:lumify.api.Migrations.AddTotp
+  href: lumify.api.Migrations.AddTotp.html
+  name: AddTotp
+  nameWithType: AddTotp
+  fullName: lumify.api.Migrations.AddTotp
+- uid: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers
+  commentId: T:lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers
+  href: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.html
+  name: AddTodoProgressViewAndStatusTriggers
+  nameWithType: AddTodoProgressViewAndStatusTriggers
+  fullName: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers
+- uid: lumify.api.Migrations.AddEmailVerification
+  commentId: T:lumify.api.Migrations.AddEmailVerification
+  href: lumify.api.Migrations.AddEmailVerification.html
+  name: AddEmailVerification
+  nameWithType: AddEmailVerification
+  fullName: lumify.api.Migrations.AddEmailVerification

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AccountController | Lumify – Code Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AccountController | Lumify – Code Documentation ">
+      
+      <meta name="description" content="Endpoints for user accounts: login/logout, registration, two-factor authentication (TOTP), password reset and e-mail verification. Sessions are issued via an HttpOnly JWT cookie plus a CSRF double-submit cookie.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/enteroDev/Lumify/new/main/apiSpec/new?filename=lumify_api_Controllers_AccountController.md&amp;value=---%0Auid%3A%20lumify.api.Controllers.AccountController%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Lumify">
+            Lumify
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="lumify.api.Controllers.AccountController">
+
+
+
+  <h1 id="lumify_api_Controllers_AccountController" data-uid="lumify.api.Controllers.AccountController" class="text-break">
+Class AccountController  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/AccountController.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="lumify.html">lumify</a>.<a class="xref" href="lumify.api.html">api</a>.<a class="xref" href="lumify.api.Controllers.html">Controllers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Endpoints for user accounts: login/logout, registration, two-factor
+authentication (TOTP), password reset and e-mail verification. Sessions are
+issued via an HttpOnly JWT cookie plus a CSRF double-submit cookie.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiController]
+[Route(&quot;account/[action]&quot;)]
+public class AccountController : ControllerBase</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ControllerBase</span></div>
+      <div><span class="xref">AccountController</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="lumify_api_Controllers_AccountController__ctor_" data-uid="lumify.api.Controllers.AccountController.#ctor*"></a>
+
+  <h3 id="lumify_api_Controllers_AccountController__ctor_Microsoft_Extensions_Logging_ILogger_lumify_api_Controllers_AccountController__Microsoft_Extensions_Configuration_IConfiguration_Microsoft_AspNetCore_Hosting_IWebHostEnvironment_lumify_api_Models_Context_LumifyDbContext_lumify_api_Logic_InternalLogic_lumify_api_Interfaces_IEmailService_Microsoft_Extensions_Options_IOptions_lumify_api_Models_Settings_AppSettings__" data-uid="lumify.api.Controllers.AccountController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.AccountController},Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,lumify.api.Models.Context.LumifyDbContext,lumify.api.Logic.InternalLogic,lumify.api.Interfaces.IEmailService,Microsoft.Extensions.Options.IOptions{lumify.api.Models.Settings.AppSettings})">
+  AccountController(ILogger&lt;AccountController&gt;, IConfiguration, IWebHostEnvironment, LumifyDbContext, InternalLogic, IEmailService, IOptions&lt;AppSettings&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/AccountController.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates the controller with its injected dependencies (logging, configuration,
+hosting environment, database context, internal logic helpers, e-mail service
+and application settings).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AccountController(ILogger&lt;AccountController&gt; logger, IConfiguration config, IWebHostEnvironment env, LumifyDbContext context, InternalLogic logic, IEmailService emailService, IOptions&lt;AppSettings&gt; appSettings)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>logger</code> <span class="xref">ILogger</span>&lt;<a class="xref" href="lumify.api.Controllers.AccountController.html">AccountController</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>config</code> <span class="xref">IConfiguration</span></dt>
+    <dd></dd>
+    <dt><code>env</code> <span class="xref">IWebHostEnvironment</span></dt>
+    <dd></dd>
+    <dt><code>context</code> <a class="xref" href="lumify.api.Models.Context.LumifyDbContext.html">LumifyDbContext</a></dt>
+    <dd></dd>
+    <dt><code>logic</code> <a class="xref" href="lumify.api.Logic.InternalLogic.html">InternalLogic</a></dt>
+    <dd></dd>
+    <dt><code>emailService</code> <a class="xref" href="lumify.api.Interfaces.IEmailService.html">IEmailService</a></dt>
+    <dd></dd>
+    <dt><code>appSettings</code> <span class="xref">IOptions</span>&lt;<a class="xref" href="lumify.api.Models.Settings.AppSettings.html">AppSettings</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="lumify_api_Controllers_AccountController_ConfirmTotp_" data-uid="lumify.api.Controllers.AccountController.ConfirmTotp*"></a>
+
+  <h3 id="lumify_api_Controllers_AccountController_ConfirmTotp_lumify_api_Models_DTO_Requests_TotpCodeRequest_" data-uid="lumify.api.Controllers.AccountController.ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)">
+  ConfirmTotp(TotpCodeRequest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/AccountController.cs/#L242"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Confirms 2FA setup: a valid TOTP code flips two-factor authentication on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[Authorize]
+[ActionName(&quot;confirmTotp&quot;)]
+public Task&lt;IActionResult&gt; ConfirmTotp(TotpCodeRequest dto)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dto</code> <a class="xref" href="lumify.api.Models.DTO.Requests.TotpCodeRequest.html">TotpCodeRequest</a></dt>
+    <dd><p>The 6-digit code from the authenticator app.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with <code>enabled = true</code> on success; 400 if the code is missing,
+setup was not started, or the code is invalid; 404 if the user no longer exists.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_AccountController_DisableTotp_" data-uid="lumify.api.Controllers.AccountController.DisableTotp*"></a>
+
+  <h3 id="lumify_api_Controllers_AccountController_DisableTotp_lumify_api_Models_DTO_Requests_TotpCodeRequest_" data-uid="lumify.api.Controllers.AccountController.DisableTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)">
+  DisableTotp(TotpCodeRequest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/AccountController.cs/#L276"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disables 2FA. Requires a valid current TOTP code so a hijacked session cannot
+silently turn it off.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[Authorize]
+[ActionName(&quot;disableTotp&quot;)]
+public Task&lt;IActionResult&gt; DisableTotp(TotpCodeRequest dto)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dto</code> <a class="xref" href="lumify.api.Models.DTO.Requests.TotpCodeRequest.html">TotpCodeRequest</a></dt>
+    <dd><p>The 6-digit code from the authenticator app.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with <code>enabled = false</code> on success; 400 if the code is missing,
+2FA is not enabled, or the code is invalid; 404 if the user no longer exists.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_AccountController_LoginUser_" data-uid="lumify.api.Controllers.AccountController.LoginUser*"></a>
+
+  <h3 id="lumify_api_Controllers_AccountController_LoginUser_lumify_api_Models_DTO_Requests_LoginRequest_" data-uid="lumify.api.Controllers.AccountController.LoginUser(lumify.api.Models.DTO.Requests.LoginRequest)">
+  LoginUser(LoginRequest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/AccountController.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Authenticates a user by username or e-mail and password.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[ActionName(&quot;loginUser&quot;)]
+public Task&lt;IActionResult&gt; LoginUser(LoginRequest dto)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dto</code> <a class="xref" href="lumify.api.Models.DTO.Requests.LoginRequest.html">LoginRequest</a></dt>
+    <dd><p>Credentials: <code>Identifier</code> (username or e-mail) and password.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with user data (session in cookie) on success without 2FA; 200 with
+<code>mfaRequired = true</code> and an MFA token when 2FA is enabled; 401 for invalid
+credentials; 403 when the e-mail address is not yet confirmed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_AccountController_LoginUser_lumify_api_Models_DTO_Requests_LoginRequest__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If 2FA is enabled, no session is issued yet — a short-lived MFA challenge token
+is returned instead and the client must call <a class="xref" href="lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_VerifyTotpLogin_lumify_api_Models_DTO_Requests_VerifyTotpLoginRequest_">VerifyTotpLogin(VerifyTotpLoginRequest)</a> with
+the 6-digit code. Soft-deleted and unconfirmed accounts cannot log in.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_AccountController_LogoutUser_" data-uid="lumify.api.Controllers.AccountController.LogoutUser*"></a>
+
+  <h3 id="lumify_api_Controllers_AccountController_LogoutUser" data-uid="lumify.api.Controllers.AccountController.LogoutUser">
+  LogoutUser()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/AccountController.cs/#L313"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Logs the user out by expiring the session and CSRF cookies immediately.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[ActionName(&quot;logoutUser&quot;)]
+public IActionResult LogoutUser()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IActionResult</span></dt>
+    <dd><p>200 once the cookies have been cleared.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_AccountController_MfaStatus_" data-uid="lumify.api.Controllers.AccountController.MfaStatus*"></a>
+
+  <h3 id="lumify_api_Controllers_AccountController_MfaStatus" data-uid="lumify.api.Controllers.AccountController.MfaStatus">
+  MfaStatus()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/AccountController.cs/#L185"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns whether 2FA is currently active for the logged-in user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[Authorize]
+[ActionName(&quot;mfaStatus&quot;)]
+public Task&lt;IActionResult&gt; MfaStatus()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with <code>enabled</code> (bool); 404 if the user no longer exists.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_AccountController_RegisterUser_" data-uid="lumify.api.Controllers.AccountController.RegisterUser*"></a>
+
+  <h3 id="lumify_api_Controllers_AccountController_RegisterUser_lumify_api_Models_DTO_Requests_RegisterRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.AccountController.RegisterUser(lumify.api.Models.DTO.Requests.RegisterRequest,System.Threading.CancellationToken)">
+  RegisterUser(RegisterRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/AccountController.cs/#L350"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Registers a new user account and sends an e-mail verification link. No automatic
+login — the account must confirm its e-mail before it can sign in.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[ActionName(&quot;registerUser&quot;)]
+public Task&lt;IActionResult&gt; RegisterUser(RegisterRequest dto, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dto</code> <a class="xref" href="lumify.api.Models.DTO.Requests.RegisterRequest.html">RegisterRequest</a></dt>
+    <dd><p>Registration data (e-mail, username, password, optional name/avatar).</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with <code>verificationRequired = true</code> on success; 400 if required
+fields are missing; 409 if the username or e-mail already exists; 500 on error.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_AccountController_RegisterUser_lumify_api_Models_DTO_Requests_RegisterRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>An optional base64 avatar is stored; failure to save it is logged but does not
+abort registration (a default avatar is used instead).</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_AccountController_RequestPasswordReset_" data-uid="lumify.api.Controllers.AccountController.RequestPasswordReset*"></a>
+
+  <h3 id="lumify_api_Controllers_AccountController_RequestPasswordReset_lumify_api_Models_DTO_Requests_RequestPasswordResetRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.AccountController.RequestPasswordReset(lumify.api.Models.DTO.Requests.RequestPasswordResetRequest,System.Threading.CancellationToken)">
+  RequestPasswordReset(RequestPasswordResetRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/AccountController.cs/#L446"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Password reset step 1: requests a reset link for the given username or e-mail.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[ActionName(&quot;requestPasswordReset&quot;)]
+public Task&lt;IActionResult&gt; RequestPasswordReset(RequestPasswordResetRequest dto, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dto</code> <a class="xref" href="lumify.api.Models.DTO.Requests.RequestPasswordResetRequest.html">RequestPasswordResetRequest</a></dt>
+    <dd><p>The identifier (username or e-mail).</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with a generic message in all cases.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_AccountController_RequestPasswordReset_lumify_api_Models_DTO_Requests_RequestPasswordResetRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Always returns the same generic message regardless of whether the account exists,
+so the endpoint cannot be used to enumerate registered users. Any previously open
+reset tokens for the user are invalidated; only the hash of the new token is stored.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_AccountController_ResendVerification_" data-uid="lumify.api.Controllers.AccountController.ResendVerification*"></a>
+
+  <h3 id="lumify_api_Controllers_AccountController_ResendVerification_lumify_api_Models_DTO_Requests_ResendVerificationRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.AccountController.ResendVerification(lumify.api.Models.DTO.Requests.ResendVerificationRequest,System.Threading.CancellationToken)">
+  ResendVerification(ResendVerificationRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/AccountController.cs/#L625"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resends a verification mail for an existing, still-unconfirmed account.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[ActionName(&quot;resendVerification&quot;)]
+public Task&lt;IActionResult&gt; ResendVerification(ResendVerificationRequest dto, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dto</code> <a class="xref" href="lumify.api.Models.DTO.Requests.ResendVerificationRequest.html">ResendVerificationRequest</a></dt>
+    <dd><p>The identifier (username or e-mail).</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with a generic message in all cases.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_AccountController_ResendVerification_lumify_api_Models_DTO_Requests_ResendVerificationRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Always answers with the same generic message (no user enumeration); a mail is only
+actually sent for an account that exists and is not yet confirmed.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_AccountController_ResetPassword_" data-uid="lumify.api.Controllers.AccountController.ResetPassword*"></a>
+
+  <h3 id="lumify_api_Controllers_AccountController_ResetPassword_lumify_api_Models_DTO_Requests_ResetPasswordRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.AccountController.ResetPassword(lumify.api.Models.DTO.Requests.ResetPasswordRequest,System.Threading.CancellationToken)">
+  ResetPassword(ResetPasswordRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/AccountController.cs/#L523"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Password reset step 2: sets a new password using the single-use token from the
+reset link.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[ActionName(&quot;resetPassword&quot;)]
+public Task&lt;IActionResult&gt; ResetPassword(ResetPasswordRequest dto, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dto</code> <a class="xref" href="lumify.api.Models.DTO.Requests.ResetPasswordRequest.html">ResetPasswordRequest</a></dt>
+    <dd><p>The reset token and the new password (minimum 8 characters).</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with a success message; 400 if input is missing, the password is too
+short, or the token is invalid, already used, or expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_AccountController_ResetPassword_lumify_api_Models_DTO_Requests_ResetPasswordRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The token is looked up by its hash (the raw value is never stored) and consumed on
+success, so each reset link works only once and only before it expires.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_AccountController_SetupTotp_" data-uid="lumify.api.Controllers.AccountController.SetupTotp*"></a>
+
+  <h3 id="lumify_api_Controllers_AccountController_SetupTotp" data-uid="lumify.api.Controllers.AccountController.SetupTotp">
+  SetupTotp()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/AccountController.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts 2FA setup: generates a fresh TOTP secret and a QR code. 2FA is not active
+until confirmed via <a class="xref" href="lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_ConfirmTotp_lumify_api_Models_DTO_Requests_TotpCodeRequest_">ConfirmTotp(TotpCodeRequest)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[Authorize]
+[ActionName(&quot;setupTotp&quot;)]
+public Task&lt;IActionResult&gt; SetupTotp()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with <code>secret</code> (for manual entry) and <code>qrCodeDataUri</code> (for
+scanning); 400 if 2FA is already enabled; 404 if the user no longer exists.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_AccountController_VerifyEmail_" data-uid="lumify.api.Controllers.AccountController.VerifyEmail*"></a>
+
+  <h3 id="lumify_api_Controllers_AccountController_VerifyEmail_lumify_api_Models_DTO_Requests_VerifyEmailRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.AccountController.VerifyEmail(lumify.api.Models.DTO.Requests.VerifyEmailRequest,System.Threading.CancellationToken)">
+  VerifyEmail(VerifyEmailRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/AccountController.cs/#L582"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Confirms an account via the single-use token from the verification mail.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[ActionName(&quot;verifyEmail&quot;)]
+public Task&lt;IActionResult&gt; VerifyEmail(VerifyEmailRequest dto, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dto</code> <a class="xref" href="lumify.api.Models.DTO.Requests.VerifyEmailRequest.html">VerifyEmailRequest</a></dt>
+    <dd><p>The verification token.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with a success message; 400 if the token is missing, invalid, already
+used, or expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_AccountController_VerifyEmail_lumify_api_Models_DTO_Requests_VerifyEmailRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The token is looked up by its hash and consumed on success, so the verification
+link works only once and only before it expires.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_AccountController_VerifyTotpLogin_" data-uid="lumify.api.Controllers.AccountController.VerifyTotpLogin*"></a>
+
+  <h3 id="lumify_api_Controllers_AccountController_VerifyTotpLogin_lumify_api_Models_DTO_Requests_VerifyTotpLoginRequest_" data-uid="lumify.api.Controllers.AccountController.VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)">
+  VerifyTotpLogin(VerifyTotpLoginRequest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/AccountController.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Login step 2: verifies the 6-digit TOTP code for a 2FA-enabled account and then
+issues the real session.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[ActionName(&quot;verifyTotpLogin&quot;)]
+public Task&lt;IActionResult&gt; VerifyTotpLogin(VerifyTotpLoginRequest dto)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dto</code> <a class="xref" href="lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.html">VerifyTotpLoginRequest</a></dt>
+    <dd><p>The MFA challenge token from step 1 and the 6-digit code.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with user data and the session cookie on success; 400 if token or
+code are missing; 401 if the MFA session or the code is invalid or expired.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_AccountController_WhoAmI_" data-uid="lumify.api.Controllers.AccountController.WhoAmI*"></a>
+
+  <h3 id="lumify_api_Controllers_AccountController_WhoAmI" data-uid="lumify.api.Controllers.AccountController.WhoAmI">
+  WhoAmI()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/AccountController.cs/#L707"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Diagnostic endpoint that returns the current authentication state and the claims
+of the logged-in user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[Authorize]
+[ActionName(&quot;whoami&quot;)]
+public IActionResult WhoAmI()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IActionResult</span></dt>
+    <dd><p>200 with <code>Authenticated</code> (bool) and the list of <code>Claims</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

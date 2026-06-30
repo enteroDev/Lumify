@@ -1,0 +1,659 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.EF.Event
+  commentId: T:lumify.api.Models.EF.Event
+  id: Event
+  parent: lumify.api.Models.EF
+  children:
+  - lumify.api.Models.EF.Event.CreatedAt
+  - lumify.api.Models.EF.Event.DeletedAt
+  - lumify.api.Models.EF.Event.Description
+  - lumify.api.Models.EF.Event.DueDate
+  - lumify.api.Models.EF.Event.EndDate
+  - lumify.api.Models.EF.Event.ID
+  - lumify.api.Models.EF.Event.IsAllDay
+  - lumify.api.Models.EF.Event.Name
+  - lumify.api.Models.EF.Event.Owner
+  - lumify.api.Models.EF.Event.OwnerID
+  - lumify.api.Models.EF.Event.StartDate
+  - lumify.api.Models.EF.Event.Status
+  - lumify.api.Models.EF.Event.UpdatedAt
+  - lumify.api.Models.EF.Event.Workspace
+  - lumify.api.Models.EF.Event.WorkspaceID
+  langs:
+  - csharp
+  - vb
+  name: Event
+  nameWithType: Event
+  fullName: lumify.api.Models.EF.Event
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/EF/Event.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Event
+    path: ../../../lumify.api/Models/EF/Event.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public class Event
+    content.vb: Public Class [Event]
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.EF.Event.ID
+  commentId: P:lumify.api.Models.EF.Event.ID
+  id: ID
+  parent: lumify.api.Models.EF.Event
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: Event.ID
+  fullName: lumify.api.Models.EF.Event.ID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Event.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ID
+    path: ../../../lumify.api/Models/EF/Event.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string ID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ID As String
+  overload: lumify.api.Models.EF.Event.ID*
+- uid: lumify.api.Models.EF.Event.OwnerID
+  commentId: P:lumify.api.Models.EF.Event.OwnerID
+  id: OwnerID
+  parent: lumify.api.Models.EF.Event
+  langs:
+  - csharp
+  - vb
+  name: OwnerID
+  nameWithType: Event.OwnerID
+  fullName: lumify.api.Models.EF.Event.OwnerID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Event.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: OwnerID
+    path: ../../../lumify.api/Models/EF/Event.cs
+    startLine: 8
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string OwnerID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OwnerID As String
+  overload: lumify.api.Models.EF.Event.OwnerID*
+- uid: lumify.api.Models.EF.Event.WorkspaceID
+  commentId: P:lumify.api.Models.EF.Event.WorkspaceID
+  id: WorkspaceID
+  parent: lumify.api.Models.EF.Event
+  langs:
+  - csharp
+  - vb
+  name: WorkspaceID
+  nameWithType: Event.WorkspaceID
+  fullName: lumify.api.Models.EF.Event.WorkspaceID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Event.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: WorkspaceID
+    path: ../../../lumify.api/Models/EF/Event.cs
+    startLine: 9
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? WorkspaceID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property WorkspaceID As String
+  overload: lumify.api.Models.EF.Event.WorkspaceID*
+- uid: lumify.api.Models.EF.Event.Name
+  commentId: P:lumify.api.Models.EF.Event.Name
+  id: Name
+  parent: lumify.api.Models.EF.Event
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Event.Name
+  fullName: lumify.api.Models.EF.Event.Name
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Event.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Name
+    path: ../../../lumify.api/Models/EF/Event.cs
+    startLine: 11
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: lumify.api.Models.EF.Event.Name*
+- uid: lumify.api.Models.EF.Event.Description
+  commentId: P:lumify.api.Models.EF.Event.Description
+  id: Description
+  parent: lumify.api.Models.EF.Event
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: Event.Description
+  fullName: lumify.api.Models.EF.Event.Description
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Event.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Description
+    path: ../../../lumify.api/Models/EF/Event.cs
+    startLine: 12
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: lumify.api.Models.EF.Event.Description*
+- uid: lumify.api.Models.EF.Event.Status
+  commentId: P:lumify.api.Models.EF.Event.Status
+  id: Status
+  parent: lumify.api.Models.EF.Event
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: Event.Status
+  fullName: lumify.api.Models.EF.Event.Status
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Event.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Status
+    path: ../../../lumify.api/Models/EF/Event.cs
+    startLine: 14
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public int Status { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Status As Integer
+  overload: lumify.api.Models.EF.Event.Status*
+- uid: lumify.api.Models.EF.Event.StartDate
+  commentId: P:lumify.api.Models.EF.Event.StartDate
+  id: StartDate
+  parent: lumify.api.Models.EF.Event
+  langs:
+  - csharp
+  - vb
+  name: StartDate
+  nameWithType: Event.StartDate
+  fullName: lumify.api.Models.EF.Event.StartDate
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Event.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: StartDate
+    path: ../../../lumify.api/Models/EF/Event.cs
+    startLine: 15
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string StartDate { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property StartDate As String
+  overload: lumify.api.Models.EF.Event.StartDate*
+- uid: lumify.api.Models.EF.Event.EndDate
+  commentId: P:lumify.api.Models.EF.Event.EndDate
+  id: EndDate
+  parent: lumify.api.Models.EF.Event
+  langs:
+  - csharp
+  - vb
+  name: EndDate
+  nameWithType: Event.EndDate
+  fullName: lumify.api.Models.EF.Event.EndDate
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Event.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: EndDate
+    path: ../../../lumify.api/Models/EF/Event.cs
+    startLine: 16
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? EndDate { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property EndDate As String
+  overload: lumify.api.Models.EF.Event.EndDate*
+- uid: lumify.api.Models.EF.Event.IsAllDay
+  commentId: P:lumify.api.Models.EF.Event.IsAllDay
+  id: IsAllDay
+  parent: lumify.api.Models.EF.Event
+  langs:
+  - csharp
+  - vb
+  name: IsAllDay
+  nameWithType: Event.IsAllDay
+  fullName: lumify.api.Models.EF.Event.IsAllDay
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Event.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: IsAllDay
+    path: ../../../lumify.api/Models/EF/Event.cs
+    startLine: 18
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public int IsAllDay { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property IsAllDay As Integer
+  overload: lumify.api.Models.EF.Event.IsAllDay*
+- uid: lumify.api.Models.EF.Event.DueDate
+  commentId: P:lumify.api.Models.EF.Event.DueDate
+  id: DueDate
+  parent: lumify.api.Models.EF.Event
+  langs:
+  - csharp
+  - vb
+  name: DueDate
+  nameWithType: Event.DueDate
+  fullName: lumify.api.Models.EF.Event.DueDate
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Event.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DueDate
+    path: ../../../lumify.api/Models/EF/Event.cs
+    startLine: 19
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? DueDate { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DueDate As String
+  overload: lumify.api.Models.EF.Event.DueDate*
+- uid: lumify.api.Models.EF.Event.CreatedAt
+  commentId: P:lumify.api.Models.EF.Event.CreatedAt
+  id: CreatedAt
+  parent: lumify.api.Models.EF.Event
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: Event.CreatedAt
+  fullName: lumify.api.Models.EF.Event.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Event.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: CreatedAt
+    path: ../../../lumify.api/Models/EF/Event.cs
+    startLine: 21
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreatedAt As String
+  overload: lumify.api.Models.EF.Event.CreatedAt*
+- uid: lumify.api.Models.EF.Event.UpdatedAt
+  commentId: P:lumify.api.Models.EF.Event.UpdatedAt
+  id: UpdatedAt
+  parent: lumify.api.Models.EF.Event
+  langs:
+  - csharp
+  - vb
+  name: UpdatedAt
+  nameWithType: Event.UpdatedAt
+  fullName: lumify.api.Models.EF.Event.UpdatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Event.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UpdatedAt
+    path: ../../../lumify.api/Models/EF/Event.cs
+    startLine: 22
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string UpdatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UpdatedAt As String
+  overload: lumify.api.Models.EF.Event.UpdatedAt*
+- uid: lumify.api.Models.EF.Event.DeletedAt
+  commentId: P:lumify.api.Models.EF.Event.DeletedAt
+  id: DeletedAt
+  parent: lumify.api.Models.EF.Event
+  langs:
+  - csharp
+  - vb
+  name: DeletedAt
+  nameWithType: Event.DeletedAt
+  fullName: lumify.api.Models.EF.Event.DeletedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Event.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DeletedAt
+    path: ../../../lumify.api/Models/EF/Event.cs
+    startLine: 23
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? DeletedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DeletedAt As String
+  overload: lumify.api.Models.EF.Event.DeletedAt*
+- uid: lumify.api.Models.EF.Event.Owner
+  commentId: P:lumify.api.Models.EF.Event.Owner
+  id: Owner
+  parent: lumify.api.Models.EF.Event
+  langs:
+  - csharp
+  - vb
+  name: Owner
+  nameWithType: Event.Owner
+  fullName: lumify.api.Models.EF.Event.Owner
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Event.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Owner
+    path: ../../../lumify.api/Models/EF/Event.cs
+    startLine: 27
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual User Owner { get; set; }
+    parameters: []
+    return:
+      type: lumify.api.Models.EF.User
+    content.vb: Public Overridable Property Owner As User
+  overload: lumify.api.Models.EF.Event.Owner*
+- uid: lumify.api.Models.EF.Event.Workspace
+  commentId: P:lumify.api.Models.EF.Event.Workspace
+  id: Workspace
+  parent: lumify.api.Models.EF.Event
+  langs:
+  - csharp
+  - vb
+  name: Workspace
+  nameWithType: Event.Workspace
+  fullName: lumify.api.Models.EF.Event.Workspace
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Event.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Workspace
+    path: ../../../lumify.api/Models/EF/Event.cs
+    startLine: 28
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual Workspace? Workspace { get; set; }
+    parameters: []
+    return:
+      type: lumify.api.Models.EF.Workspace
+    content.vb: Public Overridable Property Workspace As Workspace
+  overload: lumify.api.Models.EF.Event.Workspace*
+references:
+- uid: lumify.api.Models.EF
+  commentId: N:lumify.api.Models.EF
+  href: lumify.html
+  name: lumify.api.Models.EF
+  nameWithType: lumify.api.Models.EF
+  fullName: lumify.api.Models.EF
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.EF.Event.ID*
+  commentId: Overload:lumify.api.Models.EF.Event.ID
+  href: lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_ID
+  name: ID
+  nameWithType: Event.ID
+  fullName: lumify.api.Models.EF.Event.ID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.EF.Event.OwnerID*
+  commentId: Overload:lumify.api.Models.EF.Event.OwnerID
+  href: lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_OwnerID
+  name: OwnerID
+  nameWithType: Event.OwnerID
+  fullName: lumify.api.Models.EF.Event.OwnerID
+- uid: lumify.api.Models.EF.Event.WorkspaceID*
+  commentId: Overload:lumify.api.Models.EF.Event.WorkspaceID
+  href: lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_WorkspaceID
+  name: WorkspaceID
+  nameWithType: Event.WorkspaceID
+  fullName: lumify.api.Models.EF.Event.WorkspaceID
+- uid: lumify.api.Models.EF.Event.Name*
+  commentId: Overload:lumify.api.Models.EF.Event.Name
+  href: lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_Name
+  name: Name
+  nameWithType: Event.Name
+  fullName: lumify.api.Models.EF.Event.Name
+- uid: lumify.api.Models.EF.Event.Description*
+  commentId: Overload:lumify.api.Models.EF.Event.Description
+  href: lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_Description
+  name: Description
+  nameWithType: Event.Description
+  fullName: lumify.api.Models.EF.Event.Description
+- uid: lumify.api.Models.EF.Event.Status*
+  commentId: Overload:lumify.api.Models.EF.Event.Status
+  href: lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_Status
+  name: Status
+  nameWithType: Event.Status
+  fullName: lumify.api.Models.EF.Event.Status
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: lumify.api.Models.EF.Event.StartDate*
+  commentId: Overload:lumify.api.Models.EF.Event.StartDate
+  href: lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_StartDate
+  name: StartDate
+  nameWithType: Event.StartDate
+  fullName: lumify.api.Models.EF.Event.StartDate
+- uid: lumify.api.Models.EF.Event.EndDate*
+  commentId: Overload:lumify.api.Models.EF.Event.EndDate
+  href: lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_EndDate
+  name: EndDate
+  nameWithType: Event.EndDate
+  fullName: lumify.api.Models.EF.Event.EndDate
+- uid: lumify.api.Models.EF.Event.IsAllDay*
+  commentId: Overload:lumify.api.Models.EF.Event.IsAllDay
+  href: lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_IsAllDay
+  name: IsAllDay
+  nameWithType: Event.IsAllDay
+  fullName: lumify.api.Models.EF.Event.IsAllDay
+- uid: lumify.api.Models.EF.Event.DueDate*
+  commentId: Overload:lumify.api.Models.EF.Event.DueDate
+  href: lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_DueDate
+  name: DueDate
+  nameWithType: Event.DueDate
+  fullName: lumify.api.Models.EF.Event.DueDate
+- uid: lumify.api.Models.EF.Event.CreatedAt*
+  commentId: Overload:lumify.api.Models.EF.Event.CreatedAt
+  href: lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_CreatedAt
+  name: CreatedAt
+  nameWithType: Event.CreatedAt
+  fullName: lumify.api.Models.EF.Event.CreatedAt
+- uid: lumify.api.Models.EF.Event.UpdatedAt*
+  commentId: Overload:lumify.api.Models.EF.Event.UpdatedAt
+  href: lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_UpdatedAt
+  name: UpdatedAt
+  nameWithType: Event.UpdatedAt
+  fullName: lumify.api.Models.EF.Event.UpdatedAt
+- uid: lumify.api.Models.EF.Event.DeletedAt*
+  commentId: Overload:lumify.api.Models.EF.Event.DeletedAt
+  href: lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_DeletedAt
+  name: DeletedAt
+  nameWithType: Event.DeletedAt
+  fullName: lumify.api.Models.EF.Event.DeletedAt
+- uid: lumify.api.Models.EF.Event.Owner*
+  commentId: Overload:lumify.api.Models.EF.Event.Owner
+  href: lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_Owner
+  name: Owner
+  nameWithType: Event.Owner
+  fullName: lumify.api.Models.EF.Event.Owner
+- uid: lumify.api.Models.EF.User
+  commentId: T:lumify.api.Models.EF.User
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.User.html
+  name: User
+  nameWithType: User
+  fullName: lumify.api.Models.EF.User
+- uid: lumify.api.Models.EF.Event.Workspace*
+  commentId: Overload:lumify.api.Models.EF.Event.Workspace
+  href: lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_Workspace
+  name: Workspace
+  nameWithType: Event.Workspace
+  fullName: lumify.api.Models.EF.Event.Workspace
+- uid: lumify.api.Models.EF.Workspace
+  commentId: T:lumify.api.Models.EF.Workspace
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.Workspace.html
+  name: Workspace
+  nameWithType: Workspace
+  fullName: lumify.api.Models.EF.Workspace

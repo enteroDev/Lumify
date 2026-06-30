@@ -1,0 +1,312 @@
+### YamlMime:TableOfContent
+items:
+- uid: lumify.api.Controllers
+  name: lumify.api.Controllers
+  type: Namespace
+  items:
+  - uid: lumify.api.Controllers.AccountController
+    name: AccountController
+    type: Class
+  - uid: lumify.api.Controllers.ChatController
+    name: ChatController
+    type: Class
+  - uid: lumify.api.Controllers.EventsController
+    name: EventsController
+    type: Class
+  - uid: lumify.api.Controllers.FoldersController
+    name: FoldersController
+    type: Class
+  - uid: lumify.api.Controllers.FriendshipController
+    name: FriendshipController
+    type: Class
+  - uid: lumify.api.Controllers.NotesController
+    name: NotesController
+    type: Class
+  - uid: lumify.api.Controllers.TodoListsController
+    name: TodoListsController
+    type: Class
+  - uid: lumify.api.Controllers.UsersController
+    name: UsersController
+    type: Class
+  - uid: lumify.api.Controllers.WorkspaceController
+    name: WorkspaceController
+    type: Class
+- uid: lumify.api.Hubs
+  name: lumify.api.Hubs
+  type: Namespace
+  items:
+  - uid: lumify.api.Hubs.ChatHub
+    name: ChatHub
+    type: Class
+  - uid: lumify.api.Hubs.EventHub
+    name: EventHub
+    type: Class
+  - uid: lumify.api.Hubs.NoteHub
+    name: NoteHub
+    type: Class
+  - uid: lumify.api.Hubs.TodoHub
+    name: TodoHub
+    type: Class
+  - uid: lumify.api.Hubs.UserIdProvider
+    name: UserIdProvider
+    type: Class
+  - uid: lumify.api.Hubs.WorkspaceHub
+    name: WorkspaceHub
+    type: Class
+- uid: lumify.api.Interfaces
+  name: lumify.api.Interfaces
+  type: Namespace
+  items:
+  - uid: lumify.api.Interfaces.IEmailService
+    name: IEmailService
+    type: Interface
+  - uid: lumify.api.Interfaces.IPresenceService
+    name: IPresenceService
+    type: Interface
+- uid: lumify.api.Logic
+  name: lumify.api.Logic
+  type: Namespace
+  items:
+  - uid: lumify.api.Logic.CsrfMiddleware
+    name: CsrfMiddleware
+    type: Class
+  - uid: lumify.api.Logic.InternalLogic
+    name: InternalLogic
+    type: Class
+- uid: lumify.api.Migrations
+  name: lumify.api.Migrations
+  type: Namespace
+  items:
+  - uid: lumify.api.Migrations.AddEmailVerification
+    name: AddEmailVerification
+    type: Class
+  - uid: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers
+    name: AddTodoProgressViewAndStatusTriggers
+    type: Class
+  - uid: lumify.api.Migrations.AddTotp
+    name: AddTotp
+    type: Class
+  - uid: lumify.api.Migrations.InitialCreate
+    name: InitialCreate
+    type: Class
+- uid: lumify.api.Models.Context
+  name: lumify.api.Models.Context
+  type: Namespace
+  items:
+  - uid: lumify.api.Models.Context.LumifyDbContext
+    name: LumifyDbContext
+    type: Class
+- uid: lumify.api.Models.DTO.Requests
+  name: lumify.api.Models.DTO.Requests
+  type: Namespace
+  items:
+  - uid: lumify.api.Models.DTO.Requests.AddEventRequest
+    name: AddEventRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.AddFolderRequest
+    name: AddFolderRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.AddLinkItemRequest
+    name: AddLinkItemRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.AddNoteRequest
+    name: AddNoteRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.AddTextBlockRequest
+    name: AddTextBlockRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.AddTodoEntryRequest
+    name: AddTodoEntryRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.AddTodoListRequest
+    name: AddTodoListRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest
+    name: AddWorkspaceMemberRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.AddWorkspaceRequest
+    name: AddWorkspaceRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.LoginRequest
+    name: LoginRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.RegisterRequest
+    name: RegisterRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.RequestPasswordResetRequest
+    name: RequestPasswordResetRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.ResendVerificationRequest
+    name: ResendVerificationRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.ResetPasswordRequest
+    name: ResetPasswordRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.SaveEventRequest
+    name: SaveEventRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.SaveFolderRequest
+    name: SaveFolderRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.SaveNoteRequest
+    name: SaveNoteRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.SaveTextblockRequest
+    name: SaveTextblockRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.SaveTodoListRequest
+    name: SaveTodoListRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.SaveUserProfileRequest
+    name: SaveUserProfileRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.SaveWorkspaceRequest
+    name: SaveWorkspaceRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.TotpCodeRequest
+    name: TotpCodeRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.VerifyEmailRequest
+    name: VerifyEmailRequest
+    type: Class
+  - uid: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest
+    name: VerifyTotpLoginRequest
+    type: Class
+- uid: lumify.api.Models.DTO.Responses
+  name: lumify.api.Models.DTO.Responses
+  type: Namespace
+  items:
+  - uid: lumify.api.Models.DTO.Responses.ChatMessageResponse
+    name: ChatMessageResponse
+    type: Class
+  - uid: lumify.api.Models.DTO.Responses.EventResponse
+    name: EventResponse
+    type: Class
+  - uid: lumify.api.Models.DTO.Responses.FolderResponse
+    name: FolderResponse
+    type: Class
+  - uid: lumify.api.Models.DTO.Responses.FriendshipResponse
+    name: FriendshipResponse
+    type: Class
+  - uid: lumify.api.Models.DTO.Responses.LinkItemResponse
+    name: LinkItemResponse
+    type: Class
+  - uid: lumify.api.Models.DTO.Responses.NoteResponse
+    name: NoteResponse
+    type: Class
+  - uid: lumify.api.Models.DTO.Responses.RelatedUserResponse
+    name: RelatedUserResponse
+    type: Class
+  - uid: lumify.api.Models.DTO.Responses.TextblockResponse
+    name: TextblockResponse
+    type: Class
+  - uid: lumify.api.Models.DTO.Responses.TodoEntryResponse
+    name: TodoEntryResponse
+    type: Class
+  - uid: lumify.api.Models.DTO.Responses.TodoListResponse
+    name: TodoListResponse
+    type: Class
+  - uid: lumify.api.Models.DTO.Responses.UserAccountInfoResponse
+    name: UserAccountInfoResponse
+    type: Class
+  - uid: lumify.api.Models.DTO.Responses.UserPreviewResponse
+    name: UserPreviewResponse
+    type: Class
+  - uid: lumify.api.Models.DTO.Responses.UserProfileResponse
+    name: UserProfileResponse
+    type: Class
+  - uid: lumify.api.Models.DTO.Responses.WorkspaceMemberResponse
+    name: WorkspaceMemberResponse
+    type: Class
+  - uid: lumify.api.Models.DTO.Responses.WorkspaceResponse
+    name: WorkspaceResponse
+    type: Class
+- uid: lumify.api.Models.EF
+  name: lumify.api.Models.EF
+  type: Namespace
+  items:
+  - uid: lumify.api.Models.EF.ChatMessage
+    name: ChatMessage
+    type: Class
+  - uid: lumify.api.Models.EF.EmailVerificationToken
+    name: EmailVerificationToken
+    type: Class
+  - uid: lumify.api.Models.EF.Event
+    name: Event
+    type: Class
+  - uid: lumify.api.Models.EF.Folder
+    name: Folder
+    type: Class
+  - uid: lumify.api.Models.EF.Friendship
+    name: Friendship
+    type: Class
+  - uid: lumify.api.Models.EF.Note
+    name: Note
+    type: Class
+  - uid: lumify.api.Models.EF.NoteAttachment
+    name: NoteAttachment
+    type: Class
+  - uid: lumify.api.Models.EF.Note_LinkItem
+    name: Note_LinkItem
+    type: Class
+  - uid: lumify.api.Models.EF.Note_TextBlock
+    name: Note_TextBlock
+    type: Class
+  - uid: lumify.api.Models.EF.PasswordResetToken
+    name: PasswordResetToken
+    type: Class
+  - uid: lumify.api.Models.EF.Role
+    name: Role
+    type: Enum
+  - uid: lumify.api.Models.EF.TodoEntry
+    name: TodoEntry
+    type: Class
+  - uid: lumify.api.Models.EF.TodoList
+    name: TodoList
+    type: Class
+  - uid: lumify.api.Models.EF.User
+    name: User
+    type: Class
+  - uid: lumify.api.Models.EF.Workspace
+    name: Workspace
+    type: Class
+  - uid: lumify.api.Models.EF.WorkspaceMember
+    name: WorkspaceMember
+    type: Class
+- uid: lumify.api.Models.Enum
+  name: lumify.api.Models.Enum
+  type: Namespace
+  items:
+  - uid: lumify.api.Models.Enum.FriendshipStatus
+    name: FriendshipStatus
+    type: Enum
+  - uid: lumify.api.Models.Enum.PresenceStatus
+    name: PresenceStatus
+    type: Enum
+- uid: lumify.api.Models.Settings
+  name: lumify.api.Models.Settings
+  type: Namespace
+  items:
+  - uid: lumify.api.Models.Settings.AppSettings
+    name: AppSettings
+    type: Class
+  - uid: lumify.api.Models.Settings.EmailSettings
+    name: EmailSettings
+    type: Class
+  - uid: lumify.api.Models.Settings.JwtSettings
+    name: JwtSettings
+    type: Class
+- uid: lumify.api.Services
+  name: lumify.api.Services
+  type: Namespace
+  items:
+  - uid: lumify.api.Services.FriendshipService
+    name: FriendshipService
+    type: Class
+  - uid: lumify.api.Services.PresenceService
+    name: PresenceService
+    type: Class
+  - uid: lumify.api.Services.SmtpEmailService
+    name: SmtpEmailService
+    type: Class
+memberLayout: SamePage

@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class UsersController | Lumify – Code Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class UsersController | Lumify – Code Documentation ">
+      
+      <meta name="description" content="User profile and account management plus user discovery: editing the current user&#39;s profile and avatar, deleting the account, reading profile/account/preview data by ID or for the current user, recent activity (todos/events/notes), related users, and user search. All endpoints require an authenticated user.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/enteroDev/Lumify/new/main/apiSpec/new?filename=lumify_api_Controllers_UsersController.md&amp;value=---%0Auid%3A%20lumify.api.Controllers.UsersController%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Lumify">
+            Lumify
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="lumify.api.Controllers.UsersController">
+
+
+
+  <h1 id="lumify_api_Controllers_UsersController" data-uid="lumify.api.Controllers.UsersController" class="text-break">
+Class UsersController  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/UsersController.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="lumify.html">lumify</a>.<a class="xref" href="lumify.api.html">api</a>.<a class="xref" href="lumify.api.Controllers.html">Controllers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>User profile and account management plus user discovery: editing the current user's
+profile and avatar, deleting the account, reading profile/account/preview data by ID or
+for the current user, recent activity (todos/events/notes), related users, and user
+search. All endpoints require an authenticated user.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiController]
+[Route(&quot;users/[action]&quot;)]
+[Authorize]
+public class UsersController : ControllerBase</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ControllerBase</span></div>
+      <div><span class="xref">UsersController</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="lumify_api_Controllers_UsersController_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Account deletion is a soft-delete: personal content becomes inaccessible while workspace
+content stays with the workspace. Preview/search results are enriched with each user's
+live presence status.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="lumify_api_Controllers_UsersController__ctor_" data-uid="lumify.api.Controllers.UsersController.#ctor*"></a>
+
+  <h3 id="lumify_api_Controllers_UsersController__ctor_Microsoft_Extensions_Logging_ILogger_lumify_api_Controllers_UsersController__lumify_api_Models_Context_LumifyDbContext_lumify_api_Interfaces_IPresenceService_" data-uid="lumify.api.Controllers.UsersController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.UsersController},lumify.api.Models.Context.LumifyDbContext,lumify.api.Interfaces.IPresenceService)">
+  UsersController(ILogger&lt;UsersController&gt;, LumifyDbContext, IPresenceService)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/UsersController.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates the controller with its injected logger, database context and presence service.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UsersController(ILogger&lt;UsersController&gt; logger, LumifyDbContext db, IPresenceService presenceService)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>logger</code> <span class="xref">ILogger</span>&lt;<a class="xref" href="lumify.api.Controllers.UsersController.html">UsersController</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>db</code> <a class="xref" href="lumify.api.Models.Context.LumifyDbContext.html">LumifyDbContext</a></dt>
+    <dd></dd>
+    <dt><code>presenceService</code> <a class="xref" href="lumify.api.Interfaces.IPresenceService.html">IPresenceService</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="lumify_api_Controllers_UsersController_DeleteAccount_" data-uid="lumify.api.Controllers.UsersController.DeleteAccount*"></a>
+
+  <h3 id="lumify_api_Controllers_UsersController_DeleteAccount_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.UsersController.DeleteAccount(System.Threading.CancellationToken)">
+  DeleteAccount(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/UsersController.cs/#L216"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Soft-deletes the current user's own account by setting <code>DeletedAt</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpDelete]
+[ActionName(&quot;deleteAccount&quot;)]
+[Authorize]
+public Task&lt;IActionResult&gt; DeleteAccount(CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with <code>success = true</code>; 401 if the user ID claim is missing; 404 if
+the user does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_UsersController_DeleteAccount_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Content is not cascaded: personal items become inaccessible (the user can no longer
+log in), while workspace items stay with the workspace and remain visible and
+editable for the other members.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_UsersController_Get5LastModifiedTodosOfUser_" data-uid="lumify.api.Controllers.UsersController.Get5LastModifiedTodosOfUser*"></a>
+
+  <h3 id="lumify_api_Controllers_UsersController_Get5LastModifiedTodosOfUser_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.UsersController.Get5LastModifiedTodosOfUser(System.Threading.CancellationToken)">
+  Get5LastModifiedTodosOfUser(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/UsersController.cs/#L524"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current user's 5 most recently modified todo lists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;get5LastModifiedTodosOfUser&quot;)]
+public Task&lt;IActionResult&gt; Get5LastModifiedTodosOfUser(CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with up to 5 todo lists, newest first.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_UsersController_GetAvatarOfUser_" data-uid="lumify.api.Controllers.UsersController.GetAvatarOfUser*"></a>
+
+  <h3 id="lumify_api_Controllers_UsersController_GetAvatarOfUser_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.UsersController.GetAvatarOfUser(System.Threading.CancellationToken)">
+  GetAvatarOfUser(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/UsersController.cs/#L444"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current user's avatar URL.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getAvatarOfUser&quot;)]
+public Task&lt;ActionResult&lt;string&gt;&gt; GetAvatarOfUser(CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>200 with the avatar URL; 404 if the user does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_UsersController_GetLast5ModifiedEventsOfUser_" data-uid="lumify.api.Controllers.UsersController.GetLast5ModifiedEventsOfUser*"></a>
+
+  <h3 id="lumify_api_Controllers_UsersController_GetLast5ModifiedEventsOfUser_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.UsersController.GetLast5ModifiedEventsOfUser(System.Threading.CancellationToken)">
+  GetLast5ModifiedEventsOfUser(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/UsersController.cs/#L555"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current user's 5 most recently modified events.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getLast5ModifiedEventsOfUser&quot;)]
+public Task&lt;IActionResult&gt; GetLast5ModifiedEventsOfUser(CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with up to 5 events, newest first.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_UsersController_GetLast5ModifiedNotesOfUser_" data-uid="lumify.api.Controllers.UsersController.GetLast5ModifiedNotesOfUser*"></a>
+
+  <h3 id="lumify_api_Controllers_UsersController_GetLast5ModifiedNotesOfUser_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.UsersController.GetLast5ModifiedNotesOfUser(System.Threading.CancellationToken)">
+  GetLast5ModifiedNotesOfUser(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/UsersController.cs/#L593"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current user's 5 most recently modified notes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getLast5ModifiedNotesOfUser&quot;)]
+public Task&lt;IActionResult&gt; GetLast5ModifiedNotesOfUser(CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with up to 5 notes, newest first.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_UsersController_GetRelatedUsers_" data-uid="lumify.api.Controllers.UsersController.GetRelatedUsers*"></a>
+
+  <h3 id="lumify_api_Controllers_UsersController_GetRelatedUsers_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.UsersController.GetRelatedUsers(System.Threading.CancellationToken)">
+  GetRelatedUsers(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/UsersController.cs/#L472"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the users that share at least one workspace with the current user (excluding
+the current user), each enriched with live presence status.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getRelatedUsers&quot;)]
+public Task&lt;IActionResult&gt; GetRelatedUsers(CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with the list of related users (empty if the user is in no workspaces);
+400 if the current user cannot be determined.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_UsersController_GetUserAccountInfo_" data-uid="lumify.api.Controllers.UsersController.GetUserAccountInfo*"></a>
+
+  <h3 id="lumify_api_Controllers_UsersController_GetUserAccountInfo_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.UsersController.GetUserAccountInfo(System.Threading.CancellationToken)">
+  GetUserAccountInfo(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/UsersController.cs/#L406"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current user's own account info (name, e-mail, username, timestamps).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getUserAccountInfo&quot;)]
+public Task&lt;ActionResult&lt;UserAccountInfoResponse&gt;&gt; GetUserAccountInfo(CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.UserAccountInfoResponse.html">UserAccountInfoResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the account info; 404 if it cannot be found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_UsersController_GetUserAccountInfoWithID_" data-uid="lumify.api.Controllers.UsersController.GetUserAccountInfoWithID*"></a>
+
+  <h3 id="lumify_api_Controllers_UsersController_GetUserAccountInfoWithID_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.UsersController.GetUserAccountInfoWithID(System.String,System.Threading.CancellationToken)">
+  GetUserAccountInfoWithID(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/UsersController.cs/#L294"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the account info (e-mail, first/last name, timestamps) of a specific user by ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getUserAccountInfoWithID&quot;)]
+public Task&lt;ActionResult&lt;UserAccountInfoResponse&gt;&gt; GetUserAccountInfoWithID(string userID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>userID</code> <span class="xref">string</span></dt>
+    <dd><p>The user to look up.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.UserAccountInfoResponse.html">UserAccountInfoResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the account info; 400 if the ID is missing; 404 if the user does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_UsersController_GetUserPreviewWithID_" data-uid="lumify.api.Controllers.UsersController.GetUserPreviewWithID*"></a>
+
+  <h3 id="lumify_api_Controllers_UsersController_GetUserPreviewWithID_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.UsersController.GetUserPreviewWithID(System.String,System.Threading.CancellationToken)">
+  GetUserPreviewWithID(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/UsersController.cs/#L331"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a compact user preview (username, display name, avatar, e-mail) by ID,
+enriched with the user's live presence status.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getUserPreviewWithID&quot;)]
+public Task&lt;ActionResult&lt;UserPreviewResponse&gt;&gt; GetUserPreviewWithID(string userID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>userID</code> <span class="xref">string</span></dt>
+    <dd><p>The user to look up.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.UserPreviewResponse.html">UserPreviewResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the preview; 400 if the ID is missing; 404 if the user does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_UsersController_GetUserProfile_" data-uid="lumify.api.Controllers.UsersController.GetUserProfile*"></a>
+
+  <h3 id="lumify_api_Controllers_UsersController_GetUserProfile_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.UsersController.GetUserProfile(System.Threading.CancellationToken)">
+  GetUserProfile(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/UsersController.cs/#L372"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current user's own profile (display name, avatar, bio).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getUserProfile&quot;)]
+public Task&lt;ActionResult&lt;UserAccountInfoResponse&gt;&gt; GetUserProfile(CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.UserAccountInfoResponse.html">UserAccountInfoResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the profile; 404 if it cannot be found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_UsersController_GetUserProfileWithID_" data-uid="lumify.api.Controllers.UsersController.GetUserProfileWithID*"></a>
+
+  <h3 id="lumify_api_Controllers_UsersController_GetUserProfileWithID_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.UsersController.GetUserProfileWithID(System.String,System.Threading.CancellationToken)">
+  GetUserProfileWithID(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/UsersController.cs/#L258"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the public profile (display name, avatar, bio) of a specific user by ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getUserProfileWithID&quot;)]
+public Task&lt;ActionResult&lt;UserProfileResponse&gt;&gt; GetUserProfileWithID(string userID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>userID</code> <span class="xref">string</span></dt>
+    <dd><p>The user to look up.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.UserProfileResponse.html">UserProfileResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the profile; 400 if the ID is missing; 404 if the user does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_UsersController_SaveUserAvatar_" data-uid="lumify.api.Controllers.UsersController.SaveUserAvatar*"></a>
+
+  <h3 id="lumify_api_Controllers_UsersController_SaveUserAvatar_Microsoft_AspNetCore_Http_IFormFile_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.UsersController.SaveUserAvatar(Microsoft.AspNetCore.Http.IFormFile,System.Threading.CancellationToken)">
+  SaveUserAvatar(IFormFile, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/UsersController.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Uploads and stores the current user's avatar image (max 10 MB; JPEG, PNG, WebP or
+GIF) and saves its relative URL on the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[ActionName(&quot;saveUserAvatar&quot;)]
+[Authorize]
+[RequestSizeLimit(10000000)]
+public Task&lt;ActionResult&lt;string&gt;&gt; SaveUserAvatar(IFormFile file, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>file</code> <span class="xref">IFormFile</span></dt>
+    <dd><p>The uploaded image file.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>200 with the stored avatar URL; 400 if the file is missing, not an image,
+or has no extension; 401 if the user ID claim is missing; 404 if the user does not
+exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_UsersController_SaveUserProfile_" data-uid="lumify.api.Controllers.UsersController.SaveUserProfile*"></a>
+
+  <h3 id="lumify_api_Controllers_UsersController_SaveUserProfile_lumify_api_Models_DTO_Requests_SaveUserProfileRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.UsersController.SaveUserProfile(lumify.api.Models.DTO.Requests.SaveUserProfileRequest,System.Threading.CancellationToken)">
+  SaveUserProfile(SaveUserProfileRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/UsersController.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the current user's profile (display name, avatar URL and/or bio). Only the
+provided fields are changed; empty values clear the respective field.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPatch]
+[ActionName(&quot;saveUserProfile&quot;)]
+[Authorize]
+public Task&lt;ActionResult&lt;UserProfileResponse&gt;&gt; SaveUserProfile(SaveUserProfileRequest request, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="lumify.api.Models.DTO.Requests.SaveUserProfileRequest.html">SaveUserProfileRequest</a></dt>
+    <dd><p>The profile fields to change.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.UserProfileResponse.html">UserProfileResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the updated profile; 400 if the request is missing; 401 if the
+user ID claim is missing; 404 if the user does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_UsersController_SearchAvailableUsersForWorkspace_" data-uid="lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace*"></a>
+
+  <h3 id="lumify_api_Controllers_UsersController_SearchAvailableUsersForWorkspace_System_String_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace(System.String,System.String,System.Threading.CancellationToken)">
+  SearchAvailableUsersForWorkspace(string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/UsersController.cs/#L690"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Searches users who can still be added to a given workspace — i.e. matching the query
+but excluding the current user and existing members (max 20 results).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;searchAvailableUsersForWorkspace&quot;)]
+[Authorize]
+public Task&lt;IActionResult&gt; SearchAvailableUsersForWorkspace(string workspaceID, string query, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>workspaceID</code> <span class="xref">string</span></dt>
+    <dd><p>The workspace to find addable users for.</p>
+</dd>
+    <dt><code>query</code> <span class="xref">string</span></dt>
+    <dd><p>The search term; an empty term returns an empty list.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with the addable users; 400 if the current user cannot be determined or
+the workspace ID is missing; 404 if the workspace does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_UsersController_SearchUsers_" data-uid="lumify.api.Controllers.UsersController.SearchUsers*"></a>
+
+  <h3 id="lumify_api_Controllers_UsersController_SearchUsers_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.UsersController.SearchUsers(System.String,System.Threading.CancellationToken)">
+  SearchUsers(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/UsersController.cs/#L631"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Searches users by display name, username or e-mail (case-insensitive, max 20 results),
+excluding the current user. Results carry live presence status.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;searchUsers&quot;)]
+[Authorize]
+public Task&lt;IActionResult&gt; SearchUsers(string query, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>query</code> <span class="xref">string</span></dt>
+    <dd><p>The search term; an empty term returns an empty list.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IActionResult</span>&gt;</dt>
+    <dd><p>200 with the matching users; 400 if the current user cannot be determined.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

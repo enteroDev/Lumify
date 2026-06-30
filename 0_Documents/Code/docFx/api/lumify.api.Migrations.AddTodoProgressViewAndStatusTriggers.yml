@@ -1,0 +1,405 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers
+  commentId: T:lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers
+  id: AddTodoProgressViewAndStatusTriggers
+  parent: lumify.api.Migrations
+  children:
+  - lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)
+  - lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  - lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  langs:
+  - csharp
+  - vb
+  name: AddTodoProgressViewAndStatusTriggers
+  nameWithType: AddTodoProgressViewAndStatusTriggers
+  fullName: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Migrations/20260624081953_AddTodoProgressViewAndStatusTriggers.Designer.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AddTodoProgressViewAndStatusTriggers
+    path: ../../../lumify.api/Migrations/20260624081953_AddTodoProgressViewAndStatusTriggers.Designer.cs
+    startLine: 12
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Migrations
+  summary: A base class inherited by each EF Core migration.
+  remarks: See <a href="https://aka.ms/efcore-docs-migrations">Database migrations</a> for more information and examples.
+  example: []
+  syntax:
+    content: >-
+      [DbContext(typeof(LumifyDbContext))]
+
+      [Migration("20260624081953_AddTodoProgressViewAndStatusTriggers")]
+
+      public class AddTodoProgressViewAndStatusTriggers : Migration
+    content.vb: >-
+      <DbContext(GetType(LumifyDbContext))>
+
+      <Migration("20260624081953_AddTodoProgressViewAndStatusTriggers")>
+
+      Public Class AddTodoProgressViewAndStatusTriggers Inherits Migration
+  inheritance:
+  - System.Object
+  - Microsoft.EntityFrameworkCore.Migrations.Migration
+  attributes:
+  - type: Microsoft.EntityFrameworkCore.Infrastructure.DbContextAttribute
+    ctor: Microsoft.EntityFrameworkCore.Infrastructure.DbContextAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: lumify.api.Models.Context.LumifyDbContext
+  - type: Microsoft.EntityFrameworkCore.Migrations.MigrationAttribute
+    ctor: Microsoft.EntityFrameworkCore.Migrations.MigrationAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: 20260624081953_AddTodoProgressViewAndStatusTriggers
+- uid: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  commentId: M:lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  id: Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  parent: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers
+  langs:
+  - csharp
+  - vb
+  name: Up(MigrationBuilder)
+  nameWithType: AddTodoProgressViewAndStatusTriggers.Up(MigrationBuilder)
+  fullName: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Migrations/20260624081953_AddTodoProgressViewAndStatusTriggers.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Up
+    path: ../../../lumify.api/Migrations/20260624081953_AddTodoProgressViewAndStatusTriggers.cs
+    startLine: 16
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Migrations
+  summary: Builds the operations that will migrate the database 'up'.
+  remarks: >-
+    <p>
+        That is, builds the operations that will take the database from the state left in by the
+        previous migration so that it is up-to-date with regard to this migration.
+    </p>
+
+    <p>
+        This method must be overridden in each class that inherits from <xref href="Microsoft.EntityFrameworkCore.Migrations.Migration" data-throw-if-not-resolved="false"></xref>.
+    </p>
+
+    <p>
+        See <a href="https://aka.ms/efcore-docs-migrations">Database migrations</a> for more information and examples.
+    </p>
+  example: []
+  syntax:
+    content: protected override void Up(MigrationBuilder migrationBuilder)
+    parameters:
+    - id: migrationBuilder
+      type: Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder
+      description: The <xref href="Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder" data-throw-if-not-resolved="false"></xref> that will build the operations.
+    content.vb: Protected Overrides Sub Up(migrationBuilder As MigrationBuilder)
+  overridden: Microsoft.EntityFrameworkCore.Migrations.Migration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  overload: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.Up*
+- uid: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  commentId: M:lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  id: Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  parent: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers
+  langs:
+  - csharp
+  - vb
+  name: Down(MigrationBuilder)
+  nameWithType: AddTodoProgressViewAndStatusTriggers.Down(MigrationBuilder)
+  fullName: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Migrations/20260624081953_AddTodoProgressViewAndStatusTriggers.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Down
+    path: ../../../lumify.api/Migrations/20260624081953_AddTodoProgressViewAndStatusTriggers.cs
+    startLine: 97
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Migrations
+  summary: Builds the operations that will migrate the database 'down'.
+  remarks: >-
+    <p>
+        That is, builds the operations that will take the database from the state left in by
+        this migration so that it returns to the state that it was in before this migration was applied.
+    </p>
+
+    <p>
+        This method must be overridden in each class that inherits from <xref href="Microsoft.EntityFrameworkCore.Migrations.Migration" data-throw-if-not-resolved="false"></xref> if
+        both 'up' and 'down' migrations are to be supported. If it is not overridden, then calling it
+        will throw and it will not be possible to migrate in the 'down' direction.
+    </p>
+
+    <p>
+        See <a href="https://aka.ms/efcore-docs-migrations">Database migrations</a> for more information and examples.
+    </p>
+  example: []
+  syntax:
+    content: protected override void Down(MigrationBuilder migrationBuilder)
+    parameters:
+    - id: migrationBuilder
+      type: Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder
+      description: The <xref href="Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder" data-throw-if-not-resolved="false"></xref> that will build the operations.
+    content.vb: Protected Overrides Sub Down(migrationBuilder As MigrationBuilder)
+  overridden: Microsoft.EntityFrameworkCore.Migrations.Migration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  overload: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.Down*
+- uid: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)
+  commentId: M:lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)
+  id: BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)
+  parent: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers
+  langs:
+  - csharp
+  - vb
+  name: BuildTargetModel(ModelBuilder)
+  nameWithType: AddTodoProgressViewAndStatusTriggers.BuildTargetModel(ModelBuilder)
+  fullName: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Migrations/20260624081953_AddTodoProgressViewAndStatusTriggers.Designer.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: BuildTargetModel
+    path: ../../../lumify.api/Migrations/20260624081953_AddTodoProgressViewAndStatusTriggers.Designer.cs
+    startLine: 17
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Migrations
+  summary: Implemented to build the <xref href="Microsoft.EntityFrameworkCore.Migrations.Migration.TargetModel" data-throw-if-not-resolved="false"></xref>.
+  remarks: See <a href="https://aka.ms/efcore-docs-migrations">Database migrations</a> for more information and examples.
+  example: []
+  syntax:
+    content: protected override void BuildTargetModel(ModelBuilder modelBuilder)
+    parameters:
+    - id: modelBuilder
+      type: Microsoft.EntityFrameworkCore.ModelBuilder
+      description: The <xref href="Microsoft.EntityFrameworkCore.ModelBuilder" data-throw-if-not-resolved="false"></xref> to use to build the model.
+    content.vb: Protected Overrides Sub BuildTargetModel(modelBuilder As ModelBuilder)
+  overridden: Microsoft.EntityFrameworkCore.Migrations.Migration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)
+  overload: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.BuildTargetModel*
+references:
+- uid: lumify.api.Migrations
+  commentId: N:lumify.api.Migrations
+  href: lumify.html
+  name: lumify.api.Migrations
+  nameWithType: lumify.api.Migrations
+  fullName: lumify.api.Migrations
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Migrations
+    name: Migrations
+    href: lumify.api.Migrations.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Migrations
+    name: Migrations
+    href: lumify.api.Migrations.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.EntityFrameworkCore.Migrations.Migration
+  commentId: T:Microsoft.EntityFrameworkCore.Migrations.Migration
+  parent: Microsoft.EntityFrameworkCore.Migrations
+  isExternal: true
+  name: Migration
+  nameWithType: Migration
+  fullName: Microsoft.EntityFrameworkCore.Migrations.Migration
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.EntityFrameworkCore.Migrations
+  commentId: N:Microsoft.EntityFrameworkCore.Migrations
+  isExternal: true
+  name: Microsoft.EntityFrameworkCore.Migrations
+  nameWithType: Microsoft.EntityFrameworkCore.Migrations
+  fullName: Microsoft.EntityFrameworkCore.Migrations
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.EntityFrameworkCore
+    name: EntityFrameworkCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.EntityFrameworkCore.Migrations
+    name: Migrations
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.EntityFrameworkCore
+    name: EntityFrameworkCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.EntityFrameworkCore.Migrations
+    name: Migrations
+    isExternal: true
+- uid: Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder
+  commentId: T:Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder
+  parent: Microsoft.EntityFrameworkCore.Migrations
+  isExternal: true
+  name: MigrationBuilder
+  nameWithType: MigrationBuilder
+  fullName: Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder
+- uid: Microsoft.EntityFrameworkCore.Migrations.Migration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  commentId: M:Microsoft.EntityFrameworkCore.Migrations.Migration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  parent: Microsoft.EntityFrameworkCore.Migrations.Migration
+  isExternal: true
+  name: Up(MigrationBuilder)
+  nameWithType: Migration.Up(MigrationBuilder)
+  fullName: Microsoft.EntityFrameworkCore.Migrations.Migration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.Migrations.Migration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+    name: Up
+    isExternal: true
+  - name: (
+  - uid: Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder
+    name: MigrationBuilder
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.Migrations.Migration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+    name: Up
+    isExternal: true
+  - name: (
+  - uid: Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder
+    name: MigrationBuilder
+    isExternal: true
+  - name: )
+- uid: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.Up*
+  commentId: Overload:lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.Up
+  href: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.html#lumify_api_Migrations_AddTodoProgressViewAndStatusTriggers_Up_Microsoft_EntityFrameworkCore_Migrations_MigrationBuilder_
+  name: Up
+  nameWithType: AddTodoProgressViewAndStatusTriggers.Up
+  fullName: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.Up
+- uid: Microsoft.EntityFrameworkCore.Migrations.Migration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  commentId: M:Microsoft.EntityFrameworkCore.Migrations.Migration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  parent: Microsoft.EntityFrameworkCore.Migrations.Migration
+  isExternal: true
+  name: Down(MigrationBuilder)
+  nameWithType: Migration.Down(MigrationBuilder)
+  fullName: Microsoft.EntityFrameworkCore.Migrations.Migration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.Migrations.Migration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+    name: Down
+    isExternal: true
+  - name: (
+  - uid: Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder
+    name: MigrationBuilder
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.Migrations.Migration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)
+    name: Down
+    isExternal: true
+  - name: (
+  - uid: Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder
+    name: MigrationBuilder
+    isExternal: true
+  - name: )
+- uid: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.Down*
+  commentId: Overload:lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.Down
+  href: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.html#lumify_api_Migrations_AddTodoProgressViewAndStatusTriggers_Down_Microsoft_EntityFrameworkCore_Migrations_MigrationBuilder_
+  name: Down
+  nameWithType: AddTodoProgressViewAndStatusTriggers.Down
+  fullName: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.Down
+- uid: Microsoft.EntityFrameworkCore.Migrations.Migration.TargetModel
+  commentId: P:Microsoft.EntityFrameworkCore.Migrations.Migration.TargetModel
+  isExternal: true
+  name: TargetModel
+  nameWithType: Migration.TargetModel
+  fullName: Microsoft.EntityFrameworkCore.Migrations.Migration.TargetModel
+- uid: Microsoft.EntityFrameworkCore.ModelBuilder
+  commentId: T:Microsoft.EntityFrameworkCore.ModelBuilder
+  parent: Microsoft.EntityFrameworkCore
+  isExternal: true
+  name: ModelBuilder
+  nameWithType: ModelBuilder
+  fullName: Microsoft.EntityFrameworkCore.ModelBuilder
+- uid: Microsoft.EntityFrameworkCore.Migrations.Migration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)
+  commentId: M:Microsoft.EntityFrameworkCore.Migrations.Migration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)
+  parent: Microsoft.EntityFrameworkCore.Migrations.Migration
+  isExternal: true
+  name: BuildTargetModel(ModelBuilder)
+  nameWithType: Migration.BuildTargetModel(ModelBuilder)
+  fullName: Microsoft.EntityFrameworkCore.Migrations.Migration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.Migrations.Migration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)
+    name: BuildTargetModel
+    isExternal: true
+  - name: (
+  - uid: Microsoft.EntityFrameworkCore.ModelBuilder
+    name: ModelBuilder
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.Migrations.Migration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)
+    name: BuildTargetModel
+    isExternal: true
+  - name: (
+  - uid: Microsoft.EntityFrameworkCore.ModelBuilder
+    name: ModelBuilder
+    isExternal: true
+  - name: )
+- uid: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.BuildTargetModel*
+  commentId: Overload:lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.BuildTargetModel
+  href: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.html#lumify_api_Migrations_AddTodoProgressViewAndStatusTriggers_BuildTargetModel_Microsoft_EntityFrameworkCore_ModelBuilder_
+  name: BuildTargetModel
+  nameWithType: AddTodoProgressViewAndStatusTriggers.BuildTargetModel
+  fullName: lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.BuildTargetModel
+- uid: Microsoft.EntityFrameworkCore
+  commentId: N:Microsoft.EntityFrameworkCore
+  isExternal: true
+  name: Microsoft.EntityFrameworkCore
+  nameWithType: Microsoft.EntityFrameworkCore
+  fullName: Microsoft.EntityFrameworkCore
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.EntityFrameworkCore
+    name: EntityFrameworkCore
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.EntityFrameworkCore
+    name: EntityFrameworkCore
+    isExternal: true

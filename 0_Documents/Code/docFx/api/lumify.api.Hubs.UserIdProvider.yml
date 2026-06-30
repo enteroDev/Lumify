@@ -1,0 +1,166 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Hubs.UserIdProvider
+  commentId: T:lumify.api.Hubs.UserIdProvider
+  id: UserIdProvider
+  parent: lumify.api.Hubs
+  children:
+  - lumify.api.Hubs.UserIdProvider.GetUserId(Microsoft.AspNetCore.SignalR.HubConnectionContext)
+  langs:
+  - csharp
+  - vb
+  name: UserIdProvider
+  nameWithType: UserIdProvider
+  fullName: lumify.api.Hubs.UserIdProvider
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Hubs/UserIdProvider.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UserIdProvider
+    path: ../../../lumify.api/Hubs/UserIdProvider.cs
+    startLine: 9
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Hubs
+  syntax:
+    content: public class UserIdProvider
+    content.vb: Public Class UserIdProvider
+  inheritance:
+  - System.Object
+- uid: lumify.api.Hubs.UserIdProvider.GetUserId(Microsoft.AspNetCore.SignalR.HubConnectionContext)
+  commentId: M:lumify.api.Hubs.UserIdProvider.GetUserId(Microsoft.AspNetCore.SignalR.HubConnectionContext)
+  id: GetUserId(Microsoft.AspNetCore.SignalR.HubConnectionContext)
+  parent: lumify.api.Hubs.UserIdProvider
+  langs:
+  - csharp
+  - vb
+  name: GetUserId(HubConnectionContext)
+  nameWithType: UserIdProvider.GetUserId(HubConnectionContext)
+  fullName: lumify.api.Hubs.UserIdProvider.GetUserId(Microsoft.AspNetCore.SignalR.HubConnectionContext)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Hubs/UserIdProvider.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetUserId
+    path: ../../../lumify.api/Hubs/UserIdProvider.cs
+    startLine: 11
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Hubs
+  summary: Gets the user ID for the specified connection.
+  example: []
+  syntax:
+    content: public string? GetUserId(HubConnectionContext connection)
+    parameters:
+    - id: connection
+      type: Microsoft.AspNetCore.SignalR.HubConnectionContext
+      description: The connection to get the user ID for.
+    return:
+      type: System.String
+      description: The user ID for the specified connection.
+    content.vb: Public Function GetUserId(connection As HubConnectionContext) As String
+  overload: lumify.api.Hubs.UserIdProvider.GetUserId*
+references:
+- uid: lumify.api.Hubs
+  commentId: N:lumify.api.Hubs
+  href: lumify.html
+  name: lumify.api.Hubs
+  nameWithType: lumify.api.Hubs
+  fullName: lumify.api.Hubs
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Hubs
+    name: Hubs
+    href: lumify.api.Hubs.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Hubs
+    name: Hubs
+    href: lumify.api.Hubs.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Hubs.UserIdProvider.GetUserId*
+  commentId: Overload:lumify.api.Hubs.UserIdProvider.GetUserId
+  href: lumify.api.Hubs.UserIdProvider.html#lumify_api_Hubs_UserIdProvider_GetUserId_Microsoft_AspNetCore_SignalR_HubConnectionContext_
+  name: GetUserId
+  nameWithType: UserIdProvider.GetUserId
+  fullName: lumify.api.Hubs.UserIdProvider.GetUserId
+- uid: Microsoft.AspNetCore.SignalR.HubConnectionContext
+  commentId: T:Microsoft.AspNetCore.SignalR.HubConnectionContext
+  parent: Microsoft.AspNetCore.SignalR
+  isExternal: true
+  name: HubConnectionContext
+  nameWithType: HubConnectionContext
+  fullName: Microsoft.AspNetCore.SignalR.HubConnectionContext
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Microsoft.AspNetCore.SignalR
+  commentId: N:Microsoft.AspNetCore.SignalR
+  isExternal: true
+  name: Microsoft.AspNetCore.SignalR
+  nameWithType: Microsoft.AspNetCore.SignalR
+  fullName: Microsoft.AspNetCore.SignalR
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true

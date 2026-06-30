@@ -17,6 +17,11 @@ using System.Security.Cryptography;
 
 namespace lumify.api.Controllers
 {
+    /// <summary>
+    /// Endpoints for user accounts: login/logout, registration, two-factor
+    /// authentication (TOTP), password reset and e-mail verification. Sessions are
+    /// issued via an HttpOnly JWT cookie plus a CSRF double-submit cookie.
+    /// </summary>
     [ApiController]
     [Route("account/[action]")]
     public class AccountController : ControllerBase
@@ -31,6 +36,11 @@ namespace lumify.api.Controllers
         // be false, otherwise the browser refuses to store them. Set Cookies:Secure=true once HTTPS is in place.
         private readonly bool _cookieSecure;
 
+        /// <summary>
+        /// Creates the controller with its injected dependencies (logging, configuration,
+        /// hosting environment, database context, internal logic helpers, e-mail service
+        /// and application settings).
+        /// </summary>
         public AccountController(
             ILogger<AccountController> logger,
             IConfiguration config,
@@ -55,6 +65,20 @@ namespace lumify.api.Controllers
         // --- LOGIN --- //
         // ------------- //
 
+        /// <summary>
+        /// Authenticates a user by username or e-mail and password.
+        /// </summary>
+        /// <remarks>
+        /// If 2FA is enabled, no session is issued yet — a short-lived MFA challenge token
+        /// is returned instead and the client must call <see cref="VerifyTotpLogin"/> with
+        /// the 6-digit code. Soft-deleted and unconfirmed accounts cannot log in.
+        /// </remarks>
+        /// <param name="dto">Credentials: <c>Identifier</c> (username or e-mail) and password.</param>
+        /// <returns>
+        /// 200 with user data (session in cookie) on success without 2FA; 200 with
+        /// <c>mfaRequired = true</c> and an MFA token when 2FA is enabled; 401 for invalid
+        /// credentials; 403 when the e-mail address is not yet confirmed.
+        /// </returns>
         [HttpPost]
         [ActionName("loginUser")]
         public async Task<IActionResult> LoginUser([FromBody] LoginRequest dto)
@@ -113,8 +137,13 @@ namespace lumify.api.Controllers
         // --- 2FA (TOTP) ------ //
         // --------------------- //
 
-        // Login step 2: verify the 6-digit code for an account that has 2FA enabled,
-        // then issue the real session.
+        /// <summary>
+        /// Login step 2: verifies the 6-digit TOTP code for a 2FA-enabled account and then
+        /// issues the real session.
+        /// </summary>
+        /// <param name="dto">The MFA challenge token from step 1 and the 6-digit code.</param>
+        /// <returns>200 with user data and the session cookie on success; 400 if token or
+        /// code are missing; 401 if the MFA session or the code is invalid or expired.</returns>
         [HttpPost]
         [ActionName("verifyTotpLogin")]
         public async Task<IActionResult> VerifyTotpLogin([FromBody] VerifyTotpLoginRequest dto)
@@ -149,7 +178,10 @@ namespace lumify.api.Controllers
         }
 
 
-        // Returns whether 2FA is currently active for the logged-in user.
+        /// <summary>
+        /// Returns whether 2FA is currently active for the logged-in user.
+        /// </summary>
+        /// <returns>200 with <c>enabled</c> (bool); 404 if the user no longer exists.</returns>
         [HttpGet]
         [Authorize]
         [ActionName("mfaStatus")]
@@ -164,7 +196,12 @@ namespace lumify.api.Controllers
         }
 
 
-        // Starts 2FA setup: generates a secret + QR code. 2FA is NOT active until confirmed.
+        /// <summary>
+        /// Starts 2FA setup: generates a fresh TOTP secret and a QR code. 2FA is not active
+        /// until confirmed via <see cref="ConfirmTotp"/>.
+        /// </summary>
+        /// <returns>200 with <c>secret</c> (for manual entry) and <c>qrCodeDataUri</c> (for
+        /// scanning); 400 if 2FA is already enabled; 404 if the user no longer exists.</returns>
         [HttpPost]
         [Authorize]
         [ActionName("setupTotp")]
@@ -196,7 +233,12 @@ namespace lumify.api.Controllers
         }
 
 
-        // Confirms setup: a valid code flips 2FA on.
+        /// <summary>
+        /// Confirms 2FA setup: a valid TOTP code flips two-factor authentication on.
+        /// </summary>
+        /// <param name="dto">The 6-digit code from the authenticator app.</param>
+        /// <returns>200 with <c>enabled = true</c> on success; 400 if the code is missing,
+        /// setup was not started, or the code is invalid; 404 if the user no longer exists.</returns>
         [HttpPost]
         [Authorize]
         [ActionName("confirmTotp")]
@@ -224,7 +266,13 @@ namespace lumify.api.Controllers
         }
 
 
-        // Disables 2FA. Requires a valid current code so a hijacked session cannot silently turn it off.
+        /// <summary>
+        /// Disables 2FA. Requires a valid current TOTP code so a hijacked session cannot
+        /// silently turn it off.
+        /// </summary>
+        /// <param name="dto">The 6-digit code from the authenticator app.</param>
+        /// <returns>200 with <c>enabled = false</c> on success; 400 if the code is missing,
+        /// 2FA is not enabled, or the code is invalid; 404 if the user no longer exists.</returns>
         [HttpPost]
         [Authorize]
         [ActionName("disableTotp")]
@@ -258,6 +306,10 @@ namespace lumify.api.Controllers
         // -------------- //
         // --- LOGOUT --- //
         // -------------- //
+        /// <summary>
+        /// Logs the user out by expiring the session and CSRF cookies immediately.
+        /// </summary>
+        /// <returns>200 once the cookies have been cleared.</returns>
         [HttpPost]
         [ActionName("logoutUser")]
         public IActionResult LogoutUser()
@@ -283,6 +335,18 @@ namespace lumify.api.Controllers
         // ---------------- //
         // --- REGISTER --- //
         // ---------------- //
+        /// <summary>
+        /// Registers a new user account and sends an e-mail verification link. No automatic
+        /// login — the account must confirm its e-mail before it can sign in.
+        /// </summary>
+        /// <remarks>
+        /// An optional base64 avatar is stored; failure to save it is logged but does not
+        /// abort registration (a default avatar is used instead).
+        /// </remarks>
+        /// <param name="dto">Registration data (e-mail, username, password, optional name/avatar).</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with <c>verificationRequired = true</c> on success; 400 if required
+        /// fields are missing; 409 if the username or e-mail already exists; 500 on error.</returns>
         [HttpPost]
         [ActionName("registerUser")]
         public async Task<IActionResult> RegisterUser([FromBody] RegisterRequest dto, CancellationToken ct)
@@ -368,6 +432,17 @@ namespace lumify.api.Controllers
         // Step 1: user requests a reset link. We ALWAYS answer with the same generic message,
         // regardless of whether the account exists, so this endpoint cannot be used to find out
         // which usernames / emails are registered (no user enumeration).
+        /// <summary>
+        /// Password reset step 1: requests a reset link for the given username or e-mail.
+        /// </summary>
+        /// <remarks>
+        /// Always returns the same generic message regardless of whether the account exists,
+        /// so the endpoint cannot be used to enumerate registered users. Any previously open
+        /// reset tokens for the user are invalidated; only the hash of the new token is stored.
+        /// </remarks>
+        /// <param name="dto">The identifier (username or e-mail).</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with a generic message in all cases.</returns>
         [HttpPost]
         [ActionName("requestPasswordReset")]
         public async Task<IActionResult> RequestPasswordReset([FromBody] RequestPasswordResetRequest dto, CancellationToken ct)
@@ -433,6 +508,18 @@ namespace lumify.api.Controllers
 
 
         // Step 2: user submits the token from the link plus a new password.
+        /// <summary>
+        /// Password reset step 2: sets a new password using the single-use token from the
+        /// reset link.
+        /// </summary>
+        /// <remarks>
+        /// The token is looked up by its hash (the raw value is never stored) and consumed on
+        /// success, so each reset link works only once and only before it expires.
+        /// </remarks>
+        /// <param name="dto">The reset token and the new password (minimum 8 characters).</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with a success message; 400 if input is missing, the password is too
+        /// short, or the token is invalid, already used, or expired.</returns>
         [HttpPost]
         [ActionName("resetPassword")]
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequest dto, CancellationToken ct)
@@ -481,7 +568,17 @@ namespace lumify.api.Controllers
         // --- EMAIL VERIFICATION  --- //
         // --------------------------- //
 
-        // Confirms an account via the one-time token from the verification mail.
+        /// <summary>
+        /// Confirms an account via the single-use token from the verification mail.
+        /// </summary>
+        /// <remarks>
+        /// The token is looked up by its hash and consumed on success, so the verification
+        /// link works only once and only before it expires.
+        /// </remarks>
+        /// <param name="dto">The verification token.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with a success message; 400 if the token is missing, invalid, already
+        /// used, or expired.</returns>
         [HttpPost]
         [ActionName("verifyEmail")]
         public async Task<IActionResult> VerifyEmail([FromBody] VerifyEmailRequest dto, CancellationToken ct)
@@ -515,7 +612,16 @@ namespace lumify.api.Controllers
         }
 
 
-        // Resends a verification mail. Always answers generically (no user enumeration).
+        /// <summary>
+        /// Resends a verification mail for an existing, still-unconfirmed account.
+        /// </summary>
+        /// <remarks>
+        /// Always answers with the same generic message (no user enumeration); a mail is only
+        /// actually sent for an account that exists and is not yet confirmed.
+        /// </remarks>
+        /// <param name="dto">The identifier (username or e-mail).</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with a generic message in all cases.</returns>
         [HttpPost]
         [ActionName("resendVerification")]
         public async Task<IActionResult> ResendVerification([FromBody] ResendVerificationRequest dto, CancellationToken ct)
@@ -550,7 +656,12 @@ namespace lumify.api.Controllers
         }
 
 
-        // Creates a fresh single-use verification token (invalidating older open ones) and mails the link.
+        /// <summary>
+        /// Creates a fresh single-use verification token (invalidating older open ones) and
+        /// mails the verification link to the user.
+        /// </summary>
+        /// <param name="user">The account to send the verification mail to.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
         private async Task SendNewVerificationMail(User user, CancellationToken ct)
         {
             var now = DateTime.UtcNow;
@@ -584,8 +695,15 @@ namespace lumify.api.Controllers
 
 
 
+        // --------------- //
+        // --- HELPERS --- //
+        // --------------- //
 
-        // Helper
+        /// <summary>
+        /// Diagnostic endpoint that returns the current authentication state and the claims
+        /// of the logged-in user.
+        /// </summary>
+        /// <returns>200 with <c>Authenticated</c> (bool) and the list of <c>Claims</c>.</returns>
         [HttpGet]
         [Authorize]
         [ActionName("whoami")]
@@ -609,8 +727,11 @@ namespace lumify.api.Controllers
         // --- HELPERS --- //
         // --------------- //
 
-        // Issues the session (HttpOnly JWT cookie) + the CSRF double-submit cookie.
-        // Shared by the normal login and the 2FA second step.
+        /// <summary>
+        /// Issues the session (HttpOnly JWT cookie) plus the CSRF double-submit cookie.
+        /// Shared by the normal login and the 2FA second step.
+        /// </summary>
+        /// <param name="user">The authenticated user the session is issued for.</param>
         private void AppendAuthCookies(User user)
         {
             var token = _logic.GenerateJwtToken(user);
@@ -639,6 +760,11 @@ namespace lumify.api.Controllers
             Response.Cookies.Append("XSRF-TOKEN", antiCsrf, csrfCookieOptions);
         }
 
+        /// <summary>
+        /// Reads the current user's ID from the <c>UserID</c> claim of the authenticated request.
+        /// </summary>
+        /// <returns>The current user's ID.</returns>
+        /// <exception cref="UnauthorizedAccessException">Thrown when no user is logged in.</exception>
         private string GetCurrentUserID()
         {
             var userID = User.FindFirst("UserID")?.Value;

@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.Settings
+  commentId: N:lumify.api.Models.Settings
+  id: lumify.api.Models.Settings
+  children:
+  - lumify.api.Models.Settings.AppSettings
+  - lumify.api.Models.Settings.EmailSettings
+  - lumify.api.Models.Settings.JwtSettings
+  langs:
+  - csharp
+  - vb
+  name: lumify.api.Models.Settings
+  nameWithType: lumify.api.Models.Settings
+  fullName: lumify.api.Models.Settings
+  type: Namespace
+  assemblies:
+  - lumify.api
+references:
+- uid: lumify.api.Models.Settings.AppSettings
+  commentId: T:lumify.api.Models.Settings.AppSettings
+  href: lumify.api.Models.Settings.AppSettings.html
+  name: AppSettings
+  nameWithType: AppSettings
+  fullName: lumify.api.Models.Settings.AppSettings
+- uid: lumify.api.Models.Settings.EmailSettings
+  commentId: T:lumify.api.Models.Settings.EmailSettings
+  href: lumify.api.Models.Settings.EmailSettings.html
+  name: EmailSettings
+  nameWithType: EmailSettings
+  fullName: lumify.api.Models.Settings.EmailSettings
+- uid: lumify.api.Models.Settings.JwtSettings
+  commentId: T:lumify.api.Models.Settings.JwtSettings
+  href: lumify.api.Models.Settings.JwtSettings.html
+  name: JwtSettings
+  nameWithType: JwtSettings
+  fullName: lumify.api.Models.Settings.JwtSettings

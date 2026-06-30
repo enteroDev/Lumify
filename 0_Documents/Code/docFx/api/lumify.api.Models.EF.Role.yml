@@ -1,0 +1,128 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.EF.Role
+  commentId: T:lumify.api.Models.EF.Role
+  id: Role
+  parent: lumify.api.Models.EF
+  children:
+  - lumify.api.Models.EF.Role.Admin
+  - lumify.api.Models.EF.Role.User
+  langs:
+  - csharp
+  - vb
+  name: Role
+  nameWithType: Role
+  fullName: lumify.api.Models.EF.Role
+  type: Enum
+  source:
+    remote:
+      path: lumify.api/Models/EF/User.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Role
+    path: ../../../lumify.api/Models/EF/User.cs
+    startLine: 53
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public enum Role
+    content.vb: Public Enum Role
+- uid: lumify.api.Models.EF.Role.User
+  commentId: F:lumify.api.Models.EF.Role.User
+  id: User
+  parent: lumify.api.Models.EF.Role
+  langs:
+  - csharp
+  - vb
+  name: User
+  nameWithType: Role.User
+  fullName: lumify.api.Models.EF.Role.User
+  type: Field
+  source:
+    remote:
+      path: lumify.api/Models/EF/User.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: User
+    path: ../../../lumify.api/Models/EF/User.cs
+    startLine: 55
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: User = 1
+    return:
+      type: lumify.api.Models.EF.Role
+- uid: lumify.api.Models.EF.Role.Admin
+  commentId: F:lumify.api.Models.EF.Role.Admin
+  id: Admin
+  parent: lumify.api.Models.EF.Role
+  langs:
+  - csharp
+  - vb
+  name: Admin
+  nameWithType: Role.Admin
+  fullName: lumify.api.Models.EF.Role.Admin
+  type: Field
+  source:
+    remote:
+      path: lumify.api/Models/EF/User.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Admin
+    path: ../../../lumify.api/Models/EF/User.cs
+    startLine: 56
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: Admin = 2
+    return:
+      type: lumify.api.Models.EF.Role
+references:
+- uid: lumify.api.Models.EF
+  commentId: N:lumify.api.Models.EF
+  href: lumify.html
+  name: lumify.api.Models.EF
+  nameWithType: lumify.api.Models.EF
+  fullName: lumify.api.Models.EF
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+- uid: lumify.api.Models.EF.Role
+  commentId: T:lumify.api.Models.EF.Role
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.Role.html
+  name: Role
+  nameWithType: Role
+  fullName: lumify.api.Models.EF.Role

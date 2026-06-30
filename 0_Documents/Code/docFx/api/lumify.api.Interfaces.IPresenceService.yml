@@ -1,0 +1,243 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Interfaces.IPresenceService
+  commentId: T:lumify.api.Interfaces.IPresenceService
+  id: IPresenceService
+  parent: lumify.api.Interfaces
+  children:
+  - lumify.api.Interfaces.IPresenceService.AddConnection(System.String,System.String)
+  - lumify.api.Interfaces.IPresenceService.GetPresenceStatus(System.String)
+  - lumify.api.Interfaces.IPresenceService.RemoveConnection(System.String)
+  langs:
+  - csharp
+  - vb
+  name: IPresenceService
+  nameWithType: IPresenceService
+  fullName: lumify.api.Interfaces.IPresenceService
+  type: Interface
+  source:
+    remote:
+      path: lumify.api/Interfaces/IPresenceService.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: IPresenceService
+    path: ../../../lumify.api/Interfaces/IPresenceService.cs
+    startLine: 10
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Interfaces
+  syntax:
+    content: public interface IPresenceService
+    content.vb: Public Interface IPresenceService
+  derivedClasses:
+  - lumify.api.Services.PresenceService
+- uid: lumify.api.Interfaces.IPresenceService.AddConnection(System.String,System.String)
+  commentId: M:lumify.api.Interfaces.IPresenceService.AddConnection(System.String,System.String)
+  id: AddConnection(System.String,System.String)
+  parent: lumify.api.Interfaces.IPresenceService
+  langs:
+  - csharp
+  - vb
+  name: AddConnection(string, string)
+  nameWithType: IPresenceService.AddConnection(string, string)
+  fullName: lumify.api.Interfaces.IPresenceService.AddConnection(string, string)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Interfaces/IPresenceService.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AddConnection
+    path: ../../../lumify.api/Interfaces/IPresenceService.cs
+    startLine: 12
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Interfaces
+  syntax:
+    content: void AddConnection(string userID, string connectionID)
+    parameters:
+    - id: userID
+      type: System.String
+    - id: connectionID
+      type: System.String
+    content.vb: Sub AddConnection(userID As String, connectionID As String)
+  overload: lumify.api.Interfaces.IPresenceService.AddConnection*
+  nameWithType.vb: IPresenceService.AddConnection(String, String)
+  fullName.vb: lumify.api.Interfaces.IPresenceService.AddConnection(String, String)
+  name.vb: AddConnection(String, String)
+- uid: lumify.api.Interfaces.IPresenceService.RemoveConnection(System.String)
+  commentId: M:lumify.api.Interfaces.IPresenceService.RemoveConnection(System.String)
+  id: RemoveConnection(System.String)
+  parent: lumify.api.Interfaces.IPresenceService
+  langs:
+  - csharp
+  - vb
+  name: RemoveConnection(string)
+  nameWithType: IPresenceService.RemoveConnection(string)
+  fullName: lumify.api.Interfaces.IPresenceService.RemoveConnection(string)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Interfaces/IPresenceService.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: RemoveConnection
+    path: ../../../lumify.api/Interfaces/IPresenceService.cs
+    startLine: 13
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Interfaces
+  syntax:
+    content: void RemoveConnection(string connectionID)
+    parameters:
+    - id: connectionID
+      type: System.String
+    content.vb: Sub RemoveConnection(connectionID As String)
+  overload: lumify.api.Interfaces.IPresenceService.RemoveConnection*
+  nameWithType.vb: IPresenceService.RemoveConnection(String)
+  fullName.vb: lumify.api.Interfaces.IPresenceService.RemoveConnection(String)
+  name.vb: RemoveConnection(String)
+- uid: lumify.api.Interfaces.IPresenceService.GetPresenceStatus(System.String)
+  commentId: M:lumify.api.Interfaces.IPresenceService.GetPresenceStatus(System.String)
+  id: GetPresenceStatus(System.String)
+  parent: lumify.api.Interfaces.IPresenceService
+  langs:
+  - csharp
+  - vb
+  name: GetPresenceStatus(string)
+  nameWithType: IPresenceService.GetPresenceStatus(string)
+  fullName: lumify.api.Interfaces.IPresenceService.GetPresenceStatus(string)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Interfaces/IPresenceService.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetPresenceStatus
+    path: ../../../lumify.api/Interfaces/IPresenceService.cs
+    startLine: 14
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Interfaces
+  syntax:
+    content: PresenceStatus GetPresenceStatus(string userID)
+    parameters:
+    - id: userID
+      type: System.String
+    return:
+      type: lumify.api.Models.Enum.PresenceStatus
+    content.vb: Function GetPresenceStatus(userID As String) As PresenceStatus
+  overload: lumify.api.Interfaces.IPresenceService.GetPresenceStatus*
+  nameWithType.vb: IPresenceService.GetPresenceStatus(String)
+  fullName.vb: lumify.api.Interfaces.IPresenceService.GetPresenceStatus(String)
+  name.vb: GetPresenceStatus(String)
+references:
+- uid: lumify.api.Interfaces
+  commentId: N:lumify.api.Interfaces
+  href: lumify.html
+  name: lumify.api.Interfaces
+  nameWithType: lumify.api.Interfaces
+  fullName: lumify.api.Interfaces
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Interfaces
+    name: Interfaces
+    href: lumify.api.Interfaces.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Interfaces
+    name: Interfaces
+    href: lumify.api.Interfaces.html
+- uid: lumify.api.Interfaces.IPresenceService.AddConnection*
+  commentId: Overload:lumify.api.Interfaces.IPresenceService.AddConnection
+  href: lumify.api.Interfaces.IPresenceService.html#lumify_api_Interfaces_IPresenceService_AddConnection_System_String_System_String_
+  name: AddConnection
+  nameWithType: IPresenceService.AddConnection
+  fullName: lumify.api.Interfaces.IPresenceService.AddConnection
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Interfaces.IPresenceService.RemoveConnection*
+  commentId: Overload:lumify.api.Interfaces.IPresenceService.RemoveConnection
+  href: lumify.api.Interfaces.IPresenceService.html#lumify_api_Interfaces_IPresenceService_RemoveConnection_System_String_
+  name: RemoveConnection
+  nameWithType: IPresenceService.RemoveConnection
+  fullName: lumify.api.Interfaces.IPresenceService.RemoveConnection
+- uid: lumify.api.Interfaces.IPresenceService.GetPresenceStatus*
+  commentId: Overload:lumify.api.Interfaces.IPresenceService.GetPresenceStatus
+  href: lumify.api.Interfaces.IPresenceService.html#lumify_api_Interfaces_IPresenceService_GetPresenceStatus_System_String_
+  name: GetPresenceStatus
+  nameWithType: IPresenceService.GetPresenceStatus
+  fullName: lumify.api.Interfaces.IPresenceService.GetPresenceStatus
+- uid: lumify.api.Models.Enum.PresenceStatus
+  commentId: T:lumify.api.Models.Enum.PresenceStatus
+  parent: lumify.api.Models.Enum
+  href: lumify.api.Models.Enum.PresenceStatus.html
+  name: PresenceStatus
+  nameWithType: PresenceStatus
+  fullName: lumify.api.Models.Enum.PresenceStatus
+- uid: lumify.api.Models.Enum
+  commentId: N:lumify.api.Models.Enum
+  href: lumify.html
+  name: lumify.api.Models.Enum
+  nameWithType: lumify.api.Models.Enum
+  fullName: lumify.api.Models.Enum
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Enum
+    name: Enum
+    href: lumify.api.Models.Enum.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Enum
+    name: Enum
+    href: lumify.api.Models.Enum.html

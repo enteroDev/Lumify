@@ -1,0 +1,1451 @@
+{
+  "source_base_path": "C:/DEV/Lumify/0_Documents/Code/docFx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Controllers.AccountController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Controllers.AccountController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Controllers.AccountController",
+      "Summary": "<p sourcefile=\"api/lumify.api.Controllers.AccountController.yml\" sourcestartlinenumber=\"1\">Endpoints for user accounts: login/logout, registration, two-factor\nauthentication (TOTP), password reset and e-mail verification. Sessions are\nissued via an HttpOnly JWT cookie plus a CSRF double-submit cookie.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Controllers.ChatController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Controllers.ChatController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Controllers.ChatController",
+      "Summary": "<p sourcefile=\"api/lumify.api.Controllers.ChatController.yml\" sourcestartlinenumber=\"1\">Read access to chat history. All endpoints require an authenticated user.\nReal-time delivery of new messages is handled by <xref href=\"lumify.api.Hubs.ChatHub\" data-throw-if-not-resolved=\"false\"></xref>;\nthis controller only serves the persisted message history.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Controllers.EventsController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Controllers.EventsController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Controllers.EventsController",
+      "Summary": "<p sourcefile=\"api/lumify.api.Controllers.EventsController.yml\" sourcestartlinenumber=\"1\">Manages calendar events, both personal (no workspace) and workspace-shared, including\ncreation, editing, deletion and various queries (counts, lists, linked workspace). All\nendpoints require an authenticated user. Changes to workspace events are pushed live to\nthe workspace group over the <xref href=\"lumify.api.Hubs.EventHub\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Controllers.FoldersController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Controllers.FoldersController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Controllers.FoldersController",
+      "Summary": "<p sourcefile=\"api/lumify.api.Controllers.FoldersController.yml\" sourcestartlinenumber=\"1\">Manages note folders, both personal (no workspace) and workspace-shared, including\ncreation, editing, moving and recursive deletion. All endpoints require an\nauthenticated user. Changes to workspace folders are pushed live to the workspace\ngroup over the <xref href=\"lumify.api.Hubs.NoteHub\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Controllers.FriendshipController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Controllers.FriendshipController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Controllers.FriendshipController",
+      "Summary": "<p sourcefile=\"api/lumify.api.Controllers.FriendshipController.yml\" sourcestartlinenumber=\"1\">Manages friendships: sending, accepting and rejecting friend requests, removing\nfriends, and listing incoming/outgoing requests and current friends. All endpoints\nrequire an authenticated user. Changes are pushed live to the affected user over the\n<xref href=\"lumify.api.Hubs.ChatHub\" data-throw-if-not-resolved=\"false\"></xref> so clients update without a reload.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Controllers.NotesController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Controllers.NotesController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Controllers.NotesController",
+      "Summary": "<p sourcefile=\"api/lumify.api.Controllers.NotesController.yml\" sourcestartlinenumber=\"1\">Manages notes and their content modules — text blocks and link items — both personal\n(no workspace) and workspace-shared. Covers creating, editing, moving, ordering and\ndeleting notes and modules, plus various queries. All endpoints require an authenticated\nuser. Changes to workspace notes are pushed live to the workspace group over the\n<xref href=\"lumify.api.Hubs.NoteHub\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Controllers.TodoListsController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Controllers.TodoListsController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Controllers.TodoListsController",
+      "Summary": "<p sourcefile=\"api/lumify.api.Controllers.TodoListsController.yml\" sourcestartlinenumber=\"1\">Manages todo lists and their entries, both personal (no workspace) and workspace-shared,\nincluding creation, editing, deletion and various queries. All endpoints require an\nauthenticated user. Changes to workspace items are pushed live to the workspace group\nover the <xref href=\"lumify.api.Hubs.TodoHub\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Controllers.UsersController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Controllers.UsersController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Controllers.UsersController",
+      "Summary": "<p sourcefile=\"api/lumify.api.Controllers.UsersController.yml\" sourcestartlinenumber=\"1\">User profile and account management plus user discovery: editing the current user's\nprofile and avatar, deleting the account, reading profile/account/preview data by ID or\nfor the current user, recent activity (todos/events/notes), related users, and user\nsearch. All endpoints require an authenticated user.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Controllers.WorkspaceController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Controllers.WorkspaceController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Controllers.WorkspaceController",
+      "Summary": "<p sourcefile=\"api/lumify.api.Controllers.WorkspaceController.yml\" sourcestartlinenumber=\"1\">Manages workspaces (shared spaces) and their memberships: creating, renaming and\ndeleting workspaces, adding and removing members, and querying workspaces and members.\nAll endpoints require an authenticated user. Changes are pushed live to every affected\nmember over the <xref href=\"lumify.api.Hubs.WorkspaceHub\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Controllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Controllers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Controllers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Hubs.ChatHub.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Hubs.ChatHub.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Hubs.ChatHub",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Hubs.EventHub.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Hubs.EventHub.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Hubs.EventHub",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Hubs.NoteHub.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Hubs.NoteHub.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Hubs.NoteHub",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Hubs.TodoHub.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Hubs.TodoHub.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Hubs.TodoHub",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Hubs.UserIdProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Hubs.UserIdProvider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Hubs.UserIdProvider",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Hubs.WorkspaceHub.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Hubs.WorkspaceHub.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Hubs.WorkspaceHub",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Hubs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Hubs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Hubs",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Interfaces.IEmailService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Interfaces.IEmailService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Interfaces.IEmailService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Interfaces.IPresenceService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Interfaces.IPresenceService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Interfaces.IPresenceService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Interfaces.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Interfaces.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Interfaces",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Logic.CsrfMiddleware.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Logic.CsrfMiddleware.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Logic.CsrfMiddleware",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Logic.InternalLogic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Logic.InternalLogic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Logic.InternalLogic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Logic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Logic.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Logic",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Migrations.AddEmailVerification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Migrations.AddEmailVerification.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Migrations.AddEmailVerification",
+      "Summary": "<p sourcefile=\"api/lumify.api.Migrations.AddEmailVerification.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers",
+      "Summary": "<p sourcefile=\"api/lumify.api.Migrations.AddTodoProgressViewAndStatusTriggers.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Migrations.AddTotp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Migrations.AddTotp.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Migrations.AddTotp",
+      "Summary": "<p sourcefile=\"api/lumify.api.Migrations.AddTotp.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Migrations.InitialCreate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Migrations.InitialCreate.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Migrations.InitialCreate",
+      "Summary": "<p sourcefile=\"api/lumify.api.Migrations.InitialCreate.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Migrations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Migrations.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Migrations",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.Context.LumifyDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.Context.LumifyDbContext.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.Context.LumifyDbContext",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.Context.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.Context.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.Context",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.AddEventRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.AddEventRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.AddEventRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.AddFolderRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.AddFolderRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.AddFolderRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.AddLinkItemRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.AddLinkItemRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.AddLinkItemRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.AddNoteRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.AddNoteRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.AddNoteRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.AddTextBlockRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.AddTextBlockRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.AddTextBlockRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.AddTodoEntryRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.AddTodoEntryRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.AddTodoEntryRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.AddTodoListRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.AddTodoListRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.AddTodoListRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.AddWorkspaceRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.AddWorkspaceRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.AddWorkspaceRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.LoginRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.LoginRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.LoginRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.RegisterRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.RegisterRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.RegisterRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.RequestPasswordResetRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.RequestPasswordResetRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.RequestPasswordResetRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.ResendVerificationRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.ResendVerificationRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.ResendVerificationRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.ResetPasswordRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.ResetPasswordRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.ResetPasswordRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.SaveEventRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.SaveEventRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.SaveEventRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.SaveFolderRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.SaveFolderRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.SaveFolderRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.SaveNoteRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.SaveNoteRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.SaveNoteRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.SaveTextblockRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.SaveTextblockRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.SaveTextblockRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.SaveTodoListRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.SaveTodoListRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.SaveTodoListRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.SaveUserProfileRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.SaveUserProfileRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.SaveUserProfileRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.SaveWorkspaceRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.SaveWorkspaceRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.SaveWorkspaceRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.TotpCodeRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.TotpCodeRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.TotpCodeRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.VerifyEmailRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.VerifyEmailRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.VerifyEmailRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Requests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Requests.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Requests",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Responses.ChatMessageResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Responses.ChatMessageResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Responses.ChatMessageResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Responses.EventResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Responses.EventResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Responses.EventResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Responses.FolderResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Responses.FolderResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Responses.FolderResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Responses.FriendshipResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Responses.FriendshipResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Responses.FriendshipResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Responses.LinkItemResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Responses.LinkItemResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Responses.LinkItemResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Responses.NoteResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Responses.NoteResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Responses.NoteResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Responses.RelatedUserResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Responses.RelatedUserResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Responses.RelatedUserResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Responses.TextblockResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Responses.TextblockResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Responses.TextblockResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Responses.TodoEntryResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Responses.TodoEntryResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Responses.TodoEntryResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Responses.TodoListResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Responses.TodoListResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Responses.TodoListResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Responses.UserAccountInfoResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Responses.UserAccountInfoResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Responses.UserAccountInfoResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Responses.UserPreviewResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Responses.UserPreviewResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Responses.UserPreviewResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Responses.UserProfileResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Responses.UserProfileResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Responses.UserProfileResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Responses.WorkspaceMemberResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Responses.WorkspaceResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Responses.WorkspaceResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Responses.WorkspaceResponse",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.DTO.Responses.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.DTO.Responses.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.DTO.Responses",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.EF.ChatMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.EF.ChatMessage.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.EF.ChatMessage",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.EF.EmailVerificationToken.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.EF.EmailVerificationToken.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.EF.EmailVerificationToken",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.EF.Event.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.EF.Event.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.EF.Event",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.EF.Folder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.EF.Folder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.EF.Folder",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.EF.Friendship.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.EF.Friendship.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.EF.Friendship",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.EF.Note.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.EF.Note.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.EF.Note",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.EF.NoteAttachment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.EF.NoteAttachment.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.EF.NoteAttachment",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.EF.Note_LinkItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.EF.Note_LinkItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.EF.Note_LinkItem",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.EF.Note_TextBlock.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.EF.Note_TextBlock.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.EF.Note_TextBlock",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.EF.PasswordResetToken.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.EF.PasswordResetToken.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.EF.PasswordResetToken",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.EF.Role.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.EF.Role.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.EF.Role",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.EF.TodoEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.EF.TodoEntry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.EF.TodoEntry",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.EF.TodoList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.EF.TodoList.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.EF.TodoList",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.EF.User.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.EF.User.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.EF.User",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.EF.Workspace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.EF.Workspace.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.EF.Workspace",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.EF.WorkspaceMember.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.EF.WorkspaceMember.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.EF.WorkspaceMember",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.EF.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.EF.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.EF",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.Enum.FriendshipStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.Enum.FriendshipStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.Enum.FriendshipStatus",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.Enum.PresenceStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.Enum.PresenceStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.Enum.PresenceStatus",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.Enum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.Enum.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.Enum",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.Settings.AppSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.Settings.AppSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.Settings.AppSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.Settings.EmailSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.Settings.EmailSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.Settings.EmailSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.Settings.JwtSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.Settings.JwtSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.Settings.JwtSettings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Models.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Models.Settings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Models.Settings",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Services.FriendshipService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Services.FriendshipService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Services.FriendshipService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Services.PresenceService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Services.PresenceService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Services.PresenceService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Services.SmtpEmailService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Services.SmtpEmailService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Services.SmtpEmailService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/lumify.api.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/lumify.api.Services.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "lumify.api.Services",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

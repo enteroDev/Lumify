@@ -1,0 +1,438 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Services.FriendshipService
+  commentId: T:lumify.api.Services.FriendshipService
+  id: FriendshipService
+  parent: lumify.api.Services
+  children:
+  - lumify.api.Services.FriendshipService.#ctor(lumify.api.Models.Context.LumifyDbContext)
+  - lumify.api.Services.FriendshipService.AcceptFriendRequest(System.String,System.String)
+  - lumify.api.Services.FriendshipService.RejectFriendRequest(System.String,System.String)
+  - lumify.api.Services.FriendshipService.RemoveFriend(System.String,System.String)
+  - lumify.api.Services.FriendshipService.SendFriendRequest(System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: FriendshipService
+  nameWithType: FriendshipService
+  fullName: lumify.api.Services.FriendshipService
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Services/FriendshipService.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: FriendshipService
+    path: ../../../lumify.api/Services/FriendshipService.cs
+    startLine: 12
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Services
+  syntax:
+    content: public class FriendshipService
+    content.vb: Public Class FriendshipService
+  inheritance:
+  - System.Object
+- uid: lumify.api.Services.FriendshipService.#ctor(lumify.api.Models.Context.LumifyDbContext)
+  commentId: M:lumify.api.Services.FriendshipService.#ctor(lumify.api.Models.Context.LumifyDbContext)
+  id: '#ctor(lumify.api.Models.Context.LumifyDbContext)'
+  parent: lumify.api.Services.FriendshipService
+  langs:
+  - csharp
+  - vb
+  name: FriendshipService(LumifyDbContext)
+  nameWithType: FriendshipService.FriendshipService(LumifyDbContext)
+  fullName: lumify.api.Services.FriendshipService.FriendshipService(lumify.api.Models.Context.LumifyDbContext)
+  type: Constructor
+  source:
+    remote:
+      path: lumify.api/Services/FriendshipService.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: .ctor
+    path: ../../../lumify.api/Services/FriendshipService.cs
+    startLine: 16
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Services
+  syntax:
+    content: public FriendshipService(LumifyDbContext db)
+    parameters:
+    - id: db
+      type: lumify.api.Models.Context.LumifyDbContext
+    content.vb: Public Sub New(db As LumifyDbContext)
+  overload: lumify.api.Services.FriendshipService.#ctor*
+  nameWithType.vb: FriendshipService.New(LumifyDbContext)
+  fullName.vb: lumify.api.Services.FriendshipService.New(lumify.api.Models.Context.LumifyDbContext)
+  name.vb: New(LumifyDbContext)
+- uid: lumify.api.Services.FriendshipService.SendFriendRequest(System.String,System.String)
+  commentId: M:lumify.api.Services.FriendshipService.SendFriendRequest(System.String,System.String)
+  id: SendFriendRequest(System.String,System.String)
+  parent: lumify.api.Services.FriendshipService
+  langs:
+  - csharp
+  - vb
+  name: SendFriendRequest(string, string)
+  nameWithType: FriendshipService.SendFriendRequest(string, string)
+  fullName: lumify.api.Services.FriendshipService.SendFriendRequest(string, string)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Services/FriendshipService.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SendFriendRequest
+    path: ../../../lumify.api/Services/FriendshipService.cs
+    startLine: 25
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Services
+  syntax:
+    content: public Task SendFriendRequest(string requesterID, string addresseeID)
+    parameters:
+    - id: requesterID
+      type: System.String
+    - id: addresseeID
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function SendFriendRequest(requesterID As String, addresseeID As String) As Task
+  overload: lumify.api.Services.FriendshipService.SendFriendRequest*
+  nameWithType.vb: FriendshipService.SendFriendRequest(String, String)
+  fullName.vb: lumify.api.Services.FriendshipService.SendFriendRequest(String, String)
+  name.vb: SendFriendRequest(String, String)
+- uid: lumify.api.Services.FriendshipService.AcceptFriendRequest(System.String,System.String)
+  commentId: M:lumify.api.Services.FriendshipService.AcceptFriendRequest(System.String,System.String)
+  id: AcceptFriendRequest(System.String,System.String)
+  parent: lumify.api.Services.FriendshipService
+  langs:
+  - csharp
+  - vb
+  name: AcceptFriendRequest(string, string)
+  nameWithType: FriendshipService.AcceptFriendRequest(string, string)
+  fullName: lumify.api.Services.FriendshipService.AcceptFriendRequest(string, string)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Services/FriendshipService.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AcceptFriendRequest
+    path: ../../../lumify.api/Services/FriendshipService.cs
+    startLine: 101
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Services
+  syntax:
+    content: public Task<string> AcceptFriendRequest(string friendshipID, string currentUserID)
+    parameters:
+    - id: friendshipID
+      type: System.String
+    - id: currentUserID
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+    content.vb: Public Function AcceptFriendRequest(friendshipID As String, currentUserID As String) As Task(Of String)
+  overload: lumify.api.Services.FriendshipService.AcceptFriendRequest*
+  nameWithType.vb: FriendshipService.AcceptFriendRequest(String, String)
+  fullName.vb: lumify.api.Services.FriendshipService.AcceptFriendRequest(String, String)
+  name.vb: AcceptFriendRequest(String, String)
+- uid: lumify.api.Services.FriendshipService.RejectFriendRequest(System.String,System.String)
+  commentId: M:lumify.api.Services.FriendshipService.RejectFriendRequest(System.String,System.String)
+  id: RejectFriendRequest(System.String,System.String)
+  parent: lumify.api.Services.FriendshipService
+  langs:
+  - csharp
+  - vb
+  name: RejectFriendRequest(string, string)
+  nameWithType: FriendshipService.RejectFriendRequest(string, string)
+  fullName: lumify.api.Services.FriendshipService.RejectFriendRequest(string, string)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Services/FriendshipService.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: RejectFriendRequest
+    path: ../../../lumify.api/Services/FriendshipService.cs
+    startLine: 145
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Services
+  syntax:
+    content: public Task<string> RejectFriendRequest(string friendshipID, string currentUserID)
+    parameters:
+    - id: friendshipID
+      type: System.String
+    - id: currentUserID
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+    content.vb: Public Function RejectFriendRequest(friendshipID As String, currentUserID As String) As Task(Of String)
+  overload: lumify.api.Services.FriendshipService.RejectFriendRequest*
+  nameWithType.vb: FriendshipService.RejectFriendRequest(String, String)
+  fullName.vb: lumify.api.Services.FriendshipService.RejectFriendRequest(String, String)
+  name.vb: RejectFriendRequest(String, String)
+- uid: lumify.api.Services.FriendshipService.RemoveFriend(System.String,System.String)
+  commentId: M:lumify.api.Services.FriendshipService.RemoveFriend(System.String,System.String)
+  id: RemoveFriend(System.String,System.String)
+  parent: lumify.api.Services.FriendshipService
+  langs:
+  - csharp
+  - vb
+  name: RemoveFriend(string, string)
+  nameWithType: FriendshipService.RemoveFriend(string, string)
+  fullName: lumify.api.Services.FriendshipService.RemoveFriend(string, string)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Services/FriendshipService.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: RemoveFriend
+    path: ../../../lumify.api/Services/FriendshipService.cs
+    startLine: 191
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Services
+  syntax:
+    content: public Task RemoveFriend(string currentUserID, string friendID)
+    parameters:
+    - id: currentUserID
+      type: System.String
+    - id: friendID
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function RemoveFriend(currentUserID As String, friendID As String) As Task
+  overload: lumify.api.Services.FriendshipService.RemoveFriend*
+  nameWithType.vb: FriendshipService.RemoveFriend(String, String)
+  fullName.vb: lumify.api.Services.FriendshipService.RemoveFriend(String, String)
+  name.vb: RemoveFriend(String, String)
+references:
+- uid: lumify.api.Services
+  commentId: N:lumify.api.Services
+  href: lumify.html
+  name: lumify.api.Services
+  nameWithType: lumify.api.Services
+  fullName: lumify.api.Services
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Services
+    name: Services
+    href: lumify.api.Services.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Services
+    name: Services
+    href: lumify.api.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Services.FriendshipService.#ctor*
+  commentId: Overload:lumify.api.Services.FriendshipService.#ctor
+  href: lumify.api.Services.FriendshipService.html#lumify_api_Services_FriendshipService__ctor_lumify_api_Models_Context_LumifyDbContext_
+  name: FriendshipService
+  nameWithType: FriendshipService.FriendshipService
+  fullName: lumify.api.Services.FriendshipService.FriendshipService
+  nameWithType.vb: FriendshipService.New
+  fullName.vb: lumify.api.Services.FriendshipService.New
+  name.vb: New
+- uid: lumify.api.Models.Context.LumifyDbContext
+  commentId: T:lumify.api.Models.Context.LumifyDbContext
+  parent: lumify.api.Models.Context
+  href: lumify.api.Models.Context.LumifyDbContext.html
+  name: LumifyDbContext
+  nameWithType: LumifyDbContext
+  fullName: lumify.api.Models.Context.LumifyDbContext
+- uid: lumify.api.Models.Context
+  commentId: N:lumify.api.Models.Context
+  href: lumify.html
+  name: lumify.api.Models.Context
+  nameWithType: lumify.api.Models.Context
+  fullName: lumify.api.Models.Context
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+- uid: lumify.api.Services.FriendshipService.SendFriendRequest*
+  commentId: Overload:lumify.api.Services.FriendshipService.SendFriendRequest
+  href: lumify.api.Services.FriendshipService.html#lumify_api_Services_FriendshipService_SendFriendRequest_System_String_System_String_
+  name: SendFriendRequest
+  nameWithType: FriendshipService.SendFriendRequest
+  fullName: lumify.api.Services.FriendshipService.SendFriendRequest
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: lumify.api.Services.FriendshipService.AcceptFriendRequest*
+  commentId: Overload:lumify.api.Services.FriendshipService.AcceptFriendRequest
+  href: lumify.api.Services.FriendshipService.html#lumify_api_Services_FriendshipService_AcceptFriendRequest_System_String_System_String_
+  name: AcceptFriendRequest
+  nameWithType: FriendshipService.AcceptFriendRequest
+  fullName: lumify.api.Services.FriendshipService.AcceptFriendRequest
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: lumify.api.Services.FriendshipService.RejectFriendRequest*
+  commentId: Overload:lumify.api.Services.FriendshipService.RejectFriendRequest
+  href: lumify.api.Services.FriendshipService.html#lumify_api_Services_FriendshipService_RejectFriendRequest_System_String_System_String_
+  name: RejectFriendRequest
+  nameWithType: FriendshipService.RejectFriendRequest
+  fullName: lumify.api.Services.FriendshipService.RejectFriendRequest
+- uid: lumify.api.Services.FriendshipService.RemoveFriend*
+  commentId: Overload:lumify.api.Services.FriendshipService.RemoveFriend
+  href: lumify.api.Services.FriendshipService.html#lumify_api_Services_FriendshipService_RemoveFriend_System_String_System_String_
+  name: RemoveFriend
+  nameWithType: FriendshipService.RemoveFriend
+  fullName: lumify.api.Services.FriendshipService.RemoveFriend

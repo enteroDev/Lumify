@@ -1,0 +1,167 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.Settings.AppSettings
+  commentId: T:lumify.api.Models.Settings.AppSettings
+  id: AppSettings
+  parent: lumify.api.Models.Settings
+  children:
+  - lumify.api.Models.Settings.AppSettings.FrontendBaseUrl
+  - lumify.api.Models.Settings.AppSettings.PasswordResetPath
+  langs:
+  - csharp
+  - vb
+  name: AppSettings
+  nameWithType: AppSettings
+  fullName: lumify.api.Models.Settings.AppSettings
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/Settings/AppSettings.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AppSettings
+    path: ../../../lumify.api/Models/Settings/AppSettings.cs
+    startLine: 4
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Settings
+  syntax:
+    content: public class AppSettings
+    content.vb: Public Class AppSettings
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.Settings.AppSettings.FrontendBaseUrl
+  commentId: P:lumify.api.Models.Settings.AppSettings.FrontendBaseUrl
+  id: FrontendBaseUrl
+  parent: lumify.api.Models.Settings.AppSettings
+  langs:
+  - csharp
+  - vb
+  name: FrontendBaseUrl
+  nameWithType: AppSettings.FrontendBaseUrl
+  fullName: lumify.api.Models.Settings.AppSettings.FrontendBaseUrl
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/Settings/AppSettings.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: FrontendBaseUrl
+    path: ../../../lumify.api/Models/Settings/AppSettings.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Settings
+  syntax:
+    content: public string FrontendBaseUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FrontendBaseUrl As String
+  overload: lumify.api.Models.Settings.AppSettings.FrontendBaseUrl*
+- uid: lumify.api.Models.Settings.AppSettings.PasswordResetPath
+  commentId: P:lumify.api.Models.Settings.AppSettings.PasswordResetPath
+  id: PasswordResetPath
+  parent: lumify.api.Models.Settings.AppSettings
+  langs:
+  - csharp
+  - vb
+  name: PasswordResetPath
+  nameWithType: AppSettings.PasswordResetPath
+  fullName: lumify.api.Models.Settings.AppSettings.PasswordResetPath
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/Settings/AppSettings.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: PasswordResetPath
+    path: ../../../lumify.api/Models/Settings/AppSettings.cs
+    startLine: 10
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Settings
+  syntax:
+    content: public string PasswordResetPath { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PasswordResetPath As String
+  overload: lumify.api.Models.Settings.AppSettings.PasswordResetPath*
+references:
+- uid: lumify.api.Models.Settings
+  commentId: N:lumify.api.Models.Settings
+  href: lumify.html
+  name: lumify.api.Models.Settings
+  nameWithType: lumify.api.Models.Settings
+  fullName: lumify.api.Models.Settings
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Settings
+    name: Settings
+    href: lumify.api.Models.Settings.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Settings
+    name: Settings
+    href: lumify.api.Models.Settings.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.Settings.AppSettings.FrontendBaseUrl*
+  commentId: Overload:lumify.api.Models.Settings.AppSettings.FrontendBaseUrl
+  href: lumify.api.Models.Settings.AppSettings.html#lumify_api_Models_Settings_AppSettings_FrontendBaseUrl
+  name: FrontendBaseUrl
+  nameWithType: AppSettings.FrontendBaseUrl
+  fullName: lumify.api.Models.Settings.AppSettings.FrontendBaseUrl
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.Settings.AppSettings.PasswordResetPath*
+  commentId: Overload:lumify.api.Models.Settings.AppSettings.PasswordResetPath
+  href: lumify.api.Models.Settings.AppSettings.html#lumify_api_Models_Settings_AppSettings_PasswordResetPath
+  name: PasswordResetPath
+  nameWithType: AppSettings.PasswordResetPath
+  fullName: lumify.api.Models.Settings.AppSettings.PasswordResetPath

@@ -1,0 +1,182 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.Enum.FriendshipStatus
+  commentId: T:lumify.api.Models.Enum.FriendshipStatus
+  id: FriendshipStatus
+  parent: lumify.api.Models.Enum
+  children:
+  - lumify.api.Models.Enum.FriendshipStatus.Accepted
+  - lumify.api.Models.Enum.FriendshipStatus.Blocked
+  - lumify.api.Models.Enum.FriendshipStatus.Pending
+  - lumify.api.Models.Enum.FriendshipStatus.Rejected
+  langs:
+  - csharp
+  - vb
+  name: FriendshipStatus
+  nameWithType: FriendshipStatus
+  fullName: lumify.api.Models.Enum.FriendshipStatus
+  type: Enum
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Enum/FriendshipStatus.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: FriendshipStatus
+    path: ../../../lumify.api/Models/DTO/Enum/FriendshipStatus.cs
+    startLine: 2
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Enum
+  syntax:
+    content: public enum FriendshipStatus
+    content.vb: Public Enum FriendshipStatus
+- uid: lumify.api.Models.Enum.FriendshipStatus.Pending
+  commentId: F:lumify.api.Models.Enum.FriendshipStatus.Pending
+  id: Pending
+  parent: lumify.api.Models.Enum.FriendshipStatus
+  langs:
+  - csharp
+  - vb
+  name: Pending
+  nameWithType: FriendshipStatus.Pending
+  fullName: lumify.api.Models.Enum.FriendshipStatus.Pending
+  type: Field
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Enum/FriendshipStatus.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Pending
+    path: ../../../lumify.api/Models/DTO/Enum/FriendshipStatus.cs
+    startLine: 4
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Enum
+  syntax:
+    content: Pending = 0
+    return:
+      type: lumify.api.Models.Enum.FriendshipStatus
+- uid: lumify.api.Models.Enum.FriendshipStatus.Accepted
+  commentId: F:lumify.api.Models.Enum.FriendshipStatus.Accepted
+  id: Accepted
+  parent: lumify.api.Models.Enum.FriendshipStatus
+  langs:
+  - csharp
+  - vb
+  name: Accepted
+  nameWithType: FriendshipStatus.Accepted
+  fullName: lumify.api.Models.Enum.FriendshipStatus.Accepted
+  type: Field
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Enum/FriendshipStatus.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Accepted
+    path: ../../../lumify.api/Models/DTO/Enum/FriendshipStatus.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Enum
+  syntax:
+    content: Accepted = 1
+    return:
+      type: lumify.api.Models.Enum.FriendshipStatus
+- uid: lumify.api.Models.Enum.FriendshipStatus.Rejected
+  commentId: F:lumify.api.Models.Enum.FriendshipStatus.Rejected
+  id: Rejected
+  parent: lumify.api.Models.Enum.FriendshipStatus
+  langs:
+  - csharp
+  - vb
+  name: Rejected
+  nameWithType: FriendshipStatus.Rejected
+  fullName: lumify.api.Models.Enum.FriendshipStatus.Rejected
+  type: Field
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Enum/FriendshipStatus.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Rejected
+    path: ../../../lumify.api/Models/DTO/Enum/FriendshipStatus.cs
+    startLine: 6
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Enum
+  syntax:
+    content: Rejected = 2
+    return:
+      type: lumify.api.Models.Enum.FriendshipStatus
+- uid: lumify.api.Models.Enum.FriendshipStatus.Blocked
+  commentId: F:lumify.api.Models.Enum.FriendshipStatus.Blocked
+  id: Blocked
+  parent: lumify.api.Models.Enum.FriendshipStatus
+  langs:
+  - csharp
+  - vb
+  name: Blocked
+  nameWithType: FriendshipStatus.Blocked
+  fullName: lumify.api.Models.Enum.FriendshipStatus.Blocked
+  type: Field
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Enum/FriendshipStatus.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Blocked
+    path: ../../../lumify.api/Models/DTO/Enum/FriendshipStatus.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.Enum
+  syntax:
+    content: Blocked = 3
+    return:
+      type: lumify.api.Models.Enum.FriendshipStatus
+references:
+- uid: lumify.api.Models.Enum
+  commentId: N:lumify.api.Models.Enum
+  href: lumify.html
+  name: lumify.api.Models.Enum
+  nameWithType: lumify.api.Models.Enum
+  fullName: lumify.api.Models.Enum
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Enum
+    name: Enum
+    href: lumify.api.Models.Enum.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Enum
+    name: Enum
+    href: lumify.api.Models.Enum.html
+- uid: lumify.api.Models.Enum.FriendshipStatus
+  commentId: T:lumify.api.Models.Enum.FriendshipStatus
+  parent: lumify.api.Models.Enum
+  href: lumify.api.Models.Enum.FriendshipStatus.html
+  name: FriendshipStatus
+  nameWithType: FriendshipStatus
+  fullName: lumify.api.Models.Enum.FriendshipStatus

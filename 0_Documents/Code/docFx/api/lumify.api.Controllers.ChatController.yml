@@ -1,0 +1,553 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Controllers.ChatController
+  commentId: T:lumify.api.Controllers.ChatController
+  id: ChatController
+  parent: lumify.api.Controllers
+  children:
+  - lumify.api.Controllers.ChatController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.ChatController},lumify.api.Models.Context.LumifyDbContext)
+  - lumify.api.Controllers.ChatController.GetMessagesOfRoom(System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ChatController
+  nameWithType: ChatController
+  fullName: lumify.api.Controllers.ChatController
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Controllers/ChatController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ChatController
+    path: ../../../lumify.api/Controllers/ChatController.cs
+    startLine: 18
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Read access to chat history. All endpoints require an authenticated user.
+
+    Real-time delivery of new messages is handled by <xref href="lumify.api.Hubs.ChatHub" data-throw-if-not-resolved="false"></xref>;
+
+    this controller only serves the persisted message history.
+  example: []
+  syntax:
+    content: >-
+      [ApiController]
+
+      [Route("chat/[action]")]
+
+      [Authorize]
+
+      public class ChatController : ControllerBase
+    content.vb: >-
+      <ApiController>
+
+      <Route("chat/[action]")>
+
+      <Authorize>
+
+      Public Class ChatController Inherits ControllerBase
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.Mvc.ControllerBase
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.ApiControllerAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ApiControllerAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.RouteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.RouteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: chat/[action]
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+- uid: lumify.api.Controllers.ChatController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.ChatController},lumify.api.Models.Context.LumifyDbContext)
+  commentId: M:lumify.api.Controllers.ChatController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.ChatController},lumify.api.Models.Context.LumifyDbContext)
+  id: '#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.ChatController},lumify.api.Models.Context.LumifyDbContext)'
+  parent: lumify.api.Controllers.ChatController
+  langs:
+  - csharp
+  - vb
+  name: ChatController(ILogger<ChatController>, LumifyDbContext)
+  nameWithType: ChatController.ChatController(ILogger<ChatController>, LumifyDbContext)
+  fullName: lumify.api.Controllers.ChatController.ChatController(Microsoft.Extensions.Logging.ILogger<lumify.api.Controllers.ChatController>, lumify.api.Models.Context.LumifyDbContext)
+  type: Constructor
+  source:
+    remote:
+      path: lumify.api/Controllers/ChatController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: .ctor
+    path: ../../../lumify.api/Controllers/ChatController.cs
+    startLine: 29
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Creates the controller with its injected logger and database context.
+  example: []
+  syntax:
+    content: public ChatController(ILogger<ChatController> logger, LumifyDbContext db)
+    parameters:
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.ChatController}
+    - id: db
+      type: lumify.api.Models.Context.LumifyDbContext
+    content.vb: Public Sub New(logger As ILogger(Of ChatController), db As LumifyDbContext)
+  overload: lumify.api.Controllers.ChatController.#ctor*
+  nameWithType.vb: ChatController.New(ILogger(Of ChatController), LumifyDbContext)
+  fullName.vb: lumify.api.Controllers.ChatController.New(Microsoft.Extensions.Logging.ILogger(Of lumify.api.Controllers.ChatController), lumify.api.Models.Context.LumifyDbContext)
+  name.vb: New(ILogger(Of ChatController), LumifyDbContext)
+- uid: lumify.api.Controllers.ChatController.GetMessagesOfRoom(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.ChatController.GetMessagesOfRoom(System.String,System.Threading.CancellationToken)
+  id: GetMessagesOfRoom(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.ChatController
+  langs:
+  - csharp
+  - vb
+  name: GetMessagesOfRoom(string, CancellationToken)
+  nameWithType: ChatController.GetMessagesOfRoom(string, CancellationToken)
+  fullName: lumify.api.Controllers.ChatController.GetMessagesOfRoom(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/ChatController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetMessagesOfRoom
+    path: ../../../lumify.api/Controllers/ChatController.cs
+    startLine: 51
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns the full message history of a chat room, oldest first.
+  remarks: >-
+    Soft-deleted messages and messages from soft-deleted users are excluded. The
+
+    sender name is resolved to the user's display name (falling back to username,
+
+    full name, or ID).
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getMessagesOfRoom")]
+
+      public Task<ActionResult<List<ChatMessageResponse>>> GetMessagesOfRoom(string roomID, CancellationToken ct)
+    parameters:
+    - id: roomID
+      type: System.String
+      description: The room whose messages are requested.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.ChatMessageResponse}}}
+      description: 200 with the list of messages; 400 if <code class="paramref">roomID</code> is missing.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getMessagesOfRoom")>
+
+      Public Function GetMessagesOfRoom(roomID As String, ct As CancellationToken) As Task(Of ActionResult(Of List(Of ChatMessageResponse)))
+  overload: lumify.api.Controllers.ChatController.GetMessagesOfRoom*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getMessagesOfRoom
+  nameWithType.vb: ChatController.GetMessagesOfRoom(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.ChatController.GetMessagesOfRoom(String, System.Threading.CancellationToken)
+  name.vb: GetMessagesOfRoom(String, CancellationToken)
+references:
+- uid: lumify.api.Hubs.ChatHub
+  commentId: T:lumify.api.Hubs.ChatHub
+  href: lumify.api.Hubs.ChatHub.html
+  name: ChatHub
+  nameWithType: ChatHub
+  fullName: lumify.api.Hubs.ChatHub
+- uid: lumify.api.Controllers
+  commentId: N:lumify.api.Controllers
+  href: lumify.html
+  name: lumify.api.Controllers
+  nameWithType: lumify.api.Controllers
+  fullName: lumify.api.Controllers
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Controllers
+    name: Controllers
+    href: lumify.api.Controllers.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Controllers
+    name: Controllers
+    href: lumify.api.Controllers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.Mvc.ControllerBase
+  commentId: T:Microsoft.AspNetCore.Mvc.ControllerBase
+  parent: Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: ControllerBase
+  nameWithType: ControllerBase
+  fullName: Microsoft.AspNetCore.Mvc.ControllerBase
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.Mvc
+  commentId: N:Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: Microsoft.AspNetCore.Mvc
+  nameWithType: Microsoft.AspNetCore.Mvc
+  fullName: Microsoft.AspNetCore.Mvc
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+- uid: lumify.api.Controllers.ChatController.#ctor*
+  commentId: Overload:lumify.api.Controllers.ChatController.#ctor
+  href: lumify.api.Controllers.ChatController.html#lumify_api_Controllers_ChatController__ctor_Microsoft_Extensions_Logging_ILogger_lumify_api_Controllers_ChatController__lumify_api_Models_Context_LumifyDbContext_
+  name: ChatController
+  nameWithType: ChatController.ChatController
+  fullName: lumify.api.Controllers.ChatController.ChatController
+  nameWithType.vb: ChatController.New
+  fullName.vb: lumify.api.Controllers.ChatController.New
+  name.vb: New
+- uid: Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.ChatController}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.ChatController}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: lumify.api.Controllers.ChatController.html
+  name: ILogger<ChatController>
+  nameWithType: ILogger<ChatController>
+  fullName: Microsoft.Extensions.Logging.ILogger<lumify.api.Controllers.ChatController>
+  nameWithType.vb: ILogger(Of ChatController)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of lumify.api.Controllers.ChatController)
+  name.vb: ILogger(Of ChatController)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Controllers.ChatController
+    name: ChatController
+    href: lumify.api.Controllers.ChatController.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Controllers.ChatController
+    name: ChatController
+    href: lumify.api.Controllers.ChatController.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext
+  commentId: T:lumify.api.Models.Context.LumifyDbContext
+  parent: lumify.api.Models.Context
+  href: lumify.api.Models.Context.LumifyDbContext.html
+  name: LumifyDbContext
+  nameWithType: LumifyDbContext
+  fullName: lumify.api.Models.Context.LumifyDbContext
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+- uid: lumify.api.Models.Context
+  commentId: N:lumify.api.Models.Context
+  href: lumify.html
+  name: lumify.api.Models.Context
+  nameWithType: lumify.api.Models.Context
+  fullName: lumify.api.Models.Context
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+- uid: lumify.api.Controllers.ChatController.GetMessagesOfRoom*
+  commentId: Overload:lumify.api.Controllers.ChatController.GetMessagesOfRoom
+  href: lumify.api.Controllers.ChatController.html#lumify_api_Controllers_ChatController_GetMessagesOfRoom_System_String_System_Threading_CancellationToken_
+  name: GetMessagesOfRoom
+  nameWithType: ChatController.GetMessagesOfRoom
+  fullName: lumify.api.Controllers.ChatController.GetMessagesOfRoom
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.ChatMessageResponse}}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.Collections.Generic.List{lumify.api.Models.DTO.Responses.ChatMessageResponse}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.ChatMessageResponse.html
+  name: Task<ActionResult<List<ChatMessageResponse>>>
+  nameWithType: Task<ActionResult<List<ChatMessageResponse>>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.List<lumify.api.Models.DTO.Responses.ChatMessageResponse>>>
+  nameWithType.vb: Task(Of ActionResult(Of List(Of ChatMessageResponse)))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of System.Collections.Generic.List(Of lumify.api.Models.DTO.Responses.ChatMessageResponse)))
+  name.vb: Task(Of ActionResult(Of List(Of ChatMessageResponse)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.ChatMessageResponse
+    name: ChatMessageResponse
+    href: lumify.api.Models.DTO.Responses.ChatMessageResponse.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.ChatMessageResponse
+    name: ChatMessageResponse
+    href: lumify.api.Models.DTO.Responses.ChatMessageResponse.html
+  - name: )
+  - name: )
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true

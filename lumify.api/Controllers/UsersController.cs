@@ -10,6 +10,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace lumify.api.Controllers
 {
+    /// <summary>
+    /// User profile and account management plus user discovery: editing the current user's
+    /// profile and avatar, deleting the account, reading profile/account/preview data by ID or
+    /// for the current user, recent activity (todos/events/notes), related users, and user
+    /// search. All endpoints require an authenticated user.
+    /// </summary>
+    /// <remarks>
+    /// Account deletion is a soft-delete: personal content becomes inaccessible while workspace
+    /// content stays with the workspace. Preview/search results are enriched with each user's
+    /// live presence status.
+    /// </remarks>
     [ApiController]
     [Route("users/[action]")]
     [Authorize]
@@ -19,6 +30,9 @@ namespace lumify.api.Controllers
         private readonly LumifyDbContext _db;
         private readonly IPresenceService _presenceService;
 
+        /// <summary>
+        /// Creates the controller with its injected logger, database context and presence service.
+        /// </summary>
         public UsersController(ILogger<UsersController> logger, LumifyDbContext db, IPresenceService presenceService)
         {
             _logger = logger;
@@ -31,6 +45,14 @@ namespace lumify.api.Controllers
         // ------------ //
         // --- SAVE --- //
         // ------------ //
+        /// <summary>
+        /// Updates the current user's profile (display name, avatar URL and/or bio). Only the
+        /// provided fields are changed; empty values clear the respective field.
+        /// </summary>
+        /// <param name="request">The profile fields to change.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the updated profile; 400 if the request is missing; 401 if the
+        /// user ID claim is missing; 404 if the user does not exist.</returns>
         [HttpPatch]
         [ActionName("saveUserProfile")]
         [Authorize]
@@ -94,6 +116,15 @@ namespace lumify.api.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Uploads and stores the current user's avatar image (max 10 MB; JPEG, PNG, WebP or
+        /// GIF) and saves its relative URL on the user.
+        /// </summary>
+        /// <param name="file">The uploaded image file.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the stored avatar URL; 400 if the file is missing, not an image,
+        /// or has no extension; 401 if the user ID claim is missing; 404 if the user does not
+        /// exist.</returns>
         [HttpPost]
         [ActionName("saveUserAvatar")]
         [Authorize]
@@ -171,10 +202,17 @@ namespace lumify.api.Controllers
         // --- DELETE --- //
         // -------------- //
 
-        // Soft-deletes the current user's own account by setting DeletedAt (the app uses soft-delete
-        // everywhere). The user's content is NOT cascaded: personal items become inaccessible (the
-        // user can no longer log in), while workspace items stay with the workspace and remain visible
-        // and editable for the other members.
+        /// <summary>
+        /// Soft-deletes the current user's own account by setting <c>DeletedAt</c>.
+        /// </summary>
+        /// <remarks>
+        /// Content is not cascaded: personal items become inaccessible (the user can no longer
+        /// log in), while workspace items stay with the workspace and remain visible and
+        /// editable for the other members.
+        /// </remarks>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with <c>success = true</c>; 401 if the user ID claim is missing; 404 if
+        /// the user does not exist.</returns>
         [HttpDelete]
         [ActionName("deleteAccount")]
         [Authorize]
@@ -211,7 +249,12 @@ namespace lumify.api.Controllers
         // USER BY ID
         // ------------
 
-        // Gets userProfile of specific user by ID
+        /// <summary>
+        /// Returns the public profile (display name, avatar, bio) of a specific user by ID.
+        /// </summary>
+        /// <param name="userID">The user to look up.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the profile; 400 if the ID is missing; 404 if the user does not exist.</returns>
         [HttpGet]
         [ActionName("getUserProfileWithID")]
         public async Task<ActionResult<UserProfileResponse>> GetUserProfileWithID(string userID, CancellationToken ct)
@@ -242,7 +285,12 @@ namespace lumify.api.Controllers
             return Ok(user);
         }
 
-        // Gets accountInfo of specific user by ID
+        /// <summary>
+        /// Returns the account info (e-mail, first/last name, timestamps) of a specific user by ID.
+        /// </summary>
+        /// <param name="userID">The user to look up.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the account info; 400 if the ID is missing; 404 if the user does not exist.</returns>
         [HttpGet]
         [ActionName("getUserAccountInfoWithID")]
         public async Task<ActionResult<UserAccountInfoResponse>> GetUserAccountInfoWithID(string userID, CancellationToken ct)
@@ -273,7 +321,13 @@ namespace lumify.api.Controllers
             return Ok(user);
         }
 
-        // Gets userPreview of specific user by ID
+        /// <summary>
+        /// Returns a compact user preview (username, display name, avatar, e-mail) by ID,
+        /// enriched with the user's live presence status.
+        /// </summary>
+        /// <param name="userID">The user to look up.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the preview; 400 if the ID is missing; 404 if the user does not exist.</returns>
         [HttpGet]
         [ActionName("getUserPreviewWithID")]
         public async Task<ActionResult<UserPreviewResponse>> GetUserPreviewWithID(string userID, CancellationToken ct)
@@ -310,7 +364,11 @@ namespace lumify.api.Controllers
         // CURRENT USER
         // -------------
 
-        // Get userProfile of current User
+        /// <summary>
+        /// Returns the current user's own profile (display name, avatar, bio).
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the profile; 404 if it cannot be found.</returns>
         [HttpGet]
         [ActionName("getUserProfile")]
         public async Task<ActionResult<UserAccountInfoResponse>> GetUserProfile(CancellationToken ct)
@@ -340,7 +398,11 @@ namespace lumify.api.Controllers
             return Ok(userProfile);
         }
 
-        // Get accountInfos of current User
+        /// <summary>
+        /// Returns the current user's own account info (name, e-mail, username, timestamps).
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the account info; 404 if it cannot be found.</returns>
         [HttpGet]
         [ActionName("getUserAccountInfo")]
         public async Task<ActionResult<UserAccountInfoResponse>> GetUserAccountInfo(CancellationToken ct)
@@ -374,7 +436,11 @@ namespace lumify.api.Controllers
         }
 
 
-        // Get avatar of current user
+        /// <summary>
+        /// Returns the current user's avatar URL.
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the avatar URL; 404 if the user does not exist.</returns>
         [HttpGet]
         [ActionName("getAvatarOfUser")]
         public async Task<ActionResult<string>> GetAvatarOfUser(CancellationToken ct)
@@ -396,7 +462,13 @@ namespace lumify.api.Controllers
 
 
 
-        // Get related users to current user
+        /// <summary>
+        /// Returns the users that share at least one workspace with the current user (excluding
+        /// the current user), each enriched with live presence status.
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the list of related users (empty if the user is in no workspaces);
+        /// 400 if the current user cannot be determined.</returns>
         [HttpGet]
         [ActionName("getRelatedUsers")]
         public async Task<IActionResult> GetRelatedUsers(CancellationToken ct)
@@ -444,7 +516,11 @@ namespace lumify.api.Controllers
         }
 
 
-        // Get recent TODO-activities of current user
+        /// <summary>
+        /// Returns the current user's 5 most recently modified todo lists.
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with up to 5 todo lists, newest first.</returns>
         [HttpGet]
         [ActionName("get5LastModifiedTodosOfUser")]
         public async Task<IActionResult> Get5LastModifiedTodosOfUser(CancellationToken ct)
@@ -471,7 +547,11 @@ namespace lumify.api.Controllers
             return Ok(todos);
         }
 
-        // Get recent Event-activities of current user
+        /// <summary>
+        /// Returns the current user's 5 most recently modified events.
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with up to 5 events, newest first.</returns>
         [HttpGet]
         [ActionName("getLast5ModifiedEventsOfUser")]
         public async Task<IActionResult> GetLast5ModifiedEventsOfUser(CancellationToken ct)
@@ -505,7 +585,11 @@ namespace lumify.api.Controllers
             return Ok(events);
         }
 
-        // Get recent Note-activities of current user
+        /// <summary>
+        /// Returns the current user's 5 most recently modified notes.
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with up to 5 notes, newest first.</returns>
         [HttpGet]
         [ActionName("getLast5ModifiedNotesOfUser")]
         public async Task<IActionResult> GetLast5ModifiedNotesOfUser(CancellationToken ct)
@@ -537,7 +621,13 @@ namespace lumify.api.Controllers
         // --- SEARCH --- //
         // -------------- //
 
-        // General search of user in database
+        /// <summary>
+        /// Searches users by display name, username or e-mail (case-insensitive, max 20 results),
+        /// excluding the current user. Results carry live presence status.
+        /// </summary>
+        /// <param name="query">The search term; an empty term returns an empty list.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the matching users; 400 if the current user cannot be determined.</returns>
         [HttpGet]
         [ActionName("searchUsers")]
         [Authorize]
@@ -588,7 +678,15 @@ namespace lumify.api.Controllers
             return Ok(users);
         }
 
-        // Search users that can join the given workspace
+        /// <summary>
+        /// Searches users who can still be added to a given workspace — i.e. matching the query
+        /// but excluding the current user and existing members (max 20 results).
+        /// </summary>
+        /// <param name="workspaceID">The workspace to find addable users for.</param>
+        /// <param name="query">The search term; an empty term returns an empty list.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the addable users; 400 if the current user cannot be determined or
+        /// the workspace ID is missing; 404 if the workspace does not exist.</returns>
         [HttpGet]
         [ActionName("searchAvailableUsersForWorkspace")]
         [Authorize]
@@ -666,6 +764,11 @@ namespace lumify.api.Controllers
 
 
         // --- Helper --- //
+        /// <summary>
+        /// Reads the current user's ID from the <c>UserID</c> claim of the authenticated request.
+        /// </summary>
+        /// <returns>The current user's ID.</returns>
+        /// <exception cref="UnauthorizedAccessException">Thrown when no user is logged in.</exception>
         private string GetCurrentUserID()
         {
             var userID = User.FindFirst("UserID")?.Value;

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class FriendshipController | Lumify – Code Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FriendshipController | Lumify – Code Documentation ">
+      
+      <meta name="description" content="Manages friendships: sending, accepting and rejecting friend requests, removing friends, and listing incoming/outgoing requests and current friends. All endpoints require an authenticated user. Changes are pushed live to the affected user over the  so clients update without a reload.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/enteroDev/Lumify/new/main/apiSpec/new?filename=lumify_api_Controllers_FriendshipController.md&amp;value=---%0Auid%3A%20lumify.api.Controllers.FriendshipController%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Lumify">
+            Lumify
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="lumify.api.Controllers.FriendshipController">
+
+
+
+  <h1 id="lumify_api_Controllers_FriendshipController" data-uid="lumify.api.Controllers.FriendshipController" class="text-break">
+Class FriendshipController  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/FriendshipController.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="lumify.html">lumify</a>.<a class="xref" href="lumify.api.html">api</a>.<a class="xref" href="lumify.api.Controllers.html">Controllers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Manages friendships: sending, accepting and rejecting friend requests, removing
+friends, and listing incoming/outgoing requests and current friends. All endpoints
+require an authenticated user. Changes are pushed live to the affected user over the
+<a class="xref" href="lumify.api.Hubs.ChatHub.html">ChatHub</a> so clients update without a reload.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiController]
+[Route(&quot;friendship/[action]&quot;)]
+[Authorize]
+public class FriendshipController : ControllerBase</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ControllerBase</span></div>
+      <div><span class="xref">FriendshipController</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="lumify_api_Controllers_FriendshipController__ctor_" data-uid="lumify.api.Controllers.FriendshipController.#ctor*"></a>
+
+  <h3 id="lumify_api_Controllers_FriendshipController__ctor_Microsoft_Extensions_Logging_ILogger_lumify_api_Controllers_FriendshipController__lumify_api_Models_Context_LumifyDbContext_lumify_api_Services_FriendshipService_lumify_api_Interfaces_IPresenceService_Microsoft_AspNetCore_SignalR_IHubContext_lumify_api_Hubs_ChatHub__" data-uid="lumify.api.Controllers.FriendshipController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.FriendshipController},lumify.api.Models.Context.LumifyDbContext,lumify.api.Services.FriendshipService,lumify.api.Interfaces.IPresenceService,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.ChatHub})">
+  FriendshipController(ILogger&lt;FriendshipController&gt;, LumifyDbContext, FriendshipService, IPresenceService, IHubContext&lt;ChatHub&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/FriendshipController.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates the controller with its injected dependencies (logging, database context,
+friendship service, presence service and the chat hub used for live notifications).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FriendshipController(ILogger&lt;FriendshipController&gt; logger, LumifyDbContext db, FriendshipService friendshipService, IPresenceService presenceService, IHubContext&lt;ChatHub&gt; chatHub)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>logger</code> <span class="xref">ILogger</span>&lt;<a class="xref" href="lumify.api.Controllers.FriendshipController.html">FriendshipController</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>db</code> <a class="xref" href="lumify.api.Models.Context.LumifyDbContext.html">LumifyDbContext</a></dt>
+    <dd></dd>
+    <dt><code>friendshipService</code> <a class="xref" href="lumify.api.Services.FriendshipService.html">FriendshipService</a></dt>
+    <dd></dd>
+    <dt><code>presenceService</code> <a class="xref" href="lumify.api.Interfaces.IPresenceService.html">IPresenceService</a></dt>
+    <dd></dd>
+    <dt><code>chatHub</code> <span class="xref">IHubContext</span>&lt;<a class="xref" href="lumify.api.Hubs.ChatHub.html">ChatHub</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="lumify_api_Controllers_FriendshipController_AcceptFriendRequest_" data-uid="lumify.api.Controllers.FriendshipController.AcceptFriendRequest*"></a>
+
+  <h3 id="lumify_api_Controllers_FriendshipController_AcceptFriendRequest_System_String_" data-uid="lumify.api.Controllers.FriendshipController.AcceptFriendRequest(System.String)">
+  AcceptFriendRequest(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/FriendshipController.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Accepts a pending friend request addressed to the current user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPatch]
+[ActionName(&quot;acceptFriendRequest&quot;)]
+public Task&lt;ActionResult&gt; AcceptFriendRequest(string friendshipID)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>friendshipID</code> <span class="xref">string</span></dt>
+    <dd><p>The pending friendship to accept.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&gt;</dt>
+    <dd><p>200 with <code>Success = true</code>; 400 if the ID is missing or the request
+cannot be accepted (e.g. not addressed to the current user).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_FriendshipController_GetFriendsOfUser_" data-uid="lumify.api.Controllers.FriendshipController.GetFriendsOfUser*"></a>
+
+  <h3 id="lumify_api_Controllers_FriendshipController_GetFriendsOfUser_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.FriendshipController.GetFriendsOfUser(System.Threading.CancellationToken)">
+  GetFriendsOfUser(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/FriendshipController.cs/#L283"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current user's accepted friends, each enriched with its live presence
+status (online/away/offline) from the presence service.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getFriendsOfUser&quot;)]
+public Task&lt;ActionResult&lt;List&lt;UserPreviewResponse&gt;&gt;&gt; GetFriendsOfUser(CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.UserPreviewResponse.html">UserPreviewResponse</a>&gt;&gt;&gt;</dt>
+    <dd><p>200 with the list of friends; 401 if no user is logged in.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_FriendshipController_GetIncomingFriendRequests_" data-uid="lumify.api.Controllers.FriendshipController.GetIncomingFriendRequests*"></a>
+
+  <h3 id="lumify_api_Controllers_FriendshipController_GetIncomingFriendRequests_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.FriendshipController.GetIncomingFriendRequests(System.Threading.CancellationToken)">
+  GetIncomingFriendRequests(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/FriendshipController.cs/#L204"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the pending friend requests addressed to the current user, newest first,
+including the requester's username, display name and avatar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getIncomingFriendRequests&quot;)]
+public Task&lt;ActionResult&lt;List&lt;FriendshipResponse&gt;&gt;&gt; GetIncomingFriendRequests(CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.FriendshipResponse.html">FriendshipResponse</a>&gt;&gt;&gt;</dt>
+    <dd><p>200 with the list of incoming requests; 401 if no user is logged in.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_FriendshipController_GetOutgoingFriendRequests_" data-uid="lumify.api.Controllers.FriendshipController.GetOutgoingFriendRequests*"></a>
+
+  <h3 id="lumify_api_Controllers_FriendshipController_GetOutgoingFriendRequests_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.FriendshipController.GetOutgoingFriendRequests(System.Threading.CancellationToken)">
+  GetOutgoingFriendRequests(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/FriendshipController.cs/#L243"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the pending friend requests sent by the current user, newest first,
+including the addressee's username, display name and avatar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getOutgoingFriendRequests&quot;)]
+public Task&lt;ActionResult&lt;List&lt;FriendshipResponse&gt;&gt;&gt; GetOutgoingFriendRequests(CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.FriendshipResponse.html">FriendshipResponse</a>&gt;&gt;&gt;</dt>
+    <dd><p>200 with the list of outgoing requests; 401 if no user is logged in.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_FriendshipController_RejectFriendRequest_" data-uid="lumify.api.Controllers.FriendshipController.RejectFriendRequest*"></a>
+
+  <h3 id="lumify_api_Controllers_FriendshipController_RejectFriendRequest_System_String_" data-uid="lumify.api.Controllers.FriendshipController.RejectFriendRequest(System.String)">
+  RejectFriendRequest(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/FriendshipController.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rejects a pending friend request addressed to the current user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPatch]
+[ActionName(&quot;rejectFriendRequest&quot;)]
+public Task&lt;ActionResult&gt; RejectFriendRequest(string friendshipID)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>friendshipID</code> <span class="xref">string</span></dt>
+    <dd><p>The pending friendship to reject.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&gt;</dt>
+    <dd><p>200 with <code>Success = true</code>; 400 if the ID is missing or the request
+cannot be rejected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_FriendshipController_RemoveFriend_" data-uid="lumify.api.Controllers.FriendshipController.RemoveFriend*"></a>
+
+  <h3 id="lumify_api_Controllers_FriendshipController_RemoveFriend_System_String_" data-uid="lumify.api.Controllers.FriendshipController.RemoveFriend(System.String)">
+  RemoveFriend(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/FriendshipController.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes an existing friendship between the current user and another user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPatch]
+[ActionName(&quot;removeFriend&quot;)]
+public Task&lt;ActionResult&gt; RemoveFriend(string friendID)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>friendID</code> <span class="xref">string</span></dt>
+    <dd><p>The friend to remove.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&gt;</dt>
+    <dd><p>200 with <code>Success = true</code>; 400 if the ID is missing or the friendship
+cannot be removed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_FriendshipController_SendFriendRequest_" data-uid="lumify.api.Controllers.FriendshipController.SendFriendRequest*"></a>
+
+  <h3 id="lumify_api_Controllers_FriendshipController_SendFriendRequest_System_String_" data-uid="lumify.api.Controllers.FriendshipController.SendFriendRequest(System.String)">
+  SendFriendRequest(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/FriendshipController.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sends a friend request from the current user to another user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[ActionName(&quot;sendFriendRequest&quot;)]
+public Task&lt;ActionResult&gt; SendFriendRequest(string addresseeID)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>addresseeID</code> <span class="xref">string</span></dt>
+    <dd><p>The user who should receive the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&gt;</dt>
+    <dd><p>200 with <code>Success = true</code>; 400 if the ID is missing or the request
+is rejected by the friendship service (e.g. already friends or pending).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

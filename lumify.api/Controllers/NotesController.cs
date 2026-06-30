@@ -10,6 +10,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace lumify.api.Controllers
 {
+    /// <summary>
+    /// Manages notes and their content modules — text blocks and link items — both personal
+    /// (no workspace) and workspace-shared. Covers creating, editing, moving, ordering and
+    /// deleting notes and modules, plus various queries. All endpoints require an authenticated
+    /// user. Changes to workspace notes are pushed live to the workspace group over the
+    /// <see cref="Hubs.NoteHub"/>.
+    /// </summary>
+    /// <remarks>
+    /// A note is a container; its body is an ordered list of modules positioned via
+    /// <c>NotePos</c>. Deleting a note cascades a soft-delete to all of its modules and
+    /// attachments. Permission rule throughout: a personal note may only be modified by its
+    /// owner, a workspace note by any active member (see <c>CanModify</c>).
+    /// </remarks>
     [ApiController]
     [Route("notes/[action]")]
     [Authorize]
@@ -19,6 +32,10 @@ namespace lumify.api.Controllers
         private readonly LumifyDbContext _db;
         private readonly IHubContext<NoteHub> _noteHub;
 
+        /// <summary>
+        /// Creates the controller with its injected logger, database context and the note hub
+        /// used for live notifications.
+        /// </summary>
         public NotesController(ILogger<NotesController> logger, LumifyDbContext db, IHubContext<NoteHub> noteHub)
         {
             _logger = logger;
@@ -32,6 +49,18 @@ namespace lumify.api.Controllers
         // ----------- //
 
         // --- Note --- //
+        /// <summary>
+        /// Creates a new (empty) note, optionally inside a workspace and/or a folder.
+        /// </summary>
+        /// <remarks>
+        /// If a workspace is given, the user must be a member; if a folder is given, it must
+        /// live in the same space. On success in a workspace, a <c>NoteCreated</c> event is
+        /// broadcast to the workspace group.
+        /// </remarks>
+        /// <param name="request">Note data (name required; optional workspace and folder).</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the created note; 400 on missing name or invalid workspace/folder;
+        /// 403 if the user is not a member of the target workspace or owner of the folder.</returns>
         [HttpPost]
         [ActionName("addNote")]
         public async Task<ActionResult<NoteResponse>> AddNote([FromBody] AddNoteRequest request, CancellationToken ct)
@@ -135,6 +164,16 @@ namespace lumify.api.Controllers
 
 
         // --- NoteModules --- //
+        /// <summary>
+        /// Appends a text block module (text, heading, code, …) to a note, placed at the end
+        /// (next free <c>NotePos</c>).
+        /// </summary>
+        /// <remarks>On success in a workspace, a <c>TextBlockCreated</c> event is broadcast to
+        /// the workspace group.</remarks>
+        /// <param name="request">Text block data including the parent note ID, type and content.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the created text block; 400 if the note ID is missing; 403 if the
+        /// user may not modify the note; 404 if the note does not exist.</returns>
         [HttpPost]
         [ActionName("addTextBlock")]
         public async Task<ActionResult<TextblockResponse>> AddTextBlock([FromBody] AddTextBlockRequest request, CancellationToken ct)
@@ -217,6 +256,16 @@ namespace lumify.api.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Appends a link item module (labelled URL) to a note, placed at the end (next free
+        /// <c>NotePos</c>).
+        /// </summary>
+        /// <remarks>On success in a workspace, a <c>LinkItemCreated</c> event is broadcast to
+        /// the workspace group.</remarks>
+        /// <param name="request">Link item data including the parent note ID, URL and optional label.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the created link item; 400 if the note ID or URL is missing; 403 if
+        /// the user may not modify the note; 404 if the note does not exist.</returns>
         [HttpPost]
         [ActionName("addLinkItem")]
         public async Task<ActionResult<LinkItemResponse>> AddLinkItem([FromBody] AddLinkItemRequest request, CancellationToken ct)
@@ -305,6 +354,20 @@ namespace lumify.api.Controllers
         // ------------ //
 
         // --- Note --- //
+        /// <summary>
+        /// Updates a note's name and/or its folder (move). Only provided fields are changed, and
+        /// the database is only written if something changed.
+        /// </summary>
+        /// <remarks>
+        /// Move rules: a personal note may only move into another personal folder of the same
+        /// owner; a workspace note may only move within the same workspace; an empty folder ID
+        /// moves the note to the root. On a successful change in a workspace, a <c>NoteUpdated</c>
+        /// event is broadcast to the workspace group.
+        /// </remarks>
+        /// <param name="request">The note ID plus the fields to change.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the updated note; 400 on invalid input or move target; 403 if the
+        /// user may not modify it; 404 if the note does not exist.</returns>
         [HttpPatch]
         [ActionName("saveNote")]
         public async Task<ActionResult<NoteResponse>> SaveNote([FromBody] SaveNoteRequest request, CancellationToken ct)
@@ -448,6 +511,19 @@ namespace lumify.api.Controllers
 
 
         // --- NoteModules --- //
+        /// <summary>
+        /// Updates a text block's type, name, content, code language, collapsed state and/or
+        /// position. Only provided fields are changed, and the database is only written if
+        /// something changed.
+        /// </summary>
+        /// <remarks>Changing <c>NotePos</c> reorders the block within the note. On a successful
+        /// change in a workspace, a <c>TextBlockUpdated</c> event is broadcast to the workspace
+        /// group; the parent note's timestamp is bumped too.</remarks>
+        /// <param name="request">The text block ID plus the fields to change.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the updated text block; 400 on invalid input (e.g. negative
+        /// position); 403 if the user may not modify the note; 404 if the block or its parent
+        /// note does not exist.</returns>
         [HttpPatch]
         [ActionName("saveTextBlock")]
         public async Task<ActionResult<TextblockResponse>> SaveTextBlock([FromBody] SaveTextblockRequest request, CancellationToken ct)
@@ -619,6 +695,16 @@ namespace lumify.api.Controllers
         // -------------- //
 
         // --- Note --- //
+        /// <summary>
+        /// Soft-deletes a note together with all of its modules (text blocks, link items) and
+        /// attachments.
+        /// </summary>
+        /// <remarks>Everything is kept and marked with <c>DeletedAt</c>. On a workspace note, a
+        /// <c>NoteDeleted</c> event is broadcast to the workspace group.</remarks>
+        /// <param name="noteID">The note to delete.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with <c>success = true</c> and the note ID; 400 if the ID is missing;
+        /// 403 if the user may not delete it; 404 if the note does not exist.</returns>
         [HttpDelete]
         [ActionName("deleteNote")]
         public async Task<ActionResult> DeleteNote(string noteID, CancellationToken ct)
@@ -702,6 +788,16 @@ namespace lumify.api.Controllers
         }
 
         // --- NoteModules --- //
+        /// <summary>
+        /// Soft-deletes a single text block from its note.
+        /// </summary>
+        /// <remarks>On a workspace note, a <c>TextBlockDeleted</c> event is broadcast to the
+        /// workspace group; the parent note's timestamp is bumped.</remarks>
+        /// <param name="textblockID">The text block to delete.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with <c>success = true</c> and the text block ID; 400 if the ID is
+        /// missing; 403 if the user may not modify the note; 404 if the block or its parent note
+        /// does not exist.</returns>
         [HttpDelete]
         [ActionName("deleteTextBlock")]
         public async Task<ActionResult> DeleteTextBlock(string textblockID, CancellationToken ct)
@@ -768,6 +864,16 @@ namespace lumify.api.Controllers
             });
         }
 
+        /// <summary>
+        /// Soft-deletes a single link item from its note.
+        /// </summary>
+        /// <remarks>On a workspace note, a <c>LinkItemDeleted</c> event is broadcast to the
+        /// workspace group; the parent note's timestamp is bumped.</remarks>
+        /// <param name="linkItemID">The link item to delete.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with <c>success = true</c> and the link item ID; 400 if the ID is
+        /// missing; 403 if the user may not modify the note; 404 if the link item or its parent
+        /// note does not exist.</returns>
         [HttpDelete]
         [ActionName("deleteLinkItem")]
         public async Task<ActionResult> DeleteLinkItem(string linkItemID, CancellationToken ct)
@@ -841,6 +947,11 @@ namespace lumify.api.Controllers
         // ----------- //
 
         // --- Note --- //
+        /// <summary>
+        /// Returns all personal notes (no workspace) of the current user, oldest first.
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the list of notes.</returns>
         [HttpGet]
         [ActionName("getAllNotesOfUser")]
         public async Task<ActionResult<List<NoteResponse>>> GetAllNotesOfUser(CancellationToken ct)
@@ -876,6 +987,14 @@ namespace lumify.api.Controllers
             return Ok(notes);
         }
 
+        /// <summary>
+        /// Returns all notes of a workspace, oldest first.
+        /// </summary>
+        /// <remarks>Notes whose creator was soft-deleted are kept (content belongs to the
+        /// workspace) and surface the creator as "Gelöschter Benutzer".</remarks>
+        /// <param name="workspaceID">The workspace whose notes are requested.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the list of notes.</returns>
         [HttpGet]
         [ActionName("getAllNotesOfWorkspace")]
         public async Task<ActionResult<List<NoteResponse>>> GetAllNotesOfWorkspace(string workspaceID, CancellationToken ct)
@@ -910,6 +1029,12 @@ namespace lumify.api.Controllers
             return Ok(notes);
         }
 
+        /// <summary>
+        /// Returns a single note by its ID (metadata only; modules are fetched separately).
+        /// </summary>
+        /// <param name="noteID">The note to look up.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the note; 400 if the ID is missing; 404 if it does not exist.</returns>
         [HttpGet]
         [ActionName("getNoteWithID")]
         public async Task<ActionResult<NoteResponse>> GetNoteWithID(string noteID, CancellationToken ct)
@@ -952,6 +1077,11 @@ namespace lumify.api.Controllers
             return Ok(note);
         }
 
+        /// <summary>
+        /// Returns the number of personal notes (no workspace) owned by the current user.
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the note count.</returns>
         [HttpGet]
         [ActionName("getNoteCountOfUser")]
         public async Task<ActionResult<int>> GetNoteCountOfUser(CancellationToken ct)
@@ -971,6 +1101,13 @@ namespace lumify.api.Controllers
             return Ok(noteCount);
         }
 
+        /// <summary>
+        /// Returns the number of notes in a workspace. The user must be a member.
+        /// </summary>
+        /// <param name="workspaceID">The workspace to count notes for.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the note count; 400 if the ID is missing; 403 if the user is not a
+        /// member; 404 if the workspace does not exist.</returns>
         [HttpGet]
         [ActionName("getNoteCountOfWorkspace")]
         public async Task<ActionResult<int>> GetNoteCountOfWorkspace(string workspaceID, CancellationToken ct)
@@ -1020,6 +1157,13 @@ namespace lumify.api.Controllers
 
 
         // --- NoteModules --- //
+        /// <summary>
+        /// Returns all text blocks of a note, in display order (<c>NotePos</c>).
+        /// </summary>
+        /// <param name="noteID">The note whose text blocks are requested.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the ordered text blocks; 400 if the ID is missing; 404 if the note
+        /// does not exist.</returns>
         [HttpGet]
         [ActionName("getTextBlocksOfNote")]
         public async Task<ActionResult<List<TextblockResponse>>> GetTextBlocksOfNote(string noteID, CancellationToken ct)
@@ -1061,6 +1205,13 @@ namespace lumify.api.Controllers
             return Ok(textBlocks);
         }
 
+        /// <summary>
+        /// Returns all link items of a note, in display order (<c>NotePos</c>).
+        /// </summary>
+        /// <param name="noteID">The note whose link items are requested.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the ordered link items; 400 if the ID is missing; 404 if the note
+        /// does not exist.</returns>
         [HttpGet]
         [ActionName("getLinkItemsOfNote")]
         public async Task<ActionResult<List<LinkItemResponse>>> GetLinkItemsOfNote(string noteID, CancellationToken ct)
@@ -1099,6 +1250,13 @@ namespace lumify.api.Controllers
             return Ok(linkItems);
         }
 
+        /// <summary>
+        /// Returns the workspace that the given note belongs to, if any.
+        /// </summary>
+        /// <param name="noteID">The note whose workspace is requested.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the workspace; 400 if the ID is missing; 404 if the note has no
+        /// linked workspace or it was deleted.</returns>
         [HttpGet]
         [ActionName("getSpaceInfosOfNote")]
         public async Task<ActionResult<WorkspaceResponse>> getSpaceInfosOfNote(string noteID, CancellationToken ct)
@@ -1140,6 +1298,11 @@ namespace lumify.api.Controllers
 
 
         // --- Helper --- //
+        /// <summary>
+        /// Reads the current user's ID from the <c>UserID</c> claim of the authenticated request.
+        /// </summary>
+        /// <returns>The current user's ID.</returns>
+        /// <exception cref="UnauthorizedAccessException">Thrown when no user is logged in.</exception>
         private string GetCurrentUserID()
         {
             var userID = User.FindFirst("UserID")?.Value;
@@ -1151,9 +1314,16 @@ namespace lumify.api.Controllers
             return userID;
         }
 
-        // Decides whether the current user may modify/delete an item.
-        //  - Personal item (workspaceID == null): only its owner may.
-        //  - Workspace item: any active member of that workspace may (creator != owner).
+        /// <summary>
+        /// Decides whether the current user may modify or delete an item. A personal item
+        /// (no workspace) may only be changed by its owner; a workspace item may be changed by
+        /// any active member of that workspace.
+        /// </summary>
+        /// <param name="workspaceID">The item's workspace, or <c>null</c> for a personal item.</param>
+        /// <param name="ownerID">The item's owner.</param>
+        /// <param name="userID">The current user.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns><c>true</c> if the user is allowed to modify the item.</returns>
         private async Task<bool> CanModify(string? workspaceID, string ownerID, string userID, CancellationToken ct)
         {
             if (string.IsNullOrWhiteSpace(workspaceID))

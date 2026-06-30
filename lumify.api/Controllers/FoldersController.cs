@@ -11,6 +11,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace lumify.api.Controllers
 {
+    /// <summary>
+    /// Manages note folders, both personal (no workspace) and workspace-shared, including
+    /// creation, editing, moving and recursive deletion. All endpoints require an
+    /// authenticated user. Changes to workspace folders are pushed live to the workspace
+    /// group over the <see cref="Hubs.NoteHub"/>.
+    /// </summary>
+    /// <remarks>
+    /// Permission rule throughout: a personal folder may only be modified by its owner, while
+    /// a workspace folder may be modified by any active member of that workspace
+    /// (see <c>CanModify</c>).
+    /// </remarks>
     [ApiController]
     [Route("folders/[action]")]
     [Authorize]
@@ -21,6 +32,10 @@ namespace lumify.api.Controllers
         private readonly IHubContext<NoteHub> _noteHub;
 
 
+        /// <summary>
+        /// Creates the controller with its injected logger, database context and the note hub
+        /// used for live notifications.
+        /// </summary>
         public FoldersController(ILogger<FoldersController> logger, LumifyDbContext db, IHubContext<NoteHub> noteHub)
         {
             _logger = logger;
@@ -32,6 +47,18 @@ namespace lumify.api.Controllers
         // ----------- //
         // --- ADD --- //
         // ----------- //
+        /// <summary>
+        /// Creates a new folder, optionally inside a workspace and/or a parent folder.
+        /// </summary>
+        /// <remarks>
+        /// If a workspace is given, the user must be a member of it; if a parent folder is
+        /// given, it must live in the same space. On success in a workspace, a
+        /// <c>FolderCreated</c> event is broadcast to the workspace group.
+        /// </remarks>
+        /// <param name="request">Folder data (name required; optional description, workspace, parent).</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the created folder; 400 on missing name or invalid workspace/parent;
+        /// 403 if the user is not a member of the target workspace or owner of the parent.</returns>
         [HttpPost]
         [ActionName("addFolder")]
         public async Task<ActionResult<FolderResponse>> AddFolder([FromBody] AddFolderRequest request, CancellationToken ct)
@@ -140,6 +167,20 @@ namespace lumify.api.Controllers
         // ------------ //
         // --- SAVE --- //
         // ------------ //
+        /// <summary>
+        /// Updates a folder's name, description and/or parent (move). Only the provided fields
+        /// are changed; the database is only written if something actually changed.
+        /// </summary>
+        /// <remarks>
+        /// Move rules: a folder cannot be moved into itself; a personal folder may only move
+        /// into another personal folder of the same owner; a workspace folder may only move
+        /// within the same workspace. On a successful change in a workspace, a
+        /// <c>FolderUpdated</c> event is broadcast to the workspace group.
+        /// </remarks>
+        /// <param name="request">The folder ID plus the fields to change.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the updated folder; 400 on invalid input or move target; 403 if
+        /// the user may not modify it; 404 if the folder does not exist.</returns>
         [HttpPatch]
         [ActionName("saveFolder")]
         public async Task<ActionResult<FolderResponse>> SaveFolder([FromBody] SaveFolderRequest request, CancellationToken ct)
@@ -307,7 +348,18 @@ namespace lumify.api.Controllers
         // --- DELETE --- //
         // -------------- //
 
-        // Deletes not only the folder itself, but recursively iterates through sub-folders and their notes to soft-delete them as well.
+        /// <summary>
+        /// Soft-deletes a folder together with all of its descendant sub-folders and their
+        /// notes (recursive, breadth-first).
+        /// </summary>
+        /// <remarks>
+        /// Nothing is physically removed — all affected rows get a <c>DeletedAt</c> timestamp.
+        /// On a workspace folder, a <c>FolderDeleted</c> event is broadcast to the workspace group.
+        /// </remarks>
+        /// <param name="folderID">The root folder to delete.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with <c>success = true</c> and the folder ID; 400 if the ID is missing;
+        /// 403 if the user may not delete it; 404 if the folder does not exist.</returns>
         [HttpDelete]
         [ActionName("deleteFolder")]
         public async Task<ActionResult> DeleteFolder(string folderID, CancellationToken ct)
@@ -414,6 +466,11 @@ namespace lumify.api.Controllers
         // ----------- //
         // --- GET --- //
         // ----------- //
+        /// <summary>
+        /// Returns all personal folders of the current user (no workspace), oldest first.
+        /// </summary>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the list of personal folders.</returns>
         [HttpGet]
         [ActionName("getAllFoldersOfUser")]
         public async Task<ActionResult<List<FolderResponse>>> GetAllFoldersOfUser(CancellationToken ct)
@@ -442,6 +499,12 @@ namespace lumify.api.Controllers
             return Ok(folders);
         }
 
+        /// <summary>
+        /// Returns all folders of the given workspace, oldest first.
+        /// </summary>
+        /// <param name="workspaceID">The workspace whose folders are requested.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns>200 with the list of workspace folders.</returns>
         [HttpGet]
         [ActionName("getAllFoldersOfWorkspace")]
         public async Task<ActionResult<List<FolderResponse>>> GetAllFoldersOfWorkspace(string workspaceID, CancellationToken ct)
@@ -470,6 +533,11 @@ namespace lumify.api.Controllers
 
 
         // --- Helper --- //
+        /// <summary>
+        /// Reads the current user's ID from the <c>UserID</c> claim of the authenticated request.
+        /// </summary>
+        /// <returns>The current user's ID.</returns>
+        /// <exception cref="UnauthorizedAccessException">Thrown when no user is logged in.</exception>
         private string GetCurrentUserID()
         {
             var userID = User.FindFirst("UserID")?.Value;
@@ -481,9 +549,16 @@ namespace lumify.api.Controllers
             return userID;
         }
 
-        // Decides whether the current user may modify/delete an item.
-        //  - Personal item (workspaceID == null): only its owner may.
-        //  - Workspace item: any active member of that workspace may (creator != owner).
+        /// <summary>
+        /// Decides whether the current user may modify or delete an item. A personal item
+        /// (no workspace) may only be changed by its owner; a workspace item may be changed by
+        /// any active member of that workspace.
+        /// </summary>
+        /// <param name="workspaceID">The item's workspace, or <c>null</c> for a personal item.</param>
+        /// <param name="ownerID">The item's owner.</param>
+        /// <param name="userID">The current user.</param>
+        /// <param name="ct">Cancellation token for the request.</param>
+        /// <returns><c>true</c> if the user is allowed to modify the item.</returns>
         private async Task<bool> CanModify(string? workspaceID, string ownerID, string userID, CancellationToken ct)
         {
             if (string.IsNullOrWhiteSpace(workspaceID))

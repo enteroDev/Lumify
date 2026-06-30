@@ -1,0 +1,1806 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Controllers.UsersController
+  commentId: T:lumify.api.Controllers.UsersController
+  id: UsersController
+  parent: lumify.api.Controllers
+  children:
+  - lumify.api.Controllers.UsersController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.UsersController},lumify.api.Models.Context.LumifyDbContext,lumify.api.Interfaces.IPresenceService)
+  - lumify.api.Controllers.UsersController.DeleteAccount(System.Threading.CancellationToken)
+  - lumify.api.Controllers.UsersController.Get5LastModifiedTodosOfUser(System.Threading.CancellationToken)
+  - lumify.api.Controllers.UsersController.GetAvatarOfUser(System.Threading.CancellationToken)
+  - lumify.api.Controllers.UsersController.GetLast5ModifiedEventsOfUser(System.Threading.CancellationToken)
+  - lumify.api.Controllers.UsersController.GetLast5ModifiedNotesOfUser(System.Threading.CancellationToken)
+  - lumify.api.Controllers.UsersController.GetRelatedUsers(System.Threading.CancellationToken)
+  - lumify.api.Controllers.UsersController.GetUserAccountInfo(System.Threading.CancellationToken)
+  - lumify.api.Controllers.UsersController.GetUserAccountInfoWithID(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.UsersController.GetUserPreviewWithID(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.UsersController.GetUserProfile(System.Threading.CancellationToken)
+  - lumify.api.Controllers.UsersController.GetUserProfileWithID(System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.UsersController.SaveUserAvatar(Microsoft.AspNetCore.Http.IFormFile,System.Threading.CancellationToken)
+  - lumify.api.Controllers.UsersController.SaveUserProfile(lumify.api.Models.DTO.Requests.SaveUserProfileRequest,System.Threading.CancellationToken)
+  - lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace(System.String,System.String,System.Threading.CancellationToken)
+  - lumify.api.Controllers.UsersController.SearchUsers(System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: UsersController
+  nameWithType: UsersController
+  fullName: lumify.api.Controllers.UsersController
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Controllers/UsersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UsersController
+    path: ../../../lumify.api/Controllers/UsersController.cs
+    startLine: 23
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    User profile and account management plus user discovery: editing the current user's
+
+    profile and avatar, deleting the account, reading profile/account/preview data by ID or
+
+    for the current user, recent activity (todos/events/notes), related users, and user
+
+    search. All endpoints require an authenticated user.
+  remarks: >-
+    Account deletion is a soft-delete: personal content becomes inaccessible while workspace
+
+    content stays with the workspace. Preview/search results are enriched with each user's
+
+    live presence status.
+  example: []
+  syntax:
+    content: >-
+      [ApiController]
+
+      [Route("users/[action]")]
+
+      [Authorize]
+
+      public class UsersController : ControllerBase
+    content.vb: >-
+      <ApiController>
+
+      <Route("users/[action]")>
+
+      <Authorize>
+
+      Public Class UsersController Inherits ControllerBase
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.Mvc.ControllerBase
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.ApiControllerAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ApiControllerAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.RouteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.RouteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: users/[action]
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+- uid: lumify.api.Controllers.UsersController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.UsersController},lumify.api.Models.Context.LumifyDbContext,lumify.api.Interfaces.IPresenceService)
+  commentId: M:lumify.api.Controllers.UsersController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.UsersController},lumify.api.Models.Context.LumifyDbContext,lumify.api.Interfaces.IPresenceService)
+  id: '#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.UsersController},lumify.api.Models.Context.LumifyDbContext,lumify.api.Interfaces.IPresenceService)'
+  parent: lumify.api.Controllers.UsersController
+  langs:
+  - csharp
+  - vb
+  name: UsersController(ILogger<UsersController>, LumifyDbContext, IPresenceService)
+  nameWithType: UsersController.UsersController(ILogger<UsersController>, LumifyDbContext, IPresenceService)
+  fullName: lumify.api.Controllers.UsersController.UsersController(Microsoft.Extensions.Logging.ILogger<lumify.api.Controllers.UsersController>, lumify.api.Models.Context.LumifyDbContext, lumify.api.Interfaces.IPresenceService)
+  type: Constructor
+  source:
+    remote:
+      path: lumify.api/Controllers/UsersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: .ctor
+    path: ../../../lumify.api/Controllers/UsersController.cs
+    startLine: 35
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Creates the controller with its injected logger, database context and presence service.
+  example: []
+  syntax:
+    content: public UsersController(ILogger<UsersController> logger, LumifyDbContext db, IPresenceService presenceService)
+    parameters:
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.UsersController}
+    - id: db
+      type: lumify.api.Models.Context.LumifyDbContext
+    - id: presenceService
+      type: lumify.api.Interfaces.IPresenceService
+    content.vb: Public Sub New(logger As ILogger(Of UsersController), db As LumifyDbContext, presenceService As IPresenceService)
+  overload: lumify.api.Controllers.UsersController.#ctor*
+  nameWithType.vb: UsersController.New(ILogger(Of UsersController), LumifyDbContext, IPresenceService)
+  fullName.vb: lumify.api.Controllers.UsersController.New(Microsoft.Extensions.Logging.ILogger(Of lumify.api.Controllers.UsersController), lumify.api.Models.Context.LumifyDbContext, lumify.api.Interfaces.IPresenceService)
+  name.vb: New(ILogger(Of UsersController), LumifyDbContext, IPresenceService)
+- uid: lumify.api.Controllers.UsersController.SaveUserProfile(lumify.api.Models.DTO.Requests.SaveUserProfileRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.UsersController.SaveUserProfile(lumify.api.Models.DTO.Requests.SaveUserProfileRequest,System.Threading.CancellationToken)
+  id: SaveUserProfile(lumify.api.Models.DTO.Requests.SaveUserProfileRequest,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.UsersController
+  langs:
+  - csharp
+  - vb
+  name: SaveUserProfile(SaveUserProfileRequest, CancellationToken)
+  nameWithType: UsersController.SaveUserProfile(SaveUserProfileRequest, CancellationToken)
+  fullName: lumify.api.Controllers.UsersController.SaveUserProfile(lumify.api.Models.DTO.Requests.SaveUserProfileRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/UsersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SaveUserProfile
+    path: ../../../lumify.api/Controllers/UsersController.cs
+    startLine: 55
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Updates the current user's profile (display name, avatar URL and/or bio). Only the
+
+    provided fields are changed; empty values clear the respective field.
+  example: []
+  syntax:
+    content: >-
+      [HttpPatch]
+
+      [ActionName("saveUserProfile")]
+
+      [Authorize]
+
+      public Task<ActionResult<UserProfileResponse>> SaveUserProfile(SaveUserProfileRequest request, CancellationToken ct)
+    parameters:
+    - id: request
+      type: lumify.api.Models.DTO.Requests.SaveUserProfileRequest
+      description: The profile fields to change.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromBodyAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromBodyAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.UserProfileResponse}}
+      description: >-
+        200 with the updated profile; 400 if the request is missing; 401 if the
+            user ID claim is missing; 404 if the user does not exist.
+    content.vb: >-
+      <HttpPatch>
+
+      <ActionName("saveUserProfile")>
+
+      <Authorize>
+
+      Public Function SaveUserProfile(request As SaveUserProfileRequest, ct As CancellationToken) As Task(Of ActionResult(Of UserProfileResponse))
+  overload: lumify.api.Controllers.UsersController.SaveUserProfile*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPatchAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPatchAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: saveUserProfile
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+- uid: lumify.api.Controllers.UsersController.SaveUserAvatar(Microsoft.AspNetCore.Http.IFormFile,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.UsersController.SaveUserAvatar(Microsoft.AspNetCore.Http.IFormFile,System.Threading.CancellationToken)
+  id: SaveUserAvatar(Microsoft.AspNetCore.Http.IFormFile,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.UsersController
+  langs:
+  - csharp
+  - vb
+  name: SaveUserAvatar(IFormFile, CancellationToken)
+  nameWithType: UsersController.SaveUserAvatar(IFormFile, CancellationToken)
+  fullName: lumify.api.Controllers.UsersController.SaveUserAvatar(Microsoft.AspNetCore.Http.IFormFile, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/UsersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SaveUserAvatar
+    path: ../../../lumify.api/Controllers/UsersController.cs
+    startLine: 127
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Uploads and stores the current user's avatar image (max 10 MB; JPEG, PNG, WebP or
+
+    GIF) and saves its relative URL on the user.
+  example: []
+  syntax:
+    content: >-
+      [HttpPost]
+
+      [ActionName("saveUserAvatar")]
+
+      [Authorize]
+
+      [RequestSizeLimit(10000000)]
+
+      public Task<ActionResult<string>> SaveUserAvatar(IFormFile file, CancellationToken ct)
+    parameters:
+    - id: file
+      type: Microsoft.AspNetCore.Http.IFormFile
+      description: The uploaded image file.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.String}}
+      description: >-
+        200 with the stored avatar URL; 400 if the file is missing, not an image,
+            or has no extension; 401 if the user ID claim is missing; 404 if the user does not
+            exist.
+    content.vb: >-
+      <HttpPost>
+
+      <ActionName("saveUserAvatar")>
+
+      <Authorize>
+
+      <RequestSizeLimit(10000000)>
+
+      Public Function SaveUserAvatar(file As IFormFile, ct As CancellationToken) As Task(Of ActionResult(Of String))
+  overload: lumify.api.Controllers.UsersController.SaveUserAvatar*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpPostAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpPostAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: saveUserAvatar
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.RequestSizeLimitAttribute
+    ctor: Microsoft.AspNetCore.Mvc.RequestSizeLimitAttribute.#ctor(System.Int64)
+    arguments:
+    - type: System.Int64
+      value: "10000000"
+- uid: lumify.api.Controllers.UsersController.DeleteAccount(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.UsersController.DeleteAccount(System.Threading.CancellationToken)
+  id: DeleteAccount(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.UsersController
+  langs:
+  - csharp
+  - vb
+  name: DeleteAccount(CancellationToken)
+  nameWithType: UsersController.DeleteAccount(CancellationToken)
+  fullName: lumify.api.Controllers.UsersController.DeleteAccount(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/UsersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DeleteAccount
+    path: ../../../lumify.api/Controllers/UsersController.cs
+    startLine: 215
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Soft-deletes the current user's own account by setting <code>DeletedAt</code>.
+  remarks: >-
+    Content is not cascaded: personal items become inaccessible (the user can no longer
+
+    log in), while workspace items stay with the workspace and remain visible and
+
+    editable for the other members.
+  example: []
+  syntax:
+    content: >-
+      [HttpDelete]
+
+      [ActionName("deleteAccount")]
+
+      [Authorize]
+
+      public Task<IActionResult> DeleteAccount(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: >-
+        200 with <code>success = true</code>; 401 if the user ID claim is missing; 404 if
+            the user does not exist.
+    content.vb: >-
+      <HttpDelete>
+
+      <ActionName("deleteAccount")>
+
+      <Authorize>
+
+      Public Function DeleteAccount(ct As CancellationToken) As Task(Of IActionResult)
+  overload: lumify.api.Controllers.UsersController.DeleteAccount*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpDeleteAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: deleteAccount
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+- uid: lumify.api.Controllers.UsersController.GetUserProfileWithID(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.UsersController.GetUserProfileWithID(System.String,System.Threading.CancellationToken)
+  id: GetUserProfileWithID(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.UsersController
+  langs:
+  - csharp
+  - vb
+  name: GetUserProfileWithID(string, CancellationToken)
+  nameWithType: UsersController.GetUserProfileWithID(string, CancellationToken)
+  fullName: lumify.api.Controllers.UsersController.GetUserProfileWithID(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/UsersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetUserProfileWithID
+    path: ../../../lumify.api/Controllers/UsersController.cs
+    startLine: 257
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns the public profile (display name, avatar, bio) of a specific user by ID.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getUserProfileWithID")]
+
+      public Task<ActionResult<UserProfileResponse>> GetUserProfileWithID(string userID, CancellationToken ct)
+    parameters:
+    - id: userID
+      type: System.String
+      description: The user to look up.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.UserProfileResponse}}
+      description: 200 with the profile; 400 if the ID is missing; 404 if the user does not exist.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getUserProfileWithID")>
+
+      Public Function GetUserProfileWithID(userID As String, ct As CancellationToken) As Task(Of ActionResult(Of UserProfileResponse))
+  overload: lumify.api.Controllers.UsersController.GetUserProfileWithID*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getUserProfileWithID
+  nameWithType.vb: UsersController.GetUserProfileWithID(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.UsersController.GetUserProfileWithID(String, System.Threading.CancellationToken)
+  name.vb: GetUserProfileWithID(String, CancellationToken)
+- uid: lumify.api.Controllers.UsersController.GetUserAccountInfoWithID(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.UsersController.GetUserAccountInfoWithID(System.String,System.Threading.CancellationToken)
+  id: GetUserAccountInfoWithID(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.UsersController
+  langs:
+  - csharp
+  - vb
+  name: GetUserAccountInfoWithID(string, CancellationToken)
+  nameWithType: UsersController.GetUserAccountInfoWithID(string, CancellationToken)
+  fullName: lumify.api.Controllers.UsersController.GetUserAccountInfoWithID(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/UsersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetUserAccountInfoWithID
+    path: ../../../lumify.api/Controllers/UsersController.cs
+    startLine: 293
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns the account info (e-mail, first/last name, timestamps) of a specific user by ID.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getUserAccountInfoWithID")]
+
+      public Task<ActionResult<UserAccountInfoResponse>> GetUserAccountInfoWithID(string userID, CancellationToken ct)
+    parameters:
+    - id: userID
+      type: System.String
+      description: The user to look up.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.UserAccountInfoResponse}}
+      description: 200 with the account info; 400 if the ID is missing; 404 if the user does not exist.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getUserAccountInfoWithID")>
+
+      Public Function GetUserAccountInfoWithID(userID As String, ct As CancellationToken) As Task(Of ActionResult(Of UserAccountInfoResponse))
+  overload: lumify.api.Controllers.UsersController.GetUserAccountInfoWithID*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getUserAccountInfoWithID
+  nameWithType.vb: UsersController.GetUserAccountInfoWithID(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.UsersController.GetUserAccountInfoWithID(String, System.Threading.CancellationToken)
+  name.vb: GetUserAccountInfoWithID(String, CancellationToken)
+- uid: lumify.api.Controllers.UsersController.GetUserPreviewWithID(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.UsersController.GetUserPreviewWithID(System.String,System.Threading.CancellationToken)
+  id: GetUserPreviewWithID(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.UsersController
+  langs:
+  - csharp
+  - vb
+  name: GetUserPreviewWithID(string, CancellationToken)
+  nameWithType: UsersController.GetUserPreviewWithID(string, CancellationToken)
+  fullName: lumify.api.Controllers.UsersController.GetUserPreviewWithID(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/UsersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetUserPreviewWithID
+    path: ../../../lumify.api/Controllers/UsersController.cs
+    startLine: 330
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Returns a compact user preview (username, display name, avatar, e-mail) by ID,
+
+    enriched with the user's live presence status.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getUserPreviewWithID")]
+
+      public Task<ActionResult<UserPreviewResponse>> GetUserPreviewWithID(string userID, CancellationToken ct)
+    parameters:
+    - id: userID
+      type: System.String
+      description: The user to look up.
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.UserPreviewResponse}}
+      description: 200 with the preview; 400 if the ID is missing; 404 if the user does not exist.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getUserPreviewWithID")>
+
+      Public Function GetUserPreviewWithID(userID As String, ct As CancellationToken) As Task(Of ActionResult(Of UserPreviewResponse))
+  overload: lumify.api.Controllers.UsersController.GetUserPreviewWithID*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getUserPreviewWithID
+  nameWithType.vb: UsersController.GetUserPreviewWithID(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.UsersController.GetUserPreviewWithID(String, System.Threading.CancellationToken)
+  name.vb: GetUserPreviewWithID(String, CancellationToken)
+- uid: lumify.api.Controllers.UsersController.GetUserProfile(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.UsersController.GetUserProfile(System.Threading.CancellationToken)
+  id: GetUserProfile(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.UsersController
+  langs:
+  - csharp
+  - vb
+  name: GetUserProfile(CancellationToken)
+  nameWithType: UsersController.GetUserProfile(CancellationToken)
+  fullName: lumify.api.Controllers.UsersController.GetUserProfile(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/UsersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetUserProfile
+    path: ../../../lumify.api/Controllers/UsersController.cs
+    startLine: 371
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns the current user's own profile (display name, avatar, bio).
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getUserProfile")]
+
+      public Task<ActionResult<UserAccountInfoResponse>> GetUserProfile(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.UserAccountInfoResponse}}
+      description: 200 with the profile; 404 if it cannot be found.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getUserProfile")>
+
+      Public Function GetUserProfile(ct As CancellationToken) As Task(Of ActionResult(Of UserAccountInfoResponse))
+  overload: lumify.api.Controllers.UsersController.GetUserProfile*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getUserProfile
+- uid: lumify.api.Controllers.UsersController.GetUserAccountInfo(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.UsersController.GetUserAccountInfo(System.Threading.CancellationToken)
+  id: GetUserAccountInfo(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.UsersController
+  langs:
+  - csharp
+  - vb
+  name: GetUserAccountInfo(CancellationToken)
+  nameWithType: UsersController.GetUserAccountInfo(CancellationToken)
+  fullName: lumify.api.Controllers.UsersController.GetUserAccountInfo(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/UsersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetUserAccountInfo
+    path: ../../../lumify.api/Controllers/UsersController.cs
+    startLine: 405
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns the current user's own account info (name, e-mail, username, timestamps).
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getUserAccountInfo")]
+
+      public Task<ActionResult<UserAccountInfoResponse>> GetUserAccountInfo(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.UserAccountInfoResponse}}
+      description: 200 with the account info; 404 if it cannot be found.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getUserAccountInfo")>
+
+      Public Function GetUserAccountInfo(ct As CancellationToken) As Task(Of ActionResult(Of UserAccountInfoResponse))
+  overload: lumify.api.Controllers.UsersController.GetUserAccountInfo*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getUserAccountInfo
+- uid: lumify.api.Controllers.UsersController.GetAvatarOfUser(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.UsersController.GetAvatarOfUser(System.Threading.CancellationToken)
+  id: GetAvatarOfUser(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.UsersController
+  langs:
+  - csharp
+  - vb
+  name: GetAvatarOfUser(CancellationToken)
+  nameWithType: UsersController.GetAvatarOfUser(CancellationToken)
+  fullName: lumify.api.Controllers.UsersController.GetAvatarOfUser(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/UsersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetAvatarOfUser
+    path: ../../../lumify.api/Controllers/UsersController.cs
+    startLine: 443
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns the current user's avatar URL.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getAvatarOfUser")]
+
+      public Task<ActionResult<string>> GetAvatarOfUser(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.String}}
+      description: 200 with the avatar URL; 404 if the user does not exist.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getAvatarOfUser")>
+
+      Public Function GetAvatarOfUser(ct As CancellationToken) As Task(Of ActionResult(Of String))
+  overload: lumify.api.Controllers.UsersController.GetAvatarOfUser*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getAvatarOfUser
+- uid: lumify.api.Controllers.UsersController.GetRelatedUsers(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.UsersController.GetRelatedUsers(System.Threading.CancellationToken)
+  id: GetRelatedUsers(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.UsersController
+  langs:
+  - csharp
+  - vb
+  name: GetRelatedUsers(CancellationToken)
+  nameWithType: UsersController.GetRelatedUsers(CancellationToken)
+  fullName: lumify.api.Controllers.UsersController.GetRelatedUsers(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/UsersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetRelatedUsers
+    path: ../../../lumify.api/Controllers/UsersController.cs
+    startLine: 471
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Returns the users that share at least one workspace with the current user (excluding
+
+    the current user), each enriched with live presence status.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getRelatedUsers")]
+
+      public Task<IActionResult> GetRelatedUsers(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: >-
+        200 with the list of related users (empty if the user is in no workspaces);
+            400 if the current user cannot be determined.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getRelatedUsers")>
+
+      Public Function GetRelatedUsers(ct As CancellationToken) As Task(Of IActionResult)
+  overload: lumify.api.Controllers.UsersController.GetRelatedUsers*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getRelatedUsers
+- uid: lumify.api.Controllers.UsersController.Get5LastModifiedTodosOfUser(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.UsersController.Get5LastModifiedTodosOfUser(System.Threading.CancellationToken)
+  id: Get5LastModifiedTodosOfUser(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.UsersController
+  langs:
+  - csharp
+  - vb
+  name: Get5LastModifiedTodosOfUser(CancellationToken)
+  nameWithType: UsersController.Get5LastModifiedTodosOfUser(CancellationToken)
+  fullName: lumify.api.Controllers.UsersController.Get5LastModifiedTodosOfUser(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/UsersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Get5LastModifiedTodosOfUser
+    path: ../../../lumify.api/Controllers/UsersController.cs
+    startLine: 523
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns the current user's 5 most recently modified todo lists.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("get5LastModifiedTodosOfUser")]
+
+      public Task<IActionResult> Get5LastModifiedTodosOfUser(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: 200 with up to 5 todo lists, newest first.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("get5LastModifiedTodosOfUser")>
+
+      Public Function Get5LastModifiedTodosOfUser(ct As CancellationToken) As Task(Of IActionResult)
+  overload: lumify.api.Controllers.UsersController.Get5LastModifiedTodosOfUser*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: get5LastModifiedTodosOfUser
+- uid: lumify.api.Controllers.UsersController.GetLast5ModifiedEventsOfUser(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.UsersController.GetLast5ModifiedEventsOfUser(System.Threading.CancellationToken)
+  id: GetLast5ModifiedEventsOfUser(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.UsersController
+  langs:
+  - csharp
+  - vb
+  name: GetLast5ModifiedEventsOfUser(CancellationToken)
+  nameWithType: UsersController.GetLast5ModifiedEventsOfUser(CancellationToken)
+  fullName: lumify.api.Controllers.UsersController.GetLast5ModifiedEventsOfUser(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/UsersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetLast5ModifiedEventsOfUser
+    path: ../../../lumify.api/Controllers/UsersController.cs
+    startLine: 554
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns the current user's 5 most recently modified events.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getLast5ModifiedEventsOfUser")]
+
+      public Task<IActionResult> GetLast5ModifiedEventsOfUser(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: 200 with up to 5 events, newest first.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getLast5ModifiedEventsOfUser")>
+
+      Public Function GetLast5ModifiedEventsOfUser(ct As CancellationToken) As Task(Of IActionResult)
+  overload: lumify.api.Controllers.UsersController.GetLast5ModifiedEventsOfUser*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getLast5ModifiedEventsOfUser
+- uid: lumify.api.Controllers.UsersController.GetLast5ModifiedNotesOfUser(System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.UsersController.GetLast5ModifiedNotesOfUser(System.Threading.CancellationToken)
+  id: GetLast5ModifiedNotesOfUser(System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.UsersController
+  langs:
+  - csharp
+  - vb
+  name: GetLast5ModifiedNotesOfUser(CancellationToken)
+  nameWithType: UsersController.GetLast5ModifiedNotesOfUser(CancellationToken)
+  fullName: lumify.api.Controllers.UsersController.GetLast5ModifiedNotesOfUser(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/UsersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: GetLast5ModifiedNotesOfUser
+    path: ../../../lumify.api/Controllers/UsersController.cs
+    startLine: 592
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: Returns the current user's 5 most recently modified notes.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("getLast5ModifiedNotesOfUser")]
+
+      public Task<IActionResult> GetLast5ModifiedNotesOfUser(CancellationToken ct)
+    parameters:
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: 200 with up to 5 notes, newest first.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("getLast5ModifiedNotesOfUser")>
+
+      Public Function GetLast5ModifiedNotesOfUser(ct As CancellationToken) As Task(Of IActionResult)
+  overload: lumify.api.Controllers.UsersController.GetLast5ModifiedNotesOfUser*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: getLast5ModifiedNotesOfUser
+- uid: lumify.api.Controllers.UsersController.SearchUsers(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.UsersController.SearchUsers(System.String,System.Threading.CancellationToken)
+  id: SearchUsers(System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.UsersController
+  langs:
+  - csharp
+  - vb
+  name: SearchUsers(string, CancellationToken)
+  nameWithType: UsersController.SearchUsers(string, CancellationToken)
+  fullName: lumify.api.Controllers.UsersController.SearchUsers(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/UsersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SearchUsers
+    path: ../../../lumify.api/Controllers/UsersController.cs
+    startLine: 630
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Searches users by display name, username or e-mail (case-insensitive, max 20 results),
+
+    excluding the current user. Results carry live presence status.
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("searchUsers")]
+
+      [Authorize]
+
+      public Task<IActionResult> SearchUsers(string query, CancellationToken ct)
+    parameters:
+    - id: query
+      type: System.String
+      description: The search term; an empty term returns an empty list.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromQueryAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromQueryAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: 200 with the matching users; 400 if the current user cannot be determined.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("searchUsers")>
+
+      <Authorize>
+
+      Public Function SearchUsers(query As String, ct As CancellationToken) As Task(Of IActionResult)
+  overload: lumify.api.Controllers.UsersController.SearchUsers*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: searchUsers
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+  nameWithType.vb: UsersController.SearchUsers(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.UsersController.SearchUsers(String, System.Threading.CancellationToken)
+  name.vb: SearchUsers(String, CancellationToken)
+- uid: lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace(System.String,System.String,System.Threading.CancellationToken)
+  id: SearchAvailableUsersForWorkspace(System.String,System.String,System.Threading.CancellationToken)
+  parent: lumify.api.Controllers.UsersController
+  langs:
+  - csharp
+  - vb
+  name: SearchAvailableUsersForWorkspace(string, string, CancellationToken)
+  nameWithType: UsersController.SearchAvailableUsersForWorkspace(string, string, CancellationToken)
+  fullName: lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace(string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: lumify.api/Controllers/UsersController.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: SearchAvailableUsersForWorkspace
+    path: ../../../lumify.api/Controllers/UsersController.cs
+    startLine: 689
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Controllers
+  summary: >-
+    Searches users who can still be added to a given workspace — i.e. matching the query
+
+    but excluding the current user and existing members (max 20 results).
+  example: []
+  syntax:
+    content: >-
+      [HttpGet]
+
+      [ActionName("searchAvailableUsersForWorkspace")]
+
+      [Authorize]
+
+      public Task<IActionResult> SearchAvailableUsersForWorkspace(string workspaceID, string query, CancellationToken ct)
+    parameters:
+    - id: workspaceID
+      type: System.String
+      description: The workspace to find addable users for.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromQueryAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromQueryAttribute.#ctor
+        arguments: []
+    - id: query
+      type: System.String
+      description: The search term; an empty term returns an empty list.
+      attributes:
+      - type: Microsoft.AspNetCore.Mvc.FromQueryAttribute
+        ctor: Microsoft.AspNetCore.Mvc.FromQueryAttribute.#ctor
+        arguments: []
+    - id: ct
+      type: System.Threading.CancellationToken
+      description: Cancellation token for the request.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+      description: >-
+        200 with the addable users; 400 if the current user cannot be determined or
+            the workspace ID is missing; 404 if the workspace does not exist.
+    content.vb: >-
+      <HttpGet>
+
+      <ActionName("searchAvailableUsersForWorkspace")>
+
+      <Authorize>
+
+      Public Function SearchAvailableUsersForWorkspace(workspaceID As String, query As String, ct As CancellationToken) As Task(Of IActionResult)
+  overload: lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace*
+  attributes:
+  - type: Microsoft.AspNetCore.Mvc.HttpGetAttribute
+    ctor: Microsoft.AspNetCore.Mvc.HttpGetAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Mvc.ActionNameAttribute
+    ctor: Microsoft.AspNetCore.Mvc.ActionNameAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: searchAvailableUsersForWorkspace
+  - type: Microsoft.AspNetCore.Authorization.AuthorizeAttribute
+    ctor: Microsoft.AspNetCore.Authorization.AuthorizeAttribute.#ctor
+    arguments: []
+  nameWithType.vb: UsersController.SearchAvailableUsersForWorkspace(String, String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace(String, String, System.Threading.CancellationToken)
+  name.vb: SearchAvailableUsersForWorkspace(String, String, CancellationToken)
+references:
+- uid: lumify.api.Controllers
+  commentId: N:lumify.api.Controllers
+  href: lumify.html
+  name: lumify.api.Controllers
+  nameWithType: lumify.api.Controllers
+  fullName: lumify.api.Controllers
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Controllers
+    name: Controllers
+    href: lumify.api.Controllers.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Controllers
+    name: Controllers
+    href: lumify.api.Controllers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.Mvc.ControllerBase
+  commentId: T:Microsoft.AspNetCore.Mvc.ControllerBase
+  parent: Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: ControllerBase
+  nameWithType: ControllerBase
+  fullName: Microsoft.AspNetCore.Mvc.ControllerBase
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.Mvc
+  commentId: N:Microsoft.AspNetCore.Mvc
+  isExternal: true
+  name: Microsoft.AspNetCore.Mvc
+  nameWithType: Microsoft.AspNetCore.Mvc
+  fullName: Microsoft.AspNetCore.Mvc
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+- uid: lumify.api.Controllers.UsersController.#ctor*
+  commentId: Overload:lumify.api.Controllers.UsersController.#ctor
+  href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController__ctor_Microsoft_Extensions_Logging_ILogger_lumify_api_Controllers_UsersController__lumify_api_Models_Context_LumifyDbContext_lumify_api_Interfaces_IPresenceService_
+  name: UsersController
+  nameWithType: UsersController.UsersController
+  fullName: lumify.api.Controllers.UsersController.UsersController
+  nameWithType.vb: UsersController.New
+  fullName.vb: lumify.api.Controllers.UsersController.New
+  name.vb: New
+- uid: Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.UsersController}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.UsersController}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: lumify.api.Controllers.UsersController.html
+  name: ILogger<UsersController>
+  nameWithType: ILogger<UsersController>
+  fullName: Microsoft.Extensions.Logging.ILogger<lumify.api.Controllers.UsersController>
+  nameWithType.vb: ILogger(Of UsersController)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of lumify.api.Controllers.UsersController)
+  name.vb: ILogger(Of UsersController)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Controllers.UsersController
+    name: UsersController
+    href: lumify.api.Controllers.UsersController.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Controllers.UsersController
+    name: UsersController
+    href: lumify.api.Controllers.UsersController.html
+  - name: )
+- uid: lumify.api.Models.Context.LumifyDbContext
+  commentId: T:lumify.api.Models.Context.LumifyDbContext
+  parent: lumify.api.Models.Context
+  href: lumify.api.Models.Context.LumifyDbContext.html
+  name: LumifyDbContext
+  nameWithType: LumifyDbContext
+  fullName: lumify.api.Models.Context.LumifyDbContext
+- uid: lumify.api.Interfaces.IPresenceService
+  commentId: T:lumify.api.Interfaces.IPresenceService
+  parent: lumify.api.Interfaces
+  href: lumify.api.Interfaces.IPresenceService.html
+  name: IPresenceService
+  nameWithType: IPresenceService
+  fullName: lumify.api.Interfaces.IPresenceService
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+- uid: lumify.api.Models.Context
+  commentId: N:lumify.api.Models.Context
+  href: lumify.html
+  name: lumify.api.Models.Context
+  nameWithType: lumify.api.Models.Context
+  fullName: lumify.api.Models.Context
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Context
+    name: Context
+    href: lumify.api.Models.Context.html
+- uid: lumify.api.Interfaces
+  commentId: N:lumify.api.Interfaces
+  href: lumify.html
+  name: lumify.api.Interfaces
+  nameWithType: lumify.api.Interfaces
+  fullName: lumify.api.Interfaces
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Interfaces
+    name: Interfaces
+    href: lumify.api.Interfaces.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Interfaces
+    name: Interfaces
+    href: lumify.api.Interfaces.html
+- uid: lumify.api.Controllers.UsersController.SaveUserProfile*
+  commentId: Overload:lumify.api.Controllers.UsersController.SaveUserProfile
+  href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_SaveUserProfile_lumify_api_Models_DTO_Requests_SaveUserProfileRequest_System_Threading_CancellationToken_
+  name: SaveUserProfile
+  nameWithType: UsersController.SaveUserProfile
+  fullName: lumify.api.Controllers.UsersController.SaveUserProfile
+- uid: lumify.api.Models.DTO.Requests.SaveUserProfileRequest
+  commentId: T:lumify.api.Models.DTO.Requests.SaveUserProfileRequest
+  parent: lumify.api.Models.DTO.Requests
+  href: lumify.api.Models.DTO.Requests.SaveUserProfileRequest.html
+  name: SaveUserProfileRequest
+  nameWithType: SaveUserProfileRequest
+  fullName: lumify.api.Models.DTO.Requests.SaveUserProfileRequest
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.UserProfileResponse}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.UserProfileResponse}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.UserProfileResponse.html
+  name: Task<ActionResult<UserProfileResponse>>
+  nameWithType: Task<ActionResult<UserProfileResponse>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<lumify.api.Models.DTO.Responses.UserProfileResponse>>
+  nameWithType.vb: Task(Of ActionResult(Of UserProfileResponse))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of lumify.api.Models.DTO.Responses.UserProfileResponse))
+  name.vb: Task(Of ActionResult(Of UserProfileResponse))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.UserProfileResponse
+    name: UserProfileResponse
+    href: lumify.api.Models.DTO.Responses.UserProfileResponse.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.UserProfileResponse
+    name: UserProfileResponse
+    href: lumify.api.Models.DTO.Responses.UserProfileResponse.html
+  - name: )
+  - name: )
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  href: lumify.html
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: lumify.api.Controllers.UsersController.SaveUserAvatar*
+  commentId: Overload:lumify.api.Controllers.UsersController.SaveUserAvatar
+  href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_SaveUserAvatar_Microsoft_AspNetCore_Http_IFormFile_System_Threading_CancellationToken_
+  name: SaveUserAvatar
+  nameWithType: UsersController.SaveUserAvatar
+  fullName: lumify.api.Controllers.UsersController.SaveUserAvatar
+- uid: Microsoft.AspNetCore.Http.IFormFile
+  commentId: T:Microsoft.AspNetCore.Http.IFormFile
+  parent: Microsoft.AspNetCore.Http
+  isExternal: true
+  name: IFormFile
+  nameWithType: IFormFile
+  fullName: Microsoft.AspNetCore.Http.IFormFile
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.String}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{System.String}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<ActionResult<string>>
+  nameWithType: Task<ActionResult<string>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<string>>
+  nameWithType.vb: Task(Of ActionResult(Of String))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of String))
+  name.vb: Task(Of ActionResult(Of String))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+  - name: )
+  - name: )
+- uid: Microsoft.AspNetCore.Http
+  commentId: N:Microsoft.AspNetCore.Http
+  isExternal: true
+  name: Microsoft.AspNetCore.Http
+  nameWithType: Microsoft.AspNetCore.Http
+  fullName: Microsoft.AspNetCore.Http
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Http
+    name: Http
+    isExternal: true
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+  - name: .
+  - uid: Microsoft.AspNetCore.Http
+    name: Http
+    isExternal: true
+- uid: lumify.api.Controllers.UsersController.DeleteAccount*
+  commentId: Overload:lumify.api.Controllers.UsersController.DeleteAccount
+  href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_DeleteAccount_System_Threading_CancellationToken_
+  name: DeleteAccount
+  nameWithType: UsersController.DeleteAccount
+  fullName: lumify.api.Controllers.UsersController.DeleteAccount
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.IActionResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IActionResult>
+  nameWithType: Task<IActionResult>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult>
+  nameWithType.vb: Task(Of IActionResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.IActionResult)
+  name.vb: Task(Of IActionResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.IActionResult
+    name: IActionResult
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.IActionResult
+    name: IActionResult
+    isExternal: true
+  - name: )
+- uid: lumify.api.Controllers.UsersController.GetUserProfileWithID*
+  commentId: Overload:lumify.api.Controllers.UsersController.GetUserProfileWithID
+  href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_GetUserProfileWithID_System_String_System_Threading_CancellationToken_
+  name: GetUserProfileWithID
+  nameWithType: UsersController.GetUserProfileWithID
+  fullName: lumify.api.Controllers.UsersController.GetUserProfileWithID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Controllers.UsersController.GetUserAccountInfoWithID*
+  commentId: Overload:lumify.api.Controllers.UsersController.GetUserAccountInfoWithID
+  href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_GetUserAccountInfoWithID_System_String_System_Threading_CancellationToken_
+  name: GetUserAccountInfoWithID
+  nameWithType: UsersController.GetUserAccountInfoWithID
+  fullName: lumify.api.Controllers.UsersController.GetUserAccountInfoWithID
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.UserAccountInfoResponse}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.UserAccountInfoResponse}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.UserAccountInfoResponse.html
+  name: Task<ActionResult<UserAccountInfoResponse>>
+  nameWithType: Task<ActionResult<UserAccountInfoResponse>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<lumify.api.Models.DTO.Responses.UserAccountInfoResponse>>
+  nameWithType.vb: Task(Of ActionResult(Of UserAccountInfoResponse))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of lumify.api.Models.DTO.Responses.UserAccountInfoResponse))
+  name.vb: Task(Of ActionResult(Of UserAccountInfoResponse))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.UserAccountInfoResponse
+    name: UserAccountInfoResponse
+    href: lumify.api.Models.DTO.Responses.UserAccountInfoResponse.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.UserAccountInfoResponse
+    name: UserAccountInfoResponse
+    href: lumify.api.Models.DTO.Responses.UserAccountInfoResponse.html
+  - name: )
+  - name: )
+- uid: lumify.api.Controllers.UsersController.GetUserPreviewWithID*
+  commentId: Overload:lumify.api.Controllers.UsersController.GetUserPreviewWithID
+  href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_GetUserPreviewWithID_System_String_System_Threading_CancellationToken_
+  name: GetUserPreviewWithID
+  nameWithType: UsersController.GetUserPreviewWithID
+  fullName: lumify.api.Controllers.UsersController.GetUserPreviewWithID
+- uid: System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.UserPreviewResponse}}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.AspNetCore.Mvc.ActionResult{lumify.api.Models.DTO.Responses.UserPreviewResponse}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: lumify.api.Models.DTO.Responses.UserPreviewResponse.html
+  name: Task<ActionResult<UserPreviewResponse>>
+  nameWithType: Task<ActionResult<UserPreviewResponse>>
+  fullName: System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.ActionResult<lumify.api.Models.DTO.Responses.UserPreviewResponse>>
+  nameWithType.vb: Task(Of ActionResult(Of UserPreviewResponse))
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.AspNetCore.Mvc.ActionResult(Of lumify.api.Models.DTO.Responses.UserPreviewResponse))
+  name.vb: Task(Of ActionResult(Of UserPreviewResponse))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: <
+  - uid: lumify.api.Models.DTO.Responses.UserPreviewResponse
+    name: UserPreviewResponse
+    href: lumify.api.Models.DTO.Responses.UserPreviewResponse.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult`1
+    name: ActionResult
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: lumify.api.Models.DTO.Responses.UserPreviewResponse
+    name: UserPreviewResponse
+    href: lumify.api.Models.DTO.Responses.UserPreviewResponse.html
+  - name: )
+  - name: )
+- uid: lumify.api.Controllers.UsersController.GetUserProfile*
+  commentId: Overload:lumify.api.Controllers.UsersController.GetUserProfile
+  href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_GetUserProfile_System_Threading_CancellationToken_
+  name: GetUserProfile
+  nameWithType: UsersController.GetUserProfile
+  fullName: lumify.api.Controllers.UsersController.GetUserProfile
+- uid: lumify.api.Controllers.UsersController.GetUserAccountInfo*
+  commentId: Overload:lumify.api.Controllers.UsersController.GetUserAccountInfo
+  href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_GetUserAccountInfo_System_Threading_CancellationToken_
+  name: GetUserAccountInfo
+  nameWithType: UsersController.GetUserAccountInfo
+  fullName: lumify.api.Controllers.UsersController.GetUserAccountInfo
+- uid: lumify.api.Controllers.UsersController.GetAvatarOfUser*
+  commentId: Overload:lumify.api.Controllers.UsersController.GetAvatarOfUser
+  href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_GetAvatarOfUser_System_Threading_CancellationToken_
+  name: GetAvatarOfUser
+  nameWithType: UsersController.GetAvatarOfUser
+  fullName: lumify.api.Controllers.UsersController.GetAvatarOfUser
+- uid: lumify.api.Controllers.UsersController.GetRelatedUsers*
+  commentId: Overload:lumify.api.Controllers.UsersController.GetRelatedUsers
+  href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_GetRelatedUsers_System_Threading_CancellationToken_
+  name: GetRelatedUsers
+  nameWithType: UsersController.GetRelatedUsers
+  fullName: lumify.api.Controllers.UsersController.GetRelatedUsers
+- uid: lumify.api.Controllers.UsersController.Get5LastModifiedTodosOfUser*
+  commentId: Overload:lumify.api.Controllers.UsersController.Get5LastModifiedTodosOfUser
+  href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_Get5LastModifiedTodosOfUser_System_Threading_CancellationToken_
+  name: Get5LastModifiedTodosOfUser
+  nameWithType: UsersController.Get5LastModifiedTodosOfUser
+  fullName: lumify.api.Controllers.UsersController.Get5LastModifiedTodosOfUser
+- uid: lumify.api.Controllers.UsersController.GetLast5ModifiedEventsOfUser*
+  commentId: Overload:lumify.api.Controllers.UsersController.GetLast5ModifiedEventsOfUser
+  href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_GetLast5ModifiedEventsOfUser_System_Threading_CancellationToken_
+  name: GetLast5ModifiedEventsOfUser
+  nameWithType: UsersController.GetLast5ModifiedEventsOfUser
+  fullName: lumify.api.Controllers.UsersController.GetLast5ModifiedEventsOfUser
+- uid: lumify.api.Controllers.UsersController.GetLast5ModifiedNotesOfUser*
+  commentId: Overload:lumify.api.Controllers.UsersController.GetLast5ModifiedNotesOfUser
+  href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_GetLast5ModifiedNotesOfUser_System_Threading_CancellationToken_
+  name: GetLast5ModifiedNotesOfUser
+  nameWithType: UsersController.GetLast5ModifiedNotesOfUser
+  fullName: lumify.api.Controllers.UsersController.GetLast5ModifiedNotesOfUser
+- uid: lumify.api.Controllers.UsersController.SearchUsers*
+  commentId: Overload:lumify.api.Controllers.UsersController.SearchUsers
+  href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_SearchUsers_System_String_System_Threading_CancellationToken_
+  name: SearchUsers
+  nameWithType: UsersController.SearchUsers
+  fullName: lumify.api.Controllers.UsersController.SearchUsers
+- uid: lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace*
+  commentId: Overload:lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace
+  href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_SearchAvailableUsersForWorkspace_System_String_System_String_System_Threading_CancellationToken_
+  name: SearchAvailableUsersForWorkspace
+  nameWithType: UsersController.SearchAvailableUsersForWorkspace
+  fullName: lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace

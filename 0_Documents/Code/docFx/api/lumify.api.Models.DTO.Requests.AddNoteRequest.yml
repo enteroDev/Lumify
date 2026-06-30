@@ -1,0 +1,211 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.DTO.Requests.AddNoteRequest
+  commentId: T:lumify.api.Models.DTO.Requests.AddNoteRequest
+  id: AddNoteRequest
+  parent: lumify.api.Models.DTO.Requests
+  children:
+  - lumify.api.Models.DTO.Requests.AddNoteRequest.FolderID
+  - lumify.api.Models.DTO.Requests.AddNoteRequest.Name
+  - lumify.api.Models.DTO.Requests.AddNoteRequest.WorkspaceID
+  langs:
+  - csharp
+  - vb
+  name: AddNoteRequest
+  nameWithType: AddNoteRequest
+  fullName: lumify.api.Models.DTO.Requests.AddNoteRequest
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddNoteRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AddNoteRequest
+    path: ../../../lumify.api/Models/DTO/Requests/AddNoteRequest.cs
+    startLine: 2
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public sealed class AddNoteRequest
+    content.vb: Public NotInheritable Class AddNoteRequest
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.DTO.Requests.AddNoteRequest.FolderID
+  commentId: P:lumify.api.Models.DTO.Requests.AddNoteRequest.FolderID
+  id: FolderID
+  parent: lumify.api.Models.DTO.Requests.AddNoteRequest
+  langs:
+  - csharp
+  - vb
+  name: FolderID
+  nameWithType: AddNoteRequest.FolderID
+  fullName: lumify.api.Models.DTO.Requests.AddNoteRequest.FolderID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddNoteRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: FolderID
+    path: ../../../lumify.api/Models/DTO/Requests/AddNoteRequest.cs
+    startLine: 4
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string? FolderID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FolderID As String
+  overload: lumify.api.Models.DTO.Requests.AddNoteRequest.FolderID*
+- uid: lumify.api.Models.DTO.Requests.AddNoteRequest.Name
+  commentId: P:lumify.api.Models.DTO.Requests.AddNoteRequest.Name
+  id: Name
+  parent: lumify.api.Models.DTO.Requests.AddNoteRequest
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: AddNoteRequest.Name
+  fullName: lumify.api.Models.DTO.Requests.AddNoteRequest.Name
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddNoteRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Name
+    path: ../../../lumify.api/Models/DTO/Requests/AddNoteRequest.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: lumify.api.Models.DTO.Requests.AddNoteRequest.Name*
+- uid: lumify.api.Models.DTO.Requests.AddNoteRequest.WorkspaceID
+  commentId: P:lumify.api.Models.DTO.Requests.AddNoteRequest.WorkspaceID
+  id: WorkspaceID
+  parent: lumify.api.Models.DTO.Requests.AddNoteRequest
+  langs:
+  - csharp
+  - vb
+  name: WorkspaceID
+  nameWithType: AddNoteRequest.WorkspaceID
+  fullName: lumify.api.Models.DTO.Requests.AddNoteRequest.WorkspaceID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/AddNoteRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: WorkspaceID
+    path: ../../../lumify.api/Models/DTO/Requests/AddNoteRequest.cs
+    startLine: 6
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string? WorkspaceID { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property WorkspaceID As String
+  overload: lumify.api.Models.DTO.Requests.AddNoteRequest.WorkspaceID*
+references:
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  href: lumify.html
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.DTO.Requests.AddNoteRequest.FolderID*
+  commentId: Overload:lumify.api.Models.DTO.Requests.AddNoteRequest.FolderID
+  href: lumify.api.Models.DTO.Requests.AddNoteRequest.html#lumify_api_Models_DTO_Requests_AddNoteRequest_FolderID
+  name: FolderID
+  nameWithType: AddNoteRequest.FolderID
+  fullName: lumify.api.Models.DTO.Requests.AddNoteRequest.FolderID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.DTO.Requests.AddNoteRequest.Name*
+  commentId: Overload:lumify.api.Models.DTO.Requests.AddNoteRequest.Name
+  href: lumify.api.Models.DTO.Requests.AddNoteRequest.html#lumify_api_Models_DTO_Requests_AddNoteRequest_Name
+  name: Name
+  nameWithType: AddNoteRequest.Name
+  fullName: lumify.api.Models.DTO.Requests.AddNoteRequest.Name
+- uid: lumify.api.Models.DTO.Requests.AddNoteRequest.WorkspaceID*
+  commentId: Overload:lumify.api.Models.DTO.Requests.AddNoteRequest.WorkspaceID
+  href: lumify.api.Models.DTO.Requests.AddNoteRequest.html#lumify_api_Models_DTO_Requests_AddNoteRequest_WorkspaceID
+  name: WorkspaceID
+  nameWithType: AddNoteRequest.WorkspaceID
+  fullName: lumify.api.Models.DTO.Requests.AddNoteRequest.WorkspaceID

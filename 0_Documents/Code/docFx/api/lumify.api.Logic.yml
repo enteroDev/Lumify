@@ -1,0 +1,61 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Logic
+  commentId: N:lumify.api.Logic
+  id: lumify.api.Logic
+  children:
+  - lumify.api.Logic.CsrfMiddleware
+  - lumify.api.Logic.InternalLogic
+  langs:
+  - csharp
+  - vb
+  name: lumify.api.Logic
+  nameWithType: lumify.api.Logic
+  fullName: lumify.api.Logic
+  type: Namespace
+  assemblies:
+  - lumify.api
+references:
+- uid: lumify.api.Logic.CsrfMiddleware
+  commentId: T:lumify.api.Logic.CsrfMiddleware
+  href: lumify.api.Logic.CsrfMiddleware.html
+  name: CsrfMiddleware
+  nameWithType: CsrfMiddleware
+  fullName: lumify.api.Logic.CsrfMiddleware
+- uid: lumify.api.Logic.InternalLogic
+  commentId: T:lumify.api.Logic.InternalLogic
+  parent: lumify.api.Logic
+  href: lumify.api.Logic.InternalLogic.html
+  name: InternalLogic
+  nameWithType: InternalLogic
+  fullName: lumify.api.Logic.InternalLogic
+- uid: lumify.api.Logic
+  commentId: N:lumify.api.Logic
+  href: lumify.html
+  name: lumify.api.Logic
+  nameWithType: lumify.api.Logic
+  fullName: lumify.api.Logic
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Logic
+    name: Logic
+    href: lumify.api.Logic.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Logic
+    name: Logic
+    href: lumify.api.Logic.html

@@ -1,0 +1,319 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.DTO.Requests.RegisterRequest
+  commentId: T:lumify.api.Models.DTO.Requests.RegisterRequest
+  id: RegisterRequest
+  parent: lumify.api.Models.DTO.Requests
+  children:
+  - lumify.api.Models.DTO.Requests.RegisterRequest.AvatarBase64
+  - lumify.api.Models.DTO.Requests.RegisterRequest.Email
+  - lumify.api.Models.DTO.Requests.RegisterRequest.FirstName
+  - lumify.api.Models.DTO.Requests.RegisterRequest.LastName
+  - lumify.api.Models.DTO.Requests.RegisterRequest.Password
+  - lumify.api.Models.DTO.Requests.RegisterRequest.Username
+  langs:
+  - csharp
+  - vb
+  name: RegisterRequest
+  nameWithType: RegisterRequest
+  fullName: lumify.api.Models.DTO.Requests.RegisterRequest
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/RegisterRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: RegisterRequest
+    path: ../../../lumify.api/Models/DTO/Requests/RegisterRequest.cs
+    startLine: 3
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public sealed class RegisterRequest
+    content.vb: Public NotInheritable Class RegisterRequest
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.DTO.Requests.RegisterRequest.Email
+  commentId: P:lumify.api.Models.DTO.Requests.RegisterRequest.Email
+  id: Email
+  parent: lumify.api.Models.DTO.Requests.RegisterRequest
+  langs:
+  - csharp
+  - vb
+  name: Email
+  nameWithType: RegisterRequest.Email
+  fullName: lumify.api.Models.DTO.Requests.RegisterRequest.Email
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/RegisterRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Email
+    path: ../../../lumify.api/Models/DTO/Requests/RegisterRequest.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public required string Email { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Email As String
+  overload: lumify.api.Models.DTO.Requests.RegisterRequest.Email*
+- uid: lumify.api.Models.DTO.Requests.RegisterRequest.Username
+  commentId: P:lumify.api.Models.DTO.Requests.RegisterRequest.Username
+  id: Username
+  parent: lumify.api.Models.DTO.Requests.RegisterRequest
+  langs:
+  - csharp
+  - vb
+  name: Username
+  nameWithType: RegisterRequest.Username
+  fullName: lumify.api.Models.DTO.Requests.RegisterRequest.Username
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/RegisterRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Username
+    path: ../../../lumify.api/Models/DTO/Requests/RegisterRequest.cs
+    startLine: 6
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public required string Username { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Username As String
+  overload: lumify.api.Models.DTO.Requests.RegisterRequest.Username*
+- uid: lumify.api.Models.DTO.Requests.RegisterRequest.Password
+  commentId: P:lumify.api.Models.DTO.Requests.RegisterRequest.Password
+  id: Password
+  parent: lumify.api.Models.DTO.Requests.RegisterRequest
+  langs:
+  - csharp
+  - vb
+  name: Password
+  nameWithType: RegisterRequest.Password
+  fullName: lumify.api.Models.DTO.Requests.RegisterRequest.Password
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/RegisterRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Password
+    path: ../../../lumify.api/Models/DTO/Requests/RegisterRequest.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public required string Password { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Password As String
+  overload: lumify.api.Models.DTO.Requests.RegisterRequest.Password*
+- uid: lumify.api.Models.DTO.Requests.RegisterRequest.FirstName
+  commentId: P:lumify.api.Models.DTO.Requests.RegisterRequest.FirstName
+  id: FirstName
+  parent: lumify.api.Models.DTO.Requests.RegisterRequest
+  langs:
+  - csharp
+  - vb
+  name: FirstName
+  nameWithType: RegisterRequest.FirstName
+  fullName: lumify.api.Models.DTO.Requests.RegisterRequest.FirstName
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/RegisterRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: FirstName
+    path: ../../../lumify.api/Models/DTO/Requests/RegisterRequest.cs
+    startLine: 8
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public required string FirstName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FirstName As String
+  overload: lumify.api.Models.DTO.Requests.RegisterRequest.FirstName*
+- uid: lumify.api.Models.DTO.Requests.RegisterRequest.LastName
+  commentId: P:lumify.api.Models.DTO.Requests.RegisterRequest.LastName
+  id: LastName
+  parent: lumify.api.Models.DTO.Requests.RegisterRequest
+  langs:
+  - csharp
+  - vb
+  name: LastName
+  nameWithType: RegisterRequest.LastName
+  fullName: lumify.api.Models.DTO.Requests.RegisterRequest.LastName
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/RegisterRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: LastName
+    path: ../../../lumify.api/Models/DTO/Requests/RegisterRequest.cs
+    startLine: 9
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public required string LastName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property LastName As String
+  overload: lumify.api.Models.DTO.Requests.RegisterRequest.LastName*
+- uid: lumify.api.Models.DTO.Requests.RegisterRequest.AvatarBase64
+  commentId: P:lumify.api.Models.DTO.Requests.RegisterRequest.AvatarBase64
+  id: AvatarBase64
+  parent: lumify.api.Models.DTO.Requests.RegisterRequest
+  langs:
+  - csharp
+  - vb
+  name: AvatarBase64
+  nameWithType: RegisterRequest.AvatarBase64
+  fullName: lumify.api.Models.DTO.Requests.RegisterRequest.AvatarBase64
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Requests/RegisterRequest.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AvatarBase64
+    path: ../../../lumify.api/Models/DTO/Requests/RegisterRequest.cs
+    startLine: 10
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Requests
+  syntax:
+    content: public string? AvatarBase64 { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AvatarBase64 As String
+  overload: lumify.api.Models.DTO.Requests.RegisterRequest.AvatarBase64*
+references:
+- uid: lumify.api.Models.DTO.Requests
+  commentId: N:lumify.api.Models.DTO.Requests
+  href: lumify.html
+  name: lumify.api.Models.DTO.Requests
+  nameWithType: lumify.api.Models.DTO.Requests
+  fullName: lumify.api.Models.DTO.Requests
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Requests
+    name: Requests
+    href: lumify.api.Models.DTO.Requests.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.DTO.Requests.RegisterRequest.Email*
+  commentId: Overload:lumify.api.Models.DTO.Requests.RegisterRequest.Email
+  href: lumify.api.Models.DTO.Requests.RegisterRequest.html#lumify_api_Models_DTO_Requests_RegisterRequest_Email
+  name: Email
+  nameWithType: RegisterRequest.Email
+  fullName: lumify.api.Models.DTO.Requests.RegisterRequest.Email
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.DTO.Requests.RegisterRequest.Username*
+  commentId: Overload:lumify.api.Models.DTO.Requests.RegisterRequest.Username
+  href: lumify.api.Models.DTO.Requests.RegisterRequest.html#lumify_api_Models_DTO_Requests_RegisterRequest_Username
+  name: Username
+  nameWithType: RegisterRequest.Username
+  fullName: lumify.api.Models.DTO.Requests.RegisterRequest.Username
+- uid: lumify.api.Models.DTO.Requests.RegisterRequest.Password*
+  commentId: Overload:lumify.api.Models.DTO.Requests.RegisterRequest.Password
+  href: lumify.api.Models.DTO.Requests.RegisterRequest.html#lumify_api_Models_DTO_Requests_RegisterRequest_Password
+  name: Password
+  nameWithType: RegisterRequest.Password
+  fullName: lumify.api.Models.DTO.Requests.RegisterRequest.Password
+- uid: lumify.api.Models.DTO.Requests.RegisterRequest.FirstName*
+  commentId: Overload:lumify.api.Models.DTO.Requests.RegisterRequest.FirstName
+  href: lumify.api.Models.DTO.Requests.RegisterRequest.html#lumify_api_Models_DTO_Requests_RegisterRequest_FirstName
+  name: FirstName
+  nameWithType: RegisterRequest.FirstName
+  fullName: lumify.api.Models.DTO.Requests.RegisterRequest.FirstName
+- uid: lumify.api.Models.DTO.Requests.RegisterRequest.LastName*
+  commentId: Overload:lumify.api.Models.DTO.Requests.RegisterRequest.LastName
+  href: lumify.api.Models.DTO.Requests.RegisterRequest.html#lumify_api_Models_DTO_Requests_RegisterRequest_LastName
+  name: LastName
+  nameWithType: RegisterRequest.LastName
+  fullName: lumify.api.Models.DTO.Requests.RegisterRequest.LastName
+- uid: lumify.api.Models.DTO.Requests.RegisterRequest.AvatarBase64*
+  commentId: Overload:lumify.api.Models.DTO.Requests.RegisterRequest.AvatarBase64
+  href: lumify.api.Models.DTO.Requests.RegisterRequest.html#lumify_api_Models_DTO_Requests_RegisterRequest_AvatarBase64
+  name: AvatarBase64
+  nameWithType: RegisterRequest.AvatarBase64
+  fullName: lumify.api.Models.DTO.Requests.RegisterRequest.AvatarBase64

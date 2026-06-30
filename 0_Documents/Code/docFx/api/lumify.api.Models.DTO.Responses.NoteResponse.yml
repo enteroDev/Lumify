@@ -1,0 +1,391 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.DTO.Responses.NoteResponse
+  commentId: T:lumify.api.Models.DTO.Responses.NoteResponse
+  id: NoteResponse
+  parent: lumify.api.Models.DTO.Responses
+  children:
+  - lumify.api.Models.DTO.Responses.NoteResponse.CreatedAt
+  - lumify.api.Models.DTO.Responses.NoteResponse.FolderID
+  - lumify.api.Models.DTO.Responses.NoteResponse.ID
+  - lumify.api.Models.DTO.Responses.NoteResponse.Name
+  - lumify.api.Models.DTO.Responses.NoteResponse.OwnerID
+  - lumify.api.Models.DTO.Responses.NoteResponse.OwnerName
+  - lumify.api.Models.DTO.Responses.NoteResponse.UpdatedAt
+  - lumify.api.Models.DTO.Responses.NoteResponse.WorkspaceID
+  langs:
+  - csharp
+  - vb
+  name: NoteResponse
+  nameWithType: NoteResponse
+  fullName: lumify.api.Models.DTO.Responses.NoteResponse
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/NoteResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: NoteResponse
+    path: ../../../lumify.api/Models/DTO/Responses/NoteResponse.cs
+    startLine: 3
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public sealed class NoteResponse
+    content.vb: Public NotInheritable Class NoteResponse
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.DTO.Responses.NoteResponse.ID
+  commentId: P:lumify.api.Models.DTO.Responses.NoteResponse.ID
+  id: ID
+  parent: lumify.api.Models.DTO.Responses.NoteResponse
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: NoteResponse.ID
+  fullName: lumify.api.Models.DTO.Responses.NoteResponse.ID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/NoteResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ID
+    path: ../../../lumify.api/Models/DTO/Responses/NoteResponse.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string ID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ID As String
+  overload: lumify.api.Models.DTO.Responses.NoteResponse.ID*
+- uid: lumify.api.Models.DTO.Responses.NoteResponse.OwnerID
+  commentId: P:lumify.api.Models.DTO.Responses.NoteResponse.OwnerID
+  id: OwnerID
+  parent: lumify.api.Models.DTO.Responses.NoteResponse
+  langs:
+  - csharp
+  - vb
+  name: OwnerID
+  nameWithType: NoteResponse.OwnerID
+  fullName: lumify.api.Models.DTO.Responses.NoteResponse.OwnerID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/NoteResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: OwnerID
+    path: ../../../lumify.api/Models/DTO/Responses/NoteResponse.cs
+    startLine: 6
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string OwnerID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OwnerID As String
+  overload: lumify.api.Models.DTO.Responses.NoteResponse.OwnerID*
+- uid: lumify.api.Models.DTO.Responses.NoteResponse.OwnerName
+  commentId: P:lumify.api.Models.DTO.Responses.NoteResponse.OwnerName
+  id: OwnerName
+  parent: lumify.api.Models.DTO.Responses.NoteResponse
+  langs:
+  - csharp
+  - vb
+  name: OwnerName
+  nameWithType: NoteResponse.OwnerName
+  fullName: lumify.api.Models.DTO.Responses.NoteResponse.OwnerName
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/NoteResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: OwnerName
+    path: ../../../lumify.api/Models/DTO/Responses/NoteResponse.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string? OwnerName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OwnerName As String
+  overload: lumify.api.Models.DTO.Responses.NoteResponse.OwnerName*
+- uid: lumify.api.Models.DTO.Responses.NoteResponse.WorkspaceID
+  commentId: P:lumify.api.Models.DTO.Responses.NoteResponse.WorkspaceID
+  id: WorkspaceID
+  parent: lumify.api.Models.DTO.Responses.NoteResponse
+  langs:
+  - csharp
+  - vb
+  name: WorkspaceID
+  nameWithType: NoteResponse.WorkspaceID
+  fullName: lumify.api.Models.DTO.Responses.NoteResponse.WorkspaceID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/NoteResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: WorkspaceID
+    path: ../../../lumify.api/Models/DTO/Responses/NoteResponse.cs
+    startLine: 8
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string? WorkspaceID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property WorkspaceID As String
+  overload: lumify.api.Models.DTO.Responses.NoteResponse.WorkspaceID*
+- uid: lumify.api.Models.DTO.Responses.NoteResponse.FolderID
+  commentId: P:lumify.api.Models.DTO.Responses.NoteResponse.FolderID
+  id: FolderID
+  parent: lumify.api.Models.DTO.Responses.NoteResponse
+  langs:
+  - csharp
+  - vb
+  name: FolderID
+  nameWithType: NoteResponse.FolderID
+  fullName: lumify.api.Models.DTO.Responses.NoteResponse.FolderID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/NoteResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: FolderID
+    path: ../../../lumify.api/Models/DTO/Responses/NoteResponse.cs
+    startLine: 9
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string? FolderID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FolderID As String
+  overload: lumify.api.Models.DTO.Responses.NoteResponse.FolderID*
+- uid: lumify.api.Models.DTO.Responses.NoteResponse.Name
+  commentId: P:lumify.api.Models.DTO.Responses.NoteResponse.Name
+  id: Name
+  parent: lumify.api.Models.DTO.Responses.NoteResponse
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: NoteResponse.Name
+  fullName: lumify.api.Models.DTO.Responses.NoteResponse.Name
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/NoteResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Name
+    path: ../../../lumify.api/Models/DTO/Responses/NoteResponse.cs
+    startLine: 10
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: lumify.api.Models.DTO.Responses.NoteResponse.Name*
+- uid: lumify.api.Models.DTO.Responses.NoteResponse.CreatedAt
+  commentId: P:lumify.api.Models.DTO.Responses.NoteResponse.CreatedAt
+  id: CreatedAt
+  parent: lumify.api.Models.DTO.Responses.NoteResponse
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: NoteResponse.CreatedAt
+  fullName: lumify.api.Models.DTO.Responses.NoteResponse.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/NoteResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: CreatedAt
+    path: ../../../lumify.api/Models/DTO/Responses/NoteResponse.cs
+    startLine: 11
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreatedAt As String
+  overload: lumify.api.Models.DTO.Responses.NoteResponse.CreatedAt*
+- uid: lumify.api.Models.DTO.Responses.NoteResponse.UpdatedAt
+  commentId: P:lumify.api.Models.DTO.Responses.NoteResponse.UpdatedAt
+  id: UpdatedAt
+  parent: lumify.api.Models.DTO.Responses.NoteResponse
+  langs:
+  - csharp
+  - vb
+  name: UpdatedAt
+  nameWithType: NoteResponse.UpdatedAt
+  fullName: lumify.api.Models.DTO.Responses.NoteResponse.UpdatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/NoteResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UpdatedAt
+    path: ../../../lumify.api/Models/DTO/Responses/NoteResponse.cs
+    startLine: 12
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string UpdatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UpdatedAt As String
+  overload: lumify.api.Models.DTO.Responses.NoteResponse.UpdatedAt*
+references:
+- uid: lumify.api.Models.DTO.Responses
+  commentId: N:lumify.api.Models.DTO.Responses
+  href: lumify.html
+  name: lumify.api.Models.DTO.Responses
+  nameWithType: lumify.api.Models.DTO.Responses
+  fullName: lumify.api.Models.DTO.Responses
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Responses
+    name: Responses
+    href: lumify.api.Models.DTO.Responses.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Responses
+    name: Responses
+    href: lumify.api.Models.DTO.Responses.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.DTO.Responses.NoteResponse.ID*
+  commentId: Overload:lumify.api.Models.DTO.Responses.NoteResponse.ID
+  href: lumify.api.Models.DTO.Responses.NoteResponse.html#lumify_api_Models_DTO_Responses_NoteResponse_ID
+  name: ID
+  nameWithType: NoteResponse.ID
+  fullName: lumify.api.Models.DTO.Responses.NoteResponse.ID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.DTO.Responses.NoteResponse.OwnerID*
+  commentId: Overload:lumify.api.Models.DTO.Responses.NoteResponse.OwnerID
+  href: lumify.api.Models.DTO.Responses.NoteResponse.html#lumify_api_Models_DTO_Responses_NoteResponse_OwnerID
+  name: OwnerID
+  nameWithType: NoteResponse.OwnerID
+  fullName: lumify.api.Models.DTO.Responses.NoteResponse.OwnerID
+- uid: lumify.api.Models.DTO.Responses.NoteResponse.OwnerName*
+  commentId: Overload:lumify.api.Models.DTO.Responses.NoteResponse.OwnerName
+  href: lumify.api.Models.DTO.Responses.NoteResponse.html#lumify_api_Models_DTO_Responses_NoteResponse_OwnerName
+  name: OwnerName
+  nameWithType: NoteResponse.OwnerName
+  fullName: lumify.api.Models.DTO.Responses.NoteResponse.OwnerName
+- uid: lumify.api.Models.DTO.Responses.NoteResponse.WorkspaceID*
+  commentId: Overload:lumify.api.Models.DTO.Responses.NoteResponse.WorkspaceID
+  href: lumify.api.Models.DTO.Responses.NoteResponse.html#lumify_api_Models_DTO_Responses_NoteResponse_WorkspaceID
+  name: WorkspaceID
+  nameWithType: NoteResponse.WorkspaceID
+  fullName: lumify.api.Models.DTO.Responses.NoteResponse.WorkspaceID
+- uid: lumify.api.Models.DTO.Responses.NoteResponse.FolderID*
+  commentId: Overload:lumify.api.Models.DTO.Responses.NoteResponse.FolderID
+  href: lumify.api.Models.DTO.Responses.NoteResponse.html#lumify_api_Models_DTO_Responses_NoteResponse_FolderID
+  name: FolderID
+  nameWithType: NoteResponse.FolderID
+  fullName: lumify.api.Models.DTO.Responses.NoteResponse.FolderID
+- uid: lumify.api.Models.DTO.Responses.NoteResponse.Name*
+  commentId: Overload:lumify.api.Models.DTO.Responses.NoteResponse.Name
+  href: lumify.api.Models.DTO.Responses.NoteResponse.html#lumify_api_Models_DTO_Responses_NoteResponse_Name
+  name: Name
+  nameWithType: NoteResponse.Name
+  fullName: lumify.api.Models.DTO.Responses.NoteResponse.Name
+- uid: lumify.api.Models.DTO.Responses.NoteResponse.CreatedAt*
+  commentId: Overload:lumify.api.Models.DTO.Responses.NoteResponse.CreatedAt
+  href: lumify.api.Models.DTO.Responses.NoteResponse.html#lumify_api_Models_DTO_Responses_NoteResponse_CreatedAt
+  name: CreatedAt
+  nameWithType: NoteResponse.CreatedAt
+  fullName: lumify.api.Models.DTO.Responses.NoteResponse.CreatedAt
+- uid: lumify.api.Models.DTO.Responses.NoteResponse.UpdatedAt*
+  commentId: Overload:lumify.api.Models.DTO.Responses.NoteResponse.UpdatedAt
+  href: lumify.api.Models.DTO.Responses.NoteResponse.html#lumify_api_Models_DTO_Responses_NoteResponse_UpdatedAt
+  name: UpdatedAt
+  nameWithType: NoteResponse.UpdatedAt
+  fullName: lumify.api.Models.DTO.Responses.NoteResponse.UpdatedAt

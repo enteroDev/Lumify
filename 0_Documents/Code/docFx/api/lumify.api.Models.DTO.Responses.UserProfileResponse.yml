@@ -1,0 +1,319 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.DTO.Responses.UserProfileResponse
+  commentId: T:lumify.api.Models.DTO.Responses.UserProfileResponse
+  id: UserProfileResponse
+  parent: lumify.api.Models.DTO.Responses
+  children:
+  - lumify.api.Models.DTO.Responses.UserProfileResponse.AvatarUrl
+  - lumify.api.Models.DTO.Responses.UserProfileResponse.Bio
+  - lumify.api.Models.DTO.Responses.UserProfileResponse.CreatedAt
+  - lumify.api.Models.DTO.Responses.UserProfileResponse.DisplayName
+  - lumify.api.Models.DTO.Responses.UserProfileResponse.ID
+  - lumify.api.Models.DTO.Responses.UserProfileResponse.UpdatedAt
+  langs:
+  - csharp
+  - vb
+  name: UserProfileResponse
+  nameWithType: UserProfileResponse
+  fullName: lumify.api.Models.DTO.Responses.UserProfileResponse
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/UserProfileResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UserProfileResponse
+    path: ../../../lumify.api/Models/DTO/Responses/UserProfileResponse.cs
+    startLine: 2
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public sealed class UserProfileResponse
+    content.vb: Public NotInheritable Class UserProfileResponse
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.DTO.Responses.UserProfileResponse.ID
+  commentId: P:lumify.api.Models.DTO.Responses.UserProfileResponse.ID
+  id: ID
+  parent: lumify.api.Models.DTO.Responses.UserProfileResponse
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: UserProfileResponse.ID
+  fullName: lumify.api.Models.DTO.Responses.UserProfileResponse.ID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/UserProfileResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ID
+    path: ../../../lumify.api/Models/DTO/Responses/UserProfileResponse.cs
+    startLine: 4
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string ID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ID As String
+  overload: lumify.api.Models.DTO.Responses.UserProfileResponse.ID*
+- uid: lumify.api.Models.DTO.Responses.UserProfileResponse.DisplayName
+  commentId: P:lumify.api.Models.DTO.Responses.UserProfileResponse.DisplayName
+  id: DisplayName
+  parent: lumify.api.Models.DTO.Responses.UserProfileResponse
+  langs:
+  - csharp
+  - vb
+  name: DisplayName
+  nameWithType: UserProfileResponse.DisplayName
+  fullName: lumify.api.Models.DTO.Responses.UserProfileResponse.DisplayName
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/UserProfileResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DisplayName
+    path: ../../../lumify.api/Models/DTO/Responses/UserProfileResponse.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string? DisplayName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DisplayName As String
+  overload: lumify.api.Models.DTO.Responses.UserProfileResponse.DisplayName*
+- uid: lumify.api.Models.DTO.Responses.UserProfileResponse.AvatarUrl
+  commentId: P:lumify.api.Models.DTO.Responses.UserProfileResponse.AvatarUrl
+  id: AvatarUrl
+  parent: lumify.api.Models.DTO.Responses.UserProfileResponse
+  langs:
+  - csharp
+  - vb
+  name: AvatarUrl
+  nameWithType: UserProfileResponse.AvatarUrl
+  fullName: lumify.api.Models.DTO.Responses.UserProfileResponse.AvatarUrl
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/UserProfileResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: AvatarUrl
+    path: ../../../lumify.api/Models/DTO/Responses/UserProfileResponse.cs
+    startLine: 6
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string? AvatarUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AvatarUrl As String
+  overload: lumify.api.Models.DTO.Responses.UserProfileResponse.AvatarUrl*
+- uid: lumify.api.Models.DTO.Responses.UserProfileResponse.Bio
+  commentId: P:lumify.api.Models.DTO.Responses.UserProfileResponse.Bio
+  id: Bio
+  parent: lumify.api.Models.DTO.Responses.UserProfileResponse
+  langs:
+  - csharp
+  - vb
+  name: Bio
+  nameWithType: UserProfileResponse.Bio
+  fullName: lumify.api.Models.DTO.Responses.UserProfileResponse.Bio
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/UserProfileResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Bio
+    path: ../../../lumify.api/Models/DTO/Responses/UserProfileResponse.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string? Bio { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Bio As String
+  overload: lumify.api.Models.DTO.Responses.UserProfileResponse.Bio*
+- uid: lumify.api.Models.DTO.Responses.UserProfileResponse.CreatedAt
+  commentId: P:lumify.api.Models.DTO.Responses.UserProfileResponse.CreatedAt
+  id: CreatedAt
+  parent: lumify.api.Models.DTO.Responses.UserProfileResponse
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: UserProfileResponse.CreatedAt
+  fullName: lumify.api.Models.DTO.Responses.UserProfileResponse.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/UserProfileResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: CreatedAt
+    path: ../../../lumify.api/Models/DTO/Responses/UserProfileResponse.cs
+    startLine: 8
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreatedAt As String
+  overload: lumify.api.Models.DTO.Responses.UserProfileResponse.CreatedAt*
+- uid: lumify.api.Models.DTO.Responses.UserProfileResponse.UpdatedAt
+  commentId: P:lumify.api.Models.DTO.Responses.UserProfileResponse.UpdatedAt
+  id: UpdatedAt
+  parent: lumify.api.Models.DTO.Responses.UserProfileResponse
+  langs:
+  - csharp
+  - vb
+  name: UpdatedAt
+  nameWithType: UserProfileResponse.UpdatedAt
+  fullName: lumify.api.Models.DTO.Responses.UserProfileResponse.UpdatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/DTO/Responses/UserProfileResponse.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UpdatedAt
+    path: ../../../lumify.api/Models/DTO/Responses/UserProfileResponse.cs
+    startLine: 9
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.DTO.Responses
+  syntax:
+    content: public string UpdatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UpdatedAt As String
+  overload: lumify.api.Models.DTO.Responses.UserProfileResponse.UpdatedAt*
+references:
+- uid: lumify.api.Models.DTO.Responses
+  commentId: N:lumify.api.Models.DTO.Responses
+  href: lumify.html
+  name: lumify.api.Models.DTO.Responses
+  nameWithType: lumify.api.Models.DTO.Responses
+  fullName: lumify.api.Models.DTO.Responses
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Responses
+    name: Responses
+    href: lumify.api.Models.DTO.Responses.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.DTO
+    name: DTO
+    href: lumify.api.Models.DTO.html
+  - name: .
+  - uid: lumify.api.Models.DTO.Responses
+    name: Responses
+    href: lumify.api.Models.DTO.Responses.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.DTO.Responses.UserProfileResponse.ID*
+  commentId: Overload:lumify.api.Models.DTO.Responses.UserProfileResponse.ID
+  href: lumify.api.Models.DTO.Responses.UserProfileResponse.html#lumify_api_Models_DTO_Responses_UserProfileResponse_ID
+  name: ID
+  nameWithType: UserProfileResponse.ID
+  fullName: lumify.api.Models.DTO.Responses.UserProfileResponse.ID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.DTO.Responses.UserProfileResponse.DisplayName*
+  commentId: Overload:lumify.api.Models.DTO.Responses.UserProfileResponse.DisplayName
+  href: lumify.api.Models.DTO.Responses.UserProfileResponse.html#lumify_api_Models_DTO_Responses_UserProfileResponse_DisplayName
+  name: DisplayName
+  nameWithType: UserProfileResponse.DisplayName
+  fullName: lumify.api.Models.DTO.Responses.UserProfileResponse.DisplayName
+- uid: lumify.api.Models.DTO.Responses.UserProfileResponse.AvatarUrl*
+  commentId: Overload:lumify.api.Models.DTO.Responses.UserProfileResponse.AvatarUrl
+  href: lumify.api.Models.DTO.Responses.UserProfileResponse.html#lumify_api_Models_DTO_Responses_UserProfileResponse_AvatarUrl
+  name: AvatarUrl
+  nameWithType: UserProfileResponse.AvatarUrl
+  fullName: lumify.api.Models.DTO.Responses.UserProfileResponse.AvatarUrl
+- uid: lumify.api.Models.DTO.Responses.UserProfileResponse.Bio*
+  commentId: Overload:lumify.api.Models.DTO.Responses.UserProfileResponse.Bio
+  href: lumify.api.Models.DTO.Responses.UserProfileResponse.html#lumify_api_Models_DTO_Responses_UserProfileResponse_Bio
+  name: Bio
+  nameWithType: UserProfileResponse.Bio
+  fullName: lumify.api.Models.DTO.Responses.UserProfileResponse.Bio
+- uid: lumify.api.Models.DTO.Responses.UserProfileResponse.CreatedAt*
+  commentId: Overload:lumify.api.Models.DTO.Responses.UserProfileResponse.CreatedAt
+  href: lumify.api.Models.DTO.Responses.UserProfileResponse.html#lumify_api_Models_DTO_Responses_UserProfileResponse_CreatedAt
+  name: CreatedAt
+  nameWithType: UserProfileResponse.CreatedAt
+  fullName: lumify.api.Models.DTO.Responses.UserProfileResponse.CreatedAt
+- uid: lumify.api.Models.DTO.Responses.UserProfileResponse.UpdatedAt*
+  commentId: Overload:lumify.api.Models.DTO.Responses.UserProfileResponse.UpdatedAt
+  href: lumify.api.Models.DTO.Responses.UserProfileResponse.html#lumify_api_Models_DTO_Responses_UserProfileResponse_UpdatedAt
+  name: UpdatedAt
+  nameWithType: UserProfileResponse.UpdatedAt
+  fullName: lumify.api.Models.DTO.Responses.UserProfileResponse.UpdatedAt

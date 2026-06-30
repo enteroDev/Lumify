@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TodoListsController | Lumify – Code Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TodoListsController | Lumify – Code Documentation ">
+      
+      <meta name="description" content="Manages todo lists and their entries, both personal (no workspace) and workspace-shared, including creation, editing, deletion and various queries. All endpoints require an authenticated user. Changes to workspace items are pushed live to the workspace group over the .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/enteroDev/Lumify/new/main/apiSpec/new?filename=lumify_api_Controllers_TodoListsController.md&amp;value=---%0Auid%3A%20lumify.api.Controllers.TodoListsController%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Lumify">
+            Lumify
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="lumify.api.Controllers.TodoListsController">
+
+
+
+  <h1 id="lumify_api_Controllers_TodoListsController" data-uid="lumify.api.Controllers.TodoListsController" class="text-break">
+Class TodoListsController  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/TodoListsController.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="lumify.html">lumify</a>.<a class="xref" href="lumify.api.html">api</a>.<a class="xref" href="lumify.api.Controllers.html">Controllers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Manages todo lists and their entries, both personal (no workspace) and workspace-shared,
+including creation, editing, deletion and various queries. All endpoints require an
+authenticated user. Changes to workspace items are pushed live to the workspace group
+over the <a class="xref" href="lumify.api.Hubs.TodoHub.html">TodoHub</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ApiController]
+[Route(&quot;todos/[action]&quot;)]
+[Authorize]
+public class TodoListsController : ControllerBase</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ControllerBase</span></div>
+      <div><span class="xref">TodoListsController</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="lumify_api_Controllers_TodoListsController_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Status values are integers: 1 = pending/open, 2 = done. A list's status is kept in sync
+with its entries: checking the last open entry marks the list done, while adding or
+unchecking an entry reopens it. Permission rule throughout: a personal item may only be
+modified by its owner, a workspace item by any active member (see <code>CanModify</code>).</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="lumify_api_Controllers_TodoListsController__ctor_" data-uid="lumify.api.Controllers.TodoListsController.#ctor*"></a>
+
+  <h3 id="lumify_api_Controllers_TodoListsController__ctor_Microsoft_Extensions_Logging_ILogger_lumify_api_Controllers_TodoListsController__lumify_api_Models_Context_LumifyDbContext_Microsoft_AspNetCore_SignalR_IHubContext_lumify_api_Hubs_TodoHub__" data-uid="lumify.api.Controllers.TodoListsController.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Controllers.TodoListsController},lumify.api.Models.Context.LumifyDbContext,Microsoft.AspNetCore.SignalR.IHubContext{lumify.api.Hubs.TodoHub})">
+  TodoListsController(ILogger&lt;TodoListsController&gt;, LumifyDbContext, IHubContext&lt;TodoHub&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/TodoListsController.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates the controller with its injected logger, database context and the todo hub
+used for live notifications.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TodoListsController(ILogger&lt;TodoListsController&gt; logger, LumifyDbContext db, IHubContext&lt;TodoHub&gt; todoHub)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>logger</code> <span class="xref">ILogger</span>&lt;<a class="xref" href="lumify.api.Controllers.TodoListsController.html">TodoListsController</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>db</code> <a class="xref" href="lumify.api.Models.Context.LumifyDbContext.html">LumifyDbContext</a></dt>
+    <dd></dd>
+    <dt><code>todoHub</code> <span class="xref">IHubContext</span>&lt;<a class="xref" href="lumify.api.Hubs.TodoHub.html">TodoHub</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="lumify_api_Controllers_TodoListsController_AddTodoEntry_" data-uid="lumify.api.Controllers.TodoListsController.AddTodoEntry*"></a>
+
+  <h3 id="lumify_api_Controllers_TodoListsController_AddTodoEntry_lumify_api_Models_DTO_Requests_AddTodoEntryRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.TodoListsController.AddTodoEntry(lumify.api.Models.DTO.Requests.AddTodoEntryRequest,System.Threading.CancellationToken)">
+  AddTodoEntry(AddTodoEntryRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/TodoListsController.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a new entry (status 1 = pending) to a todo list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[ActionName(&quot;addTodoEntry&quot;)]
+public Task&lt;ActionResult&lt;TodoEntryResponse&gt;&gt; AddTodoEntry(AddTodoEntryRequest request, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="lumify.api.Models.DTO.Requests.AddTodoEntryRequest.html">AddTodoEntryRequest</a></dt>
+    <dd><p>Entry data (name and parent list ID required; optional description).</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.TodoEntryResponse.html">TodoEntryResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the created entry; 400 if the name or list ID is missing or the
+list does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_TodoListsController_AddTodoEntry_lumify_api_Models_DTO_Requests_AddTodoEntryRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If the parent list was already marked done (status 2), it is reopened. On success in
+a workspace, a <code>TodoEntryCreated</code> event (and a <code>TodoListUpdated</code> event if
+the list reopened) is broadcast to the workspace group.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_TodoListsController_AddTodoList_" data-uid="lumify.api.Controllers.TodoListsController.AddTodoList*"></a>
+
+  <h3 id="lumify_api_Controllers_TodoListsController_AddTodoList_lumify_api_Models_DTO_Requests_AddTodoListRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.TodoListsController.AddTodoList(lumify.api.Models.DTO.Requests.AddTodoListRequest,System.Threading.CancellationToken)">
+  AddTodoList(AddTodoListRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/TodoListsController.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new todo list (status 1 = pending), optionally inside a workspace.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+[ActionName(&quot;addTodoList&quot;)]
+public Task&lt;ActionResult&lt;TodoListResponse&gt;&gt; AddTodoList(AddTodoListRequest request, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="lumify.api.Models.DTO.Requests.AddTodoListRequest.html">AddTodoListRequest</a></dt>
+    <dd><p>List data (name required; optional workspace).</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.TodoListResponse.html">TodoListResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the created list; 400 if the name is missing or the workspace does
+not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_TodoListsController_AddTodoList_lumify_api_Models_DTO_Requests_AddTodoListRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>On success in a workspace, a <code>TodoListCreated</code> event is broadcast to
+the workspace group.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_TodoListsController_DeleteTodoEntry_" data-uid="lumify.api.Controllers.TodoListsController.DeleteTodoEntry*"></a>
+
+  <h3 id="lumify_api_Controllers_TodoListsController_DeleteTodoEntry_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.TodoListsController.DeleteTodoEntry(System.String,System.Threading.CancellationToken)">
+  DeleteTodoEntry(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/TodoListsController.cs/#L636"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Soft-deletes a todo entry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpDelete]
+[ActionName(&quot;deleteTodoEntry&quot;)]
+public Task&lt;ActionResult&gt; DeleteTodoEntry(string todoEntryID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>todoEntryID</code> <span class="xref">string</span></dt>
+    <dd><p>The entry to delete.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&gt;</dt>
+    <dd><p>200 with <code>success = true</code> and the entry ID; 400 if the ID is missing;
+403 if the user may not delete it; 404 if the entry or its parent list does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_TodoListsController_DeleteTodoEntry_System_String_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The record is kept and marked with <code>DeletedAt</code>. On a workspace entry, a
+<code>TodoEntryDeleted</code> event is broadcast to the workspace group.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_TodoListsController_DeleteTodoList_" data-uid="lumify.api.Controllers.TodoListsController.DeleteTodoList*"></a>
+
+  <h3 id="lumify_api_Controllers_TodoListsController_DeleteTodoList_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.TodoListsController.DeleteTodoList(System.String,System.Threading.CancellationToken)">
+  DeleteTodoList(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/TodoListsController.cs/#L576"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Soft-deletes a todo list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpDelete]
+[ActionName(&quot;deleteTodoList&quot;)]
+public Task&lt;ActionResult&gt; DeleteTodoList(string todoListID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>todoListID</code> <span class="xref">string</span></dt>
+    <dd><p>The list to delete.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&gt;</dt>
+    <dd><p>200 with <code>success = true</code> and the list ID; 400 if the ID is missing;
+403 if the user may not delete it; 404 if the list does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_TodoListsController_DeleteTodoList_System_String_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The record is kept and marked with <code>DeletedAt</code>. On a workspace list, a
+<code>TodoListDeleted</code> event is broadcast to the workspace group.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_TodoListsController_GetAllTodoEntriesOfUser_" data-uid="lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfUser*"></a>
+
+  <h3 id="lumify_api_Controllers_TodoListsController_GetAllTodoEntriesOfUser_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfUser(System.Threading.CancellationToken)">
+  GetAllTodoEntriesOfUser(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/TodoListsController.cs/#L787"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns all entries of the current user's personal todo lists (no workspace),
+oldest first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getAllTodoEntriesOfUser&quot;)]
+public Task&lt;ActionResult&lt;List&lt;TodoEntryResponse&gt;&gt;&gt; GetAllTodoEntriesOfUser(CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.TodoEntryResponse.html">TodoEntryResponse</a>&gt;&gt;&gt;</dt>
+    <dd><p>200 with the list of entries.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_TodoListsController_GetAllTodoEntriesOfWorkspace_" data-uid="lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfWorkspace*"></a>
+
+  <h3 id="lumify_api_Controllers_TodoListsController_GetAllTodoEntriesOfWorkspace_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.TodoListsController.GetAllTodoEntriesOfWorkspace(System.String,System.Threading.CancellationToken)">
+  GetAllTodoEntriesOfWorkspace(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/TodoListsController.cs/#L828"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns all entries of all todo lists in a workspace, oldest first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getAllTodoEntriesOfWorkspace&quot;)]
+public Task&lt;ActionResult&lt;List&lt;TodoEntryResponse&gt;&gt;&gt; GetAllTodoEntriesOfWorkspace(string workspaceID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>workspaceID</code> <span class="xref">string</span></dt>
+    <dd><p>The workspace whose entries are requested.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.TodoEntryResponse.html">TodoEntryResponse</a>&gt;&gt;&gt;</dt>
+    <dd><p>200 with the list of entries; 400 if the ID is missing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_TodoListsController_GetAllTodoListsOfUser_" data-uid="lumify.api.Controllers.TodoListsController.GetAllTodoListsOfUser*"></a>
+
+  <h3 id="lumify_api_Controllers_TodoListsController_GetAllTodoListsOfUser_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.TodoListsController.GetAllTodoListsOfUser(System.Threading.CancellationToken)">
+  GetAllTodoListsOfUser(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/TodoListsController.cs/#L707"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns all personal todo lists (no workspace) of the current user, oldest first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getAllTodoListsOfUser&quot;)]
+public Task&lt;ActionResult&lt;List&lt;TodoListResponse&gt;&gt;&gt; GetAllTodoListsOfUser(CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.TodoListResponse.html">TodoListResponse</a>&gt;&gt;&gt;</dt>
+    <dd><p>200 with the list of todo lists.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_TodoListsController_GetAllTodoListsOfWorkspace_" data-uid="lumify.api.Controllers.TodoListsController.GetAllTodoListsOfWorkspace*"></a>
+
+  <h3 id="lumify_api_Controllers_TodoListsController_GetAllTodoListsOfWorkspace_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.TodoListsController.GetAllTodoListsOfWorkspace(System.String,System.Threading.CancellationToken)">
+  GetAllTodoListsOfWorkspace(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/TodoListsController.cs/#L746"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns all todo lists of a workspace, oldest first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getAllTodoListsOfWorkspace&quot;)]
+public Task&lt;ActionResult&lt;List&lt;TodoListResponse&gt;&gt;&gt; GetAllTodoListsOfWorkspace(string workspaceID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>workspaceID</code> <span class="xref">string</span></dt>
+    <dd><p>The workspace whose lists are requested.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.TodoListResponse.html">TodoListResponse</a>&gt;&gt;&gt;</dt>
+    <dd><p>200 with the list of todo lists; 400 if the ID is missing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_TodoListsController_GetSpaceInfosOfTodoEntry_" data-uid="lumify.api.Controllers.TodoListsController.GetSpaceInfosOfTodoEntry*"></a>
+
+  <h3 id="lumify_api_Controllers_TodoListsController_GetSpaceInfosOfTodoEntry_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.TodoListsController.GetSpaceInfosOfTodoEntry(System.String,System.Threading.CancellationToken)">
+  GetSpaceInfosOfTodoEntry(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/TodoListsController.cs/#L998"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the workspace that the given todo entry belongs to, if any. Used by the
+frontend's recents module to show where a recent item comes from.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getSpaceInfosOfTodoEntry&quot;)]
+public Task&lt;ActionResult&lt;WorkspaceResponse&gt;&gt; GetSpaceInfosOfTodoEntry(string todoEntryID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>todoEntryID</code> <span class="xref">string</span></dt>
+    <dd><p>The entry whose workspace is requested.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.WorkspaceResponse.html">WorkspaceResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the workspace; 400 if the ID is missing; 404 if the entry has no
+linked workspace or it was deleted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_TodoListsController_GetTodoListCountOfUser_" data-uid="lumify.api.Controllers.TodoListsController.GetTodoListCountOfUser*"></a>
+
+  <h3 id="lumify_api_Controllers_TodoListsController_GetTodoListCountOfUser_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.TodoListsController.GetTodoListCountOfUser(System.Threading.CancellationToken)">
+  GetTodoListCountOfUser(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/TodoListsController.cs/#L916"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the number of personal todo lists (no workspace) owned by the current user.
+Used on the feature cards of the SpaceHub.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getTodoListCountOfUser&quot;)]
+public Task&lt;ActionResult&lt;int&gt;&gt; GetTodoListCountOfUser(CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">int</span>&gt;&gt;</dt>
+    <dd><p>200 with the list count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_TodoListsController_GetTodoListCountOfWorkspace_" data-uid="lumify.api.Controllers.TodoListsController.GetTodoListCountOfWorkspace*"></a>
+
+  <h3 id="lumify_api_Controllers_TodoListsController_GetTodoListCountOfWorkspace_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.TodoListsController.GetTodoListCountOfWorkspace(System.String,System.Threading.CancellationToken)">
+  GetTodoListCountOfWorkspace(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/TodoListsController.cs/#L943"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the number of todo lists in a workspace. The user must be a member. Used on
+the feature cards of the SpaceHub.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getTodoListCountOfWorkspace&quot;)]
+public Task&lt;ActionResult&lt;int&gt;&gt; GetTodoListCountOfWorkspace(string workspaceID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>workspaceID</code> <span class="xref">string</span></dt>
+    <dd><p>The workspace to count lists for.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<span class="xref">int</span>&gt;&gt;</dt>
+    <dd><p>200 with the list count; 400 if the ID is missing; 403 if the user is not a
+member; 404 if the workspace does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_TodoListsController_GetTodoListWithID_" data-uid="lumify.api.Controllers.TodoListsController.GetTodoListWithID*"></a>
+
+  <h3 id="lumify_api_Controllers_TodoListsController_GetTodoListWithID_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.TodoListsController.GetTodoListWithID(System.String,System.Threading.CancellationToken)">
+  GetTodoListWithID(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/TodoListsController.cs/#L871"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a single todo list by its ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[ActionName(&quot;getTodoListWithID&quot;)]
+public Task&lt;ActionResult&lt;TodoListResponse&gt;&gt; GetTodoListWithID(string todoListID, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>todoListID</code> <span class="xref">string</span></dt>
+    <dd><p>The list to look up.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.TodoListResponse.html">TodoListResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the list; 400 if the ID is missing; 404 if it does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="lumify_api_Controllers_TodoListsController_SaveTodoEntry_" data-uid="lumify.api.Controllers.TodoListsController.SaveTodoEntry*"></a>
+
+  <h3 id="lumify_api_Controllers_TodoListsController_SaveTodoEntry_SaveTodoEntryRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.TodoListsController.SaveTodoEntry(SaveTodoEntryRequest,System.Threading.CancellationToken)">
+  SaveTodoEntry(SaveTodoEntryRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/TodoListsController.cs/#L387"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates a todo entry's name, description and/or status (1 or 2). Only provided fields
+are changed, and the database is only written if something changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPatch]
+[ActionName(&quot;saveTodoEntry&quot;)]
+public Task&lt;ActionResult&lt;TodoEntryResponse&gt;&gt; SaveTodoEntry(SaveTodoEntryRequest request, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="SaveTodoEntryRequest.html">SaveTodoEntryRequest</a></dt>
+    <dd><p>The entry ID plus the fields to change.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.TodoEntryResponse.html">TodoEntryResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the updated entry; 400 on invalid input (e.g. status not 1/2);
+403 if the user may not modify it; 404 if the entry or its parent list does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_TodoListsController_SaveTodoEntry_SaveTodoEntryRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Toggling the status keeps the parent list in sync: checking the last open entry marks
+the list done, unchecking an entry reopens it. The response's <code>WasLastUnchecked</code>
+flag signals the former. Relevant <code>TodoEntryUpdated</code>/<code>TodoListUpdated</code> events
+are broadcast to the workspace group.</p>
+</div>
+
+
+
+
+  <a id="lumify_api_Controllers_TodoListsController_SaveTodoList_" data-uid="lumify.api.Controllers.TodoListsController.SaveTodoList*"></a>
+
+  <h3 id="lumify_api_Controllers_TodoListsController_SaveTodoList_lumify_api_Models_DTO_Requests_SaveTodoListRequest_System_Threading_CancellationToken_" data-uid="lumify.api.Controllers.TodoListsController.SaveTodoList(lumify.api.Models.DTO.Requests.SaveTodoListRequest,System.Threading.CancellationToken)">
+  SaveTodoList(SaveTodoListRequest, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Controllers/TodoListsController.cs/#L254"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates a todo list's name, status (1 or 2) and/or archived flag. Only provided
+fields are changed, and the database is only written if something changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPatch]
+[ActionName(&quot;saveTodoList&quot;)]
+public Task&lt;ActionResult&lt;TodoListResponse&gt;&gt; SaveTodoList(SaveTodoListRequest request, CancellationToken ct)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="lumify.api.Models.DTO.Requests.SaveTodoListRequest.html">SaveTodoListRequest</a></dt>
+    <dd><p>The list ID plus the fields to change.</p>
+</dd>
+    <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
+    <dd><p>Cancellation token for the request.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">ActionResult</span>&lt;<a class="xref" href="lumify.api.Models.DTO.Responses.TodoListResponse.html">TodoListResponse</a>&gt;&gt;</dt>
+    <dd><p>200 with the updated list; 400 on invalid input (e.g. status not 1/2);
+403 if the user may not modify it; 404 if the list does not exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="lumify_api_Controllers_TodoListsController_SaveTodoList_lumify_api_Models_DTO_Requests_SaveTodoListRequest_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>On a successful change in a workspace, a <code>TodoListUpdated</code> event is
+broadcast to the workspace group.</p>
+</div>
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

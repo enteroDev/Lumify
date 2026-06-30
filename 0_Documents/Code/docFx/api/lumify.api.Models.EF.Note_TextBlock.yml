@@ -1,0 +1,544 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.EF.Note_TextBlock
+  commentId: T:lumify.api.Models.EF.Note_TextBlock
+  id: Note_TextBlock
+  parent: lumify.api.Models.EF
+  children:
+  - lumify.api.Models.EF.Note_TextBlock.CodeLanguage
+  - lumify.api.Models.EF.Note_TextBlock.Content
+  - lumify.api.Models.EF.Note_TextBlock.CreatedAt
+  - lumify.api.Models.EF.Note_TextBlock.DeletedAt
+  - lumify.api.Models.EF.Note_TextBlock.ID
+  - lumify.api.Models.EF.Note_TextBlock.IsCollapsed
+  - lumify.api.Models.EF.Note_TextBlock.Name
+  - lumify.api.Models.EF.Note_TextBlock.Note
+  - lumify.api.Models.EF.Note_TextBlock.NoteID
+  - lumify.api.Models.EF.Note_TextBlock.NotePos
+  - lumify.api.Models.EF.Note_TextBlock.Type
+  - lumify.api.Models.EF.Note_TextBlock.UpdatedAt
+  langs:
+  - csharp
+  - vb
+  name: Note_TextBlock
+  nameWithType: Note_TextBlock
+  fullName: lumify.api.Models.EF.Note_TextBlock
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_Textblock.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Note_TextBlock
+    path: ../../../lumify.api/Models/EF/Note_Textblock.cs
+    startLine: 4
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public class Note_TextBlock
+    content.vb: Public Class Note_TextBlock
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.EF.Note_TextBlock.ID
+  commentId: P:lumify.api.Models.EF.Note_TextBlock.ID
+  id: ID
+  parent: lumify.api.Models.EF.Note_TextBlock
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: Note_TextBlock.ID
+  fullName: lumify.api.Models.EF.Note_TextBlock.ID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_Textblock.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ID
+    path: ../../../lumify.api/Models/EF/Note_Textblock.cs
+    startLine: 6
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string ID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ID As String
+  overload: lumify.api.Models.EF.Note_TextBlock.ID*
+- uid: lumify.api.Models.EF.Note_TextBlock.NoteID
+  commentId: P:lumify.api.Models.EF.Note_TextBlock.NoteID
+  id: NoteID
+  parent: lumify.api.Models.EF.Note_TextBlock
+  langs:
+  - csharp
+  - vb
+  name: NoteID
+  nameWithType: Note_TextBlock.NoteID
+  fullName: lumify.api.Models.EF.Note_TextBlock.NoteID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_Textblock.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: NoteID
+    path: ../../../lumify.api/Models/EF/Note_Textblock.cs
+    startLine: 8
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string NoteID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property NoteID As String
+  overload: lumify.api.Models.EF.Note_TextBlock.NoteID*
+- uid: lumify.api.Models.EF.Note_TextBlock.Type
+  commentId: P:lumify.api.Models.EF.Note_TextBlock.Type
+  id: Type
+  parent: lumify.api.Models.EF.Note_TextBlock
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: Note_TextBlock.Type
+  fullName: lumify.api.Models.EF.Note_TextBlock.Type
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_Textblock.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Type
+    path: ../../../lumify.api/Models/EF/Note_Textblock.cs
+    startLine: 10
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public int Type { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Type As Integer
+  overload: lumify.api.Models.EF.Note_TextBlock.Type*
+- uid: lumify.api.Models.EF.Note_TextBlock.Name
+  commentId: P:lumify.api.Models.EF.Note_TextBlock.Name
+  id: Name
+  parent: lumify.api.Models.EF.Note_TextBlock
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Note_TextBlock.Name
+  fullName: lumify.api.Models.EF.Note_TextBlock.Name
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_Textblock.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Name
+    path: ../../../lumify.api/Models/EF/Note_Textblock.cs
+    startLine: 12
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: lumify.api.Models.EF.Note_TextBlock.Name*
+- uid: lumify.api.Models.EF.Note_TextBlock.Content
+  commentId: P:lumify.api.Models.EF.Note_TextBlock.Content
+  id: Content
+  parent: lumify.api.Models.EF.Note_TextBlock
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: Note_TextBlock.Content
+  fullName: lumify.api.Models.EF.Note_TextBlock.Content
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_Textblock.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Content
+    path: ../../../lumify.api/Models/EF/Note_Textblock.cs
+    startLine: 14
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? Content { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Content As String
+  overload: lumify.api.Models.EF.Note_TextBlock.Content*
+- uid: lumify.api.Models.EF.Note_TextBlock.CodeLanguage
+  commentId: P:lumify.api.Models.EF.Note_TextBlock.CodeLanguage
+  id: CodeLanguage
+  parent: lumify.api.Models.EF.Note_TextBlock
+  langs:
+  - csharp
+  - vb
+  name: CodeLanguage
+  nameWithType: Note_TextBlock.CodeLanguage
+  fullName: lumify.api.Models.EF.Note_TextBlock.CodeLanguage
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_Textblock.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: CodeLanguage
+    path: ../../../lumify.api/Models/EF/Note_Textblock.cs
+    startLine: 16
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? CodeLanguage { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CodeLanguage As String
+  overload: lumify.api.Models.EF.Note_TextBlock.CodeLanguage*
+- uid: lumify.api.Models.EF.Note_TextBlock.IsCollapsed
+  commentId: P:lumify.api.Models.EF.Note_TextBlock.IsCollapsed
+  id: IsCollapsed
+  parent: lumify.api.Models.EF.Note_TextBlock
+  langs:
+  - csharp
+  - vb
+  name: IsCollapsed
+  nameWithType: Note_TextBlock.IsCollapsed
+  fullName: lumify.api.Models.EF.Note_TextBlock.IsCollapsed
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_Textblock.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: IsCollapsed
+    path: ../../../lumify.api/Models/EF/Note_Textblock.cs
+    startLine: 18
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public int IsCollapsed { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property IsCollapsed As Integer
+  overload: lumify.api.Models.EF.Note_TextBlock.IsCollapsed*
+- uid: lumify.api.Models.EF.Note_TextBlock.CreatedAt
+  commentId: P:lumify.api.Models.EF.Note_TextBlock.CreatedAt
+  id: CreatedAt
+  parent: lumify.api.Models.EF.Note_TextBlock
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: Note_TextBlock.CreatedAt
+  fullName: lumify.api.Models.EF.Note_TextBlock.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_Textblock.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: CreatedAt
+    path: ../../../lumify.api/Models/EF/Note_Textblock.cs
+    startLine: 20
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreatedAt As String
+  overload: lumify.api.Models.EF.Note_TextBlock.CreatedAt*
+- uid: lumify.api.Models.EF.Note_TextBlock.UpdatedAt
+  commentId: P:lumify.api.Models.EF.Note_TextBlock.UpdatedAt
+  id: UpdatedAt
+  parent: lumify.api.Models.EF.Note_TextBlock
+  langs:
+  - csharp
+  - vb
+  name: UpdatedAt
+  nameWithType: Note_TextBlock.UpdatedAt
+  fullName: lumify.api.Models.EF.Note_TextBlock.UpdatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_Textblock.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UpdatedAt
+    path: ../../../lumify.api/Models/EF/Note_Textblock.cs
+    startLine: 22
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string UpdatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UpdatedAt As String
+  overload: lumify.api.Models.EF.Note_TextBlock.UpdatedAt*
+- uid: lumify.api.Models.EF.Note_TextBlock.DeletedAt
+  commentId: P:lumify.api.Models.EF.Note_TextBlock.DeletedAt
+  id: DeletedAt
+  parent: lumify.api.Models.EF.Note_TextBlock
+  langs:
+  - csharp
+  - vb
+  name: DeletedAt
+  nameWithType: Note_TextBlock.DeletedAt
+  fullName: lumify.api.Models.EF.Note_TextBlock.DeletedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_Textblock.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: DeletedAt
+    path: ../../../lumify.api/Models/EF/Note_Textblock.cs
+    startLine: 24
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? DeletedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DeletedAt As String
+  overload: lumify.api.Models.EF.Note_TextBlock.DeletedAt*
+- uid: lumify.api.Models.EF.Note_TextBlock.NotePos
+  commentId: P:lumify.api.Models.EF.Note_TextBlock.NotePos
+  id: NotePos
+  parent: lumify.api.Models.EF.Note_TextBlock
+  langs:
+  - csharp
+  - vb
+  name: NotePos
+  nameWithType: Note_TextBlock.NotePos
+  fullName: lumify.api.Models.EF.Note_TextBlock.NotePos
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_Textblock.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: NotePos
+    path: ../../../lumify.api/Models/EF/Note_Textblock.cs
+    startLine: 26
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public int NotePos { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property NotePos As Integer
+  overload: lumify.api.Models.EF.Note_TextBlock.NotePos*
+- uid: lumify.api.Models.EF.Note_TextBlock.Note
+  commentId: P:lumify.api.Models.EF.Note_TextBlock.Note
+  id: Note
+  parent: lumify.api.Models.EF.Note_TextBlock
+  langs:
+  - csharp
+  - vb
+  name: Note
+  nameWithType: Note_TextBlock.Note
+  fullName: lumify.api.Models.EF.Note_TextBlock.Note
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/Note_Textblock.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: Note
+    path: ../../../lumify.api/Models/EF/Note_Textblock.cs
+    startLine: 30
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual Note Note { get; set; }
+    parameters: []
+    return:
+      type: lumify.api.Models.EF.Note
+    content.vb: Public Overridable Property Note As Note
+  overload: lumify.api.Models.EF.Note_TextBlock.Note*
+references:
+- uid: lumify.api.Models.EF
+  commentId: N:lumify.api.Models.EF
+  href: lumify.html
+  name: lumify.api.Models.EF
+  nameWithType: lumify.api.Models.EF
+  fullName: lumify.api.Models.EF
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.EF.Note_TextBlock.ID*
+  commentId: Overload:lumify.api.Models.EF.Note_TextBlock.ID
+  href: lumify.api.Models.EF.Note_TextBlock.html#lumify_api_Models_EF_Note_TextBlock_ID
+  name: ID
+  nameWithType: Note_TextBlock.ID
+  fullName: lumify.api.Models.EF.Note_TextBlock.ID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.EF.Note_TextBlock.NoteID*
+  commentId: Overload:lumify.api.Models.EF.Note_TextBlock.NoteID
+  href: lumify.api.Models.EF.Note_TextBlock.html#lumify_api_Models_EF_Note_TextBlock_NoteID
+  name: NoteID
+  nameWithType: Note_TextBlock.NoteID
+  fullName: lumify.api.Models.EF.Note_TextBlock.NoteID
+- uid: lumify.api.Models.EF.Note_TextBlock.Type*
+  commentId: Overload:lumify.api.Models.EF.Note_TextBlock.Type
+  href: lumify.api.Models.EF.Note_TextBlock.html#lumify_api_Models_EF_Note_TextBlock_Type
+  name: Type
+  nameWithType: Note_TextBlock.Type
+  fullName: lumify.api.Models.EF.Note_TextBlock.Type
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: lumify.api.Models.EF.Note_TextBlock.Name*
+  commentId: Overload:lumify.api.Models.EF.Note_TextBlock.Name
+  href: lumify.api.Models.EF.Note_TextBlock.html#lumify_api_Models_EF_Note_TextBlock_Name
+  name: Name
+  nameWithType: Note_TextBlock.Name
+  fullName: lumify.api.Models.EF.Note_TextBlock.Name
+- uid: lumify.api.Models.EF.Note_TextBlock.Content*
+  commentId: Overload:lumify.api.Models.EF.Note_TextBlock.Content
+  href: lumify.api.Models.EF.Note_TextBlock.html#lumify_api_Models_EF_Note_TextBlock_Content
+  name: Content
+  nameWithType: Note_TextBlock.Content
+  fullName: lumify.api.Models.EF.Note_TextBlock.Content
+- uid: lumify.api.Models.EF.Note_TextBlock.CodeLanguage*
+  commentId: Overload:lumify.api.Models.EF.Note_TextBlock.CodeLanguage
+  href: lumify.api.Models.EF.Note_TextBlock.html#lumify_api_Models_EF_Note_TextBlock_CodeLanguage
+  name: CodeLanguage
+  nameWithType: Note_TextBlock.CodeLanguage
+  fullName: lumify.api.Models.EF.Note_TextBlock.CodeLanguage
+- uid: lumify.api.Models.EF.Note_TextBlock.IsCollapsed*
+  commentId: Overload:lumify.api.Models.EF.Note_TextBlock.IsCollapsed
+  href: lumify.api.Models.EF.Note_TextBlock.html#lumify_api_Models_EF_Note_TextBlock_IsCollapsed
+  name: IsCollapsed
+  nameWithType: Note_TextBlock.IsCollapsed
+  fullName: lumify.api.Models.EF.Note_TextBlock.IsCollapsed
+- uid: lumify.api.Models.EF.Note_TextBlock.CreatedAt*
+  commentId: Overload:lumify.api.Models.EF.Note_TextBlock.CreatedAt
+  href: lumify.api.Models.EF.Note_TextBlock.html#lumify_api_Models_EF_Note_TextBlock_CreatedAt
+  name: CreatedAt
+  nameWithType: Note_TextBlock.CreatedAt
+  fullName: lumify.api.Models.EF.Note_TextBlock.CreatedAt
+- uid: lumify.api.Models.EF.Note_TextBlock.UpdatedAt*
+  commentId: Overload:lumify.api.Models.EF.Note_TextBlock.UpdatedAt
+  href: lumify.api.Models.EF.Note_TextBlock.html#lumify_api_Models_EF_Note_TextBlock_UpdatedAt
+  name: UpdatedAt
+  nameWithType: Note_TextBlock.UpdatedAt
+  fullName: lumify.api.Models.EF.Note_TextBlock.UpdatedAt
+- uid: lumify.api.Models.EF.Note_TextBlock.DeletedAt*
+  commentId: Overload:lumify.api.Models.EF.Note_TextBlock.DeletedAt
+  href: lumify.api.Models.EF.Note_TextBlock.html#lumify_api_Models_EF_Note_TextBlock_DeletedAt
+  name: DeletedAt
+  nameWithType: Note_TextBlock.DeletedAt
+  fullName: lumify.api.Models.EF.Note_TextBlock.DeletedAt
+- uid: lumify.api.Models.EF.Note_TextBlock.NotePos*
+  commentId: Overload:lumify.api.Models.EF.Note_TextBlock.NotePos
+  href: lumify.api.Models.EF.Note_TextBlock.html#lumify_api_Models_EF_Note_TextBlock_NotePos
+  name: NotePos
+  nameWithType: Note_TextBlock.NotePos
+  fullName: lumify.api.Models.EF.Note_TextBlock.NotePos
+- uid: lumify.api.Models.EF.Note_TextBlock.Note*
+  commentId: Overload:lumify.api.Models.EF.Note_TextBlock.Note
+  href: lumify.api.Models.EF.Note_TextBlock.html#lumify_api_Models_EF_Note_TextBlock_Note
+  name: Note
+  nameWithType: Note_TextBlock.Note
+  fullName: lumify.api.Models.EF.Note_TextBlock.Note
+- uid: lumify.api.Models.EF.Note
+  commentId: T:lumify.api.Models.EF.Note
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.Note.html
+  name: Note
+  nameWithType: Note
+  fullName: lumify.api.Models.EF.Note

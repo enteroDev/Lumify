@@ -1,0 +1,354 @@
+### YamlMime:ManagedReference
+items:
+- uid: lumify.api.Models.EF.EmailVerificationToken
+  commentId: T:lumify.api.Models.EF.EmailVerificationToken
+  id: EmailVerificationToken
+  parent: lumify.api.Models.EF
+  children:
+  - lumify.api.Models.EF.EmailVerificationToken.CreatedAt
+  - lumify.api.Models.EF.EmailVerificationToken.ExpiresAt
+  - lumify.api.Models.EF.EmailVerificationToken.ID
+  - lumify.api.Models.EF.EmailVerificationToken.TokenHash
+  - lumify.api.Models.EF.EmailVerificationToken.UsedAt
+  - lumify.api.Models.EF.EmailVerificationToken.User
+  - lumify.api.Models.EF.EmailVerificationToken.UserID
+  langs:
+  - csharp
+  - vb
+  name: EmailVerificationToken
+  nameWithType: EmailVerificationToken
+  fullName: lumify.api.Models.EF.EmailVerificationToken
+  type: Class
+  source:
+    remote:
+      path: lumify.api/Models/EF/EmailVerificationToken.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: EmailVerificationToken
+    path: ../../../lumify.api/Models/EF/EmailVerificationToken.cs
+    startLine: 5
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public class EmailVerificationToken
+    content.vb: Public Class EmailVerificationToken
+  inheritance:
+  - System.Object
+- uid: lumify.api.Models.EF.EmailVerificationToken.ID
+  commentId: P:lumify.api.Models.EF.EmailVerificationToken.ID
+  id: ID
+  parent: lumify.api.Models.EF.EmailVerificationToken
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: EmailVerificationToken.ID
+  fullName: lumify.api.Models.EF.EmailVerificationToken.ID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/EmailVerificationToken.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ID
+    path: ../../../lumify.api/Models/EF/EmailVerificationToken.cs
+    startLine: 7
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string ID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ID As String
+  overload: lumify.api.Models.EF.EmailVerificationToken.ID*
+- uid: lumify.api.Models.EF.EmailVerificationToken.UserID
+  commentId: P:lumify.api.Models.EF.EmailVerificationToken.UserID
+  id: UserID
+  parent: lumify.api.Models.EF.EmailVerificationToken
+  langs:
+  - csharp
+  - vb
+  name: UserID
+  nameWithType: EmailVerificationToken.UserID
+  fullName: lumify.api.Models.EF.EmailVerificationToken.UserID
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/EmailVerificationToken.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UserID
+    path: ../../../lumify.api/Models/EF/EmailVerificationToken.cs
+    startLine: 8
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string UserID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UserID As String
+  overload: lumify.api.Models.EF.EmailVerificationToken.UserID*
+- uid: lumify.api.Models.EF.EmailVerificationToken.TokenHash
+  commentId: P:lumify.api.Models.EF.EmailVerificationToken.TokenHash
+  id: TokenHash
+  parent: lumify.api.Models.EF.EmailVerificationToken
+  langs:
+  - csharp
+  - vb
+  name: TokenHash
+  nameWithType: EmailVerificationToken.TokenHash
+  fullName: lumify.api.Models.EF.EmailVerificationToken.TokenHash
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/EmailVerificationToken.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: TokenHash
+    path: ../../../lumify.api/Models/EF/EmailVerificationToken.cs
+    startLine: 12
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string TokenHash { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property TokenHash As String
+  overload: lumify.api.Models.EF.EmailVerificationToken.TokenHash*
+- uid: lumify.api.Models.EF.EmailVerificationToken.ExpiresAt
+  commentId: P:lumify.api.Models.EF.EmailVerificationToken.ExpiresAt
+  id: ExpiresAt
+  parent: lumify.api.Models.EF.EmailVerificationToken
+  langs:
+  - csharp
+  - vb
+  name: ExpiresAt
+  nameWithType: EmailVerificationToken.ExpiresAt
+  fullName: lumify.api.Models.EF.EmailVerificationToken.ExpiresAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/EmailVerificationToken.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: ExpiresAt
+    path: ../../../lumify.api/Models/EF/EmailVerificationToken.cs
+    startLine: 14
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string ExpiresAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ExpiresAt As String
+  overload: lumify.api.Models.EF.EmailVerificationToken.ExpiresAt*
+- uid: lumify.api.Models.EF.EmailVerificationToken.UsedAt
+  commentId: P:lumify.api.Models.EF.EmailVerificationToken.UsedAt
+  id: UsedAt
+  parent: lumify.api.Models.EF.EmailVerificationToken
+  langs:
+  - csharp
+  - vb
+  name: UsedAt
+  nameWithType: EmailVerificationToken.UsedAt
+  fullName: lumify.api.Models.EF.EmailVerificationToken.UsedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/EmailVerificationToken.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: UsedAt
+    path: ../../../lumify.api/Models/EF/EmailVerificationToken.cs
+    startLine: 15
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string? UsedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UsedAt As String
+  overload: lumify.api.Models.EF.EmailVerificationToken.UsedAt*
+- uid: lumify.api.Models.EF.EmailVerificationToken.CreatedAt
+  commentId: P:lumify.api.Models.EF.EmailVerificationToken.CreatedAt
+  id: CreatedAt
+  parent: lumify.api.Models.EF.EmailVerificationToken
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: EmailVerificationToken.CreatedAt
+  fullName: lumify.api.Models.EF.EmailVerificationToken.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/EmailVerificationToken.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: CreatedAt
+    path: ../../../lumify.api/Models/EF/EmailVerificationToken.cs
+    startLine: 16
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public string CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreatedAt As String
+  overload: lumify.api.Models.EF.EmailVerificationToken.CreatedAt*
+- uid: lumify.api.Models.EF.EmailVerificationToken.User
+  commentId: P:lumify.api.Models.EF.EmailVerificationToken.User
+  id: User
+  parent: lumify.api.Models.EF.EmailVerificationToken
+  langs:
+  - csharp
+  - vb
+  name: User
+  nameWithType: EmailVerificationToken.User
+  fullName: lumify.api.Models.EF.EmailVerificationToken.User
+  type: Property
+  source:
+    remote:
+      path: lumify.api/Models/EF/EmailVerificationToken.cs
+      branch: main
+      repo: https://github.com/enteroDev/Lumify.git
+    id: User
+    path: ../../../lumify.api/Models/EF/EmailVerificationToken.cs
+    startLine: 19
+  assemblies:
+  - lumify.api
+  namespace: lumify.api.Models.EF
+  syntax:
+    content: public virtual User User { get; set; }
+    parameters: []
+    return:
+      type: lumify.api.Models.EF.User
+    content.vb: Public Overridable Property User As User
+  overload: lumify.api.Models.EF.EmailVerificationToken.User*
+references:
+- uid: lumify.api.Models.EF
+  commentId: N:lumify.api.Models.EF
+  href: lumify.html
+  name: lumify.api.Models.EF
+  nameWithType: lumify.api.Models.EF
+  fullName: lumify.api.Models.EF
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.EF
+    name: EF
+    href: lumify.api.Models.EF.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: lumify.api.Models.EF.EmailVerificationToken.ID*
+  commentId: Overload:lumify.api.Models.EF.EmailVerificationToken.ID
+  href: lumify.api.Models.EF.EmailVerificationToken.html#lumify_api_Models_EF_EmailVerificationToken_ID
+  name: ID
+  nameWithType: EmailVerificationToken.ID
+  fullName: lumify.api.Models.EF.EmailVerificationToken.ID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: lumify.api.Models.EF.EmailVerificationToken.UserID*
+  commentId: Overload:lumify.api.Models.EF.EmailVerificationToken.UserID
+  href: lumify.api.Models.EF.EmailVerificationToken.html#lumify_api_Models_EF_EmailVerificationToken_UserID
+  name: UserID
+  nameWithType: EmailVerificationToken.UserID
+  fullName: lumify.api.Models.EF.EmailVerificationToken.UserID
+- uid: lumify.api.Models.EF.EmailVerificationToken.TokenHash*
+  commentId: Overload:lumify.api.Models.EF.EmailVerificationToken.TokenHash
+  href: lumify.api.Models.EF.EmailVerificationToken.html#lumify_api_Models_EF_EmailVerificationToken_TokenHash
+  name: TokenHash
+  nameWithType: EmailVerificationToken.TokenHash
+  fullName: lumify.api.Models.EF.EmailVerificationToken.TokenHash
+- uid: lumify.api.Models.EF.EmailVerificationToken.ExpiresAt*
+  commentId: Overload:lumify.api.Models.EF.EmailVerificationToken.ExpiresAt
+  href: lumify.api.Models.EF.EmailVerificationToken.html#lumify_api_Models_EF_EmailVerificationToken_ExpiresAt
+  name: ExpiresAt
+  nameWithType: EmailVerificationToken.ExpiresAt
+  fullName: lumify.api.Models.EF.EmailVerificationToken.ExpiresAt
+- uid: lumify.api.Models.EF.EmailVerificationToken.UsedAt*
+  commentId: Overload:lumify.api.Models.EF.EmailVerificationToken.UsedAt
+  href: lumify.api.Models.EF.EmailVerificationToken.html#lumify_api_Models_EF_EmailVerificationToken_UsedAt
+  name: UsedAt
+  nameWithType: EmailVerificationToken.UsedAt
+  fullName: lumify.api.Models.EF.EmailVerificationToken.UsedAt
+- uid: lumify.api.Models.EF.EmailVerificationToken.CreatedAt*
+  commentId: Overload:lumify.api.Models.EF.EmailVerificationToken.CreatedAt
+  href: lumify.api.Models.EF.EmailVerificationToken.html#lumify_api_Models_EF_EmailVerificationToken_CreatedAt
+  name: CreatedAt
+  nameWithType: EmailVerificationToken.CreatedAt
+  fullName: lumify.api.Models.EF.EmailVerificationToken.CreatedAt
+- uid: lumify.api.Models.EF.EmailVerificationToken.User*
+  commentId: Overload:lumify.api.Models.EF.EmailVerificationToken.User
+  href: lumify.api.Models.EF.EmailVerificationToken.html#lumify_api_Models_EF_EmailVerificationToken_User
+  name: User
+  nameWithType: EmailVerificationToken.User
+  fullName: lumify.api.Models.EF.EmailVerificationToken.User
+- uid: lumify.api.Models.EF.User
+  commentId: T:lumify.api.Models.EF.User
+  parent: lumify.api.Models.EF
+  href: lumify.api.Models.EF.User.html
+  name: User
+  nameWithType: User
+  fullName: lumify.api.Models.EF.User
