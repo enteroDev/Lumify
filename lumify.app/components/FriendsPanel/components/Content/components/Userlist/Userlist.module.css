@@ -122,12 +122,11 @@
     align-content: center;
 
     border-radius: 10px;
-    border: 1px solid rgba(255, 1, 1, 0.45);
+    border: 1px solid var(--color-success-bright);
 
-    background-color: rgba(255, 1, 1, 0.25);
+    background-color: color-mix(in srgb, var(--color-success-bright) 45%, transparent);
     color: var(--foreground);
 
-    opacity: 0.8;
     box-sizing: border-box;
 }
 
@@ -138,15 +137,18 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 50px;
+    height: 56px;
 
     pointer-events: none;
     z-index: 10;
 
+    /* Eased multi-stop fade so entries dissolve smoothly into the bottom edge. */
     background: linear-gradient(
         to top,
-        rgba(0, 0, 0, 0.3) 0%,
-        rgba(0, 0, 0, 0.2) 40%,
+        rgba(0, 0, 0, 0.28) 0%,
+        rgba(0, 0, 0, 0.17) 22%,
+        rgba(0, 0, 0, 0.08) 48%,
+        rgba(0, 0, 0, 0.025) 75%,
         transparent 100%
     );
 
@@ -159,8 +161,10 @@
 [data-theme="beach"] .list::after  {
     background: linear-gradient(
         to top,
-        rgba(0, 0, 0, 0.2) 0%,
-        rgba(0, 0, 0, 0.1) 40%,
+        rgba(0, 0, 0, 0.18) 0%,
+        rgba(0, 0, 0, 0.11) 22%,
+        rgba(0, 0, 0, 0.05) 48%,
+        rgba(0, 0, 0, 0.015) 75%,
         transparent 100%
     );
 }

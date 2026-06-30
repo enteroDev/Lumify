@@ -57,14 +57,18 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 50px;
+    height: 60px;
     pointer-events: none;
     z-index: 10;
 
+    /* Eased multi-stop fade so text dissolves smoothly into the bottom edge
+       instead of hitting a hard dark band. */
     background: linear-gradient(
         to top,
-        rgba(0, 0, 0, 0.7) 0%,
-        rgba(0, 0, 0, 0.3) 40%,
+        rgba(0, 0, 0, 0.50) 0%,
+        rgba(0, 0, 0, 0.32) 22%,
+        rgba(0, 0, 0, 0.16) 48%,
+        rgba(0, 0, 0, 0.05) 75%,
         transparent 100%
     );
 
@@ -78,8 +82,10 @@
 [data-theme="beach"] .body::after  {
     background: linear-gradient(
         to top,
-        rgba(0, 0, 0, 0.4) 0%,
-        rgba(0, 0, 0, 0.2) 40%,
+        rgba(0, 0, 0, 0.30) 0%,
+        rgba(0, 0, 0, 0.18) 22%,
+        rgba(0, 0, 0, 0.09) 48%,
+        rgba(0, 0, 0, 0.03) 75%,
         transparent 100%
     );
 }
@@ -114,9 +120,17 @@
 
     overflow: hidden;
     box-sizing: border-box;
+
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 [data-theme="beach"] .group {
     background-color: var(--color-actions);
+}
+
+/* Subtle lift on hover: highlight-tinted border + soft glow. */
+.group:hover {
+    border-color: color-mix(in srgb, var(--color-highlight) 45%, transparent);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
 }
 
 .groupHeader {

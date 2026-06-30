@@ -117,15 +117,18 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 50px;
+    height: 56px;
 
     pointer-events: none;
     z-index: 10;
 
+    /* Eased multi-stop fade so entries dissolve smoothly into the bottom edge. */
     background: linear-gradient(
         to top,
-        rgba(0, 0, 0, 0.3) 0%,
-        rgba(0, 0, 0, 0.2) 40%,
+        rgba(0, 0, 0, 0.28) 0%,
+        rgba(0, 0, 0, 0.17) 22%,
+        rgba(0, 0, 0, 0.08) 48%,
+        rgba(0, 0, 0, 0.025) 75%,
         transparent 100%
     );
 
@@ -138,8 +141,10 @@
 [data-theme="beach"] .list::after  {
     background: linear-gradient(
         to top,
-        rgba(0, 0, 0, 0.2) 0%,
-        rgba(0, 0, 0, 0.1) 40%,
+        rgba(0, 0, 0, 0.18) 0%,
+        rgba(0, 0, 0, 0.11) 22%,
+        rgba(0, 0, 0, 0.05) 48%,
+        rgba(0, 0, 0, 0.015) 75%,
         transparent 100%
     );
 }
