@@ -4,6 +4,8 @@
 // --- Imports --- //
 // --------------- //
 
+// React
+import { useEffect, useRef, useState } from "react";
 // Icons
 import FriendsIcon from "@/app/src/svg/group.svg";
 import NotificationIcon from "@/app/src/svg/bell.svg";
@@ -25,6 +27,7 @@ export const c = {
     notificationArea:       styles["notificationArea"],
     notificationIcon:       styles["notificationIcon"],
     notificationCounter:    styles["notificationCounter"],
+    bounce:                 styles["bounce"],
 } as const;
 
 type TriggerProps = {
@@ -44,6 +47,28 @@ export default function Trigger({
 }: TriggerProps) {
 
 
+    // -------------- //
+    // --- States --- //
+    // -------------- //
+    // Re-keys the bubble to replay the bounce animation, but only when the count actually goes up.
+    const prevCountRef = useRef(notificationCount);
+    const [bounceKey, setBounceKey] = useState(0);
+
+
+
+    // --------------- //
+    // --- Effects --- //
+    // --------------- //
+    useEffect(() => {
+        if (notificationCount > prevCountRef.current) {
+            setBounceKey(prev => prev + 1);
+        }
+
+        prevCountRef.current = notificationCount;
+    }, [notificationCount]);
+
+
+
     // ----------- //
     // --- JSX --- //
     // ----------- //
@@ -59,7 +84,12 @@ export default function Trigger({
             {/* NotificationArea */}
             <div className={c.notificationArea}>
                 <div className={c.notificationIcon}>
-                    <div className={c.notificationCounter}>{notificationCount}</div>
+                    <div
+                        key={bounceKey}
+                        className={`${c.notificationCounter} ${bounceKey > 0 ? c.bounce : ""}`}
+                    >
+                        {notificationCount}
+                    </div>
                     <NotificationIcon/>
                 </div>
             </div>

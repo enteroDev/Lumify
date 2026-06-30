@@ -98,6 +98,27 @@
     line-height: 1;
 }
 
+/* Replayed via React `key` whenever the counter goes up. */
+.bounce {
+    transform-origin: center bottom;
+    animation: notificationBounce 0.65s cubic-bezier(0.28, 0.84, 0.42, 1) both;
+}
+
+@keyframes notificationBounce {
+    0%   { transform: translateY(0)     scale(1); }
+    20%  { transform: translateY(-10px) scale(1.45); }
+    40%  { transform: translateY(0)     scale(0.9); }
+    60%  { transform: translateY(-5px)  scale(1.2); }
+    80%  { transform: translateY(0)     scale(0.96); }
+    100% { transform: translateY(0)     scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bounce {
+        animation: none;
+    }
+}
+
 
 
 
