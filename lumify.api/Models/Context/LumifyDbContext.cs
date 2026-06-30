@@ -6,39 +6,66 @@ using lumify.api.Models.EF;
 
 namespace lumify.api.Models.Context;
 
+/// <summary>
+/// Entity Framework Core database context for Lumify. Exposes the entity sets and configures the
+/// relational model (table mappings, indexes and relationships) against the MariaDB database.
+/// </summary>
 public partial class LumifyDbContext : DbContext
 {
+    /// <summary>Parameterless constructor (used by design-time tooling).</summary>
     public LumifyDbContext()
     {
     }
 
+    /// <summary>Creates the context with the configured options (connection string, provider).</summary>
+    /// <param name="options">The DbContext options supplied by dependency injection.</param>
     public LumifyDbContext(DbContextOptions<LumifyDbContext> options)
         : base(options)
     {
     }
 
+    /// <summary>Calendar events.</summary>
     public virtual DbSet<Event> Events { get; set; }
 
+    /// <summary>Todo lists.</summary>
     public virtual DbSet<TodoList> TodoLists { get; set; }
+    /// <summary>Todo entries belonging to lists.</summary>
     public virtual DbSet<TodoEntry> TodoEntries { get; set; }
 
+    /// <summary>Note folders.</summary>
     public virtual DbSet<Folder> Folders { get; set; }
+    /// <summary>Notes.</summary>
     public virtual DbSet<Note> Notes { get; set; }
+    /// <summary>Link item modules of notes.</summary>
     public virtual DbSet<Note_LinkItem> Note_LinkItems { get; set; }
+    /// <summary>Text block modules of notes.</summary>
     public virtual DbSet<Note_TextBlock> Note_TextBlocks { get; set; }
+    /// <summary>File attachments of notes.</summary>
     public virtual DbSet<NoteAttachment> NoteAttachments { get; set; }
 
+    /// <summary>User accounts.</summary>
     public virtual DbSet<User> Users { get; set; }
+    /// <summary>Single-use password reset tokens.</summary>
     public virtual DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
+    /// <summary>Single-use e-mail verification tokens.</summary>
     public virtual DbSet<EmailVerificationToken> EmailVerificationTokens { get; set; }
+    /// <summary>Friend relationships between users.</summary>
     public virtual DbSet<Friendship> Friendships { get; set; }
 
+    /// <summary>Workspaces (shared spaces).</summary>
     public virtual DbSet<Workspace> Workspaces { get; set; }
+    /// <summary>Workspace memberships.</summary>
     public virtual DbSet<WorkspaceMember> WorkspaceMembers { get; set; }
 
+    /// <summary>Chat messages.</summary>
     public virtual DbSet<ChatMessage> ChatMessages { get; set; }
 
 
+    /// <summary>
+    /// Configures the entity model — table names, indexes and foreign-key relationships — when
+    /// the model is first built.
+    /// </summary>
+    /// <param name="modelBuilder">The builder used to construct the model.</param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // --- Event --- //

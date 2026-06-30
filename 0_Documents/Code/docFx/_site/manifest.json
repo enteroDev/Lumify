@@ -270,7 +270,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Interfaces.IEmailService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Interfaces.IEmailService.yml\" sourcestartlinenumber=\"1\">Abstraction for sending transactional e-mails (password reset and address verification).\nImplemented by <xref href=\"lumify.api.Services.SmtpEmailService\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -284,7 +284,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Interfaces.IPresenceService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Interfaces.IPresenceService.yml\" sourcestartlinenumber=\"1\">Tracks which users are currently online by counting their active SignalR connections.\nImplemented by <xref href=\"lumify.api.Services.PresenceService\" data-throw-if-not-resolved=\"false\"></xref> and driven by\n<xref href=\"lumify.api.Hubs.ChatHub\" data-throw-if-not-resolved=\"false\"></xref> on connect/disconnect.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -312,7 +312,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Logic.CsrfMiddleware",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Logic.CsrfMiddleware.yml\" sourcestartlinenumber=\"1\">ASP.NET Core middleware enforcing CSRF protection via the double-submit-cookie pattern:\nfor mutating requests (POST/PUT/PATCH/DELETE) the <code>X-CSRF-Token</code> header must match the\n<code>XSRF-TOKEN</code> cookie, using a constant-time comparison.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -326,7 +326,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Logic.InternalLogic",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Logic.InternalLogic.yml\" sourcestartlinenumber=\"1\">Central helper for authentication and account security: password hashing/verification,\nJWT issuing, single-use token generation/hashing (password reset and e-mail verification),\ntwo-factor authentication (TOTP secret, QR code, code verification, MFA challenge tokens)\nand avatar file handling. Used primarily by the <xref href=\"lumify.api.Controllers.AccountController\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -424,7 +424,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.Context.LumifyDbContext",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.Context.LumifyDbContext.yml\" sourcestartlinenumber=\"1\">Entity Framework Core database context for Lumify. Exposes the entity sets and configures the\nrelational model (table mappings, indexes and relationships) against the MariaDB database.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -452,7 +452,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.AddEventRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.AddEventRequest.yml\" sourcestartlinenumber=\"1\">Request body for creating a calendar event (see <xref href=\"lumify.api.Controllers.EventsController.AddEvent(lumify.api.Models.DTO.Requests.AddEventRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -466,7 +466,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.AddFolderRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.AddFolderRequest.yml\" sourcestartlinenumber=\"1\">Request body for creating a folder (see <xref href=\"lumify.api.Controllers.FoldersController.AddFolder(lumify.api.Models.DTO.Requests.AddFolderRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -480,7 +480,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.AddLinkItemRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.AddLinkItemRequest.yml\" sourcestartlinenumber=\"1\">Request body for adding a link item module to a note\n(see <xref href=\"lumify.api.Controllers.NotesController.AddLinkItem(lumify.api.Models.DTO.Requests.AddLinkItemRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -494,7 +494,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.AddNoteRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.AddNoteRequest.yml\" sourcestartlinenumber=\"1\">Request body for creating a note (see <xref href=\"lumify.api.Controllers.NotesController.AddNote(lumify.api.Models.DTO.Requests.AddNoteRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -508,7 +508,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.AddTextBlockRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.AddTextBlockRequest.yml\" sourcestartlinenumber=\"1\">Request body for adding a text block module to a note\n(see <xref href=\"lumify.api.Controllers.NotesController.AddTextBlock(lumify.api.Models.DTO.Requests.AddTextBlockRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -522,7 +522,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.AddTodoEntryRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.AddTodoEntryRequest.yml\" sourcestartlinenumber=\"1\">Request body for adding an entry to a todo list\n(see <xref href=\"lumify.api.Controllers.TodoListsController.AddTodoEntry(lumify.api.Models.DTO.Requests.AddTodoEntryRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -536,7 +536,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.AddTodoListRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.AddTodoListRequest.yml\" sourcestartlinenumber=\"1\">Request body for creating a todo list\n(see <xref href=\"lumify.api.Controllers.TodoListsController.AddTodoList(lumify.api.Models.DTO.Requests.AddTodoListRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -550,7 +550,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest.yml\" sourcestartlinenumber=\"1\">Request body for adding a member to a workspace\n(see <xref href=\"lumify.api.Controllers.WorkspaceController.AddWorkspaceMember(lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -564,7 +564,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.AddWorkspaceRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.AddWorkspaceRequest.yml\" sourcestartlinenumber=\"1\">Request body for creating a workspace\n(see <xref href=\"lumify.api.Controllers.WorkspaceController.AddWorkspace(lumify.api.Models.DTO.Requests.AddWorkspaceRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -578,7 +578,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.LoginRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.LoginRequest.yml\" sourcestartlinenumber=\"1\">Request body for login (see <xref href=\"lumify.api.Controllers.AccountController.LoginUser(lumify.api.Models.DTO.Requests.LoginRequest)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -592,7 +592,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.RegisterRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.RegisterRequest.yml\" sourcestartlinenumber=\"1\">Request body for registration (see <xref href=\"lumify.api.Controllers.AccountController.RegisterUser(lumify.api.Models.DTO.Requests.RegisterRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -606,7 +606,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.RequestPasswordResetRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.RequestPasswordResetRequest.yml\" sourcestartlinenumber=\"1\">Request body for requesting a password reset link\n(see <xref href=\"lumify.api.Controllers.AccountController.RequestPasswordReset(lumify.api.Models.DTO.Requests.RequestPasswordResetRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -620,7 +620,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.ResendVerificationRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.ResendVerificationRequest.yml\" sourcestartlinenumber=\"1\">Request body for resending an e-mail verification link\n(see <xref href=\"lumify.api.Controllers.AccountController.ResendVerification(lumify.api.Models.DTO.Requests.ResendVerificationRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -634,7 +634,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.ResetPasswordRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.ResetPasswordRequest.yml\" sourcestartlinenumber=\"1\">Request body for setting a new password via a reset link\n(see <xref href=\"lumify.api.Controllers.AccountController.ResetPassword(lumify.api.Models.DTO.Requests.ResetPasswordRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -648,7 +648,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.SaveEventRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.SaveEventRequest.yml\" sourcestartlinenumber=\"1\">Request body for updating an event (see <xref href=\"lumify.api.Controllers.EventsController.SaveEvent(lumify.api.Models.DTO.Requests.SaveEventRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).\nOnly non-<code>null</code> fields are applied (partial update).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -662,7 +662,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.SaveFolderRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.SaveFolderRequest.yml\" sourcestartlinenumber=\"1\">Request body for updating a folder (see <xref href=\"lumify.api.Controllers.FoldersController.SaveFolder(lumify.api.Models.DTO.Requests.SaveFolderRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).\nOnly non-<code>null</code> fields are applied (partial update); an empty parent moves to the root.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -676,7 +676,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.SaveNoteRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.SaveNoteRequest.yml\" sourcestartlinenumber=\"1\">Request body for updating a note (see <xref href=\"lumify.api.Controllers.NotesController.SaveNote(lumify.api.Models.DTO.Requests.SaveNoteRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).\nOnly non-<code>null</code> fields are applied (partial update); an empty folder moves to the root.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -690,7 +690,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.SaveTextblockRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.SaveTextblockRequest.yml\" sourcestartlinenumber=\"1\">Request body for updating a text block module\n(see <xref href=\"lumify.api.Controllers.NotesController.SaveTextBlock(lumify.api.Models.DTO.Requests.SaveTextblockRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>). Only non-<code>null</code> fields are\napplied (partial update).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -704,7 +704,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.SaveTodoListRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.SaveTodoListRequest.yml\" sourcestartlinenumber=\"1\">Request body for updating a todo list\n(see <xref href=\"lumify.api.Controllers.TodoListsController.SaveTodoList(lumify.api.Models.DTO.Requests.SaveTodoListRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>). Only non-<code>null</code> fields\nare applied (partial update).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -718,7 +718,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.SaveUserProfileRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.SaveUserProfileRequest.yml\" sourcestartlinenumber=\"1\">Request body for updating the current user's profile\n(see <xref href=\"lumify.api.Controllers.UsersController.SaveUserProfile(lumify.api.Models.DTO.Requests.SaveUserProfileRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>). Only non-<code>null</code>\nfields are applied; empty values clear the respective field.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -732,7 +732,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.SaveWorkspaceRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.SaveWorkspaceRequest.yml\" sourcestartlinenumber=\"1\">Request body for renaming a workspace\n(see <xref href=\"lumify.api.Controllers.WorkspaceController.SaveWorkspace(lumify.api.Models.DTO.Requests.SaveWorkspaceRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>). Only non-<code>null</code> fields\nare applied (partial update).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -746,7 +746,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.TotpCodeRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.TotpCodeRequest.yml\" sourcestartlinenumber=\"1\">Request body carrying a single TOTP code, used to confirm 2FA setup and to disable it again\n(see <xref href=\"lumify.api.Controllers.AccountController.ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)\" data-throw-if-not-resolved=\"false\"></xref> /\n<xref href=\"lumify.api.Controllers.AccountController.DisableTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -760,7 +760,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.VerifyEmailRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.VerifyEmailRequest.yml\" sourcestartlinenumber=\"1\">Request body for confirming an e-mail address\n(see <xref href=\"lumify.api.Controllers.AccountController.VerifyEmail(lumify.api.Models.DTO.Requests.VerifyEmailRequest%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -774,7 +774,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.yml\" sourcestartlinenumber=\"1\">Request body for the second login step with 2FA\n(see <xref href=\"lumify.api.Controllers.AccountController.VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -802,7 +802,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Responses.ChatMessageResponse",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Responses.ChatMessageResponse.yml\" sourcestartlinenumber=\"1\">A chat message returned to clients, with the sender's resolved display name\n(see <xref href=\"lumify.api.Controllers.ChatController.GetMessagesOfRoom(System.String%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -816,7 +816,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Responses.EventResponse",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Responses.EventResponse.yml\" sourcestartlinenumber=\"1\">A calendar event returned to clients (see <xref href=\"lumify.api.Controllers.EventsController\" data-throw-if-not-resolved=\"false\"></xref>).\nThe all-day flag is exposed as a bool (mapped from the entity's integer).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -830,7 +830,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Responses.FolderResponse",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Responses.FolderResponse.yml\" sourcestartlinenumber=\"1\">A folder returned to clients (see <xref href=\"lumify.api.Controllers.FoldersController\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -844,7 +844,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Responses.FriendshipResponse",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Responses.FriendshipResponse.yml\" sourcestartlinenumber=\"1\">A friendship/friend-request returned to clients. The requester fields are populated for\nincoming requests; the friend fields for outgoing requests\n(see <xref href=\"lumify.api.Controllers.FriendshipController\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -858,7 +858,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Responses.LinkItemResponse",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Responses.LinkItemResponse.yml\" sourcestartlinenumber=\"1\">A link item module returned to clients (see <xref href=\"lumify.api.Controllers.NotesController\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -872,7 +872,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Responses.NoteResponse",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Responses.NoteResponse.yml\" sourcestartlinenumber=\"1\">A note (metadata only) returned to clients; its modules are fetched separately\n(see <xref href=\"lumify.api.Controllers.NotesController\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -886,7 +886,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Responses.RelatedUserResponse",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Responses.RelatedUserResponse.yml\" sourcestartlinenumber=\"1\">A user that can be added to a workspace, returned by workspace member search\n(see <xref href=\"lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace(System.String%2cSystem.String%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>), enriched\nwith live presence status.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -900,7 +900,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Responses.TextblockResponse",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Responses.TextblockResponse.yml\" sourcestartlinenumber=\"1\">A text block module returned to clients (see <xref href=\"lumify.api.Controllers.NotesController\" data-throw-if-not-resolved=\"false\"></xref>).\nThe collapsed flag is exposed as a bool (mapped from the entity's integer).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -914,7 +914,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Responses.TodoEntryResponse",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Responses.TodoEntryResponse.yml\" sourcestartlinenumber=\"1\">A todo entry returned to clients (see <xref href=\"lumify.api.Controllers.TodoListsController\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -928,7 +928,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Responses.TodoListResponse",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Responses.TodoListResponse.yml\" sourcestartlinenumber=\"1\">A todo list returned to clients (see <xref href=\"lumify.api.Controllers.TodoListsController\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -942,7 +942,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Responses.UserAccountInfoResponse",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Responses.UserAccountInfoResponse.yml\" sourcestartlinenumber=\"1\">Account information for a user (name, e-mail, username, timestamps), returned by the\naccount-info endpoints (see <xref href=\"lumify.api.Controllers.UsersController\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -956,7 +956,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Responses.UserPreviewResponse",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Responses.UserPreviewResponse.yml\" sourcestartlinenumber=\"1\">A compact public preview of a user (used in lists and search), enriched with live presence\nstatus (see <xref href=\"lumify.api.Controllers.UsersController\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -970,7 +970,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Responses.UserProfileResponse",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Responses.UserProfileResponse.yml\" sourcestartlinenumber=\"1\">The public profile of a user (display name, avatar, bio), returned by the profile endpoints\n(see <xref href=\"lumify.api.Controllers.UsersController\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -984,7 +984,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Responses.WorkspaceMemberResponse",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.yml\" sourcestartlinenumber=\"1\">A workspace member with their user profile and role\n(see <xref href=\"lumify.api.Controllers.WorkspaceController.GetWorkspaceMembers(System.String%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -998,7 +998,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.DTO.Responses.WorkspaceResponse",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.DTO.Responses.WorkspaceResponse.yml\" sourcestartlinenumber=\"1\">A workspace returned to clients (see <xref href=\"lumify.api.Controllers.WorkspaceController\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1026,7 +1026,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.EF.ChatMessage",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.EF.ChatMessage.yml\" sourcestartlinenumber=\"1\">A single chat message in a room. Persisted by <xref href=\"lumify.api.Hubs.ChatHub\" data-throw-if-not-resolved=\"false\"></xref> and read back via\n<xref href=\"lumify.api.Controllers.ChatController\" data-throw-if-not-resolved=\"false\"></xref>. Soft-deleted via <xref href=\"lumify.api.Models.EF.ChatMessage.DeletedAt\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1040,7 +1040,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.EF.EmailVerificationToken",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.EF.EmailVerificationToken.yml\" sourcestartlinenumber=\"1\">A single-use token backing an e-mail verification link. Only the hash of the token is stored\n(same approach as <xref href=\"lumify.api.Models.EF.PasswordResetToken\" data-throw-if-not-resolved=\"false\"></xref>), so a leaked row cannot be turned back\ninto a working link.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1054,7 +1054,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.EF.Event",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.EF.Event.yml\" sourcestartlinenumber=\"1\">A calendar event, either personal (<xref href=\"lumify.api.Models.EF.Event.WorkspaceID\" data-throw-if-not-resolved=\"false\"></xref> <code>null</code>) or workspace-shared.\nSoft-deleted via <xref href=\"lumify.api.Models.EF.Event.DeletedAt\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1068,7 +1068,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.EF.Folder",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.EF.Folder.yml\" sourcestartlinenumber=\"1\">A folder that organizes notes, either personal or workspace-shared. Folders can be nested via\n<xref href=\"lumify.api.Models.EF.Folder.ParentFolderID\" data-throw-if-not-resolved=\"false\"></xref>. Soft-deleted via <xref href=\"lumify.api.Models.EF.Folder.DeletedAt\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1082,7 +1082,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.EF.Friendship",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.EF.Friendship.yml\" sourcestartlinenumber=\"1\">A relationship between two users (friend request or accepted friendship). Stored once per\nuser pair using ordered <xref href=\"lumify.api.Models.EF.Friendship.UserLowID\" data-throw-if-not-resolved=\"false\"></xref>/<xref href=\"lumify.api.Models.EF.Friendship.UserHighID\" data-throw-if-not-resolved=\"false\"></xref> keys; the\nrequester/addressee fields record who initiated it. See <xref href=\"lumify.api.Services.FriendshipService\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1096,7 +1096,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.EF.Note",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.EF.Note.yml\" sourcestartlinenumber=\"1\">A note container, either personal or workspace-shared, optionally filed in a folder. Its body\nis an ordered list of modules (text blocks and link items). Soft-deleted via <xref href=\"lumify.api.Models.EF.Note.DeletedAt\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1110,7 +1110,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.EF.NoteAttachment",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.EF.NoteAttachment.yml\" sourcestartlinenumber=\"1\">A file attached to a note. Stores the upload metadata and the name under which the file is\nstored on disk. Soft-deleted via <xref href=\"lumify.api.Models.EF.NoteAttachment.DeletedAt\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1124,7 +1124,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.EF.Note_LinkItem",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.EF.Note_LinkItem.yml\" sourcestartlinenumber=\"1\">A link item module within a note — a labelled URL. Ordered within the note via\n<xref href=\"lumify.api.Models.EF.Note_LinkItem.NotePos\" data-throw-if-not-resolved=\"false\"></xref>. Soft-deleted via <xref href=\"lumify.api.Models.EF.Note_LinkItem.DeletedAt\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1138,7 +1138,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.EF.Note_TextBlock",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.EF.Note_TextBlock.yml\" sourcestartlinenumber=\"1\">A text block module within a note (e.g. paragraph, heading or code block). Ordered within the\nnote via <xref href=\"lumify.api.Models.EF.Note_TextBlock.NotePos\" data-throw-if-not-resolved=\"false\"></xref>. Soft-deleted via <xref href=\"lumify.api.Models.EF.Note_TextBlock.DeletedAt\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1152,7 +1152,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.EF.PasswordResetToken",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.EF.PasswordResetToken.yml\" sourcestartlinenumber=\"1\">A single-use token backing a password-reset link. Only the hash of the token is stored, so a\nleaked row cannot be turned back into a working reset link.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1166,7 +1166,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.EF.Role",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.EF.Role.yml\" sourcestartlinenumber=\"1\">The role of a <xref href=\"lumify.api.Models.EF.Role.User\" data-throw-if-not-resolved=\"false\"></xref>, persisted to the database by name.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1180,7 +1180,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.EF.TodoEntry",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.EF.TodoEntry.yml\" sourcestartlinenumber=\"1\">A single item within a <xref href=\"lumify.api.Models.EF.TodoEntry.TodoList\" data-throw-if-not-resolved=\"false\"></xref>. Toggling its status keeps the parent list's\nstatus in sync. Soft-deleted via <xref href=\"lumify.api.Models.EF.TodoEntry.DeletedAt\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1194,7 +1194,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.EF.TodoList",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.EF.TodoList.yml\" sourcestartlinenumber=\"1\">A todo list, either personal or workspace-shared, holding a set of <xref href=\"lumify.api.Models.EF.TodoEntry\" data-throw-if-not-resolved=\"false\"></xref>\nitems. Its status is derived from its entries (done when all entries are done). Soft-deleted\nvia <xref href=\"lumify.api.Models.EF.TodoList.DeletedAt\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1208,7 +1208,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.EF.User",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.EF.User.yml\" sourcestartlinenumber=\"1\">A registered user account. The central entity most other content references via its owner.\nSoft-deleted via <xref href=\"lumify.api.Models.EF.User.DeletedAt\" data-throw-if-not-resolved=\"false\"></xref>; timestamps are stored as ISO-8601 strings.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1222,7 +1222,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.EF.Workspace",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.EF.Workspace.yml\" sourcestartlinenumber=\"1\">A shared space that groups content (folders, notes, todo lists, events) and members.\nContent belongs to the workspace, not its creator. Soft-deleted via <xref href=\"lumify.api.Models.EF.Workspace.DeletedAt\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1236,7 +1236,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.EF.WorkspaceMember",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.EF.WorkspaceMember.yml\" sourcestartlinenumber=\"1\">Join entity linking a <xref href=\"lumify.api.Models.EF.WorkspaceMember.User\" data-throw-if-not-resolved=\"false\"></xref> to a <xref href=\"lumify.api.Models.EF.WorkspaceMember.Workspace\" data-throw-if-not-resolved=\"false\"></xref> with a role.\nA removed membership is soft-deleted via <xref href=\"lumify.api.Models.EF.WorkspaceMember.DeletedAt\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1264,7 +1264,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.Enum.FriendshipStatus",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.Enum.FriendshipStatus.yml\" sourcestartlinenumber=\"1\">The status of a <xref href=\"lumify.api.Models.EF.Friendship\" data-throw-if-not-resolved=\"false\"></xref>, stored as an integer in the database.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1278,7 +1278,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.Enum.PresenceStatus",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.Enum.PresenceStatus.yml\" sourcestartlinenumber=\"1\">A user's real-time presence state, derived from their active connections by the\n<xref href=\"lumify.api.Services.PresenceService\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1306,7 +1306,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.Settings.AppSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.Settings.AppSettings.yml\" sourcestartlinenumber=\"1\">Options bound from the <code>App</code> configuration section. Used to build user-facing links\n(e.g. the password-reset link that points at the frontend, not the API).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1320,7 +1320,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.Settings.EmailSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.Settings.EmailSettings.yml\" sourcestartlinenumber=\"1\">Options bound from the <code>Email</code> configuration section. The actual SMTP credentials come\nfrom the mail hosting and are filled in per environment. Consumed by\n<xref href=\"lumify.api.Services.SmtpEmailService\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1334,7 +1334,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Models.Settings.JwtSettings",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Models.Settings.JwtSettings.yml\" sourcestartlinenumber=\"1\">Options bound from the <code>Jwt</code> configuration section, used to sign and validate JWT\nsession and MFA tokens (see <xref href=\"lumify.api.Logic.InternalLogic\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1362,7 +1362,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Services.FriendshipService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Services.FriendshipService.yml\" sourcestartlinenumber=\"1\">Encapsulates the friendship domain logic used by the\n<xref href=\"lumify.api.Controllers.FriendshipController\" data-throw-if-not-resolved=\"false\"></xref>: sending, accepting, rejecting and\nremoving friendships, including the validation and state transitions involved.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1376,7 +1376,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Services.PresenceService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Services.PresenceService.yml\" sourcestartlinenumber=\"1\">In-memory implementation of <xref href=\"lumify.api.Interfaces.IPresenceService\" data-throw-if-not-resolved=\"false\"></xref>. Maintains the mapping between\nusers and their open SignalR connections in thread-safe dictionaries; a user counts as\nonline while at least one connection is registered.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1390,7 +1390,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "lumify.api.Services.SmtpEmailService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/lumify.api.Services.SmtpEmailService.yml\" sourcestartlinenumber=\"1\"><xref href=\"lumify.api.Interfaces.IEmailService\" data-throw-if-not-resolved=\"false\"></xref> implementation that sends mail over SMTP via MailKit. SMTP\ncredentials come from the <code>Email</code> configuration section (per environment). This is\nthe only component that talks to the mail server.</p>\n"
     },
     {
       "type": "ManagedReference",

@@ -23,10 +23,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: FriendshipStatus
     path: ../../../lumify.api/Models/DTO/Enum/FriendshipStatus.cs
-    startLine: 2
+    startLine: 5
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Enum
+  summary: The status of a <xref href="lumify.api.Models.EF.Friendship" data-throw-if-not-resolved="false"></xref>, stored as an integer in the database.
+  example: []
   syntax:
     content: public enum FriendshipStatus
     content.vb: Public Enum FriendshipStatus
@@ -48,10 +50,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Pending
     path: ../../../lumify.api/Models/DTO/Enum/FriendshipStatus.cs
-    startLine: 4
+    startLine: 8
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Enum
+  summary: A request has been sent and is awaiting a response.
+  example: []
   syntax:
     content: Pending = 0
     return:
@@ -74,10 +78,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Accepted
     path: ../../../lumify.api/Models/DTO/Enum/FriendshipStatus.cs
-    startLine: 5
+    startLine: 10
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Enum
+  summary: The request was accepted; the users are friends.
+  example: []
   syntax:
     content: Accepted = 1
     return:
@@ -100,10 +106,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Rejected
     path: ../../../lumify.api/Models/DTO/Enum/FriendshipStatus.cs
-    startLine: 6
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Enum
+  summary: The request was rejected.
+  example: []
   syntax:
     content: Rejected = 2
     return:
@@ -126,15 +134,23 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Blocked
     path: ../../../lumify.api/Models/DTO/Enum/FriendshipStatus.cs
-    startLine: 7
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Enum
+  summary: The relationship is blocked.
+  example: []
   syntax:
     content: Blocked = 3
     return:
       type: lumify.api.Models.Enum.FriendshipStatus
 references:
+- uid: lumify.api.Models.EF.Friendship
+  commentId: T:lumify.api.Models.EF.Friendship
+  href: lumify.api.Models.EF.Friendship.html
+  name: Friendship
+  nameWithType: Friendship
+  fullName: lumify.api.Models.EF.Friendship
 - uid: lumify.api.Models.Enum
   commentId: N:lumify.api.Models.Enum
   href: lumify.html

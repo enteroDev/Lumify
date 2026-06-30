@@ -29,10 +29,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: TextblockResponse
     path: ../../../lumify.api/Models/DTO/Responses/TextblockResponse.cs
-    startLine: 3
+    startLine: 7
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: >-
+    A text block module returned to clients (see <xref href="lumify.api.Controllers.NotesController" data-throw-if-not-resolved="false"></xref>).
+
+    The collapsed flag is exposed as a bool (mapped from the entity's integer).
+  example: []
   syntax:
     content: public class TextblockResponse
     content.vb: Public Class TextblockResponse
@@ -56,10 +61,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/DTO/Responses/TextblockResponse.cs
-    startLine: 5
+    startLine: 10
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Text block ID.
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -85,10 +92,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: NoteID
     path: ../../../lumify.api/Models/DTO/Responses/TextblockResponse.cs
-    startLine: 6
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The parent note.
+  example: []
   syntax:
     content: public string NoteID { get; set; }
     parameters: []
@@ -114,10 +123,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Type
     path: ../../../lumify.api/Models/DTO/Responses/TextblockResponse.cs
-    startLine: 7
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Block type code (paragraph, heading, code, …).
+  example: []
   syntax:
     content: public int Type { get; set; }
     parameters: []
@@ -143,10 +154,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/DTO/Responses/TextblockResponse.cs
-    startLine: 8
+    startLine: 16
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Optional block title/heading.
+  example: []
   syntax:
     content: public string? Name { get; set; }
     parameters: []
@@ -172,10 +185,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Content
     path: ../../../lumify.api/Models/DTO/Responses/TextblockResponse.cs
-    startLine: 9
+    startLine: 18
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The block's text content.
+  example: []
   syntax:
     content: public string? Content { get; set; }
     parameters: []
@@ -201,10 +216,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CodeLanguage
     path: ../../../lumify.api/Models/DTO/Responses/TextblockResponse.cs
-    startLine: 10
+    startLine: 20
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: For code blocks, the language for syntax highlighting.
+  example: []
   syntax:
     content: public string? CodeLanguage { get; set; }
     parameters: []
@@ -230,10 +247,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: IsCollapsed
     path: ../../../lumify.api/Models/DTO/Responses/TextblockResponse.cs
-    startLine: 11
+    startLine: 22
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Whether the block is collapsed in the UI.
+  example: []
   syntax:
     content: public bool IsCollapsed { get; set; }
     parameters: []
@@ -259,10 +278,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: NotePos
     path: ../../../lumify.api/Models/DTO/Responses/TextblockResponse.cs
-    startLine: 12
+    startLine: 24
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Position within the note.
+  example: []
   syntax:
     content: public int NotePos { get; set; }
     parameters: []
@@ -288,10 +309,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CreatedAt
     path: ../../../lumify.api/Models/DTO/Responses/TextblockResponse.cs
-    startLine: 13
+    startLine: 26
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Creation timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string CreatedAt { get; set; }
     parameters: []
@@ -317,10 +340,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UpdatedAt
     path: ../../../lumify.api/Models/DTO/Responses/TextblockResponse.cs
-    startLine: 14
+    startLine: 28
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Last-update timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string UpdatedAt { get; set; }
     parameters: []
@@ -329,6 +354,12 @@ items:
     content.vb: Public Property UpdatedAt As String
   overload: lumify.api.Models.DTO.Responses.TextblockResponse.UpdatedAt*
 references:
+- uid: lumify.api.Controllers.NotesController
+  commentId: T:lumify.api.Controllers.NotesController
+  href: lumify.api.Controllers.NotesController.html
+  name: NotesController
+  nameWithType: NotesController
+  fullName: lumify.api.Controllers.NotesController
 - uid: lumify.api.Models.DTO.Responses
   commentId: N:lumify.api.Models.DTO.Responses
   href: lumify.html

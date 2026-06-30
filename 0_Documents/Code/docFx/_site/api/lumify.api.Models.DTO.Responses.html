@@ -96,63 +96,90 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.DTO.Responses.ChatMessageResponse.html">ChatMessageResponse</a></dt>
-      <dd></dd>
+      <dd><p>A chat message returned to clients, with the sender's resolved display name
+(see <a class="xref" href="lumify.api.Controllers.ChatController.html#lumify_api_Controllers_ChatController_GetMessagesOfRoom_System_String_System_Threading_CancellationToken_">GetMessagesOfRoom(string, CancellationToken)</a>).</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.DTO.Responses.EventResponse.html">EventResponse</a></dt>
-      <dd></dd>
+      <dd><p>A calendar event returned to clients (see <a class="xref" href="lumify.api.Controllers.EventsController.html">EventsController</a>).
+The all-day flag is exposed as a bool (mapped from the entity's integer).</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.DTO.Responses.FolderResponse.html">FolderResponse</a></dt>
-      <dd></dd>
+      <dd><p>A folder returned to clients (see <a class="xref" href="lumify.api.Controllers.FoldersController.html">FoldersController</a>).</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.DTO.Responses.FriendshipResponse.html">FriendshipResponse</a></dt>
-      <dd></dd>
+      <dd><p>A friendship/friend-request returned to clients. The requester fields are populated for
+incoming requests; the friend fields for outgoing requests
+(see <a class="xref" href="lumify.api.Controllers.FriendshipController.html">FriendshipController</a>).</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.DTO.Responses.LinkItemResponse.html">LinkItemResponse</a></dt>
-      <dd></dd>
+      <dd><p>A link item module returned to clients (see <a class="xref" href="lumify.api.Controllers.NotesController.html">NotesController</a>).</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.DTO.Responses.NoteResponse.html">NoteResponse</a></dt>
-      <dd></dd>
+      <dd><p>A note (metadata only) returned to clients; its modules are fetched separately
+(see <a class="xref" href="lumify.api.Controllers.NotesController.html">NotesController</a>).</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.DTO.Responses.RelatedUserResponse.html">RelatedUserResponse</a></dt>
-      <dd></dd>
+      <dd><p>A user that can be added to a workspace, returned by workspace member search
+(see <a class="xref" href="lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_SearchAvailableUsersForWorkspace_System_String_System_String_System_Threading_CancellationToken_">SearchAvailableUsersForWorkspace(string, string, CancellationToken)</a>), enriched
+with live presence status.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.DTO.Responses.TextblockResponse.html">TextblockResponse</a></dt>
-      <dd></dd>
+      <dd><p>A text block module returned to clients (see <a class="xref" href="lumify.api.Controllers.NotesController.html">NotesController</a>).
+The collapsed flag is exposed as a bool (mapped from the entity's integer).</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.DTO.Responses.TodoEntryResponse.html">TodoEntryResponse</a></dt>
-      <dd></dd>
+      <dd><p>A todo entry returned to clients (see <a class="xref" href="lumify.api.Controllers.TodoListsController.html">TodoListsController</a>).</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.DTO.Responses.TodoListResponse.html">TodoListResponse</a></dt>
-      <dd></dd>
+      <dd><p>A todo list returned to clients (see <a class="xref" href="lumify.api.Controllers.TodoListsController.html">TodoListsController</a>).</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.DTO.Responses.UserAccountInfoResponse.html">UserAccountInfoResponse</a></dt>
-      <dd></dd>
+      <dd><p>Account information for a user (name, e-mail, username, timestamps), returned by the
+account-info endpoints (see <a class="xref" href="lumify.api.Controllers.UsersController.html">UsersController</a>).</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.DTO.Responses.UserPreviewResponse.html">UserPreviewResponse</a></dt>
-      <dd></dd>
+      <dd><p>A compact public preview of a user (used in lists and search), enriched with live presence
+status (see <a class="xref" href="lumify.api.Controllers.UsersController.html">UsersController</a>).</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.DTO.Responses.UserProfileResponse.html">UserProfileResponse</a></dt>
-      <dd></dd>
+      <dd><p>The public profile of a user (display name, avatar, bio), returned by the profile endpoints
+(see <a class="xref" href="lumify.api.Controllers.UsersController.html">UsersController</a>).</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.DTO.Responses.WorkspaceMemberResponse.html">WorkspaceMemberResponse</a></dt>
-      <dd></dd>
+      <dd><p>A workspace member with their user profile and role
+(see <a class="xref" href="lumify.api.Controllers.WorkspaceController.html#lumify_api_Controllers_WorkspaceController_GetWorkspaceMembers_System_String_System_Threading_CancellationToken_">GetWorkspaceMembers(string, CancellationToken)</a>).</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.DTO.Responses.WorkspaceResponse.html">WorkspaceResponse</a></dt>
-      <dd></dd>
+      <dd><p>A workspace returned to clients (see <a class="xref" href="lumify.api.Controllers.WorkspaceController.html">WorkspaceController</a>).</p>
+</dd>
     </dl>
 
 

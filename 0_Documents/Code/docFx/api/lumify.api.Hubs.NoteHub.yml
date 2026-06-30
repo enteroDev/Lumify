@@ -21,7 +21,7 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: NoteHub
     path: ../../../lumify.api/Hubs/NoteHub.cs
-    startLine: 12
+    startLine: 13
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
@@ -70,7 +70,7 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: JoinWorkspace
     path: ../../../lumify.api/Hubs/NoteHub.cs
-    startLine: 20
+    startLine: 22
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
@@ -110,7 +110,7 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: LeaveWorkspace
     path: ../../../lumify.api/Hubs/NoteHub.cs
-    startLine: 32
+    startLine: 35
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs

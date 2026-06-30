@@ -33,10 +33,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Note
     path: ../../../lumify.api/Models/EF/Note.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: >-
+    A note container, either personal or workspace-shared, optionally filed in a folder. Its body
+
+    is an ordered list of modules (text blocks and link items). Soft-deleted via <xref href="lumify.api.Models.EF.Note.DeletedAt" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public class Note
     content.vb: Public Class Note
@@ -60,10 +65,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/EF/Note.cs
-    startLine: 7
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Primary key (GUID string).
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -89,10 +96,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: OwnerID
     path: ../../../lumify.api/Models/EF/Note.cs
-    startLine: 8
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The user who created the note.
+  example: []
   syntax:
     content: public string OwnerID { get; set; }
     parameters: []
@@ -118,10 +127,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: WorkspaceID
     path: ../../../lumify.api/Models/EF/Note.cs
-    startLine: 9
+    startLine: 16
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The owning workspace, or <code>null</code> for a personal note.
+  example: []
   syntax:
     content: public string? WorkspaceID { get; set; }
     parameters: []
@@ -147,10 +158,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: FolderID
     path: ../../../lumify.api/Models/EF/Note.cs
-    startLine: 10
+    startLine: 18
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The containing folder, or <code>null</code> if the note is at the root.
+  example: []
   syntax:
     content: public string? FolderID { get; set; }
     parameters: []
@@ -176,10 +189,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/EF/Note.cs
-    startLine: 12
+    startLine: 21
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Note title.
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -205,10 +220,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CreatedAt
     path: ../../../lumify.api/Models/EF/Note.cs
-    startLine: 14
+    startLine: 24
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Creation timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string CreatedAt { get; set; }
     parameters: []
@@ -234,10 +251,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UpdatedAt
     path: ../../../lumify.api/Models/EF/Note.cs
-    startLine: 15
+    startLine: 26
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Last-update timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string UpdatedAt { get; set; }
     parameters: []
@@ -263,10 +282,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: DeletedAt
     path: ../../../lumify.api/Models/EF/Note.cs
-    startLine: 16
+    startLine: 28
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Soft-delete timestamp (ISO-8601 string); <code>null</code> while active.
+  example: []
   syntax:
     content: public string? DeletedAt { get; set; }
     parameters: []
@@ -292,10 +313,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Folder
     path: ../../../lumify.api/Models/EF/Note.cs
-    startLine: 20
+    startLine: 33
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The containing folder, if any.
+  example: []
   syntax:
     content: public virtual Folder? Folder { get; set; }
     parameters: []
@@ -321,10 +344,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Owner
     path: ../../../lumify.api/Models/EF/Note.cs
-    startLine: 21
+    startLine: 35
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The owning user.
+  example: []
   syntax:
     content: public virtual User Owner { get; set; }
     parameters: []
@@ -350,10 +375,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Workspace
     path: ../../../lumify.api/Models/EF/Note.cs
-    startLine: 22
+    startLine: 37
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The owning workspace, if any.
+  example: []
   syntax:
     content: public virtual Workspace? Workspace { get; set; }
     parameters: []
@@ -379,10 +406,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: NoteAttachments
     path: ../../../lumify.api/Models/EF/Note.cs
-    startLine: 24
+    startLine: 40
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: File attachments of this note.
+  example: []
   syntax:
     content: public virtual ICollection<NoteAttachment> NoteAttachments { get; set; }
     parameters: []
@@ -408,10 +437,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Note_LinkItems
     path: ../../../lumify.api/Models/EF/Note.cs
-    startLine: 25
+    startLine: 42
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Link item modules of this note.
+  example: []
   syntax:
     content: public virtual ICollection<Note_LinkItem> Note_LinkItems { get; set; }
     parameters: []
@@ -437,10 +468,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Note_TextBlocks
     path: ../../../lumify.api/Models/EF/Note.cs
-    startLine: 26
+    startLine: 44
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Text block modules of this note.
+  example: []
   syntax:
     content: public virtual ICollection<Note_TextBlock> Note_TextBlocks { get; set; }
     parameters: []
@@ -449,6 +482,12 @@ items:
     content.vb: Public Overridable Property Note_TextBlocks As ICollection(Of Note_TextBlock)
   overload: lumify.api.Models.EF.Note.Note_TextBlocks*
 references:
+- uid: lumify.api.Models.EF.Note.DeletedAt
+  commentId: P:lumify.api.Models.EF.Note.DeletedAt
+  href: lumify.api.Models.EF.Note.html#lumify_api_Models_EF_Note_DeletedAt
+  name: DeletedAt
+  nameWithType: Note.DeletedAt
+  fullName: lumify.api.Models.EF.Note.DeletedAt
 - uid: lumify.api.Models.EF
   commentId: N:lumify.api.Models.EF
   href: lumify.html

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class TotpCodeRequest | Lumify – Code Documentation ">
       
-      
+      <meta name="description" content="Request body carrying a single TOTP code, used to confirm 2FA setup and to disable it again (see  / ).">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="lumify_api_Models_DTO_Requests_TotpCodeRequest" data-uid="lumify.api.Models.DTO.Requests.TotpCodeRequest" class="text-break">
-Class TotpCodeRequest  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/DTO/Requests/MfaRequests.cs/#L11"><i class="bi bi-code-slash"></i></a>
+Class TotpCodeRequest  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/DTO/Requests/MfaRequests.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,10 @@ Class TotpCodeRequest  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Request body carrying a single TOTP code, used to confirm 2FA setup and to disable it again
+(see <a class="xref" href="lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_ConfirmTotp_lumify_api_Models_DTO_Requests_TotpCodeRequest_">ConfirmTotp(TotpCodeRequest)</a> /
+<a class="xref" href="lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_DisableTotp_lumify_api_Models_DTO_Requests_TotpCodeRequest_">DisableTotp(TotpCodeRequest)</a>).</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -131,10 +134,11 @@ Class TotpCodeRequest  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="lumify_api_Models_DTO_Requests_TotpCodeRequest_Code" data-uid="lumify.api.Models.DTO.Requests.TotpCodeRequest.Code">
   Code
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/DTO/Requests/MfaRequests.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/DTO/Requests/MfaRequests.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The 6-digit code from the authenticator app.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

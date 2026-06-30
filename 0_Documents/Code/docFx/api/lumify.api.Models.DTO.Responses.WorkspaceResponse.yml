@@ -24,10 +24,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: WorkspaceResponse
     path: ../../../lumify.api/Models/DTO/Responses/WorkspaceResponse.cs
-    startLine: 2
+    startLine: 5
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: A workspace returned to clients (see <xref href="lumify.api.Controllers.WorkspaceController" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public class WorkspaceResponse
     content.vb: Public Class WorkspaceResponse
@@ -51,10 +53,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/DTO/Responses/WorkspaceResponse.cs
-    startLine: 4
+    startLine: 8
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Workspace ID.
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -80,10 +84,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: OwnerID
     path: ../../../lumify.api/Models/DTO/Responses/WorkspaceResponse.cs
-    startLine: 5
+    startLine: 10
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The owner's user ID.
+  example: []
   syntax:
     content: public string OwnerID { get; set; }
     parameters: []
@@ -109,10 +115,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/DTO/Responses/WorkspaceResponse.cs
-    startLine: 6
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Workspace name.
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -138,10 +146,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CreatedAt
     path: ../../../lumify.api/Models/DTO/Responses/WorkspaceResponse.cs
-    startLine: 7
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Creation timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string CreatedAt { get; set; }
     parameters: []
@@ -167,10 +177,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UpdatedAt
     path: ../../../lumify.api/Models/DTO/Responses/WorkspaceResponse.cs
-    startLine: 8
+    startLine: 16
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Last-update timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string UpdatedAt { get; set; }
     parameters: []
@@ -179,6 +191,12 @@ items:
     content.vb: Public Property UpdatedAt As String
   overload: lumify.api.Models.DTO.Responses.WorkspaceResponse.UpdatedAt*
 references:
+- uid: lumify.api.Controllers.WorkspaceController
+  commentId: T:lumify.api.Controllers.WorkspaceController
+  href: lumify.api.Controllers.WorkspaceController.html
+  name: WorkspaceController
+  nameWithType: WorkspaceController
+  fullName: lumify.api.Controllers.WorkspaceController
 - uid: lumify.api.Models.DTO.Responses
   commentId: N:lumify.api.Models.DTO.Responses
   href: lumify.html

@@ -8,6 +8,16 @@ using System.Text;
 
 namespace lumify.api.Logic
 {
+    /// <summary>
+    /// ASP.NET Core middleware enforcing CSRF protection via the double-submit-cookie pattern:
+    /// for mutating requests (POST/PUT/PATCH/DELETE) the <c>X-CSRF-Token</c> header must match the
+    /// <c>XSRF-TOKEN</c> cookie, using a constant-time comparison.
+    /// </summary>
+    /// <remarks>
+    /// Non-mutating methods, CORS preflight, the auth endpoints that run before a CSRF cookie
+    /// exists (login, register, password reset, e-mail verification, TOTP login) and the SignalR
+    /// hub paths under <c>/hubs</c> are exempt. A failed check returns 403.
+    /// </remarks>
     public class CsrfMiddleware
     {
         private static readonly HashSet<string> _methods = new(StringComparer.OrdinalIgnoreCase)
@@ -29,9 +39,18 @@ namespace lumify.api.Logic
         };
 
         private readonly RequestDelegate _next;
+
+        /// <summary>
+        /// Creates the middleware with the next delegate in the request pipeline.
+        /// </summary>
         public CsrfMiddleware(RequestDelegate next) => _next = next;
 
 
+        /// <summary>
+        /// Processes a request: lets exempt and non-mutating requests through, otherwise compares
+        /// the CSRF header against the cookie and short-circuits with 403 on mismatch.
+        /// </summary>
+        /// <param name="context">The current HTTP context.</param>
         public async Task Invoke(HttpContext context)
         {
             // Skip for non-mutating requests
@@ -104,7 +123,13 @@ namespace lumify.api.Logic
         }
 
 
-        // Constant-time comparison to avoid timing side channels
+        /// <summary>
+        /// Compares two strings in constant time to avoid leaking information through timing
+        /// side channels.
+        /// </summary>
+        /// <param name="a">First value.</param>
+        /// <param name="b">Second value.</param>
+        /// <returns><c>true</c> if the values are byte-for-byte equal.</returns>
         private static bool TimingSafeEquals(string a, string b)
         {
             var ba = Encoding.UTF8.GetBytes(a);

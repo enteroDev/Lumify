@@ -20,10 +20,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: VerifyEmailRequest
     path: ../../../lumify.api/Models/DTO/Requests/VerifyEmailRequest.cs
-    startLine: 2
+    startLine: 6
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: >-
+    Request body for confirming an e-mail address
+
+    (see <xref href="lumify.api.Controllers.AccountController.VerifyEmail(lumify.api.Models.DTO.Requests.VerifyEmailRequest%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public sealed class VerifyEmailRequest
     content.vb: Public NotInheritable Class VerifyEmailRequest
@@ -47,10 +52,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Token
     path: ../../../lumify.api/Models/DTO/Requests/VerifyEmailRequest.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The one-time token from the verification link.
+  example: []
   syntax:
     content: public required string Token { get; set; }
     parameters: []
@@ -59,6 +66,41 @@ items:
     content.vb: Public Property Token As String
   overload: lumify.api.Models.DTO.Requests.VerifyEmailRequest.Token*
 references:
+- uid: lumify.api.Controllers.AccountController.VerifyEmail(lumify.api.Models.DTO.Requests.VerifyEmailRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.AccountController.VerifyEmail(lumify.api.Models.DTO.Requests.VerifyEmailRequest,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_VerifyEmail_lumify_api_Models_DTO_Requests_VerifyEmailRequest_System_Threading_CancellationToken_
+  name: VerifyEmail(VerifyEmailRequest, CancellationToken)
+  nameWithType: AccountController.VerifyEmail(VerifyEmailRequest, CancellationToken)
+  fullName: lumify.api.Controllers.AccountController.VerifyEmail(lumify.api.Models.DTO.Requests.VerifyEmailRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.AccountController.VerifyEmail(lumify.api.Models.DTO.Requests.VerifyEmailRequest,System.Threading.CancellationToken)
+    name: VerifyEmail
+    href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_VerifyEmail_lumify_api_Models_DTO_Requests_VerifyEmailRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.VerifyEmailRequest
+    name: VerifyEmailRequest
+    href: lumify.api.Models.DTO.Requests.VerifyEmailRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.AccountController.VerifyEmail(lumify.api.Models.DTO.Requests.VerifyEmailRequest,System.Threading.CancellationToken)
+    name: VerifyEmail
+    href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_VerifyEmail_lumify_api_Models_DTO_Requests_VerifyEmailRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.VerifyEmailRequest
+    name: VerifyEmailRequest
+    href: lumify.api.Models.DTO.Requests.VerifyEmailRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

@@ -22,10 +22,17 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: SaveUserProfileRequest
     path: ../../../lumify.api/Models/DTO/Requests/SaveUserProfileRequest.cs
-    startLine: 4
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: >-
+    Request body for updating the current user's profile
+
+    (see <xref href="lumify.api.Controllers.UsersController.SaveUserProfile(lumify.api.Models.DTO.Requests.SaveUserProfileRequest%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>). Only non-<code>null</code>
+
+    fields are applied; empty values clear the respective field.
+  example: []
   syntax:
     content: public class SaveUserProfileRequest
     content.vb: Public Class SaveUserProfileRequest
@@ -49,10 +56,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: DisplayName
     path: ../../../lumify.api/Models/DTO/Requests/SaveUserProfileRequest.cs
-    startLine: 6
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New public display name, if changing.
+  example: []
   syntax:
     content: public string? DisplayName { get; set; }
     parameters: []
@@ -78,10 +87,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AvatarUrl
     path: ../../../lumify.api/Models/DTO/Requests/SaveUserProfileRequest.cs
-    startLine: 8
+    startLine: 15
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New avatar URL, if changing.
+  example: []
   syntax:
     content: public string? AvatarUrl { get; set; }
     parameters: []
@@ -107,10 +118,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Bio
     path: ../../../lumify.api/Models/DTO/Requests/SaveUserProfileRequest.cs
-    startLine: 10
+    startLine: 18
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New profile bio, if changing.
+  example: []
   syntax:
     content: public string? Bio { get; set; }
     parameters: []
@@ -119,6 +132,41 @@ items:
     content.vb: Public Property Bio As String
   overload: lumify.api.Models.DTO.Requests.SaveUserProfileRequest.Bio*
 references:
+- uid: lumify.api.Controllers.UsersController.SaveUserProfile(lumify.api.Models.DTO.Requests.SaveUserProfileRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.UsersController.SaveUserProfile(lumify.api.Models.DTO.Requests.SaveUserProfileRequest,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_SaveUserProfile_lumify_api_Models_DTO_Requests_SaveUserProfileRequest_System_Threading_CancellationToken_
+  name: SaveUserProfile(SaveUserProfileRequest, CancellationToken)
+  nameWithType: UsersController.SaveUserProfile(SaveUserProfileRequest, CancellationToken)
+  fullName: lumify.api.Controllers.UsersController.SaveUserProfile(lumify.api.Models.DTO.Requests.SaveUserProfileRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.UsersController.SaveUserProfile(lumify.api.Models.DTO.Requests.SaveUserProfileRequest,System.Threading.CancellationToken)
+    name: SaveUserProfile
+    href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_SaveUserProfile_lumify_api_Models_DTO_Requests_SaveUserProfileRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.SaveUserProfileRequest
+    name: SaveUserProfileRequest
+    href: lumify.api.Models.DTO.Requests.SaveUserProfileRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.UsersController.SaveUserProfile(lumify.api.Models.DTO.Requests.SaveUserProfileRequest,System.Threading.CancellationToken)
+    name: SaveUserProfile
+    href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_SaveUserProfile_lumify_api_Models_DTO_Requests_SaveUserProfileRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.SaveUserProfileRequest
+    name: SaveUserProfileRequest
+    href: lumify.api.Models.DTO.Requests.SaveUserProfileRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

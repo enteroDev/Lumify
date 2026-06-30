@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Folder | Lumify – Code Documentation ">
       
-      
+      <meta name="description" content="A folder that organizes notes, either personal or workspace-shared. Folders can be nested via . Soft-deleted via .">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="lumify_api_Models_EF_Folder" data-uid="lumify.api.Models.EF.Folder" class="text-break">
-Class Folder  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class Folder  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,9 @@ Class Folder  <a class="header-action link-secondary" title="View source" href="
   <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>A folder that organizes notes, either personal or workspace-shared. Folders can be nested via
+<a class="xref" href="lumify.api.Models.EF.Folder.html#lumify_api_Models_EF_Folder_ParentFolderID">ParentFolderID</a>. Soft-deleted via <a class="xref" href="lumify.api.Models.EF.Folder.html#lumify_api_Models_EF_Folder_DeletedAt">DeletedAt</a>.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -131,10 +133,11 @@ Class Folder  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="lumify_api_Models_EF_Folder_CreatedAt" data-uid="lumify.api.Models.EF.Folder.CreatedAt">
   CreatedAt
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creation timestamp (ISO-8601 string).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -162,10 +165,11 @@ Class Folder  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="lumify_api_Models_EF_Folder_DeletedAt" data-uid="lumify.api.Models.EF.Folder.DeletedAt">
   DeletedAt
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Soft-delete timestamp (ISO-8601 string); <code>null</code> while active.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -193,10 +197,11 @@ Class Folder  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="lumify_api_Models_EF_Folder_Description" data-uid="lumify.api.Models.EF.Folder.Description">
   Description
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Optional folder description.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -224,10 +229,11 @@ Class Folder  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="lumify_api_Models_EF_Folder_ID" data-uid="lumify.api.Models.EF.Folder.ID">
   ID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Primary key (GUID string).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -255,10 +261,11 @@ Class Folder  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="lumify_api_Models_EF_Folder_InverseParentFolder" data-uid="lumify.api.Models.EF.Folder.InverseParentFolder">
   InverseParentFolder
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Direct child folders nested under this folder.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -286,10 +293,11 @@ Class Folder  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="lumify_api_Models_EF_Folder_Name" data-uid="lumify.api.Models.EF.Folder.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Folder name.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -317,10 +325,11 @@ Class Folder  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="lumify_api_Models_EF_Folder_Notes" data-uid="lumify.api.Models.EF.Folder.Notes">
   Notes
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Notes contained directly in this folder.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -348,10 +357,11 @@ Class Folder  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="lumify_api_Models_EF_Folder_Owner" data-uid="lumify.api.Models.EF.Folder.Owner">
   Owner
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The owning user.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -379,10 +389,11 @@ Class Folder  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="lumify_api_Models_EF_Folder_OwnerID" data-uid="lumify.api.Models.EF.Folder.OwnerID">
   OwnerID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The user who created the folder.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -410,10 +421,11 @@ Class Folder  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="lumify_api_Models_EF_Folder_ParentFolder" data-uid="lumify.api.Models.EF.Folder.ParentFolder">
   ParentFolder
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The parent folder, if any.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -441,10 +453,11 @@ Class Folder  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="lumify_api_Models_EF_Folder_ParentFolderID" data-uid="lumify.api.Models.EF.Folder.ParentFolderID">
   ParentFolderID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The parent folder, or <code>null</code> if the folder is at the root.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -472,10 +485,11 @@ Class Folder  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="lumify_api_Models_EF_Folder_UpdatedAt" data-uid="lumify.api.Models.EF.Folder.UpdatedAt">
   UpdatedAt
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Last-update timestamp (ISO-8601 string).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -503,10 +517,11 @@ Class Folder  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="lumify_api_Models_EF_Folder_Workspace" data-uid="lumify.api.Models.EF.Folder.Workspace">
   Workspace
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The owning workspace, if any.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -534,10 +549,11 @@ Class Folder  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="lumify_api_Models_EF_Folder_WorkspaceID" data-uid="lumify.api.Models.EF.Folder.WorkspaceID">
   WorkspaceID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Folder.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The owning workspace, or <code>null</code> for a personal folder.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

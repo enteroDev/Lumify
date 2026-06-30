@@ -21,10 +21,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: VerifyTotpLoginRequest
     path: ../../../lumify.api/Models/DTO/Requests/MfaRequests.cs
-    startLine: 3
+    startLine: 6
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: >-
+    Request body for the second login step with 2FA
+
+    (see <xref href="lumify.api.Controllers.AccountController.VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public class VerifyTotpLoginRequest
     content.vb: Public Class VerifyTotpLoginRequest
@@ -48,10 +53,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: MfaToken
     path: ../../../lumify.api/Models/DTO/Requests/MfaRequests.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The short-lived MFA challenge token from login step 1.
+  example: []
   syntax:
     content: public string MfaToken { get; set; }
     parameters: []
@@ -77,10 +84,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Code
     path: ../../../lumify.api/Models/DTO/Requests/MfaRequests.cs
-    startLine: 6
+    startLine: 11
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The 6-digit code from the authenticator app.
+  example: []
   syntax:
     content: public string Code { get; set; }
     parameters: []
@@ -89,6 +98,30 @@ items:
     content.vb: Public Property Code As String
   overload: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.Code*
 references:
+- uid: lumify.api.Controllers.AccountController.VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)
+  commentId: M:lumify.api.Controllers.AccountController.VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_VerifyTotpLogin_lumify_api_Models_DTO_Requests_VerifyTotpLoginRequest_
+  name: VerifyTotpLogin(VerifyTotpLoginRequest)
+  nameWithType: AccountController.VerifyTotpLogin(VerifyTotpLoginRequest)
+  fullName: lumify.api.Controllers.AccountController.VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)
+  spec.csharp:
+  - uid: lumify.api.Controllers.AccountController.VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)
+    name: VerifyTotpLogin
+    href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_VerifyTotpLogin_lumify_api_Models_DTO_Requests_VerifyTotpLoginRequest_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest
+    name: VerifyTotpLoginRequest
+    href: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.html
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.AccountController.VerifyTotpLogin(lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest)
+    name: VerifyTotpLogin
+    href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_VerifyTotpLogin_lumify_api_Models_DTO_Requests_VerifyTotpLoginRequest_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest
+    name: VerifyTotpLoginRequest
+    href: lumify.api.Models.DTO.Requests.VerifyTotpLoginRequest.html
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

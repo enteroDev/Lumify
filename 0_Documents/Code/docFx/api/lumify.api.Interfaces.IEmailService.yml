@@ -21,10 +21,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: IEmailService
     path: ../../../lumify.api/Interfaces/IEmailService.cs
-    startLine: 2
+    startLine: 6
   assemblies:
   - lumify.api
   namespace: lumify.api.Interfaces
+  summary: >-
+    Abstraction for sending transactional e-mails (password reset and address verification).
+
+    Implemented by <xref href="lumify.api.Services.SmtpEmailService" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public interface IEmailService
     content.vb: Public Interface IEmailService
@@ -48,21 +53,27 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: SendPasswordResetEmailAsync
     path: ../../../lumify.api/Interfaces/IEmailService.cs
-    startLine: 5
+    startLine: 15
   assemblies:
   - lumify.api
   namespace: lumify.api.Interfaces
+  summary: Sends the password-reset mail containing the one-time reset link to the user.
+  example: []
   syntax:
     content: Task SendPasswordResetEmailAsync(string toEmail, string? displayName, string resetLink, CancellationToken ct)
     parameters:
     - id: toEmail
       type: System.String
+      description: The recipient's e-mail address.
     - id: displayName
       type: System.String
+      description: The recipient's display name for the greeting, if known.
     - id: resetLink
       type: System.String
+      description: The one-time reset link to embed.
     - id: ct
       type: System.Threading.CancellationToken
+      description: Cancellation token for the send operation.
     return:
       type: System.Threading.Tasks.Task
     content.vb: Function SendPasswordResetEmailAsync(toEmail As String, displayName As String, resetLink As String, ct As CancellationToken) As Task
@@ -88,21 +99,27 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: SendVerificationEmailAsync
     path: ../../../lumify.api/Interfaces/IEmailService.cs
-    startLine: 8
+    startLine: 24
   assemblies:
   - lumify.api
   namespace: lumify.api.Interfaces
+  summary: Sends the e-mail verification mail containing the one-time confirmation link to the user.
+  example: []
   syntax:
     content: Task SendVerificationEmailAsync(string toEmail, string? displayName, string verifyLink, CancellationToken ct)
     parameters:
     - id: toEmail
       type: System.String
+      description: The recipient's e-mail address.
     - id: displayName
       type: System.String
+      description: The recipient's display name for the greeting, if known.
     - id: verifyLink
       type: System.String
+      description: The one-time verification link to embed.
     - id: ct
       type: System.Threading.CancellationToken
+      description: Cancellation token for the send operation.
     return:
       type: System.Threading.Tasks.Task
     content.vb: Function SendVerificationEmailAsync(toEmail As String, displayName As String, verifyLink As String, ct As CancellationToken) As Task
@@ -111,6 +128,12 @@ items:
   fullName.vb: lumify.api.Interfaces.IEmailService.SendVerificationEmailAsync(String, String, String, System.Threading.CancellationToken)
   name.vb: SendVerificationEmailAsync(String, String, String, CancellationToken)
 references:
+- uid: lumify.api.Services.SmtpEmailService
+  commentId: T:lumify.api.Services.SmtpEmailService
+  href: lumify.api.Services.SmtpEmailService.html
+  name: SmtpEmailService
+  nameWithType: SmtpEmailService
+  fullName: lumify.api.Services.SmtpEmailService
 - uid: lumify.api.Interfaces
   commentId: N:lumify.api.Interfaces
   href: lumify.html

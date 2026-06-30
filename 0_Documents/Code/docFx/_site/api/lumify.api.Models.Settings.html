@@ -96,15 +96,22 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.Settings.AppSettings.html">AppSettings</a></dt>
-      <dd></dd>
+      <dd><p>Options bound from the <code>App</code> configuration section. Used to build user-facing links
+(e.g. the password-reset link that points at the frontend, not the API).</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.Settings.EmailSettings.html">EmailSettings</a></dt>
-      <dd></dd>
+      <dd><p>Options bound from the <code>Email</code> configuration section. The actual SMTP credentials come
+from the mail hosting and are filled in per environment. Consumed by
+<a class="xref" href="lumify.api.Services.SmtpEmailService.html">SmtpEmailService</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.Settings.JwtSettings.html">JwtSettings</a></dt>
-      <dd></dd>
+      <dd><p>Options bound from the <code>Jwt</code> configuration section, used to sign and validate JWT
+session and MFA tokens (see <a class="xref" href="lumify.api.Logic.InternalLogic.html">InternalLogic</a>).</p>
+</dd>
     </dl>
 
 

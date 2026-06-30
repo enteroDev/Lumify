@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class FriendshipService | Lumify – Code Documentation ">
       
-      
+      <meta name="description" content="Encapsulates the friendship domain logic used by the : sending, accepting, rejecting and removing friendships, including the validation and state transitions involved.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="lumify_api_Services_FriendshipService" data-uid="lumify.api.Services.FriendshipService" class="text-break">
-Class FriendshipService  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/FriendshipService.cs/#L13"><i class="bi bi-code-slash"></i></a>
+Class FriendshipService  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/FriendshipService.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,10 @@ Class FriendshipService  <a class="header-action link-secondary" title="View sou
   <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Encapsulates the friendship domain logic used by the
+<a class="xref" href="lumify.api.Controllers.FriendshipController.html">FriendshipController</a>: sending, accepting, rejecting and
+removing friendships, including the validation and state transitions involved.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -121,6 +124,12 @@ Class FriendshipService  <a class="header-action link-secondary" title="View sou
 
 
 
+  <h2 id="lumify_api_Services_FriendshipService_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Each friendship is stored once per user pair using ordered <code>UserLowID</code>/<code>UserHighID</code>
+keys (a plain unique index, since MariaDB has no filtered indexes), so a soft-deleted row
+is resurrected rather than duplicated. Invalid operations throw, and the controller maps
+those to error responses.</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -131,10 +140,11 @@ Class FriendshipService  <a class="header-action link-secondary" title="View sou
 
   <h3 id="lumify_api_Services_FriendshipService__ctor_lumify_api_Models_Context_LumifyDbContext_" data-uid="lumify.api.Services.FriendshipService.#ctor(lumify.api.Models.Context.LumifyDbContext)">
   FriendshipService(LumifyDbContext)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/FriendshipService.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/FriendshipService.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates the service with its injected database context.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -166,10 +176,12 @@ Class FriendshipService  <a class="header-action link-secondary" title="View sou
 
   <h3 id="lumify_api_Services_FriendshipService_AcceptFriendRequest_System_String_System_String_" data-uid="lumify.api.Services.FriendshipService.AcceptFriendRequest(System.String,System.String)">
   AcceptFriendRequest(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/FriendshipService.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/FriendshipService.cs/#L132"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Accepts a pending friend request. Only the addressee may accept, and only pending
+requests can be accepted.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -179,15 +191,18 @@ Class FriendshipService  <a class="header-action link-secondary" title="View sou
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>friendshipID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The pending friendship to accept.</p>
+</dd>
     <dt><code>currentUserID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The user performing the action (must be the addressee).</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">Task</span>&lt;<span class="xref">string</span>&gt;</dt>
-    <dd></dd>
+    <dd><p>The requester's ID, so the caller can notify the counterpart of the change.</p>
+</dd>
   </dl>
 
 
@@ -197,6 +212,13 @@ Class FriendshipService  <a class="header-action link-secondary" title="View sou
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Exception</span></dt>
+    <dd><p>Thrown if an ID is missing, the friendship is not found,
+the caller is not the addressee, or the request is not pending.</p>
+</dd>
+  </dl>
 
 
 
@@ -204,10 +226,12 @@ Class FriendshipService  <a class="header-action link-secondary" title="View sou
 
   <h3 id="lumify_api_Services_FriendshipService_RejectFriendRequest_System_String_System_String_" data-uid="lumify.api.Services.FriendshipService.RejectFriendRequest(System.String,System.String)">
   RejectFriendRequest(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/FriendshipService.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/FriendshipService.cs/#L184"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Rejects a pending friend request. Only the addressee may reject, and only pending
+requests can be rejected.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -217,15 +241,18 @@ Class FriendshipService  <a class="header-action link-secondary" title="View sou
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>friendshipID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The pending friendship to reject.</p>
+</dd>
     <dt><code>currentUserID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The user performing the action (must be the addressee).</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">Task</span>&lt;<span class="xref">string</span>&gt;</dt>
-    <dd></dd>
+    <dd><p>The requester's ID, so the caller can notify the counterpart of the change.</p>
+</dd>
   </dl>
 
 
@@ -235,6 +262,13 @@ Class FriendshipService  <a class="header-action link-secondary" title="View sou
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Exception</span></dt>
+    <dd><p>Thrown if an ID is missing, the friendship is not found,
+the caller is not the addressee, or the request is not pending.</p>
+</dd>
+  </dl>
 
 
 
@@ -242,10 +276,12 @@ Class FriendshipService  <a class="header-action link-secondary" title="View sou
 
   <h3 id="lumify_api_Services_FriendshipService_RemoveFriend_System_String_System_String_" data-uid="lumify.api.Services.FriendshipService.RemoveFriend(System.String,System.String)">
   RemoveFriend(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/FriendshipService.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/FriendshipService.cs/#L238"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Removes an accepted friendship by soft-deleting it. Only accepted friendships can be
+removed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -255,9 +291,11 @@ Class FriendshipService  <a class="header-action link-secondary" title="View sou
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>currentUserID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The user performing the removal.</p>
+</dd>
     <dt><code>friendID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The friend to remove.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -273,6 +311,13 @@ Class FriendshipService  <a class="header-action link-secondary" title="View sou
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Exception</span></dt>
+    <dd><p>Thrown if an ID is missing, the user removes themselves,
+the friendship is not found, or it is not in the accepted state.</p>
+</dd>
+  </dl>
 
 
 
@@ -280,10 +325,12 @@ Class FriendshipService  <a class="header-action link-secondary" title="View sou
 
   <h3 id="lumify_api_Services_FriendshipService_SendFriendRequest_System_String_System_String_" data-uid="lumify.api.Services.FriendshipService.SendFriendRequest(System.String,System.String)">
   SendFriendRequest(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/FriendshipService.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/FriendshipService.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a pending friend request from one user to another, or resurrects a previously
+removed relationship as a fresh request.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -293,9 +340,11 @@ Class FriendshipService  <a class="header-action link-secondary" title="View sou
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>requesterID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The user sending the request.</p>
+</dd>
     <dt><code>addresseeID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The user receiving the request.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -311,6 +360,13 @@ Class FriendshipService  <a class="header-action link-secondary" title="View sou
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Exception</span></dt>
+    <dd><p>Thrown if an ID is missing, the user adds themselves, or an
+active friendship already exists.</p>
+</dd>
+  </dl>
 
 
 

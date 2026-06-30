@@ -33,10 +33,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Folder
     path: ../../../lumify.api/Models/EF/Folder.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: >-
+    A folder that organizes notes, either personal or workspace-shared. Folders can be nested via
+
+    <xref href="lumify.api.Models.EF.Folder.ParentFolderID" data-throw-if-not-resolved="false"></xref>. Soft-deleted via <xref href="lumify.api.Models.EF.Folder.DeletedAt" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public class Folder
     content.vb: Public Class Folder
@@ -60,10 +65,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/EF/Folder.cs
-    startLine: 7
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Primary key (GUID string).
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -89,10 +96,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: OwnerID
     path: ../../../lumify.api/Models/EF/Folder.cs
-    startLine: 8
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The user who created the folder.
+  example: []
   syntax:
     content: public string OwnerID { get; set; }
     parameters: []
@@ -118,10 +127,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: WorkspaceID
     path: ../../../lumify.api/Models/EF/Folder.cs
-    startLine: 9
+    startLine: 16
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The owning workspace, or <code>null</code> for a personal folder.
+  example: []
   syntax:
     content: public string? WorkspaceID { get; set; }
     parameters: []
@@ -147,10 +158,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ParentFolderID
     path: ../../../lumify.api/Models/EF/Folder.cs
-    startLine: 10
+    startLine: 18
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The parent folder, or <code>null</code> if the folder is at the root.
+  example: []
   syntax:
     content: public string? ParentFolderID { get; set; }
     parameters: []
@@ -176,10 +189,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/EF/Folder.cs
-    startLine: 12
+    startLine: 21
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Folder name.
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -205,10 +220,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Description
     path: ../../../lumify.api/Models/EF/Folder.cs
-    startLine: 13
+    startLine: 23
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Optional folder description.
+  example: []
   syntax:
     content: public string? Description { get; set; }
     parameters: []
@@ -234,10 +251,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CreatedAt
     path: ../../../lumify.api/Models/EF/Folder.cs
-    startLine: 15
+    startLine: 26
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Creation timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string CreatedAt { get; set; }
     parameters: []
@@ -263,10 +282,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UpdatedAt
     path: ../../../lumify.api/Models/EF/Folder.cs
-    startLine: 16
+    startLine: 28
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Last-update timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string UpdatedAt { get; set; }
     parameters: []
@@ -292,10 +313,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: DeletedAt
     path: ../../../lumify.api/Models/EF/Folder.cs
-    startLine: 17
+    startLine: 30
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Soft-delete timestamp (ISO-8601 string); <code>null</code> while active.
+  example: []
   syntax:
     content: public string? DeletedAt { get; set; }
     parameters: []
@@ -321,10 +344,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Owner
     path: ../../../lumify.api/Models/EF/Folder.cs
-    startLine: 20
+    startLine: 34
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The owning user.
+  example: []
   syntax:
     content: public virtual User Owner { get; set; }
     parameters: []
@@ -350,10 +375,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ParentFolder
     path: ../../../lumify.api/Models/EF/Folder.cs
-    startLine: 21
+    startLine: 36
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The parent folder, if any.
+  example: []
   syntax:
     content: public virtual Folder? ParentFolder { get; set; }
     parameters: []
@@ -379,10 +406,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Workspace
     path: ../../../lumify.api/Models/EF/Folder.cs
-    startLine: 22
+    startLine: 38
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The owning workspace, if any.
+  example: []
   syntax:
     content: public virtual Workspace? Workspace { get; set; }
     parameters: []
@@ -408,10 +437,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: InverseParentFolder
     path: ../../../lumify.api/Models/EF/Folder.cs
-    startLine: 25
+    startLine: 42
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Direct child folders nested under this folder.
+  example: []
   syntax:
     content: public virtual ICollection<Folder> InverseParentFolder { get; set; }
     parameters: []
@@ -437,10 +468,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Notes
     path: ../../../lumify.api/Models/EF/Folder.cs
-    startLine: 26
+    startLine: 44
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Notes contained directly in this folder.
+  example: []
   syntax:
     content: public virtual ICollection<Note> Notes { get; set; }
     parameters: []
@@ -449,6 +482,18 @@ items:
     content.vb: Public Overridable Property Notes As ICollection(Of Note)
   overload: lumify.api.Models.EF.Folder.Notes*
 references:
+- uid: lumify.api.Models.EF.Folder.ParentFolderID
+  commentId: P:lumify.api.Models.EF.Folder.ParentFolderID
+  href: lumify.api.Models.EF.Folder.html#lumify_api_Models_EF_Folder_ParentFolderID
+  name: ParentFolderID
+  nameWithType: Folder.ParentFolderID
+  fullName: lumify.api.Models.EF.Folder.ParentFolderID
+- uid: lumify.api.Models.EF.Folder.DeletedAt
+  commentId: P:lumify.api.Models.EF.Folder.DeletedAt
+  href: lumify.api.Models.EF.Folder.html#lumify_api_Models_EF_Folder_DeletedAt
+  name: DeletedAt
+  nameWithType: Folder.DeletedAt
+  fullName: lumify.api.Models.EF.Folder.DeletedAt
 - uid: lumify.api.Models.EF
   commentId: N:lumify.api.Models.EF
   href: lumify.html

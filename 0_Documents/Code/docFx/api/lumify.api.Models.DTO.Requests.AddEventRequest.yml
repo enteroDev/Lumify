@@ -25,10 +25,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AddEventRequest
     path: ../../../lumify.api/Models/DTO/Requests/AddEventRequest.cs
-    startLine: 2
+    startLine: 5
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Request body for creating a calendar event (see <xref href="lumify.api.Controllers.EventsController.AddEvent(lumify.api.Models.DTO.Requests.AddEventRequest%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public class AddEventRequest
     content.vb: Public Class AddEventRequest
@@ -52,10 +54,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: WorkspaceID
     path: ../../../lumify.api/Models/DTO/Requests/AddEventRequest.cs
-    startLine: 4
+    startLine: 8
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Target workspace, or <code>null</code> for a personal event.
+  example: []
   syntax:
     content: public string? WorkspaceID { get; set; }
     parameters: []
@@ -81,10 +85,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/DTO/Requests/AddEventRequest.cs
-    startLine: 6
+    startLine: 11
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Event title (required).
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -110,10 +116,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Description
     path: ../../../lumify.api/Models/DTO/Requests/AddEventRequest.cs
-    startLine: 7
+    startLine: 13
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Optional event description.
+  example: []
   syntax:
     content: public string? Description { get; set; }
     parameters: []
@@ -139,10 +147,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: IsAllDay
     path: ../../../lumify.api/Models/DTO/Requests/AddEventRequest.cs
-    startLine: 9
+    startLine: 16
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Whether the event spans the whole day.
+  example: []
   syntax:
     content: public bool IsAllDay { get; set; }
     parameters: []
@@ -168,10 +178,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: StartTime
     path: ../../../lumify.api/Models/DTO/Requests/AddEventRequest.cs
-    startLine: 11
+    startLine: 19
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Start date/time (parseable date string, required).
+  example: []
   syntax:
     content: public string StartTime { get; set; }
     parameters: []
@@ -197,10 +209,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: EndTime
     path: ../../../lumify.api/Models/DTO/Requests/AddEventRequest.cs
-    startLine: 12
+    startLine: 21
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: End date/time (parseable date string, required; must not be before start).
+  example: []
   syntax:
     content: public string EndTime { get; set; }
     parameters: []
@@ -209,6 +223,41 @@ items:
     content.vb: Public Property EndTime As String
   overload: lumify.api.Models.DTO.Requests.AddEventRequest.EndTime*
 references:
+- uid: lumify.api.Controllers.EventsController.AddEvent(lumify.api.Models.DTO.Requests.AddEventRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.EventsController.AddEvent(lumify.api.Models.DTO.Requests.AddEventRequest,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.EventsController.html#lumify_api_Controllers_EventsController_AddEvent_lumify_api_Models_DTO_Requests_AddEventRequest_System_Threading_CancellationToken_
+  name: AddEvent(AddEventRequest, CancellationToken)
+  nameWithType: EventsController.AddEvent(AddEventRequest, CancellationToken)
+  fullName: lumify.api.Controllers.EventsController.AddEvent(lumify.api.Models.DTO.Requests.AddEventRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.EventsController.AddEvent(lumify.api.Models.DTO.Requests.AddEventRequest,System.Threading.CancellationToken)
+    name: AddEvent
+    href: lumify.api.Controllers.EventsController.html#lumify_api_Controllers_EventsController_AddEvent_lumify_api_Models_DTO_Requests_AddEventRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.AddEventRequest
+    name: AddEventRequest
+    href: lumify.api.Models.DTO.Requests.AddEventRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.EventsController.AddEvent(lumify.api.Models.DTO.Requests.AddEventRequest,System.Threading.CancellationToken)
+    name: AddEvent
+    href: lumify.api.Controllers.EventsController.html#lumify_api_Controllers_EventsController_AddEvent_lumify_api_Models_DTO_Requests_AddEventRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.AddEventRequest
+    name: AddEventRequest
+    href: lumify.api.Models.DTO.Requests.AddEventRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

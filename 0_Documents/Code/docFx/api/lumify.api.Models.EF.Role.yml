@@ -21,10 +21,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Role
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 53
+    startLine: 86
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The role of a <xref href="lumify.api.Models.EF.Role.User" data-throw-if-not-resolved="false"></xref>, persisted to the database by name.
+  example: []
   syntax:
     content: public enum Role
     content.vb: Public Enum Role
@@ -46,10 +48,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: User
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 55
+    startLine: 89
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Standard user.
+  example: []
   syntax:
     content: User = 1
     return:
@@ -72,15 +76,23 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Admin
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 56
+    startLine: 91
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Administrator.
+  example: []
   syntax:
     content: Admin = 2
     return:
       type: lumify.api.Models.EF.Role
 references:
+- uid: lumify.api.Models.EF.Role.User
+  commentId: F:lumify.api.Models.EF.Role.User
+  href: lumify.api.Models.EF.Role.html#lumify_api_Models_EF_Role_User
+  name: User
+  nameWithType: Role.User
+  fullName: lumify.api.Models.EF.Role.User
 - uid: lumify.api.Models.EF
   commentId: N:lumify.api.Models.EF
   href: lumify.html

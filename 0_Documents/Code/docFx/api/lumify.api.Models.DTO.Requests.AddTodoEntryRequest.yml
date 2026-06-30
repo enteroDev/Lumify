@@ -22,10 +22,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AddTodoEntryRequest
     path: ../../../lumify.api/Models/DTO/Requests/AddTodoEntryRequest.cs
-    startLine: 2
+    startLine: 6
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: >-
+    Request body for adding an entry to a todo list
+
+    (see <xref href="lumify.api.Controllers.TodoListsController.AddTodoEntry(lumify.api.Models.DTO.Requests.AddTodoEntryRequest%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public class AddTodoEntryRequest
     content.vb: Public Class AddTodoEntryRequest
@@ -49,10 +54,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: TodoListID
     path: ../../../lumify.api/Models/DTO/Requests/AddTodoEntryRequest.cs
-    startLine: 4
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The parent todo list (required).
+  example: []
   syntax:
     content: public string? TodoListID { get; set; }
     parameters: []
@@ -78,10 +85,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/DTO/Requests/AddTodoEntryRequest.cs
-    startLine: 5
+    startLine: 11
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Entry title (required).
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -107,10 +116,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Description
     path: ../../../lumify.api/Models/DTO/Requests/AddTodoEntryRequest.cs
-    startLine: 6
+    startLine: 13
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Optional entry description.
+  example: []
   syntax:
     content: public string? Description { get; set; }
     parameters: []
@@ -119,6 +130,41 @@ items:
     content.vb: Public Property Description As String
   overload: lumify.api.Models.DTO.Requests.AddTodoEntryRequest.Description*
 references:
+- uid: lumify.api.Controllers.TodoListsController.AddTodoEntry(lumify.api.Models.DTO.Requests.AddTodoEntryRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.TodoListsController.AddTodoEntry(lumify.api.Models.DTO.Requests.AddTodoEntryRequest,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_AddTodoEntry_lumify_api_Models_DTO_Requests_AddTodoEntryRequest_System_Threading_CancellationToken_
+  name: AddTodoEntry(AddTodoEntryRequest, CancellationToken)
+  nameWithType: TodoListsController.AddTodoEntry(AddTodoEntryRequest, CancellationToken)
+  fullName: lumify.api.Controllers.TodoListsController.AddTodoEntry(lumify.api.Models.DTO.Requests.AddTodoEntryRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.TodoListsController.AddTodoEntry(lumify.api.Models.DTO.Requests.AddTodoEntryRequest,System.Threading.CancellationToken)
+    name: AddTodoEntry
+    href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_AddTodoEntry_lumify_api_Models_DTO_Requests_AddTodoEntryRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.AddTodoEntryRequest
+    name: AddTodoEntryRequest
+    href: lumify.api.Models.DTO.Requests.AddTodoEntryRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.TodoListsController.AddTodoEntry(lumify.api.Models.DTO.Requests.AddTodoEntryRequest,System.Threading.CancellationToken)
+    name: AddTodoEntry
+    href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_AddTodoEntry_lumify_api_Models_DTO_Requests_AddTodoEntryRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.AddTodoEntryRequest
+    name: AddTodoEntryRequest
+    href: lumify.api.Models.DTO.Requests.AddTodoEntryRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

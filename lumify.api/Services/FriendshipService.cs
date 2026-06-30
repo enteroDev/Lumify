@@ -10,10 +10,24 @@ using lumify.api.Models.Enum;
 
 namespace lumify.api.Services
 {
+    /// <summary>
+    /// Encapsulates the friendship domain logic used by the
+    /// <see cref="Controllers.FriendshipController"/>: sending, accepting, rejecting and
+    /// removing friendships, including the validation and state transitions involved.
+    /// </summary>
+    /// <remarks>
+    /// Each friendship is stored once per user pair using ordered <c>UserLowID</c>/<c>UserHighID</c>
+    /// keys (a plain unique index, since MariaDB has no filtered indexes), so a soft-deleted row
+    /// is resurrected rather than duplicated. Invalid operations throw, and the controller maps
+    /// those to error responses.
+    /// </remarks>
     public class FriendshipService
     {
         private readonly LumifyDbContext _db;
 
+        /// <summary>
+        /// Creates the service with its injected database context.
+        /// </summary>
         public FriendshipService(LumifyDbContext db)
         {
             _db = db;
@@ -23,6 +37,14 @@ namespace lumify.api.Services
         // ------------------------- //
         // --- Public Functions ---- //
         // ------------------------- //
+        /// <summary>
+        /// Creates a pending friend request from one user to another, or resurrects a previously
+        /// removed relationship as a fresh request.
+        /// </summary>
+        /// <param name="requesterID">The user sending the request.</param>
+        /// <param name="addresseeID">The user receiving the request.</param>
+        /// <exception cref="Exception">Thrown if an ID is missing, the user adds themselves, or an
+        /// active friendship already exists.</exception>
         public async Task SendFriendRequest(string requesterID, string addresseeID)
         {
             if (string.IsNullOrWhiteSpace(requesterID))
@@ -98,7 +120,15 @@ namespace lumify.api.Services
             await _db.SaveChangesAsync();
         }
 
-        // Returns the RequesterID so the caller can notify the counterpart about the change.
+        /// <summary>
+        /// Accepts a pending friend request. Only the addressee may accept, and only pending
+        /// requests can be accepted.
+        /// </summary>
+        /// <param name="friendshipID">The pending friendship to accept.</param>
+        /// <param name="currentUserID">The user performing the action (must be the addressee).</param>
+        /// <returns>The requester's ID, so the caller can notify the counterpart of the change.</returns>
+        /// <exception cref="Exception">Thrown if an ID is missing, the friendship is not found,
+        /// the caller is not the addressee, or the request is not pending.</exception>
         public async Task<string> AcceptFriendRequest(string friendshipID, string currentUserID)
         {
             if (string.IsNullOrWhiteSpace(friendshipID))
@@ -142,7 +172,15 @@ namespace lumify.api.Services
             return friendship.RequesterID;
         }
 
-        // Returns the RequesterID so the caller can notify the counterpart about the change.
+        /// <summary>
+        /// Rejects a pending friend request. Only the addressee may reject, and only pending
+        /// requests can be rejected.
+        /// </summary>
+        /// <param name="friendshipID">The pending friendship to reject.</param>
+        /// <param name="currentUserID">The user performing the action (must be the addressee).</param>
+        /// <returns>The requester's ID, so the caller can notify the counterpart of the change.</returns>
+        /// <exception cref="Exception">Thrown if an ID is missing, the friendship is not found,
+        /// the caller is not the addressee, or the request is not pending.</exception>
         public async Task<string> RejectFriendRequest(string friendshipID, string currentUserID)
         {
             if (string.IsNullOrWhiteSpace(friendshipID))
@@ -189,6 +227,14 @@ namespace lumify.api.Services
 
 
 
+        /// <summary>
+        /// Removes an accepted friendship by soft-deleting it. Only accepted friendships can be
+        /// removed.
+        /// </summary>
+        /// <param name="currentUserID">The user performing the removal.</param>
+        /// <param name="friendID">The friend to remove.</param>
+        /// <exception cref="Exception">Thrown if an ID is missing, the user removes themselves,
+        /// the friendship is not found, or it is not in the accepted state.</exception>
         public async Task RemoveFriend(string currentUserID, string friendID)
         {
             if (string.IsNullOrWhiteSpace(currentUserID))

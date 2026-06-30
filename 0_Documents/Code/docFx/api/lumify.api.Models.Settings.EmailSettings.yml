@@ -26,10 +26,17 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: EmailSettings
     path: ../../../lumify.api/Models/Settings/EmailSettings.cs
-    startLine: 4
+    startLine: 7
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Settings
+  summary: >-
+    Options bound from the <code>Email</code> configuration section. The actual SMTP credentials come
+
+    from the mail hosting and are filled in per environment. Consumed by
+
+    <xref href="lumify.api.Services.SmtpEmailService" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public class EmailSettings
     content.vb: Public Class EmailSettings
@@ -53,10 +60,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Host
     path: ../../../lumify.api/Models/Settings/EmailSettings.cs
-    startLine: 6
+    startLine: 10
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Settings
+  summary: SMTP server host name.
+  example: []
   syntax:
     content: public string Host { get; set; }
     parameters: []
@@ -82,10 +91,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Port
     path: ../../../lumify.api/Models/Settings/EmailSettings.cs
-    startLine: 7
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Settings
+  summary: SMTP server port (default 587).
+  example: []
   syntax:
     content: public int Port { get; set; }
     parameters: []
@@ -111,10 +122,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: User
     path: ../../../lumify.api/Models/Settings/EmailSettings.cs
-    startLine: 8
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Settings
+  summary: SMTP login user.
+  example: []
   syntax:
     content: public string User { get; set; }
     parameters: []
@@ -140,10 +153,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Password
     path: ../../../lumify.api/Models/Settings/EmailSettings.cs
-    startLine: 9
+    startLine: 16
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Settings
+  summary: SMTP login password.
+  example: []
   syntax:
     content: public string Password { get; set; }
     parameters: []
@@ -169,10 +184,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: FromAddress
     path: ../../../lumify.api/Models/Settings/EmailSettings.cs
-    startLine: 12
+    startLine: 19
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Settings
+  summary: The visible sender address (e.g. <code>noreply@lumify.at</code>).
+  example: []
   syntax:
     content: public string FromAddress { get; set; }
     parameters: []
@@ -198,10 +215,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: FromName
     path: ../../../lumify.api/Models/Settings/EmailSettings.cs
-    startLine: 13
+    startLine: 21
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Settings
+  summary: The visible sender display name.
+  example: []
   syntax:
     content: public string FromName { get; set; }
     parameters: []
@@ -227,10 +246,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UseStartTls
     path: ../../../lumify.api/Models/Settings/EmailSettings.cs
-    startLine: 17
+    startLine: 27
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Settings
+  summary: >-
+    <code>true</code> connects on 587 and upgrades via STARTTLS (typical); <code>false</code> uses
+
+    implicit TLS on connect (typical for port 465).
+  example: []
   syntax:
     content: public bool UseStartTls { get; set; }
     parameters: []
@@ -239,6 +263,12 @@ items:
     content.vb: Public Property UseStartTls As Boolean
   overload: lumify.api.Models.Settings.EmailSettings.UseStartTls*
 references:
+- uid: lumify.api.Services.SmtpEmailService
+  commentId: T:lumify.api.Services.SmtpEmailService
+  href: lumify.api.Services.SmtpEmailService.html
+  name: SmtpEmailService
+  nameWithType: SmtpEmailService
+  fullName: lumify.api.Services.SmtpEmailService
 - uid: lumify.api.Models.Settings
   commentId: N:lumify.api.Models.Settings
   href: lumify.html

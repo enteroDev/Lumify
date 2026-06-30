@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class EmailVerificationToken | Lumify – Code Documentation ">
       
-      
+      <meta name="description" content="A single-use token backing an e-mail verification link. Only the hash of the token is stored (same approach as ), so a leaked row cannot be turned back into a working link.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="lumify_api_Models_EF_EmailVerificationToken" data-uid="lumify.api.Models.EF.EmailVerificationToken" class="text-break">
-Class EmailVerificationToken  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/EmailVerificationToken.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class EmailVerificationToken  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/EmailVerificationToken.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,10 @@ Class EmailVerificationToken  <a class="header-action link-secondary" title="Vie
   <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>A single-use token backing an e-mail verification link. Only the hash of the token is stored
+(same approach as <a class="xref" href="lumify.api.Models.EF.PasswordResetToken.html">PasswordResetToken</a>), so a leaked row cannot be turned back
+into a working link.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -131,10 +134,11 @@ Class EmailVerificationToken  <a class="header-action link-secondary" title="Vie
 
   <h3 id="lumify_api_Models_EF_EmailVerificationToken_CreatedAt" data-uid="lumify.api.Models.EF.EmailVerificationToken.CreatedAt">
   CreatedAt
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/EmailVerificationToken.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/EmailVerificationToken.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creation timestamp (ISO-8601 string).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -162,10 +166,11 @@ Class EmailVerificationToken  <a class="header-action link-secondary" title="Vie
 
   <h3 id="lumify_api_Models_EF_EmailVerificationToken_ExpiresAt" data-uid="lumify.api.Models.EF.EmailVerificationToken.ExpiresAt">
   ExpiresAt
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/EmailVerificationToken.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/EmailVerificationToken.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Expiry timestamp (ISO-8601 string).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -193,10 +198,11 @@ Class EmailVerificationToken  <a class="header-action link-secondary" title="Vie
 
   <h3 id="lumify_api_Models_EF_EmailVerificationToken_ID" data-uid="lumify.api.Models.EF.EmailVerificationToken.ID">
   ID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/EmailVerificationToken.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/EmailVerificationToken.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Primary key (GUID string).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -224,10 +230,11 @@ Class EmailVerificationToken  <a class="header-action link-secondary" title="Vie
 
   <h3 id="lumify_api_Models_EF_EmailVerificationToken_TokenHash" data-uid="lumify.api.Models.EF.EmailVerificationToken.TokenHash">
   TokenHash
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/EmailVerificationToken.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/EmailVerificationToken.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>SHA-256 hash of the raw token; the raw value is never persisted.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -255,10 +262,11 @@ Class EmailVerificationToken  <a class="header-action link-secondary" title="Vie
 
   <h3 id="lumify_api_Models_EF_EmailVerificationToken_UsedAt" data-uid="lumify.api.Models.EF.EmailVerificationToken.UsedAt">
   UsedAt
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/EmailVerificationToken.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/EmailVerificationToken.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When the token was consumed (ISO-8601 string); <code>null</code> while still usable (single-use).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -286,10 +294,11 @@ Class EmailVerificationToken  <a class="header-action link-secondary" title="Vie
 
   <h3 id="lumify_api_Models_EF_EmailVerificationToken_User" data-uid="lumify.api.Models.EF.EmailVerificationToken.User">
   User
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/EmailVerificationToken.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/EmailVerificationToken.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The owning user.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -317,10 +326,11 @@ Class EmailVerificationToken  <a class="header-action link-secondary" title="Vie
 
   <h3 id="lumify_api_Models_EF_EmailVerificationToken_UserID" data-uid="lumify.api.Models.EF.EmailVerificationToken.UserID">
   UserID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/EmailVerificationToken.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/EmailVerificationToken.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The user this verification token belongs to.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\lumify.api",
+    "\\lumify.api\\Hubs",
+    "\\lumify.app",
+    "\\lumify.app\\app"
+  ],
+  "SelectedNode": "\\lumify.api\\Hubs\\ChatHub.cs",
+  "PreviewInSolutionExplorer": false
+}

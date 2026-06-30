@@ -31,10 +31,17 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: FriendshipResponse
     path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
-    startLine: 2
+    startLine: 7
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: >-
+    A friendship/friend-request returned to clients. The requester fields are populated for
+
+    incoming requests; the friend fields for outgoing requests
+
+    (see <xref href="lumify.api.Controllers.FriendshipController" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public class FriendshipResponse
     content.vb: Public Class FriendshipResponse
@@ -58,10 +65,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
-    startLine: 4
+    startLine: 10
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Friendship ID.
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -87,10 +96,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: RequesterID
     path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
-    startLine: 5
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The user who sent the request.
+  example: []
   syntax:
     content: public string RequesterID { get; set; }
     parameters: []
@@ -116,10 +127,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AddresseeID
     path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
-    startLine: 6
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The user who received the request.
+  example: []
   syntax:
     content: public string AddresseeID { get; set; }
     parameters: []
@@ -145,10 +158,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Status
     path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
-    startLine: 8
+    startLine: 17
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Relationship status (see <xref href="lumify.api.Models.Enum.FriendshipStatus" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public int Status { get; set; }
     parameters: []
@@ -174,10 +189,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CreatedAt
     path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
-    startLine: 9
+    startLine: 19
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Creation timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string CreatedAt { get; set; }
     parameters: []
@@ -203,10 +220,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: RequesterUsername
     path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
-    startLine: 11
+    startLine: 22
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Requester's username (populated for incoming requests).
+  example: []
   syntax:
     content: public string? RequesterUsername { get; set; }
     parameters: []
@@ -232,10 +251,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: RequesterDisplayName
     path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
-    startLine: 12
+    startLine: 24
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Requester's display name (populated for incoming requests).
+  example: []
   syntax:
     content: public string? RequesterDisplayName { get; set; }
     parameters: []
@@ -261,10 +282,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: RequesterAvatarUrl
     path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
-    startLine: 13
+    startLine: 26
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Requester's avatar URL (populated for incoming requests).
+  example: []
   syntax:
     content: public string? RequesterAvatarUrl { get; set; }
     parameters: []
@@ -290,10 +313,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: FriendUserID
     path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
-    startLine: 15
+    startLine: 29
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The addressee's user ID (populated for outgoing requests).
+  example: []
   syntax:
     content: public string? FriendUserID { get; set; }
     parameters: []
@@ -319,10 +344,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: FriendUsername
     path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
-    startLine: 16
+    startLine: 31
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The addressee's username (populated for outgoing requests).
+  example: []
   syntax:
     content: public string? FriendUsername { get; set; }
     parameters: []
@@ -348,10 +375,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: FriendDisplayName
     path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
-    startLine: 17
+    startLine: 33
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The addressee's display name (populated for outgoing requests).
+  example: []
   syntax:
     content: public string? FriendDisplayName { get; set; }
     parameters: []
@@ -377,10 +406,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: FriendAvatarUrl
     path: ../../../lumify.api/Models/DTO/Responses/FriendshipResponse.cs
-    startLine: 18
+    startLine: 35
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The addressee's avatar URL (populated for outgoing requests).
+  example: []
   syntax:
     content: public string? FriendAvatarUrl { get; set; }
     parameters: []
@@ -389,6 +420,12 @@ items:
     content.vb: Public Property FriendAvatarUrl As String
   overload: lumify.api.Models.DTO.Responses.FriendshipResponse.FriendAvatarUrl*
 references:
+- uid: lumify.api.Controllers.FriendshipController
+  commentId: T:lumify.api.Controllers.FriendshipController
+  href: lumify.api.Controllers.FriendshipController.html
+  name: FriendshipController
+  nameWithType: FriendshipController
+  fullName: lumify.api.Controllers.FriendshipController
 - uid: lumify.api.Models.DTO.Responses
   commentId: N:lumify.api.Models.DTO.Responses
   href: lumify.html
@@ -479,6 +516,13 @@ references:
   name: AddresseeID
   nameWithType: FriendshipResponse.AddresseeID
   fullName: lumify.api.Models.DTO.Responses.FriendshipResponse.AddresseeID
+- uid: lumify.api.Models.Enum.FriendshipStatus
+  commentId: T:lumify.api.Models.Enum.FriendshipStatus
+  parent: lumify.api.Models.Enum
+  href: lumify.api.Models.Enum.FriendshipStatus.html
+  name: FriendshipStatus
+  nameWithType: FriendshipStatus
+  fullName: lumify.api.Models.Enum.FriendshipStatus
 - uid: lumify.api.Models.DTO.Responses.FriendshipResponse.Status*
   commentId: Overload:lumify.api.Models.DTO.Responses.FriendshipResponse.Status
   href: lumify.api.Models.DTO.Responses.FriendshipResponse.html#lumify_api_Models_DTO_Responses_FriendshipResponse_Status
@@ -495,6 +539,44 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: lumify.api.Models.Enum
+  commentId: N:lumify.api.Models.Enum
+  href: lumify.html
+  name: lumify.api.Models.Enum
+  nameWithType: lumify.api.Models.Enum
+  fullName: lumify.api.Models.Enum
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Enum
+    name: Enum
+    href: lumify.api.Models.Enum.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Enum
+    name: Enum
+    href: lumify.api.Models.Enum.html
 - uid: lumify.api.Models.DTO.Responses.FriendshipResponse.CreatedAt*
   commentId: Overload:lumify.api.Models.DTO.Responses.FriendshipResponse.CreatedAt
   href: lumify.api.Models.DTO.Responses.FriendshipResponse.html#lumify_api_Models_DTO_Responses_FriendshipResponse_CreatedAt

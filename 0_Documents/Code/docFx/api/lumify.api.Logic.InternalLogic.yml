@@ -22,10 +22,19 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: InternalLogic
     path: ../../../lumify.api/Logic/InternalLogic.cs
-    startLine: 17
+    startLine: 23
   assemblies:
   - lumify.api
   namespace: lumify.api.Logic
+  summary: >-
+    Central helper for authentication and account security: password hashing/verification,
+
+    JWT issuing, single-use token generation/hashing (password reset and e-mail verification),
+
+    two-factor authentication (TOTP secret, QR code, code verification, MFA challenge tokens)
+
+    and avatar file handling. Used primarily by the <xref href="lumify.api.Controllers.AccountController" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public class InternalLogic
     content.vb: Public Class InternalLogic
@@ -49,10 +58,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: .ctor
     path: ../../../lumify.api/Logic/InternalLogic.cs
-    startLine: 23
+    startLine: 32
   assemblies:
   - lumify.api
   namespace: lumify.api.Logic
+  summary: Creates the helper with its injected logger, database context and JWT settings.
+  example: []
   syntax:
     content: public InternalLogic(ILogger<InternalLogic> logger, LumifyDbContext context, IOptions<JwtSettings> jwt)
     parameters:
@@ -85,17 +96,24 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: GetExtensionFromDataUrl
     path: ../../../lumify.api/Logic/InternalLogic.cs
-    startLine: 96
+    startLine: 134
   assemblies:
   - lumify.api
   namespace: lumify.api.Logic
+  summary: >-
+    Derives a file extension from a data-URL's MIME type (e.g. <code>image/png</code> → <code>.png</code>),
+
+    defaulting to <code>.png</code> for unknown or missing types.
+  example: []
   syntax:
     content: public string GetExtensionFromDataUrl(string dataUrl)
     parameters:
     - id: dataUrl
       type: System.String
+      description: The data URL (with or without the <code>data:</code> prefix).
     return:
       type: System.String
+      description: A file extension including the leading dot.
     content.vb: Public Function GetExtensionFromDataUrl(dataUrl As String) As String
   overload: lumify.api.Logic.InternalLogic.GetExtensionFromDataUrl*
   nameWithType.vb: InternalLogic.GetExtensionFromDataUrl(String)
@@ -119,25 +137,39 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: SaveAvatarAsync
     path: ../../../lumify.api/Logic/InternalLogic.cs
-    startLine: 286
+    startLine: 375
   assemblies:
   - lumify.api
   namespace: lumify.api.Logic
+  summary: >-
+    Decodes a base64 data-URL avatar image, writes it to <code>wwwroot/avatars</code> under a
+
+    safe file name, and returns its public URL.
+  example: []
   syntax:
     content: public Task<string> SaveAvatarAsync(string username, string dataUrl)
     parameters:
     - id: username
       type: System.String
+      description: The user the avatar belongs to (used for the file name).
     - id: dataUrl
       type: System.String
+      description: The base64 image data URL.
     return:
       type: System.Threading.Tasks.Task{System.String}
+      description: The public avatar URL, or a default avatar URL if saving fails.
     content.vb: Public Function SaveAvatarAsync(username As String, dataUrl As String) As Task(Of String)
   overload: lumify.api.Logic.InternalLogic.SaveAvatarAsync*
   nameWithType.vb: InternalLogic.SaveAvatarAsync(String, String)
   fullName.vb: lumify.api.Logic.InternalLogic.SaveAvatarAsync(String, String)
   name.vb: SaveAvatarAsync(String, String)
 references:
+- uid: lumify.api.Controllers.AccountController
+  commentId: T:lumify.api.Controllers.AccountController
+  href: lumify.api.Controllers.AccountController.html
+  name: AccountController
+  nameWithType: AccountController
+  fullName: lumify.api.Controllers.AccountController
 - uid: lumify.api.Logic
   commentId: N:lumify.api.Logic
   href: lumify.html

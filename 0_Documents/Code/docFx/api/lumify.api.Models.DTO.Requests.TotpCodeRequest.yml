@@ -20,10 +20,17 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: TotpCodeRequest
     path: ../../../lumify.api/Models/DTO/Requests/MfaRequests.cs
-    startLine: 10
+    startLine: 19
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: >-
+    Request body carrying a single TOTP code, used to confirm 2FA setup and to disable it again
+
+    (see <xref href="lumify.api.Controllers.AccountController.ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)" data-throw-if-not-resolved="false"></xref> /
+
+    <xref href="lumify.api.Controllers.AccountController.DisableTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public class TotpCodeRequest
     content.vb: Public Class TotpCodeRequest
@@ -47,10 +54,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Code
     path: ../../../lumify.api/Models/DTO/Requests/MfaRequests.cs
-    startLine: 12
+    startLine: 22
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The 6-digit code from the authenticator app.
+  example: []
   syntax:
     content: public string Code { get; set; }
     parameters: []
@@ -59,6 +68,54 @@ items:
     content.vb: Public Property Code As String
   overload: lumify.api.Models.DTO.Requests.TotpCodeRequest.Code*
 references:
+- uid: lumify.api.Controllers.AccountController.ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  commentId: M:lumify.api.Controllers.AccountController.ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_ConfirmTotp_lumify_api_Models_DTO_Requests_TotpCodeRequest_
+  name: ConfirmTotp(TotpCodeRequest)
+  nameWithType: AccountController.ConfirmTotp(TotpCodeRequest)
+  fullName: lumify.api.Controllers.AccountController.ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  spec.csharp:
+  - uid: lumify.api.Controllers.AccountController.ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+    name: ConfirmTotp
+    href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_ConfirmTotp_lumify_api_Models_DTO_Requests_TotpCodeRequest_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.TotpCodeRequest
+    name: TotpCodeRequest
+    href: lumify.api.Models.DTO.Requests.TotpCodeRequest.html
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.AccountController.ConfirmTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+    name: ConfirmTotp
+    href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_ConfirmTotp_lumify_api_Models_DTO_Requests_TotpCodeRequest_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.TotpCodeRequest
+    name: TotpCodeRequest
+    href: lumify.api.Models.DTO.Requests.TotpCodeRequest.html
+  - name: )
+- uid: lumify.api.Controllers.AccountController.DisableTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  commentId: M:lumify.api.Controllers.AccountController.DisableTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_DisableTotp_lumify_api_Models_DTO_Requests_TotpCodeRequest_
+  name: DisableTotp(TotpCodeRequest)
+  nameWithType: AccountController.DisableTotp(TotpCodeRequest)
+  fullName: lumify.api.Controllers.AccountController.DisableTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+  spec.csharp:
+  - uid: lumify.api.Controllers.AccountController.DisableTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+    name: DisableTotp
+    href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_DisableTotp_lumify_api_Models_DTO_Requests_TotpCodeRequest_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.TotpCodeRequest
+    name: TotpCodeRequest
+    href: lumify.api.Models.DTO.Requests.TotpCodeRequest.html
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.AccountController.DisableTotp(lumify.api.Models.DTO.Requests.TotpCodeRequest)
+    name: DisableTotp
+    href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_DisableTotp_lumify_api_Models_DTO_Requests_TotpCodeRequest_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.TotpCodeRequest
+    name: TotpCodeRequest
+    href: lumify.api.Models.DTO.Requests.TotpCodeRequest.html
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

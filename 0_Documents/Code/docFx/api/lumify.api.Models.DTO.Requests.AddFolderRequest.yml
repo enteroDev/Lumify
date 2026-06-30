@@ -23,10 +23,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AddFolderRequest
     path: ../../../lumify.api/Models/DTO/Requests/AddFolderRequest.cs
-    startLine: 2
+    startLine: 5
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Request body for creating a folder (see <xref href="lumify.api.Controllers.FoldersController.AddFolder(lumify.api.Models.DTO.Requests.AddFolderRequest%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public sealed class AddFolderRequest
     content.vb: Public NotInheritable Class AddFolderRequest
@@ -50,10 +52,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ParentFolderID
     path: ../../../lumify.api/Models/DTO/Requests/AddFolderRequest.cs
-    startLine: 4
+    startLine: 8
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Parent folder, or <code>null</code> to create at the root.
+  example: []
   syntax:
     content: public string? ParentFolderID { get; set; }
     parameters: []
@@ -79,10 +83,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/DTO/Requests/AddFolderRequest.cs
-    startLine: 5
+    startLine: 10
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Folder name (required).
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -108,10 +114,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Description
     path: ../../../lumify.api/Models/DTO/Requests/AddFolderRequest.cs
-    startLine: 6
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Optional folder description.
+  example: []
   syntax:
     content: public string? Description { get; set; }
     parameters: []
@@ -137,10 +145,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: WorkspaceID
     path: ../../../lumify.api/Models/DTO/Requests/AddFolderRequest.cs
-    startLine: 7
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Target workspace, or <code>null</code> for a personal folder.
+  example: []
   syntax:
     content: public string? WorkspaceID { get; init; }
     parameters: []
@@ -149,6 +159,41 @@ items:
     content.vb: Public Property WorkspaceID As String
   overload: lumify.api.Models.DTO.Requests.AddFolderRequest.WorkspaceID*
 references:
+- uid: lumify.api.Controllers.FoldersController.AddFolder(lumify.api.Models.DTO.Requests.AddFolderRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.FoldersController.AddFolder(lumify.api.Models.DTO.Requests.AddFolderRequest,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.FoldersController.html#lumify_api_Controllers_FoldersController_AddFolder_lumify_api_Models_DTO_Requests_AddFolderRequest_System_Threading_CancellationToken_
+  name: AddFolder(AddFolderRequest, CancellationToken)
+  nameWithType: FoldersController.AddFolder(AddFolderRequest, CancellationToken)
+  fullName: lumify.api.Controllers.FoldersController.AddFolder(lumify.api.Models.DTO.Requests.AddFolderRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.FoldersController.AddFolder(lumify.api.Models.DTO.Requests.AddFolderRequest,System.Threading.CancellationToken)
+    name: AddFolder
+    href: lumify.api.Controllers.FoldersController.html#lumify_api_Controllers_FoldersController_AddFolder_lumify_api_Models_DTO_Requests_AddFolderRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.AddFolderRequest
+    name: AddFolderRequest
+    href: lumify.api.Models.DTO.Requests.AddFolderRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.FoldersController.AddFolder(lumify.api.Models.DTO.Requests.AddFolderRequest,System.Threading.CancellationToken)
+    name: AddFolder
+    href: lumify.api.Controllers.FoldersController.html#lumify_api_Controllers_FoldersController_AddFolder_lumify_api_Models_DTO_Requests_AddFolderRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.AddFolderRequest
+    name: AddFolderRequest
+    href: lumify.api.Models.DTO.Requests.AddFolderRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

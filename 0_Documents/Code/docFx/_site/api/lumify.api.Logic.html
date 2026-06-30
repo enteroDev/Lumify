@@ -96,11 +96,18 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Logic.CsrfMiddleware.html">CsrfMiddleware</a></dt>
-      <dd></dd>
+      <dd><p>ASP.NET Core middleware enforcing CSRF protection via the double-submit-cookie pattern:
+for mutating requests (POST/PUT/PATCH/DELETE) the <code>X-CSRF-Token</code> header must match the
+<code>XSRF-TOKEN</code> cookie, using a constant-time comparison.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Logic.InternalLogic.html">InternalLogic</a></dt>
-      <dd></dd>
+      <dd><p>Central helper for authentication and account security: password hashing/verification,
+JWT issuing, single-use token generation/hashing (password reset and e-mail verification),
+two-factor authentication (TOTP secret, QR code, code verification, MFA challenge tokens)
+and avatar file handling. Used primarily by the <a class="xref" href="lumify.api.Controllers.AccountController.html">AccountController</a>.</p>
+</dd>
     </dl>
 
 

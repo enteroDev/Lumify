@@ -27,10 +27,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ChatMessage
     path: ../../../lumify.api/Models/EF/ChatMessage.cs
-    startLine: 4
+    startLine: 8
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: >-
+    A single chat message in a room. Persisted by <xref href="lumify.api.Hubs.ChatHub" data-throw-if-not-resolved="false"></xref> and read back via
+
+    <xref href="lumify.api.Controllers.ChatController" data-throw-if-not-resolved="false"></xref>. Soft-deleted via <xref href="lumify.api.Models.EF.ChatMessage.DeletedAt" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public class ChatMessage
     content.vb: Public Class ChatMessage
@@ -54,10 +59,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/EF/ChatMessage.cs
-    startLine: 6
+    startLine: 11
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Primary key (GUID string).
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -83,10 +90,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: RoomID
     path: ../../../lumify.api/Models/EF/ChatMessage.cs
-    startLine: 7
+    startLine: 13
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The chat room (SignalR group) this message belongs to.
+  example: []
   syntax:
     content: public string RoomID { get; set; }
     parameters: []
@@ -112,10 +121,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: SenderID
     path: ../../../lumify.api/Models/EF/ChatMessage.cs
-    startLine: 8
+    startLine: 15
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The user who sent the message.
+  example: []
   syntax:
     content: public string SenderID { get; set; }
     parameters: []
@@ -141,10 +152,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Content
     path: ../../../lumify.api/Models/EF/ChatMessage.cs
-    startLine: 10
+    startLine: 18
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The message text.
+  example: []
   syntax:
     content: public string Content { get; set; }
     parameters: []
@@ -170,10 +183,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CreatedAt
     path: ../../../lumify.api/Models/EF/ChatMessage.cs
-    startLine: 12
+    startLine: 21
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Creation timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string CreatedAt { get; set; }
     parameters: []
@@ -199,10 +214,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UpdatedAt
     path: ../../../lumify.api/Models/EF/ChatMessage.cs
-    startLine: 13
+    startLine: 23
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Last-update timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string UpdatedAt { get; set; }
     parameters: []
@@ -228,10 +245,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: DeletedAt
     path: ../../../lumify.api/Models/EF/ChatMessage.cs
-    startLine: 14
+    startLine: 25
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Soft-delete timestamp (ISO-8601 string); <code>null</code> while active.
+  example: []
   syntax:
     content: public string? DeletedAt { get; set; }
     parameters: []
@@ -257,10 +276,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Sender
     path: ../../../lumify.api/Models/EF/ChatMessage.cs
-    startLine: 17
+    startLine: 29
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The sending user.
+  example: []
   syntax:
     content: public virtual User Sender { get; set; }
     parameters: []
@@ -269,6 +290,24 @@ items:
     content.vb: Public Overridable Property Sender As User
   overload: lumify.api.Models.EF.ChatMessage.Sender*
 references:
+- uid: lumify.api.Hubs.ChatHub
+  commentId: T:lumify.api.Hubs.ChatHub
+  href: lumify.api.Hubs.ChatHub.html
+  name: ChatHub
+  nameWithType: ChatHub
+  fullName: lumify.api.Hubs.ChatHub
+- uid: lumify.api.Controllers.ChatController
+  commentId: T:lumify.api.Controllers.ChatController
+  href: lumify.api.Controllers.ChatController.html
+  name: ChatController
+  nameWithType: ChatController
+  fullName: lumify.api.Controllers.ChatController
+- uid: lumify.api.Models.EF.ChatMessage.DeletedAt
+  commentId: P:lumify.api.Models.EF.ChatMessage.DeletedAt
+  href: lumify.api.Models.EF.ChatMessage.html#lumify_api_Models_EF_ChatMessage_DeletedAt
+  name: DeletedAt
+  nameWithType: ChatMessage.DeletedAt
+  fullName: lumify.api.Models.EF.ChatMessage.DeletedAt
 - uid: lumify.api.Models.EF
   commentId: N:lumify.api.Models.EF
   href: lumify.html

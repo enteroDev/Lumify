@@ -22,10 +22,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AddNoteRequest
     path: ../../../lumify.api/Models/DTO/Requests/AddNoteRequest.cs
-    startLine: 2
+    startLine: 5
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Request body for creating a note (see <xref href="lumify.api.Controllers.NotesController.AddNote(lumify.api.Models.DTO.Requests.AddNoteRequest%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public sealed class AddNoteRequest
     content.vb: Public NotInheritable Class AddNoteRequest
@@ -49,10 +51,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: FolderID
     path: ../../../lumify.api/Models/DTO/Requests/AddNoteRequest.cs
-    startLine: 4
+    startLine: 8
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Containing folder, or <code>null</code> to create at the root.
+  example: []
   syntax:
     content: public string? FolderID { get; set; }
     parameters: []
@@ -78,10 +82,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/DTO/Requests/AddNoteRequest.cs
-    startLine: 5
+    startLine: 10
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Note title (required).
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -107,10 +113,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: WorkspaceID
     path: ../../../lumify.api/Models/DTO/Requests/AddNoteRequest.cs
-    startLine: 6
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Target workspace, or <code>null</code> for a personal note.
+  example: []
   syntax:
     content: public string? WorkspaceID { get; init; }
     parameters: []
@@ -119,6 +127,41 @@ items:
     content.vb: Public Property WorkspaceID As String
   overload: lumify.api.Models.DTO.Requests.AddNoteRequest.WorkspaceID*
 references:
+- uid: lumify.api.Controllers.NotesController.AddNote(lumify.api.Models.DTO.Requests.AddNoteRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.AddNote(lumify.api.Models.DTO.Requests.AddNoteRequest,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_AddNote_lumify_api_Models_DTO_Requests_AddNoteRequest_System_Threading_CancellationToken_
+  name: AddNote(AddNoteRequest, CancellationToken)
+  nameWithType: NotesController.AddNote(AddNoteRequest, CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.AddNote(lumify.api.Models.DTO.Requests.AddNoteRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.NotesController.AddNote(lumify.api.Models.DTO.Requests.AddNoteRequest,System.Threading.CancellationToken)
+    name: AddNote
+    href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_AddNote_lumify_api_Models_DTO_Requests_AddNoteRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.AddNoteRequest
+    name: AddNoteRequest
+    href: lumify.api.Models.DTO.Requests.AddNoteRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.NotesController.AddNote(lumify.api.Models.DTO.Requests.AddNoteRequest,System.Threading.CancellationToken)
+    name: AddNote
+    href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_AddNote_lumify_api_Models_DTO_Requests_AddNoteRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.AddNoteRequest
+    name: AddNoteRequest
+    href: lumify.api.Models.DTO.Requests.AddNoteRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

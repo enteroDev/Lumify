@@ -49,10 +49,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: User
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: >-
+    A registered user account. The central entity most other content references via its owner.
+
+    Soft-deleted via <xref href="lumify.api.Models.EF.User.DeletedAt" data-throw-if-not-resolved="false"></xref>; timestamps are stored as ISO-8601 strings.
+  example: []
   syntax:
     content: public class User
     content.vb: Public Class User
@@ -76,10 +81,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 7
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Primary key (GUID string).
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -105,10 +112,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Username
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 8
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Unique login name.
+  example: []
   syntax:
     content: public string Username { get; set; }
     parameters: []
@@ -134,10 +143,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Email
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 9
+    startLine: 16
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The user's e-mail address (also usable as a login identifier).
+  example: []
   syntax:
     content: public string Email { get; set; }
     parameters: []
@@ -163,10 +174,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: PasswordHash
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 10
+    startLine: 18
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Base64-encoded HMAC-SHA512 password hash.
+  example: []
   syntax:
     content: public string PasswordHash { get; set; }
     parameters: []
@@ -192,10 +205,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: PasswordSalt
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 11
+    startLine: 20
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Base64-encoded salt (the HMAC key) used for the password hash.
+  example: []
   syntax:
     content: public string? PasswordSalt { get; set; }
     parameters: []
@@ -221,10 +236,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: FirstName
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 12
+    startLine: 22
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Optional real first name (kept private; never exposed in listings).
+  example: []
   syntax:
     content: public string? FirstName { get; set; }
     parameters: []
@@ -250,10 +267,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: LastName
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 13
+    startLine: 24
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Optional real last name (kept private; never exposed in listings).
+  example: []
   syntax:
     content: public string? LastName { get; set; }
     parameters: []
@@ -279,10 +298,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Role
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 14
+    startLine: 26
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The user's role, stored as the name of the <xref href="lumify.api.Models.EF.User.Role" data-throw-if-not-resolved="false"></xref> enum.
+  example: []
   syntax:
     content: public string Role { get; set; }
     parameters: []
@@ -308,10 +329,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AvatarUrl
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 15
+    startLine: 28
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Relative URL of the user's avatar image.
+  example: []
   syntax:
     content: public string? AvatarUrl { get; set; }
     parameters: []
@@ -337,10 +360,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: DisplayName
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 16
+    startLine: 30
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Public display name shown to others (falls back to username when unset).
+  example: []
   syntax:
     content: public string? DisplayName { get; set; }
     parameters: []
@@ -366,10 +391,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Bio
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 17
+    startLine: 32
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Optional free-text profile bio.
+  example: []
   syntax:
     content: public string? Bio { get; set; }
     parameters: []
@@ -395,10 +422,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CreatedAt
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 18
+    startLine: 34
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Creation timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string CreatedAt { get; set; }
     parameters: []
@@ -424,10 +453,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UpdatedAt
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 19
+    startLine: 36
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Last-update timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string UpdatedAt { get; set; }
     parameters: []
@@ -453,10 +484,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: DeletedAt
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 20
+    startLine: 38
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Soft-delete timestamp (ISO-8601 string); <code>null</code> while the account is active.
+  example: []
   syntax:
     content: public string? DeletedAt { get; set; }
     parameters: []
@@ -482,10 +515,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: TotpSecret
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 24
+    startLine: 42
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Base32 shared TOTP secret. <code>null</code> until the user starts 2FA setup.
+  example: []
   syntax:
     content: public string? TotpSecret { get; set; }
     parameters: []
@@ -511,10 +546,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: TotpEnabled
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 26
+    startLine: 44
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Whether 2FA is active (only true after setup is confirmed with a valid code); drives the login challenge.
+  example: []
   syntax:
     content: public bool TotpEnabled { get; set; }
     parameters: []
@@ -540,10 +577,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: EmailConfirmed
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 30
+    startLine: 48
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Whether the e-mail address is confirmed. Login is blocked until this is true.
+  example: []
   syntax:
     content: public bool EmailConfirmed { get; set; }
     parameters: []
@@ -569,10 +608,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: FriendshipsAsUserLow
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 33
+    startLine: 52
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Friendships where this user is the lexicographically lower of the user pair.
+  example: []
   syntax:
     content: public virtual ICollection<Friendship> FriendshipsAsUserLow { get; set; }
     parameters: []
@@ -598,10 +639,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: FriendshipsAsUserHigh
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 34
+    startLine: 54
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Friendships where this user is the lexicographically higher of the user pair.
+  example: []
   syntax:
     content: public virtual ICollection<Friendship> FriendshipsAsUserHigh { get; set; }
     parameters: []
@@ -627,10 +670,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: SentFriendRequests
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 35
+    startLine: 56
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Friend requests this user has sent.
+  example: []
   syntax:
     content: public virtual ICollection<Friendship> SentFriendRequests { get; set; }
     parameters: []
@@ -656,10 +701,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ReceivedFriendRequests
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 36
+    startLine: 58
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Friend requests this user has received.
+  example: []
   syntax:
     content: public virtual ICollection<Friendship> ReceivedFriendRequests { get; set; }
     parameters: []
@@ -685,10 +732,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Events
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 38
+    startLine: 61
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Calendar events owned by this user.
+  example: []
   syntax:
     content: public virtual ICollection<Event> Events { get; set; }
     parameters: []
@@ -714,10 +763,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Folders
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 39
+    startLine: 63
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Folders owned by this user.
+  example: []
   syntax:
     content: public virtual ICollection<Folder> Folders { get; set; }
     parameters: []
@@ -743,10 +794,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: NoteAttachments
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 40
+    startLine: 65
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Note attachments owned by this user.
+  example: []
   syntax:
     content: public virtual ICollection<NoteAttachment> NoteAttachments { get; set; }
     parameters: []
@@ -772,10 +825,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Notes
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 41
+    startLine: 67
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Notes owned by this user.
+  example: []
   syntax:
     content: public virtual ICollection<Note> Notes { get; set; }
     parameters: []
@@ -801,10 +856,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: TodoEntries
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 42
+    startLine: 69
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Todo entries owned by this user.
+  example: []
   syntax:
     content: public virtual ICollection<TodoEntry> TodoEntries { get; set; }
     parameters: []
@@ -830,10 +887,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: TodoLists
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 43
+    startLine: 71
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Todo lists owned by this user.
+  example: []
   syntax:
     content: public virtual ICollection<TodoList> TodoLists { get; set; }
     parameters: []
@@ -859,10 +918,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: WorkspaceMembers
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 44
+    startLine: 73
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Workspace memberships of this user.
+  example: []
   syntax:
     content: public virtual ICollection<WorkspaceMember> WorkspaceMembers { get; set; }
     parameters: []
@@ -888,10 +949,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Workspaces
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 45
+    startLine: 75
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Workspaces owned by this user.
+  example: []
   syntax:
     content: public virtual ICollection<Workspace> Workspaces { get; set; }
     parameters: []
@@ -917,10 +980,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ChatMessages
     path: ../../../lumify.api/Models/EF/User.cs
-    startLine: 46
+    startLine: 77
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Chat messages sent by this user.
+  example: []
   syntax:
     content: public virtual ICollection<ChatMessage> ChatMessages { get; set; }
     parameters: []
@@ -929,6 +994,12 @@ items:
     content.vb: Public Overridable Property ChatMessages As ICollection(Of ChatMessage)
   overload: lumify.api.Models.EF.User.ChatMessages*
 references:
+- uid: lumify.api.Models.EF.User.DeletedAt
+  commentId: P:lumify.api.Models.EF.User.DeletedAt
+  href: lumify.api.Models.EF.User.html#lumify_api_Models_EF_User_DeletedAt
+  name: DeletedAt
+  nameWithType: User.DeletedAt
+  fullName: lumify.api.Models.EF.User.DeletedAt
 - uid: lumify.api.Models.EF
   commentId: N:lumify.api.Models.EF
   href: lumify.html
@@ -1035,6 +1106,12 @@ references:
   name: LastName
   nameWithType: User.LastName
   fullName: lumify.api.Models.EF.User.LastName
+- uid: lumify.api.Models.EF.User.Role
+  commentId: P:lumify.api.Models.EF.User.Role
+  href: lumify.api.Models.EF.User.html#lumify_api_Models_EF_User_Role
+  name: Role
+  nameWithType: User.Role
+  fullName: lumify.api.Models.EF.User.Role
 - uid: lumify.api.Models.EF.User.Role*
   commentId: Overload:lumify.api.Models.EF.User.Role
   href: lumify.api.Models.EF.User.html#lumify_api_Models_EF_User_Role

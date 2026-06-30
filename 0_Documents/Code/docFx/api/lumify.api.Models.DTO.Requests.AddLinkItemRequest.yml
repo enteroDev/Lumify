@@ -23,10 +23,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AddLinkItemRequest
     path: ../../../lumify.api/Models/DTO/Requests/AddLinkItemRequest.cs
-    startLine: 2
+    startLine: 6
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: >-
+    Request body for adding a link item module to a note
+
+    (see <xref href="lumify.api.Controllers.NotesController.AddLinkItem(lumify.api.Models.DTO.Requests.AddLinkItemRequest%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public sealed class AddLinkItemRequest
     content.vb: Public NotInheritable Class AddLinkItemRequest
@@ -50,10 +55,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: NoteID
     path: ../../../lumify.api/Models/DTO/Requests/AddLinkItemRequest.cs
-    startLine: 4
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The parent note (required).
+  example: []
   syntax:
     content: public string NoteID { get; set; }
     parameters: []
@@ -79,10 +86,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: NotePos
     path: ../../../lumify.api/Models/DTO/Requests/AddLinkItemRequest.cs
-    startLine: 5
+    startLine: 11
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Desired position within the note.
+  example: []
   syntax:
     content: public int NotePos { get; set; }
     parameters: []
@@ -108,10 +117,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Label
     path: ../../../lumify.api/Models/DTO/Requests/AddLinkItemRequest.cs
-    startLine: 6
+    startLine: 13
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Optional display label for the link.
+  example: []
   syntax:
     content: public string? Label { get; set; }
     parameters: []
@@ -137,10 +148,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Url
     path: ../../../lumify.api/Models/DTO/Requests/AddLinkItemRequest.cs
-    startLine: 7
+    startLine: 15
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The target URL (required).
+  example: []
   syntax:
     content: public string? Url { get; set; }
     parameters: []
@@ -149,6 +162,41 @@ items:
     content.vb: Public Property Url As String
   overload: lumify.api.Models.DTO.Requests.AddLinkItemRequest.Url*
 references:
+- uid: lumify.api.Controllers.NotesController.AddLinkItem(lumify.api.Models.DTO.Requests.AddLinkItemRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.AddLinkItem(lumify.api.Models.DTO.Requests.AddLinkItemRequest,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_AddLinkItem_lumify_api_Models_DTO_Requests_AddLinkItemRequest_System_Threading_CancellationToken_
+  name: AddLinkItem(AddLinkItemRequest, CancellationToken)
+  nameWithType: NotesController.AddLinkItem(AddLinkItemRequest, CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.AddLinkItem(lumify.api.Models.DTO.Requests.AddLinkItemRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.NotesController.AddLinkItem(lumify.api.Models.DTO.Requests.AddLinkItemRequest,System.Threading.CancellationToken)
+    name: AddLinkItem
+    href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_AddLinkItem_lumify_api_Models_DTO_Requests_AddLinkItemRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.AddLinkItemRequest
+    name: AddLinkItemRequest
+    href: lumify.api.Models.DTO.Requests.AddLinkItemRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.NotesController.AddLinkItem(lumify.api.Models.DTO.Requests.AddLinkItemRequest,System.Threading.CancellationToken)
+    name: AddLinkItem
+    href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_AddLinkItem_lumify_api_Models_DTO_Requests_AddLinkItemRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.AddLinkItemRequest
+    name: AddLinkItemRequest
+    href: lumify.api.Models.DTO.Requests.AddLinkItemRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

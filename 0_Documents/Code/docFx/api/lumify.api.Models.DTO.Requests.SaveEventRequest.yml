@@ -25,10 +25,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: SaveEventRequest
     path: ../../../lumify.api/Models/DTO/Requests/SaveEventRequest.cs
-    startLine: 4
+    startLine: 8
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: >-
+    Request body for updating an event (see <xref href="lumify.api.Controllers.EventsController.SaveEvent(lumify.api.Models.DTO.Requests.SaveEventRequest%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>).
+
+    Only non-<code>null</code> fields are applied (partial update).
+  example: []
   syntax:
     content: public class SaveEventRequest
     content.vb: Public Class SaveEventRequest
@@ -52,10 +57,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/DTO/Requests/SaveEventRequest.cs
-    startLine: 6
+    startLine: 11
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The event to update (required).
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -81,10 +88,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/DTO/Requests/SaveEventRequest.cs
-    startLine: 7
+    startLine: 13
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New title, if changing.
+  example: []
   syntax:
     content: public string? Name { get; set; }
     parameters: []
@@ -110,10 +119,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Description
     path: ../../../lumify.api/Models/DTO/Requests/SaveEventRequest.cs
-    startLine: 8
+    startLine: 15
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New description, if changing.
+  example: []
   syntax:
     content: public string? Description { get; set; }
     parameters: []
@@ -139,10 +150,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: IsAllDay
     path: ../../../lumify.api/Models/DTO/Requests/SaveEventRequest.cs
-    startLine: 9
+    startLine: 17
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New all-day flag, if changing.
+  example: []
   syntax:
     content: public bool? IsAllDay { get; set; }
     parameters: []
@@ -168,10 +181,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: StartTime
     path: ../../../lumify.api/Models/DTO/Requests/SaveEventRequest.cs
-    startLine: 10
+    startLine: 19
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New start date/time, if changing.
+  example: []
   syntax:
     content: public string? StartTime { get; set; }
     parameters: []
@@ -197,10 +212,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: EndTime
     path: ../../../lumify.api/Models/DTO/Requests/SaveEventRequest.cs
-    startLine: 11
+    startLine: 21
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New end date/time, if changing.
+  example: []
   syntax:
     content: public string? EndTime { get; set; }
     parameters: []
@@ -209,6 +226,41 @@ items:
     content.vb: Public Property EndTime As String
   overload: lumify.api.Models.DTO.Requests.SaveEventRequest.EndTime*
 references:
+- uid: lumify.api.Controllers.EventsController.SaveEvent(lumify.api.Models.DTO.Requests.SaveEventRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.EventsController.SaveEvent(lumify.api.Models.DTO.Requests.SaveEventRequest,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.EventsController.html#lumify_api_Controllers_EventsController_SaveEvent_lumify_api_Models_DTO_Requests_SaveEventRequest_System_Threading_CancellationToken_
+  name: SaveEvent(SaveEventRequest, CancellationToken)
+  nameWithType: EventsController.SaveEvent(SaveEventRequest, CancellationToken)
+  fullName: lumify.api.Controllers.EventsController.SaveEvent(lumify.api.Models.DTO.Requests.SaveEventRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.EventsController.SaveEvent(lumify.api.Models.DTO.Requests.SaveEventRequest,System.Threading.CancellationToken)
+    name: SaveEvent
+    href: lumify.api.Controllers.EventsController.html#lumify_api_Controllers_EventsController_SaveEvent_lumify_api_Models_DTO_Requests_SaveEventRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.SaveEventRequest
+    name: SaveEventRequest
+    href: lumify.api.Models.DTO.Requests.SaveEventRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.EventsController.SaveEvent(lumify.api.Models.DTO.Requests.SaveEventRequest,System.Threading.CancellationToken)
+    name: SaveEvent
+    href: lumify.api.Controllers.EventsController.html#lumify_api_Controllers_EventsController_SaveEvent_lumify_api_Models_DTO_Requests_SaveEventRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.SaveEventRequest
+    name: SaveEventRequest
+    href: lumify.api.Models.DTO.Requests.SaveEventRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

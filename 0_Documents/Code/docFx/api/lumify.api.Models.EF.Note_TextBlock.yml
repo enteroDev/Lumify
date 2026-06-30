@@ -31,10 +31,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Note_TextBlock
     path: ../../../lumify.api/Models/EF/Note_Textblock.cs
-    startLine: 4
+    startLine: 8
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: >-
+    A text block module within a note (e.g. paragraph, heading or code block). Ordered within the
+
+    note via <xref href="lumify.api.Models.EF.Note_TextBlock.NotePos" data-throw-if-not-resolved="false"></xref>. Soft-deleted via <xref href="lumify.api.Models.EF.Note_TextBlock.DeletedAt" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public class Note_TextBlock
     content.vb: Public Class Note_TextBlock
@@ -58,10 +63,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/EF/Note_Textblock.cs
-    startLine: 6
+    startLine: 11
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Primary key (GUID string).
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -87,10 +94,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: NoteID
     path: ../../../lumify.api/Models/EF/Note_Textblock.cs
-    startLine: 8
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The note this text block belongs to.
+  example: []
   syntax:
     content: public string NoteID { get; set; }
     parameters: []
@@ -116,10 +125,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Type
     path: ../../../lumify.api/Models/EF/Note_Textblock.cs
-    startLine: 10
+    startLine: 17
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Block type code (distinguishes paragraph, heading, code, …).
+  example: []
   syntax:
     content: public int Type { get; set; }
     parameters: []
@@ -145,10 +156,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/EF/Note_Textblock.cs
-    startLine: 12
+    startLine: 20
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Optional block title/heading.
+  example: []
   syntax:
     content: public string? Name { get; set; }
     parameters: []
@@ -174,10 +187,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Content
     path: ../../../lumify.api/Models/EF/Note_Textblock.cs
-    startLine: 14
+    startLine: 23
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The block's text content.
+  example: []
   syntax:
     content: public string? Content { get; set; }
     parameters: []
@@ -203,10 +218,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CodeLanguage
     path: ../../../lumify.api/Models/EF/Note_Textblock.cs
-    startLine: 16
+    startLine: 26
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: For code blocks, the programming language for syntax highlighting.
+  example: []
   syntax:
     content: public string? CodeLanguage { get; set; }
     parameters: []
@@ -232,10 +249,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: IsCollapsed
     path: ../../../lumify.api/Models/EF/Note_Textblock.cs
-    startLine: 18
+    startLine: 29
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Collapsed-in-UI flag stored as an integer (0 = expanded, 1 = collapsed).
+  example: []
   syntax:
     content: public int IsCollapsed { get; set; }
     parameters: []
@@ -261,10 +280,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CreatedAt
     path: ../../../lumify.api/Models/EF/Note_Textblock.cs
-    startLine: 20
+    startLine: 32
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Creation timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string CreatedAt { get; set; }
     parameters: []
@@ -290,10 +311,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UpdatedAt
     path: ../../../lumify.api/Models/EF/Note_Textblock.cs
-    startLine: 22
+    startLine: 35
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Last-update timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string UpdatedAt { get; set; }
     parameters: []
@@ -319,10 +342,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: DeletedAt
     path: ../../../lumify.api/Models/EF/Note_Textblock.cs
-    startLine: 24
+    startLine: 38
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Soft-delete timestamp (ISO-8601 string); <code>null</code> while active.
+  example: []
   syntax:
     content: public string? DeletedAt { get; set; }
     parameters: []
@@ -348,10 +373,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: NotePos
     path: ../../../lumify.api/Models/EF/Note_Textblock.cs
-    startLine: 26
+    startLine: 41
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Zero-based position of this module within its note.
+  example: []
   syntax:
     content: public int NotePos { get; set; }
     parameters: []
@@ -377,10 +404,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Note
     path: ../../../lumify.api/Models/EF/Note_Textblock.cs
-    startLine: 30
+    startLine: 46
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The parent note.
+  example: []
   syntax:
     content: public virtual Note Note { get; set; }
     parameters: []
@@ -389,6 +418,18 @@ items:
     content.vb: Public Overridable Property Note As Note
   overload: lumify.api.Models.EF.Note_TextBlock.Note*
 references:
+- uid: lumify.api.Models.EF.Note_TextBlock.NotePos
+  commentId: P:lumify.api.Models.EF.Note_TextBlock.NotePos
+  href: lumify.api.Models.EF.Note_TextBlock.html#lumify_api_Models_EF_Note_TextBlock_NotePos
+  name: NotePos
+  nameWithType: Note_TextBlock.NotePos
+  fullName: lumify.api.Models.EF.Note_TextBlock.NotePos
+- uid: lumify.api.Models.EF.Note_TextBlock.DeletedAt
+  commentId: P:lumify.api.Models.EF.Note_TextBlock.DeletedAt
+  href: lumify.api.Models.EF.Note_TextBlock.html#lumify_api_Models_EF_Note_TextBlock_DeletedAt
+  name: DeletedAt
+  nameWithType: Note_TextBlock.DeletedAt
+  fullName: lumify.api.Models.EF.Note_TextBlock.DeletedAt
 - uid: lumify.api.Models.EF
   commentId: N:lumify.api.Models.EF
   href: lumify.html

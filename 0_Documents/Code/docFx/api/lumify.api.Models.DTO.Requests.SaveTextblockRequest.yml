@@ -26,10 +26,17 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: SaveTextblockRequest
     path: ../../../lumify.api/Models/DTO/Requests/SaveTextblockRequest.cs
-    startLine: 2
+    startLine: 7
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: >-
+    Request body for updating a text block module
+
+    (see <xref href="lumify.api.Controllers.NotesController.SaveTextBlock(lumify.api.Models.DTO.Requests.SaveTextblockRequest%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>). Only non-<code>null</code> fields are
+
+    applied (partial update).
+  example: []
   syntax:
     content: public sealed class SaveTextblockRequest
     content.vb: Public NotInheritable Class SaveTextblockRequest
@@ -53,10 +60,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/DTO/Requests/SaveTextblockRequest.cs
-    startLine: 4
+    startLine: 10
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The text block to update (required).
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -82,10 +91,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Type
     path: ../../../lumify.api/Models/DTO/Requests/SaveTextblockRequest.cs
-    startLine: 5
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New block type, if changing.
+  example: []
   syntax:
     content: public int? Type { get; set; }
     parameters: []
@@ -111,10 +122,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/DTO/Requests/SaveTextblockRequest.cs
-    startLine: 6
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New title/heading, if changing.
+  example: []
   syntax:
     content: public string? Name { get; set; }
     parameters: []
@@ -140,10 +153,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Content
     path: ../../../lumify.api/Models/DTO/Requests/SaveTextblockRequest.cs
-    startLine: 7
+    startLine: 16
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New content, if changing.
+  example: []
   syntax:
     content: public string? Content { get; set; }
     parameters: []
@@ -169,10 +184,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CodeLanguage
     path: ../../../lumify.api/Models/DTO/Requests/SaveTextblockRequest.cs
-    startLine: 8
+    startLine: 18
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New code language, if changing.
+  example: []
   syntax:
     content: public string? CodeLanguage { get; set; }
     parameters: []
@@ -198,10 +215,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: IsCollapsed
     path: ../../../lumify.api/Models/DTO/Requests/SaveTextblockRequest.cs
-    startLine: 9
+    startLine: 20
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New collapsed state, if changing.
+  example: []
   syntax:
     content: public bool? IsCollapsed { get; set; }
     parameters: []
@@ -227,10 +246,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: NotePos
     path: ../../../lumify.api/Models/DTO/Requests/SaveTextblockRequest.cs
-    startLine: 10
+    startLine: 22
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New position within the note (reorders the block), if changing.
+  example: []
   syntax:
     content: public int? NotePos { get; set; }
     parameters: []
@@ -239,6 +260,41 @@ items:
     content.vb: Public Property NotePos As Integer?
   overload: lumify.api.Models.DTO.Requests.SaveTextblockRequest.NotePos*
 references:
+- uid: lumify.api.Controllers.NotesController.SaveTextBlock(lumify.api.Models.DTO.Requests.SaveTextblockRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.SaveTextBlock(lumify.api.Models.DTO.Requests.SaveTextblockRequest,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_SaveTextBlock_lumify_api_Models_DTO_Requests_SaveTextblockRequest_System_Threading_CancellationToken_
+  name: SaveTextBlock(SaveTextblockRequest, CancellationToken)
+  nameWithType: NotesController.SaveTextBlock(SaveTextblockRequest, CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.SaveTextBlock(lumify.api.Models.DTO.Requests.SaveTextblockRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.NotesController.SaveTextBlock(lumify.api.Models.DTO.Requests.SaveTextblockRequest,System.Threading.CancellationToken)
+    name: SaveTextBlock
+    href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_SaveTextBlock_lumify_api_Models_DTO_Requests_SaveTextblockRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.SaveTextblockRequest
+    name: SaveTextblockRequest
+    href: lumify.api.Models.DTO.Requests.SaveTextblockRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.NotesController.SaveTextBlock(lumify.api.Models.DTO.Requests.SaveTextblockRequest,System.Threading.CancellationToken)
+    name: SaveTextBlock
+    href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_SaveTextBlock_lumify_api_Models_DTO_Requests_SaveTextblockRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.SaveTextblockRequest
+    name: SaveTextblockRequest
+    href: lumify.api.Models.DTO.Requests.SaveTextblockRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

@@ -27,10 +27,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: NoteResponse
     path: ../../../lumify.api/Models/DTO/Responses/NoteResponse.cs
-    startLine: 3
+    startLine: 7
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: >-
+    A note (metadata only) returned to clients; its modules are fetched separately
+
+    (see <xref href="lumify.api.Controllers.NotesController" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public sealed class NoteResponse
     content.vb: Public NotInheritable Class NoteResponse
@@ -54,10 +59,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/DTO/Responses/NoteResponse.cs
-    startLine: 5
+    startLine: 10
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Note ID.
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -83,10 +90,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: OwnerID
     path: ../../../lumify.api/Models/DTO/Responses/NoteResponse.cs
-    startLine: 6
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The owner's user ID.
+  example: []
   syntax:
     content: public string OwnerID { get; set; }
     parameters: []
@@ -112,10 +121,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: OwnerName
     path: ../../../lumify.api/Models/DTO/Responses/NoteResponse.cs
-    startLine: 7
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The creator's name (privacy-safe; "Gelöschter Benutzer" if the creator was deleted).
+  example: []
   syntax:
     content: public string? OwnerName { get; set; }
     parameters: []
@@ -141,10 +152,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: WorkspaceID
     path: ../../../lumify.api/Models/DTO/Responses/NoteResponse.cs
-    startLine: 8
+    startLine: 16
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The owning workspace, or <code>null</code> for a personal note.
+  example: []
   syntax:
     content: public string? WorkspaceID { get; set; }
     parameters: []
@@ -170,10 +183,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: FolderID
     path: ../../../lumify.api/Models/DTO/Responses/NoteResponse.cs
-    startLine: 9
+    startLine: 18
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The containing folder, or <code>null</code> if at the root.
+  example: []
   syntax:
     content: public string? FolderID { get; set; }
     parameters: []
@@ -199,10 +214,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/DTO/Responses/NoteResponse.cs
-    startLine: 10
+    startLine: 20
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Note title.
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -228,10 +245,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CreatedAt
     path: ../../../lumify.api/Models/DTO/Responses/NoteResponse.cs
-    startLine: 11
+    startLine: 22
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Creation timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string CreatedAt { get; set; }
     parameters: []
@@ -257,10 +276,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UpdatedAt
     path: ../../../lumify.api/Models/DTO/Responses/NoteResponse.cs
-    startLine: 12
+    startLine: 24
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Last-update timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string UpdatedAt { get; set; }
     parameters: []
@@ -269,6 +290,12 @@ items:
     content.vb: Public Property UpdatedAt As String
   overload: lumify.api.Models.DTO.Responses.NoteResponse.UpdatedAt*
 references:
+- uid: lumify.api.Controllers.NotesController
+  commentId: T:lumify.api.Controllers.NotesController
+  href: lumify.api.Controllers.NotesController.html
+  name: NotesController
+  nameWithType: NotesController
+  fullName: lumify.api.Controllers.NotesController
 - uid: lumify.api.Models.DTO.Responses
   commentId: N:lumify.api.Models.DTO.Responses
   href: lumify.html

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class SmtpEmailService | Lumify – Code Documentation ">
       
-      
+      <meta name="description" content="implementation that sends mail over SMTP via MailKit. SMTP credentials come from the Email configuration section (per environment). This is the only component that talks to the mail server.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="lumify_api_Services_SmtpEmailService" data-uid="lumify.api.Services.SmtpEmailService" class="text-break">
-Class SmtpEmailService  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/SmtpEmailService.cs/#L15"><i class="bi bi-code-slash"></i></a>
+Class SmtpEmailService  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/SmtpEmailService.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,10 @@ Class SmtpEmailService  <a class="header-action link-secondary" title="View sour
   <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p><a class="xref" href="lumify.api.Interfaces.IEmailService.html">IEmailService</a> implementation that sends mail over SMTP via MailKit. SMTP
+credentials come from the <code>Email</code> configuration section (per environment). This is
+the only component that talks to the mail server.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -137,10 +140,11 @@ Class SmtpEmailService  <a class="header-action link-secondary" title="View sour
 
   <h3 id="lumify_api_Services_SmtpEmailService__ctor_Microsoft_Extensions_Options_IOptions_lumify_api_Models_Settings_EmailSettings__Microsoft_Extensions_Logging_ILogger_lumify_api_Services_SmtpEmailService__" data-uid="lumify.api.Services.SmtpEmailService.#ctor(Microsoft.Extensions.Options.IOptions{lumify.api.Models.Settings.EmailSettings},Microsoft.Extensions.Logging.ILogger{lumify.api.Services.SmtpEmailService})">
   SmtpEmailService(IOptions&lt;EmailSettings&gt;, ILogger&lt;SmtpEmailService&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/SmtpEmailService.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/SmtpEmailService.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates the service with the bound e-mail settings and a logger.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -174,10 +178,11 @@ Class SmtpEmailService  <a class="header-action link-secondary" title="View sour
 
   <h3 id="lumify_api_Services_SmtpEmailService_SendPasswordResetEmailAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Services.SmtpEmailService.SendPasswordResetEmailAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">
   SendPasswordResetEmailAsync(string, string?, string, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/SmtpEmailService.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/SmtpEmailService.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sends the password-reset mail containing the one-time reset link to the user.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -187,13 +192,17 @@ Class SmtpEmailService  <a class="header-action link-secondary" title="View sour
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>toEmail</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The recipient's e-mail address.</p>
+</dd>
     <dt><code>displayName</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The recipient's display name for the greeting, if known.</p>
+</dd>
     <dt><code>resetLink</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The one-time reset link to embed.</p>
+</dd>
     <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
-    <dd></dd>
+    <dd><p>Cancellation token for the send operation.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -216,10 +225,11 @@ Class SmtpEmailService  <a class="header-action link-secondary" title="View sour
 
   <h3 id="lumify_api_Services_SmtpEmailService_SendVerificationEmailAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="lumify.api.Services.SmtpEmailService.SendVerificationEmailAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">
   SendVerificationEmailAsync(string, string?, string, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/SmtpEmailService.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/SmtpEmailService.cs/#L80"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sends the e-mail verification mail containing the one-time confirmation link to the user.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -229,13 +239,17 @@ Class SmtpEmailService  <a class="header-action link-secondary" title="View sour
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>toEmail</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The recipient's e-mail address.</p>
+</dd>
     <dt><code>displayName</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The recipient's display name for the greeting, if known.</p>
+</dd>
     <dt><code>verifyLink</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The one-time verification link to embed.</p>
+</dd>
     <dt><code>ct</code> <span class="xref">CancellationToken</span></dt>
-    <dd></dd>
+    <dd><p>Cancellation token for the send operation.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>

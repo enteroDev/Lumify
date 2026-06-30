@@ -30,10 +30,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: TodoEntry
     path: ../../../lumify.api/Models/EF/TodoEntry.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: >-
+    A single item within a <xref href="lumify.api.Models.EF.TodoEntry.TodoList" data-throw-if-not-resolved="false"></xref>. Toggling its status keeps the parent list's
+
+    status in sync. Soft-deleted via <xref href="lumify.api.Models.EF.TodoEntry.DeletedAt" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public class TodoEntry
     content.vb: Public Class TodoEntry
@@ -57,10 +62,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/EF/TodoEntry.cs
-    startLine: 7
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Primary key (GUID string).
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -86,10 +93,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: OwnerID
     path: ../../../lumify.api/Models/EF/TodoEntry.cs
-    startLine: 8
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The user who created the entry.
+  example: []
   syntax:
     content: public string OwnerID { get; set; }
     parameters: []
@@ -115,10 +124,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: TodoListID
     path: ../../../lumify.api/Models/EF/TodoEntry.cs
-    startLine: 9
+    startLine: 16
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The parent todo list.
+  example: []
   syntax:
     content: public string TodoListID { get; set; }
     parameters: []
@@ -144,10 +155,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/EF/TodoEntry.cs
-    startLine: 11
+    startLine: 19
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Entry title.
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -173,10 +186,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Description
     path: ../../../lumify.api/Models/EF/TodoEntry.cs
-    startLine: 12
+    startLine: 21
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Optional entry description.
+  example: []
   syntax:
     content: public string? Description { get; set; }
     parameters: []
@@ -202,10 +217,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Status
     path: ../../../lumify.api/Models/EF/TodoEntry.cs
-    startLine: 14
+    startLine: 24
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: 'Status: 1 = pending/open, 2 = done.'
+  example: []
   syntax:
     content: public int Status { get; set; }
     parameters: []
@@ -231,10 +248,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CreatedAt
     path: ../../../lumify.api/Models/EF/TodoEntry.cs
-    startLine: 16
+    startLine: 27
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Creation timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string CreatedAt { get; set; }
     parameters: []
@@ -260,10 +279,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UpdatedAt
     path: ../../../lumify.api/Models/EF/TodoEntry.cs
-    startLine: 17
+    startLine: 29
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Last-update timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string UpdatedAt { get; set; }
     parameters: []
@@ -289,10 +310,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: DeletedAt
     path: ../../../lumify.api/Models/EF/TodoEntry.cs
-    startLine: 18
+    startLine: 31
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Soft-delete timestamp (ISO-8601 string); <code>null</code> while active.
+  example: []
   syntax:
     content: public string? DeletedAt { get; set; }
     parameters: []
@@ -318,10 +341,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Owner
     path: ../../../lumify.api/Models/EF/TodoEntry.cs
-    startLine: 21
+    startLine: 35
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The owning user.
+  example: []
   syntax:
     content: public virtual User Owner { get; set; }
     parameters: []
@@ -347,10 +372,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: TodoList
     path: ../../../lumify.api/Models/EF/TodoEntry.cs
-    startLine: 22
+    startLine: 37
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The parent todo list.
+  example: []
   syntax:
     content: public virtual TodoList TodoList { get; set; }
     parameters: []
@@ -359,6 +386,18 @@ items:
     content.vb: Public Overridable Property TodoList As TodoList
   overload: lumify.api.Models.EF.TodoEntry.TodoList*
 references:
+- uid: lumify.api.Models.EF.TodoEntry.TodoList
+  commentId: P:lumify.api.Models.EF.TodoEntry.TodoList
+  href: lumify.api.Models.EF.TodoEntry.html#lumify_api_Models_EF_TodoEntry_TodoList
+  name: TodoList
+  nameWithType: TodoEntry.TodoList
+  fullName: lumify.api.Models.EF.TodoEntry.TodoList
+- uid: lumify.api.Models.EF.TodoEntry.DeletedAt
+  commentId: P:lumify.api.Models.EF.TodoEntry.DeletedAt
+  href: lumify.api.Models.EF.TodoEntry.html#lumify_api_Models_EF_TodoEntry_DeletedAt
+  name: DeletedAt
+  nameWithType: TodoEntry.DeletedAt
+  fullName: lumify.api.Models.EF.TodoEntry.DeletedAt
 - uid: lumify.api.Models.EF
   commentId: N:lumify.api.Models.EF
   href: lumify.html

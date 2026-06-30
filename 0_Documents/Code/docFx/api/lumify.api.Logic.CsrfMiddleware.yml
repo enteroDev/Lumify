@@ -21,10 +21,23 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CsrfMiddleware
     path: ../../../lumify.api/Logic/CsrfMiddleware.cs
-    startLine: 10
+    startLine: 20
   assemblies:
   - lumify.api
   namespace: lumify.api.Logic
+  summary: >-
+    ASP.NET Core middleware enforcing CSRF protection via the double-submit-cookie pattern:
+
+    for mutating requests (POST/PUT/PATCH/DELETE) the <code>X-CSRF-Token</code> header must match the
+
+    <code>XSRF-TOKEN</code> cookie, using a constant-time comparison.
+  remarks: >-
+    Non-mutating methods, CORS preflight, the auth endpoints that run before a CSRF cookie
+
+    exists (login, register, password reset, e-mail verification, TOTP login) and the SignalR
+
+    hub paths under <code>/hubs</code> are exempt. A failed check returns 403.
+  example: []
   syntax:
     content: public class CsrfMiddleware
     content.vb: Public Class CsrfMiddleware
@@ -48,10 +61,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: .ctor
     path: ../../../lumify.api/Logic/CsrfMiddleware.cs
-    startLine: 31
+    startLine: 45
   assemblies:
   - lumify.api
   namespace: lumify.api.Logic
+  summary: Creates the middleware with the next delegate in the request pipeline.
+  example: []
   syntax:
     content: public CsrfMiddleware(RequestDelegate next)
     parameters:
@@ -80,15 +95,21 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Invoke
     path: ../../../lumify.api/Logic/CsrfMiddleware.cs
-    startLine: 34
+    startLine: 53
   assemblies:
   - lumify.api
   namespace: lumify.api.Logic
+  summary: >-
+    Processes a request: lets exempt and non-mutating requests through, otherwise compares
+
+    the CSRF header against the cookie and short-circuits with 403 on mismatch.
+  example: []
   syntax:
     content: public Task Invoke(HttpContext context)
     parameters:
     - id: context
       type: Microsoft.AspNetCore.Http.HttpContext
+      description: The current HTTP context.
     return:
       type: System.Threading.Tasks.Task
     content.vb: Public Function Invoke(context As HttpContext) As Task

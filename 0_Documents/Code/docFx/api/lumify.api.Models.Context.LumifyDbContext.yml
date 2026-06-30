@@ -37,10 +37,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: LumifyDbContext
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 8
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
+  summary: >-
+    Entity Framework Core database context for Lumify. Exposes the entity sets and configures the
+
+    relational model (table mappings, indexes and relationships) against the MariaDB database.
+  example: []
   syntax:
     content: 'public class LumifyDbContext : DbContext'
     content.vb: Public Class LumifyDbContext Inherits DbContext
@@ -65,10 +70,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: .ctor
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 10
+    startLine: 15
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
+  summary: Parameterless constructor (used by design-time tooling).
+  example: []
   syntax:
     content: public LumifyDbContext()
     content.vb: Public Sub New()
@@ -94,15 +101,18 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: .ctor
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 14
+    startLine: 21
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
+  summary: Creates the context with the configured options (connection string, provider).
+  example: []
   syntax:
     content: public LumifyDbContext(DbContextOptions<LumifyDbContext> options)
     parameters:
     - id: options
       type: Microsoft.EntityFrameworkCore.DbContextOptions{lumify.api.Models.Context.LumifyDbContext}
+      description: The DbContext options supplied by dependency injection.
     content.vb: Public Sub New(options As DbContextOptions(Of LumifyDbContext))
   overload: lumify.api.Models.Context.LumifyDbContext.#ctor*
   nameWithType.vb: LumifyDbContext.New(DbContextOptions(Of LumifyDbContext))
@@ -126,10 +136,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Events
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 19
+    startLine: 27
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
+  summary: Calendar events.
+  example: []
   syntax:
     content: public virtual DbSet<Event> Events { get; set; }
     parameters: []
@@ -155,10 +167,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: TodoLists
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 21
+    startLine: 30
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
+  summary: Todo lists.
+  example: []
   syntax:
     content: public virtual DbSet<TodoList> TodoLists { get; set; }
     parameters: []
@@ -184,10 +198,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: TodoEntries
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 22
+    startLine: 32
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
+  summary: Todo entries belonging to lists.
+  example: []
   syntax:
     content: public virtual DbSet<TodoEntry> TodoEntries { get; set; }
     parameters: []
@@ -213,10 +229,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Folders
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 24
+    startLine: 35
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
+  summary: Note folders.
+  example: []
   syntax:
     content: public virtual DbSet<Folder> Folders { get; set; }
     parameters: []
@@ -242,10 +260,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Notes
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 25
+    startLine: 37
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
+  summary: Notes.
+  example: []
   syntax:
     content: public virtual DbSet<Note> Notes { get; set; }
     parameters: []
@@ -271,10 +291,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Note_LinkItems
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 26
+    startLine: 39
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
+  summary: Link item modules of notes.
+  example: []
   syntax:
     content: public virtual DbSet<Note_LinkItem> Note_LinkItems { get; set; }
     parameters: []
@@ -300,10 +322,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Note_TextBlocks
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 27
+    startLine: 41
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
+  summary: Text block modules of notes.
+  example: []
   syntax:
     content: public virtual DbSet<Note_TextBlock> Note_TextBlocks { get; set; }
     parameters: []
@@ -329,10 +353,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: NoteAttachments
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 28
+    startLine: 43
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
+  summary: File attachments of notes.
+  example: []
   syntax:
     content: public virtual DbSet<NoteAttachment> NoteAttachments { get; set; }
     parameters: []
@@ -358,10 +384,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Users
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 30
+    startLine: 46
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
+  summary: User accounts.
+  example: []
   syntax:
     content: public virtual DbSet<User> Users { get; set; }
     parameters: []
@@ -387,10 +415,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: PasswordResetTokens
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 31
+    startLine: 48
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
+  summary: Single-use password reset tokens.
+  example: []
   syntax:
     content: public virtual DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
     parameters: []
@@ -416,10 +446,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: EmailVerificationTokens
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 32
+    startLine: 50
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
+  summary: Single-use e-mail verification tokens.
+  example: []
   syntax:
     content: public virtual DbSet<EmailVerificationToken> EmailVerificationTokens { get; set; }
     parameters: []
@@ -445,10 +477,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Friendships
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 33
+    startLine: 52
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
+  summary: Friend relationships between users.
+  example: []
   syntax:
     content: public virtual DbSet<Friendship> Friendships { get; set; }
     parameters: []
@@ -474,10 +508,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Workspaces
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 35
+    startLine: 55
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
+  summary: Workspaces (shared spaces).
+  example: []
   syntax:
     content: public virtual DbSet<Workspace> Workspaces { get; set; }
     parameters: []
@@ -503,10 +539,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: WorkspaceMembers
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 36
+    startLine: 57
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
+  summary: Workspace memberships.
+  example: []
   syntax:
     content: public virtual DbSet<WorkspaceMember> WorkspaceMembers { get; set; }
     parameters: []
@@ -532,10 +570,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ChatMessages
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 38
+    startLine: 60
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
+  summary: Chat messages.
+  example: []
   syntax:
     content: public virtual DbSet<ChatMessage> ChatMessages { get; set; }
     parameters: []
@@ -561,38 +601,21 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: OnModelCreating
     path: ../../../lumify.api/Models/Context/LumifyDbContext.cs
-    startLine: 41
+    startLine: 68
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Context
   summary: >-
-    Override this method to further configure the model that was discovered by convention from the entity types
+    Configures the entity model — table names, indexes and foreign-key relationships — when
 
-    exposed in <xref href="Microsoft.EntityFrameworkCore.DbSet%601" data-throw-if-not-resolved="false"></xref> properties on your derived context. The resulting model may be cached
-
-    and re-used for subsequent instances of your derived context.
-  remarks: >-
-    <p>
-        If a model is explicitly set on the options for this context (via <xref href="Microsoft.EntityFrameworkCore.DbContextOptionsBuilder.UseModel(Microsoft.EntityFrameworkCore.Metadata.IModel)" data-throw-if-not-resolved="false"></xref>)
-        then this method will not be run. However, it will still run when creating a compiled model.
-    </p>
-
-    <p>
-        See <a href="https://aka.ms/efcore-docs-modeling">Modeling entity types and relationships</a> for more information and
-        examples.
-    </p>
+    the model is first built.
   example: []
   syntax:
     content: protected override void OnModelCreating(ModelBuilder modelBuilder)
     parameters:
     - id: modelBuilder
       type: Microsoft.EntityFrameworkCore.ModelBuilder
-      description: >-
-        The builder being used to construct the model for this context. Databases (and other extensions) typically
-
-        define extension methods on this object that allow you to configure aspects of the model that are specific
-
-        to a given database.
+      description: The builder used to construct the model.
     content.vb: Protected Overrides Sub OnModelCreating(modelBuilder As ModelBuilder)
   overridden: Microsoft.EntityFrameworkCore.DbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
   overload: lumify.api.Models.Context.LumifyDbContext.OnModelCreating*
@@ -1324,30 +1347,6 @@ references:
   - uid: lumify.api.Models.EF.ChatMessage
     name: ChatMessage
     href: lumify.api.Models.EF.ChatMessage.html
-  - name: )
-- uid: Microsoft.EntityFrameworkCore.DbContextOptionsBuilder.UseModel(Microsoft.EntityFrameworkCore.Metadata.IModel)
-  commentId: M:Microsoft.EntityFrameworkCore.DbContextOptionsBuilder.UseModel(Microsoft.EntityFrameworkCore.Metadata.IModel)
-  isExternal: true
-  name: UseModel(IModel)
-  nameWithType: DbContextOptionsBuilder.UseModel(IModel)
-  fullName: Microsoft.EntityFrameworkCore.DbContextOptionsBuilder.UseModel(Microsoft.EntityFrameworkCore.Metadata.IModel)
-  spec.csharp:
-  - uid: Microsoft.EntityFrameworkCore.DbContextOptionsBuilder.UseModel(Microsoft.EntityFrameworkCore.Metadata.IModel)
-    name: UseModel
-    isExternal: true
-  - name: (
-  - uid: Microsoft.EntityFrameworkCore.Metadata.IModel
-    name: IModel
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: Microsoft.EntityFrameworkCore.DbContextOptionsBuilder.UseModel(Microsoft.EntityFrameworkCore.Metadata.IModel)
-    name: UseModel
-    isExternal: true
-  - name: (
-  - uid: Microsoft.EntityFrameworkCore.Metadata.IModel
-    name: IModel
-    isExternal: true
   - name: )
 - uid: Microsoft.EntityFrameworkCore.DbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
   commentId: M:Microsoft.EntityFrameworkCore.DbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)

@@ -1,15 +1,25 @@
 namespace lumify.api.Models.DTO.Requests
 {
-    // Second login step: the short-lived MFA token from step 1 + the 6-digit code.
+    /// <summary>
+    /// Request body for the second login step with 2FA
+    /// (see <see cref="Controllers.AccountController.VerifyTotpLogin"/>).
+    /// </summary>
     public class VerifyTotpLoginRequest
     {
+        /// <summary>The short-lived MFA challenge token from login step 1.</summary>
         public string MfaToken { get; set; } = "";
+        /// <summary>The 6-digit code from the authenticator app.</summary>
         public string Code { get; set; } = "";
     }
 
-    // Used to confirm 2FA setup and to disable it again (both need a valid current code).
+    /// <summary>
+    /// Request body carrying a single TOTP code, used to confirm 2FA setup and to disable it again
+    /// (see <see cref="Controllers.AccountController.ConfirmTotp"/> /
+    /// <see cref="Controllers.AccountController.DisableTotp"/>).
+    /// </summary>
     public class TotpCodeRequest
     {
+        /// <summary>The 6-digit code from the authenticator app.</summary>
         public string Code { get; set; } = "";
     }
 }

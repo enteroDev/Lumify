@@ -22,10 +22,17 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: IPresenceService
     path: ../../../lumify.api/Interfaces/IPresenceService.cs
-    startLine: 10
+    startLine: 15
   assemblies:
   - lumify.api
   namespace: lumify.api.Interfaces
+  summary: >-
+    Tracks which users are currently online by counting their active SignalR connections.
+
+    Implemented by <xref href="lumify.api.Services.PresenceService" data-throw-if-not-resolved="false"></xref> and driven by
+
+    <xref href="lumify.api.Hubs.ChatHub" data-throw-if-not-resolved="false"></xref> on connect/disconnect.
+  example: []
   syntax:
     content: public interface IPresenceService
     content.vb: Public Interface IPresenceService
@@ -49,17 +56,21 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AddConnection
     path: ../../../lumify.api/Interfaces/IPresenceService.cs
-    startLine: 12
+    startLine: 22
   assemblies:
   - lumify.api
   namespace: lumify.api.Interfaces
+  summary: Registers a new connection for a user (marks the user online).
+  example: []
   syntax:
     content: void AddConnection(string userID, string connectionID)
     parameters:
     - id: userID
       type: System.String
+      description: The connecting user.
     - id: connectionID
       type: System.String
+      description: The new SignalR connection ID.
     content.vb: Sub AddConnection(userID As String, connectionID As String)
   overload: lumify.api.Interfaces.IPresenceService.AddConnection*
   nameWithType.vb: IPresenceService.AddConnection(String, String)
@@ -83,15 +94,18 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: RemoveConnection
     path: ../../../lumify.api/Interfaces/IPresenceService.cs
-    startLine: 13
+    startLine: 28
   assemblies:
   - lumify.api
   namespace: lumify.api.Interfaces
+  summary: Removes a connection; the user goes offline once their last connection is gone.
+  example: []
   syntax:
     content: void RemoveConnection(string connectionID)
     parameters:
     - id: connectionID
       type: System.String
+      description: The SignalR connection ID that closed.
     content.vb: Sub RemoveConnection(connectionID As String)
   overload: lumify.api.Interfaces.IPresenceService.RemoveConnection*
   nameWithType.vb: IPresenceService.RemoveConnection(String)
@@ -115,23 +129,39 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: GetPresenceStatus
     path: ../../../lumify.api/Interfaces/IPresenceService.cs
-    startLine: 14
+    startLine: 35
   assemblies:
   - lumify.api
   namespace: lumify.api.Interfaces
+  summary: Returns the current presence status of a user.
+  example: []
   syntax:
     content: PresenceStatus GetPresenceStatus(string userID)
     parameters:
     - id: userID
       type: System.String
+      description: The user to check.
     return:
       type: lumify.api.Models.Enum.PresenceStatus
+      description: <code>Online</code> if at least one connection is open, otherwise <code>Offline</code>.
     content.vb: Function GetPresenceStatus(userID As String) As PresenceStatus
   overload: lumify.api.Interfaces.IPresenceService.GetPresenceStatus*
   nameWithType.vb: IPresenceService.GetPresenceStatus(String)
   fullName.vb: lumify.api.Interfaces.IPresenceService.GetPresenceStatus(String)
   name.vb: GetPresenceStatus(String)
 references:
+- uid: lumify.api.Services.PresenceService
+  commentId: T:lumify.api.Services.PresenceService
+  href: lumify.api.Services.PresenceService.html
+  name: PresenceService
+  nameWithType: PresenceService
+  fullName: lumify.api.Services.PresenceService
+- uid: lumify.api.Hubs.ChatHub
+  commentId: T:lumify.api.Hubs.ChatHub
+  href: lumify.api.Hubs.ChatHub.html
+  name: ChatHub
+  nameWithType: ChatHub
+  fullName: lumify.api.Hubs.ChatHub
 - uid: lumify.api.Interfaces
   commentId: N:lumify.api.Interfaces
   href: lumify.html

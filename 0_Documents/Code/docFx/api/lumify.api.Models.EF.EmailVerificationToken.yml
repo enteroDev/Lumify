@@ -26,10 +26,17 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: EmailVerificationToken
     path: ../../../lumify.api/Models/EF/EmailVerificationToken.cs
-    startLine: 5
+    startLine: 10
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: >-
+    A single-use token backing an e-mail verification link. Only the hash of the token is stored
+
+    (same approach as <xref href="lumify.api.Models.EF.PasswordResetToken" data-throw-if-not-resolved="false"></xref>), so a leaked row cannot be turned back
+
+    into a working link.
+  example: []
   syntax:
     content: public class EmailVerificationToken
     content.vb: Public Class EmailVerificationToken
@@ -53,10 +60,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/EF/EmailVerificationToken.cs
-    startLine: 7
+    startLine: 13
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Primary key (GUID string).
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -82,10 +91,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UserID
     path: ../../../lumify.api/Models/EF/EmailVerificationToken.cs
-    startLine: 8
+    startLine: 15
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The user this verification token belongs to.
+  example: []
   syntax:
     content: public string UserID { get; set; }
     parameters: []
@@ -111,10 +122,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: TokenHash
     path: ../../../lumify.api/Models/EF/EmailVerificationToken.cs
-    startLine: 12
+    startLine: 18
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: SHA-256 hash of the raw token; the raw value is never persisted.
+  example: []
   syntax:
     content: public string TokenHash { get; set; }
     parameters: []
@@ -140,10 +153,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ExpiresAt
     path: ../../../lumify.api/Models/EF/EmailVerificationToken.cs
-    startLine: 14
+    startLine: 21
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Expiry timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string ExpiresAt { get; set; }
     parameters: []
@@ -169,10 +184,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UsedAt
     path: ../../../lumify.api/Models/EF/EmailVerificationToken.cs
-    startLine: 15
+    startLine: 23
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: When the token was consumed (ISO-8601 string); <code>null</code> while still usable (single-use).
+  example: []
   syntax:
     content: public string? UsedAt { get; set; }
     parameters: []
@@ -198,10 +215,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CreatedAt
     path: ../../../lumify.api/Models/EF/EmailVerificationToken.cs
-    startLine: 16
+    startLine: 25
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Creation timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string CreatedAt { get; set; }
     parameters: []
@@ -227,10 +246,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: User
     path: ../../../lumify.api/Models/EF/EmailVerificationToken.cs
-    startLine: 19
+    startLine: 29
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The owning user.
+  example: []
   syntax:
     content: public virtual User User { get; set; }
     parameters: []
@@ -239,6 +260,12 @@ items:
     content.vb: Public Overridable Property User As User
   overload: lumify.api.Models.EF.EmailVerificationToken.User*
 references:
+- uid: lumify.api.Models.EF.PasswordResetToken
+  commentId: T:lumify.api.Models.EF.PasswordResetToken
+  href: lumify.api.Models.EF.PasswordResetToken.html
+  name: PasswordResetToken
+  nameWithType: PasswordResetToken
+  fullName: lumify.api.Models.EF.PasswordResetToken
 - uid: lumify.api.Models.EF
   commentId: N:lumify.api.Models.EF
   href: lumify.html

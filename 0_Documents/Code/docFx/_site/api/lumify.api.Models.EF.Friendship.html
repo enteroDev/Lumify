@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Friendship | Lumify – Code Documentation ">
       
-      
+      <meta name="description" content="A relationship between two users (friend request or accepted friendship). Stored once per user pair using ordered / keys; the requester/addressee fields record who initiated it. See .">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="lumify_api_Models_EF_Friendship" data-uid="lumify.api.Models.EF.Friendship" class="text-break">
-Class Friendship  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class Friendship  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,10 @@ Class Friendship  <a class="header-action link-secondary" title="View source" hr
   <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>A relationship between two users (friend request or accepted friendship). Stored once per
+user pair using ordered <a class="xref" href="lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_UserLowID">UserLowID</a>/<a class="xref" href="lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_UserHighID">UserHighID</a> keys; the
+requester/addressee fields record who initiated it. See <a class="xref" href="lumify.api.Services.FriendshipService.html">FriendshipService</a>.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -131,10 +134,11 @@ Class Friendship  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="lumify_api_Models_EF_Friendship_AcceptedAt" data-uid="lumify.api.Models.EF.Friendship.AcceptedAt">
   AcceptedAt
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When the request was accepted (ISO-8601 string), if applicable.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -162,10 +166,11 @@ Class Friendship  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="lumify_api_Models_EF_Friendship_Addressee" data-uid="lumify.api.Models.EF.Friendship.Addressee">
   Addressee
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The user who received the request.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -193,10 +198,11 @@ Class Friendship  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="lumify_api_Models_EF_Friendship_AddresseeID" data-uid="lumify.api.Models.EF.Friendship.AddresseeID">
   AddresseeID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The user who received the friend request.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -224,10 +230,11 @@ Class Friendship  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="lumify_api_Models_EF_Friendship_BlockedAt" data-uid="lumify.api.Models.EF.Friendship.BlockedAt">
   BlockedAt
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When the relationship was blocked (ISO-8601 string), if applicable.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -255,10 +262,11 @@ Class Friendship  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="lumify_api_Models_EF_Friendship_CreatedAt" data-uid="lumify.api.Models.EF.Friendship.CreatedAt">
   CreatedAt
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creation timestamp (ISO-8601 string).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -286,10 +294,11 @@ Class Friendship  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="lumify_api_Models_EF_Friendship_DeletedAt" data-uid="lumify.api.Models.EF.Friendship.DeletedAt">
   DeletedAt
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Soft-delete timestamp (ISO-8601 string); <code>null</code> while active.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -317,10 +326,11 @@ Class Friendship  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="lumify_api_Models_EF_Friendship_ID" data-uid="lumify.api.Models.EF.Friendship.ID">
   ID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Primary key (GUID string).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -348,10 +358,11 @@ Class Friendship  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="lumify_api_Models_EF_Friendship_RejectedAt" data-uid="lumify.api.Models.EF.Friendship.RejectedAt">
   RejectedAt
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When the request was rejected (ISO-8601 string), if applicable.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -379,10 +390,11 @@ Class Friendship  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="lumify_api_Models_EF_Friendship_Requester" data-uid="lumify.api.Models.EF.Friendship.Requester">
   Requester
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The user who sent the request.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -410,10 +422,11 @@ Class Friendship  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="lumify_api_Models_EF_Friendship_RequesterID" data-uid="lumify.api.Models.EF.Friendship.RequesterID">
   RequesterID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The user who sent the friend request.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -441,10 +454,11 @@ Class Friendship  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="lumify_api_Models_EF_Friendship_Status" data-uid="lumify.api.Models.EF.Friendship.Status">
   Status
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Relationship status (see <a class="xref" href="lumify.api.Models.Enum.FriendshipStatus.html">FriendshipStatus</a>: Pending, Accepted, …).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -472,10 +486,11 @@ Class Friendship  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="lumify_api_Models_EF_Friendship_UpdatedAt" data-uid="lumify.api.Models.EF.Friendship.UpdatedAt">
   UpdatedAt
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Last-update timestamp (ISO-8601 string).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -503,10 +518,11 @@ Class Friendship  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="lumify_api_Models_EF_Friendship_UserHigh" data-uid="lumify.api.Models.EF.Friendship.UserHigh">
   UserHigh
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The higher user of the pair.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -534,10 +550,11 @@ Class Friendship  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="lumify_api_Models_EF_Friendship_UserHighID" data-uid="lumify.api.Models.EF.Friendship.UserHighID">
   UserHighID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The lexicographically higher user ID of the pair (part of the unique key).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -565,10 +582,11 @@ Class Friendship  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="lumify_api_Models_EF_Friendship_UserLow" data-uid="lumify.api.Models.EF.Friendship.UserLow">
   UserLow
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The lower user of the pair.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -596,10 +614,11 @@ Class Friendship  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="lumify_api_Models_EF_Friendship_UserLowID" data-uid="lumify.api.Models.EF.Friendship.UserLowID">
   UserLowID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Friendship.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The lexicographically lower user ID of the pair (part of the unique key).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

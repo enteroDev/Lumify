@@ -20,10 +20,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ResendVerificationRequest
     path: ../../../lumify.api/Models/DTO/Requests/ResendVerificationRequest.cs
-    startLine: 2
+    startLine: 6
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: >-
+    Request body for resending an e-mail verification link
+
+    (see <xref href="lumify.api.Controllers.AccountController.ResendVerification(lumify.api.Models.DTO.Requests.ResendVerificationRequest%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public sealed class ResendVerificationRequest
     content.vb: Public NotInheritable Class ResendVerificationRequest
@@ -47,10 +52,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Identifier
     path: ../../../lumify.api/Models/DTO/Requests/ResendVerificationRequest.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Username or e-mail — same as the login identifier.
+  example: []
   syntax:
     content: public required string Identifier { get; set; }
     parameters: []
@@ -59,6 +66,41 @@ items:
     content.vb: Public Property Identifier As String
   overload: lumify.api.Models.DTO.Requests.ResendVerificationRequest.Identifier*
 references:
+- uid: lumify.api.Controllers.AccountController.ResendVerification(lumify.api.Models.DTO.Requests.ResendVerificationRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.AccountController.ResendVerification(lumify.api.Models.DTO.Requests.ResendVerificationRequest,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_ResendVerification_lumify_api_Models_DTO_Requests_ResendVerificationRequest_System_Threading_CancellationToken_
+  name: ResendVerification(ResendVerificationRequest, CancellationToken)
+  nameWithType: AccountController.ResendVerification(ResendVerificationRequest, CancellationToken)
+  fullName: lumify.api.Controllers.AccountController.ResendVerification(lumify.api.Models.DTO.Requests.ResendVerificationRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.AccountController.ResendVerification(lumify.api.Models.DTO.Requests.ResendVerificationRequest,System.Threading.CancellationToken)
+    name: ResendVerification
+    href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_ResendVerification_lumify_api_Models_DTO_Requests_ResendVerificationRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.ResendVerificationRequest
+    name: ResendVerificationRequest
+    href: lumify.api.Models.DTO.Requests.ResendVerificationRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.AccountController.ResendVerification(lumify.api.Models.DTO.Requests.ResendVerificationRequest,System.Threading.CancellationToken)
+    name: ResendVerification
+    href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_ResendVerification_lumify_api_Models_DTO_Requests_ResendVerificationRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.ResendVerificationRequest
+    name: ResendVerificationRequest
+    href: lumify.api.Models.DTO.Requests.ResendVerificationRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

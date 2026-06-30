@@ -25,10 +25,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AddTextBlockRequest
     path: ../../../lumify.api/Models/DTO/Requests/AddTextBlockRequest.cs
-    startLine: 2
+    startLine: 6
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: >-
+    Request body for adding a text block module to a note
+
+    (see <xref href="lumify.api.Controllers.NotesController.AddTextBlock(lumify.api.Models.DTO.Requests.AddTextBlockRequest%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public class AddTextBlockRequest
     content.vb: Public Class AddTextBlockRequest
@@ -52,10 +57,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: NoteID
     path: ../../../lumify.api/Models/DTO/Requests/AddTextBlockRequest.cs
-    startLine: 4
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The parent note (required).
+  example: []
   syntax:
     content: public string NoteID { get; set; }
     parameters: []
@@ -81,10 +88,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Type
     path: ../../../lumify.api/Models/DTO/Requests/AddTextBlockRequest.cs
-    startLine: 5
+    startLine: 11
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Block type code (paragraph, heading, code, …).
+  example: []
   syntax:
     content: public int Type { get; set; }
     parameters: []
@@ -110,10 +119,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: NotePos
     path: ../../../lumify.api/Models/DTO/Requests/AddTextBlockRequest.cs
-    startLine: 6
+    startLine: 13
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Desired position within the note.
+  example: []
   syntax:
     content: public int NotePos { get; set; }
     parameters: []
@@ -139,10 +150,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/DTO/Requests/AddTextBlockRequest.cs
-    startLine: 7
+    startLine: 15
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Optional block title/heading.
+  example: []
   syntax:
     content: public string? Name { get; set; }
     parameters: []
@@ -168,10 +181,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Content
     path: ../../../lumify.api/Models/DTO/Requests/AddTextBlockRequest.cs
-    startLine: 8
+    startLine: 17
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The block's text content.
+  example: []
   syntax:
     content: public string? Content { get; set; }
     parameters: []
@@ -197,10 +212,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CodeLanguage
     path: ../../../lumify.api/Models/DTO/Requests/AddTextBlockRequest.cs
-    startLine: 9
+    startLine: 19
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: For code blocks, the programming language for syntax highlighting.
+  example: []
   syntax:
     content: public string? CodeLanguage { get; set; }
     parameters: []
@@ -209,6 +226,41 @@ items:
     content.vb: Public Property CodeLanguage As String
   overload: lumify.api.Models.DTO.Requests.AddTextBlockRequest.CodeLanguage*
 references:
+- uid: lumify.api.Controllers.NotesController.AddTextBlock(lumify.api.Models.DTO.Requests.AddTextBlockRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.NotesController.AddTextBlock(lumify.api.Models.DTO.Requests.AddTextBlockRequest,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_AddTextBlock_lumify_api_Models_DTO_Requests_AddTextBlockRequest_System_Threading_CancellationToken_
+  name: AddTextBlock(AddTextBlockRequest, CancellationToken)
+  nameWithType: NotesController.AddTextBlock(AddTextBlockRequest, CancellationToken)
+  fullName: lumify.api.Controllers.NotesController.AddTextBlock(lumify.api.Models.DTO.Requests.AddTextBlockRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.NotesController.AddTextBlock(lumify.api.Models.DTO.Requests.AddTextBlockRequest,System.Threading.CancellationToken)
+    name: AddTextBlock
+    href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_AddTextBlock_lumify_api_Models_DTO_Requests_AddTextBlockRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.AddTextBlockRequest
+    name: AddTextBlockRequest
+    href: lumify.api.Models.DTO.Requests.AddTextBlockRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.NotesController.AddTextBlock(lumify.api.Models.DTO.Requests.AddTextBlockRequest,System.Threading.CancellationToken)
+    name: AddTextBlock
+    href: lumify.api.Controllers.NotesController.html#lumify_api_Controllers_NotesController_AddTextBlock_lumify_api_Models_DTO_Requests_AddTextBlockRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.AddTextBlockRequest
+    name: AddTextBlockRequest
+    href: lumify.api.Models.DTO.Requests.AddTextBlockRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

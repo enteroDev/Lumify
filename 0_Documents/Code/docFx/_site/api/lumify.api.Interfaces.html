@@ -96,11 +96,16 @@ Interfaces
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Interfaces.IEmailService.html">IEmailService</a></dt>
-      <dd></dd>
+      <dd><p>Abstraction for sending transactional e-mails (password reset and address verification).
+Implemented by <a class="xref" href="lumify.api.Services.SmtpEmailService.html">SmtpEmailService</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Interfaces.IPresenceService.html">IPresenceService</a></dt>
-      <dd></dd>
+      <dd><p>Tracks which users are currently online by counting their active SignalR connections.
+Implemented by <a class="xref" href="lumify.api.Services.PresenceService.html">PresenceService</a> and driven by
+<a class="xref" href="lumify.api.Hubs.ChatHub.html">ChatHub</a> on connect/disconnect.</p>
+</dd>
     </dl>
 
 

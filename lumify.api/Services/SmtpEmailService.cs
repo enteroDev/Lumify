@@ -12,17 +12,26 @@ using MimeKit;
 
 namespace lumify.api.Services
 {
+    /// <summary>
+    /// <see cref="IEmailService"/> implementation that sends mail over SMTP via MailKit. SMTP
+    /// credentials come from the <c>Email</c> configuration section (per environment). This is
+    /// the only component that talks to the mail server.
+    /// </summary>
     public class SmtpEmailService : IEmailService
     {
         private readonly EmailSettings _settings;
         private readonly ILogger<SmtpEmailService> _logger;
 
+        /// <summary>
+        /// Creates the service with the bound e-mail settings and a logger.
+        /// </summary>
         public SmtpEmailService(IOptions<EmailSettings> settings, ILogger<SmtpEmailService> logger)
         {
             _settings = settings.Value;
             _logger = logger;
         }
 
+        /// <inheritdoc/>
         public async Task SendPasswordResetEmailAsync(string toEmail, string? displayName, string resetLink, CancellationToken ct)
         {
             var message = new MimeMessage();
@@ -67,6 +76,7 @@ namespace lumify.api.Services
         }
 
 
+        /// <inheritdoc/>
         public async Task SendVerificationEmailAsync(string toEmail, string? displayName, string verifyLink, CancellationToken ct)
         {
             var message = new MimeMessage();

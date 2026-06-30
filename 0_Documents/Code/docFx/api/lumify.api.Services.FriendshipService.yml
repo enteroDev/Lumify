@@ -24,10 +24,25 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: FriendshipService
     path: ../../../lumify.api/Services/FriendshipService.cs
-    startLine: 12
+    startLine: 23
   assemblies:
   - lumify.api
   namespace: lumify.api.Services
+  summary: >-
+    Encapsulates the friendship domain logic used by the
+
+    <xref href="lumify.api.Controllers.FriendshipController" data-throw-if-not-resolved="false"></xref>: sending, accepting, rejecting and
+
+    removing friendships, including the validation and state transitions involved.
+  remarks: >-
+    Each friendship is stored once per user pair using ordered <code>UserLowID</code>/<code>UserHighID</code>
+
+    keys (a plain unique index, since MariaDB has no filtered indexes), so a soft-deleted row
+
+    is resurrected rather than duplicated. Invalid operations throw, and the controller maps
+
+    those to error responses.
+  example: []
   syntax:
     content: public class FriendshipService
     content.vb: Public Class FriendshipService
@@ -51,10 +66,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: .ctor
     path: ../../../lumify.api/Services/FriendshipService.cs
-    startLine: 16
+    startLine: 30
   assemblies:
   - lumify.api
   namespace: lumify.api.Services
+  summary: Creates the service with its injected database context.
+  example: []
   syntax:
     content: public FriendshipService(LumifyDbContext db)
     parameters:
@@ -83,21 +100,34 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: SendFriendRequest
     path: ../../../lumify.api/Services/FriendshipService.cs
-    startLine: 25
+    startLine: 47
   assemblies:
   - lumify.api
   namespace: lumify.api.Services
+  summary: >-
+    Creates a pending friend request from one user to another, or resurrects a previously
+
+    removed relationship as a fresh request.
+  example: []
   syntax:
     content: public Task SendFriendRequest(string requesterID, string addresseeID)
     parameters:
     - id: requesterID
       type: System.String
+      description: The user sending the request.
     - id: addresseeID
       type: System.String
+      description: The user receiving the request.
     return:
       type: System.Threading.Tasks.Task
     content.vb: Public Function SendFriendRequest(requesterID As String, addresseeID As String) As Task
   overload: lumify.api.Services.FriendshipService.SendFriendRequest*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: >-
+      Thrown if an ID is missing, the user adds themselves, or an
+          active friendship already exists.
   nameWithType.vb: FriendshipService.SendFriendRequest(String, String)
   fullName.vb: lumify.api.Services.FriendshipService.SendFriendRequest(String, String)
   name.vb: SendFriendRequest(String, String)
@@ -119,21 +149,35 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AcceptFriendRequest
     path: ../../../lumify.api/Services/FriendshipService.cs
-    startLine: 101
+    startLine: 131
   assemblies:
   - lumify.api
   namespace: lumify.api.Services
+  summary: >-
+    Accepts a pending friend request. Only the addressee may accept, and only pending
+
+    requests can be accepted.
+  example: []
   syntax:
     content: public Task<string> AcceptFriendRequest(string friendshipID, string currentUserID)
     parameters:
     - id: friendshipID
       type: System.String
+      description: The pending friendship to accept.
     - id: currentUserID
       type: System.String
+      description: The user performing the action (must be the addressee).
     return:
       type: System.Threading.Tasks.Task{System.String}
+      description: The requester's ID, so the caller can notify the counterpart of the change.
     content.vb: Public Function AcceptFriendRequest(friendshipID As String, currentUserID As String) As Task(Of String)
   overload: lumify.api.Services.FriendshipService.AcceptFriendRequest*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: >-
+      Thrown if an ID is missing, the friendship is not found,
+          the caller is not the addressee, or the request is not pending.
   nameWithType.vb: FriendshipService.AcceptFriendRequest(String, String)
   fullName.vb: lumify.api.Services.FriendshipService.AcceptFriendRequest(String, String)
   name.vb: AcceptFriendRequest(String, String)
@@ -155,21 +199,35 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: RejectFriendRequest
     path: ../../../lumify.api/Services/FriendshipService.cs
-    startLine: 145
+    startLine: 183
   assemblies:
   - lumify.api
   namespace: lumify.api.Services
+  summary: >-
+    Rejects a pending friend request. Only the addressee may reject, and only pending
+
+    requests can be rejected.
+  example: []
   syntax:
     content: public Task<string> RejectFriendRequest(string friendshipID, string currentUserID)
     parameters:
     - id: friendshipID
       type: System.String
+      description: The pending friendship to reject.
     - id: currentUserID
       type: System.String
+      description: The user performing the action (must be the addressee).
     return:
       type: System.Threading.Tasks.Task{System.String}
+      description: The requester's ID, so the caller can notify the counterpart of the change.
     content.vb: Public Function RejectFriendRequest(friendshipID As String, currentUserID As String) As Task(Of String)
   overload: lumify.api.Services.FriendshipService.RejectFriendRequest*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: >-
+      Thrown if an ID is missing, the friendship is not found,
+          the caller is not the addressee, or the request is not pending.
   nameWithType.vb: FriendshipService.RejectFriendRequest(String, String)
   fullName.vb: lumify.api.Services.FriendshipService.RejectFriendRequest(String, String)
   name.vb: RejectFriendRequest(String, String)
@@ -191,25 +249,44 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: RemoveFriend
     path: ../../../lumify.api/Services/FriendshipService.cs
-    startLine: 191
+    startLine: 237
   assemblies:
   - lumify.api
   namespace: lumify.api.Services
+  summary: >-
+    Removes an accepted friendship by soft-deleting it. Only accepted friendships can be
+
+    removed.
+  example: []
   syntax:
     content: public Task RemoveFriend(string currentUserID, string friendID)
     parameters:
     - id: currentUserID
       type: System.String
+      description: The user performing the removal.
     - id: friendID
       type: System.String
+      description: The friend to remove.
     return:
       type: System.Threading.Tasks.Task
     content.vb: Public Function RemoveFriend(currentUserID As String, friendID As String) As Task
   overload: lumify.api.Services.FriendshipService.RemoveFriend*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: >-
+      Thrown if an ID is missing, the user removes themselves,
+          the friendship is not found, or it is not in the accepted state.
   nameWithType.vb: FriendshipService.RemoveFriend(String, String)
   fullName.vb: lumify.api.Services.FriendshipService.RemoveFriend(String, String)
   name.vb: RemoveFriend(String, String)
 references:
+- uid: lumify.api.Controllers.FriendshipController
+  commentId: T:lumify.api.Controllers.FriendshipController
+  href: lumify.api.Controllers.FriendshipController.html
+  name: FriendshipController
+  nameWithType: FriendshipController
+  fullName: lumify.api.Controllers.FriendshipController
 - uid: lumify.api.Services
   commentId: N:lumify.api.Services
   href: lumify.html
@@ -310,6 +387,13 @@ references:
   - uid: lumify.api.Models.Context
     name: Context
     href: lumify.api.Models.Context.html
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
 - uid: lumify.api.Services.FriendshipService.SendFriendRequest*
   commentId: Overload:lumify.api.Services.FriendshipService.SendFriendRequest
   href: lumify.api.Services.FriendshipService.html#lumify_api_Services_FriendshipService_SendFriendRequest_System_String_System_String_

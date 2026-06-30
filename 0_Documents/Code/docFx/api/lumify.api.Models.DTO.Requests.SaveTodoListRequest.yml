@@ -23,10 +23,17 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: SaveTodoListRequest
     path: ../../../lumify.api/Models/DTO/Requests/SaveTodoListRequest.cs
-    startLine: 2
+    startLine: 7
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: >-
+    Request body for updating a todo list
+
+    (see <xref href="lumify.api.Controllers.TodoListsController.SaveTodoList(lumify.api.Models.DTO.Requests.SaveTodoListRequest%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>). Only non-<code>null</code> fields
+
+    are applied (partial update).
+  example: []
   syntax:
     content: public sealed class SaveTodoListRequest
     content.vb: Public NotInheritable Class SaveTodoListRequest
@@ -50,10 +57,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/DTO/Requests/SaveTodoListRequest.cs
-    startLine: 4
+    startLine: 10
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The list to update (required).
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -79,10 +88,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/DTO/Requests/SaveTodoListRequest.cs
-    startLine: 5
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New name, if changing.
+  example: []
   syntax:
     content: public string? Name { get; set; }
     parameters: []
@@ -108,10 +119,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Status
     path: ../../../lumify.api/Models/DTO/Requests/SaveTodoListRequest.cs
-    startLine: 6
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New status (1 = pending, 2 = done), if changing.
+  example: []
   syntax:
     content: public int? Status { get; set; }
     parameters: []
@@ -137,10 +150,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: IsArchived
     path: ../../../lumify.api/Models/DTO/Requests/SaveTodoListRequest.cs
-    startLine: 7
+    startLine: 16
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New archived state, if changing.
+  example: []
   syntax:
     content: public bool? IsArchived { get; set; }
     parameters: []
@@ -149,6 +164,41 @@ items:
     content.vb: Public Property IsArchived As Boolean?
   overload: lumify.api.Models.DTO.Requests.SaveTodoListRequest.IsArchived*
 references:
+- uid: lumify.api.Controllers.TodoListsController.SaveTodoList(lumify.api.Models.DTO.Requests.SaveTodoListRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.TodoListsController.SaveTodoList(lumify.api.Models.DTO.Requests.SaveTodoListRequest,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_SaveTodoList_lumify_api_Models_DTO_Requests_SaveTodoListRequest_System_Threading_CancellationToken_
+  name: SaveTodoList(SaveTodoListRequest, CancellationToken)
+  nameWithType: TodoListsController.SaveTodoList(SaveTodoListRequest, CancellationToken)
+  fullName: lumify.api.Controllers.TodoListsController.SaveTodoList(lumify.api.Models.DTO.Requests.SaveTodoListRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.TodoListsController.SaveTodoList(lumify.api.Models.DTO.Requests.SaveTodoListRequest,System.Threading.CancellationToken)
+    name: SaveTodoList
+    href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_SaveTodoList_lumify_api_Models_DTO_Requests_SaveTodoListRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.SaveTodoListRequest
+    name: SaveTodoListRequest
+    href: lumify.api.Models.DTO.Requests.SaveTodoListRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.TodoListsController.SaveTodoList(lumify.api.Models.DTO.Requests.SaveTodoListRequest,System.Threading.CancellationToken)
+    name: SaveTodoList
+    href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_SaveTodoList_lumify_api_Models_DTO_Requests_SaveTodoListRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.SaveTodoListRequest
+    name: SaveTodoListRequest
+    href: lumify.api.Models.DTO.Requests.SaveTodoListRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

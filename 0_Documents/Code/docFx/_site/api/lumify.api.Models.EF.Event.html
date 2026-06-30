@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Event | Lumify – Code Documentation ">
       
-      
+      <meta name="description" content="A calendar event, either personal ( null) or workspace-shared. Soft-deleted via .">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="lumify_api_Models_EF_Event" data-uid="lumify.api.Models.EF.Event" class="text-break">
-Class Event  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class Event  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,9 @@ Class Event  <a class="header-action link-secondary" title="View source" href="h
   <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>A calendar event, either personal (<a class="xref" href="lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_WorkspaceID">WorkspaceID</a> <code>null</code>) or workspace-shared.
+Soft-deleted via <a class="xref" href="lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_DeletedAt">DeletedAt</a>.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -131,10 +133,11 @@ Class Event  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="lumify_api_Models_EF_Event_CreatedAt" data-uid="lumify.api.Models.EF.Event.CreatedAt">
   CreatedAt
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creation timestamp (ISO-8601 string).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -162,10 +165,11 @@ Class Event  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="lumify_api_Models_EF_Event_DeletedAt" data-uid="lumify.api.Models.EF.Event.DeletedAt">
   DeletedAt
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Soft-delete timestamp (ISO-8601 string); <code>null</code> while active.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -193,10 +197,11 @@ Class Event  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="lumify_api_Models_EF_Event_Description" data-uid="lumify.api.Models.EF.Event.Description">
   Description
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Optional event description.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -224,10 +229,11 @@ Class Event  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="lumify_api_Models_EF_Event_DueDate" data-uid="lumify.api.Models.EF.Event.DueDate">
   DueDate
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Optional due date (ISO-8601 string).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -255,10 +261,11 @@ Class Event  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="lumify_api_Models_EF_Event_EndDate" data-uid="lumify.api.Models.EF.Event.EndDate">
   EndDate
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>End date/time (ISO-8601 string), if set.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -286,10 +293,11 @@ Class Event  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="lumify_api_Models_EF_Event_ID" data-uid="lumify.api.Models.EF.Event.ID">
   ID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Primary key (GUID string).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -317,10 +325,11 @@ Class Event  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="lumify_api_Models_EF_Event_IsAllDay" data-uid="lumify.api.Models.EF.Event.IsAllDay">
   IsAllDay
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>All-day flag stored as an integer (0 = no, 1 = yes).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -348,10 +357,11 @@ Class Event  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="lumify_api_Models_EF_Event_Name" data-uid="lumify.api.Models.EF.Event.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Event title.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -379,10 +389,11 @@ Class Event  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="lumify_api_Models_EF_Event_Owner" data-uid="lumify.api.Models.EF.Event.Owner">
   Owner
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The owning user.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -410,10 +421,11 @@ Class Event  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="lumify_api_Models_EF_Event_OwnerID" data-uid="lumify.api.Models.EF.Event.OwnerID">
   OwnerID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The user who created the event.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -441,10 +453,11 @@ Class Event  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="lumify_api_Models_EF_Event_StartDate" data-uid="lumify.api.Models.EF.Event.StartDate">
   StartDate
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Start date/time (ISO-8601 string).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -472,10 +485,11 @@ Class Event  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="lumify_api_Models_EF_Event_Status" data-uid="lumify.api.Models.EF.Event.Status">
   Status
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Event status code.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -503,10 +517,11 @@ Class Event  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="lumify_api_Models_EF_Event_UpdatedAt" data-uid="lumify.api.Models.EF.Event.UpdatedAt">
   UpdatedAt
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Last-update timestamp (ISO-8601 string).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -534,10 +549,11 @@ Class Event  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="lumify_api_Models_EF_Event_Workspace" data-uid="lumify.api.Models.EF.Event.Workspace">
   Workspace
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The owning workspace, if any.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -565,10 +581,11 @@ Class Event  <a class="header-action link-secondary" title="View source" href="h
 
   <h3 id="lumify_api_Models_EF_Event_WorkspaceID" data-uid="lumify.api.Models.EF.Event.WorkspaceID">
   WorkspaceID
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Models/EF/Event.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The owning workspace, or <code>null</code> for a personal event.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

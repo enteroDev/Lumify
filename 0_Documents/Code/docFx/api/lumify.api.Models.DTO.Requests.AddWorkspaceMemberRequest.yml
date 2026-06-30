@@ -21,10 +21,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AddWorkspaceMemberRequest
     path: ../../../lumify.api/Models/DTO/Requests/AddWorkspaceMemberRequest.cs
-    startLine: 2
+    startLine: 6
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: >-
+    Request body for adding a member to a workspace
+
+    (see <xref href="lumify.api.Controllers.WorkspaceController.AddWorkspaceMember(lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public sealed class AddWorkspaceMemberRequest
     content.vb: Public NotInheritable Class AddWorkspaceMemberRequest
@@ -48,10 +53,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: WorkspaceID
     path: ../../../lumify.api/Models/DTO/Requests/AddWorkspaceMemberRequest.cs
-    startLine: 4
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The target workspace (required).
+  example: []
   syntax:
     content: public string WorkspaceID { get; set; }
     parameters: []
@@ -77,10 +84,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UserID
     path: ../../../lumify.api/Models/DTO/Requests/AddWorkspaceMemberRequest.cs
-    startLine: 5
+    startLine: 11
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The user to add (required).
+  example: []
   syntax:
     content: public string UserID { get; set; }
     parameters: []
@@ -89,6 +98,41 @@ items:
     content.vb: Public Property UserID As String
   overload: lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest.UserID*
 references:
+- uid: lumify.api.Controllers.WorkspaceController.AddWorkspaceMember(lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.WorkspaceController.AddWorkspaceMember(lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.WorkspaceController.html#lumify_api_Controllers_WorkspaceController_AddWorkspaceMember_lumify_api_Models_DTO_Requests_AddWorkspaceMemberRequest_System_Threading_CancellationToken_
+  name: AddWorkspaceMember(AddWorkspaceMemberRequest, CancellationToken)
+  nameWithType: WorkspaceController.AddWorkspaceMember(AddWorkspaceMemberRequest, CancellationToken)
+  fullName: lumify.api.Controllers.WorkspaceController.AddWorkspaceMember(lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.WorkspaceController.AddWorkspaceMember(lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest,System.Threading.CancellationToken)
+    name: AddWorkspaceMember
+    href: lumify.api.Controllers.WorkspaceController.html#lumify_api_Controllers_WorkspaceController_AddWorkspaceMember_lumify_api_Models_DTO_Requests_AddWorkspaceMemberRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest
+    name: AddWorkspaceMemberRequest
+    href: lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.WorkspaceController.AddWorkspaceMember(lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest,System.Threading.CancellationToken)
+    name: AddWorkspaceMember
+    href: lumify.api.Controllers.WorkspaceController.html#lumify_api_Controllers_WorkspaceController_AddWorkspaceMember_lumify_api_Models_DTO_Requests_AddWorkspaceMemberRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest
+    name: AddWorkspaceMemberRequest
+    href: lumify.api.Models.DTO.Requests.AddWorkspaceMemberRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

@@ -96,70 +96,104 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.EF.ChatMessage.html">ChatMessage</a></dt>
-      <dd></dd>
+      <dd><p>A single chat message in a room. Persisted by <a class="xref" href="lumify.api.Hubs.ChatHub.html">ChatHub</a> and read back via
+<a class="xref" href="lumify.api.Controllers.ChatController.html">ChatController</a>. Soft-deleted via <a class="xref" href="lumify.api.Models.EF.ChatMessage.html#lumify_api_Models_EF_ChatMessage_DeletedAt">DeletedAt</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.EF.EmailVerificationToken.html">EmailVerificationToken</a></dt>
-      <dd></dd>
+      <dd><p>A single-use token backing an e-mail verification link. Only the hash of the token is stored
+(same approach as <a class="xref" href="lumify.api.Models.EF.PasswordResetToken.html">PasswordResetToken</a>), so a leaked row cannot be turned back
+into a working link.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.EF.Event.html">Event</a></dt>
-      <dd></dd>
+      <dd><p>A calendar event, either personal (<a class="xref" href="lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_WorkspaceID">WorkspaceID</a> <code>null</code>) or workspace-shared.
+Soft-deleted via <a class="xref" href="lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_DeletedAt">DeletedAt</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.EF.Folder.html">Folder</a></dt>
-      <dd></dd>
+      <dd><p>A folder that organizes notes, either personal or workspace-shared. Folders can be nested via
+<a class="xref" href="lumify.api.Models.EF.Folder.html#lumify_api_Models_EF_Folder_ParentFolderID">ParentFolderID</a>. Soft-deleted via <a class="xref" href="lumify.api.Models.EF.Folder.html#lumify_api_Models_EF_Folder_DeletedAt">DeletedAt</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.EF.Friendship.html">Friendship</a></dt>
-      <dd></dd>
+      <dd><p>A relationship between two users (friend request or accepted friendship). Stored once per
+user pair using ordered <a class="xref" href="lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_UserLowID">UserLowID</a>/<a class="xref" href="lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_UserHighID">UserHighID</a> keys; the
+requester/addressee fields record who initiated it. See <a class="xref" href="lumify.api.Services.FriendshipService.html">FriendshipService</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.EF.Note.html">Note</a></dt>
-      <dd></dd>
+      <dd><p>A note container, either personal or workspace-shared, optionally filed in a folder. Its body
+is an ordered list of modules (text blocks and link items). Soft-deleted via <a class="xref" href="lumify.api.Models.EF.Note.html#lumify_api_Models_EF_Note_DeletedAt">DeletedAt</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.EF.NoteAttachment.html">NoteAttachment</a></dt>
-      <dd></dd>
+      <dd><p>A file attached to a note. Stores the upload metadata and the name under which the file is
+stored on disk. Soft-deleted via <a class="xref" href="lumify.api.Models.EF.NoteAttachment.html#lumify_api_Models_EF_NoteAttachment_DeletedAt">DeletedAt</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.EF.Note_LinkItem.html">Note_LinkItem</a></dt>
-      <dd></dd>
+      <dd><p>A link item module within a note — a labelled URL. Ordered within the note via
+<a class="xref" href="lumify.api.Models.EF.Note_LinkItem.html#lumify_api_Models_EF_Note_LinkItem_NotePos">NotePos</a>. Soft-deleted via <a class="xref" href="lumify.api.Models.EF.Note_LinkItem.html#lumify_api_Models_EF_Note_LinkItem_DeletedAt">DeletedAt</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.EF.Note_TextBlock.html">Note_TextBlock</a></dt>
-      <dd></dd>
+      <dd><p>A text block module within a note (e.g. paragraph, heading or code block). Ordered within the
+note via <a class="xref" href="lumify.api.Models.EF.Note_TextBlock.html#lumify_api_Models_EF_Note_TextBlock_NotePos">NotePos</a>. Soft-deleted via <a class="xref" href="lumify.api.Models.EF.Note_TextBlock.html#lumify_api_Models_EF_Note_TextBlock_DeletedAt">DeletedAt</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.EF.PasswordResetToken.html">PasswordResetToken</a></dt>
-      <dd></dd>
+      <dd><p>A single-use token backing a password-reset link. Only the hash of the token is stored, so a
+leaked row cannot be turned back into a working reset link.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.EF.TodoEntry.html">TodoEntry</a></dt>
-      <dd></dd>
+      <dd><p>A single item within a <a class="xref" href="lumify.api.Models.EF.TodoEntry.html#lumify_api_Models_EF_TodoEntry_TodoList">TodoList</a>. Toggling its status keeps the parent list's
+status in sync. Soft-deleted via <a class="xref" href="lumify.api.Models.EF.TodoEntry.html#lumify_api_Models_EF_TodoEntry_DeletedAt">DeletedAt</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.EF.TodoList.html">TodoList</a></dt>
-      <dd></dd>
+      <dd><p>A todo list, either personal or workspace-shared, holding a set of <a class="xref" href="lumify.api.Models.EF.TodoEntry.html">TodoEntry</a>
+items. Its status is derived from its entries (done when all entries are done). Soft-deleted
+via <a class="xref" href="lumify.api.Models.EF.TodoList.html#lumify_api_Models_EF_TodoList_DeletedAt">DeletedAt</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.EF.User.html">User</a></dt>
-      <dd></dd>
+      <dd><p>A registered user account. The central entity most other content references via its owner.
+Soft-deleted via <a class="xref" href="lumify.api.Models.EF.User.html#lumify_api_Models_EF_User_DeletedAt">DeletedAt</a>; timestamps are stored as ISO-8601 strings.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.EF.Workspace.html">Workspace</a></dt>
-      <dd></dd>
+      <dd><p>A shared space that groups content (folders, notes, todo lists, events) and members.
+Content belongs to the workspace, not its creator. Soft-deleted via <a class="xref" href="lumify.api.Models.EF.Workspace.html#lumify_api_Models_EF_Workspace_DeletedAt">DeletedAt</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.EF.WorkspaceMember.html">WorkspaceMember</a></dt>
-      <dd></dd>
+      <dd><p>Join entity linking a <a class="xref" href="lumify.api.Models.EF.WorkspaceMember.html#lumify_api_Models_EF_WorkspaceMember_User">User</a> to a <a class="xref" href="lumify.api.Models.EF.WorkspaceMember.html#lumify_api_Models_EF_WorkspaceMember_Workspace">Workspace</a> with a role.
+A removed membership is soft-deleted via <a class="xref" href="lumify.api.Models.EF.WorkspaceMember.html#lumify_api_Models_EF_WorkspaceMember_DeletedAt">DeletedAt</a>.</p>
+</dd>
     </dl>
     <h3 id="enums">
 Enums
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Models.EF.Role.html">Role</a></dt>
-      <dd></dd>
+      <dd><p>The role of a <a class="xref" href="lumify.api.Models.EF.Role.html#lumify_api_Models_EF_Role_User">User</a>, persisted to the database by name.</p>
+</dd>
     </dl>
 
 

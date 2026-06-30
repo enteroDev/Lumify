@@ -23,10 +23,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: JwtSettings
     path: ../../../lumify.api/Models/Settings/JwtSettings.cs
-    startLine: 2
+    startLine: 6
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Settings
+  summary: >-
+    Options bound from the <code>Jwt</code> configuration section, used to sign and validate JWT
+
+    session and MFA tokens (see <xref href="lumify.api.Logic.InternalLogic" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public class JwtSettings
     content.vb: Public Class JwtSettings
@@ -50,10 +55,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Secret
     path: ../../../lumify.api/Models/Settings/JwtSettings.cs
-    startLine: 4
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Settings
+  summary: Symmetric signing secret for the HMAC-SHA256 signature.
+  example: []
   syntax:
     content: public string Secret { get; set; }
     parameters: []
@@ -79,10 +86,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Issuer
     path: ../../../lumify.api/Models/Settings/JwtSettings.cs
-    startLine: 5
+    startLine: 11
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Settings
+  summary: Token issuer claim.
+  example: []
   syntax:
     content: public string Issuer { get; set; }
     parameters: []
@@ -108,10 +117,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Audience
     path: ../../../lumify.api/Models/Settings/JwtSettings.cs
-    startLine: 6
+    startLine: 13
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Settings
+  summary: Token audience claim.
+  example: []
   syntax:
     content: public string Audience { get; set; }
     parameters: []
@@ -137,10 +148,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ExpirationMinutes
     path: ../../../lumify.api/Models/Settings/JwtSettings.cs
-    startLine: 7
+    startLine: 15
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Settings
+  summary: Default token lifetime in minutes.
+  example: []
   syntax:
     content: public int ExpirationMinutes { get; set; }
     parameters: []
@@ -149,6 +162,13 @@ items:
     content.vb: Public Property ExpirationMinutes As Integer
   overload: lumify.api.Models.Settings.JwtSettings.ExpirationMinutes*
 references:
+- uid: lumify.api.Logic.InternalLogic
+  commentId: T:lumify.api.Logic.InternalLogic
+  parent: lumify.api.Logic
+  href: lumify.api.Logic.InternalLogic.html
+  name: InternalLogic
+  nameWithType: InternalLogic
+  fullName: lumify.api.Logic.InternalLogic
 - uid: lumify.api.Models.Settings
   commentId: N:lumify.api.Models.Settings
   href: lumify.html
@@ -197,6 +217,36 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: lumify.api.Logic
+  commentId: N:lumify.api.Logic
+  href: lumify.html
+  name: lumify.api.Logic
+  nameWithType: lumify.api.Logic
+  fullName: lumify.api.Logic
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Logic
+    name: Logic
+    href: lumify.api.Logic.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Logic
+    name: Logic
+    href: lumify.api.Logic.html
 - uid: System
   commentId: N:System
   isExternal: true

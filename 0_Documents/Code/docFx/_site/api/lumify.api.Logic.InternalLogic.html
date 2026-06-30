@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class InternalLogic | Lumify – Code Documentation ">
       
-      
+      <meta name="description" content="Central helper for authentication and account security: password hashing/verification, JWT issuing, single-use token generation/hashing (password reset and e-mail verification), two-factor authentication (TOTP secret, QR code, code verification, MFA challenge tokens) and avatar file handling. Used primarily by the .">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="lumify_api_Logic_InternalLogic" data-uid="lumify.api.Logic.InternalLogic" class="text-break">
-Class InternalLogic  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Logic/InternalLogic.cs/#L18"><i class="bi bi-code-slash"></i></a>
+Class InternalLogic  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Logic/InternalLogic.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,11 @@ Class InternalLogic  <a class="header-action link-secondary" title="View source"
   <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Central helper for authentication and account security: password hashing/verification,
+JWT issuing, single-use token generation/hashing (password reset and e-mail verification),
+two-factor authentication (TOTP secret, QR code, code verification, MFA challenge tokens)
+and avatar file handling. Used primarily by the <a class="xref" href="lumify.api.Controllers.AccountController.html">AccountController</a>.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -131,10 +135,11 @@ Class InternalLogic  <a class="header-action link-secondary" title="View source"
 
   <h3 id="lumify_api_Logic_InternalLogic__ctor_Microsoft_Extensions_Logging_ILogger_lumify_api_Logic_InternalLogic__lumify_api_Models_Context_LumifyDbContext_Microsoft_Extensions_Options_IOptions_lumify_api_Models_Settings_JwtSettings__" data-uid="lumify.api.Logic.InternalLogic.#ctor(Microsoft.Extensions.Logging.ILogger{lumify.api.Logic.InternalLogic},lumify.api.Models.Context.LumifyDbContext,Microsoft.Extensions.Options.IOptions{lumify.api.Models.Settings.JwtSettings})">
   InternalLogic(ILogger&lt;InternalLogic&gt;, LumifyDbContext, IOptions&lt;JwtSettings&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Logic/InternalLogic.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Logic/InternalLogic.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates the helper with its injected logger, database context and JWT settings.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -170,10 +175,12 @@ Class InternalLogic  <a class="header-action link-secondary" title="View source"
 
   <h3 id="lumify_api_Logic_InternalLogic_GetExtensionFromDataUrl_System_String_" data-uid="lumify.api.Logic.InternalLogic.GetExtensionFromDataUrl(System.String)">
   GetExtensionFromDataUrl(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Logic/InternalLogic.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Logic/InternalLogic.cs/#L135"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Derives a file extension from a data-URL's MIME type (e.g. <code>image/png</code> → <code>.png</code>),
+defaulting to <code>.png</code> for unknown or missing types.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -183,13 +190,15 @@ Class InternalLogic  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>dataUrl</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The data URL (with or without the <code>data:</code> prefix).</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>A file extension including the leading dot.</p>
+</dd>
   </dl>
 
 
@@ -206,10 +215,12 @@ Class InternalLogic  <a class="header-action link-secondary" title="View source"
 
   <h3 id="lumify_api_Logic_InternalLogic_SaveAvatarAsync_System_String_System_String_" data-uid="lumify.api.Logic.InternalLogic.SaveAvatarAsync(System.String,System.String)">
   SaveAvatarAsync(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Logic/InternalLogic.cs/#L287"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Logic/InternalLogic.cs/#L376"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Decodes a base64 data-URL avatar image, writes it to <code>wwwroot/avatars</code> under a
+safe file name, and returns its public URL.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -219,15 +230,18 @@ Class InternalLogic  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>username</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The user the avatar belongs to (used for the file name).</p>
+</dd>
     <dt><code>dataUrl</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The base64 image data URL.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">Task</span>&lt;<span class="xref">string</span>&gt;</dt>
-    <dd></dd>
+    <dd><p>The public avatar URL, or a default avatar URL if saving fails.</p>
+</dd>
   </dl>
 
 

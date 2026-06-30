@@ -23,10 +23,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: PresenceStatus
     path: ../../../lumify.api/Models/DTO/Enum/PresenceStatus.cs
-    startLine: 2
+    startLine: 6
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Enum
+  summary: >-
+    A user's real-time presence state, derived from their active connections by the
+
+    <xref href="lumify.api.Services.PresenceService" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public enum PresenceStatus
     content.vb: Public Enum PresenceStatus
@@ -48,10 +53,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Offline
     path: ../../../lumify.api/Models/DTO/Enum/PresenceStatus.cs
-    startLine: 4
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Enum
+  summary: No active connection.
+  example: []
   syntax:
     content: Offline = 0
     return:
@@ -74,10 +81,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Online
     path: ../../../lumify.api/Models/DTO/Enum/PresenceStatus.cs
-    startLine: 5
+    startLine: 11
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Enum
+  summary: At least one active connection.
+  example: []
   syntax:
     content: Online = 1
     return:
@@ -100,10 +109,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Away
     path: ../../../lumify.api/Models/DTO/Enum/PresenceStatus.cs
-    startLine: 6
+    startLine: 13
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Enum
+  summary: Connected but marked away.
+  example: []
   syntax:
     content: Away = 2
     return:
@@ -126,15 +137,23 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: DoNotDisturb
     path: ../../../lumify.api/Models/DTO/Enum/PresenceStatus.cs
-    startLine: 7
+    startLine: 15
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Enum
+  summary: Connected but not to be disturbed.
+  example: []
   syntax:
     content: DoNotDisturb = 3
     return:
       type: lumify.api.Models.Enum.PresenceStatus
 references:
+- uid: lumify.api.Services.PresenceService
+  commentId: T:lumify.api.Services.PresenceService
+  href: lumify.api.Services.PresenceService.html
+  name: PresenceService
+  nameWithType: PresenceService
+  fullName: lumify.api.Services.PresenceService
 - uid: lumify.api.Models.Enum
   commentId: N:lumify.api.Models.Enum
   href: lumify.html

@@ -26,10 +26,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ChatMessageResponse
     path: ../../../lumify.api/Models/DTO/Responses/ChatMessageResponse.cs
-    startLine: 4
+    startLine: 8
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: >-
+    A chat message returned to clients, with the sender's resolved display name
+
+    (see <xref href="lumify.api.Controllers.ChatController.GetMessagesOfRoom(System.String%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public class ChatMessageResponse
     content.vb: Public Class ChatMessageResponse
@@ -53,10 +58,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/DTO/Responses/ChatMessageResponse.cs
-    startLine: 6
+    startLine: 11
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Message ID.
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -82,10 +89,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: RoomID
     path: ../../../lumify.api/Models/DTO/Responses/ChatMessageResponse.cs
-    startLine: 7
+    startLine: 13
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The room the message belongs to.
+  example: []
   syntax:
     content: public string RoomID { get; set; }
     parameters: []
@@ -111,10 +120,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: SenderID
     path: ../../../lumify.api/Models/DTO/Responses/ChatMessageResponse.cs
-    startLine: 8
+    startLine: 15
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The sender's user ID.
+  example: []
   syntax:
     content: public string SenderID { get; set; }
     parameters: []
@@ -140,10 +151,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: SenderName
     path: ../../../lumify.api/Models/DTO/Responses/ChatMessageResponse.cs
-    startLine: 9
+    startLine: 17
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The sender's resolved display name (display name → username → full name → ID).
+  example: []
   syntax:
     content: public string SenderName { get; set; }
     parameters: []
@@ -169,10 +182,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Content
     path: ../../../lumify.api/Models/DTO/Responses/ChatMessageResponse.cs
-    startLine: 10
+    startLine: 19
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The message text.
+  example: []
   syntax:
     content: public string Content { get; set; }
     parameters: []
@@ -198,10 +213,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CreatedAt
     path: ../../../lumify.api/Models/DTO/Responses/ChatMessageResponse.cs
-    startLine: 11
+    startLine: 21
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Creation timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string CreatedAt { get; set; }
     parameters: []
@@ -227,10 +244,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UpdatedAt
     path: ../../../lumify.api/Models/DTO/Responses/ChatMessageResponse.cs
-    startLine: 12
+    startLine: 23
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Last-update timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string UpdatedAt { get; set; }
     parameters: []
@@ -239,6 +258,44 @@ items:
     content.vb: Public Property UpdatedAt As String
   overload: lumify.api.Models.DTO.Responses.ChatMessageResponse.UpdatedAt*
 references:
+- uid: lumify.api.Controllers.ChatController.GetMessagesOfRoom(System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.ChatController.GetMessagesOfRoom(System.String,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.ChatController.html#lumify_api_Controllers_ChatController_GetMessagesOfRoom_System_String_System_Threading_CancellationToken_
+  name: GetMessagesOfRoom(string, CancellationToken)
+  nameWithType: ChatController.GetMessagesOfRoom(string, CancellationToken)
+  fullName: lumify.api.Controllers.ChatController.GetMessagesOfRoom(string, System.Threading.CancellationToken)
+  nameWithType.vb: ChatController.GetMessagesOfRoom(String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.ChatController.GetMessagesOfRoom(String, System.Threading.CancellationToken)
+  name.vb: GetMessagesOfRoom(String, CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.ChatController.GetMessagesOfRoom(System.String,System.Threading.CancellationToken)
+    name: GetMessagesOfRoom
+    href: lumify.api.Controllers.ChatController.html#lumify_api_Controllers_ChatController_GetMessagesOfRoom_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.ChatController.GetMessagesOfRoom(System.String,System.Threading.CancellationToken)
+    name: GetMessagesOfRoom
+    href: lumify.api.Controllers.ChatController.html#lumify_api_Controllers_ChatController_GetMessagesOfRoom_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Responses
   commentId: N:lumify.api.Models.DTO.Responses
   href: lumify.html

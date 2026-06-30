@@ -34,10 +34,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Event
     path: ../../../lumify.api/Models/EF/Event.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: >-
+    A calendar event, either personal (<xref href="lumify.api.Models.EF.Event.WorkspaceID" data-throw-if-not-resolved="false"></xref> <code>null</code>) or workspace-shared.
+
+    Soft-deleted via <xref href="lumify.api.Models.EF.Event.DeletedAt" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public class Event
     content.vb: Public Class [Event]
@@ -61,10 +66,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/EF/Event.cs
-    startLine: 7
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Primary key (GUID string).
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -90,10 +97,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: OwnerID
     path: ../../../lumify.api/Models/EF/Event.cs
-    startLine: 8
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The user who created the event.
+  example: []
   syntax:
     content: public string OwnerID { get; set; }
     parameters: []
@@ -119,10 +128,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: WorkspaceID
     path: ../../../lumify.api/Models/EF/Event.cs
-    startLine: 9
+    startLine: 16
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The owning workspace, or <code>null</code> for a personal event.
+  example: []
   syntax:
     content: public string? WorkspaceID { get; set; }
     parameters: []
@@ -148,10 +159,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/EF/Event.cs
-    startLine: 11
+    startLine: 19
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Event title.
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -177,10 +190,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Description
     path: ../../../lumify.api/Models/EF/Event.cs
-    startLine: 12
+    startLine: 21
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Optional event description.
+  example: []
   syntax:
     content: public string? Description { get; set; }
     parameters: []
@@ -206,10 +221,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Status
     path: ../../../lumify.api/Models/EF/Event.cs
-    startLine: 14
+    startLine: 24
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Event status code.
+  example: []
   syntax:
     content: public int Status { get; set; }
     parameters: []
@@ -235,10 +252,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: StartDate
     path: ../../../lumify.api/Models/EF/Event.cs
-    startLine: 15
+    startLine: 26
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Start date/time (ISO-8601 string).
+  example: []
   syntax:
     content: public string StartDate { get; set; }
     parameters: []
@@ -264,10 +283,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: EndDate
     path: ../../../lumify.api/Models/EF/Event.cs
-    startLine: 16
+    startLine: 28
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: End date/time (ISO-8601 string), if set.
+  example: []
   syntax:
     content: public string? EndDate { get; set; }
     parameters: []
@@ -293,10 +314,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: IsAllDay
     path: ../../../lumify.api/Models/EF/Event.cs
-    startLine: 18
+    startLine: 31
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: All-day flag stored as an integer (0 = no, 1 = yes).
+  example: []
   syntax:
     content: public int IsAllDay { get; set; }
     parameters: []
@@ -322,10 +345,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: DueDate
     path: ../../../lumify.api/Models/EF/Event.cs
-    startLine: 19
+    startLine: 33
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Optional due date (ISO-8601 string).
+  example: []
   syntax:
     content: public string? DueDate { get; set; }
     parameters: []
@@ -351,10 +376,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CreatedAt
     path: ../../../lumify.api/Models/EF/Event.cs
-    startLine: 21
+    startLine: 36
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Creation timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string CreatedAt { get; set; }
     parameters: []
@@ -380,10 +407,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UpdatedAt
     path: ../../../lumify.api/Models/EF/Event.cs
-    startLine: 22
+    startLine: 38
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Last-update timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string UpdatedAt { get; set; }
     parameters: []
@@ -409,10 +438,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: DeletedAt
     path: ../../../lumify.api/Models/EF/Event.cs
-    startLine: 23
+    startLine: 40
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Soft-delete timestamp (ISO-8601 string); <code>null</code> while active.
+  example: []
   syntax:
     content: public string? DeletedAt { get; set; }
     parameters: []
@@ -438,10 +469,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Owner
     path: ../../../lumify.api/Models/EF/Event.cs
-    startLine: 27
+    startLine: 45
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The owning user.
+  example: []
   syntax:
     content: public virtual User Owner { get; set; }
     parameters: []
@@ -467,10 +500,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Workspace
     path: ../../../lumify.api/Models/EF/Event.cs
-    startLine: 28
+    startLine: 47
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The owning workspace, if any.
+  example: []
   syntax:
     content: public virtual Workspace? Workspace { get; set; }
     parameters: []
@@ -479,6 +514,18 @@ items:
     content.vb: Public Overridable Property Workspace As Workspace
   overload: lumify.api.Models.EF.Event.Workspace*
 references:
+- uid: lumify.api.Models.EF.Event.WorkspaceID
+  commentId: P:lumify.api.Models.EF.Event.WorkspaceID
+  href: lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_WorkspaceID
+  name: WorkspaceID
+  nameWithType: Event.WorkspaceID
+  fullName: lumify.api.Models.EF.Event.WorkspaceID
+- uid: lumify.api.Models.EF.Event.DeletedAt
+  commentId: P:lumify.api.Models.EF.Event.DeletedAt
+  href: lumify.api.Models.EF.Event.html#lumify_api_Models_EF_Event_DeletedAt
+  name: DeletedAt
+  nameWithType: Event.DeletedAt
+  fullName: lumify.api.Models.EF.Event.DeletedAt
 - uid: lumify.api.Models.EF
   commentId: N:lumify.api.Models.EF
   href: lumify.html

@@ -25,10 +25,17 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: RelatedUserResponse
     path: ../../../lumify.api/Models/DTO/Responses/RelatedUserResponse.cs
-    startLine: 5
+    startLine: 10
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: >-
+    A user that can be added to a workspace, returned by workspace member search
+
+    (see <xref href="lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace(System.String%2cSystem.String%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>), enriched
+
+    with live presence status.
+  example: []
   syntax:
     content: public class RelatedUserResponse
     content.vb: Public Class RelatedUserResponse
@@ -52,10 +59,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UserID
     path: ../../../lumify.api/Models/DTO/Responses/RelatedUserResponse.cs
-    startLine: 7
+    startLine: 13
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The user's ID.
+  example: []
   syntax:
     content: public string UserID { get; set; }
     parameters: []
@@ -81,10 +90,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AvatarUrl
     path: ../../../lumify.api/Models/DTO/Responses/RelatedUserResponse.cs
-    startLine: 8
+    startLine: 15
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The user's avatar URL.
+  example: []
   syntax:
     content: public string? AvatarUrl { get; set; }
     parameters: []
@@ -110,10 +121,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: DisplayName
     path: ../../../lumify.api/Models/DTO/Responses/RelatedUserResponse.cs
-    startLine: 9
+    startLine: 17
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The user's display name.
+  example: []
   syntax:
     content: public string DisplayName { get; set; }
     parameters: []
@@ -139,10 +152,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Username
     path: ../../../lumify.api/Models/DTO/Responses/RelatedUserResponse.cs
-    startLine: 10
+    startLine: 19
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The user's username.
+  example: []
   syntax:
     content: public string Username { get; set; }
     parameters: []
@@ -168,10 +183,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Email
     path: ../../../lumify.api/Models/DTO/Responses/RelatedUserResponse.cs
-    startLine: 11
+    startLine: 21
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The user's e-mail address.
+  example: []
   syntax:
     content: public string Email { get; set; }
     parameters: []
@@ -197,10 +214,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: PresenceStatus
     path: ../../../lumify.api/Models/DTO/Responses/RelatedUserResponse.cs
-    startLine: 13
+    startLine: 24
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The user's current presence status.
+  example: []
   syntax:
     content: public PresenceStatus PresenceStatus { get; set; }
     parameters: []
@@ -209,6 +228,54 @@ items:
     content.vb: Public Property PresenceStatus As PresenceStatus
   overload: lumify.api.Models.DTO.Responses.RelatedUserResponse.PresenceStatus*
 references:
+- uid: lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace(System.String,System.String,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_SearchAvailableUsersForWorkspace_System_String_System_String_System_Threading_CancellationToken_
+  name: SearchAvailableUsersForWorkspace(string, string, CancellationToken)
+  nameWithType: UsersController.SearchAvailableUsersForWorkspace(string, string, CancellationToken)
+  fullName: lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace(string, string, System.Threading.CancellationToken)
+  nameWithType.vb: UsersController.SearchAvailableUsersForWorkspace(String, String, CancellationToken)
+  fullName.vb: lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace(String, String, System.Threading.CancellationToken)
+  name.vb: SearchAvailableUsersForWorkspace(String, String, CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace(System.String,System.String,System.Threading.CancellationToken)
+    name: SearchAvailableUsersForWorkspace
+    href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_SearchAvailableUsersForWorkspace_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.UsersController.SearchAvailableUsersForWorkspace(System.String,System.String,System.Threading.CancellationToken)
+    name: SearchAvailableUsersForWorkspace
+    href: lumify.api.Controllers.UsersController.html#lumify_api_Controllers_UsersController_SearchAvailableUsersForWorkspace_System_String_System_String_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Responses
   commentId: N:lumify.api.Models.DTO.Responses
   href: lumify.html

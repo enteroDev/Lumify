@@ -21,10 +21,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AddTodoListRequest
     path: ../../../lumify.api/Models/DTO/Requests/AddTodoListRequest.cs
-    startLine: 2
+    startLine: 6
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: >-
+    Request body for creating a todo list
+
+    (see <xref href="lumify.api.Controllers.TodoListsController.AddTodoList(lumify.api.Models.DTO.Requests.AddTodoListRequest%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public class AddTodoListRequest
     content.vb: Public Class AddTodoListRequest
@@ -48,10 +53,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/DTO/Requests/AddTodoListRequest.cs
-    startLine: 4
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: List name (required).
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -77,10 +84,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: WorkspaceID
     path: ../../../lumify.api/Models/DTO/Requests/AddTodoListRequest.cs
-    startLine: 5
+    startLine: 11
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Target workspace, or <code>null</code> for a personal list.
+  example: []
   syntax:
     content: public string? WorkspaceID { get; set; }
     parameters: []
@@ -89,6 +98,41 @@ items:
     content.vb: Public Property WorkspaceID As String
   overload: lumify.api.Models.DTO.Requests.AddTodoListRequest.WorkspaceID*
 references:
+- uid: lumify.api.Controllers.TodoListsController.AddTodoList(lumify.api.Models.DTO.Requests.AddTodoListRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.TodoListsController.AddTodoList(lumify.api.Models.DTO.Requests.AddTodoListRequest,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_AddTodoList_lumify_api_Models_DTO_Requests_AddTodoListRequest_System_Threading_CancellationToken_
+  name: AddTodoList(AddTodoListRequest, CancellationToken)
+  nameWithType: TodoListsController.AddTodoList(AddTodoListRequest, CancellationToken)
+  fullName: lumify.api.Controllers.TodoListsController.AddTodoList(lumify.api.Models.DTO.Requests.AddTodoListRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.TodoListsController.AddTodoList(lumify.api.Models.DTO.Requests.AddTodoListRequest,System.Threading.CancellationToken)
+    name: AddTodoList
+    href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_AddTodoList_lumify_api_Models_DTO_Requests_AddTodoListRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.AddTodoListRequest
+    name: AddTodoListRequest
+    href: lumify.api.Models.DTO.Requests.AddTodoListRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.TodoListsController.AddTodoList(lumify.api.Models.DTO.Requests.AddTodoListRequest,System.Threading.CancellationToken)
+    name: AddTodoList
+    href: lumify.api.Controllers.TodoListsController.html#lumify_api_Controllers_TodoListsController_AddTodoList_lumify_api_Models_DTO_Requests_AddTodoListRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.AddTodoListRequest
+    name: AddTodoListRequest
+    href: lumify.api.Models.DTO.Requests.AddTodoListRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

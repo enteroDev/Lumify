@@ -22,10 +22,17 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: SmtpEmailService
     path: ../../../lumify.api/Services/SmtpEmailService.cs
-    startLine: 14
+    startLine: 19
   assemblies:
   - lumify.api
   namespace: lumify.api.Services
+  summary: >-
+    <xref href="lumify.api.Interfaces.IEmailService" data-throw-if-not-resolved="false"></xref> implementation that sends mail over SMTP via MailKit. SMTP
+
+    credentials come from the <code>Email</code> configuration section (per environment). This is
+
+    the only component that talks to the mail server.
+  example: []
   syntax:
     content: 'public class SmtpEmailService : IEmailService'
     content.vb: Public Class SmtpEmailService Implements IEmailService
@@ -51,10 +58,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: .ctor
     path: ../../../lumify.api/Services/SmtpEmailService.cs
-    startLine: 19
+    startLine: 27
   assemblies:
   - lumify.api
   namespace: lumify.api.Services
+  summary: Creates the service with the bound e-mail settings and a logger.
+  example: []
   syntax:
     content: public SmtpEmailService(IOptions<EmailSettings> settings, ILogger<SmtpEmailService> logger)
     parameters:
@@ -85,22 +94,27 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: SendPasswordResetEmailAsync
     path: ../../../lumify.api/Services/SmtpEmailService.cs
-    startLine: 25
+    startLine: 34
   assemblies:
   - lumify.api
   namespace: lumify.api.Services
+  summary: Sends the password-reset mail containing the one-time reset link to the user.
   example: []
   syntax:
     content: public Task SendPasswordResetEmailAsync(string toEmail, string? displayName, string resetLink, CancellationToken ct)
     parameters:
     - id: toEmail
       type: System.String
+      description: The recipient's e-mail address.
     - id: displayName
       type: System.String
+      description: The recipient's display name for the greeting, if known.
     - id: resetLink
       type: System.String
+      description: The one-time reset link to embed.
     - id: ct
       type: System.Threading.CancellationToken
+      description: Cancellation token for the send operation.
     return:
       type: System.Threading.Tasks.Task
     content.vb: Public Function SendPasswordResetEmailAsync(toEmail As String, displayName As String, resetLink As String, ct As CancellationToken) As Task
@@ -128,22 +142,27 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: SendVerificationEmailAsync
     path: ../../../lumify.api/Services/SmtpEmailService.cs
-    startLine: 69
+    startLine: 79
   assemblies:
   - lumify.api
   namespace: lumify.api.Services
+  summary: Sends the e-mail verification mail containing the one-time confirmation link to the user.
   example: []
   syntax:
     content: public Task SendVerificationEmailAsync(string toEmail, string? displayName, string verifyLink, CancellationToken ct)
     parameters:
     - id: toEmail
       type: System.String
+      description: The recipient's e-mail address.
     - id: displayName
       type: System.String
+      description: The recipient's display name for the greeting, if known.
     - id: verifyLink
       type: System.String
+      description: The one-time verification link to embed.
     - id: ct
       type: System.Threading.CancellationToken
+      description: Cancellation token for the send operation.
     return:
       type: System.Threading.Tasks.Task
     content.vb: Public Function SendVerificationEmailAsync(toEmail As String, displayName As String, verifyLink As String, ct As CancellationToken) As Task
@@ -154,6 +173,13 @@ items:
   fullName.vb: lumify.api.Services.SmtpEmailService.SendVerificationEmailAsync(String, String, String, System.Threading.CancellationToken)
   name.vb: SendVerificationEmailAsync(String, String, String, CancellationToken)
 references:
+- uid: lumify.api.Interfaces.IEmailService
+  commentId: T:lumify.api.Interfaces.IEmailService
+  parent: lumify.api.Interfaces
+  href: lumify.api.Interfaces.IEmailService.html
+  name: IEmailService
+  nameWithType: IEmailService
+  fullName: lumify.api.Interfaces.IEmailService
 - uid: lumify.api.Services
   commentId: N:lumify.api.Services
   href: lumify.html
@@ -194,19 +220,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: lumify.api.Interfaces.IEmailService
-  commentId: T:lumify.api.Interfaces.IEmailService
-  parent: lumify.api.Interfaces
-  href: lumify.api.Interfaces.IEmailService.html
-  name: IEmailService
-  nameWithType: IEmailService
-  fullName: lumify.api.Interfaces.IEmailService
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: lumify.api.Interfaces
   commentId: N:lumify.api.Interfaces
   href: lumify.html
@@ -237,6 +250,12 @@ references:
   - uid: lumify.api.Interfaces
     name: Interfaces
     href: lumify.api.Interfaces.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: lumify.api.Services.SmtpEmailService.#ctor*
   commentId: Overload:lumify.api.Services.SmtpEmailService.#ctor
   href: lumify.api.Services.SmtpEmailService.html#lumify_api_Services_SmtpEmailService__ctor_Microsoft_Extensions_Options_IOptions_lumify_api_Models_Settings_EmailSettings__Microsoft_Extensions_Logging_ILogger_lumify_api_Services_SmtpEmailService__

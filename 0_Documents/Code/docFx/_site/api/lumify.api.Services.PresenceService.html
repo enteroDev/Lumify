@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class PresenceService | Lumify – Code Documentation ">
       
-      
+      <meta name="description" content="In-memory implementation of . Maintains the mapping between users and their open SignalR connections in thread-safe dictionaries; a user counts as online while at least one connection is registered.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="lumify_api_Services_PresenceService" data-uid="lumify.api.Services.PresenceService" class="text-break">
-Class PresenceService  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/PresenceService.cs/#L14"><i class="bi bi-code-slash"></i></a>
+Class PresenceService  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/PresenceService.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,10 @@ Class PresenceService  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>In-memory implementation of <a class="xref" href="lumify.api.Interfaces.IPresenceService.html">IPresenceService</a>. Maintains the mapping between
+users and their open SignalR connections in thread-safe dictionaries; a user counts as
+online while at least one connection is registered.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -127,6 +130,10 @@ Class PresenceService  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <h2 id="lumify_api_Services_PresenceService_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>State is per-process and not persisted, so it resets on restart and is not shared across
+multiple server instances.</p>
+</div>
 
 
   <h2 class="section" id="methods">Methods
@@ -137,10 +144,11 @@ Class PresenceService  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="lumify_api_Services_PresenceService_AddConnection_System_String_System_String_" data-uid="lumify.api.Services.PresenceService.AddConnection(System.String,System.String)">
   AddConnection(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/PresenceService.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/PresenceService.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Registers a new connection for a user, creating the user's connection set on first use.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -150,9 +158,11 @@ Class PresenceService  <a class="header-action link-secondary" title="View sourc
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>userID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The connecting user.</p>
+</dd>
     <dt><code>connectionID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The new SignalR connection ID.</p>
+</dd>
   </dl>
 
 
@@ -170,10 +180,11 @@ Class PresenceService  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="lumify_api_Services_PresenceService_GetPresenceStatus_System_String_" data-uid="lumify.api.Services.PresenceService.GetPresenceStatus(System.String)">
   GetPresenceStatus(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/PresenceService.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/PresenceService.cs/#L86"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns whether the user currently has any open connection.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -183,13 +194,15 @@ Class PresenceService  <a class="header-action link-secondary" title="View sourc
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>userID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The user to check.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="lumify.api.Models.Enum.PresenceStatus.html">PresenceStatus</a></dt>
-    <dd></dd>
+    <dd><p><code>Online</code> if at least one connection is open, otherwise <code>Offline</code>.</p>
+</dd>
   </dl>
 
 
@@ -206,10 +219,12 @@ Class PresenceService  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="lumify_api_Services_PresenceService_RemoveConnection_System_String_" data-uid="lumify.api.Services.PresenceService.RemoveConnection(System.String)">
   RemoveConnection(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/PresenceService.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Services/PresenceService.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Removes a connection and, if it was the user's last one, drops the user from the
+online set.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -219,7 +234,8 @@ Class PresenceService  <a class="header-action link-secondary" title="View sourc
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>connectionID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The SignalR connection ID that closed.</p>
+</dd>
   </dl>
 
 

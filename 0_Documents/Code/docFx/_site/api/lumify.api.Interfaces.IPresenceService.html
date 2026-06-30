@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IPresenceService | Lumify – Code Documentation ">
       
-      
+      <meta name="description" content="Tracks which users are currently online by counting their active SignalR connections. Implemented by  and driven by  on connect/disconnect.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="lumify_api_Interfaces_IPresenceService" data-uid="lumify.api.Interfaces.IPresenceService" class="text-break">
-Interface IPresenceService  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Interfaces/IPresenceService.cs/#L11"><i class="bi bi-code-slash"></i></a>
+Interface IPresenceService  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Interfaces/IPresenceService.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,10 @@ Interface IPresenceService  <a class="header-action link-secondary" title="View 
   <dl><dt>Assembly</dt><dd>lumify.api.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Tracks which users are currently online by counting their active SignalR connections.
+Implemented by <a class="xref" href="lumify.api.Services.PresenceService.html">PresenceService</a> and driven by
+<a class="xref" href="lumify.api.Hubs.ChatHub.html">ChatHub</a> on connect/disconnect.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -124,10 +127,11 @@ Interface IPresenceService  <a class="header-action link-secondary" title="View 
 
   <h3 id="lumify_api_Interfaces_IPresenceService_AddConnection_System_String_System_String_" data-uid="lumify.api.Interfaces.IPresenceService.AddConnection(System.String,System.String)">
   AddConnection(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Interfaces/IPresenceService.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Interfaces/IPresenceService.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Registers a new connection for a user (marks the user online).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -137,9 +141,11 @@ Interface IPresenceService  <a class="header-action link-secondary" title="View 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>userID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The connecting user.</p>
+</dd>
     <dt><code>connectionID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The new SignalR connection ID.</p>
+</dd>
   </dl>
 
 
@@ -157,10 +163,11 @@ Interface IPresenceService  <a class="header-action link-secondary" title="View 
 
   <h3 id="lumify_api_Interfaces_IPresenceService_GetPresenceStatus_System_String_" data-uid="lumify.api.Interfaces.IPresenceService.GetPresenceStatus(System.String)">
   GetPresenceStatus(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Interfaces/IPresenceService.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Interfaces/IPresenceService.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the current presence status of a user.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -170,13 +177,15 @@ Interface IPresenceService  <a class="header-action link-secondary" title="View 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>userID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The user to check.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="lumify.api.Models.Enum.PresenceStatus.html">PresenceStatus</a></dt>
-    <dd></dd>
+    <dd><p><code>Online</code> if at least one connection is open, otherwise <code>Offline</code>.</p>
+</dd>
   </dl>
 
 
@@ -193,10 +202,11 @@ Interface IPresenceService  <a class="header-action link-secondary" title="View 
 
   <h3 id="lumify_api_Interfaces_IPresenceService_RemoveConnection_System_String_" data-uid="lumify.api.Interfaces.IPresenceService.RemoveConnection(System.String)">
   RemoveConnection(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Interfaces/IPresenceService.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/enteroDev/Lumify/blob/main/lumify.api/Interfaces/IPresenceService.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Removes a connection; the user goes offline once their last connection is gone.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -206,7 +216,8 @@ Interface IPresenceService  <a class="header-action link-secondary" title="View 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>connectionID</code> <span class="xref">string</span></dt>
-    <dd></dd>
+    <dd><p>The SignalR connection ID that closed.</p>
+</dd>
   </dl>
 
 

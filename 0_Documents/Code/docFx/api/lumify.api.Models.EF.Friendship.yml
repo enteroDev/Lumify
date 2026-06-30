@@ -35,10 +35,17 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Friendship
     path: ../../../lumify.api/Models/EF/Friendship.cs
-    startLine: 5
+    startLine: 10
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: >-
+    A relationship between two users (friend request or accepted friendship). Stored once per
+
+    user pair using ordered <xref href="lumify.api.Models.EF.Friendship.UserLowID" data-throw-if-not-resolved="false"></xref>/<xref href="lumify.api.Models.EF.Friendship.UserHighID" data-throw-if-not-resolved="false"></xref> keys; the
+
+    requester/addressee fields record who initiated it. See <xref href="lumify.api.Services.FriendshipService" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public class Friendship
     content.vb: Public Class Friendship
@@ -62,10 +69,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/EF/Friendship.cs
-    startLine: 7
+    startLine: 13
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Primary key (GUID string).
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -91,10 +100,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UserLowID
     path: ../../../lumify.api/Models/EF/Friendship.cs
-    startLine: 9
+    startLine: 16
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The lexicographically lower user ID of the pair (part of the unique key).
+  example: []
   syntax:
     content: public string UserLowID { get; set; }
     parameters: []
@@ -120,10 +131,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UserHighID
     path: ../../../lumify.api/Models/EF/Friendship.cs
-    startLine: 10
+    startLine: 18
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The lexicographically higher user ID of the pair (part of the unique key).
+  example: []
   syntax:
     content: public string UserHighID { get; set; }
     parameters: []
@@ -149,10 +162,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: RequesterID
     path: ../../../lumify.api/Models/EF/Friendship.cs
-    startLine: 11
+    startLine: 20
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The user who sent the friend request.
+  example: []
   syntax:
     content: public string RequesterID { get; set; }
     parameters: []
@@ -178,10 +193,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AddresseeID
     path: ../../../lumify.api/Models/EF/Friendship.cs
-    startLine: 12
+    startLine: 22
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The user who received the friend request.
+  example: []
   syntax:
     content: public string AddresseeID { get; set; }
     parameters: []
@@ -207,10 +224,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Status
     path: ../../../lumify.api/Models/EF/Friendship.cs
-    startLine: 14
+    startLine: 25
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: 'Relationship status (see <xref href="lumify.api.Models.Enum.FriendshipStatus" data-throw-if-not-resolved="false"></xref>: Pending, Accepted, …).'
+  example: []
   syntax:
     content: public int Status { get; set; }
     parameters: []
@@ -236,10 +255,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CreatedAt
     path: ../../../lumify.api/Models/EF/Friendship.cs
-    startLine: 16
+    startLine: 28
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Creation timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string CreatedAt { get; set; }
     parameters: []
@@ -265,10 +286,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UpdatedAt
     path: ../../../lumify.api/Models/EF/Friendship.cs
-    startLine: 17
+    startLine: 30
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Last-update timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string UpdatedAt { get; set; }
     parameters: []
@@ -294,10 +317,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AcceptedAt
     path: ../../../lumify.api/Models/EF/Friendship.cs
-    startLine: 18
+    startLine: 32
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: When the request was accepted (ISO-8601 string), if applicable.
+  example: []
   syntax:
     content: public string? AcceptedAt { get; set; }
     parameters: []
@@ -323,10 +348,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: RejectedAt
     path: ../../../lumify.api/Models/EF/Friendship.cs
-    startLine: 19
+    startLine: 34
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: When the request was rejected (ISO-8601 string), if applicable.
+  example: []
   syntax:
     content: public string? RejectedAt { get; set; }
     parameters: []
@@ -352,10 +379,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: BlockedAt
     path: ../../../lumify.api/Models/EF/Friendship.cs
-    startLine: 20
+    startLine: 36
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: When the relationship was blocked (ISO-8601 string), if applicable.
+  example: []
   syntax:
     content: public string? BlockedAt { get; set; }
     parameters: []
@@ -381,10 +410,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: DeletedAt
     path: ../../../lumify.api/Models/EF/Friendship.cs
-    startLine: 21
+    startLine: 38
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Soft-delete timestamp (ISO-8601 string); <code>null</code> while active.
+  example: []
   syntax:
     content: public string? DeletedAt { get; set; }
     parameters: []
@@ -410,10 +441,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UserLow
     path: ../../../lumify.api/Models/EF/Friendship.cs
-    startLine: 25
+    startLine: 43
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The lower user of the pair.
+  example: []
   syntax:
     content: public virtual User UserLow { get; set; }
     parameters: []
@@ -439,10 +472,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UserHigh
     path: ../../../lumify.api/Models/EF/Friendship.cs
-    startLine: 26
+    startLine: 45
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The higher user of the pair.
+  example: []
   syntax:
     content: public virtual User UserHigh { get; set; }
     parameters: []
@@ -468,10 +503,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Requester
     path: ../../../lumify.api/Models/EF/Friendship.cs
-    startLine: 27
+    startLine: 47
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The user who sent the request.
+  example: []
   syntax:
     content: public virtual User Requester { get; set; }
     parameters: []
@@ -497,10 +534,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Addressee
     path: ../../../lumify.api/Models/EF/Friendship.cs
-    startLine: 28
+    startLine: 49
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The user who received the request.
+  example: []
   syntax:
     content: public virtual User Addressee { get; set; }
     parameters: []
@@ -509,6 +548,25 @@ items:
     content.vb: Public Overridable Property Addressee As User
   overload: lumify.api.Models.EF.Friendship.Addressee*
 references:
+- uid: lumify.api.Models.EF.Friendship.UserLowID
+  commentId: P:lumify.api.Models.EF.Friendship.UserLowID
+  href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_UserLowID
+  name: UserLowID
+  nameWithType: Friendship.UserLowID
+  fullName: lumify.api.Models.EF.Friendship.UserLowID
+- uid: lumify.api.Models.EF.Friendship.UserHighID
+  commentId: P:lumify.api.Models.EF.Friendship.UserHighID
+  href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_UserHighID
+  name: UserHighID
+  nameWithType: Friendship.UserHighID
+  fullName: lumify.api.Models.EF.Friendship.UserHighID
+- uid: lumify.api.Services.FriendshipService
+  commentId: T:lumify.api.Services.FriendshipService
+  parent: lumify.api.Services
+  href: lumify.api.Services.FriendshipService.html
+  name: FriendshipService
+  nameWithType: FriendshipService
+  fullName: lumify.api.Services.FriendshipService
 - uid: lumify.api.Models.EF
   commentId: N:lumify.api.Models.EF
   href: lumify.html
@@ -557,6 +615,36 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: lumify.api.Services
+  commentId: N:lumify.api.Services
+  href: lumify.html
+  name: lumify.api.Services
+  nameWithType: lumify.api.Services
+  fullName: lumify.api.Services
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Services
+    name: Services
+    href: lumify.api.Services.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Services
+    name: Services
+    href: lumify.api.Services.html
 - uid: System
   commentId: N:System
   isExternal: true
@@ -603,6 +691,13 @@ references:
   name: AddresseeID
   nameWithType: Friendship.AddresseeID
   fullName: lumify.api.Models.EF.Friendship.AddresseeID
+- uid: lumify.api.Models.Enum.FriendshipStatus
+  commentId: T:lumify.api.Models.Enum.FriendshipStatus
+  parent: lumify.api.Models.Enum
+  href: lumify.api.Models.Enum.FriendshipStatus.html
+  name: FriendshipStatus
+  nameWithType: FriendshipStatus
+  fullName: lumify.api.Models.Enum.FriendshipStatus
 - uid: lumify.api.Models.EF.Friendship.Status*
   commentId: Overload:lumify.api.Models.EF.Friendship.Status
   href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_Status
@@ -619,6 +714,44 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: lumify.api.Models.Enum
+  commentId: N:lumify.api.Models.Enum
+  href: lumify.html
+  name: lumify.api.Models.Enum
+  nameWithType: lumify.api.Models.Enum
+  fullName: lumify.api.Models.Enum
+  spec.csharp:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Enum
+    name: Enum
+    href: lumify.api.Models.Enum.html
+  spec.vb:
+  - uid: lumify
+    name: lumify
+    href: lumify.html
+  - name: .
+  - uid: lumify.api
+    name: api
+    href: lumify.api.html
+  - name: .
+  - uid: lumify.api.Models
+    name: Models
+    href: lumify.api.Models.html
+  - name: .
+  - uid: lumify.api.Models.Enum
+    name: Enum
+    href: lumify.api.Models.Enum.html
 - uid: lumify.api.Models.EF.Friendship.CreatedAt*
   commentId: Overload:lumify.api.Models.EF.Friendship.CreatedAt
   href: lumify.api.Models.EF.Friendship.html#lumify_api_Models_EF_Friendship_CreatedAt

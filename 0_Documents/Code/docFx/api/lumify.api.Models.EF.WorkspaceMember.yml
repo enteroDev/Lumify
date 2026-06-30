@@ -27,10 +27,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: WorkspaceMember
     path: ../../../lumify.api/Models/EF/WorkspaceMember.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: >-
+    Join entity linking a <xref href="lumify.api.Models.EF.WorkspaceMember.User" data-throw-if-not-resolved="false"></xref> to a <xref href="lumify.api.Models.EF.WorkspaceMember.Workspace" data-throw-if-not-resolved="false"></xref> with a role.
+
+    A removed membership is soft-deleted via <xref href="lumify.api.Models.EF.WorkspaceMember.DeletedAt" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public class WorkspaceMember
     content.vb: Public Class WorkspaceMember
@@ -54,10 +59,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/EF/WorkspaceMember.cs
-    startLine: 7
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Primary key (GUID string).
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -83,10 +90,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: WorkspaceID
     path: ../../../lumify.api/Models/EF/WorkspaceMember.cs
-    startLine: 8
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The workspace this membership belongs to.
+  example: []
   syntax:
     content: public string WorkspaceID { get; set; }
     parameters: []
@@ -112,10 +121,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UserID
     path: ../../../lumify.api/Models/EF/WorkspaceMember.cs
-    startLine: 9
+    startLine: 16
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The member user.
+  example: []
   syntax:
     content: public string UserID { get; set; }
     parameters: []
@@ -141,10 +152,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Role
     path: ../../../lumify.api/Models/EF/WorkspaceMember.cs
-    startLine: 11
+    startLine: 19
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: 'Membership role: 1 = Owner, 2 = Admin, 3 = User.'
+  example: []
   syntax:
     content: public int Role { get; set; }
     parameters: []
@@ -170,10 +183,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CreatedAt
     path: ../../../lumify.api/Models/EF/WorkspaceMember.cs
-    startLine: 13
+    startLine: 22
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Creation timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string CreatedAt { get; set; }
     parameters: []
@@ -199,10 +214,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: DeletedAt
     path: ../../../lumify.api/Models/EF/WorkspaceMember.cs
-    startLine: 14
+    startLine: 24
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Soft-delete timestamp (ISO-8601 string); <code>null</code> while the membership is active.
+  example: []
   syntax:
     content: public string? DeletedAt { get; set; }
     parameters: []
@@ -228,10 +245,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: User
     path: ../../../lumify.api/Models/EF/WorkspaceMember.cs
-    startLine: 17
+    startLine: 28
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The member user.
+  example: []
   syntax:
     content: public virtual User User { get; set; }
     parameters: []
@@ -257,10 +276,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Workspace
     path: ../../../lumify.api/Models/EF/WorkspaceMember.cs
-    startLine: 18
+    startLine: 30
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The workspace.
+  example: []
   syntax:
     content: public virtual Workspace Workspace { get; set; }
     parameters: []
@@ -269,6 +290,24 @@ items:
     content.vb: Public Overridable Property Workspace As Workspace
   overload: lumify.api.Models.EF.WorkspaceMember.Workspace*
 references:
+- uid: lumify.api.Models.EF.WorkspaceMember.User
+  commentId: P:lumify.api.Models.EF.WorkspaceMember.User
+  href: lumify.api.Models.EF.WorkspaceMember.html#lumify_api_Models_EF_WorkspaceMember_User
+  name: User
+  nameWithType: WorkspaceMember.User
+  fullName: lumify.api.Models.EF.WorkspaceMember.User
+- uid: lumify.api.Models.EF.WorkspaceMember.Workspace
+  commentId: P:lumify.api.Models.EF.WorkspaceMember.Workspace
+  href: lumify.api.Models.EF.WorkspaceMember.html#lumify_api_Models_EF_WorkspaceMember_Workspace
+  name: Workspace
+  nameWithType: WorkspaceMember.Workspace
+  fullName: lumify.api.Models.EF.WorkspaceMember.Workspace
+- uid: lumify.api.Models.EF.WorkspaceMember.DeletedAt
+  commentId: P:lumify.api.Models.EF.WorkspaceMember.DeletedAt
+  href: lumify.api.Models.EF.WorkspaceMember.html#lumify_api_Models_EF_WorkspaceMember_DeletedAt
+  name: DeletedAt
+  nameWithType: WorkspaceMember.DeletedAt
+  fullName: lumify.api.Models.EF.WorkspaceMember.DeletedAt
 - uid: lumify.api.Models.EF
   commentId: N:lumify.api.Models.EF
   href: lumify.html

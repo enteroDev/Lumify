@@ -21,10 +21,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AppSettings
     path: ../../../lumify.api/Models/Settings/AppSettings.cs
-    startLine: 4
+    startLine: 6
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Settings
+  summary: >-
+    Options bound from the <code>App</code> configuration section. Used to build user-facing links
+
+    (e.g. the password-reset link that points at the frontend, not the API).
+  example: []
   syntax:
     content: public class AppSettings
     content.vb: Public Class AppSettings
@@ -48,10 +53,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: FrontendBaseUrl
     path: ../../../lumify.api/Models/Settings/AppSettings.cs
-    startLine: 7
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Settings
+  summary: Base URL of the frontend (e.g. <code>http://localhost:5333</code> in dev).
+  example: []
   syntax:
     content: public string FrontendBaseUrl { get; set; }
     parameters: []
@@ -77,10 +84,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: PasswordResetPath
     path: ../../../lumify.api/Models/Settings/AppSettings.cs
-    startLine: 10
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.Settings
+  summary: Frontend route that handles the reset form and reads the token from the query string.
+  example: []
   syntax:
     content: public string PasswordResetPath { get; set; }
     parameters: []

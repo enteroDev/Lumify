@@ -25,10 +25,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: RegisterRequest
     path: ../../../lumify.api/Models/DTO/Requests/RegisterRequest.cs
-    startLine: 3
+    startLine: 6
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Request body for registration (see <xref href="lumify.api.Controllers.AccountController.RegisterUser(lumify.api.Models.DTO.Requests.RegisterRequest%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public sealed class RegisterRequest
     content.vb: Public NotInheritable Class RegisterRequest
@@ -52,10 +54,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Email
     path: ../../../lumify.api/Models/DTO/Requests/RegisterRequest.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The new account's e-mail address.
+  example: []
   syntax:
     content: public required string Email { get; set; }
     parameters: []
@@ -81,10 +85,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Username
     path: ../../../lumify.api/Models/DTO/Requests/RegisterRequest.cs
-    startLine: 6
+    startLine: 11
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The desired username.
+  example: []
   syntax:
     content: public required string Username { get; set; }
     parameters: []
@@ -110,10 +116,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Password
     path: ../../../lumify.api/Models/DTO/Requests/RegisterRequest.cs
-    startLine: 7
+    startLine: 13
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The chosen password.
+  example: []
   syntax:
     content: public required string Password { get; set; }
     parameters: []
@@ -139,10 +147,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: FirstName
     path: ../../../lumify.api/Models/DTO/Requests/RegisterRequest.cs
-    startLine: 8
+    startLine: 15
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The user's first name.
+  example: []
   syntax:
     content: public required string FirstName { get; set; }
     parameters: []
@@ -168,10 +178,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: LastName
     path: ../../../lumify.api/Models/DTO/Requests/RegisterRequest.cs
-    startLine: 9
+    startLine: 17
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The user's last name.
+  example: []
   syntax:
     content: public required string LastName { get; set; }
     parameters: []
@@ -197,10 +209,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AvatarBase64
     path: ../../../lumify.api/Models/DTO/Requests/RegisterRequest.cs
-    startLine: 10
+    startLine: 19
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Optional base64-encoded avatar image.
+  example: []
   syntax:
     content: public string? AvatarBase64 { get; set; }
     parameters: []
@@ -209,6 +223,41 @@ items:
     content.vb: Public Property AvatarBase64 As String
   overload: lumify.api.Models.DTO.Requests.RegisterRequest.AvatarBase64*
 references:
+- uid: lumify.api.Controllers.AccountController.RegisterUser(lumify.api.Models.DTO.Requests.RegisterRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.AccountController.RegisterUser(lumify.api.Models.DTO.Requests.RegisterRequest,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_RegisterUser_lumify_api_Models_DTO_Requests_RegisterRequest_System_Threading_CancellationToken_
+  name: RegisterUser(RegisterRequest, CancellationToken)
+  nameWithType: AccountController.RegisterUser(RegisterRequest, CancellationToken)
+  fullName: lumify.api.Controllers.AccountController.RegisterUser(lumify.api.Models.DTO.Requests.RegisterRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.AccountController.RegisterUser(lumify.api.Models.DTO.Requests.RegisterRequest,System.Threading.CancellationToken)
+    name: RegisterUser
+    href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_RegisterUser_lumify_api_Models_DTO_Requests_RegisterRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.RegisterRequest
+    name: RegisterRequest
+    href: lumify.api.Models.DTO.Requests.RegisterRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.AccountController.RegisterUser(lumify.api.Models.DTO.Requests.RegisterRequest,System.Threading.CancellationToken)
+    name: RegisterUser
+    href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_RegisterUser_lumify_api_Models_DTO_Requests_RegisterRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.RegisterRequest
+    name: RegisterRequest
+    href: lumify.api.Models.DTO.Requests.RegisterRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

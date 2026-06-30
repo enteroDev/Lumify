@@ -21,10 +21,17 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: SaveWorkspaceRequest
     path: ../../../lumify.api/Models/DTO/Requests/SaveWorkspaceRequest.cs
-    startLine: 2
+    startLine: 7
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: >-
+    Request body for renaming a workspace
+
+    (see <xref href="lumify.api.Controllers.WorkspaceController.SaveWorkspace(lumify.api.Models.DTO.Requests.SaveWorkspaceRequest%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>). Only non-<code>null</code> fields
+
+    are applied (partial update).
+  example: []
   syntax:
     content: public sealed class SaveWorkspaceRequest
     content.vb: Public NotInheritable Class SaveWorkspaceRequest
@@ -48,10 +55,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/DTO/Requests/SaveWorkspaceRequest.cs
-    startLine: 4
+    startLine: 10
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The workspace to update (required).
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -77,10 +86,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/DTO/Requests/SaveWorkspaceRequest.cs
-    startLine: 5
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New name, if changing.
+  example: []
   syntax:
     content: public string? Name { get; set; }
     parameters: []
@@ -89,6 +100,41 @@ items:
     content.vb: Public Property Name As String
   overload: lumify.api.Models.DTO.Requests.SaveWorkspaceRequest.Name*
 references:
+- uid: lumify.api.Controllers.WorkspaceController.SaveWorkspace(lumify.api.Models.DTO.Requests.SaveWorkspaceRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.WorkspaceController.SaveWorkspace(lumify.api.Models.DTO.Requests.SaveWorkspaceRequest,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.WorkspaceController.html#lumify_api_Controllers_WorkspaceController_SaveWorkspace_lumify_api_Models_DTO_Requests_SaveWorkspaceRequest_System_Threading_CancellationToken_
+  name: SaveWorkspace(SaveWorkspaceRequest, CancellationToken)
+  nameWithType: WorkspaceController.SaveWorkspace(SaveWorkspaceRequest, CancellationToken)
+  fullName: lumify.api.Controllers.WorkspaceController.SaveWorkspace(lumify.api.Models.DTO.Requests.SaveWorkspaceRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.WorkspaceController.SaveWorkspace(lumify.api.Models.DTO.Requests.SaveWorkspaceRequest,System.Threading.CancellationToken)
+    name: SaveWorkspace
+    href: lumify.api.Controllers.WorkspaceController.html#lumify_api_Controllers_WorkspaceController_SaveWorkspace_lumify_api_Models_DTO_Requests_SaveWorkspaceRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.SaveWorkspaceRequest
+    name: SaveWorkspaceRequest
+    href: lumify.api.Models.DTO.Requests.SaveWorkspaceRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.WorkspaceController.SaveWorkspace(lumify.api.Models.DTO.Requests.SaveWorkspaceRequest,System.Threading.CancellationToken)
+    name: SaveWorkspace
+    href: lumify.api.Controllers.WorkspaceController.html#lumify_api_Controllers_WorkspaceController_SaveWorkspace_lumify_api_Models_DTO_Requests_SaveWorkspaceRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.SaveWorkspaceRequest
+    name: SaveWorkspaceRequest
+    href: lumify.api.Models.DTO.Requests.SaveWorkspaceRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

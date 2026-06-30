@@ -26,10 +26,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UserAccountInfoResponse
     path: ../../../lumify.api/Models/DTO/Responses/UserAccountInfoResponse.cs
-    startLine: 2
+    startLine: 6
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: >-
+    Account information for a user (name, e-mail, username, timestamps), returned by the
+
+    account-info endpoints (see <xref href="lumify.api.Controllers.UsersController" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public sealed class UserAccountInfoResponse
     content.vb: Public NotInheritable Class UserAccountInfoResponse
@@ -53,10 +58,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/DTO/Responses/UserAccountInfoResponse.cs
-    startLine: 4
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The user's ID.
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -82,10 +89,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Email
     path: ../../../lumify.api/Models/DTO/Responses/UserAccountInfoResponse.cs
-    startLine: 5
+    startLine: 11
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The user's e-mail address.
+  example: []
   syntax:
     content: public string Email { get; set; }
     parameters: []
@@ -111,10 +120,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Username
     path: ../../../lumify.api/Models/DTO/Responses/UserAccountInfoResponse.cs
-    startLine: 7
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The user's username.
+  example: []
   syntax:
     content: public string Username { get; set; }
     parameters: []
@@ -140,10 +151,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: FirstName
     path: ../../../lumify.api/Models/DTO/Responses/UserAccountInfoResponse.cs
-    startLine: 8
+    startLine: 16
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The user's first name.
+  example: []
   syntax:
     content: public string? FirstName { get; set; }
     parameters: []
@@ -169,10 +182,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: LastName
     path: ../../../lumify.api/Models/DTO/Responses/UserAccountInfoResponse.cs
-    startLine: 9
+    startLine: 18
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The user's last name.
+  example: []
   syntax:
     content: public string? LastName { get; set; }
     parameters: []
@@ -198,10 +213,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CreatedAt
     path: ../../../lumify.api/Models/DTO/Responses/UserAccountInfoResponse.cs
-    startLine: 10
+    startLine: 20
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Registration date (ISO-8601 string).
+  example: []
   syntax:
     content: public string CreatedAt { get; set; }
     parameters: []
@@ -227,10 +244,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UpdatedAt
     path: ../../../lumify.api/Models/DTO/Responses/UserAccountInfoResponse.cs
-    startLine: 11
+    startLine: 22
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Last-update timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string UpdatedAt { get; set; }
     parameters: []
@@ -239,6 +258,12 @@ items:
     content.vb: Public Property UpdatedAt As String
   overload: lumify.api.Models.DTO.Responses.UserAccountInfoResponse.UpdatedAt*
 references:
+- uid: lumify.api.Controllers.UsersController
+  commentId: T:lumify.api.Controllers.UsersController
+  href: lumify.api.Controllers.UsersController.html
+  name: UsersController
+  nameWithType: UsersController
+  fullName: lumify.api.Controllers.UsersController
 - uid: lumify.api.Models.DTO.Responses
   commentId: N:lumify.api.Models.DTO.Responses
   href: lumify.html

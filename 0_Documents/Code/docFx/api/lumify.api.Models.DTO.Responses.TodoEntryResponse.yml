@@ -28,10 +28,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: TodoEntryResponse
     path: ../../../lumify.api/Models/DTO/Responses/TodoEntryResponse.cs
-    startLine: 4
+    startLine: 7
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: A todo entry returned to clients (see <xref href="lumify.api.Controllers.TodoListsController" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public class TodoEntryResponse
     content.vb: Public Class TodoEntryResponse
@@ -55,10 +57,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/DTO/Responses/TodoEntryResponse.cs
-    startLine: 6
+    startLine: 10
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Entry ID.
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -84,10 +88,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: TodoListID
     path: ../../../lumify.api/Models/DTO/Responses/TodoEntryResponse.cs
-    startLine: 7
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The parent todo list.
+  example: []
   syntax:
     content: public string TodoListID { get; set; }
     parameters: []
@@ -113,10 +119,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: OwnerID
     path: ../../../lumify.api/Models/DTO/Responses/TodoEntryResponse.cs
-    startLine: 8
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: The owner's user ID.
+  example: []
   syntax:
     content: public string OwnerID { get; set; }
     parameters: []
@@ -142,10 +150,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/DTO/Responses/TodoEntryResponse.cs
-    startLine: 10
+    startLine: 17
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Entry title.
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -171,10 +181,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Description
     path: ../../../lumify.api/Models/DTO/Responses/TodoEntryResponse.cs
-    startLine: 11
+    startLine: 19
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Optional entry description.
+  example: []
   syntax:
     content: public string? Description { get; set; }
     parameters: []
@@ -200,10 +212,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Status
     path: ../../../lumify.api/Models/DTO/Responses/TodoEntryResponse.cs
-    startLine: 12
+    startLine: 21
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: 'Status: 1 = open, 2 = done.'
+  example: []
   syntax:
     content: public int Status { get; set; }
     parameters: []
@@ -229,10 +243,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: WasLastUnchecked
     path: ../../../lumify.api/Models/DTO/Responses/TodoEntryResponse.cs
-    startLine: 14
+    startLine: 24
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: True if this update was the last open entry being checked (so the list became done).
+  example: []
   syntax:
     content: public bool WasLastUnchecked { get; set; }
     parameters: []
@@ -258,10 +274,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CreatedAt
     path: ../../../lumify.api/Models/DTO/Responses/TodoEntryResponse.cs
-    startLine: 16
+    startLine: 27
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Creation timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string CreatedAt { get; set; }
     parameters: []
@@ -287,10 +305,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UpdatedAt
     path: ../../../lumify.api/Models/DTO/Responses/TodoEntryResponse.cs
-    startLine: 17
+    startLine: 29
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Responses
+  summary: Last-update timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string UpdatedAt { get; set; }
     parameters: []
@@ -299,6 +319,12 @@ items:
     content.vb: Public Property UpdatedAt As String
   overload: lumify.api.Models.DTO.Responses.TodoEntryResponse.UpdatedAt*
 references:
+- uid: lumify.api.Controllers.TodoListsController
+  commentId: T:lumify.api.Controllers.TodoListsController
+  href: lumify.api.Controllers.TodoListsController.html
+  name: TodoListsController
+  nameWithType: TodoListsController
+  fullName: lumify.api.Controllers.TodoListsController
 - uid: lumify.api.Models.DTO.Responses
   commentId: N:lumify.api.Models.DTO.Responses
   href: lumify.html

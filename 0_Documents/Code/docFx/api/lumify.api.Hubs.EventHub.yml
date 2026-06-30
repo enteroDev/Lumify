@@ -21,7 +21,7 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: EventHub
     path: ../../../lumify.api/Hubs/EventHub.cs
-    startLine: 11
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
@@ -68,7 +68,7 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: JoinWorkspace
     path: ../../../lumify.api/Hubs/EventHub.cs
-    startLine: 19
+    startLine: 21
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs
@@ -108,7 +108,7 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: LeaveWorkspace
     path: ../../../lumify.api/Hubs/EventHub.cs
-    startLine: 34
+    startLine: 37
   assemblies:
   - lumify.api
   namespace: lumify.api.Hubs

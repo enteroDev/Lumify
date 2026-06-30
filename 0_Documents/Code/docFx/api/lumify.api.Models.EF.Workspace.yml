@@ -31,10 +31,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Workspace
     path: ../../../lumify.api/Models/EF/Workspace.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: >-
+    A shared space that groups content (folders, notes, todo lists, events) and members.
+
+    Content belongs to the workspace, not its creator. Soft-deleted via <xref href="lumify.api.Models.EF.Workspace.DeletedAt" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public class Workspace
     content.vb: Public Class Workspace
@@ -58,10 +63,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/EF/Workspace.cs
-    startLine: 7
+    startLine: 12
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Primary key (GUID string).
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -87,10 +94,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: OwnerID
     path: ../../../lumify.api/Models/EF/Workspace.cs
-    startLine: 8
+    startLine: 14
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The user who created and owns the workspace.
+  example: []
   syntax:
     content: public string OwnerID { get; set; }
     parameters: []
@@ -116,10 +125,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/EF/Workspace.cs
-    startLine: 10
+    startLine: 17
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Display name of the workspace.
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -145,10 +156,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: CreatedAt
     path: ../../../lumify.api/Models/EF/Workspace.cs
-    startLine: 12
+    startLine: 20
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Creation timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string CreatedAt { get; set; }
     parameters: []
@@ -174,10 +187,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: UpdatedAt
     path: ../../../lumify.api/Models/EF/Workspace.cs
-    startLine: 13
+    startLine: 22
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Last-update timestamp (ISO-8601 string).
+  example: []
   syntax:
     content: public string UpdatedAt { get; set; }
     parameters: []
@@ -203,10 +218,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: DeletedAt
     path: ../../../lumify.api/Models/EF/Workspace.cs
-    startLine: 14
+    startLine: 24
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Soft-delete timestamp (ISO-8601 string); <code>null</code> while active.
+  example: []
   syntax:
     content: public string? DeletedAt { get; set; }
     parameters: []
@@ -232,10 +249,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Owner
     path: ../../../lumify.api/Models/EF/Workspace.cs
-    startLine: 17
+    startLine: 28
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: The owning user.
+  example: []
   syntax:
     content: public virtual User Owner { get; set; }
     parameters: []
@@ -261,10 +280,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Events
     path: ../../../lumify.api/Models/EF/Workspace.cs
-    startLine: 19
+    startLine: 31
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Events belonging to this workspace.
+  example: []
   syntax:
     content: public virtual ICollection<Event> Events { get; set; }
     parameters: []
@@ -290,10 +311,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Folders
     path: ../../../lumify.api/Models/EF/Workspace.cs
-    startLine: 20
+    startLine: 33
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Folders belonging to this workspace.
+  example: []
   syntax:
     content: public virtual ICollection<Folder> Folders { get; set; }
     parameters: []
@@ -319,10 +342,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Notes
     path: ../../../lumify.api/Models/EF/Workspace.cs
-    startLine: 21
+    startLine: 35
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Notes belonging to this workspace.
+  example: []
   syntax:
     content: public virtual ICollection<Note> Notes { get; set; }
     parameters: []
@@ -348,10 +373,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: TodoLists
     path: ../../../lumify.api/Models/EF/Workspace.cs
-    startLine: 22
+    startLine: 37
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Todo lists belonging to this workspace.
+  example: []
   syntax:
     content: public virtual ICollection<TodoList> TodoLists { get; set; }
     parameters: []
@@ -377,10 +404,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: WorkspaceMembers
     path: ../../../lumify.api/Models/EF/Workspace.cs
-    startLine: 23
+    startLine: 39
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.EF
+  summary: Memberships linking users to this workspace.
+  example: []
   syntax:
     content: public virtual ICollection<WorkspaceMember> WorkspaceMembers { get; set; }
     parameters: []
@@ -389,6 +418,12 @@ items:
     content.vb: Public Overridable Property WorkspaceMembers As ICollection(Of WorkspaceMember)
   overload: lumify.api.Models.EF.Workspace.WorkspaceMembers*
 references:
+- uid: lumify.api.Models.EF.Workspace.DeletedAt
+  commentId: P:lumify.api.Models.EF.Workspace.DeletedAt
+  href: lumify.api.Models.EF.Workspace.html#lumify_api_Models_EF_Workspace_DeletedAt
+  name: DeletedAt
+  nameWithType: Workspace.DeletedAt
+  fullName: lumify.api.Models.EF.Workspace.DeletedAt
 - uid: lumify.api.Models.EF
   commentId: N:lumify.api.Models.EF
   href: lumify.html

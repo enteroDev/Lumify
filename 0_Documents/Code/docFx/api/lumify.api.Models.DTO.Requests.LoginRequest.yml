@@ -21,10 +21,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: LoginRequest
     path: ../../../lumify.api/Models/DTO/Requests/LoginRequest.cs
-    startLine: 2
+    startLine: 5
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: Request body for login (see <xref href="lumify.api.Controllers.AccountController.LoginUser(lumify.api.Models.DTO.Requests.LoginRequest)" data-throw-if-not-resolved="false"></xref>).
+  example: []
   syntax:
     content: public sealed class LoginRequest
     content.vb: Public NotInheritable Class LoginRequest
@@ -48,10 +50,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Identifier
     path: ../../../lumify.api/Models/DTO/Requests/LoginRequest.cs
-    startLine: 4
+    startLine: 8
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The login identifier — either username or e-mail.
+  example: []
   syntax:
     content: public required string Identifier { get; set; }
     parameters: []
@@ -77,10 +81,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Password
     path: ../../../lumify.api/Models/DTO/Requests/LoginRequest.cs
-    startLine: 5
+    startLine: 10
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The account password.
+  example: []
   syntax:
     content: public required string Password { get; set; }
     parameters: []
@@ -89,6 +95,30 @@ items:
     content.vb: Public Property Password As String
   overload: lumify.api.Models.DTO.Requests.LoginRequest.Password*
 references:
+- uid: lumify.api.Controllers.AccountController.LoginUser(lumify.api.Models.DTO.Requests.LoginRequest)
+  commentId: M:lumify.api.Controllers.AccountController.LoginUser(lumify.api.Models.DTO.Requests.LoginRequest)
+  href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_LoginUser_lumify_api_Models_DTO_Requests_LoginRequest_
+  name: LoginUser(LoginRequest)
+  nameWithType: AccountController.LoginUser(LoginRequest)
+  fullName: lumify.api.Controllers.AccountController.LoginUser(lumify.api.Models.DTO.Requests.LoginRequest)
+  spec.csharp:
+  - uid: lumify.api.Controllers.AccountController.LoginUser(lumify.api.Models.DTO.Requests.LoginRequest)
+    name: LoginUser
+    href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_LoginUser_lumify_api_Models_DTO_Requests_LoginRequest_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.LoginRequest
+    name: LoginRequest
+    href: lumify.api.Models.DTO.Requests.LoginRequest.html
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.AccountController.LoginUser(lumify.api.Models.DTO.Requests.LoginRequest)
+    name: LoginUser
+    href: lumify.api.Controllers.AccountController.html#lumify_api_Controllers_AccountController_LoginUser_lumify_api_Models_DTO_Requests_LoginRequest_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.LoginRequest
+    name: LoginRequest
+    href: lumify.api.Models.DTO.Requests.LoginRequest.html
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

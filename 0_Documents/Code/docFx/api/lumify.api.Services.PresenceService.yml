@@ -22,10 +22,21 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: PresenceService
     path: ../../../lumify.api/Services/PresenceService.cs
-    startLine: 13
+    startLine: 22
   assemblies:
   - lumify.api
   namespace: lumify.api.Services
+  summary: >-
+    In-memory implementation of <xref href="lumify.api.Interfaces.IPresenceService" data-throw-if-not-resolved="false"></xref>. Maintains the mapping between
+
+    users and their open SignalR connections in thread-safe dictionaries; a user counts as
+
+    online while at least one connection is registered.
+  remarks: >-
+    State is per-process and not persisted, so it resets on restart and is not shared across
+
+    multiple server instances.
+  example: []
   syntax:
     content: 'public class PresenceService : IPresenceService'
     content.vb: Public Class PresenceService Implements IPresenceService
@@ -51,18 +62,21 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: AddConnection
     path: ../../../lumify.api/Services/PresenceService.cs
-    startLine: 20
+    startLine: 33
   assemblies:
   - lumify.api
   namespace: lumify.api.Services
+  summary: Registers a new connection for a user, creating the user's connection set on first use.
   example: []
   syntax:
     content: public void AddConnection(string userID, string connectionID)
     parameters:
     - id: userID
       type: System.String
+      description: The connecting user.
     - id: connectionID
       type: System.String
+      description: The new SignalR connection ID.
     content.vb: Public Sub AddConnection(userID As String, connectionID As String)
   overload: lumify.api.Services.PresenceService.AddConnection*
   implements:
@@ -88,16 +102,21 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: RemoveConnection
     path: ../../../lumify.api/Services/PresenceService.cs
-    startLine: 39
+    startLine: 56
   assemblies:
   - lumify.api
   namespace: lumify.api.Services
+  summary: >-
+    Removes a connection and, if it was the user's last one, drops the user from the
+
+    online set.
   example: []
   syntax:
     content: public void RemoveConnection(string connectionID)
     parameters:
     - id: connectionID
       type: System.String
+      description: The SignalR connection ID that closed.
     content.vb: Public Sub RemoveConnection(connectionID As String)
   overload: lumify.api.Services.PresenceService.RemoveConnection*
   implements:
@@ -123,18 +142,21 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: GetPresenceStatus
     path: ../../../lumify.api/Services/PresenceService.cs
-    startLine: 64
+    startLine: 85
   assemblies:
   - lumify.api
   namespace: lumify.api.Services
+  summary: Returns whether the user currently has any open connection.
   example: []
   syntax:
     content: public PresenceStatus GetPresenceStatus(string userID)
     parameters:
     - id: userID
       type: System.String
+      description: The user to check.
     return:
       type: lumify.api.Models.Enum.PresenceStatus
+      description: <code>Online</code> if at least one connection is open, otherwise <code>Offline</code>.
     content.vb: Public Function GetPresenceStatus(userID As String) As PresenceStatus
   overload: lumify.api.Services.PresenceService.GetPresenceStatus*
   implements:
@@ -143,6 +165,13 @@ items:
   fullName.vb: lumify.api.Services.PresenceService.GetPresenceStatus(String)
   name.vb: GetPresenceStatus(String)
 references:
+- uid: lumify.api.Interfaces.IPresenceService
+  commentId: T:lumify.api.Interfaces.IPresenceService
+  parent: lumify.api.Interfaces
+  href: lumify.api.Interfaces.IPresenceService.html
+  name: IPresenceService
+  nameWithType: IPresenceService
+  fullName: lumify.api.Interfaces.IPresenceService
 - uid: lumify.api.Services
   commentId: N:lumify.api.Services
   href: lumify.html
@@ -183,19 +212,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: lumify.api.Interfaces.IPresenceService
-  commentId: T:lumify.api.Interfaces.IPresenceService
-  parent: lumify.api.Interfaces
-  href: lumify.api.Interfaces.IPresenceService.html
-  name: IPresenceService
-  nameWithType: IPresenceService
-  fullName: lumify.api.Interfaces.IPresenceService
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: lumify.api.Interfaces
   commentId: N:lumify.api.Interfaces
   href: lumify.html
@@ -226,6 +242,12 @@ references:
   - uid: lumify.api.Interfaces
     name: Interfaces
     href: lumify.api.Interfaces.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: lumify.api.Services.PresenceService.AddConnection*
   commentId: Overload:lumify.api.Services.PresenceService.AddConnection
   href: lumify.api.Services.PresenceService.html#lumify_api_Services_PresenceService_AddConnection_System_String_System_String_

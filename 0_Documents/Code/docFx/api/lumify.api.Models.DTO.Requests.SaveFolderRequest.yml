@@ -23,10 +23,15 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: SaveFolderRequest
     path: ../../../lumify.api/Models/DTO/Requests/SaveFolderRequest.cs
-    startLine: 2
+    startLine: 6
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: >-
+    Request body for updating a folder (see <xref href="lumify.api.Controllers.FoldersController.SaveFolder(lumify.api.Models.DTO.Requests.SaveFolderRequest%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>).
+
+    Only non-<code>null</code> fields are applied (partial update); an empty parent moves to the root.
+  example: []
   syntax:
     content: public sealed class SaveFolderRequest
     content.vb: Public NotInheritable Class SaveFolderRequest
@@ -50,10 +55,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ID
     path: ../../../lumify.api/Models/DTO/Requests/SaveFolderRequest.cs
-    startLine: 4
+    startLine: 9
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: The folder to update (required).
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []
@@ -79,10 +86,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Name
     path: ../../../lumify.api/Models/DTO/Requests/SaveFolderRequest.cs
-    startLine: 5
+    startLine: 11
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New name, if changing.
+  example: []
   syntax:
     content: public string? Name { get; set; }
     parameters: []
@@ -108,10 +117,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: Description
     path: ../../../lumify.api/Models/DTO/Requests/SaveFolderRequest.cs
-    startLine: 6
+    startLine: 13
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New description, if changing.
+  example: []
   syntax:
     content: public string? Description { get; set; }
     parameters: []
@@ -137,10 +148,12 @@ items:
       repo: https://github.com/enteroDev/Lumify.git
     id: ParentFolderID
     path: ../../../lumify.api/Models/DTO/Requests/SaveFolderRequest.cs
-    startLine: 7
+    startLine: 15
   assemblies:
   - lumify.api
   namespace: lumify.api.Models.DTO.Requests
+  summary: New parent folder (empty string moves to root), if changing.
+  example: []
   syntax:
     content: public string? ParentFolderID { get; set; }
     parameters: []
@@ -149,6 +162,41 @@ items:
     content.vb: Public Property ParentFolderID As String
   overload: lumify.api.Models.DTO.Requests.SaveFolderRequest.ParentFolderID*
 references:
+- uid: lumify.api.Controllers.FoldersController.SaveFolder(lumify.api.Models.DTO.Requests.SaveFolderRequest,System.Threading.CancellationToken)
+  commentId: M:lumify.api.Controllers.FoldersController.SaveFolder(lumify.api.Models.DTO.Requests.SaveFolderRequest,System.Threading.CancellationToken)
+  isExternal: true
+  href: lumify.api.Controllers.FoldersController.html#lumify_api_Controllers_FoldersController_SaveFolder_lumify_api_Models_DTO_Requests_SaveFolderRequest_System_Threading_CancellationToken_
+  name: SaveFolder(SaveFolderRequest, CancellationToken)
+  nameWithType: FoldersController.SaveFolder(SaveFolderRequest, CancellationToken)
+  fullName: lumify.api.Controllers.FoldersController.SaveFolder(lumify.api.Models.DTO.Requests.SaveFolderRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: lumify.api.Controllers.FoldersController.SaveFolder(lumify.api.Models.DTO.Requests.SaveFolderRequest,System.Threading.CancellationToken)
+    name: SaveFolder
+    href: lumify.api.Controllers.FoldersController.html#lumify_api_Controllers_FoldersController_SaveFolder_lumify_api_Models_DTO_Requests_SaveFolderRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.SaveFolderRequest
+    name: SaveFolderRequest
+    href: lumify.api.Models.DTO.Requests.SaveFolderRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: lumify.api.Controllers.FoldersController.SaveFolder(lumify.api.Models.DTO.Requests.SaveFolderRequest,System.Threading.CancellationToken)
+    name: SaveFolder
+    href: lumify.api.Controllers.FoldersController.html#lumify_api_Controllers_FoldersController_SaveFolder_lumify_api_Models_DTO_Requests_SaveFolderRequest_System_Threading_CancellationToken_
+  - name: (
+  - uid: lumify.api.Models.DTO.Requests.SaveFolderRequest
+    name: SaveFolderRequest
+    href: lumify.api.Models.DTO.Requests.SaveFolderRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+  - name: )
 - uid: lumify.api.Models.DTO.Requests
   commentId: N:lumify.api.Models.DTO.Requests
   href: lumify.html

@@ -96,15 +96,24 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Services.FriendshipService.html">FriendshipService</a></dt>
-      <dd></dd>
+      <dd><p>Encapsulates the friendship domain logic used by the
+<a class="xref" href="lumify.api.Controllers.FriendshipController.html">FriendshipController</a>: sending, accepting, rejecting and
+removing friendships, including the validation and state transitions involved.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Services.PresenceService.html">PresenceService</a></dt>
-      <dd></dd>
+      <dd><p>In-memory implementation of <a class="xref" href="lumify.api.Interfaces.IPresenceService.html">IPresenceService</a>. Maintains the mapping between
+users and their open SignalR connections in thread-safe dictionaries; a user counts as
+online while at least one connection is registered.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="lumify.api.Services.SmtpEmailService.html">SmtpEmailService</a></dt>
-      <dd></dd>
+      <dd><p><a class="xref" href="lumify.api.Interfaces.IEmailService.html">IEmailService</a> implementation that sends mail over SMTP via MailKit. SMTP
+credentials come from the <code>Email</code> configuration section (per environment). This is
+the only component that talks to the mail server.</p>
+</dd>
     </dl>
 
 
