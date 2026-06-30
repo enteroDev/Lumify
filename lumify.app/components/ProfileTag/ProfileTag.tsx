@@ -10,6 +10,9 @@ import Avatar from "@/components/Avatar/Avatar";
 // Provider
 import { useTooltip } from "@/components/Tooltip/TooltipProvider";
 
+// Utils
+import { maskEmail } from "@/services/utils/format";
+
 // Icons
 import ChatIcon from "@/app/src/svg/chat_round_write_3.svg";
 
@@ -282,8 +285,8 @@ export default function ProfileTag({
                     </div>
                 </div>
 
-                {/* Email */}
-                <div className={c.email}>{email}</div>
+                {/* Email (masked for privacy) */}
+                <div className={c.email}>{maskEmail(email)}</div>
             </div>
 
 
