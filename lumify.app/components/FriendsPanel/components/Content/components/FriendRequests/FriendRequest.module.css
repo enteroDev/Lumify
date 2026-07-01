@@ -8,8 +8,8 @@
     gap: 12px;
     padding-top: 5px;
 
-    overflow-x: hidden;
-    overflow-y: auto;
+    /* Fixed shell - the two .list areas do the scrolling, not this container. */
+    overflow: hidden;
 }
 
 
@@ -50,8 +50,8 @@
     display: flex;
     flex-direction: column;
 
-    height: 100%;
-    min-height: 100px;
+    /* Fixed height (the current resting height) - scrolls once requests exceed it. */
+    height: 100px;
 
     padding: 3px;
     gap:2px;
